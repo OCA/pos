@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Hardware Customer Display module for OpenERP
+#    Hardware Customer Display module for Odoo
 #    Copyright (C) 2014 Akretion (http://www.akretion.com)
 #    @author Alexis de Lattre <alexis.delattre@akretion.com>
 #
@@ -48,10 +48,6 @@ class CustomerDisplayDriver(Thread):
             'customer_display_device_rate', 9600))
         self.device_timeout = int(config.get(
             'customer_display_device_timeout', 2))
-        self.device_rows = int(config.get(
-            'customer_display_device_rows', 2))
-        self.device_cols = int(config.get(
-            'customer_display_device_cols', 20))
         self.serial = False
 
     def get_status(self):
@@ -91,12 +87,8 @@ class CustomerDisplayDriver(Thread):
     def display_text(self, lines):
         logger.debug(
             "Preparing to send the following lines to LCD: %s" % lines)
-        if len(lines) > self.device_rows:
-            logger.error(
-                'Odoo POS sends %d rows but LCD only has %d rows'
-                % (len(lines), self.device_rows))
-            return
-        assert len(lines) <= self.device_rows, 'Too many lines'
+        # We don't check the number of rows/cols here, because it has already
+        # been checked in the POS client in the JS code
         lines_ascii = []
         for line in lines:
             lines_ascii.append(unidecode(line))
@@ -104,11 +96,6 @@ class CustomerDisplayDriver(Thread):
         for dline in lines_ascii:
             row += 1
             self.move_cursor(1, row)
-            if len(line) > self.device_cols:
-                logger.error(
-                    'Odoo POS sends %d characters but LCD only has %d cols'
-                    % (len(line), self.device_cols))
-                return
             self.serial_write(dline)
 
     def setup_customer_display(self):
@@ -137,6 +124,15 @@ class CustomerDisplayDriver(Thread):
         self.serial.write(text)
 
     def send_text_customer_display(self, text_to_display):
+        '''This function sends the data to the serial/usb port.
+        We open and close the serial connection on every message display.
+        Why ?
+        1. Because it is not a problem for the customer display
+        2. Because it is not a problem for performance, according to my tests
+        3. Because it allows recovery on errors : you can unplug/replug the
+        customer display and it will work again on the next message without
+        problem
+        '''
         lines = simplejson.loads(text_to_display)
         assert isinstance(lines, list), 'lines_list should be a list'
         try:
