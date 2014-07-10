@@ -41,15 +41,15 @@ openerp.pos_customer_display = function(instance){
 				var total = this.get('selectedOrder').getTotalTaxIncluded().toFixed(currency_rounding);
 				var lines_to_send = new Array(
 								 this.proxy.complete_string_right(_t("TOTAL : "), line_length - 1 - total.length) + ' ' + total,
-								 this.proxy.complete_string_right(_t("Paiement :"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
+								 this.proxy.complete_string_right(_t("Payment :"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
 								 );
 		
 			} else if (type == 'removePaymentline') {
 				var line = data['line'];
 				var amount = line.get_amount().toFixed(currency_rounding);
 				var lines_to_send = new Array(
-								 this.proxy.complete_string_right(_t("Suppression paiement"), line_length),
-								 this.proxy.complete_string_right(line.cashregister.journal_id[1] , line_length - 1- amount.length) + ' ' + amount
+								 this.proxy.complete_string_right(_t("Delete payment"), line_length),
+								 this.proxy.complete_string_right(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
 								 );
 			} else if (type == 'pushOrder') {
 				var currentOrder = data['currentOrder'];
@@ -80,6 +80,7 @@ openerp.pos_customer_display = function(instance){
 				return;
 			}
 
+//			alert("aa" + line_length);
 			this.proxy.send_text_customer_display(lines_to_send, line_length);
 		},
 
@@ -88,11 +89,17 @@ openerp.pos_customer_display = function(instance){
 
     module.ProxyDevice = module.ProxyDevice.extend({
         send_text_customer_display: function(data, line_length){
+			//FIXME : this function is call twice. The first time, it is not called by prepare_text_customer_display : WHY ?
+//			alert("bb" + line_length);
+            if (data[0].length != line_length)
+				console.warn(data[0].length + " " + data[0]);	
+			if (data[1].length != line_length)
+				console.warn(data[1].length + " " + data[1]);	
             if (data[0].length != line_length || data[1].length != line_length){
                 console.warn("Data components have to have " + line_length + " chars.");
                 console.log(data[0].length + " -> "+ data[0] + "\n" + data[1].length + " -> " + data[1]);
             } else {
-				//alert(JSON.stringify(data));
+//				alert(JSON.stringify(data));
 				return this.message('send_text_customer_display', {'text_to_display' : JSON.stringify(data)});
 			}
 			return;
@@ -143,6 +150,7 @@ openerp.pos_customer_display = function(instance){
     });     
 
 
+	//FIXME : nothing append on customer display deconnection
     var _super_setSmartStatus_ = module.ProxyStatusWidget.prototype.set_smart_status;
     module.ProxyStatusWidget.prototype.set_smart_status = function(status){
         _super_setSmartStatus_.call(this, status);
