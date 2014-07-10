@@ -38,7 +38,7 @@ This module has been developped during a POS code sprint at Akretion France from
 Please contact Alexis de Lattre from Akretion <alexis.delattre@akretion.com> for any help or question about this module.
     """,
     'author': 'Aurélien DUMAINE',
-    'depends': ['point_of_sale'],
+    'depends': ['point_of_sale', 'currency_iso_numeric'],
 	'data' : ['pos_payment_terminal.xml',
 				'pos_payment_terminal_view.xml'],
 	'qweb': ['static/src/xml/pos_payment_terminal.xml'],
