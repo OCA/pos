@@ -37,9 +37,12 @@ The configuration of the hardware is done in the configuration file of the Odoo 
 
 * payment_terminal_device_name (default = /dev/ttyACM0)
 * payment_terminal_device_rate (default = 9600)
-* payment_terminal_device_timeout (default = 2 seconds)
 
-The Telium protocol is used by Ingenico and Sagem payment terminals. It is based on the Concert protocol, so it can probably work with payment terminals from other brands. It has been tested a an Ingenico EFTSmart4S terminal with Telim Manager version 37784503. The protocol E is implemented (we may implement the protocol E+ in the future).
+The Telium protocol is used by Ingenico and Sagem payment terminals. It is based on the Concert protocol, so it can probably work with payment terminals from other brands. This module implements the protocol E+ (and not the protocol E), so it requires a Telium Manager version 37783600 or superior. To get the version of the Telium Manager, press F > 0-TELIUM MANAGER > 2-Consultation > 4-Configuration > 2-Software > 1-TERMINAL > On Display > Telium Manager and then read the field *M20S*.
+
+You will need to configure your payment terminal to accept commands from the POS. On an Ingenico reader, press F > 0-TELIUM MANAGER > 5-Initialization > 1-Parameters > Cash Connection and then select *On* and then *USB*. After that, you should reboot the terminal.
+
+This module has been successfully tested with an Ingenico EFTSmart4S and an Ingenico EFTSmart2 2640 with Telim Manager version 37784503.
 
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
 
