@@ -17,7 +17,7 @@ openerp.pos_customer_display = function(instance){
 				// in order to not recompute qty in options..., we assume that the new ordeLine is the last of the collection
 				// addOrderline exists but is not called by addProduct, should we handle it ?
 				var line = this.get('selectedOrder').getLastOrderline(); 
-				var price_unit = line.get_quantity() * line.get_unit_price() * (1.0 - (line.get_discount() / 100.0));
+				var price_unit = line.get_unit_price() * (1.0 - (line.get_discount() / 100.0));
 				price_unit = price_unit.toFixed(currency_rounding);
 				var l21 = line.get_quantity_str_with_unit() + ' x ' + price_unit;
 				var l22 = ' ' + line.get_display_price().toFixed(currency_rounding);
@@ -26,15 +26,11 @@ openerp.pos_customer_display = function(instance){
 								 this.proxy.complete_string_right(l21, line_length - l22.length) + l22
 								 );
 			} else if (type == 'removeOrderline') {
-				// FIXME : first click on the backspace button set the amount to 0
+				// first click on the backspace button set the amount to 0 => we can't precise the deleted qunatity and price
 				var line = data['line'];
-				var price_unit = line.get_quantity() * line.get_unit_price() * (1.0 - (line.get_discount() / 100.0));
-				price_unit = price_unit.toFixed(currency_rounding);
-				var l21 = '-' + line.get_quantity_str_with_unit() + ' x ' + price_unit;
-				var l22 = ' ' + -1 * line.get_display_price().toFixed(currency_rounding);
 				var lines_to_send = new Array(
-								 this.proxy.complete_string_right(line.get_product().name, line_length),
-								 this.proxy.complete_string_right(l21, line_length - l22.length) + l22
+								 this.proxy.complete_string_center(_t("Delete item"), line_length),
+								 this.proxy.complete_string_center(line.get_product().name, line_length)
 								 );
 			} else if (type == 'addPaymentline') {
 				var cashregister = data['cashregister'];
@@ -48,7 +44,7 @@ openerp.pos_customer_display = function(instance){
 				var line = data['line'];
 				var amount = line.get_amount().toFixed(currency_rounding);
 				var lines_to_send = new Array(
-								 this.proxy.complete_string_right(_t("Delete payment"), line_length),
+								 this.proxy.complete_string_center(_t("Delete payment"), line_length),
 								 this.proxy.complete_string_right(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
 								 );
 			} else if (type == 'pushOrder') {
@@ -80,7 +76,7 @@ openerp.pos_customer_display = function(instance){
 				return;
 			}
 
-//			alert("aa" + line_length);
+//			alert("In prepare_text_customer_display " + line_length);
 			this.proxy.send_text_customer_display(lines_to_send, line_length);
 		},
 
@@ -90,7 +86,7 @@ openerp.pos_customer_display = function(instance){
     module.ProxyDevice = module.ProxyDevice.extend({
         send_text_customer_display: function(data, line_length){
 			//FIXME : this function is call twice. The first time, it is not called by prepare_text_customer_display : WHY ?
-//			alert("bb" + line_length);
+//			alert("In sent_text_customer_display " + line_length);
             if (data[0].length != line_length)
 				console.warn(data[0].length + " " + data[0]);	
 			if (data[1].length != line_length)
