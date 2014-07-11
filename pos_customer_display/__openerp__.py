@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    POS Customer Display module for Odoo
+#    Copyright (C) 2014 Aurélien DUMAINE
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -33,14 +33,14 @@ This module adds support for Customer Display in the Point of Sale. This module 
 
 The number of rows and cols of the Customer Display (usually 2 x 20) should be configured on the main Odoo server, in the menu Point of Sale > Configuration > Point of Sales.
 
-It has been tested with a Bixolon BCD-1100 (http://www.bixolon.com/html/en/product/product_detail.xhtml?prod_id=61), but should support most serial and USB-serial LCD displays out-of-the-box or with inheritance of a few functions. To setup the BCD-1100 on Linux, you will find some technical instructions on this page : http://techtuxwords.blogspot.fr/2012/12/linux-and-bixolon-bcd-1100.html
+It has been tested with a Bixolon BCD-1100 (http://www.bixolon.com/html/en/product/product_detail.xhtml?prod_id=61), but should support most serial and USB-serial LCD displays out-of-the-box, cf the module *hw_customer_display* for more info.
 
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
-
-Please contact Alexis de Lattre from Akretion <alexis.delattre@akretion.com> for any help or question about this module.
     """,
     'author': 'Aurélien DUMAINE',
     'depends': ['point_of_sale'],
-	'data' : ['pos_customer_display.xml',
-				'customer_display_view.xml'],
+    'data' : [
+            'pos_customer_display.xml',
+            'customer_display_view.xml',
+            ],
 }
