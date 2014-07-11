@@ -1,1 +1,1 @@
-import pos_customer_display
+from . import pos_customer_display
