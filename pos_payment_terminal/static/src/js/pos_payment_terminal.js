@@ -46,7 +46,6 @@ openerp.pos_payment_terminal = function(instance){
 			}
             el_node.querySelector('.payment-terminal-transaction-start')
 						.addEventListener('click', this.payment_terminal_transaction_start);
-						//.addEventListener('click', this.pos.proxy.payment_terminal_transaction_start(line, this.pos.currency.name, this.pos.currency.iso_numeric));
 		}
 		return el_node;
     };
