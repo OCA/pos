@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    POS Payment Terminal module for Odoo
+#    Copyright (C) 2014 Aurélien DUMAINE
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -29,17 +29,17 @@
 POS Payment Terminal
 ====================
 
-This module adds support for Payment Terminal in the Point of Sale. This module is designed to be installed on the *main Odoo server*. On the *POSbox*, you should install the module  *hw_x* depending on the protocol implemented in your device. Ingenico devices support the Telium protocol implemented in the *hw_telium_payment_terminal* module.
+This module adds support for Payment Terminal in the Point of Sale. This module is designed to be installed on the *main Odoo server*. On the *POSbox*, you should install the module  *hw_x* depending on the protocol implemented in your device. Ingenico and Sagem devices support the Telium protocol implemented in the *hw_telium_payment_terminal* module.
 
 This module support two payment methods : cards and checks. The payment method should be configured on the main Odoo server, in the menu Point of Sale > Configuration > Payment Methods.
 
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
-
-Please contact Alexis de Lattre from Akretion <alexis.delattre@akretion.com> for any help or question about this module.
     """,
     'author': 'Aurélien DUMAINE',
     'depends': ['point_of_sale', 'currency_iso_numeric'],
-	'data' : ['pos_payment_terminal.xml',
-				'pos_payment_terminal_view.xml'],
-	'qweb': ['static/src/xml/pos_payment_terminal.xml'],
+    'data': [
+        'pos_payment_terminal.xml',
+        'pos_payment_terminal_view.xml',
+        ],
+    'qweb': ['static/src/xml/pos_payment_terminal.xml'],
 }
