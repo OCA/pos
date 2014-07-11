@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SP (<http://tiny.be>).
+#    POS Customer Display module for Odoo
+#    Copyright (C) 2014 Aurélien DUMAINE
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,27 +20,25 @@
 ##############################################################################
 
 import logging
-import time
-
-from openerp import tools
-from openerp.osv import fields, osv
-from openerp.tools.translate import _
-
-import openerp.addons.decimal_precision as dp
-import openerp.addons.product.product
+from openerp.osv import fields, orm
 
 _logger = logging.getLogger(__name__)
 
-class pos_config(osv.osv):
+
+class pos_config(orm.Model):
     _name = 'pos.config'
     _inherit = 'pos.config'
-      
+
     _columns = {
-        'iface_customer_display' : fields.boolean('Customer display', help="Display data on the customer display"),
-        'customer_display_line_length' : fields.integer('Line length', help="Length of the LEDs lines of the customer display"),
+        'iface_customer_display': fields.boolean(
+            'Customer display', help="Display data on the customer display"),
+        'customer_display_line_length': fields.integer(
+            'Line length',
+            help="Length of the LEDs lines of the customer display"),
     }
+
     _defaults = {
-        'customer_display_line_length' : 20,
+        'customer_display_line_length': 20,
     }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

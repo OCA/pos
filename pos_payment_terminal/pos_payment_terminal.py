@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SP (<http://tiny.be>).
+#    POS Payment Terminal module for Odoo
+#    Copyright (C) 2014 Aurélien DUMAINE
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,16 +21,22 @@
 
 from openerp import models, fields
 
+
 class account_journal(models.Model):
     _name = 'account.journal'
     _inherit = 'account.journal'
-      
-    payment_mode = fields.Selection((('card', 'Card'), ('check', 'Check')), 'Payment mode', help="Select the payment mode sent to the payment terminal")
+
+    payment_mode = fields.Selection(
+        (('card', 'Card'), ('check', 'Check')), 'Payment mode',
+        help="Select the payment mode sent to the payment terminal")
+
 
 class pos_config(models.Model):
     _name = 'pos.config'
     _inherit = 'pos.config'
-       
-    iface_payment_terminal = fields.Boolean('Payment Terminal', help="A payment terminal is available on the Proxy")
+
+    iface_payment_terminal = fields.Boolean(
+        'Payment Terminal',
+        help="A payment terminal is available on the Proxy")
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
