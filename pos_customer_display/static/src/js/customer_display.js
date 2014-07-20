@@ -88,9 +88,9 @@ openerp.pos_customer_display = function(instance){
 			//FIXME : this function is call twice. The first time, it is not called by prepare_text_customer_display : WHY ?
 //			alert("In sent_text_customer_display " + line_length);
             if (data[0].length != line_length)
-				console.warn(data[0].length + " " + data[0]);	
+				console.warn(data[0].length + " -> " + data[0]);	
 			if (data[1].length != line_length)
-				console.warn(data[1].length + " " + data[1]);	
+				console.warn(data[1].length + " ->" + data[1]);	
             if (data[0].length != line_length || data[1].length != line_length){
                 console.warn("Data components have to have " + line_length + " chars.");
                 console.log(data[0].length + " -> "+ data[0] + "\n" + data[1].length + " -> " + data[1]);
