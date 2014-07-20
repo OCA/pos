@@ -7,7 +7,7 @@ openerp.pos_payment_terminal = function(instance){
 						'currency_iso' : currency_iso,
 						'currency_iso_numeric' : currency_iso_numeric,
 						'payment_mode' : line.cashregister.journal.payment_mode};
-			alert(JSON.stringify(data));
+//			alert(JSON.stringify(data));
 			this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
 	});
