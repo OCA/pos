@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
     <t t-extend="Paymentline" >
-        <t t-jquery=".paymentline-name" t-operation="append">
+        <t t-jquery=".paymentline-input" t-operation="append">
                 <t t-if="line.cashregister.journal.payment_mode">
 				<!--	<t t-if="pos.config.iface_payment_terminal">-->
 						<span class="payment-terminal-transaction-start">
 		                    <button>
-			                    <t t-esc="line.cashregister.journal.payment_mode"/>
+								Start transaction
+			                    <!--<t t-esc="line.cashregister.journal.payment_mode"/> -->
 				            </button>
 						</span>
 				<!--	</t> -->

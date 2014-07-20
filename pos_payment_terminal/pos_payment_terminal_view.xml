@@ -21,5 +21,11 @@
                 </field>
             </field>
         </record>
+
+		<template id="index" name="pos_payment_terminal index" inherit_id="point_of_sale.index">
+			<xpath expr="//link[@id='pos-stylesheet']" position="after">
+				<link rel="stylesheet" href="/pos_payment_terminal/static/src/css/pos_payment_terminal.css" id="pos_payment_terminal-stylesheet"/>
+			</xpath>
+		</template>
     </data>
 </openerp>
