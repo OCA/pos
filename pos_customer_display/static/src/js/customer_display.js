@@ -22,7 +22,7 @@ openerp.pos_customer_display = function(instance){
 				var l21 = line.get_quantity_str_with_unit() + ' x ' + price_unit;
 				var l22 = ' ' + line.get_display_price().toFixed(currency_rounding);
 				var lines_to_send = new Array(
-								 this.proxy.complete_string_right(line.get_product().name, line_length),
+								 this.proxy.complete_string_right(line.get_product().display_name, line_length),
 								 this.proxy.complete_string_right(l21, line_length - l22.length) + l22
 								 );
 			} else if (type == 'removeOrderline') {
@@ -36,8 +36,8 @@ openerp.pos_customer_display = function(instance){
 				var cashregister = data['cashregister'];
 				var total = this.get('selectedOrder').getTotalTaxIncluded().toFixed(currency_rounding);
 				var lines_to_send = new Array(
-								 this.proxy.complete_string_right(_t("TOTAL : "), line_length - 1 - total.length) + ' ' + total,
-								 this.proxy.complete_string_right(_t("Payment :"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
+								 this.proxy.complete_string_right(_t("TOTAL: "), line_length - 1 - total.length) + ' ' + total,
+								 this.proxy.complete_string_right(_t("Payment:"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
 								 );
 		
 			} else if (type == 'removePaymentline') {
@@ -172,7 +172,7 @@ openerp.pos_customer_display = function(instance){
     var _super_addProduct_ = module.Order.prototype.addProduct;
     module.Order.prototype.addProduct = function(product, options){
         _super_addProduct_.call(this, product, options);
-		this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options}); 
+		this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
     };
 
         
