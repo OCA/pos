@@ -42,7 +42,11 @@ The Telium protocol is used by Ingenico and Sagem payment terminals. It is based
 
 You will need to configure your payment terminal to accept commands from the POS. On an Ingenico reader, press F > 0-TELIUM MANAGER > 5-Initialization > 1-Parameters > Cash Connection and then select *On* and then *USB*. After that, you should reboot the terminal.
 
-This module has been successfully tested with an Ingenico EFTSmart4S and an Ingenico EFTSmart2 2640 with Telim Manager version 37784503.
+This module has been successfully tested with:
+
+* Ingenico EFTSmart4S
+* Ingenico EFTSmart2 2640 with Telim Manager version 37784503
+* Ingenico i2200 cheque reader and writer
 
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
 

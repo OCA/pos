@@ -39,9 +39,16 @@ The configuration of the hardware is done in the configuration file of the Odoo 
 * customer_display_device_rate (default = 9600)
 * customer_display_device_timeout (default = 2 seconds)
 
-The number of rows and cols of the Customer Display (usually 2 x 20) should be configured on the main Odoo server, in the menu Point of Sale > Configuration > Point of Sales.
+The number of cols of the Customer Display (usually 20) should be configured on the main Odoo server, in the menu Point of Sale > Configuration > Point of Sales. The number of rows is supposed to be 2.
 
-It has been tested with a Bixolon BCD-1100 (http://www.bixolon.com/html/en/product/product_detail.xhtml?prod_id=61), but should support most serial and USB-serial LCD displays out-of-the-box or with inheritance of a few functions. To setup the BCD-1100 on Linux, you will find some technical instructions on this page : http://techtuxwords.blogspot.fr/2012/12/linux-and-bixolon-bcd-1100.html
+It should support most serial and USB-serial LCD displays out-of-the-box or with inheritance of a few functions.
+
+It has been tested with:
+
+* Bixolon BCD-1100 (Datasheet : http://www.bixolon.com/html/en/product/product_detail.xhtml?prod_id=61)
+* Bixolon BCD-1000
+
+To setup the BCD-1100 on Linux, you will find some technical instructions on this page : http://techtuxwords.blogspot.fr/2012/12/linux-and-bixolon-bcd-1100.html
 
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
 
