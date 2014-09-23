@@ -49,6 +49,7 @@ It has been tested with:
 * Bixolon BCD-1000
 
 To setup the BCD-1100 on Linux, you will find some technical instructions on this page : http://techtuxwords.blogspot.fr/2012/12/linux-and-bixolon-bcd-1100.html
+If you have a kernel >= 3.12, you should also read this : http://www.leniwiec.org/en/2014/06/25/ubuntu-14-04lts-how-to-pass-id-vendor-and-id-product-to-ftdi_sio-driver/
 
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
 
