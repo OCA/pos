@@ -28,6 +28,7 @@ import curses.ascii
 from threading import Thread, Lock
 from Queue import Queue
 from serial import Serial
+import pycountry
 import openerp.addons.hw_proxy.controllers.main as hw_proxy
 from openerp import http
 from openerp.tools.config import config
@@ -125,13 +126,19 @@ class TeliumPaymentTerminalDriver(Thread):
                 "The payment mode '%s' is not supported"
                 % payment_info_dict['payment_mode'])
             return False
+        cur_iso_letter = payment_info_dict['currency_iso'].upper()
+        try:
+            cur = pycountry.currencies.get(letter=cur_iso_letter)
+            cur_numeric = str(cur.numeric)
+        except:
+            logger.error("Currency %s is not recognized" % cur_iso_letter)
+            return False
         data = {
             'pos_number': str(1).zfill(2),
             'answer_flag': '0',
             'transaction_type': '0',
             'payment_mode': payment_mode,
-            'currency_numeric':
-            payment_info_dict['currency_iso_numeric'].zfill(3),
+            'currency_numeric': cur_numeric.zfill(3),
             'private': ' ' * 10,
             'delay': 'A011',
             'auto': 'B010',
@@ -240,7 +247,7 @@ class TeliumPaymentTerminalDriver(Thread):
                     logger.info("Now expecting answer from Terminal")
                     if self.get_one_byte_answer('ENQ'):
                         self.send_one_byte_signal('ACK')
-                        answer_data = self.get_answer_from_terminal(data)
+                        self.get_answer_from_terminal(data)
                         self.send_one_byte_signal('ACK')
                         if self.get_one_byte_answer('EOT'):
                             logger.info("Answer received from Terminal")
