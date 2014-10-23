@@ -23,7 +23,6 @@ from openerp import models, fields
 
 
 class account_journal(models.Model):
-    _name = 'account.journal'
     _inherit = 'account.journal'
 
     payment_mode = fields.Selection(
@@ -32,11 +31,8 @@ class account_journal(models.Model):
 
 
 class pos_config(models.Model):
-    _name = 'pos.config'
     _inherit = 'pos.config'
 
     iface_payment_terminal = fields.Boolean(
         'Payment Terminal',
         help="A payment terminal is available on the Proxy")
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

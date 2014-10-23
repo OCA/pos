@@ -36,7 +36,7 @@ This module support two payment methods : cards and checks. The payment method s
 This module has been developped during a POS code sprint at Akretion France from July 7th to July 10th 2014. This module is part of the POS project of the Odoo Community Association http://odoo-community.org/. You are invited to become a member and/or get involved in the Association !
     """,
     'author': 'Aurélien DUMAINE',
-    'depends': ['point_of_sale', 'currency_iso_numeric'],
+    'depends': ['point_of_sale'],
     'data': [
         'pos_payment_terminal.xml',
         'pos_payment_terminal_view.xml',
