@@ -2,8 +2,6 @@ openerp.pos_customer_display = function(instance){
     module = instance.point_of_sale;
 
     var _t = instance.web._t;
-    var round_di = instance.web.round_decimals;
-    var round_pr = instance.web.round_precision;
 
 
     module.PosModel = module.PosModel.extend({
@@ -22,58 +20,51 @@ openerp.pos_customer_display = function(instance){
                 var l21 = line.get_quantity_str_with_unit() + ' x ' + price_unit;
                 var l22 = ' ' + line.get_display_price().toFixed(currency_rounding);
                 var lines_to_send = new Array(
-                    this.proxy.complete_string_right(line.get_product().display_name, line_length),
-                    this.proxy.complete_string_right(l21, line_length - l22.length) + l22
+                    this.proxy.align_left(line.get_product().display_name, line_length),
+                    this.proxy.align_left(l21, line_length - l22.length) + l22
                     );
 
             } else if (type == 'removeOrderline') {
                 // first click on the backspace button set the amount to 0 => we can't precise the deleted qunatity and price
                 var line = data['line'];
                 var lines_to_send = new Array(
-                    this.proxy.complete_string_center(_t("Delete item"), line_length),
-                    this.proxy.complete_string_center(line.get_product().name, line_length)
+                    this.proxy.align_center(_t("Delete item"), line_length),
+                    this.proxy.align_center(line.get_product().name, line_length)
                     );
 
             } else if (type == 'addPaymentline') {
                 var cashregister = data['cashregister'];
                 var total = this.get('selectedOrder').getTotalTaxIncluded().toFixed(currency_rounding);
                 var lines_to_send = new Array(
-                    this.proxy.complete_string_right(_t("TOTAL: "), line_length - 1 - total.length) + ' ' + total,
-                    this.proxy.complete_string_right(_t("Payment:"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
+                    this.proxy.align_left(_t("TOTAL: "), line_length - 1 - total.length) + ' ' + total,
+                    this.proxy.align_left(_t("Payment:"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
                     );
 
             } else if (type == 'removePaymentline') {
                 var line = data['line'];
                 var amount = line.get_amount().toFixed(currency_rounding);
                 var lines_to_send = new Array(
-                    this.proxy.complete_string_center(_t("Delete payment"), line_length),
-                    this.proxy.complete_string_right(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
+                    this.proxy.align_center(_t("Delete payment"), line_length),
+                    this.proxy.align_left(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
                     );
+
+            } else if (type == 'update_payment') {
+                var change = data['change'];
+                var lines_to_send = new Array(
+                    this.proxy.align_left(_t("Your Change:"), line_length),
+                    this.proxy.align_right(change, line_length)
+                );
 
             } else if (type == 'pushOrder') {
-                var order = data['order'];
-                var paidTotal = order.getPaidTotal();
-                var dueTotal = order.getTotalTaxIncluded();
-                var remaining = dueTotal > paidTotal ? dueTotal - paidTotal : 0;
-                var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
-
-                var l1;
-                if (change == 0){
-                    l1 = this.proxy.complete_string_center(_t(""), line_length);
-                } else {
-                    change = change.toFixed(currency_rounding);
-                    l1 = this.proxy.complete_string_right(_t("YOUR CHANGE:"), line_length - 1 - change.length) + ' ' + change;
-                }
-
                 var lines_to_send = new Array(
-                    l1,
-                    this.proxy.complete_string_center(_t("Next customer..."), line_length)
+                    this.proxy.align_center(_t("Next customer"), line_length),
+                    ''
                     );
 
-                } else if (type = 'closePOS') {
-                    var lines_to_send = new Array(
-                        this.proxy.complete_string_center(_t("Point of sale closed"), line_length),
-                        this.proxy.complete_string_center(_t("***"), line_length)
+            } else if (type = 'closePOS') {
+                var lines_to_send = new Array(
+                    this.proxy.align_center(_t("Point of sale closed"), line_length),
+                    ''
                     );
             } else {
                 console.warn('Unknown message type');
@@ -90,7 +81,7 @@ openerp.pos_customer_display = function(instance){
     module.ProxyDevice = module.ProxyDevice.extend({
         send_text_customer_display: function(data, line_length){
             //FIXME : this function is call twice. The first time, it is not called by prepare_text_customer_display : WHY ?
-            if (_.isEmpty(data) || data.lenght != 2 || data[0].length != line_length || data[1].length != line_length){
+            if (_.isEmpty(data) || data.length != 2 || data[0].length != line_length || data[1].length != line_length){
                 console.warn("Bad Data argument. Data = " + data);
                 console.warn('Line_length = ' + line_length);
             } else {
@@ -98,7 +89,7 @@ openerp.pos_customer_display = function(instance){
                 return this.message('send_text_customer_display', {'text_to_display' : JSON.stringify(data)});
             }
         },
-        complete_string_right: function(string, length){
+        align_left: function(string, length){
             if (string) {
                if (string.length > length)
                {
@@ -113,7 +104,7 @@ openerp.pos_customer_display = function(instance){
             }
             return string;
         },
-       complete_string_left: function(string, length){
+       align_right: function(string, length){
             if (string) {
                 if (string.length > length)
                  {
@@ -128,7 +119,7 @@ openerp.pos_customer_display = function(instance){
              }
              return string;
        },
-       complete_string_center: function(string, length){
+       align_center: function(string, length){
             if (string) {
                 if (string.length > length)
                 {
@@ -210,6 +201,20 @@ openerp.pos_customer_display = function(instance){
         res = _super_pushOrder_.call(this, order);
         if (order) {
             this.prepare_text_customer_display('pushOrder', {'order' : order});
+        }
+        return res;
+    };
+
+    var _super_update_payment_summary_ = module.PaymentScreenWidget.prototype.update_payment_summary;
+    module.PaymentScreenWidget.prototype.update_payment_summary = function(){
+        res = _super_update_payment_summary_.call(this);
+        var currentOrder = this.pos.get('selectedOrder');
+        var paidTotal = currentOrder.getPaidTotal();
+        var dueTotal = currentOrder.getTotalTaxIncluded();
+        var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
+        if (change) {
+            change_rounded = change.toFixed(2);
+            this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
         }
         return res;
     };
