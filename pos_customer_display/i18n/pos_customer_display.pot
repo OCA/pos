@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-24 12:04+0000\n"
-"PO-Revision-Date: 2014-10-24 12:04+0000\n"
+"POT-Creation-Date: 2014-10-24 13:44+0000\n"
+"PO-Revision-Date: 2014-10-24 13:44+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,22 +17,19 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:47
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:56
 #, python-format
 msgid "Cancel Payment"
 msgstr ""
 
 #. module: pos_customer_display
-#. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:157
 #: field:pos.config,iface_customer_display:0
-#, python-format
 msgid "Customer display"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:31
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:41
 #, python-format
 msgid "Delete Item"
 msgstr ""
@@ -54,42 +51,35 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:60
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:69
 #, python-format
 msgid "Next Customer"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:160
-#, python-format
-msgid "Offline"
-msgstr ""
-
-#. module: pos_customer_display
-#. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:40
-#, python-format
-msgid "Payment:"
-msgstr ""
-
-#. module: pos_customer_display
-#. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:66
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:81
 #, python-format
 msgid "Point of Sale Closed"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:39
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:75
+#, python-format
+msgid "Point of Sale Open"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:48
 #, python-format
 msgid "TOTAL: "
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:54
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:63
 #, python-format
 msgid "Your Change:"
 msgstr ""
