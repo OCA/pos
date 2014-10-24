@@ -1,3 +1,13 @@
+/*
+    POS Customer display module for Odoo
+    Copyright (C) 2014 Aurélien DUMAINE
+    Copyright (C) 2014 Barroux Abbey (www.barroux.org)
+    @author: Aurélien DUMAINE
+    @author: Alexis de Lattre <alexis.delattre@akretion.com>
+    @author: Father Odilon (Barroux Abbey)
+    The licence is in the file __openerp__.py
+*/
+
 openerp.pos_customer_display = function(instance){
     module = instance.point_of_sale;
 
@@ -28,8 +38,8 @@ openerp.pos_customer_display = function(instance){
                 // first click on the backspace button set the amount to 0 => we can't precise the deleted qunatity and price
                 var line = data['line'];
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Delete Item"), line_length),
-                    this.proxy.align_center(line.get_product().name, line_length)
+                    this.proxy.align_left(_t("Delete Item"), line_length),
+                    this.proxy.align_right(line.get_product().display_name, line_length)
                     );
 
             } else if (type == 'addPaymentline') {
@@ -43,8 +53,8 @@ openerp.pos_customer_display = function(instance){
                 var line = data['line'];
                 var amount = line.get_amount().toFixed(currency_rounding);
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Cancel Payment"), line_length),
-                    this.proxy.align_left(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
+                    this.proxy.align_left(_t("Cancel Payment"), line_length),
+                    this.proxy.align_right(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
                     );
 
             } else if (type == 'update_payment') {
@@ -60,6 +70,12 @@ openerp.pos_customer_display = function(instance){
                     this.proxy.align_left(' ', line_length)
                     );
 
+            } else if (type == 'openPOS') {
+                var lines_to_send = new Array(
+                    this.proxy.align_center(_t("Point of Sale Open"), line_length),
+                    this.proxy.align_left(' ', line_length)
+                    );
+
             } else if (type = 'closePOS') {
                 var lines_to_send = new Array(
                     this.proxy.align_center(_t("Point of Sale Closed"), line_length),
@@ -70,8 +86,8 @@ openerp.pos_customer_display = function(instance){
                 return;
             }
 
-//          alert("In prepare_text_customer_display " + line_length);
             this.proxy.send_text_customer_display(lines_to_send, line_length);
+            //console.log('prepare_text_customer_display type=' + type + ' | l1=' + lines_to_send[0] + ' | l2=' + lines_to_send[1]);
         },
 
     });
@@ -140,29 +156,6 @@ openerp.pos_customer_display = function(instance){
        },
     });
 
-
-    //FIXME : nothing happen on customer display deconnection
-    var _super_setSmartStatus_ = module.ProxyStatusWidget.prototype.set_smart_status;
-    module.ProxyStatusWidget.prototype.set_smart_status = function(status){
-        _super_setSmartStatus_.call(this, status);
-        if (status.status === 'connected') {
-            var warning = false;
-            var msg = '';
-            if (this.pos.config.iface_customer_display) {
-                var customer_display = status.drivers.customer_display ? status.drivers.customer_display.status : false;
-                if (customer_display != 'connected' && customer_display != 'connecting') {
-                    warning = true;
-                    msg = msg ? msg + ' & ' : msg;
-                    msg += _t('Customer display');
-                }
-            }
-            msg = msg ? msg + ' ' + _t('Offline') : msg;
-            this.set_status(warning ? 'warning' : 'connected', msg);
-        } else {
-            this.set_status(status.status, '');
-        }
-    };
-
     var _super_addProduct_ = module.Order.prototype.addProduct;
     module.Order.prototype.addProduct = function(product, options){
         res = _super_addProduct_.call(this, product, options);
@@ -224,6 +217,13 @@ openerp.pos_customer_display = function(instance){
     module.PosWidget.prototype.close = function(){
         this.pos.prepare_text_customer_display('closePOS', {});
         return _super_closePOS_.call(this);
+    };
+
+    var _super_proxy_start_ = module.ProxyStatusWidget.prototype.start;
+    module.ProxyStatusWidget.prototype.start = function(){
+        res = _super_proxy_start_.call(this);
+        this.pos.prepare_text_customer_display('openPOS', {});
+        return res;
     };
 
 };
