@@ -28,23 +28,22 @@ openerp.pos_customer_display = function(instance){
                 // first click on the backspace button set the amount to 0 => we can't precise the deleted qunatity and price
                 var line = data['line'];
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Delete item"), line_length),
+                    this.proxy.align_center(_t("Delete Item"), line_length),
                     this.proxy.align_center(line.get_product().name, line_length)
                     );
 
             } else if (type == 'addPaymentline') {
-                var cashregister = data['cashregister'];
                 var total = this.get('selectedOrder').getTotalTaxIncluded().toFixed(currency_rounding);
                 var lines_to_send = new Array(
-                    this.proxy.align_left(_t("TOTAL: "), line_length - 1 - total.length) + ' ' + total,
-                    this.proxy.align_left(_t("Payment:"), line_length - 1 - cashregister.journal_id[1].length) + ' ' + cashregister.journal_id[1]
+                    this.proxy.align_left(_t("TOTAL: "), line_length),
+                    this.proxy.align_right(total, line_length)
                     );
 
             } else if (type == 'removePaymentline') {
                 var line = data['line'];
                 var amount = line.get_amount().toFixed(currency_rounding);
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Delete payment"), line_length),
+                    this.proxy.align_center(_t("Cancel Payment"), line_length),
                     this.proxy.align_left(line.cashregister.journal_id[1] , line_length - 1 - amount.length) + ' ' + amount
                     );
 
@@ -57,14 +56,14 @@ openerp.pos_customer_display = function(instance){
 
             } else if (type == 'pushOrder') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Next customer"), line_length),
-                    ''
+                    this.proxy.align_center(_t("Next Customer"), line_length),
+                    this.proxy.align_left(' ', line_length)
                     );
 
             } else if (type = 'closePOS') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Point of sale closed"), line_length),
-                    ''
+                    this.proxy.align_center(_t("Point of Sale Closed"), line_length),
+                    this.proxy.align_left(' ', line_length)
                     );
             } else {
                 console.warn('Unknown message type');
@@ -82,13 +81,13 @@ openerp.pos_customer_display = function(instance){
         send_text_customer_display: function(data, line_length){
             //FIXME : this function is call twice. The first time, it is not called by prepare_text_customer_display : WHY ?
             if (_.isEmpty(data) || data.length != 2 || data[0].length != line_length || data[1].length != line_length){
-                console.warn("Bad Data argument. Data = " + data);
-                console.warn('Line_length = ' + line_length);
+                console.warn("send_text_customer_display: Bad Data argument. Data=" + data + ' line_length=' + line_length);
             } else {
 //              alert(JSON.stringify(data));
                 return this.message('send_text_customer_display', {'text_to_display' : JSON.stringify(data)});
             }
         },
+
         align_left: function(string, length){
             if (string) {
                if (string.length > length)
@@ -104,6 +103,7 @@ openerp.pos_customer_display = function(instance){
             }
             return string;
         },
+
        align_right: function(string, length){
             if (string) {
                 if (string.length > length)
@@ -119,6 +119,7 @@ openerp.pos_customer_display = function(instance){
              }
              return string;
        },
+
        align_center: function(string, length){
             if (string) {
                 if (string.length > length)
