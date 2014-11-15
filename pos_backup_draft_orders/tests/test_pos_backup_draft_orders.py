@@ -45,8 +45,8 @@ class TestPosBackupDraftOrders(TransactionCase):
 
     # Test Section
     def test_01_create_paid_order(self):
-        """[Non regression] Test if the behaviour when the POS order is"""
-        """paid works."""
+        """[Non regression] Test if the behaviour when the POS order is
+        paid works."""
         cr, uid = self.cr, self.uid
         po_ids = self.po_obj.search(cr, uid, [])
         data = [{'data': {
@@ -79,8 +79,8 @@ class TestPosBackupDraftOrders(TransactionCase):
             " order in back office")
 
     def test_02_create_draft_order(self):
-        """[Feature] Test if the behaviour when the POS order is"""
-        """unpaid works."""
+        """[Feature] Test if the behaviour when the POS order is
+        unpaid works."""
         cr, uid = self.cr, self.uid
         po_ids = self.po_obj.search(cr, uid, [])
         data = [{'data': {
