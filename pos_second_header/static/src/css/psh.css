@@ -1,0 +1,59 @@
+/******************************************************************************
+    Point Of Sale - Second Header module for OpenERP
+    Copyright (C) 2014 GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+******************************************************************************/
+
+/* 
+    Overload: default display of point of sale
+*/
+.point-of-sale #topheader {
+    height: 65px;
+}
+
+.point-of-sale #content {
+    top: 65px;
+}
+
+/* 
+    Define: PosOrderHeaderWidget CSS
+*/
+.point-of-sale #topheader #rightheader #pos_order_header{
+    height: 32px;
+    border-top: 1px solid #373737;
+}
+
+/* 
+    Define: New class for further content
+*/
+.point-of-sale #rightheader .extra-label{
+    float:left;
+    color:#DDD;
+/*    border-right: 1px solid #373737;*/
+    height:100%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    text-align:center;
+}
+
+.point-of-sale #rightheader .extra-label .extra-text{
+    font-size:15px;
+    font-style:italic;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
