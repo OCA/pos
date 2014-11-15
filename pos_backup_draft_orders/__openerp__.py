@@ -26,7 +26,7 @@
     'summary': """Allow users to backup draft orders"""
             """in Point Of Sale (Front end)""",
     'version': '0.1',
-    'category': 'sale',
+    'category': 'Point Of Sale',
     'description': """
 Allow users to backup draft orders in Point Of Sale (Front end)
 ===============================================================
