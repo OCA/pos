@@ -53,7 +53,7 @@ class TestPosOrderPricelistChange(TransactionCase):
         # Opening Session
         self.ps_obj.create(cr, uid, {
             'config_id': pc_id,
-            })
+        })
 
         # create Pos Order
         po_id = self.po_obj.create(cr, uid, {
@@ -63,7 +63,7 @@ class TestPosOrderPricelistChange(TransactionCase):
                 'product_id': pp_usb_id,
                 'qty': 1,
             }]],
-            })
+        })
         pp_usb = self.pp_obj.browse(cr, uid, pp_usb_id)
         po = self.po_obj.browse(cr, uid, po_id)
 
@@ -91,7 +91,7 @@ class TestPosOrderPricelistChange(TransactionCase):
         # Opening Session
         self.ps_obj.create(cr, uid, {
             'config_id': pc_id,
-            })
+        })
 
         # create Pos Order
         po_id = self.po_obj.create(cr, uid, {
@@ -101,7 +101,7 @@ class TestPosOrderPricelistChange(TransactionCase):
                 'product_id': pp_usb_id,
                 'qty': 1,
             }]],
-            })
+        })
         pp_usb = self.pp_obj.browse(cr, uid, pp_usb_id)
         po = self.po_obj.browse(cr, uid, po_id)
 
@@ -128,7 +128,7 @@ class TestPosOrderPricelistChange(TransactionCase):
         # Opening Session
         self.ps_obj.create(cr, uid, {
             'config_id': pc_id,
-            })
+        })
 
         # create Pos Order
         po_id = self.po_obj.create(cr, uid, {
@@ -137,7 +137,7 @@ class TestPosOrderPricelistChange(TransactionCase):
                 'product_id': pp_usb_id,
                 'qty': 1,
             }]],
-            })
+        })
         po = self.po_obj.browse(cr, uid, po_id)
 
         res = self.po_obj.onchange_pricelist_id(
@@ -169,7 +169,7 @@ class TestPosOrderPricelistChange(TransactionCase):
         # Opening Session
         self.ps_obj.create(cr, uid, {
             'config_id': pc_id,
-            })
+        })
 
         # create Pos Order
         po_id = self.po_obj.create(cr, uid, {
@@ -178,7 +178,7 @@ class TestPosOrderPricelistChange(TransactionCase):
                 'product_id': pp_usb_id,
                 'qty': 1,
             }]],
-            })
+        })
         po = self.po_obj.browse(cr, uid, po_id)
 
         res = self.po_obj.onchange_pricelist_id(
