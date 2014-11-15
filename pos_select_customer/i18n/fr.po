@@ -1,0 +1,74 @@
+# -*- encoding: utf-8 -*-
+##############################################################################
+#
+#    Point Of Sale - Select Customer module for OpenERP
+#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    @author Julien WESTE
+#    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* pos_select_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-16 16:31+0000\n"
+"PO-Revision-Date: 2014-04-16 16:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_select_customer
+#. openerp-web
+#: code:addons/pos_select_customer/static/src/xml/psc.xml:48
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_select_customer
+#. openerp-web
+#: code:addons/pos_select_customer/static/src/js/psc.js:57
+#, python-format
+msgid "Customer"
+msgstr "Client"
+
+#. module: pos_select_customer
+#. openerp-web
+#: code:addons/pos_select_customer/static/src/xml/psc.xml:41
+#, python-format
+msgid "Customer Selection"
+msgstr "Sélection d'un client"
+
+#. module: pos_select_customer
+#. openerp-web
+#: code:addons/pos_select_customer/static/src/js/psc.js:68
+#, python-format
+msgid "Del."
+msgstr "Suppr."
+
+#. module: pos_select_customer
+#. openerp-web
+#: code:addons/pos_select_customer/static/src/xml/psc.xml:45
+#, python-format
+msgid "Search Customers"
+msgstr "Rechercher des clients"
+
