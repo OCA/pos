@@ -45,7 +45,7 @@ Copyright, Authors and Licence:
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
-        ],
+    ],
     'qweb': [
         'static/src/xml/psh.xml',
     ],
