@@ -24,7 +24,7 @@
     'name': 'Point Of Sale - Second Header',
     'summary': 'Add a second header in the Point Of Sale (front-end)',
     'version': '0.1',
-    'category': 'sale',
+    'category': 'Point Of Sale',
     'description': """
 Add a second header in the Point Of Sale (front-end)
 ====================================================
