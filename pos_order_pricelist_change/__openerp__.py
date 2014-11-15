@@ -24,7 +24,7 @@
     'summary': """Fix an incorrect behaviour when changing pricelist on"""
     """ pos order""",
     'version': '1.0',
-    'category': 'bugfix',
+    'category': 'Point Of Sale',
     'description': """
 Fix an incorrect behaviour when changing pricelist on pos order
 ===============================================================
