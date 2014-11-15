@@ -34,7 +34,11 @@ class TestPosBackupDraftOrders(TransactionCase):
         self.po_obj = self.registry('pos.order')
         self.ps_obj = self.registry('pos.session')
         self.abs_obj = self.registry('account.bank.statement')
-        self.session_id = self.ps_obj.search(cr, uid, [])[0]
+        pc_id = self.imd_obj.get_object_reference(
+            cr, uid, 'point_of_sale', 'pos_config_main')[1]
+        self.session_id = self.ps_obj.create(cr, uid, {
+            'config_id': pc_id,
+        })
         self.evian_product_id = self.imd_obj.get_object_reference(
             cr, uid, 'point_of_sale', 'evian_2l')[1]
         self.cash_journal_id = self.imd_obj.get_object_reference(
