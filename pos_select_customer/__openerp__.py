@@ -25,7 +25,7 @@
     'name': 'Point Of Sale - Select Customers',
     'summary': 'Allow users to select a customer in Front End Point Of Sale',
     'version': '0.1',
-    'category': 'sale',
+    'category': 'Point Of Sale',
     'description': """
 Allow users to select a customer in Front End Point Of Sale
 ===========================================================
