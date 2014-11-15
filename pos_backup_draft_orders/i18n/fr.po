@@ -1,0 +1,45 @@
+# -*- encoding: utf-8 -*-
+##############################################################################
+#
+#    Point Of Sale - Backup Draft Orders module for OpenERP
+#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    @author Julien WESTE
+#    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* pos_backup_draft_orders
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-16 17:38+0000\n"
+"PO-Revision-Date: 2014-04-16 17:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_backup_draft_orders
+#. openerp-web
+#: code:addons/pos_backup_draft_orders/static/src/js/pbdo.js:50
+#, python-format
+msgid "Keep in Draft"
+msgstr "Sauvegarder"
