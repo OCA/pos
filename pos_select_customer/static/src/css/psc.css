@@ -1,0 +1,168 @@
+/******************************************************************************
+    Point Of Sale - Select Customer module for OpenERP
+    Copyright (C) 2014 GRAP (http://www.grap.coop)
+    @author Julien WESTE
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+******************************************************************************/
+
+/*  ********* Current customer name  ********* */
+
+.point-of-sale #rightheader #customer-name{
+    width:200px;
+}
+.point-of-sale #rightheader #remove-customer-button{
+    width:80px;
+}
+
+/*  ********* Customer PopUp  ********* */
+.point-of-sale .modal-dialog .popup-select-customer{
+    margin-left:0;
+    margin-top:0;
+    left:5%;
+    width: 90%;
+    top:5%;
+    height:90%;
+}
+.point-of-sale .modal-dialog .popup-select-customer .customer-header{
+    height:65px;
+}
+
+.point-of-sale .modal-dialog .popup-select-customer #customer-title{
+/*    text-align:left;*/
+}
+.point-of-sale .modal-dialog .popup-select-customer .customer-searchbox{
+    float:left;
+    top: 20px;
+    position: absolute;
+    left: 10px;
+}
+.point-of-sale .modal-dialog .popup-select-customer #customer-cancel{
+    top: 0px;
+    position: absolute;
+    right: 10px;
+}
+/*  ********* Customer List  ********* */
+
+.point-of-sale .customer-list {
+    padding:10px !important;
+}
+
+.point-of-sale .customer-list-container {
+    position:absolute;
+    top:70px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+
+.point-of-sale .customer-list-scroller{
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+}
+
+/*  ********* Customer Scrollbar  ********* */
+/*    Fix incorrect display of buttons.*/
+/*    TODO: found why it is necessary and remove top,bottom and left values*/
+.point-of-sale .customer-list-container .scrollbar .up-button{
+    top: -10px;
+    left: -5px;
+}
+.point-of-sale .customer-list-container .scrollbar .down-button {
+    left: -5px;
+    bottom: -5px;
+}
+
+/*  ********* Customer Item ********* */
+
+.point-of-sale .customer {
+    position:relative;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 11px;
+    margin: 5px !important;
+    width: 200px;
+    height:110px;
+    background:#fff;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 2px 0px #dad8e4, 0px 1px 8px #636480; 
+       -moz-box-shadow: 0px 2px 0px #dad8e4, 0px 1px 8px #636480; 
+            box-shadow: 0px 2px 0px #dad8e4, 0px 1px 8px #636480; 
+}
+
+.point-of-sale .customer .customer-name,
+        .point-of-sale .customer .customer-email,
+        .point-of-sale .customer .customer-address,
+        .point-of-sale .customer .customer-phone,
+        .point-of-sale .customer .customer-mobile{
+    position: absolute;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+
+    text-align:left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: -webkit-linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    background:    -moz-linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    background:     -ms-linear-gradient(-90deg,rgba(255,255,255,0),rgba(255,255,255,1), rgba(255,255,255,1));
+    padding: 3px;
+}
+.point-of-sale .customer .customer-name{
+    font-size: 13px;
+    width:100%;
+    top:0px;
+    height: 20px;
+}
+.point-of-sale .customer .customer-email{
+    width:100%;
+    top:24px;
+    height: 16px;
+}
+.point-of-sale .customer .customer-img {
+    position: absolute;
+    top: 44px;
+    left: 0px;
+    width: 64px;
+    height: 64px;
+    background: white;
+    text-align: center;
+}
+.point-of-sale .customer .customer-address{
+    width:135px;
+    top:44px;
+    left: 65px;
+    height: 32px;
+}
+.point-of-sale .customer .customer-phone{
+    width:135px;
+    top:76px;
+    left: 65px;
+    height: 16px;
+}
+.point-of-sale .customer .customer-mobile{
+    width:135px;
+    top:92px;
+    left: 65px;
+    height: 16px;
+}

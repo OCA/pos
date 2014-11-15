@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************************************************************** -->
+<!--Point Of Sale - Select Customer module for OpenERP                      -->
+<!--Copyright (C) 2014 GRAP (http://www.grap.coop)                          -->
+<!--@author Julien WESTE                                                    -->
+<!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
+
+<!--This program is free software: you can redistribute it and/or modify    -->
+<!--it under the terms of the GNU Affero General Public License as          -->
+<!--published by the Free Software Foundation, either version 3 of the      -->
+<!--License, or (at your option) any later version.                         -->
+
+<!--This program is distributed in the hope that it will be useful,         -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!--GNU Affero General Public License for more details.                     -->
+
+<!--You should have received a copy of the GNU Affero General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.   -->
+<!-- ********************************************************************** -->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CustomerOrderWidget">
+        <div class="extra-label">
+            <span class="placeholder-SelectCustomerButton" />
+        </div>
+        <div id="customer-name" class="extra-label">
+            <div class="extra-text">
+                <t t-esc="widget.get_name()" />
+            </div>
+        </div>
+        <div id="remove-customer-button" class="extra-label">
+            <span class="placeholder-RemoveCustomerButton" />
+        </div>
+    </t>
+
+    <t t-name="SelectCustomerPopupWidget">
+        <div class="modal-dialog">
+            <div class="popup popup-select-customer">
+                <div class="customer-header">
+                    <div id="customer-title">
+                        Customer Selection
+                    </div>
+                    <div class="customer-searchbox">
+                        <input placeholder="Search Customers" />
+                        <img class="customer-search-clear" src="/point_of_sale/static/src/img/search_reset.gif" />
+                    </div>
+                    <div id="customer-cancel" class="button">
+                        Cancel
+                    </div>
+                </div>
+                <div class="content-container">
+                    <span class="placeholder-CustomerListScreenWidget" />
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="CustomerListScreenWidget">
+        <div class='customer-list-container'>
+            <div class="customer-list-scroller">
+                <ol id="customer-screen-ol" class="customer-list">
+                </ol>
+            </div>
+            <div class="shadow-top"></div>
+            <span class="placeholder-ScrollbarWidget" />
+        </div>
+    </t>
+
+    <t t-name="CustomerWidget">
+        <li class='customer'>
+            <a href="#">
+                <div class="customer-img">
+                    <img sr='' />
+                </div>
+                <div class="customer-name">
+                    <t t-esc="widget.model.get('name')"/>
+                </div>
+                <div class="customer-email">
+                    <t t-if="widget.model.get('email')">
+                        <t t-esc="widget.model.get('email')"/>
+                    </t>
+                </div>
+                <div class="customer-address">
+                    <t t-if="widget.model.get('contact_address')">
+                        <t t-esc="widget.model.get('contact_address')"/>
+                    </t>
+                </div>
+                <div class="customer-phone">
+                    <t t-if="widget.model.get('phone')">
+                        <t t-esc="widget.model.get('phone')"/>
+                    </t>
+                </div>
+                <div class="customer-mobile">
+                    <t t-if="widget.model.get('mobile')">
+                        <t t-esc="widget.model.get('mobile')"/>
+                    </t>
+                </div>
+            </a>
+        </li>
+    </t>
+
+</templates>
