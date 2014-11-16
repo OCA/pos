@@ -21,3 +21,7 @@
 ##############################################################################
 
 from . import test_pos_order_pricelist_change
+
+fast_suite = [
+    test_pos_order_pricelist_change,
+]
