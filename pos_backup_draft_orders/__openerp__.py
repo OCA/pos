@@ -33,7 +33,7 @@ Allow users to backup draft orders in Point Of Sale (Front end)
 
 Functionality:
 --------------
-    * Allow user to backup in the backoffice side orders tiped in front-end;
+    * Allow user to backup in the backoffice side orders selected in front-end;
 
 Copyright, Authors and Licence:
 -------------------------------
