@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
+
         <record id="view_pos_config_form" model="ir.ui.view">
-            <field name="name">pos.config.form.view.inherit</field>
+            <field name="name">pos.payment.terminal.config.form</field>
             <field name="model">pos.config</field>
             <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
             <field name="arch" type="xml">
@@ -11,8 +12,9 @@
                 </field>
             </field>
         </record>
+
         <record id="view_account_journal_pos_user_form" model="ir.ui.view">
-            <field name="name">POS journal inherit</field>
+            <field name="name">pos.payment.terminal.journal.form</field>
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
             <field name="arch" type="xml">
@@ -22,10 +24,5 @@
             </field>
         </record>
 
-		<template id="index" name="pos_payment_terminal index" inherit_id="point_of_sale.index">
-			<xpath expr="//link[@id='pos-stylesheet']" position="after">
-				<link rel="stylesheet" href="/pos_payment_terminal/static/src/css/pos_payment_terminal.css" id="pos_payment_terminal-stylesheet"/>
-			</xpath>
-		</template>
     </data>
 </openerp>
