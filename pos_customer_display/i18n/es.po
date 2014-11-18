@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-17 11:00+0000\n"
-"PO-Revision-Date: 2014-11-17 12:03+0100\n"
+"PO-Revision-Date: 2014-11-17 18:33+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -63,14 +63,14 @@ msgstr "Próximo Cliente"
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:81
 #, python-format
 msgid "Point of Sale Closed"
-msgstr "Punto de Venta Cerrado"
+msgstr "Punto Venta Cerrado"
 
 #. module: pos_customer_display
 #. openerp-web
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:75
 #, python-format
 msgid "Point of Sale Open"
-msgstr "Punto de Venta Abierto"
+msgstr "Punto Venta Abierto"
 
 #. module: pos_customer_display
 #. openerp-web
