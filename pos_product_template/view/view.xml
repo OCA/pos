@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ********************************************************************** -->
+<!--Point Of Sale - Product Template module for Odoo                        -->
+<!--Copyright (C) 2014-Today Akretion (http://www.akretion.com)             -->
+<!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
+
+<!--This program is free software: you can redistribute it and/or modify    -->
+<!--it under the terms of the GNU Affero General Public License as          -->
+<!--published by the Free Software Foundation, either version 3 of the      -->
+<!--License, or (at your option) any later version.                         -->
+
+<!--This program is distributed in the hope that it will be useful,         -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!--GNU Affero General Public License for more details.                     -->
+
+<!--You should have received a copy of the GNU Affero General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.   -->
+<!-- ********************************************************************** -->
+<openerp>
+    <data>
+<!-- Add: JS Files -->
+        <template id="assets_backend" name="point_of_sale assets2" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_product_template/static/src/js/ppt.js"></script>
+            </xpath>
+        </template>
+
+<!-- Add: CSS Files -->
+<template id="index" name="pos_product_template index" inherit_id="point_of_sale.index">
+    <xpath expr="//link[@id='pos-stylesheet']" position="after">
+        <link rel="stylesheet" href="/pos_product_template/static/src/css/ppt.css" id="pos_product_template-stylesheet"/>
+    </xpath>
+</template>
+
+    </data>
+</openerp>
