@@ -21,7 +21,8 @@ This module loads all the necessary data into the POS in order to have a coheren
 - Attached pricelist on partner will take effect on the POS, which means that if we attach a pricelist to a partner.
 The POS will recognize it and will compute the price according to the rule defined.
 
-- Fiscal Position of each partner will also be present so taxes will be correctly computed (conforming to the fiscal position).
+- Fiscal Position of each partner will also be present so taxes will be correctly computed 
+(conforming to the fiscal position).
 
 - Implemented Rules are :
   1. (-1) : Rule based on other pricelist<br/>
@@ -30,5 +31,4 @@ The POS will recognize it and will compute the price according to the rule defin
 
 ### Missing features :
 
-- As you may know, product template is not fully implemented in the POS, so I decided to drop it from
-this module.
+- As you may know, product template is not fully implemented in the POS, so I decided to drop it from this module.

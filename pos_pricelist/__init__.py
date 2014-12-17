@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
+# -#- coding: utf-8 -#-
 ##############################################################################
-# Point Of Sale - Dynamic Price for POS Odoo
+# Point Of Sale - Pricelist for POS Odoo
 # Copyright (C) 2014 Taktik (http://www.taktik.be)
 # @author Adil Houmadi <ah@taktik.be>
 #
@@ -16,25 +16,3 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'POS Dynamic Price',
-    'version': '1.0.0',
-    'category': 'Point Of Sale',
-    'sequence': 1,
-    'author': 'Adil Houmadi @Taktik',
-    'summary': 'Dyanmic Price Point of sale',
-    'description': """
-New features for the Point Of Sale:
-=============================================
-    Dynamic price on the point of sale
-    """,
-    'depends': [
-        "point_of_sale",
-    ],
-    'data': [
-        "view/pos_dynamic_price_template.xml",
-    ],
-    'installable': True,
-    'application': False,
-    'auto_install': False,
-}

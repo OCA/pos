@@ -1,5 +1,5 @@
 /******************************************************************************
-*    Point Of Sale - Dynamic Price for POS Odoo
+*    Point Of Sale - Pricelist for POS Odoo
 *    Copyright (C) 2014 Taktik (http://www.taktik.be)
 *    @author Adil Houmadi <ah@taktik.be>
 *
@@ -15,7 +15,7 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 ******************************************************************************/
-function pdp_screens(instance, module) {
+function pos_pricelist_screens(instance, module) {
 
     module.ClientListScreenWidget = module.ClientListScreenWidget.extend({
         save_changes: function () {

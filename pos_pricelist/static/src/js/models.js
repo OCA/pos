@@ -1,5 +1,5 @@
 /******************************************************************************
-*    Point Of Sale - Dynamic Price for POS Odoo
+*    Point Of Sale - Pricelist for POS Odoo
 *    Copyright (C) 2014 Taktik (http://www.taktik.be)
 *    @author Adil Houmadi <ah@taktik.be>
 *
@@ -15,7 +15,7 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 ******************************************************************************/
-function pdp_models(instance, module) {
+function pos_pricelist_models(instance, module) {
 
     var _t = instance.web._t;
     var round_pr = instance.web.round_precision
@@ -58,9 +58,6 @@ function pdp_models(instance, module) {
      * Extend the order
      */
     module.Order = module.Order.extend({
-        initialize: function (attributes) {
-            this._super('initialize', attributes);
-        },
         /**
          * override this method to merge lines
          * TODO : find a better way to do it
@@ -111,6 +108,7 @@ function pdp_models(instance, module) {
     module.Orderline = module.Orderline.extend({
         initialize: function (attr, options) {
             this._super('initialize', attr, options);
+            this.manuel_price = false;
             if (options.product !== undefined) {
                 var qty = this.compute_qty(options.order, options.product);
                 var partner = options.order.get_client();
@@ -121,6 +119,12 @@ function pdp_models(instance, module) {
                     this.price = price;
                 }
             }
+        },
+        /**
+         * @param state
+         */
+        set_manuel_price: function (state) {
+            this.manuel_price = state;
         },
         /**
          * @param quantity
@@ -235,13 +239,15 @@ function pdp_models(instance, module) {
          * @returns {boolean}
          */
         can_be_merged_with: function (orderline) {
-            if (this.get_product().id !== orderline.get_product().id) {
-                return false;
-            } else if (!this.get_unit()) {
-                return false;
-            } else if (this.get_product_type() !== orderline.get_product_type()) {
-                return false;
-            } else return this.get_discount() <= 0;
+            var result = this._super('can_be_merged_with', orderline);
+            if(!result) {
+                if(!this.manuel_price) {
+                    return (this.get_product().id === orderline.get_product().id);
+                } else {
+                    return false;
+                }
+            }
+            return true;
         },
         /**
          * Override to set price
@@ -263,7 +269,7 @@ function pdp_models(instance, module) {
                 orderlines = order.get('orderLines').models;
             }
             for (var i = 0; i < orderlines.length; i++) {
-                if (orderlines[i].product.id === product.id) {
+                if (orderlines[i].product.id === product.id && !orderlines[i].manuel_price) {
                     qty += orderlines[i].quantity;
                 }
             }
@@ -299,7 +305,7 @@ function pdp_models(instance, module) {
          * @returns {boolean}
          */
         compute_price: function (database, product, partner, qty, pricelist_id) {
-            debugger;
+
             var self = this;
             var db = database;
 
@@ -316,12 +322,12 @@ function pdp_models(instance, module) {
             var categ_ids = [];
             if (product.categ_id) {
                 categ_ids.push(product.categ_id[0]);
-                categ_ids = categ_ids.concat(db.product_catrgory_ancestors[product.categ_id[0]]);
+                categ_ids = categ_ids.concat(db.product_category_ancestors[product.categ_id[0]]);
             }
 
             // find items
-            var items = [], i;
-            for (var i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
+            var items = [], i, len;
+            for (i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
                 var item = db.pricelist_item_sorted[i];
                 if ((item.product_id === false || item.product_id[0] === product.id) &&
                     (item.categ_id === false || categ_ids.indexOf(item.categ_id[0]) !== -1) &&
@@ -336,7 +342,7 @@ function pdp_models(instance, module) {
             var price = false;
 
             // loop through items
-            for (var i = 0, len = items.length; i < len; i++) {
+            for (i = 0, len = items.length; i < len; i++) {
                 var rule = items[i];
 
                 if (rule.min_quantity && qty < rule.min_quantity) {
@@ -351,7 +357,7 @@ function pdp_models(instance, module) {
                         if (cat_id == rule.categ_id[0]) {
                             break;
                         }
-                        cat_id = db.product_catrgory_by_id[cat_id].parent_id[0];
+                        cat_id = db.product_category_by_id[cat_id].parent_id[0];
                     }
                     if (!(cat_id)) {
                         continue;
@@ -435,13 +441,13 @@ function pdp_models(instance, module) {
     function arrange_elements(pos_model) {
 
         var product_model = pos_model.find_model('product.product');
-        if (Object.size(product_model) == 1) {
+        if (_.size(product_model) == 1) {
             var product_index = parseInt(Object.keys(product_model)[0]);
             pos_model.models[product_index].fields.push('categ_id', 'seller_ids');
         }
 
         var res_product_pricelist = pos_model.find_model('product.pricelist');
-        if (Object.size(res_product_pricelist) == 1) {
+        if (_.size(res_product_pricelist) == 1) {
             var pricelist_index = parseInt(Object.keys(res_product_pricelist)[0]);
 
             // after the pricelist we can load all pricelists, versions and items
@@ -536,7 +542,7 @@ function pdp_models(instance, module) {
         }
 
         var res_partner_model = pos_model.find_model('res.partner');
-        if (Object.size(res_partner_model) == 1) {
+        if (_.size(res_partner_model) == 1) {
             var res_partner_index = parseInt(Object.keys(res_partner_model)[0]);
             pos_model.models[res_partner_index].fields.push('property_account_position', 'property_product_pricelist');
         }

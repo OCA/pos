@@ -1,5 +1,5 @@
 /******************************************************************************
-*    Point Of Sale - Dynamic Price for POS Odoo
+*    Point Of Sale - Pricelist for POS Odoo
 *    Copyright (C) 2014 Taktik (http://www.taktik.be)
 *    @author Adil Houmadi <ah@taktik.be>
 *
@@ -15,7 +15,9 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 ******************************************************************************/
-function pdp_db(instance, module) {
+function pos_pricelist_db(instance, module) {
+
+    console.log('Loading ...');
 
     module.PosDB = module.PosDB.extend({
         init: function (options) {
@@ -26,9 +28,9 @@ function pdp_db(instance, module) {
             this.pricelist_version_by_id = {};
             this.pricelist_item_by_id = {};
             this.pricelist_item_sorted = [];
-            this.product_catrgory_by_id = {};
-            this.product_catrgory_children = {};
-            this.product_catrgory_ancestors = {};
+            this.product_category_by_id = {};
+            this.product_category_children = {};
+            this.product_category_ancestors = {};
             this.product_price_type_by_id = {};
             this.supplierinfo_by_id = {};
             this.pricelist_partnerinfo_by_id = {};
@@ -38,8 +40,8 @@ function pdp_db(instance, module) {
             if (!(fiscal_position_taxes instanceof Array)) {
                 fiscal_position_taxes = [fiscal_position_taxes];
             }
-            for (var i = 0, len = fiscal_position_taxes.length; i < len; i++) {
-                var fiscal_position_tax = fiscal_position_taxes[i];
+            var fiscal_position_tax;
+            while (fiscal_position_tax = fiscal_position_taxes.pop()) {
                 this.fiscal_position_tax_by_id[fiscal_position_tax.id] = fiscal_position_tax;
             }
         },
@@ -47,8 +49,8 @@ function pdp_db(instance, module) {
             if (!(pricelist_partnerinfos instanceof Array)) {
                 pricelist_partnerinfos = [pricelist_partnerinfos];
             }
-            for (var i = 0, len = pricelist_partnerinfos.length; i < len; i++) {
-                var partner_info = pricelist_partnerinfos[i];
+            var partner_info;
+            while (partner_info = pricelist_partnerinfos.pop()) {
                 this.pricelist_partnerinfo_by_id[partner_info.id] = partner_info;
             }
         },
@@ -56,8 +58,8 @@ function pdp_db(instance, module) {
             if (!(supplierinfos instanceof Array)) {
                 supplierinfos = [supplierinfos];
             }
-            for (var i = 0, len = supplierinfos.length; i < len; i++) {
-                var supplier_info = supplierinfos[i];
+            var supplier_info;
+            while (supplier_info = supplierinfos.pop()) {
                 this.supplierinfo_by_id[supplier_info.id] = supplier_info;
             }
         },
@@ -70,8 +72,8 @@ function pdp_db(instance, module) {
             if (!(pricelists instanceof Array)) {
                 pricelists = [pricelists];
             }
-            for (var i = 0, len = pricelists.length; i < len; i++) {
-                var pricelist = pricelists[i];
+            var pricelist;
+            while (pricelist = pricelists.pop()) {
                 this.pricelist_by_id[pricelist.id] = pricelist;
             }
         },
@@ -79,8 +81,8 @@ function pdp_db(instance, module) {
             if (!(versions instanceof Array)) {
                 versions = [versions];
             }
-            for (var i = 0, len = versions.length; i < len; i++) {
-                var version = versions[i];
+            var version;
+            while (version = versions.pop()) {
                 this.pricelist_version_by_id[version.id] = version;
             }
         },
@@ -88,8 +90,8 @@ function pdp_db(instance, module) {
             if (!(items instanceof Array)) {
                 items = [items];
             }
-            for (var i = 0, len = items.length; i < len; i++) {
-                var item = items[i];
+            var item;
+            while (item = items.pop()) {
                 this.pricelist_item_by_id[item.id] = item;
             }
             this.pricelist_item_sorted = this._items_sorted();
@@ -98,33 +100,32 @@ function pdp_db(instance, module) {
             if (!(price_types instanceof Array)) {
                 price_types = [price_types];
             }
-            for (var i = 0, len = price_types.length; i < len; i++) {
-                var ptype = price_types[i];
+            var ptype;
+            while (ptype = price_types.pop()) {
                 this.product_price_type_by_id[ptype.id] = ptype;
             }
         },
         add_product_categories: function (categories) {
-            var self = this;
             if (!(categories instanceof Array)) {
                 categories = [categories];
             }
-            for (var i = 0, len = categories.length; i < len; i++) {
-                var category = categories[i];
-                this.product_catrgory_by_id[category.id] = category;
-                this.product_catrgory_children[category.id] = category.child_id
+            var category;
+            while (category = categories.pop()) {
+                this.product_category_by_id[category.id] = category;
+                this.product_category_children[category.id] = category.child_id
             }
-            function make_ancestors(cat_id, ancestors) {
-                self.product_catrgory_ancestors[cat_id] = ancestors;
-                ancestors = ancestors.slice(0);
-                ancestors.push(cat_id);
-                var children = self.product_catrgory_children[cat_id] || [];
-                for (var i = 0, len = children.length; i < len; i++) {
-                    make_ancestors(children[i], ancestors);
+            this._make_ancestors();
+        },
+        _make_ancestors: function () {
+            var category, ancestors;
+            for (var id in this.product_category_by_id) {
+                category = this.product_category_by_id[id];
+                ancestors = [];
+                while (category.parent_id) {
+                    ancestors.push(category.parent_id[0]);
+                    category = category.parent_id ? this.product_category_by_id[category.parent_id[0]] : false;
                 }
-            }
-            if (categories.length) {
-                var cat = categories[0];
-                make_ancestors(cat.id, cat.parent_id === false ? [] : [cat.parent_id])
+                this.product_category_ancestors[parseInt(id)] = ancestors;
             }
         },
         _items_sorted: function () {

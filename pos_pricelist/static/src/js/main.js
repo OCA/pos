@@ -1,5 +1,5 @@
 /******************************************************************************
-*    Point Of Sale - Dynamic Price for POS Odoo
+*    Point Of Sale - Pricelist for POS Odoo
 *    Copyright (C) 2014 Taktik (http://www.taktik.be)
 *    @author Adil Houmadi <ah@taktik.be>
 *
@@ -15,13 +15,10 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 ******************************************************************************/
-Object.size = function (obj) {
-    "use strict";
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            size += 1;
-        }
-    }
-    return size;
+openerp.pos_pricelist = function (instance) {
+    var module = instance.point_of_sale;
+    pos_pricelist_db(instance, module);
+    pos_pricelist_models(instance, module);
+    pos_pricelist_screens(instance, module);
+    pos_pricelist_widgets(instance, module);
 };
