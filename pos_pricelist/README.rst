@@ -34,9 +34,9 @@ The POS will recognize it and will compute the price according to the rule defin
 
 - Implemented Rules are :
 
-1. (-1) : Rule based on other pricelist<br/>
-2. (-2) : Rule based on supplierinfo<br/>
-3. (default) : Any price type which is set on the product form<br/>
+1. (-1) : Rule based on other pricelist
+2. (-2) : Rule based on supplierinfo
+3. (default) : Any price type which is set on the product form
 
 ******************
 Missing features :
