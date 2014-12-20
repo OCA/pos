@@ -18,7 +18,7 @@
 function pos_pricelist_models(instance, module) {
 
     var _t = instance.web._t;
-    var round_pr = instance.web.round_precision
+    var round_pr = instance.web.round_precision;
 
     /**
      * @param funcName
@@ -60,7 +60,8 @@ function pos_pricelist_models(instance, module) {
     module.Order = module.Order.extend({
         /**
          * override this method to merge lines
-         * TODO : find a better way to do it
+         * TODO : Need some refactoring in the standard POS to Do it better
+         * TODO : from line 73 till 85, we need to move this to another method
          * @param product
          * @param options
          */
@@ -101,7 +102,6 @@ function pos_pricelist_models(instance, module) {
             this.selectLine(this.getLastOrderline());
         }
     });
-
     /**
      * Extend the Order line
      */
@@ -143,6 +143,7 @@ function pos_pricelist_models(instance, module) {
         /**
          * override this method to take fiscal postions in consideration
          * get all price
+         * TODO : find a better way to do it : need some refactoring in the pos standard
          * @returns {{priceWithTax: *, priceWithoutTax: *, tax: number, taxDetails: {}}}
          */
         get_all_prices: function () {
@@ -153,32 +154,39 @@ function pos_pricelist_models(instance, module) {
             var totalTax = base;
             var totalNoTax = base;
             var product = this.get_product();
+            var taxes = this.get_applicable_taxes();
+            var taxtotal = 0;
+            var taxdetail = {};
+
+            // Add by pos_pricelist
             var partner = this.order.get_client();
-            var taxes_ids = product.taxes_id;
             var fiscal_position_taxes = [];
             if (partner && partner.property_account_position) {
                 fiscal_position_taxes = self.pos.db.find_taxes_by_fiscal_position_id(partner.property_account_position[0]);
             }
-            var product_taxes_ids = [];
+            var product_taxes = [];
             for (var i = 0, ilen = fiscal_position_taxes.length; i < ilen; i++) {
                 var fp_tax = fiscal_position_taxes[i];
-                for (var j = 0, jlen = taxes_ids.length; j < jlen; j++) {
-                    var p_tax = taxes_ids[j];
-                    if (fp_tax && p_tax && fp_tax.tax_src_id[0] === p_tax) {
-                        product_taxes_ids.push(fp_tax.tax_dest_id[0]);
+                for (var j = 0, jlen = taxes.length; j < jlen; j++) {
+                    var p_tax = taxes[j];
+                    if (fp_tax && p_tax && fp_tax.tax_src_id[0] === p_tax.id) {
+                        var dest_tax = _.detect(this.pos.taxes, function (t) {
+                            return t.id === fp_tax.tax_dest_id[0];
+                        });
+                        product_taxes.push(dest_tax);
                     }
                 }
             }
-            if (product_taxes_ids.length === 0) {
-                product_taxes_ids = taxes_ids;
+            if (product_taxes.length === 0) {
+                for (var i = 0, ilen = product.taxes_id; i < ilen; i++) {
+                    var _id = product.taxes_id[i];
+                    var p_tax = _.detect(this.pos.taxes, function (t) {
+                        return t.id === _id;
+                    });
+                    product_taxes.push(p_tax);
+                }
             }
-            var taxes = self.pos.taxes;
-            var taxtotal = 0;
-            var taxdetail = {};
-            _.each(product_taxes_ids, function (el) {
-                var tax = _.detect(taxes, function (t) {
-                    return t.id === el;
-                });
+            _.each(product_taxes, function (tax) {
                 if (tax.price_include) {
                     var tmp;
                     if (tax.type === "percent") {
@@ -202,6 +210,9 @@ function pos_pricelist_models(instance, module) {
                         throw "This type of tax is not supported by the point of sale: " + tax.type;
                     }
                     tmp = round_pr(tmp, currency_rounding);
+                    if (tax.include_base_amount) {
+                        base += tmp;
+                    }
                     taxtotal += tmp;
                     totalTax += tmp;
                     taxdetail[tax.id] = tmp;
@@ -214,7 +225,6 @@ function pos_pricelist_models(instance, module) {
                 "taxDetails": taxdetail
             };
         },
-
         /**
          * compute price for all price list
          * @param db
@@ -240,8 +250,8 @@ function pos_pricelist_models(instance, module) {
          */
         can_be_merged_with: function (orderline) {
             var result = this._super('can_be_merged_with', orderline);
-            if(!result) {
-                if(!this.manuel_price) {
+            if (!result) {
+                if (!this.manuel_price) {
                     return (this.get_product().id === orderline.get_product().id);
                 } else {
                     return false;
@@ -422,7 +432,7 @@ function pos_pricelist_models(instance, module) {
     });
 
     /**
-     * show error based on pop up
+     * show error
      * @param context
      * @param message
      * @param comment
@@ -449,8 +459,6 @@ function pos_pricelist_models(instance, module) {
         var res_product_pricelist = pos_model.find_model('product.pricelist');
         if (_.size(res_product_pricelist) == 1) {
             var pricelist_index = parseInt(Object.keys(res_product_pricelist)[0]);
-
-            // after the pricelist we can load all pricelists, versions and items
             pos_model.models.splice(++pricelist_index, 0,
                 {
                     model: 'account.fiscal.position.tax',
@@ -535,6 +543,17 @@ function pos_pricelist_models(instance, module) {
                     fields: ['name', 'field', 'currency_id'],
                     domain: null,
                     loaded: function (self, price_types) {
+                        // we need to add price type field to product.product model if not the case
+                        var product_model = posmodel.find_model('product.product');
+                        for(var i = 0, len = price_types.length; i < len; i++) {
+                            var p_type = price_types[i].field;
+                            if (_.size(product_model) == 1) {
+                                var product_index = parseInt(Object.keys(product_model)[0]);
+                                if(posmodel.models[product_index].fields.indexOf(p_type) === -1) {
+                                    posmodel.models[product_index].fields.push(p_type);
+                                }
+                            }
+                        }
                         self.db.add_price_types(price_types);
                     }
                 }

@@ -17,8 +17,6 @@
 ******************************************************************************/
 function pos_pricelist_db(instance, module) {
 
-    console.log('Loading ...');
-
     module.PosDB = module.PosDB.extend({
         init: function (options) {
             options = options || {};

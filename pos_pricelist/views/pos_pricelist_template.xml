@@ -19,9 +19,9 @@
             </xpath>
         </template>
 
-        <template id="qunit_suite" name="pos_pricelist_test qunit" inherit_id="web.qunit_suite">
-            <xpath expr="//head" position="inside">
-                <script type="text/javascript" src="/pos_pricelist/static/test/tests.js"></script>
+        <template id="pos_pricelist_assets" name="pos_pricelist_css" inherit_id="point_of_sale.index">
+            <xpath expr="//script[@id='loading-script']" position="before">
+                <link rel="stylesheet" href="/pos_pricelist/static/src/css/style.css"/>
             </xpath>
         </template>
 

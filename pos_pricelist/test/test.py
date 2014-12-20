@@ -16,28 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'POS Pricelist',
-    'version': '1.0.0',
-    'category': 'Point Of Sale',
-    'sequence': 1,
-    'author': 'Adil Houmadi @Taktik',
-    'summary': 'Pricelist for Point of sale',
-    'description': """
-New feature for the Point Of Sale:
-=============================================
-    Add support for pricelist on the point of sale
-    """,
-    'depends': [
-        "point_of_sale",
-    ],
-    'data': [
-        "views/pos_pricelist_template.xml",
-    ],
-    'demo': [
-        'demo/pos_pricelist_demo.yml',
-    ],
-    'installable': True,
-    'application': False,
-    'auto_install': False,
-}
+import openerp.tests
+
+@openerp.tests.common.at_install(False)
+@openerp.tests.common.post_install(True)
+class TestPOS(openerp.tests.HttpCase):
+    def test_01_pos(self):
+        self.phantom_js("/", "openerp.Tour.run('pos_pricelist_order', 'test')",
+                        "openerp.Tour.tours.pos_pricelist_order",
+                        login="admin")
