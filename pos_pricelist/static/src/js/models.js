@@ -113,7 +113,7 @@ function pos_pricelist_models(instance, module) {
                 var qty = this.compute_qty(options.order, options.product);
                 var partner = options.order.get_client();
                 var product = options.product;
-                var db = self.posmodel.db;
+                var db = this.pos.db;
                 var price = this.compute_price_all(db, product, partner, qty);
                 if (price !== false && price !== 0.0) {
                     this.price = price;

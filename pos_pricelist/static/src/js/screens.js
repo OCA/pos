@@ -27,7 +27,7 @@ function pos_pricelist_screens(instance, module) {
                     var line = orderLines[i];
                     var partner = currentOrder.get_client();
                     var product = line.product;
-                    var db = self.posmodel.db;
+                    var db = this.pos.db;
                     var quantity = line.quantity;
                     var price = line.compute_price_all(db, product, partner, quantity);
                     if (price !== false && price !== 0.0) {
