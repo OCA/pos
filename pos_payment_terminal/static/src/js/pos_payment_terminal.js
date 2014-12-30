@@ -16,7 +16,7 @@ openerp.pos_payment_terminal = function(instance){
     var _super_PaymentScreenWidget_init_ = module.PaymentScreenWidget.prototype.init;
     module.PaymentScreenWidget.prototype.init = function(parent, options){
         _super_PaymentScreenWidget_init_.call(this, parent, options);
-        self = this;
+        var self = this;
         this.payment_terminal_transaction_start = function(event){
             var node = this;
             while (node && !node.classList.contains('paymentline')){
