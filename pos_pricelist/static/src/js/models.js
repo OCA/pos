@@ -19,6 +19,7 @@ function pos_pricelist_models(instance, module) {
 
     var _t = instance.web._t;
     var round_pr = instance.web.round_precision;
+    var round_di = instance.web.round_decimals;
 
     /**
      * @param funcName
@@ -35,6 +36,7 @@ function pos_pricelist_models(instance, module) {
     module.PosModel = module.PosModel.extend({
         initialize: function (session, attributes) {
             this._super('initialize', session, attributes);
+            this.pricelist_engine = new module.PricelistEngine({'pos': this, 'db': this.db, 'pos_widget': this.pos_widget});
             arrange_elements(this);
         },
         /**
@@ -51,6 +53,14 @@ function pos_pricelist_models(instance, module) {
                 }
             }
             return lookup
+        },
+        on_removed_order: function (removed_order, index, reason) {
+            this._super('on_removed_order', removed_order, index, reason);
+            if ((reason === 'abandon' || removed_order.temporary) && this.get('orders').size() > 0) {
+                var current_order = (this.get('orders').at(index) || this.get('orders').last());
+                var partner = current_order.get_client() ? current_order.get_client() : false;
+                this.pricelist_engine.update_products_ui(partner);
+            }
         }
     });
 
@@ -102,6 +112,7 @@ function pos_pricelist_models(instance, module) {
             this.selectLine(this.getLastOrderline());
         }
     });
+
     /**
      * Extend the Order line
      */
@@ -114,7 +125,7 @@ function pos_pricelist_models(instance, module) {
                 var partner = options.order.get_client();
                 var product = options.product;
                 var db = this.pos.db;
-                var price = this.compute_price_all(db, product, partner, qty);
+                var price = this.pos.pricelist_engine.compute_price_all(db, product, partner, qty);
                 if (price !== false && price !== 0.0) {
                     this.price = price;
                 }
@@ -134,14 +145,14 @@ function pos_pricelist_models(instance, module) {
             var partner = this.order.get_client();
             var product = this.product;
             var db = this.pos.db;
-            var price = this.compute_price_all(db, product, partner, quantity);
+            var price = this.pos.pricelist_engine.compute_price_all(db, product, partner, quantity);
             if (price !== false && price !== 0.0) {
                 this.price = price;
             }
             this.trigger('change', this);
         },
         /**
-         * override this method to take fiscal postions in consideration
+         * override this method to take fiscal positions in consideration
          * get all price
          * TODO : find a better way to do it : need some refactoring in the pos standard
          * @returns {{priceWithTax: *, priceWithoutTax: *, tax: number, taxDetails: {}}}
@@ -226,23 +237,6 @@ function pos_pricelist_models(instance, module) {
             };
         },
         /**
-         * compute price for all price list
-         * @param db
-         * @param product
-         * @param partner
-         * @param qty
-         * @returns {*}
-         */
-        compute_price_all: function (db, product, partner, qty) {
-            var price_list_id = false;
-            if (partner && partner.property_product_pricelist) {
-                price_list_id = partner.property_product_pricelist[0];
-            } else {
-                price_list_id = db.default_pricelist_id;
-            }
-            return this.compute_price(db, product, partner, qty, parseInt(price_list_id));
-        },
-        /**
          * Override this method to avoid a return false if the price is different
          * Check super method : (this.price !== orderline.price) is not necessary in our case
          * @param orderline
@@ -284,6 +278,35 @@ function pos_pricelist_models(instance, module) {
                 }
             }
             return qty;
+        },
+    });
+
+    /**
+     * Pricelist Engine to compute price
+     */
+    module.PricelistEngine = instance.web.Class.extend({
+        init: function(options){
+            options = options || {};
+            this.pos = options.pos;
+            this.db = options.db;
+            this.pos_widget = options.pos_widget;
+        },
+        /**
+         * compute price for all price list
+         * @param db
+         * @param product
+         * @param partner
+         * @param qty
+         * @returns {*}
+         */
+        compute_price_all: function (db, product, partner, qty) {
+            var price_list_id = false;
+            if (partner && partner.property_product_pricelist) {
+                price_list_id = partner.property_product_pricelist[0];
+            } else {
+                price_list_id = db.default_pricelist_id;
+            }
+            return this.compute_price(db, product, partner, qty, parseInt(price_list_id));
         },
         /**
          * loop find a valid version for the price list id given in param
@@ -428,6 +451,43 @@ function pos_pricelist_models(instance, module) {
                 break;
             }
             return price
+        },
+        /**
+         * @param partner
+         */
+        update_products_ui: function (partner) {
+            var db = this.db;
+            if(!this.pos_widget.product_screen) return;
+            var product_list_ui = this.pos_widget.product_screen.$('.product-list span.product');
+            for (var i = 0, len = product_list_ui.length; i < len; i++) {
+                var product_ui = product_list_ui[i];
+                var product_id = $(product_ui).data('product-id');
+                var product = db.get_product_by_id(product_id);
+                var price = this.compute_price_all(db, product, partner, 1);
+                if (price !== false && price !== 0.0) {
+                    price = round_di(parseFloat(price) || 0, this.pos.dp['Product Price']);
+                    price = this.pos_widget.format_currency(price);
+                    $(product_ui).find('.price-tag').html(price);
+                }
+            }
+        },
+        /**
+         *
+         * @param partner
+         * @param orderLines
+         */
+        update_ticket: function (partner, orderLines) {
+            var db = this.db;
+            for (var i = 0, len = orderLines.length; i < len; i++) {
+                var line = orderLines[i];
+                var product = line.product;
+                var quantity = line.quantity;
+                var price = this.compute_price_all(db, product, partner, quantity);
+                if (price !== false && price !== 0.0) {
+                    line.price = price;
+                }
+                line.trigger('change', line);
+            }
         }
     });
 

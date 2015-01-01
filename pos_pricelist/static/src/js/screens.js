@@ -23,18 +23,9 @@ function pos_pricelist_screens(instance, module) {
             if (this.has_client_changed()) {
                 var currentOrder = this.pos.get('selectedOrder');
                 var orderLines = currentOrder.get('orderLines').models;
-                for (var i = 0, len = orderLines.length; i < len; i++) {
-                    var line = orderLines[i];
-                    var partner = currentOrder.get_client();
-                    var product = line.product;
-                    var db = this.pos.db;
-                    var quantity = line.quantity;
-                    var price = line.compute_price_all(db, product, partner, quantity);
-                    if (price !== false && price !== 0.0) {
-                        line.price = price;
-                    }
-                    line.trigger('change', line);
-                }
+                var partner = currentOrder.get_client();
+                this.pos.pricelist_engine.update_products_ui(partner);
+                this.pos.pricelist_engine.update_ticket(partner, orderLines);
             }
         }
     });
