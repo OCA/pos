@@ -27,7 +27,10 @@ class PosOrder(models.Model):
 
     @api.model
     def search_read_orders(self, query):
-        condition = [('pos_reference', 'ilike', query)]
+        condition = ['|',
+            ('pos_reference', 'ilike', query),
+            ('partner_id', 'ilike', query)
+        ]
         fields = ['pos_reference', 'partner_id']
         return self.search_read(condition, fields, limit=10)
 
