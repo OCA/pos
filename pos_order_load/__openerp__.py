@@ -35,7 +35,9 @@
     'demo': [],
     'website': 'https://www.akretion.com',
     'description': """
-        This module allows to load existing POS order
+        This module allows to load existing POS order.
+        In this version, when the loaded order
+        is validated in the POS, a new one is created.
     """,
     'data': [
         'view/pos_order_load.xml',
