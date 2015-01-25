@@ -124,11 +124,6 @@ Define : pos_product_template.SelectVariantPopupWidget
     module.SelectVariantPopupWidget = module.PopUpWidget.extend({
         template:'SelectVariantPopupWidget',
 
-        init: function(parent, options) {
-            this._super(parent,options);
-            this.template_name = '';
-        },
-
         start: function(){
             var self = this;
             // Define Variant Widget
@@ -150,7 +145,6 @@ Define : pos_product_template.SelectVariantPopupWidget
             var template = this.pos.db.template_by_id[product_tmpl_id];
 
             // Display Name of Template
-            this.template_name = template.name;
             this.$('#variant-title-name').html(template.name);
 
             // Render Variants
