@@ -22,7 +22,7 @@
 {
     'name': 'Point Of Sale - Product Template',
     'summary': 'Manage Product Template in Front End Point Of Sale',
-    'version': '0.1',
+    'version': '0.2',
     'category': 'Point Of Sale',
     'description': """
 Manage Product Template in Front End Point Of Sale
@@ -71,5 +71,8 @@ Copyright, Authors and Licence:
         'demo/product_attribute_value.yml',
         'demo/product_product.yml',
         'demo/res_groups.yml',
+    ],
+    'images': [
+        'static/src/img/screenshots/pos_product_template.png',
     ],
 }
