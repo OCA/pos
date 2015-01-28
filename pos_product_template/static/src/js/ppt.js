@@ -347,8 +347,8 @@ Define: pos_product_template.AttributeListWidget
         },
 
         render_value: function(value, variant_qty){
-            var value_html = QWeb.render('AttributeValueWidget',{ 
-                    widget:  this, 
+            var value_html = QWeb.render('AttributeValueWidget',{
+                    widget:  this,
                     value: value,
                     variant_qty: variant_qty,
                 });
@@ -511,7 +511,6 @@ Overload: point_of_sale.PosModel
             fields: [
                 'name',
                 'display_name',
-                'list_price', //?
                 'product_variant_ids',
                 'product_variant_count',
                 ],
