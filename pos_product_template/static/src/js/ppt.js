@@ -333,17 +333,20 @@ Define: pos_product_template.AttributeListWidget
             var list_container = attribute_node.querySelector('.value-list');
             for(var i = 0, len = attribute.value_ids.length; i < len; i++){
                 var value = this.pos.db.get_product_attribute_value_by_id(attribute.value_ids[i]);
-                var value_node = this.render_value(attribute, value);
-                value_node.addEventListener('click', this.click_set_attribute_handler);
-                list_container.appendChild(value_node);
+                var product_list = this.pos.db.get_product_by_ids(this.product_template.product_variant_ids);
+                var subproduct_list = this.pos.db.get_product_by_value_and_products(value.id, product_list);
+                var variant_qty = subproduct_list.length;
+                // Hide product attribute value if there is no product associated to it
+                if (variant_qty != 0) {
+                    var value_node = this.render_value(value, variant_qty);
+                    value_node.addEventListener('click', this.click_set_attribute_handler);
+                    list_container.appendChild(value_node);
+                }
             };
             return attribute_node;
         },
 
-        render_value: function(attribute, value){
-            product_list = this.pos.db.get_product_by_ids(this.product_template.product_variant_ids);
-            subproduct_list = this.pos.db.get_product_by_value_and_products(value.id, product_list);
-            variant_qty = subproduct_list.length;
+        render_value: function(value, variant_qty){
             var value_html = QWeb.render('AttributeValueWidget',{ 
                     widget:  this, 
                     value: value,
