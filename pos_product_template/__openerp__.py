@@ -61,6 +61,7 @@ Copyright, Authors and Licence:
         'static/src/xml/ppt.xml',
     ],
     'demo': [
+        'demo/product_attribute_value.yml',
         'demo/product_product.yml',
         'demo/res_groups.yml',
     ],
