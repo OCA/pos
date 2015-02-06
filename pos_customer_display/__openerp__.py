@@ -49,6 +49,7 @@ You are invited to become a member and/or get involved in the
 Association !
     """,
     'author': 'Aurélien DUMAINE',
+    'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [
         'pos_customer_display.xml',
