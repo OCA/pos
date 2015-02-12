@@ -1,0 +1,95 @@
+-
+ This product will have two rule (min_qty:3 => 10%, min_qty:5 => 30%)
+-
+ !record {model: product.product, id: pos_product_product_1}:
+    default_code: ABC123
+    name: POS Product 1
+    type: product
+    categ_id: product.product_category_1
+    list_price: 100.0
+    standard_price: 50.0
+    uom_id: product.product_uom_unit
+    uom_po_id: product.product_uom_unit
+    available_in_pos: True
+
+-
+  This product will have one rule (min_qty:2 => 10%)
+-
+ !record {model: product.product, id: pos_product_product_2}:
+    default_code: ABC124
+    name: POS Product 2
+    type: product
+    categ_id: product.product_category_1
+    list_price: 100.0
+    standard_price: 100.0
+    uom_id: product.product_uom_unit
+    uom_po_id: product.product_uom_unit
+    available_in_pos: True
+
+-
+  This product will have a rule that (based on supplier discount)
+-
+ !record {model: product.product, id: pos_product_product_3}:
+    default_code: ABC125
+    name: POS Product 3
+    type: product
+    categ_id: product.product_category_1
+    list_price: 100.0
+    standard_price: 50.0
+    uom_id: product.product_uom_unit
+    uom_po_id: product.product_uom_unit
+    available_in_pos: True
+    seller_ids:
+      - delay: 1
+        name: base.res_partner_3
+        pricelist_ids:
+          - min_quantity : 2.0
+            price : 80
+
+-
+  This product belgon to computer category (5% dicount)
+-
+ !record {model: product.product, id: pos_product_product_4}:
+    default_code: ABC125
+    name: POS Product 4
+    type: product
+    categ_id: product.product_category_4
+    list_price: 100.0
+    standard_price: 50.0
+    uom_id: product.product_uom_unit
+    uom_po_id: product.product_uom_unit
+    available_in_pos: True
+-
+  Prepare pricelist items
+-
+  !record {model: product.pricelist.version, id: product.ver0}:
+    items_id:
+      - name: 10% Discount on POS Product 1 (Qty 3)
+        sequence: 2
+        product_id: pos_product_product_1
+        base: 1
+        price_discount: -0.10
+        min_quantity: 3
+      - name: 30% Discount on POS Product 1 (Qty 5)
+        sequence: 1
+        product_id: pos_product_product_1
+        min_quantity: 5
+        base: 1
+        price_discount: -0.30
+      - name: 10% Discount (POS Product 2)
+        sequence: 1
+        product_id: pos_product_product_2
+        base: 2
+        price_discount: -0.10
+        min_quantity: 2
+      - name: 20% Discount given by supplier
+        sequence: 1
+        min_quantity: 2
+        product_id: pos_product_product_3
+        base: -2
+      - name: 5% Discount on all Computer related products (Qty 2)
+        sequence: 1
+        min_quantity: 2
+        base: 1
+        categ_id: product.product_category_4
+        price_discount: -0.05
