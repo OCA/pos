@@ -48,7 +48,7 @@ project of the Odoo Community Association http://odoo-community.org/.
 You are invited to become a member and/or get involved in the
 Association !
     """,
-    'author': 'Aurélien DUMAINE',
+    'author': "Aurélien DUMAINE,Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [

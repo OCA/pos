@@ -55,7 +55,7 @@ Copyright, Authors and Licence:
     * Author:
         * Sylvain LE GAL (https://twitter.com/legalsylvain);
     * Licence: AGPL-3 (http://www.gnu.org/licenses/);""",
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com',
     'license': 'AGPL-3',
     'depends': [

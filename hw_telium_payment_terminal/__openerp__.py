@@ -73,7 +73,7 @@ Association !
 This module has been written by Alexis de Lattre
 <alexis.delattre@akretion.com> from Akretion.
     """,
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com',
     'depends': ['hw_proxy'],
     'external_dependencies': {
