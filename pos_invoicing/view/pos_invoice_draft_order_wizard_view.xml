@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************************************************************** -->
+<!--Point Of Sale - Invoicing module for Odoo                               -->
+<!--Copyright (C) 2013-Today GRAP (http://www.grap.coop)                    -->
+<!--@author Julien WESTE                                                    -->
+<!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
+
+<!--This program is free software: you can redistribute it and/or modify    -->
+<!--it under the terms of the GNU Affero General Public License as          -->
+<!--published by the Free Software Foundation, either version 3 of the      -->
+<!--License, or (at your option) any later version.                         -->
+
+<!--This program is distributed in the hope that it will be useful,         -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!--GNU Affero General Public License for more details.                     -->
+
+<!--You should have received a copy of the GNU Affero General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.   -->
+<!-- ********************************************************************** -->
+
+<openerp>
+    <data>
+<!--    Model: pos.invoice.draft.order-->
+        <record id="view_pos_invoice_draft_order_wizard_form" model="ir.ui.view">
+            <field name="model">pos.invoice.draft.order.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Draft Orders" version="7.0">
+                    <group col="1">
+                        <p>
+                            You are about to validate this POS Order without payment and to create an invoice.
+                        </p>
+                        <newline/>
+                        <p>
+                            <ul>
+                                <li>You'll have to check and validate the invoice and register the payments against it.
+                                </li>
+                                <li>You'll not put the payment of this invoice in the cash register (as a normal Invoice, created from a Sale Order).</li>
+                            </ul>
+                        </p>
+                        <newline/>
+                        <p>Do you confirm?</p>
+                    </group>
+                    <footer>
+                        <button name="invoice_draft_order" string="OK" type="object" class="oe_highlight"/>
+                        <label string="or" />
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>
