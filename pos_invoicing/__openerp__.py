@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    POS Invoicing module for Odoo
+#    Point Of Sale - Invoicing module for Odoo
 #    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
 #    @author Julien WESTE
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -22,8 +22,8 @@
 ##############################################################################
 
 {
-    'name': 'POS - Invoicing',
-    'summary': 'Handle invoicing from POS',
+    'name': 'Point Of Sale - Invoicing',
+    'summary': 'Handle invoicing from Point Of Sale',
     'version': '2.1',
     'category': 'Point of Sale',
     'description': """
