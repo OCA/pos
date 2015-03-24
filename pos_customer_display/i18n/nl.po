@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_customer_display
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-24 13:44+0000\n"
+"PO-Revision-Date: 2015-03-23 19:00+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.7.5\n"
+"Language: nl\n"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:56
+#, python-format
+msgid "Cancel Payment"
+msgstr "Annuleren Betaling"
+
+#. module: pos_customer_display
+#: field:pos.config,iface_customer_display:0
+msgid "Customer display"
+msgstr "Klant Scherm"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:41
+#, python-format
+msgid "Delete Item"
+msgstr "Verwijderen Item"
+
+#. module: pos_customer_display
+#: help:pos.config,iface_customer_display:0
+msgid "Display data on the customer display"
+msgstr "Weergeven gegevens op het klant scherm"
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_line_length:0
+msgid "Length of the LEDs lines of the customer display"
+msgstr "Lengte van de LED lijnen van het klant scherm"
+
+#. module: pos_customer_display
+#: field:pos.config,customer_display_line_length:0
+msgid "Line length"
+msgstr "Lijn lengte"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:69
+#, python-format
+msgid "Next Customer"
+msgstr "Volgende Klant"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:81
+#, python-format
+msgid "Point of Sale Closed"
+msgstr "Kassa Gesloten"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:75
+#, python-format
+msgid "Point of Sale Open"
+msgstr "Kassa Open"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:48
+#, python-format
+msgid "TOTAL: "
+msgstr "TOTAAL:"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:63
+#, python-format
+msgid "Your Change:"
+msgstr "Wisselgeld:"
