@@ -52,6 +52,17 @@ class Module(models.Model):
                     REFERENCES pos_category(id) ON DELETE SET NULL;
                 ''')
 
+                # Restore POS category menu action
+                # in SQL because pool/env is not available here
+                cr.execute('''
+                    UPDATE ir_act_window iaw SET res_model='pos.category'
+                    FROM ir_model_data imd
+                    WHERE
+                        iaw.id = imd.res_id AND
+                        imd.model = 'ir.actions.act_window' AND
+                        imd.name = 'product_pos_category_action'
+                ''')
+
                 break
 
         return super(Module, self).module_uninstall(
