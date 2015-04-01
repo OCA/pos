@@ -19,6 +19,7 @@
 #
 ##############################################################################
 
+import sys
 from openerp import models, fields, api
 
 
@@ -50,8 +51,10 @@ def _auto_end(self, cr, context=None):
     context = context or {}
     module = context['module']
     foreign_keys = []
+    patched = 'openerp.addons.pos_product_category' in sys.modules
+
     for t, k, r, d in self._foreign_keys:
-        if (t, k) == ('product_template', 'pos_categ_id'):
+        if patched and (t, k) == ('product_template', 'pos_categ_id'):
             if module == 'pos_product_category':
                 cr.execute('''
                     ALTER TABLE product_template
@@ -61,6 +64,12 @@ def _auto_end(self, cr, context=None):
                 cr.execute('''
                     UPDATE product_template
                     SET pos_categ_id = categ_id;
+                ''')
+                cr.execute('''
+                    ALTER TABLE product_template ADD CONSTRAINT
+                    "product_template_pos_categ_id_fkey"
+                    FOREIGN KEY (pos_categ_id)
+                    REFERENCES product_category(id) ON DELETE SET NULL;
                 ''')
             continue
         foreign_keys.append((t, k, r, d))

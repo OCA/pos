@@ -6,6 +6,13 @@ POS Product Category
 
 This module was written to replace POS categories by product categories.
 
+Important notes:
+- When the module is installed the link beetween products and POS categories
+  is **overwritten** by a link beetween product categories
+  (the link is the field pos_categ_id in the table product_template)
+- When the module is uninstalled the link beetween products and POS categories
+  is restored in an **empty** state (NULL values)
+
 Installation
 ============
 
