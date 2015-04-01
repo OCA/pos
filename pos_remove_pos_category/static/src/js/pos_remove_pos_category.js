@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-openerp.pos_product_category = function(instance, local) {
+openerp.pos_remove_pos_category = function(instance, local) {
     module = instance.point_of_sale;
 
     var initialize_original = module.PosModel.prototype.initialize;

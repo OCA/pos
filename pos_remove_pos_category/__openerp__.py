@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'POS Product Category',
+    'name': 'POS Remove POS Category',
     'version': '0.1',
     'author': 'Akretion, Odoo Community Association (OCA)',
     'category': 'Sales Management',
@@ -31,7 +31,7 @@
     'website': 'https://www.akretion.com',
     'data': [
         'point_of_sale_view.xml',
-        'views/pos_product_category.xml',
+        'views/pos_remove_pos_category.xml',
     ],
     'installable': True,
     'auto_install': False,

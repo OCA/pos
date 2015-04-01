@@ -1,14 +1,16 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: License
 
-POS Product Category
-====================
+POS Remove POS Category
+=======================
 
-This module was written to replace POS categories by product categories.
+This module was written to replace POS categories by product categories
+in the point of sale.
 
-Important notes:
+Important notes
+---------------
 - When the module is installed the link beetween products and POS categories
-  is **overwritten** by a link beetween product categories
+  is **overwritten** by a link beetween products and product categories
   (the link is the field pos_categ_id in the table product_template)
 - When the module is uninstalled the link beetween products and POS categories
   is restored in an **empty** state (NULL values)

@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_product_category
+#	* pos_remove_pos_category
 #
 msgid ""
 msgstr ""
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: pos_product_category
-#: model:ir.model,name:pos_product_category.model_product_template
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_template
 msgid "Product Template"
 msgstr ""
 

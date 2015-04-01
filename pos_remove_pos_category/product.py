@@ -46,16 +46,16 @@ _auto_end_original = models.BaseModel._auto_end
 
 def _auto_end(self, cr, context=None):
     """ Create the foreign keys recorded by _auto_init.
-        (pos_product_category monkey patching)
+        (pos_remove_pos_category monkey patching)
     """
     context = context or {}
     module = context['module']
     foreign_keys = []
-    patched = 'openerp.addons.pos_product_category' in sys.modules
+    patched = 'openerp.addons.pos_remove_pos_category' in sys.modules
 
     for t, k, r, d in self._foreign_keys:
         if patched and (t, k) == ('product_template', 'pos_categ_id'):
-            if module == 'pos_product_category':
+            if module == 'pos_remove_pos_category':
                 cr.execute('''
                     ALTER TABLE product_template
                     DROP CONSTRAINT IF EXISTS

@@ -31,7 +31,7 @@ class Module(models.Model):
         context = context or {}
 
         for module in self.browse(cr, uid, ids, context=context):
-            if module.name == 'pos_product_category':
+            if module.name == 'pos_remove_pos_category':
 
                 # As we have loose previous POS categs restore them
                 # in a sane empty state
