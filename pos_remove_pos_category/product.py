@@ -1,0 +1,79 @@
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2015-TODAY Akretion (<http://www.akretion.com>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+
+import sys
+from openerp import models, fields, api
+
+
+class ProductTemplate(models.Model):
+    _inherit = 'product.template'
+
+    pos_categ_id = fields.Many2one('product.category',
+                                   store=True, related='categ_id')
+
+    @api.model
+    def create(self, vals):
+        vals['pos_categ_id'] = vals['categ_id']
+        return super(ProductTemplate, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if 'pos_categ_id' in vals and not vals['pos_categ_id']:
+            del vals['pos_categ_id']
+        return super(ProductTemplate, self).write(vals)
+
+
+_auto_end_original = models.BaseModel._auto_end
+
+
+def _auto_end(self, cr, context=None):
+    """ Create the foreign keys recorded by _auto_init.
+        (pos_remove_pos_category monkey patching)
+    """
+    context = context or {}
+    module = context['module']
+    foreign_keys = []
+    patched = 'openerp.addons.pos_remove_pos_category' in sys.modules
+
+    for t, k, r, d in self._foreign_keys:
+        if patched and (t, k) == ('product_template', 'pos_categ_id'):
+            if module == 'pos_remove_pos_category':
+                cr.execute('''
+                    ALTER TABLE product_template
+                    DROP CONSTRAINT IF EXISTS
+                    product_template_pos_categ_id_fkey
+                ''')
+                cr.execute('''
+                    UPDATE product_template
+                    SET pos_categ_id = categ_id;
+                ''')
+                cr.execute('''
+                    ALTER TABLE product_template ADD CONSTRAINT
+                    "product_template_pos_categ_id_fkey"
+                    FOREIGN KEY (pos_categ_id)
+                    REFERENCES product_category(id) ON DELETE SET NULL;
+                ''')
+            continue
+        foreign_keys.append((t, k, r, d))
+    self._foreign_keys = foreign_keys
+    return _auto_end_original(self, cr, context=context)
+
+models.BaseModel._auto_end = _auto_end
