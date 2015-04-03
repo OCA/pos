@@ -189,7 +189,7 @@ function pos_pricelist_models(instance, module) {
                 }
             }
             if (product_taxes.length === 0) {
-                for (var i = 0, ilen = product.taxes_id; i < ilen; i++) {
+                for (var i = 0, ilen = product.taxes_id.length; i < ilen; i++) {
                     var _id = product.taxes_id[i];
                     var p_tax = _.detect(this.pos.taxes, function (t) {
                         return t.id === _id;
