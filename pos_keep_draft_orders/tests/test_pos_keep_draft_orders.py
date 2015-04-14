@@ -21,7 +21,7 @@
 ##############################################################################
 
 from openerp import netsvc
-
+from osv.osv import except_osv
 from openerp.tests.common import TransactionCase
 
 
@@ -30,7 +30,6 @@ class TestPosKeepDraftOrders(TransactionCase):
 
     def setUp(self):
         super(TestPosKeepDraftOrders, self).setUp()
-        cr, uid = self.cr, self.uid
 
         self.imd_obj = self.registry('ir.model.data')
         self.ps_obj = self.registry('pos.session')
@@ -38,12 +37,9 @@ class TestPosKeepDraftOrders(TransactionCase):
         self.pmp_obj = self.registry('pos.make.payment')
         self.wf_service = netsvc.LocalService('workflow')
 
-        self.pos_config_id = self.imd_obj.get_object_reference(
-            cr, uid, 'point_of_sale', 'pos_config_main')[1]
-        self.product_1 = self.imd_obj.get_object_reference(
-            cr, uid, 'product', 'product_product_48')[1]
-        self.cash_journal_id = self.imd_obj.get_object_reference(
-            cr, uid, 'account', 'cash_journal')[1]
+        self.pos_config_id = self.ref('point_of_sale.pos_config_main')
+        self.product_1 = self.ref('product.product_product_48')
+        self.cash_journal_id = self.ref('account.cash_journal')
 
     # Test Section
     def test_01_allow_draft_order_unpaid(self):
@@ -91,7 +87,7 @@ class TestPosKeepDraftOrders(TransactionCase):
             new opened session to allow payment.""")
 
     # Test Section
-    def test_01_block_draft_order_partial_paid(self):
+    def test_02_block_draft_order_partial_paid(self):
         """Test the unpossibility to let a PoS Order in a slate if it is
         in a partial paid state."""
         cr, uid = self.cr, self.uid
@@ -113,21 +109,12 @@ class TestPosKeepDraftOrders(TransactionCase):
         })
 
         # Make partial payment
-        pmp_id = self.pmp_obj.create(cr, uid, {
-            'journal_id': self.cash_journal_id,
+        self.po_obj.add_payment(cr, uid, po_id, {
             'amount': 1,
+            'journal': self.cash_journal_id,
         })
-        self.pmp_obj.check(cr, uid, [pmp_id], {'active_id': po_id})
 
-        # Try Close Session
-        try:
+        # Try Close Session (Must fail)
+        with self.assertRaises(except_osv):
             self.wf_service.trg_validate(
                 uid, 'pos.session', ps_id, 'close', cr)
-            raise_exception = False
-        except:
-            raise_exception = True
-
-        self.assertEquals(
-            raise_exception, True,
-            """Draft Orders with partial Payment must block the closing
-            process of the associated session.""")

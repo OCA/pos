@@ -60,7 +60,7 @@ Copyright, Authors and Licence:
         * Julien WESTE;
         * Sylvain LE GAL (https://twitter.com/legalsylvain);
     * Licence: AGPL-3 (http://www.gnu.org/licenses/);""",
-    'author': 'GRAP',
+    'author': 'GRAP,Odoo Community Association (OCA)',
     'website': 'http://www.grap.coop',
     'license': 'AGPL-3',
     'depends': [
