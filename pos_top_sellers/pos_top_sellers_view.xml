@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (C) 2010-2013 OpenERP s.a. (<http://openerp.com>).
+#    Copyright (C) 2015 initOS GmbH & Co. KG (<http://www.initos.com>).
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+ -->
+
+<openerp>
+    <data>
+
+        <record id="view_pos_top_sellers_shop_report" model="ir.ui.view">
+            <field name="name">pos.top.sellers.shop.report</field>
+            <field name="model">pos.top.sellers.shop.report</field>
+            <field name="arch" type="xml">
+                <tree string="Best sellers by shop" create='false'/>
+                <!--
+                Content is created dynamically in fields_view_get()
+                Do not add fields here!
+                Do not inherit this view!
+                -->
+            </field>
+        </record>
+
+        <record id="action_pos_top_sellers_shop_report" model="ir.actions.act_window">
+            <field name="name">Best sellers by shop</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.top.sellers.shop.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pos_top_sellers_shop_view</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="view_pos_top_sellers_product_report" model="ir.ui.view">
+            <field name="name">pos.top.sellers.product.report</field>
+            <field name="model">pos.top.sellers.product.report</field>
+            <field name="arch" type="xml">
+                <tree string="Recent sales by product/shop" create='false'>
+                    <field name="date"/>
+                </tree>
+                <!--
+                Content is created dynamically in fields_view_get()
+                Do not add fields here!
+                Do not inherit this view!
+                -->
+            </field>
+        </record>
+
+        <record id="action_pos_top_sellers_product_report" model="ir.actions.act_window">
+            <field name="name">Recent sales by product/shop</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.top.sellers.product.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pos_top_sellers_product_view</field>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem name="Best sellers by shop" id="menu_pos_top_sellers_shop_report"
+                  parent="point_of_sale.menu_point_rep" action="action_pos_top_sellers_shop_report"
+                  sequence="40"/>
+
+        <menuitem name="Recent sales by product/shop" id="menu_pos_top_sellers_product_report"
+                  parent="point_of_sale.menu_point_rep" action="action_pos_top_sellers_product_report"
+                  sequence="41"/>
+
+    </data>
+</openerp>
