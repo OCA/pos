@@ -22,18 +22,19 @@
     'name': 'Point of sale topseller report.',
     'version': '1.0',
     'category': '',
-    'summary': 'Report topseller products in point of sale for all of your shops.',
+    'summary': 'Report topseller products in point of sale for all shops.',
     'description': """
 Report top selling products for point of sale
 =============================================
 
-This module adds 2 new reports to report sales done via point of sale for all of
-your companies shops.
+This module adds 2 new reports to report sales done via point of sale for all
+of your companies shops.
 
 Top 40 sales by shop
 --------------------
 * List top 40 sold products in a given period for all of your shops.
-* Click on a product to show sales for this product by shop on a daily basis over that timeframe.
+* Click on a product to show sales for this product by shop on a daily basis
+  over that timeframe.
 
 Recent sales by shop for a given product
 ----------------------------------------
