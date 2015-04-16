@@ -20,31 +20,35 @@
 #
 ##############################################################################
 
-from openerp.osv import orm, fields
-from openerp.tools.translate import _
 from datetime import datetime, timedelta
-from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 from lxml import etree
 
+from openerp.osv import orm, fields
+from openerp.tools.translate import _
+from openerp.tools import DEFAULT_SERVER_DATE_FORMAT
 
-class pos_top_sellers_product_report(orm.Model):
+
+class PosTopSellersProductReport(orm.Model):
     _name = 'pos.top.sellers.product.report'
 
     # Create no table. Everything is created dynamically in this model
     _auto = False
 
-    _columns = dict(date = fields.char(string='', readonly=True))
+    _columns = dict(date=fields.char(string='', readonly=True))
 
-    def get_product_code_for_id(self, cr, uid, id, context=None):
-        prod = self.pool['product.product'].browse(cr, uid, id, context)
+    def get_product_code_for_id(self, cr, uid, product_id, context=None):
+        prod = self.pool['product.product'].\
+            browse(cr, uid, product_id, context)
         return prod.default_code
 
     def get_product_id_for_code(self, cr, uid, default_code, context=None):
-        ids = self.pool['product.product'].search(cr, uid, [('default_code','=', default_code)], context)
+        ids = self.pool['product.product'].\
+            search(cr, uid, [('default_code', '=', default_code)], context)
         return ids[0] if ids else 0
 
-    def fields_view_get(self, cr, uid, view_id=None, view_type='form', context=None, toolbar=False):
-        res = super(pos_top_sellers_product_report, self).\
+    def fields_view_get(self, cr, uid, view_id=None, view_type='form',
+                        context=None, toolbar=False, submenu=False):
+        res = super(PosTopSellersProductReport, self). \
             fields_view_get(cr, uid, view_id=view_id, view_type=view_type,
                             context=context, toolbar=toolbar)
 
@@ -84,13 +88,17 @@ class pos_top_sellers_product_report(orm.Model):
         if not date_from:
             timestamp = datetime.strptime(date_to, DEFAULT_SERVER_DATE_FORMAT)
             timestamp -= timedelta(days=30)
-            date_from = fields.date.context_today(self, cr, uid, context=context, timestamp=timestamp)
+            date_from = fields.date.context_today(self, cr, uid,
+                                                  context=context,
+                                                  timestamp=timestamp)
 
-        return (date_from, date_to)
+        return date_from, date_to
 
-    def search(self, cr, user, args, offset=0, limit=None, order=None, context=None, count=False):
+    def search(self, cr, user, args, offset=0, limit=None, order=None,
+               context=None, count=False):
         product_id = context and context.get('my_res_id')
-        date_from, date_to = self._get_context_date_range(cr, user, context=context)
+        date_from, date_to = self._get_context_date_range(cr, user,
+                                                          context=context)
         res = []
 
         if product_id and date_from and date_to:
@@ -98,16 +106,18 @@ class pos_top_sellers_product_report(orm.Model):
             d1 = datetime.strptime(date_to, DEFAULT_SERVER_DATE_FORMAT)
 
             # range depends on number of days in date range
-            num_days = abs((d1 - d0).days)+1
-            res = range(1, 1+2+num_days)
+            num_days = abs((d1 - d0).days) + 1
+            res = range(1, 1 + 2 + num_days)
 
         return res
 
-    def read(self, cr, user, ids, fields=None, context=None, load='_classic_read'):
+    def read(self, cr, user, ids, fields=None, context=None,
+             load='_classic_read'):
         # create empty result lines
-        res = [dict(id=id) for id in ids]
+        res = [dict(id=i) for i in ids]
         product_id = context and context.get('my_res_id')
-        date_from, date_to = self._get_context_date_range(cr, user, context=context)
+        date_from, date_to = self._get_context_date_range(cr, user,
+                                                          context=context)
 
         if not (product_id and date_from and date_to):
             return res
@@ -117,8 +127,9 @@ class pos_top_sellers_product_report(orm.Model):
         res[1].update(date=_('Currently in stock'))
 
         # remaining lines are sales top statistics per date
-        for shop_id in self.pool['sale.shop'].search(cr, user, [], context=context):
-            sql='''
+        for shop_id in self.pool['sale.shop'].\
+                search(cr, user, [], context=context):
+            sql = '''
             select
                date_trunc('day', dd)::date as date
               ,COALESCE(pd.qty, 0) as qty
@@ -152,7 +163,7 @@ class pos_top_sellers_product_report(orm.Model):
 
             qty_key = 'qty_' + str(shop_id)
 
-            line_id=2
+            line_id = 2
             for date, qty in query_result:
                 res[line_id].update({
                     'date': date,
@@ -166,21 +177,23 @@ class pos_top_sellers_product_report(orm.Model):
             ctx.update({'shop': shop_id,
                         'states': ('done',),
                         'what': ('in', 'out')})
-            product = self.pool['product.product'].browse(cr, user, product_id, context=ctx)
+            product = self.pool['product.product'].\
+                browse(cr, user, product_id, context=ctx)
             res[1].update({qty_key: product.qty_available})
-
 
         # postprocess
         for line in res[2:]:
             # transform date format
-            # fixme: note this uses the server locale not the user language set in odoo
-            #        to really do this right we need to format this in JS on the client side
+            # fixme: note this uses the server locale not the user language
+            # set in odoo to really do this right we need to format this in JS
+            # on the client side
             date = datetime.strptime(line['date'], '%Y-%m-%d')
             line['date'] = date.strftime('%A, %x')
 
         return res
 
-class pos_top_sellers_shop_report(orm.Model):
+
+class PosTopSellersShopReport(orm.Model):
     _name = 'pos.top.sellers.shop.report'
 
     # We do not have columns. Everything is created dynamically in this model
@@ -189,8 +202,9 @@ class pos_top_sellers_shop_report(orm.Model):
     # by default list the top 40 products
     _top_ten_limit = 40
 
-    def fields_view_get(self, cr, uid, view_id=None, view_type='form', context=None, toolbar=False):
-        res = super(pos_top_sellers_shop_report, self).\
+    def fields_view_get(self, cr, uid, view_id=None, view_type='form',
+                        context=None, toolbar=False, submenu=False):
+        res = super(PosTopSellersShopReport, self).\
             fields_view_get(cr, uid, view_id=view_id, view_type=view_type,
                             context=context, toolbar=toolbar)
 
@@ -229,21 +243,24 @@ class pos_top_sellers_shop_report(orm.Model):
             res['arch'] = etree.tostring(arch)
         return res
 
-    def search(self, cr, user, args, offset=0, limit=None, order=None, context=None, count=False):
+    def search(self, cr, user, args, offset=0, limit=None, order=None,
+               context=None, count=False):
         # ignore sorting, limit etc
-        return range(1,1+self._top_ten_limit)
+        return range(1, 1 + self._top_ten_limit)
 
-    def read(self, cr, user, ids, fields=None, context=None, load='_classic_read'):
+    def read(self, cr, user, ids, fields=None, context=None,
+             load='_classic_read'):
 
         date_from = context and context.get('list_date_range_bar_start')
         date_to = context and context.get('list_date_range_bar_end')
 
         # create empty result lines
-        res = [dict(id=id) for id in ids]
+        res = [dict(id=i) for i in ids]
         limit = len(res)
 
-        for shop_id in self.pool['sale.shop'].search(cr, user, [], context=context):
-            sql='''
+        for shop_id in self.pool['sale.shop'].\
+                search(cr, user, [], context=context):
+            sql = '''
             select
                product_id
               ,COALESCE(default_code, pt.name)
@@ -266,7 +283,7 @@ class pos_top_sellers_shop_report(orm.Model):
                 sql += '''and po.date_order::date <= %(date_to)s '''
 
             sql += \
-            '''
+                '''
             group by
                product_id
               ,COALESCE(default_code, pt.name)
@@ -280,7 +297,7 @@ class pos_top_sellers_shop_report(orm.Model):
             product_key = 'product_id_' + str(shop_id)
             qty_key = 'qty_' + str(shop_id)
 
-            line_id=0
+            line_id = 0
             for product_id, default_code, qty in cr.fetchall():
                 res[line_id].update({
                     product_key: (product_id, default_code),
