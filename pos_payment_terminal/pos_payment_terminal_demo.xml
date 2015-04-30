@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+<record id="account.check_journal" model="account.journal">
+    <field name="payment_mode">check</field>
+</record>
+
+</data>
+</openerp>
