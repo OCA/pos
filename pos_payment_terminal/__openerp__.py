@@ -53,5 +53,6 @@ Association !
         'pos_payment_terminal.xml',
         'pos_payment_terminal_view.xml',
         ],
+    'demo': ['pos_payment_terminal_demo.xml'],
     'qweb': ['static/src/xml/pos_payment_terminal.xml'],
 }
