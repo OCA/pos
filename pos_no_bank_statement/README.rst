@@ -14,7 +14,8 @@ Usage
 
 * Create new Account Journal (e.g. "On Debt") marked as "PoS Payment Method" and
   "No Bank Statement"
-* When selling goods select this method and click "Invoice"
+* That's it. Selecting this payment method in POS no Bank Statemenet Lines will
+  be created
 
 Credits
 =======
