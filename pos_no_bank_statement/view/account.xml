@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+	<!-- account.journal -->
+        <record model="ir.ui.view" id="view_account_journal_pos_user_form_inherit">
+            <field name="name">POS Journal Inherit</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
+            <field name="arch" type="xml">
+                <field name="journal_user" position="after">
+                    <field name="no_bank_statement" attrs="{'readonly': [('journal_user', '=', False)]}"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
