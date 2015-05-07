@@ -8,14 +8,12 @@ from openerp import models, api
 class POSOrder(models.Model):
     _inherit = "pos.order"
 
-    @api.v7
-    def add_payment(self, cr, uid, order_id, data, context=None):
+    @api.model
+    def add_payment(self, order_id, data):
         journal_id = data.get('journal')
         if journal_id:
-            journal_rec = self.pool.get('account.journal').browse(
-                cr, uid, journal_id, context)
-            if journal_rec.no_bank_statement:
+            journal = self.env['account.journal'].browse(journal_id)
+            if journal.no_bank_statement:
                 return None
 
-        return super(POSOrder, self).add_payment(
-            cr, uid, order_id, data, context)
+        return super(POSOrder, self).add_payment(order_id, data)
