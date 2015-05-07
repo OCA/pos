@@ -11,6 +11,7 @@ class AccountJournal(models.Model):
     no_bank_statement = fields.Boolean(
         string="No Bank Statement",
         help="Select if you do not want bank statements created. It basically "
-        "makes this a dummy method because it will no longer make any impact on"
-        " your accounts. One use case might be when you want to sell products "
-        "only by issuing an Invoice without registering any payments.")
+        "makes this a dummy method because it will no longer make any impact "
+        "on your accounts. One use case might be when you want to sell "
+        "products only by issuing an Invoice without registering any payments."
+    )
