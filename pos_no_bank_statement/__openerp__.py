@@ -20,6 +20,7 @@ issuing an Invoice without registering any payment.
     'data': [
         'view/account.xml',
     ],
+    'demo': ['demo.xml'],
     'installable': True,
     'application': False,
 }
