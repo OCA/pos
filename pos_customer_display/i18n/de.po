@@ -32,7 +32,7 @@ msgstr "Kunden-Display"
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:41
 #, python-format
 msgid "Delete Item"
-msgstr "Artikel löschen"
+msgstr "Artikel loeschen"
 
 #. module: pos_customer_display
 #: help:pos.config,iface_customer_display:0
@@ -54,7 +54,7 @@ msgstr "Zeilenlänge"
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:69
 #, python-format
 msgid "Next Customer"
-msgstr "Nächster Kunde"
+msgstr "Naechster Kunde"
 
 #. module: pos_customer_display
 #. openerp-web
@@ -68,7 +68,7 @@ msgstr "Kasse geschlossen"
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:75
 #, python-format
 msgid "Point of Sale Open"
-msgstr "Kasse geöffnet"
+msgstr "Kasse geoeffnet"
 
 #. module: pos_customer_display
 #. openerp-web
