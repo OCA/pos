@@ -48,11 +48,13 @@ project of the Odoo Community Association http://odoo-community.org/.
 You are invited to become a member and/or get involved in the
 Association !
     """,
-    'author': "Aurélien DUMAINE,Odoo Community Association (OCA)",
+    'author': "Aurélien DUMAINE,Akretion,Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [
         'pos_customer_display.xml',
         'customer_display_view.xml',
         ],
+    'qweb': ['static/src/xml/pos.xml'],
+    'demo': ['pos_customer_display_demo.xml'],
 }
