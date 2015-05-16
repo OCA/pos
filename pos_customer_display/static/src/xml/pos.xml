@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="OrderWidget" >
+        <t t-jquery=".summary" t-operation="append">
+            <t t-if="widget.pos.config.iface_customer_display">
+                <div class="show-total-to-customer-div">
+                    <button class="show-total-to-customer">
+                       Display Total to Customer
+                    </button>
+                </div>
+            </t>
+        </t>
+    </t>
+</templates>
