@@ -226,4 +226,24 @@ openerp.pos_customer_display = function(instance){
         return res;
     };
 
+    /* Handle Button "Display Total to Customer" */
+    var _super_OrderWidget_init_ = module.OrderWidget.prototype.init;
+    module.OrderWidget.prototype.init = function(parent, options){
+        _super_OrderWidget_init_.call(this, parent, options);
+        var self = this;
+        this.prepare_text_customer_display = function(event){
+            self.pos.prepare_text_customer_display('addPaymentline', {});
+            event.stopPropagation();
+        };
+    };
+
+    var _super_update_summary_ = module.OrderWidget.prototype.update_summary;
+    module.OrderWidget.prototype.update_summary = function(){
+        _super_update_summary_.call(this);
+        if (this.pos.config.iface_customer_display){
+            this.el.querySelector('.show-total-to-customer')
+                .addEventListener('click', this.prepare_text_customer_display);
+            }
+    };
+
 };
