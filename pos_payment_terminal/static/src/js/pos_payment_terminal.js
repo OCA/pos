@@ -11,8 +11,6 @@ openerp.pos_payment_terminal = function(instance){
         },
     });
 
-    //TODO make the button bigger and with better name
-
     var _super_PaymentScreenWidget_init_ = module.PaymentScreenWidget.prototype.init;
     module.PaymentScreenWidget.prototype.init = function(parent, options){
         _super_PaymentScreenWidget_init_.call(this, parent, options);
