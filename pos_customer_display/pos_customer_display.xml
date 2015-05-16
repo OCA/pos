@@ -6,5 +6,10 @@
                 <script type="text/javascript" src="/pos_customer_display/static/src/js/customer_display.js"></script>
             </xpath>
         </template>
+        <template id="index" name="pos_customer_display index" inherit_id="point_of_sale.index">
+            <xpath expr="//link[@id='pos-stylesheet']" position="after">
+                <link rel="stylesheet" href="/pos_customer_display/static/src/css/pos_customer_display.css" id="pos_customer_display-stylesheet"/>
+            </xpath>
+        </template>
     </data>
 </openerp>
