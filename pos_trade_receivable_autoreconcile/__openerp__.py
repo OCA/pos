@@ -5,8 +5,8 @@
 {
     'name': 'POS Trade Receivable Autoreconcile',
     'version': '0.1',
-    'author': 'Versada UAB',
-    'category': 'Other',
+    'author': 'Versada UAB,Odoo Community Association (OCA)',
+    'category': 'Point Of Sale',
     'website': 'http://www.versada.lt',
     'depends': [
         'point_of_sale',

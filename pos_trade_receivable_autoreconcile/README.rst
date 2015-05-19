@@ -11,6 +11,7 @@ Example:
 
 * Product costs 8EUR but customer pays 10EUR by cash getting 2EUR in return.
 In accounting it looks like this:
+
 1) D: cash: 10
 2) C: account_receivable: 10
 
@@ -19,6 +20,7 @@ In accounting it looks like this:
 
 * When closing & validating a session system would create "Trade Receivable"
 counterpart like this:
+
 5) D: account_receivable: 8
 6) C: income_account: 8
 
