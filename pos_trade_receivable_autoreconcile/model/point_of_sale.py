@@ -39,10 +39,12 @@ class POSOrder(models.Model):
                         grouped_data[key].append(line.id)
         for key, value in grouped_data.iteritems():
             for line in order.account_move.line_id:
-                if line.account_id.id == key[1] and line.partner_id.id == key[0]:
+                if (line.account_id.id == key[1] and
+                        line.partner_id.id == key[0]):
                     grouped_data[key].append(line.id)
                     break
         for key, value in grouped_data.iteritems():
-            self.pool.get('account.move.line').reconcile_partial(cr, uid, value)
+            self.pool.get('account.move.line').reconcile_partial(
+                cr, uid, value)
 
         return to_ret
