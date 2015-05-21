@@ -45,6 +45,8 @@ class POSOrder(models.Model):
                     grouped_data[key].append(line.id)
                     break
         for key, value in grouped_data.iteritems():
+            if not value:
+                continue
             self.pool.get('account.move.line').reconcile_partial(
                 cr, SUPERUSER_ID, value)
 
