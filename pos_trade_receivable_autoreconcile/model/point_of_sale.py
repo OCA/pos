@@ -2,7 +2,7 @@
 # This file is part of OpenERP. The COPYRIGHT file at the top level of
 # this module contains the full copyright notices and license terms.
 
-from openerp import models
+from openerp import models, SUPERUSER_ID
 
 
 class POSOrder(models.Model):
@@ -18,7 +18,7 @@ class POSOrder(models.Model):
 
         grouped_data = {}
 
-        for order in self.browse(cr, uid, ids, context=context):
+        for order in self.browse(cr, SUPERUSER_ID, ids, context=context):
             current_company = order.sale_journal.company_id
             order_account = (
                 order.partner_id and
@@ -46,6 +46,6 @@ class POSOrder(models.Model):
                     break
         for key, value in grouped_data.iteritems():
             self.pool.get('account.move.line').reconcile_partial(
-                cr, uid, value)
+                cr, SUPERUSER_ID, value)
 
         return to_ret
