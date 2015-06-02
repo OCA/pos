@@ -22,7 +22,7 @@ from openerp import fields, models
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config' 
+    _inherit = 'pos.config'
 
     require_customer = fields.Boolean(
         string='Require customer',
