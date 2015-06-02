@@ -18,8 +18,8 @@
 #
 ##############################################################################
 
-import logging
 from openerp import fields, models
+
 
 class PosConfig(models.Model):
     _inherit = 'pos.config' 
@@ -27,6 +27,3 @@ class PosConfig(models.Model):
     require_customer = fields.Boolean(
         string='Require customer',
         help='Require customer for orders in this point of sale')
-
-
-

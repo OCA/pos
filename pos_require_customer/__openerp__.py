@@ -37,17 +37,17 @@ In the backend the customer field is required when needed.
 
     """,
     'author': 'Apertoso NV',
-    'images': [  ],
+    'images': [],
     'depends': ['point_of_sale'],
     'data': [
         'static/src/xml/templates.xml',
         'pos_view.xml',
     ],
-    'demo': [  ],
-    'test': [  ],
+    'demo': [],
+    'test': [],
     'installable': True,
     'application': True,
-    'qweb': [  ],
+    'qweb': [],
     'website': 'http://www.apertoso.be',
     'auto_install': False,
 }
