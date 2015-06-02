@@ -1,1 +1,1 @@
-import pos
+from . import pos
