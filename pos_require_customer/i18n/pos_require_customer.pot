@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 09:24+0000\n"
-"PO-Revision-Date: 2015-06-02 09:24+0000\n"
+"POT-Creation-Date: 2015-06-02 13:03+0000\n"
+"PO-Revision-Date: 2015-06-02 13:03+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,10 +28,21 @@ msgid "Customer"
 msgstr ""
 
 #. module: pos_require_customer
+#: code:addons/pos_require_customer/pos.py:45
+#, python-format
+msgid "Customer is required for this order and is missing"
+msgstr ""
+
+#. module: pos_require_customer
 #. openerp-web
 #: code:addons/pos_require_customer/static/src/js/pos_require_customer.js:17
 #, python-format
 msgid "Please select a client for this order. This can be done by clicking the order tab"
+msgstr ""
+
+#. module: pos_require_customer
+#: model:ir.model,name:pos_require_customer.model_pos_order
+msgid "Point of Sale"
 msgstr ""
 
 #. module: pos_require_customer
@@ -42,5 +53,10 @@ msgstr ""
 #. module: pos_require_customer
 #: help:pos.config,require_customer:0
 msgid "Require customer for orders in this point of sale"
+msgstr ""
+
+#. module: pos_require_customer
+#: view:pos.order:pos_require_customer.view_pos_pos_form_inherit
+msgid "{'readonly': [('state','=','invoiced')], 'required': [('require_customer','=',True)]}"
 msgstr ""
 

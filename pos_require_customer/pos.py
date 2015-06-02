@@ -18,7 +18,8 @@
 #
 ##############################################################################
 
-from openerp import fields, models
+from openerp import fields, models, exceptions, api
+from openerp.tools.translate import _
 
 
 class PosConfig(models.Model):
@@ -27,3 +28,18 @@ class PosConfig(models.Model):
     require_customer = fields.Boolean(
         string='Require customer',
         help='Require customer for orders in this point of sale')
+
+
+class PosOrder(models.Model):
+    _inherit = 'pos.order'
+
+    require_customer = fields.Boolean(
+        string='Require customer',
+        related='session_id.config_id.require_customer', readonly=True)
+
+    @api.one
+    @api.constrains('partner_id', 'require_customer')
+    def _check_partner(self):
+        if self.require_customer and not self.partner_id:
+            raise exceptions.ValidationError(
+                _('Customer is required for this order and is missing'))

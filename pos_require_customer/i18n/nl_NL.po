@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 11:36+0100\n"
-"PO-Revision-Date: 2015-06-02 11:36+0100\n"
+"POT-Creation-Date: 2015-06-02 15:04+0100\n"
+"PO-Revision-Date: 2015-06-02 15:04+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -30,6 +30,12 @@ msgid "Customer"
 msgstr "Klant"
 
 #. module: pos_require_customer
+#: code:addons/pos_require_customer/pos.py:45
+#, python-format
+msgid "Customer is required for this order and is missing"
+msgstr "Klant is vereist voor deze order en ontbreekt"
+
+#. module: pos_require_customer
 #. openerp-web
 #: code:addons/pos_require_customer/static/src/js/pos_require_customer.js:17
 #, python-format
@@ -41,6 +47,11 @@ msgstr ""
 "de tab bestelling"
 
 #. module: pos_require_customer
+#: model:ir.model,name:pos_require_customer.model_pos_order
+msgid "Point of Sale"
+msgstr "Kassa"
+
+#. module: pos_require_customer
 #: field:pos.config,require_customer:0
 msgid "Require customer"
 msgstr "Klant verplichten"
@@ -49,6 +60,13 @@ msgstr "Klant verplichten"
 #: help:pos.config,require_customer:0
 msgid "Require customer for orders in this point of sale"
 msgstr "Klant verplichten voor kassa orders in deze kassa."
+
+#. module: pos_require_customer
+#: view:pos.order:pos_require_customer.view_pos_pos_form_inherit
+msgid ""
+"{'readonly': [('state','=','invoiced')], 'required': "
+"[('require_customer','=',True)]}"
+msgstr ""
 
 #~ msgid "Require customer for pos orders in the frontend"
 #~ msgstr "Klant verplichten voor kassa orders in deze kassa."
