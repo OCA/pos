@@ -36,7 +36,7 @@ If a customer is not selected, the pos ui will display an error message.
 In the backend the customer field is required when needed.
 
     """,
-    'author': 'Apertoso NV',
+    'author': 'Apertoso NV, Odoo Community Association (OCA)',
     'images': [],
     'depends': ['point_of_sale'],
     'data': [
