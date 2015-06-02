@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #    Copyright (C) 2004-2014 Apertoso NV (<http://www.apertoso.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -21,10 +19,9 @@
 ##############################################################################
 
 import logging
-from openerp import fields
-from openerp.models import Model
+from openerp import fields, models
 
-class pos_config(Model):
+class PosConfig(models.Model):
     _inherit = 'pos.config' 
 
     require_customer = fields.Boolean(
