@@ -31,10 +31,8 @@ class TestPosRequireCustomer(common.TransactionCase):
         pos_session = self.env['pos.session'].create(
             {'config_id': posconfig.id})
         # should raise exceptions.ValidationError
-        self.assertRaises(
-            exceptions.ValidationError,
+        with self.assertRaises(exceptions.ValidationError):
             self.env['pos.order'].create({
                 'session_id': pos_session.id,
                 'partner_id': False,
             })
-        )
