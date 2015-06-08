@@ -6,5 +6,9 @@
     <field name="payment_mode">check</field>
 </record>
 
+<record id="point_of_sale.pos_config_main" model="pos.config">
+    <field name="iface_payment_terminal" eval="True"/>
+</record>
+
 </data>
 </openerp>
