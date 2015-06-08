@@ -3,6 +3,7 @@
 #
 #    POS Payment Terminal module for Odoo
 #    Copyright (C) 2014 Aurélien DUMAINE
+#    Copyright (C) 2015 Akretion (www.akretion.com)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -22,7 +23,7 @@
 from openerp import models, fields
 
 
-class account_journal(models.Model):
+class AccountJournal(models.Model):
     _inherit = 'account.journal'
 
     payment_mode = fields.Selection(
@@ -30,7 +31,7 @@ class account_journal(models.Model):
         help="Select the payment mode sent to the payment terminal")
 
 
-class pos_config(models.Model):
+class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     iface_payment_terminal = fields.Boolean(
