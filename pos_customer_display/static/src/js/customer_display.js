@@ -234,11 +234,9 @@ openerp.pos_customer_display = function(instance){
        'Show total to customer' */
     module.OrderWidget.include({
         update_summary: function(){
-            console.log('MY update_summary');
             this._super();
             var self = this;
             if (this.pos.config.iface_customer_display){
-                console.log('.addEventListener');
                 this.el.querySelector('.show-total-to-customer')
                     .removeEventListener('click', function(){self.pos.prepare_text_customer_display('addPaymentline', {})});
                 this.el.querySelector('.show-total-to-customer')
