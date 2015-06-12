@@ -25,7 +25,7 @@ openerp.pos_payment_terminal = function(instance){
             var self = this;
             if (line.cashregister.journal.payment_mode && this.pos.config.iface_payment_terminal){
                 el_node.querySelector('.payment-terminal-transaction-start')
-                    .addEventListener('click', function(){self.pos.proxy.payment_terminal_transaction_start(line, self.pos.currency.name)});
+                    .addEventListener('click', function(){self.pos.proxy.payment_terminal_transaction_start(line, self.pos.config.currency_id[1])});
                 }
             return el_node;
         },
