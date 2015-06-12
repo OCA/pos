@@ -224,7 +224,6 @@ class TeliumPaymentTerminalDriver(Thread):
         payment_info_dict = simplejson.loads(payment_info)
         assert isinstance(payment_info_dict, dict), \
             'payment_info_dict should be a dict'
-        logger.debug("payment_info_dict = %s" % payment_info_dict)
         try:
             logger.debug(
                 'Opening serial port %s for payment terminal with baudrate %d'
@@ -280,5 +279,7 @@ class TeliumPaymentTerminalProxy(hw_proxy.Proxy):
         '/hw_proxy/payment_terminal_transaction_start',
         type='json', auth='none', cors='*')
     def payment_terminal_transaction_start(self, payment_info):
-        logger.debug('Telium: Call payment_terminal_transaction_start')
+        logger.debug(
+            'Telium: Call payment_terminal_transaction_start with '
+            'payment_info=%s', payment_info)
         driver.push_task('transaction_start', payment_info)
