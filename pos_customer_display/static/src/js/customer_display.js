@@ -12,7 +12,7 @@ openerp.pos_customer_display = function(instance){
     module = instance.point_of_sale;
 
     var _t = instance.web._t;
-
+    var PosModelSuper = module.PosModel;
 
     module.PosModel = module.PosModel.extend({
         prepare_text_customer_display: function(type, data){
@@ -90,6 +90,14 @@ openerp.pos_customer_display = function(instance){
             //console.log('prepare_text_customer_display type=' + type + ' | l1=' + lines_to_send[0] + ' | l2=' + lines_to_send[1]);
         },
 
+        push_order: function(order){
+            res = PosModelSuper.prototype.push_order.call(this, order);
+            if (order) {
+                this.prepare_text_customer_display('pushOrder', {'order' : order});
+            }
+            return res;
+        },
+
     });
 
 
@@ -156,48 +164,40 @@ openerp.pos_customer_display = function(instance){
        },
     });
 
-    var _super_addProduct_ = module.Order.prototype.addProduct;
-    module.Order.prototype.addProduct = function(product, options){
-        res = _super_addProduct_.call(this, product, options);
-        if (product) {
-            this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
-        }
-        return res;
-    };
+    var OrderSuper = module.Order;
 
-    var _super_removeOrderline_ = module.Order.prototype.removeOrderline;
-    module.Order.prototype.removeOrderline = function(line){
-        if (line) {
-            this.pos.prepare_text_customer_display('removeOrderline', {'line' : line});
-        }
-        return _super_removeOrderline_.call(this, line);
-    };
+    module.Order = module.Order.extend({
+        addProduct: function(product, options){
+            res = OrderSuper.prototype.addProduct.call(this, product, options);
+            if (product) {
+                this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
+            }
+            return res;
+        },
 
-    var _super_removePaymentline_ = module.Order.prototype.removePaymentline;
-    module.Order.prototype.removePaymentline = function(line){
-        if (line) {
-            this.pos.prepare_text_customer_display('removePaymentline', {'line' : line});
-        }
-        return _super_removePaymentline_.call(this, line);
-    };
+        removeOrderline: function(line){
+            if (line) {
+                this.pos.prepare_text_customer_display('removeOrderline', {'line' : line});
+            }
+            return OrderSuper.prototype.removeOrderline.call(this, line);
+        },
 
-    var _super_addPaymentline_ = module.Order.prototype.addPaymentline;
-    module.Order.prototype.addPaymentline = function(cashregister){
-        res = _super_addPaymentline_.call(this, cashregister);
-        if (cashregister) {
-            this.pos.prepare_text_customer_display('addPaymentline', {'cashregister' : cashregister});
-        }
-        return res;
-    };
+        removePaymentline: function(line){
+            if (line) {
+                this.pos.prepare_text_customer_display('removePaymentline', {'line' : line});
+            }
+            return OrderSuper.prototype.removePaymentline.call(this, line);
+        },
 
-    var _super_pushOrder_ = module.PosModel.prototype.push_order;
-    module.PosModel.prototype.push_order = function(order){
-        res = _super_pushOrder_.call(this, order);
-        if (order) {
-            this.prepare_text_customer_display('pushOrder', {'order' : order});
-        }
-        return res;
-    };
+        addPaymentline: function(cashregister){
+            res = OrderSuper.prototype.addPaymentline.call(this, cashregister);
+            if (cashregister) {
+                this.pos.prepare_text_customer_display('addPaymentline', {'cashregister' : cashregister});
+            }
+            return res;
+        },
+
+    });
 
     module.PaymentScreenWidget.include({
         update_payment_summary: function(){
