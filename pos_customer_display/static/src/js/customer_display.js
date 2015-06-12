@@ -199,51 +199,52 @@ openerp.pos_customer_display = function(instance){
         return res;
     };
 
-    var _super_update_payment_summary_ = module.PaymentScreenWidget.prototype.update_payment_summary;
-    module.PaymentScreenWidget.prototype.update_payment_summary = function(){
-        res = _super_update_payment_summary_.call(this);
-        var currentOrder = this.pos.get('selectedOrder');
-        var paidTotal = currentOrder.getPaidTotal();
-        var dueTotal = currentOrder.getTotalTaxIncluded();
-        var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
-        if (change) {
-            change_rounded = change.toFixed(2);
-            this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
-        }
-        return res;
-    };
+    module.PaymentScreenWidget.include({
+        update_payment_summary: function(){
+            res = this._super();
+            var currentOrder = this.pos.get('selectedOrder');
+            var paidTotal = currentOrder.getPaidTotal();
+            var dueTotal = currentOrder.getTotalTaxIncluded();
+            var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
+            if (change) {
+                change_rounded = change.toFixed(2);
+                this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
+            }
+            return res;
+        },
+    });
 
-    var _super_closePOS_ = module.PosWidget.prototype.close;
-    module.PosWidget.prototype.close = function(){
-        this.pos.prepare_text_customer_display('closePOS', {});
-        return _super_closePOS_.call(this);
-    };
+    module.PosWidget.include({
+        close: function(){
+            this._super();
+            this.pos.prepare_text_customer_display('closePOS', {});
+        },
+    });
 
-    var _super_proxy_start_ = module.ProxyStatusWidget.prototype.start;
-    module.ProxyStatusWidget.prototype.start = function(){
-        res = _super_proxy_start_.call(this);
-        this.pos.prepare_text_customer_display('openPOS', {});
-        return res;
-    };
+    module.ProxyStatusWidget.include({
+        start: function(){
+            this._super();
+            this.pos.prepare_text_customer_display('openPOS', {});
+        },
+    });
 
     /* Handle Button "Display Total to Customer" */
-    var _super_OrderWidget_init_ = module.OrderWidget.prototype.init;
-    module.OrderWidget.prototype.init = function(parent, options){
-        _super_OrderWidget_init_.call(this, parent, options);
-        var self = this;
-        this.prepare_text_customer_display = function(event){
-            self.pos.prepare_text_customer_display('addPaymentline', {});
-            event.stopPropagation();
-        };
-    };
-
-    var _super_update_summary_ = module.OrderWidget.prototype.update_summary;
-    module.OrderWidget.prototype.update_summary = function(){
-        _super_update_summary_.call(this);
-        if (this.pos.config.iface_customer_display){
-            this.el.querySelector('.show-total-to-customer')
-                .addEventListener('click', this.prepare_text_customer_display);
-            }
-    };
+    /* TODO: understand why Odoo sends the prepare_text_customer_display
+       3 times to the Posbox/LCD when the user clicks on the button
+       'Show total to customer' */
+    module.OrderWidget.include({
+        update_summary: function(){
+            console.log('MY update_summary');
+            this._super();
+            var self = this;
+            if (this.pos.config.iface_customer_display){
+                console.log('.addEventListener');
+                this.el.querySelector('.show-total-to-customer')
+                    .removeEventListener('click', function(){self.pos.prepare_text_customer_display('addPaymentline', {})});
+                this.el.querySelector('.show-total-to-customer')
+                    .addEventListener('click', function(){self.pos.prepare_text_customer_display('addPaymentline', {})});
+                }
+            },
+    });
 
 };
