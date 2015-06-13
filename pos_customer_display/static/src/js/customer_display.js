@@ -66,20 +66,20 @@ openerp.pos_customer_display = function(instance){
 
             } else if (type == 'pushOrder') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Next Customer"), line_length),
-                    this.proxy.align_left(' ', line_length)
+                    this.proxy.align_center(this.config.customer_display_msg_next_l1, line_length),
+                    this.proxy.align_center(this.config.customer_display_msg_next_l2, line_length)
                     );
 
             } else if (type == 'openPOS') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Point of Sale Open"), line_length),
-                    this.proxy.align_left(' ', line_length)
+                    this.proxy.align_center(this.config.customer_display_msg_next_l1, line_length),
+                    this.proxy.align_center(this.config.customer_display_msg_next_l2, line_length)
                     );
 
             } else if (type = 'closePOS') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Point of Sale Closed"), line_length),
-                    this.proxy.align_left(' ', line_length)
+                    this.proxy.align_center(this.config.customer_display_msg_closed_l1, line_length),
+                    this.proxy.align_center(this.config.customer_display_msg_closed_l2, line_length)
                     );
             } else {
                 console.warn('Unknown message type');
@@ -114,54 +114,66 @@ openerp.pos_customer_display = function(instance){
 
         align_left: function(string, length){
             if (string) {
-               if (string.length > length)
-               {
-                    return string.substring(0,length);
-               }
-               else if (string.length < length)
-               {
+                if (string.length > length)
+                {
+                    string = string.substring(0,length);
+                }
+                else if (string.length < length)
+                {
                     while(string.length < length)
-                         string = string + ' ';
-                    return string;
-               }
+                        string = string + ' ';
+                }
+            }
+            else {
+                string = ' '
+                while(string.length < length)
+                    string = ' ' + string;
             }
             return string;
         },
 
-       align_right: function(string, length){
-            if (string) {
-                if (string.length > length)
-                 {
-                    return string.substring(0,length);
-                 }
-                 else if (string.length < length)
-                 {
-                    while(string.length < length)
-                          string = ' ' + string;
-                    return string;
-                }
-             }
-             return string;
-       },
-
-       align_center: function(string, length){
+        align_right: function(string, length){
             if (string) {
                 if (string.length > length)
                 {
-                   return string.substring(0, length);
+                    string = string.substring(0,length);
                 }
                 else if (string.length < length)
                 {
-                   ini = (length - string.length) / 2;
-                   while(string.length < length - ini)
-                         string = ' ' + string;
-                   while(string.length < length)
-                         string = string + ' ';
-                   return string;
+                    while(string.length < length)
+                        string = ' ' + string;
                 }
-             }
-             return string;
-       },
+            }
+            else {
+                string = ' '
+                while(string.length < length)
+                    string = ' ' + string;
+            }
+            return string;
+        },
+
+        align_center: function(string, length){
+            if (string) {
+                if (string.length > length)
+                {
+                    string = string.substring(0, length);
+                }
+                else if (string.length < length)
+                {
+                    ini = (length - string.length) / 2;
+                    while(string.length < length - ini)
+                        string = ' ' + string;
+                    while(string.length < length)
+                        string = string + ' ';
+                }
+            }
+            else {
+                string = ' '
+                while(string.length < length)
+                    string = ' ' + string;
+            }
+            return string;
+        },
     });
 
     var OrderSuper = module.Order;
