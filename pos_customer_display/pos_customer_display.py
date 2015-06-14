@@ -59,10 +59,12 @@ class PosConfig(models.Model):
         if self.customer_display_line_length:
             maxsize = self.customer_display_line_length
             to_check = {
-                _('Next Customer (top line)'): self.customer_display_msg_next_l1,
+                _('Next Customer (top line)'):
+                self.customer_display_msg_next_l1,
                 _('Next Customer (bottom line)'):
                 self.customer_display_msg_next_l2,
-                _('POS Closed (top line)'): self.customer_display_msg_closed_l1,
+                _('POS Closed (top line)'):
+                self.customer_display_msg_closed_l1,
                 _('POS Closed (bottom line)'):
                 self.customer_display_msg_closed_l2,
             }
