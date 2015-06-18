@@ -35,7 +35,7 @@ class POSOrder(models.Model):
                     continue
 
                 for line in each.journal_entry_id.line_id:
-                    if line.account_id.id == order_account:
+                    if line.account_id.id == order_account and line.state == 'valid':
                         grouped_data[key].append(line.id)
         for key, value in grouped_data.iteritems():
             for line in order.account_move.line_id:
