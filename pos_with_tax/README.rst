@@ -1,16 +1,18 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
     :alt: AGPLv3 License
 
-Point of sale with tax
-======================
+Product prices in POS with taxes
+================================
 
-Include tax in price on POS.
+This addon shows the correct price indepently of the tax configuration
+(with or without the "Tax included in price" check)
 
-This addons takes care of tax configuration: price_include, showing prices
-with tax included even price_include == True or price_include == False
+It takes care of tax configuration: price_include, showing prices
+with tax included even "Tax included in price" is checked (price_include == True)
+or unchecked (price_include == False)
 
-This helps to shop owner because he can set product prices with taxes
-or without taxes, but prices are always shown in POS with taxes
+This helps to shop owner because he can set product prices with or without taxes,
+but prices are always shown in POS with taxes
 
 
 Credits

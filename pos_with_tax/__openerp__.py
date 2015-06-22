@@ -23,7 +23,7 @@
 #
 ##############################################################################
 {
-    'name': 'Point of sale with tax',
+    'name': 'Product prices in POS with taxes',
     'category': 'Point Of Sale',
     'version': '1.0',
     'depends': [
@@ -31,7 +31,7 @@
     ],
     'data': [
         'views/pos_template.xml',
-        'views/report_receipt_view.xml',
+        'views/report_receipt.xml',
     ],
     'qweb': [
         'static/src/xml/pos.xml',

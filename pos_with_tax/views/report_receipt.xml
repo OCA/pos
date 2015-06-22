@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<template id="report_receipt"
+          inherit_id="point_of_sale.report_receipt"
+          name="POS price with tax included">
+    <xpath expr="//span[@t-esc='formatLang(net(line.id), currency_obj=res_company.currency_id)']"
+           position="attributes">
+        <attribute name="style">display: none;</attribute>
+    </xpath>
+    <xpath expr="//span[@t-esc='formatLang(net(line.id), currency_obj=res_company.currency_id)']"
+           position="after">
+        <span t-esc="formatLang(line.price_subtotal_incl, currency_obj=res_company.currency_id)"/>
+    </xpath>
+</template>
+
+</data>
+</openerp>
