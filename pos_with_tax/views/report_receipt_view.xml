@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="pos_with_tax_report_receipt"
+          inherit_id="point_of_sale.report_receipt">
+    <xpath expr="//div/table[@class='table table-condensed']/tbody/tr/td[@class='text-right'][2]/t[1]/span"
+           position="attributes">
+        <attribute name="t-esc">formatLang(line.price_subtotal_incl, currency_obj=res_company.currency_id)</attribute>
+    </xpath>
+</template>
+</data>
+</openerp>

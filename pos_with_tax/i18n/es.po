@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_with_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-08 11:11+0000\n"
+"PO-Revision-Date: 2015-06-08 11:11+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_with_tax
+#. openerp-web
+#: code:addons/pos_with_tax/static/src/js/models.js:98
+#, python-format
+msgid "Connecting to the PosBox"
+msgstr "Conectando a PosBox"
+
+#. module: pos_with_tax
+#. openerp-web
+#: code:addons/pos_with_tax/static/src/js/models.js:240
+#, python-format
+msgid "Error: The Point of Sale User must belong to the same company as the Point of Sale. You are probably trying to load the point of sale as an administrator in a multi-company setup, with the administrator account set to the wrong company."
+msgstr "Error: El Usuario del terminal de punto de venta debe pertenecer a la misma empresa que el punto de venta. Usted probablemente está intentando cargar el punto de venta como administrador en una configuración multi-empresa, con la cuenta de administrador se establece en la compañía equivocada."
+
+#. module: pos_with_tax
+#. openerp-web
+#: code:addons/pos_with_tax/static/src/js/models.js:120
+#: code:addons/pos_with_tax/static/src/js/models.js:403
+#, python-format
+msgid "Loading"
+msgstr "Cargando"
