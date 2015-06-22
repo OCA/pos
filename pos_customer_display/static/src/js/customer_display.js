@@ -241,20 +241,16 @@ openerp.pos_customer_display = function(instance){
     });
 
     /* Handle Button "Display Total to Customer" */
-    /* TODO: understand why Odoo sends the prepare_text_customer_display
-       3 times to the Posbox/LCD when the user clicks on the button
-       'Show total to customer' */
-    module.OrderWidget.include({
-        update_summary: function(){
-            this._super();
-            var self = this;
-            if (this.pos.config.iface_customer_display){
-                this.el.querySelector('.show-total-to-customer')
-                    .removeEventListener('click', function(){self.pos.prepare_text_customer_display('addPaymentline', {})});
-                this.el.querySelector('.show-total-to-customer')
-                    .addEventListener('click', function(){self.pos.prepare_text_customer_display('addPaymentline', {})});
-                }
-            },
-    });
+    var _saved_renderElement = module.OrderWidget.prototype.renderElement;
+    module.OrderWidget.prototype.renderElement = function() {
+        _saved_renderElement.apply(this, arguments);
+        var self = this;
+        if (self.pos.config.iface_customer_display) {
+            self.el.querySelector('.show-total-to-customer')
+                .addEventListener('click', function(){
+                    self.pos.prepare_text_customer_display('addPaymentline', {})
+                });
+        }
+    };
 
 };
