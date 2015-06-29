@@ -12,7 +12,7 @@ openerp.pos_customer_display = function(instance){
     module = instance.point_of_sale;
 
     var _t = instance.web._t;
-
+    var PosModelSuper = module.PosModel;
 
     module.PosModel = module.PosModel.extend({
         prepare_text_customer_display: function(type, data){
@@ -66,20 +66,20 @@ openerp.pos_customer_display = function(instance){
 
             } else if (type == 'pushOrder') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Next Customer"), line_length),
-                    this.proxy.align_left(' ', line_length)
+                    this.proxy.align_center(this.config.customer_display_msg_next_l1, line_length),
+                    this.proxy.align_center(this.config.customer_display_msg_next_l2, line_length)
                     );
 
             } else if (type == 'openPOS') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Point of Sale Open"), line_length),
-                    this.proxy.align_left(' ', line_length)
+                    this.proxy.align_center(this.config.customer_display_msg_next_l1, line_length),
+                    this.proxy.align_center(this.config.customer_display_msg_next_l2, line_length)
                     );
 
             } else if (type = 'closePOS') {
                 var lines_to_send = new Array(
-                    this.proxy.align_center(_t("Point of Sale Closed"), line_length),
-                    this.proxy.align_left(' ', line_length)
+                    this.proxy.align_center(this.config.customer_display_msg_closed_l1, line_length),
+                    this.proxy.align_center(this.config.customer_display_msg_closed_l2, line_length)
                     );
             } else {
                 console.warn('Unknown message type');
@@ -88,6 +88,14 @@ openerp.pos_customer_display = function(instance){
 
             this.proxy.send_text_customer_display(lines_to_send, line_length);
             //console.log('prepare_text_customer_display type=' + type + ' | l1=' + lines_to_send[0] + ' | l2=' + lines_to_send[1]);
+        },
+
+        push_order: function(order){
+            res = PosModelSuper.prototype.push_order.call(this, order);
+            if (order) {
+                this.prepare_text_customer_display('pushOrder', {'order' : order});
+            }
+            return res;
         },
 
     });
@@ -106,144 +114,143 @@ openerp.pos_customer_display = function(instance){
 
         align_left: function(string, length){
             if (string) {
-               if (string.length > length)
-               {
-                    return string.substring(0,length);
-               }
-               else if (string.length < length)
-               {
+                if (string.length > length)
+                {
+                    string = string.substring(0,length);
+                }
+                else if (string.length < length)
+                {
                     while(string.length < length)
-                         string = string + ' ';
-                    return string;
-               }
+                        string = string + ' ';
+                }
+            }
+            else {
+                string = ' '
+                while(string.length < length)
+                    string = ' ' + string;
             }
             return string;
         },
 
-       align_right: function(string, length){
-            if (string) {
-                if (string.length > length)
-                 {
-                    return string.substring(0,length);
-                 }
-                 else if (string.length < length)
-                 {
-                    while(string.length < length)
-                          string = ' ' + string;
-                    return string;
-                }
-             }
-             return string;
-       },
-
-       align_center: function(string, length){
+        align_right: function(string, length){
             if (string) {
                 if (string.length > length)
                 {
-                   return string.substring(0, length);
+                    string = string.substring(0,length);
                 }
                 else if (string.length < length)
                 {
-                   ini = (length - string.length) / 2;
-                   while(string.length < length - ini)
-                         string = ' ' + string;
-                   while(string.length < length)
-                         string = string + ' ';
-                   return string;
+                    while(string.length < length)
+                        string = ' ' + string;
                 }
-             }
-             return string;
-       },
+            }
+            else {
+                string = ' '
+                while(string.length < length)
+                    string = ' ' + string;
+            }
+            return string;
+        },
+
+        align_center: function(string, length){
+            if (string) {
+                if (string.length > length)
+                {
+                    string = string.substring(0, length);
+                }
+                else if (string.length < length)
+                {
+                    ini = (length - string.length) / 2;
+                    while(string.length < length - ini)
+                        string = ' ' + string;
+                    while(string.length < length)
+                        string = string + ' ';
+                }
+            }
+            else {
+                string = ' '
+                while(string.length < length)
+                    string = ' ' + string;
+            }
+            return string;
+        },
     });
 
-    var _super_addProduct_ = module.Order.prototype.addProduct;
-    module.Order.prototype.addProduct = function(product, options){
-        res = _super_addProduct_.call(this, product, options);
-        if (product) {
-            this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
-        }
-        return res;
-    };
+    var OrderSuper = module.Order;
 
-    var _super_removeOrderline_ = module.Order.prototype.removeOrderline;
-    module.Order.prototype.removeOrderline = function(line){
-        if (line) {
-            this.pos.prepare_text_customer_display('removeOrderline', {'line' : line});
-        }
-        return _super_removeOrderline_.call(this, line);
-    };
+    module.Order = module.Order.extend({
+        addProduct: function(product, options){
+            res = OrderSuper.prototype.addProduct.call(this, product, options);
+            if (product) {
+                this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
+            }
+            return res;
+        },
 
-    var _super_removePaymentline_ = module.Order.prototype.removePaymentline;
-    module.Order.prototype.removePaymentline = function(line){
-        if (line) {
-            this.pos.prepare_text_customer_display('removePaymentline', {'line' : line});
-        }
-        return _super_removePaymentline_.call(this, line);
-    };
+        removeOrderline: function(line){
+            if (line) {
+                this.pos.prepare_text_customer_display('removeOrderline', {'line' : line});
+            }
+            return OrderSuper.prototype.removeOrderline.call(this, line);
+        },
 
-    var _super_addPaymentline_ = module.Order.prototype.addPaymentline;
-    module.Order.prototype.addPaymentline = function(cashregister){
-        res = _super_addPaymentline_.call(this, cashregister);
-        if (cashregister) {
-            this.pos.prepare_text_customer_display('addPaymentline', {'cashregister' : cashregister});
-        }
-        return res;
-    };
+        removePaymentline: function(line){
+            if (line) {
+                this.pos.prepare_text_customer_display('removePaymentline', {'line' : line});
+            }
+            return OrderSuper.prototype.removePaymentline.call(this, line);
+        },
 
-    var _super_pushOrder_ = module.PosModel.prototype.push_order;
-    module.PosModel.prototype.push_order = function(order){
-        res = _super_pushOrder_.call(this, order);
-        if (order) {
-            this.prepare_text_customer_display('pushOrder', {'order' : order});
-        }
-        return res;
-    };
+        addPaymentline: function(cashregister){
+            res = OrderSuper.prototype.addPaymentline.call(this, cashregister);
+            if (cashregister) {
+                this.pos.prepare_text_customer_display('addPaymentline', {'cashregister' : cashregister});
+            }
+            return res;
+        },
 
-    var _super_update_payment_summary_ = module.PaymentScreenWidget.prototype.update_payment_summary;
-    module.PaymentScreenWidget.prototype.update_payment_summary = function(){
-        res = _super_update_payment_summary_.call(this);
-        var currentOrder = this.pos.get('selectedOrder');
-        var paidTotal = currentOrder.getPaidTotal();
-        var dueTotal = currentOrder.getTotalTaxIncluded();
-        var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
-        if (change) {
-            change_rounded = change.toFixed(2);
-            this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
-        }
-        return res;
-    };
+    });
 
-    var _super_closePOS_ = module.PosWidget.prototype.close;
-    module.PosWidget.prototype.close = function(){
-        this.pos.prepare_text_customer_display('closePOS', {});
-        return _super_closePOS_.call(this);
-    };
+    module.PaymentScreenWidget.include({
+        update_payment_summary: function(){
+            res = this._super();
+            var currentOrder = this.pos.get('selectedOrder');
+            var paidTotal = currentOrder.getPaidTotal();
+            var dueTotal = currentOrder.getTotalTaxIncluded();
+            var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
+            if (change) {
+                change_rounded = change.toFixed(2);
+                this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
+            }
+            return res;
+        },
+    });
 
-    var _super_proxy_start_ = module.ProxyStatusWidget.prototype.start;
-    module.ProxyStatusWidget.prototype.start = function(){
-        res = _super_proxy_start_.call(this);
-        this.pos.prepare_text_customer_display('openPOS', {});
-        return res;
-    };
+    module.PosWidget.include({
+        close: function(){
+            this._super();
+            this.pos.prepare_text_customer_display('closePOS', {});
+        },
+    });
+
+    module.ProxyStatusWidget.include({
+        start: function(){
+            this._super();
+            this.pos.prepare_text_customer_display('openPOS', {});
+        },
+    });
 
     /* Handle Button "Display Total to Customer" */
-    var _super_OrderWidget_init_ = module.OrderWidget.prototype.init;
-    module.OrderWidget.prototype.init = function(parent, options){
-        _super_OrderWidget_init_.call(this, parent, options);
+    var _saved_renderElement = module.OrderWidget.prototype.renderElement;
+    module.OrderWidget.prototype.renderElement = function() {
+        _saved_renderElement.apply(this, arguments);
         var self = this;
-        this.prepare_text_customer_display = function(event){
-            self.pos.prepare_text_customer_display('addPaymentline', {});
-            event.stopPropagation();
-        };
-    };
-
-    var _super_update_summary_ = module.OrderWidget.prototype.update_summary;
-    module.OrderWidget.prototype.update_summary = function(){
-        _super_update_summary_.call(this);
-        if (this.pos.config.iface_customer_display){
-            this.el.querySelector('.show-total-to-customer')
-                .addEventListener('click', this.prepare_text_customer_display);
-            }
+        if (self.pos.config.iface_customer_display) {
+            self.el.querySelector('.show-total-to-customer')
+                .addEventListener('click', function(){
+                    self.pos.prepare_text_customer_display('addPaymentline', {})
+                });
+        }
     };
 
 };

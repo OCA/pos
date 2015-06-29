@@ -115,16 +115,15 @@ def send_message(serial, data):
     '''We use protocol E+'''
     ascii_names = curses.ascii.controlnames
     real_msg = (
-        data['pos_number']
-        + data['amount_msg']
-        + data['answer_flag']
-        + data['payment_mode']
-        + data['transaction_type']
-        + data['currency_numeric']
-        + data['private']
-        + data['delay']
-        + data['auto']
-        )
+        data['pos_number'] +
+        data['amount_msg'] +
+        data['answer_flag'] +
+        data['payment_mode'] +
+        data['transaction_type'] +
+        data['currency_numeric'] +
+        data['private'] +
+        data['delay'] +
+        data['auto'])
     print 'Real message to send = %s' % real_msg
     assert len(real_msg) == 34, 'Wrong length for protocol E+'
     real_msg_with_etx = real_msg + chr(ascii_names.index('ETX'))

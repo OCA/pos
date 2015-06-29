@@ -174,5 +174,7 @@ class CustomerDisplayProxy(hw_proxy.Proxy):
         '/hw_proxy/send_text_customer_display', type='json', auth='none',
         cors='*')
     def send_text_customer_display(self, text_to_display):
-        logger.debug('LCD: Call send_text_customer_display')
+        logger.debug(
+            'LCD: Call send_text_customer_display with text=%s',
+            text_to_display)
         driver.push_task('display', text_to_display)

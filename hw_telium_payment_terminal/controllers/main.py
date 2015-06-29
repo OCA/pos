@@ -156,16 +156,15 @@ class TeliumPaymentTerminalDriver(Thread):
         '''We use protocol E+'''
         ascii_names = curses.ascii.controlnames
         real_msg = (
-            data['pos_number']
-            + data['amount_msg']
-            + data['answer_flag']
-            + data['payment_mode']
-            + data['transaction_type']
-            + data['currency_numeric']
-            + data['private']
-            + data['delay']
-            + data['auto']
-            )
+            data['pos_number'] +
+            data['amount_msg'] +
+            data['answer_flag'] +
+            data['payment_mode'] +
+            data['transaction_type'] +
+            data['currency_numeric'] +
+            data['private'] +
+            data['delay'] +
+            data['auto'])
         logger.debug('Real message to send = %s' % real_msg)
         assert len(real_msg) == 34, 'Wrong length for protocol E+'
         real_msg_with_etx = real_msg + chr(ascii_names.index('ETX'))
@@ -224,7 +223,6 @@ class TeliumPaymentTerminalDriver(Thread):
         payment_info_dict = simplejson.loads(payment_info)
         assert isinstance(payment_info_dict, dict), \
             'payment_info_dict should be a dict'
-        logger.debug("payment_info_dict = %s" % payment_info_dict)
         try:
             logger.debug(
                 'Opening serial port %s for payment terminal with baudrate %d'
@@ -280,5 +278,7 @@ class TeliumPaymentTerminalProxy(hw_proxy.Proxy):
         '/hw_proxy/payment_terminal_transaction_start',
         type='json', auth='none', cors='*')
     def payment_terminal_transaction_start(self, payment_info):
-        logger.debug('Telium: Call payment_terminal_transaction_start')
+        logger.debug(
+            'Telium: Call payment_terminal_transaction_start with '
+            'payment_info=%s', payment_info)
         driver.push_task('transaction_start', payment_info)
