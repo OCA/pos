@@ -1,0 +1,142 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_product_operation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-26 17:34+0000\n"
+"PO-Revision-Date: 2015-02-26 18:41+0100\n"
+"Last-Translator: David BEAL <david.beal@akretion.com>\n"
+"Language-Team: Akretion <david.beal@akretion.com>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#. module: pos_sale_order
+#: code:addons/pos_sale_order/point_of_sale.py:187
+#, python-format
+msgid "Configuration Error!"
+msgstr "Erreur de paramétrage !"
+
+#. module: pos_sale_order
+#: code:addons/pos_sale_order/point_of_sale.py:205
+#: code:addons/pos_sale_order/pos_invoice.py:46
+#, python-format
+msgid "Error!"
+msgstr "Erreur !"
+
+#. module: pos_sale_order
+#: code:addons/pos_sale_order/pos_invoice.py:46
+#, python-format
+msgid "No link to an invoice for %s., "
+msgstr "No link to an invoice for %s., "
+
+#. module: pos_sale_order
+#: view:sale.order:pos_sale_order.view_sales_order_filter
+msgid "POS"
+msgstr "PdV"
+
+#. module: pos_sale_order
+#: model:ir.model,name:pos_sale_order.model_pos_order
+msgid "Point of Sale"
+msgstr "Point de vente"
+
+#. module: pos_sale_order
+#: field:sale.order,pos_reference:0
+msgid "Receipt Ref"
+msgstr "Réf PdV"
+
+#. module: pos_sale_order
+#: field:sale.order,from_pos:0
+msgid "Sale Order from Pos"
+msgstr "Commande de Vente depuis PdV"
+
+#. module: pos_sale_order
+#: field:pos.session,sale_order_ids:0
+msgid "Sale Orders"
+msgstr "Commandes de Vente"
+
+#. module: pos_sale_order
+#: model:ir.model,name:pos_sale_order.model_sale_order
+msgid "Sales Order"
+msgstr "Commandes de Vente"
+
+#. module: pos_sale_order
+#: field:sale.order,session_id:0
+msgid "Session"
+msgstr "Session"
+
+#. module: pos_sale_order
+#: code:addons/pos_sale_order/point_of_sale.py:186
+#, fuzzy, python-format
+msgid ""
+"There is no receivable account defined to make payment for the partner: \"%s"
+"\" (id:%d)."
+msgstr ""
+"Il n'y a pas de compte réception définie pour faire le paiement pour le "
+"partenaire: \"%s\" (id:%d)."
+
+#. module: pos_sale_order
+#: code:addons/pos_sale_order/point_of_sale.py:184
+#, fuzzy, python-format
+msgid "There is no receivable account defined to make payment."
+msgstr "Il n'y a pas de compte réception définie pour faire le paiement"
+
+#. module: pos_sale_order
+#: code:addons/pos_sale_order/point_of_sale.py:206
+#, python-format
+msgid "You have to open at least one cashbox."
+msgstr "Vous devez ouvrir au moins une caisse."
+
+#~ msgid "Product Template"
+#~ msgstr "Article Modèle"
+
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#~ msgid "Comment"
+#~ msgstr "Commentaires"
+
+#~ msgid "Sequence"
+#~ msgstr "Séquence"
+
+#~ msgid "Is Operation"
+#~ msgstr "Est une Opération"
+
+#~ msgid "Manufacturing Order"
+#~ msgstr "Ordre de fabrication"
+
+#~ msgid "Operation"
+#~ msgstr "Opération"
+
+#~ msgid ""
+#~ "Operation Product couldn't embeds other Operation Product.\n"
+#~ "Please remove it in 'Operation' tab"
+#~ msgstr ""
+#~ "Le Produit Opération ne peut contenir d'autres Produits Operation.\n"
+#~ "S'il vous plaît, retirer le de l'onglet 'Opération'."
+
+#~ msgid "Operations"
+#~ msgstr "Opérations"
+
+#~ msgid ""
+#~ "This product is used as Operation Product in an other Product(s).\n"
+#~ "Field names: ('id', 'name', 'code')\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Ce produit est utilisé en tant que produit de type Opération dans un "
+#~ "autre produit Produit(s).\n"
+#~ "Noms de champ: ('id', 'nom', 'code')\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "You need to create at least one workcenter \n"
+#~ "to define product operations"
+#~ msgstr ""
+#~ "Vous devez créer au moins un poste de travail \n"
+#~ "pour définir un produit de type opération"

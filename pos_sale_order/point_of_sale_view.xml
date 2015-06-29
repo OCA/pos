@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="view_sales_order_filter" model="ir.ui.view">
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <filter name="pos" string="POS" domain="[('pos_reference', '!=', '')]"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="point_of_sale.action_pos_pos_form" model="ir.actions.act_window">
+            <field name="res_model">sale.order</field>
+            <field name="context">{'search_default_pos': 1}</field>
+        </record>
+
+    </data>
+</openerp>
