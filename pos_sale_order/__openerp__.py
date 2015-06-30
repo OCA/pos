@@ -33,7 +33,9 @@
                 ],
     'data': ['sale_view.xml',
              'point_of_sale_view.xml',
-             'res_partner_data.xml',
              ],
+    'demo': ['demo/res_partner_data.xml',
+             'demo/pos_config_data.xml',
+             ]
     'installable': True,
 }

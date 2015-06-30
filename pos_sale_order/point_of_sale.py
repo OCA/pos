@@ -48,9 +48,9 @@ class PosOrder(models.Model):
     def _prepare_sale_order_vals(self, ui_order):
         sale_line_obj = self.env['sale.order.line'].browse(False)
         if not ui_order['partner_id']:
-            partner_id = self.env['ir.model.data'].xmlid_to_res_id(
-                'pos_sale_order.res_partner_anonymous',
-                raise_if_not_found=True)
+            session = self.env['pos.session'].browse(
+                ui_order['pos_session_id'])
+            partner_id = session.config_id.anonymous_partner_id
             ui_order['partner_id'] = partner_id
         for line in ui_order['lines']:
             if line[2].get('qty'):
@@ -170,8 +170,8 @@ class PosOrder(models.Model):
 
         journal_id = data.get('journal', False)
         statement_id = data.get('statement_id', False)
-        assert journal_id or statement_id, "No statement_id "
-        "or journal_id passed to the method!"
+        assert journal_id or statement_id, 'No statement_id '
+        'or journal_id passed to the method!'
 
         for statement in order.session_id.statement_ids:
             if statement.id == statement_id:
@@ -213,10 +213,8 @@ class PosSession(models.Model):
 
     @api.multi
     def _confirm_orders(self):
-        partner_id = self.env['ir.model.data'].xmlid_to_res_id(
-            'pos_sale_order.res_partner_anonymous',
-            raise_if_not_found=True)
         for session in self:
+            partner_id = session.config_id.anonymous_partner_id
             order_ids = [order.id for order in session.sale_order_ids if (
                 order.state == 'manual' and order.partner_id.id == partner_id)]
             orders = self.env['sale.order'].browse(order_ids)
@@ -225,3 +223,11 @@ class PosSession(models.Model):
             # but bind the new invoice to the subflow
             orders.signal_workflow('manual_invoice')
         return True
+
+
+class PosConfig(models.Model):
+    _inherit = 'pos.config'
+
+    anonymous_partner_id = fields.Many2one('res.partner',
+                                           string='Anonymous Partner',
+                                           required=True)

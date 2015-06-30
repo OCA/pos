@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* mrp_product_operation
+# 	* pos_sale_order
 #
 msgid ""
 msgstr ""
@@ -92,51 +92,3 @@ msgstr "Il n'y a pas de compte réception définie pour faire le paiement"
 #, python-format
 msgid "You have to open at least one cashbox."
 msgstr "Vous devez ouvrir au moins une caisse."
-
-#~ msgid "Product Template"
-#~ msgstr "Article Modèle"
-
-#~ msgid "Code"
-#~ msgstr "Code"
-
-#~ msgid "Comment"
-#~ msgstr "Commentaires"
-
-#~ msgid "Sequence"
-#~ msgstr "Séquence"
-
-#~ msgid "Is Operation"
-#~ msgstr "Est une Opération"
-
-#~ msgid "Manufacturing Order"
-#~ msgstr "Ordre de fabrication"
-
-#~ msgid "Operation"
-#~ msgstr "Opération"
-
-#~ msgid ""
-#~ "Operation Product couldn't embeds other Operation Product.\n"
-#~ "Please remove it in 'Operation' tab"
-#~ msgstr ""
-#~ "Le Produit Opération ne peut contenir d'autres Produits Operation.\n"
-#~ "S'il vous plaît, retirer le de l'onglet 'Opération'."
-
-#~ msgid "Operations"
-#~ msgstr "Opérations"
-
-#~ msgid ""
-#~ "This product is used as Operation Product in an other Product(s).\n"
-#~ "Field names: ('id', 'name', 'code')\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Ce produit est utilisé en tant que produit de type Opération dans un "
-#~ "autre produit Produit(s).\n"
-#~ "Noms de champ: ('id', 'nom', 'code')\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "You need to create at least one workcenter \n"
-#~ "to define product operations"
-#~ msgstr ""
-#~ "Vous devez créer au moins un poste de travail \n"
-#~ "pour définir un produit de type opération"
