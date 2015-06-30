@@ -36,6 +36,6 @@
              ],
     'demo': ['demo/res_partner_data.xml',
              'demo/pos_config_data.xml',
-             ]
+             ],
     'installable': True,
 }
