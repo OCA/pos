@@ -57,11 +57,6 @@ msgid "Sale Order from Pos"
 msgstr "Commande de Vente depuis PdV"
 
 #. module: pos_sale_order
-#: field:pos.session,sale_order_ids:0
-msgid "Sale Orders"
-msgstr "Commandes de Vente"
-
-#. module: pos_sale_order
 #: model:ir.model,name:pos_sale_order.model_sale_order
 msgid "Sales Order"
 msgstr "Commandes de Vente"

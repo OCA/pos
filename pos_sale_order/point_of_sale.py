@@ -38,7 +38,6 @@ class SaleOrder(models.Model):
                                  states={'draft': [('readonly', False)]},
                                  readonly=True)
     payment_ids = fields.Many2many(readonly=True)
-    section_id = fields.Many2one(readonly=True)
 
 
 class PosOrder(models.Model):
@@ -207,17 +206,24 @@ class PosOrder(models.Model):
 class PosSession(models.Model):
     _inherit = 'pos.session'
 
-    sale_order_ids = fields.One2many('sale.order',
-                                     'session_id',
-                                     string='Sale Orders')
+    def _get_domains(self, vals, partner_id, session):
+        vals = {[
+            ('session_id', '=', session.id),
+            ('state', '=', 'manual'),
+            ('partner_id', '=', partner_id),
+        ]}
+        return vals
 
     @api.multi
     def _confirm_orders(self):
+        sale_obj = self.env['sale.order']
         for session in self:
+            order_ids = []
             partner_id = session.config_id.anonymous_partner_id
-            order_ids = [order.id for order in session.sale_order_ids if (
-                order.state == 'manual' and order.partner_id.id == partner_id)]
-            orders = self.env['sale.order'].browse(order_ids)
+            domains = {}
+            domains = self._get_domains(domains, partner_id, session)
+            order_ids = sale_obj.search(domains)
+            orders = sale_obj.browse(order_ids)
             orders.action_invoice_create(grouped=True)
             # Dummy call to workflow, will not create another invoice
             # but bind the new invoice to the subflow

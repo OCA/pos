@@ -15,6 +15,9 @@
                         <field name="pos_reference"/>
                     </group>
                 </xpath>
+                <field name="section_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('session_id', '!=', False), ('pos_reference', '!=', False), ('section_id', '!=', False)]}</attribute>
+                </field>
              </field>
         </record>
 
