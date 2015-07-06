@@ -55,7 +55,7 @@ class PosOrder(models.Model):
             if line[2].get('qty'):
                 line[2]['product_uom_qty'] = line[2].pop('qty')
             defaults = sale_line_obj.product_id_change(
-                pricelist=False,
+                pricelist=ui_order['pos_session_id'].config_id.pricelist_id,
                 product=line[2]['product_id'],
                 qty=line[2]['product_uom_qty'],
                 uom=False,
