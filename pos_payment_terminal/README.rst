@@ -20,6 +20,10 @@ This module is designed to be installed on the
 and old Sagem devices support the Telium protocol implemented in the
 *hw_telium_payment_terminal* module.
 
+This module requires an up-to-date version of Odoo v8 that includes
+`this pull request <https://github.com/odoo/odoo/pull/7367>` which was
+merged in the *8.0* branch of Odoo on Github on July 2nd 2015.
+
 Configuration
 =============
 
