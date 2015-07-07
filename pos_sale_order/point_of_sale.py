@@ -207,11 +207,11 @@ class PosSession(models.Model):
     _inherit = 'pos.session'
 
     def _get_domains(self, vals, partner_id, session):
-        vals = {[
+        vals = [
             ('session_id', '=', session.id),
             ('state', '=', 'manual'),
             ('partner_id', '=', partner_id),
-        ]}
+        ]
         return vals
 
     @api.multi
