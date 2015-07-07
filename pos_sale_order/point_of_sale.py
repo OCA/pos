@@ -46,16 +46,16 @@ class PosOrder(models.Model):
     @api.multi
     def _prepare_sale_order_vals(self, ui_order):
         sale_line_obj = self.env['sale.order.line'].browse(False)
+        pos_session = self.env['pos.session'].browse(
+            ui_order['pos_session_id'])
         if not ui_order['partner_id']:
-            session = self.env['pos.session'].browse(
-                ui_order['pos_session_id'])
-            partner_id = session.config_id.anonymous_partner_id
+            partner_id = pos_session.config_id.anonymous_partner_id.id
             ui_order['partner_id'] = partner_id
         for line in ui_order['lines']:
             if line[2].get('qty'):
                 line[2]['product_uom_qty'] = line[2].pop('qty')
             defaults = sale_line_obj.product_id_change(
-                pricelist=ui_order['pos_session_id'].config_id.pricelist_id,
+                pricelist=pos_session.config_id.pricelist_id.id,
                 product=line[2]['product_id'],
                 qty=line[2]['product_uom_qty'],
                 uom=False,
@@ -219,7 +219,7 @@ class PosSession(models.Model):
         sale_obj = self.env['sale.order']
         for session in self:
             order_ids = []
-            partner_id = session.config_id.anonymous_partner_id
+            partner_id = session.config_id.anonymous_partner_id.id
             domains = {}
             domains = self._get_domains(domains, partner_id, session)
             order_ids = sale_obj.search(domains)
