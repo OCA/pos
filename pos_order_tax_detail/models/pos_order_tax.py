@@ -22,7 +22,7 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields
 from openerp.addons import decimal_precision as dp
 
 
