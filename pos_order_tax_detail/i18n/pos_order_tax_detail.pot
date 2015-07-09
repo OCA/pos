@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_order_tax_detail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-09 10:34+0000\n"
+"PO-Revision-Date: 2015-07-09 10:34+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,amount:0
+#: view:website:point_of_sale.report_receipt
+msgid "Amount"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,base:0
+#: view:website:point_of_sale.report_receipt
+msgid "Base"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,id:0
+msgid "ID"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: model:ir.model,name:pos_order_tax_detail.model_pos_order_line
+msgid "Lines of Point of Sale"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,pos_order:0
+msgid "POS Order"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: view:pos.order:pos_order_tax_detail.view_pos_pos_form
+msgid "Payments"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: model:ir.model,name:pos_order_tax_detail.model_pos_order
+msgid "Point of Sale"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,tax:0
+#: view:website:point_of_sale.report_receipt
+msgid "Tax"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: field:pos.order.tax,name:0
+msgid "Tax Description"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: view:pos.order:pos_order_tax_detail.view_pos_pos_form
+#: field:pos.order,taxes:0
+msgid "Taxes"
+msgstr ""
+
+#. module: pos_order_tax_detail
+#: view:pos.order:pos_order_tax_detail.view_pos_pos_form
+msgid "Taxes detail"
+msgstr ""
+

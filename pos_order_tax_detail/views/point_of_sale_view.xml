@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+<record model="ir.ui.view" id="view_pos_pos_form">
+    <field name="name">pos.order</field>
+    <field name="model">pos.order</field>
+    <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+    <field name="arch" type="xml">
+        <page string="Payments" position="after">
+            <page string="Taxes">
+                <field name="taxes" widget="one2many_list">
+                    <tree string="Taxes detail">
+                        <field name="name"/>
+                        <field name="base"/>
+                        <field name="amount"/>
+                    </tree>
+                </field>
+            </page>
+        </page>
+    </field>
+</record>
+
+
+</data>
+</openerp>
