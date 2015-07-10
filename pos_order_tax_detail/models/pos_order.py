@@ -22,7 +22,10 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields, api, _
+from openerp.exceptions import Warning
+from openerp.tools.float_utils import float_compare
+from openerp.addons import decimal_precision as dp
 import logging
 
 _logger = logging.getLogger(__name__)
@@ -36,7 +39,10 @@ class PosOrder(models.Model):
 
     @api.multi
     def compute_tax_detail(self):
+        result = True
+        precision_digits = dp.get_precision('Account')(self.env.cr)[1]
         for order in self:
+            amount_tax = 0
             taxes_to_delete = self.env['pos.order.tax'].search(
                 [('pos_order', '=', order.id)])
             if order.lines:
@@ -51,22 +57,40 @@ class PosOrder(models.Model):
                         })
                         taxes_to_delete -= current
                     else:
-                        self.env['pos.order.tax'].create({
+                        current = self.env['pos.order.tax'].create({
                             'pos_order': order.id,
                             'tax': tax['id'],
                             'name': tax['name'],
                             'base': tax['base'],
                             'amount': tax['amount'],
                         })
+                    amount_tax += current.amount
 
             if taxes_to_delete:
                 taxes_to_delete.unlink()
-        return True
+            # This a weird use case. User has changed taxes assigned to
+            # product during POS sessions or when installing this addon
+            # some POS order was paid when product has Tax#1, then user changed
+            # by Tax#2, and now we do not know that this product has Tax#1 when
+            # paid and order.amount_tax (calculated when paid/done) is not the
+            # same of sum(taxes). We will return False to advice user
+            # via Warning
+            # Thanks to @legalsylvain to warning about this use case
+            if float_compare(order.amount_tax, amount_tax,
+                             precision_digits=precision_digits):
+                _logger.warning(
+                    'Taxes assigned to some products have been changed, so '
+                    'POS order (%d, %s, %s) has incorrect tax information.' %
+                    (order.id, order.name, order.pos_reference))
+                result = False
+        return result
 
     @api.multi
     def action_paid(self):
         super(PosOrder, self).action_paid()
-        self.compute_tax_detail()
+        if not self.compute_tax_detail():
+            raise Warning(_('Taxes assigned to some products have been '
+                            'changed during POS session'))
         return True
 
     @api.model
@@ -76,5 +100,10 @@ class PosOrder(models.Model):
         # Find orders with state : paid, done or invoiced
         orders = self.search([('state', 'in', ('paid', 'done', 'invoiced'))])
         # Compute tax detail
-        orders.compute_tax_detail()
+        for order in orders:
+            if not order.compute_tax_detail():
+                _logger.warning(
+                    'Taxes assigned to some products have been changed, so '
+                    'POS order (%d, %s, %s) has incorrect tax information.' %
+                    (order.id, order.name, order.pos_reference))
         _logger.info("%d orders computed installing module.", len(orders))

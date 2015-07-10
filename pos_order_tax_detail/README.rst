@@ -15,6 +15,10 @@ As a POS order hasn't a mandatory partner, this addon computes taxes regardless
 partner's fiscal position (if any). User can create an invoice from the
 POS order if he wants to take care about partner's fiscal position.
 
+**NOTICE**
+If product taxes are changed while a POS session is opened, then incorrect
+taxes will be computed and a warning will advice user about this problem
+
 
 Bug Tracker
 ===========
