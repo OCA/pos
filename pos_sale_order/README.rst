@@ -1,7 +1,7 @@
 POS To Sale Order
 =================
 
-This module allows to create a sale order instead of a pos order in POS.
+This module created a sale order in POS.
 
 
 Credits
