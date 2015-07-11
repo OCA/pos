@@ -40,7 +40,8 @@ function pos_pricelist_db(instance, module) {
             }
             var fiscal_position_tax;
             while (fiscal_position_tax = fiscal_position_taxes.pop()) {
-                this.fiscal_position_tax_by_id[fiscal_position_tax.id] = fiscal_position_tax;
+                this.fiscal_position_tax_by_id[fiscal_position_tax.id]
+                    = fiscal_position_tax;
             }
         },
         add_pricelist_partnerinfo: function (pricelist_partnerinfos) {
@@ -49,7 +50,8 @@ function pos_pricelist_db(instance, module) {
             }
             var partner_info;
             while (partner_info = pricelist_partnerinfos.pop()) {
-                this.pricelist_partnerinfo_by_id[partner_info.id] = partner_info;
+                this.pricelist_partnerinfo_by_id[partner_info.id]
+                    = partner_info;
             }
         },
         add_supplierinfo: function (supplierinfos) {
@@ -110,7 +112,8 @@ function pos_pricelist_db(instance, module) {
             var category;
             while (category = categories.pop()) {
                 this.product_category_by_id[category.id] = category;
-                this.product_category_children[category.id] = category.child_id
+                this.product_category_children[category.id] =
+                    category.child_id;
             }
             this._make_ancestors();
         },
@@ -121,7 +124,9 @@ function pos_pricelist_db(instance, module) {
                 ancestors = [];
                 while (category.parent_id) {
                     ancestors.push(category.parent_id[0]);
-                    category = category.parent_id ? this.product_category_by_id[category.parent_id[0]] : false;
+                    category = category.parent_id ?
+                        this.product_category_by_id[category.parent_id[0]] :
+                        false;
                 }
                 this.product_category_ancestors[parseInt(id)] = ancestors;
             }
@@ -145,7 +150,8 @@ function pos_pricelist_db(instance, module) {
             var taxes = [];
             for (var id in this.fiscal_position_tax_by_id) {
                 var tax = this.fiscal_position_tax_by_id[id];
-                if (tax && tax.position_id && tax.position_id[0] == fiscal_position_id) {
+                if (tax && tax.position_id &&
+                    tax.position_id[0] == fiscal_position_id) {
                     taxes.push(tax);
                 }
             }
