@@ -182,88 +182,23 @@ function pos_pricelist_models(instance, module) {
          *  }}
          */
         get_all_prices: function () {
-
-            var self = this;
-            var currency_rounding = this.pos.currency.rounding;
             var base = this.get_base_price();
             var totalTax = base;
             var totalNoTax = base;
-            var product = this.get_product();
-            var taxes = this.get_applicable_taxes();
             var taxtotal = 0;
             var taxdetail = {};
-
-            // Add by pos_pricelist
-            var partner = this.order ? this.order.get_client() : null;
-            var fiscal_position_taxes = [];
-            if (partner && partner.property_account_position) {
-                fiscal_position_taxes =
-                    self.pos.db.find_taxes_by_fiscal_position_id(
-                        partner.property_account_position[0]
-                    );
-            }
-            var product_taxes = [];
-            for (var i = 0, ilen = fiscal_position_taxes.length;
-                 i < ilen; i++) {
-                var fp_tax = fiscal_position_taxes[i];
-                for (var j = 0, jlen = taxes.length; j < jlen; j++) {
-                    var p_tax = taxes[j];
-                    if (fp_tax && p_tax && fp_tax.tax_src_id[0] === p_tax.id) {
-                        var dest_tax = _.detect(this.pos.taxes, function (t) {
-                            return t.id === fp_tax.tax_dest_id[0];
-                        });
-                        product_taxes.push(dest_tax);
-                    }
-                }
-            }
-            if (product_taxes.length === 0) {
-                for (var i = 0, ilen = product.taxes_id.length;
-                     i < ilen; i++) {
-                    var _id = product.taxes_id[i];
-                    var p_tax = _.detect(this.pos.taxes, function (t) {
-                        return t.id === _id;
-                    });
-                    product_taxes.push(p_tax);
-                }
-            }
-            _.each(product_taxes, function (tax) {
+            var product_taxes = this.get_applicable_taxes_for_orderline();
+            var all_taxes = _(this.compute_all(product_taxes, base)).flatten();
+            _(all_taxes).each(function(tax) {
                 if (tax.price_include) {
-                    var tmp;
-                    if (tax.type === "percent") {
-                        tmp = base - round_pr(
-                                base / (1 + tax.amount), currency_rounding
-                            );
-                    } else if (tax.type === "fixed") {
-                        tmp = round_pr(
-                            tax.amount * self.get_quantity(), currency_rounding
-                        );
-                    } else {
-                        throw "This type of tax is not supported " +
-                        "by the point of sale: " + tax.type;
-                    }
-                    tmp = round_pr(tmp, currency_rounding);
-                    taxtotal += tmp;
-                    totalNoTax -= tmp;
-                    taxdetail[tax.id] = tmp;
+                    totalNoTax -= tax.amount;
                 } else {
-                    var tmp;
-                    if (tax.type === "percent") {
-                        tmp = tax.amount * base;
-                    } else if (tax.type === "fixed") {
-                        tmp = tax.amount * self.get_quantity();
-                    } else {
-                        throw "This type of tax is not supported " +
-                        "by the point of sale: " + tax.type;
-                    }
-                    tmp = round_pr(tmp, currency_rounding);
-                    if (tax.include_base_amount) {
-                        base += tmp;
-                    }
-                    taxtotal += tmp;
-                    totalTax += tmp;
-                    taxdetail[tax.id] = tmp;
+                    totalTax += tax.amount;
                 }
+                taxtotal += tax.amount;
+                taxdetail[tax.id] = tax.amount;
             });
+            totalNoTax = round_pr(totalNoTax, this.pos.currency.rounding);
             return {
                 "priceWithTax": totalTax,
                 "priceWithoutTax": totalNoTax,
@@ -320,6 +255,47 @@ function pos_pricelist_models(instance, module) {
                 }
             }
             return qty;
+        },
+        /**
+         * @returns {Array}
+         */
+        get_applicable_taxes_for_orderline: function() {
+            // find applicable taxes for this product and this customer
+            var fiscal_position_taxes = [];
+            var product_taxes = [];
+            var product = this.get_product();
+            var partner = this.order ? this.order.get_client() : null;
+            var taxes =  this.pos.taxes;
+            if (partner && partner.property_account_position) {
+                fiscal_position_taxes =
+                    this.pos.db.find_taxes_by_fiscal_position_id(
+                        partner.property_account_position[0]
+                    );
+            }
+            for (var i = 0, ilen = fiscal_position_taxes.length;
+                 i < ilen; i++) {
+                var fp_tax = fiscal_position_taxes[i];
+                for (var j = 0, jlen = taxes.length; j < jlen; j++) {
+                    var p_tax = taxes[j];
+                    if (fp_tax && p_tax && fp_tax.tax_src_id[0] === p_tax.id) {
+                        var dest_tax = _.detect(taxes, function (t) {
+                            return t.id === fp_tax.tax_dest_id[0];
+                        });
+                        product_taxes.push(dest_tax);
+                    }
+                }
+            }
+            if (product_taxes.length === 0) {
+                for (var i = 0, ilen = product.taxes_id.length;
+                     i < ilen; i++) {
+                    var _id = product.taxes_id[i];
+                    var p_tax = _.detect(taxes, function (t) {
+                        return t.id === _id;
+                    });
+                    product_taxes.push(p_tax);
+                }
+            }
+            return product_taxes;
         },
     });
 
