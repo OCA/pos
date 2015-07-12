@@ -33,9 +33,13 @@ New feature for the Point Of Sale:
     ],
     'data': [
         "views/pos_pricelist_template.xml",
+        "views/pos_pricelist_views.xml",
     ],
     'demo': [
         'demo/pos_pricelist_demo.yml',
+    ],
+    'qweb': [
+        'static/src/xml/pos.xml'
     ],
     'installable': True,
     'application': False,

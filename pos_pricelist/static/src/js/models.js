@@ -1,20 +1,20 @@
 /******************************************************************************
-*    Point Of Sale - Pricelist for POS Odoo
-*    Copyright (C) 2014 Taktik (http://www.taktik.be)
-*    @author Adil Houmadi <ah@taktik.be>
-*
-*    This program is free software: you can redistribute it and/or modify
-*    it under the terms of the GNU Affero General Public License as
-*    published by the Free Software Foundation, either version 3 of the
-*    License, or (at your option) any later version.
-*    This program is distributed in the hope that it will be useful,
-*    but WITHOUT ANY WARRANTY; without even the implied warranty of
-*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*    GNU Affero General Public License for more details.
-*    You should have received a copy of the GNU Affero General Public License
-*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-******************************************************************************/
+ *    Point Of Sale - Pricelist for POS Odoo
+ *    Copyright (C) 2014 Taktik (http://www.taktik.be)
+ *    @author Adil Houmadi <ah@taktik.be>
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU Affero General Public License as
+ *    published by the Free Software Foundation, either version 3 of the
+ *    License, or (at your option) any later version.
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU Affero General Public License for more details.
+ *    You should have received a copy of the GNU Affero General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ ******************************************************************************/
 function pos_pricelist_models(instance, module) {
 
     var _t = instance.web._t;
@@ -137,10 +137,10 @@ function pos_pricelist_models(instance, module) {
         initialize: function (attr, options) {
             this.constructor.__super__.initialize.apply(this, arguments);
             this.manuel_price = false;
-            if (options.product !== undefined) {
-                var qty = this.compute_qty(options.order, options.product);
-                var partner = options.order.get_client();
-                var product = options.product;
+            if (this.product !== undefined) {
+                var qty = this.compute_qty(this.order, this.product);
+                var partner = this.order ? this.order.get_client() : null;
+                var product = this.product;
                 var db = this.pos.db;
                 var price = this.pos.pricelist_engine.compute_price_all(
                     db, product, partner, qty
@@ -194,7 +194,7 @@ function pos_pricelist_models(instance, module) {
             var taxdetail = {};
 
             // Add by pos_pricelist
-            var partner = this.order.get_client();
+            var partner = this.order ? this.order.get_client() : null;
             var fiscal_position_taxes = [];
             if (partner && partner.property_account_position) {
                 fiscal_position_taxes =
@@ -310,7 +310,7 @@ function pos_pricelist_models(instance, module) {
         compute_qty: function (order, product) {
             var qty = 1;
             var orderlines = [];
-            if (order.get('orderLines').models !== undefined) {
+            if (order && order.get('orderLines').models !== undefined) {
                 orderlines = order.get('orderLines').models;
             }
             for (var i = 0; i < orderlines.length; i++) {
@@ -502,7 +502,7 @@ function pos_pricelist_models(instance, module) {
                     var price_limit = price;
                     price = price * (1.0 + (rule['price_discount']
                             ? rule['price_discount']
-                            : 0.0))
+                            : 0.0));
                     if (rule['price_round']) {
                         price = parseFloat(price.toFixed(
                                 Math.ceil(Math.log(1.0 / rule['price_round'])
@@ -540,9 +540,28 @@ function pos_pricelist_models(instance, module) {
             for (var i = 0, len = product_list_ui.length; i < len; i++) {
                 var product_ui = product_list_ui[i];
                 var product_id = $(product_ui).data('product-id');
-                var product = db.get_product_by_id(product_id);
+                // price which computed via pricelist
+                var product = $.extend({}, db.get_product_by_id(product_id));
                 var price = this.compute_price_all(db, product, partner, 1);
                 if (price !== false && price !== 0.0) {
+                    if (this.pos.config.display_price_with_taxes) {
+                        // create a fake order in order to get price
+                        // for this customer
+                        var order = new module.Order({pos: this.pos});
+                        order.set_client(partner);
+                        var orderline = new openerp.point_of_sale.Orderline({},
+                            {
+                                pos: this.pos,
+                                order: order,
+                                product: product,
+                                price: price
+                            }
+                        );
+                        // reset the sequence
+                        this.pos.pos_session.sequence_number--;
+                        var prices = orderline.get_all_prices();
+                        price = prices['priceWithTax'];
+                    }
                     price = round_di(parseFloat(price)
                         || 0, this.pos.dp['Product Price']);
                     price = this.pos_widget.format_currency(price);
@@ -571,7 +590,6 @@ function pos_pricelist_models(instance, module) {
             }
         }
     });
-
     /**
      * show error
      * @param context

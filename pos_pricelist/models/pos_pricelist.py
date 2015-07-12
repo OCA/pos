@@ -1,7 +1,7 @@
-# -#- coding: utf-8 -#-
+# -*- coding: utf-8 -*-
 ##############################################################################
 # Point Of Sale - Pricelist for POS Odoo
-# Copyright (C) 2014 Taktik (http://www.taktik.be)
+# Copyright (C) 2015 Taktik (http://www.taktik.be)
 # @author Adil Houmadi <ah@taktik.be>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,4 +16,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import models
+from openerp import models, fields
+
+class PosPriceListConfig(models.Model):
+    _inherit = 'pos.config'
+
+    display_price_with_taxes = fields.Boolean(
+        string='Price With Taxes',
+        help="Display Prices with taxes on POS"
+    )

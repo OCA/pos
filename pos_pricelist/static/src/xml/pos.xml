@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="Product">
+        <t t-jquery=".product-img" t-operation="replace">
+            <div class="product-img">
+                <img t-att-src='image_url' />
+                <t t-if="!product.to_weight">
+                    <span class="price-tag">
+                        <t t-if="widget.display_price_with_taxes">
+                            <t t-esc="widget.format_currency(product.price_with_taxes,'Product Price')"/>
+                        </t>
+                        <t t-if="!widget.display_price_with_taxes">
+                            <t t-esc="widget.format_currency(product.price,'Product Price')"/>
+                        </t>
+                    </span>
+                </t>
+                <t t-if="product.to_weight">
+                    <span class="price-tag">
+                        <t t-if="widget.display_price_with_taxes">
+                            <t t-esc="widget.format_currency(product.price_with_taxes,'Product Price')+'/Kg'"/>
+                        </t>
+                        <t t-if="!widget.display_price_with_taxes">
+                            <t t-esc="widget.format_currency(product.price,'Product Price')+'/Kg'"/>
+                        </t>
+                    </span>
+                </t>
+            </div>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_pos_config_form_pos_pricelist" model="ir.ui.view">
+            <field name="name">view.pos.config.form.pos.pricelist</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+            <field name="arch" type="xml">
+                <field name="iface_big_scrollbars" position="after">
+                    <field name="display_price_with_taxes"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

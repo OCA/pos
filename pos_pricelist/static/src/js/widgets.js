@@ -38,6 +38,21 @@ function pos_pricelist_widgets(instance, module) {
                 : false;
             this.pos.pricelist_engine.update_products_ui(partner);
         }
-    })
+    });
+
+    instance.point_of_sale.ProductListWidget.include({
+        init: function (parent, options) {
+            this._super(parent, options);
+            this.display_price_with_taxes = false;
+            if (
+                posmodel
+                && posmodel.config
+                && posmodel.config.display_price_with_taxes
+            ) {
+                this.display_price_with_taxes
+                    = posmodel.config.display_price_with_taxes
+            }
+        }
+    });
 }
 
