@@ -22,22 +22,15 @@ function pos_pricelist_models(instance, module) {
     var round_di = instance.web.round_decimals;
 
     /**
-     * @param funcName
-     * @returns {*}
-     * @private
-     */
-    Backbone.Model.prototype._super = function (funcName) {
-        return this.constructor.__super__[funcName].apply(
-            this, _.rest(arguments)
-        );
-    };
-
-    /**
      * Extend the POS model
      */
     module.PosModel = module.PosModel.extend({
+        /**
+         * @param session
+         * @param attributes
+         */
         initialize: function (session, attributes) {
-            this._super('initialize', session, attributes);
+            this.constructor.__super__.initialize.apply(this, arguments);
             this.pricelist_engine = new module.PricelistEngine({
                 'pos': this,
                 'db': this.db,
@@ -60,8 +53,13 @@ function pos_pricelist_models(instance, module) {
             }
             return lookup
         },
+        /**
+         * @param removed_order
+         * @param index
+         * @param reason
+         */
         on_removed_order: function (removed_order, index, reason) {
-            this._super('on_removed_order', removed_order, index, reason);
+            this.constructor.__super__.on_removed_order.apply(this, arguments);
             if ((reason === 'abandon' || removed_order.temporary)
                 && this.get('orders').size() > 0) {
                 var current_order = (this.get('orders').at(index)
@@ -132,8 +130,12 @@ function pos_pricelist_models(instance, module) {
      * Extend the Order line
      */
     module.Orderline = module.Orderline.extend({
+        /**
+         * @param attr
+         * @param options
+         */
         initialize: function (attr, options) {
-            this._super('initialize', attr, options);
+            this.constructor.__super__.initialize.apply(this, arguments);
             this.manuel_price = false;
             if (options.product !== undefined) {
                 var qty = this.compute_qty(options.order, options.product);
@@ -158,7 +160,7 @@ function pos_pricelist_models(instance, module) {
          * @param quantity
          */
         set_quantity: function (quantity) {
-            this._super('set_quantity', quantity);
+            this.constructor.__super__.set_quantity.apply(this, arguments);
             var partner = this.order.get_client();
             var product = this.product;
             var db = this.pos.db;
@@ -278,7 +280,9 @@ function pos_pricelist_models(instance, module) {
          * @returns {boolean}
          */
         can_be_merged_with: function (orderline) {
-            var result = this._super('can_be_merged_with', orderline);
+            var result = this.constructor.__super__.can_be_merged_with.apply(
+                this, arguments
+            );
             if (!result) {
                 if (!this.manuel_price) {
                     return (
@@ -295,7 +299,7 @@ function pos_pricelist_models(instance, module) {
          * @param orderline
          */
         merge: function (orderline) {
-            this._super('merge', orderline);
+            this.constructor.__super__.merge.apply(this, arguments);
             this.set_unit_price(orderline.price);
         },
         /**
@@ -323,6 +327,9 @@ function pos_pricelist_models(instance, module) {
      * Pricelist Engine to compute price
      */
     module.PricelistEngine = instance.web.Class.extend({
+        /**
+         * @param options
+         */
         init: function (options) {
             options = options || {};
             this.pos = options.pos;
