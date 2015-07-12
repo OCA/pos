@@ -52,6 +52,10 @@ function pos_pricelist_widgets(instance, module) {
                 this.display_price_with_taxes
                     = posmodel.config.display_price_with_taxes
             }
+        },
+        renderElement: function () {
+            this._super();
+            this.pos.pricelist_engine.update_products_ui(null);
         }
     });
 }

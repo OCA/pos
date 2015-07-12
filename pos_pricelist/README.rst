@@ -35,9 +35,16 @@ The POS will recognize it and will compute the price according to the rule defin
 2. (-2) : Rule based on supplierinfo
 3. (default) : Any price type which is set on the product form
 
+3. An new option is introduced in the POS config to let the user show price with taxes in product widget.
+the UI is updated when we change the customer in order to adapt the prices.
+The computation take in account the pricelist and the fiscal position of the customer
+
+4. When we mouseover the price tag, a tooltip is shown to indicate the computation depending on the quantity like this output :
+1x -> 100 €
+3x -> 70 €
+5x -> 50 €
+
 Missing features
 ----------------
 
 * As you may know, product template is not fully implemented in the POS, so I decided to drop it from this module.
-* When there are more than one price depending on the quantity, only the price
-  for first interval is shown.

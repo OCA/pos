@@ -174,6 +174,19 @@ function pos_pricelist_db(instance, module) {
                         = prices['priceWithTax']
                 }
             }
+        },
+        find_product_rules: function (product) {
+            var len = this.pricelist_item_sorted.length;
+            var rules = [];
+            for (var i = 0; i < len; i++) {
+                var rule = this.pricelist_item_sorted[i];
+                if ((rule.product_id && rule.product_id[0] == product.id) ||
+                    (rule.categ_id && product.categ_id
+                    && rule.categ_id[0] == product.categ_id[0])) {
+                    rules.push(rule);
+                }
+            }
+            return rules;
         }
     })
 }

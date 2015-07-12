@@ -189,7 +189,7 @@ function pos_pricelist_models(instance, module) {
             var taxdetail = {};
             var product_taxes = this.get_applicable_taxes_for_orderline();
             var all_taxes = _(this.compute_all(product_taxes, base)).flatten();
-            _(all_taxes).each(function(tax) {
+            _(all_taxes).each(function (tax) {
                 if (tax.price_include) {
                     totalNoTax -= tax.amount;
                 } else {
@@ -259,13 +259,13 @@ function pos_pricelist_models(instance, module) {
         /**
          * @returns {Array}
          */
-        get_applicable_taxes_for_orderline: function() {
+        get_applicable_taxes_for_orderline: function () {
             // find applicable taxes for this product and this customer
             var fiscal_position_taxes = [];
             var product_taxes = [];
             var product = this.get_product();
             var partner = this.order ? this.order.get_client() : null;
-            var taxes =  this.pos.taxes;
+            var taxes = this.pos.taxes;
             if (partner && partner.property_account_position) {
                 fiscal_position_taxes =
                     this.pos.db.find_taxes_by_fiscal_position_id(
@@ -516,34 +516,65 @@ function pos_pricelist_models(instance, module) {
             for (var i = 0, len = product_list_ui.length; i < len; i++) {
                 var product_ui = product_list_ui[i];
                 var product_id = $(product_ui).data('product-id');
-                // price which computed via pricelist
                 var product = $.extend({}, db.get_product_by_id(product_id));
-                var price = this.compute_price_all(db, product, partner, 1);
-                if (price !== false && price !== 0.0) {
-                    if (this.pos.config.display_price_with_taxes) {
-                        // create a fake order in order to get price
-                        // for this customer
-                        var order = new module.Order({pos: this.pos});
-                        order.set_client(partner);
-                        var orderline = new openerp.point_of_sale.Orderline({},
-                            {
-                                pos: this.pos,
-                                order: order,
-                                product: product,
-                                price: price
-                            }
-                        );
-                        // reset the sequence
-                        this.pos.pos_session.sequence_number--;
-                        var prices = orderline.get_all_prices();
-                        price = prices['priceWithTax'];
+                var rules = db.find_product_rules(product);
+                var quantities = [];
+                quantities.push(1);
+                for (var j = 0; j < rules.length; j++) {
+                    quantities.push(rules[j].min_quantity);
+                }
+                quantities = quantities.sort();
+                var prices_displayed = '';
+                for (var k = 0; k < quantities.length; k++) {
+                    var qty = quantities[k];
+                    var price = this.compute_price_all(
+                        db, product, partner, qty
+                    );
+                    if (price !== false && price !== 0.0) {
+                        if (this.pos.config.display_price_with_taxes) {
+                            var prices = this.simulate_price(
+                                product, partner, price, qty
+                            );
+                            price = prices['priceWithTax']
+                        }
+                        price = round_di(parseFloat(price)
+                            || 0, this.pos.dp['Product Price']);
+                        price = this.pos_widget.format_currency(price);
+                        if (k == 0) {
+                            $(product_ui).find('.price-tag').html(price);
+                        }
+                        prices_displayed += qty
+                            + 'x &#8594; ' + price + '<br/>';
                     }
-                    price = round_di(parseFloat(price)
-                        || 0, this.pos.dp['Product Price']);
-                    price = this.pos_widget.format_currency(price);
-                    $(product_ui).find('.price-tag').html(price);
+                }
+                if (prices_displayed != '') {
+                    $(product_ui).find('.price-tag').attr(
+                        'data-original-title', prices_displayed
+                    );
+                    $(product_ui).find('.price-tag').attr(
+                        'data-toggle', 'tooltip'
+                    );
+                    $(product_ui).find('.price-tag').tooltip(
+                        {delay: {show: 50, hide: 100}}
+                    );
                 }
             }
+        },
+        simulate_price: function (product, partner, price, qty) {
+            // create a fake order in order to get price
+            // for this customer
+            var order = new module.Order({pos: this.pos});
+            order.set_client(partner);
+            var orderline = new openerp.point_of_sale.Orderline
+            ({}, {
+                pos: this.pos, order: order,
+                product: product, price: price
+            });
+            orderline.set_quantity(qty);
+            // reset the sequence
+            this.pos.pos_session.sequence_number--;
+            var prices = orderline.get_all_prices();
+            return prices;
         },
         /**
          *
