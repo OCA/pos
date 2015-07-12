@@ -18,6 +18,7 @@
 ##############################################################################
 from openerp import models, fields
 
+
 class PosPriceListConfig(models.Model):
     _inherit = 'pos.config'
 
