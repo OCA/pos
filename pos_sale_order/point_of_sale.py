@@ -235,5 +235,4 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     anonymous_partner_id = fields.Many2one('res.partner',
-                                           string='Anonymous Partner',
-                                           required=True)
+                                           string='Anonymous Partner')
