@@ -24,13 +24,14 @@ function pos_pricelist_models(instance, module) {
     /**
      * Extend the POS model
      */
+    var PosModelParent = module.PosModel;
     module.PosModel = module.PosModel.extend({
         /**
          * @param session
          * @param attributes
          */
         initialize: function (session, attributes) {
-            this.constructor.__super__.initialize.apply(this, arguments);
+            PosModelParent.prototype.initialize.apply(this, arguments);
             this.pricelist_engine = new module.PricelistEngine({
                 'pos': this,
                 'db': this.db,
@@ -59,7 +60,7 @@ function pos_pricelist_models(instance, module) {
          * @param reason
          */
         on_removed_order: function (removed_order, index, reason) {
-            this.constructor.__super__.on_removed_order.apply(this, arguments);
+            PosModelParent.prototype.on_removed_order.apply(this, arguments);
             if ((reason === 'abandon' || removed_order.temporary)
                 && this.get('orders').size() > 0) {
                 var current_order = (this.get('orders').at(index)
@@ -129,13 +130,14 @@ function pos_pricelist_models(instance, module) {
     /**
      * Extend the Order line
      */
+    var OrderlineParent = module.Orderline;
     module.Orderline = module.Orderline.extend({
         /**
          * @param attr
          * @param options
          */
         initialize: function (attr, options) {
-            this.constructor.__super__.initialize.apply(this, arguments);
+            OrderlineParent.prototype.initialize.apply(this, arguments);
             this.manuel_price = false;
             if (this.product !== undefined) {
                 var qty = this.compute_qty(this.order, this.product);
@@ -160,7 +162,7 @@ function pos_pricelist_models(instance, module) {
          * @param quantity
          */
         set_quantity: function (quantity) {
-            this.constructor.__super__.set_quantity.apply(this, arguments);
+            OrderlineParent.prototype.set_quantity.apply(this, arguments);
             var partner = this.order.get_client();
             var product = this.product;
             var db = this.pos.db;
@@ -215,7 +217,7 @@ function pos_pricelist_models(instance, module) {
          * @returns {boolean}
          */
         can_be_merged_with: function (orderline) {
-            var result = this.constructor.__super__.can_be_merged_with.apply(
+            var result = OrderlineParent.prototype.can_be_merged_with.apply(
                 this, arguments
             );
             if (!result) {
@@ -234,7 +236,7 @@ function pos_pricelist_models(instance, module) {
          * @param orderline
          */
         merge: function (orderline) {
-            this.constructor.__super__.merge.apply(this, arguments);
+            OrderlineParent.prototype.merge.apply(this, arguments);
             this.set_unit_price(orderline.price);
         },
         /**
@@ -297,6 +299,17 @@ function pos_pricelist_models(instance, module) {
             }
             return product_taxes;
         },
+        /**
+         * @returns {*}
+         */
+        get_display_price: function () {
+            if (this.pos.config.display_price_with_taxes) {
+                return this.get_price_with_tax();
+            }
+            return OrderlineParent.prototype.get_display_price.apply(
+                this, arguments
+            );
+        }
     });
 
     /**

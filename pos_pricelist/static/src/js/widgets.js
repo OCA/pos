@@ -55,7 +55,12 @@ function pos_pricelist_widgets(instance, module) {
         },
         renderElement: function () {
             this._super();
-            this.pos.pricelist_engine.update_products_ui(null);
+            var order = posmodel.get_order();
+            var customer = null;
+            if(order) {
+                customer = order.get_client();
+            }
+            this.pos.pricelist_engine.update_products_ui(customer);
         }
     });
 }
