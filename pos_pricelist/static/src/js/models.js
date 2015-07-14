@@ -138,7 +138,7 @@ function pos_pricelist_models(instance, module) {
          */
         initialize: function (attr, options) {
             OrderlineParent.prototype.initialize.apply(this, arguments);
-            this.manuel_price = false;
+            this.manual_price = false;
             if (this.product !== undefined) {
                 var qty = this.compute_qty(this.order, this.product);
                 var partner = this.order ? this.order.get_client() : null;
@@ -155,8 +155,8 @@ function pos_pricelist_models(instance, module) {
         /**
          * @param state
          */
-        set_manuel_price: function (state) {
-            this.manuel_price = state;
+        set_manual_price: function (state) {
+            this.manual_price = state;
         },
         /**
          * @param quantity
@@ -221,7 +221,7 @@ function pos_pricelist_models(instance, module) {
                 this, arguments
             );
             if (!result) {
-                if (!this.manuel_price) {
+                if (!this.manual_price) {
                     return (
                         this.get_product().id === orderline.get_product().id
                     );
@@ -252,7 +252,7 @@ function pos_pricelist_models(instance, module) {
             }
             for (var i = 0; i < orderlines.length; i++) {
                 if (orderlines[i].product.id === product.id
-                    && !orderlines[i].manuel_price) {
+                    && !orderlines[i].manual_price) {
                     qty += orderlines[i].quantity;
                 }
             }

@@ -24,7 +24,7 @@ function pos_pricelist_widgets(instance, module) {
             if (this.editable && order.getSelectedLine()) {
                 var mode = this.numpad_state.get('mode');
                 if (mode === 'price') {
-                    order.getSelectedLine().set_manuel_price(true);
+                    order.getSelectedLine().set_manual_price(true);
                 }
             }
         }
