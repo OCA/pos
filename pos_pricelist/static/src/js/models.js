@@ -338,7 +338,7 @@ function pos_pricelist_models(instance, module) {
             if (partner && partner.property_product_pricelist) {
                 price_list_id = partner.property_product_pricelist[0];
             } else {
-                price_list_id = db.default_pricelist_id;
+                price_list_id = this.pos.config.pricelist_id[0];
             }
             return this.compute_price(
                 db, product, partner, qty, parseInt(price_list_id)
@@ -696,19 +696,6 @@ function pos_pricelist_models(instance, module) {
                     loaded: function (self, categories) {
                         self.db.add_product_categories(categories);
 
-                    }
-                },
-                {
-                    model: 'ir.model.data',
-                    fields: ['res_id'],
-                    domain: function () {
-                        return [
-                            ['module', '=', 'product'],
-                            ['name', '=', 'property_product_pricelist']
-                        ]
-                    },
-                    loaded: function (self, res) {
-                        self.db.add_default_pricelist(res);
                     }
                 },
                 {

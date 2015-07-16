@@ -21,7 +21,6 @@ function pos_pricelist_db(instance, module) {
         init: function (options) {
             options = options || {};
             this._super(options);
-            this.default_pricelist_id = 0;
             this.pricelist_by_id = {};
             this.pricelist_version_by_id = {};
             this.pricelist_item_by_id = {};
@@ -61,11 +60,6 @@ function pos_pricelist_db(instance, module) {
             var supplier_info;
             while (supplier_info = supplierinfos.pop()) {
                 this.supplierinfo_by_id[supplier_info.id] = supplier_info;
-            }
-        },
-        add_default_pricelist: function (res_id) {
-            if (res_id && res_id.length) {
-                this.default_pricelist_id = res_id[0].res_id;
             }
         },
         add_pricelists: function (pricelists) {
