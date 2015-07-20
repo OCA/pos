@@ -44,39 +44,47 @@ class PosOrder(models.Model):
     _inherit = 'pos.order'
 
     @api.multi
-    def _prepare_sale_order_vals(self, ui_order):
+    def _update_sale_order_line_vals(self, pos_session, ui_order, line):
         sale_line_obj = self.env['sale.order.line'].browse(False)
+        if line.get('qty'):
+            line['product_uom_qty'] = line.pop('qty')
+        defaults = sale_line_obj.product_id_change(
+            pricelist=pos_session.config_id.pricelist_id.id,
+            product=line['product_id'],
+            qty=line['product_uom_qty'],
+            uom=False,
+            qty_uos=0,
+            uos=False,
+            name='',
+            partner_id=ui_order['partner_id'],
+            lang=False,
+            update_tax=True,
+            date_order=False,
+            packaging=False,
+            fiscal_position=False,
+            flag=False)['value']
+        default_key = [
+            'name',
+            'product_uos_qty',
+            'product_uom',
+            'th_weight',
+            'product_uos']
+        for key in default_key:
+            line[key] = defaults.get(key)
+        if defaults.get('tax_id'):
+            line['tax_id'] = [[6, 0, defaults['tax_id']]]
+
+    @api.multi
+    def _prepare_sale_order_vals(self, ui_order):
         pos_session = self.env['pos.session'].browse(
             ui_order['pos_session_id'])
         if not ui_order['partner_id']:
             partner_id = pos_session.config_id.anonymous_partner_id.id
             ui_order['partner_id'] = partner_id
         for line in ui_order['lines']:
-            if line[2].get('qty'):
-                line[2]['product_uom_qty'] = line[2].pop('qty')
-            defaults = sale_line_obj.product_id_change(
-                pricelist=pos_session.config_id.pricelist_id.id,
-                product=line[2]['product_id'],
-                qty=line[2]['product_uom_qty'],
-                uom=False,
-                qty_uos=0,
-                uos=False,
-                name='',
-                partner_id=ui_order['partner_id'],
-                lang=False,
-                update_tax=True,
-                date_order=False,
-                packaging=False,
-                fiscal_position=False,
-                flag=False)['value']
-            line[2]['name'] = defaults.get('name')
-            line[2]['product_uos_qty'] = defaults.get('product_uos_qty')
-            line[2]['product_uom'] = defaults.get('product_uom')
-            line[2]['th_weight'] = defaults.get('th_weight')
-            line[2]['product_uos'] = defaults.get('product_uos')
-            if defaults.get('tax_id'):
-                line[2]['tax_id'] = [[6, 0, defaults['tax_id']]]
+            self._update_sale_order_line_vals(pos_session, ui_order, line[2])
         return {
+            'pricelist_id': pos_session.config_id.pricelist_id.id,
             'section_id': ui_order.get('section_id') or False,
             'user_id': ui_order.get('user_id') or False,
             'session_id': ui_order['pos_session_id'],
