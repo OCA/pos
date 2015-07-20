@@ -6,9 +6,6 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <field name="partner_id" position="attributes">
-                    <attribute name="required">0</attribute>
-                </field>
                 <xpath expr="//notebook/page[@string='Other Information']/group" position="inside">
                     <group name="pos">
                         <field name="session_id"/>
