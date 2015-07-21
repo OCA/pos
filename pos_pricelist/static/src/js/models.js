@@ -264,38 +264,24 @@ function pos_pricelist_models(instance, module) {
         get_applicable_taxes_for_orderline: function () {
             // find applicable taxes for this product and this customer
             var fiscal_position_taxes = [];
-            var product_taxes = [];
             var product = this.get_product();
-            var partner = this.order ? this.order.get_client() : null;
+            var product_tax_ids = product.taxes_id;
+            var product_taxes = [];
             var taxes = this.pos.taxes;
+            var partner = this.order ? this.order.get_client() : null;
             if (partner && partner.property_account_position) {
-                fiscal_position_taxes =
+            	product_tax_ids =
                     this.pos.db.find_taxes_by_fiscal_position_id(
-                        partner.property_account_position[0]
+                        partner.property_account_position[0], product_tax_ids
                     );
             }
-            for (var i = 0, ilen = fiscal_position_taxes.length;
+            for (var i = 0, ilen = product_tax_ids.length;
                  i < ilen; i++) {
-                var fp_tax = fiscal_position_taxes[i];
-                for (var j = 0, jlen = taxes.length; j < jlen; j++) {
-                    var p_tax = taxes[j];
-                    if (fp_tax && p_tax && fp_tax.tax_src_id[0] === p_tax.id) {
-                        var dest_tax = _.detect(taxes, function (t) {
-                            return t.id === fp_tax.tax_dest_id[0];
-                        });
-                        product_taxes.push(dest_tax);
-                    }
-                }
-            }
-            if (product_taxes.length === 0) {
-                for (var i = 0, ilen = product.taxes_id.length;
-                     i < ilen; i++) {
-                    var _id = product.taxes_id[i];
-                    var p_tax = _.detect(taxes, function (t) {
-                        return t.id === _id;
-                    });
-                    product_taxes.push(p_tax);
-                }
+                var tax_id = product_tax_ids[i];
+                var tax = _.detect(taxes, function (t) {
+                    return t.id === tax_id;
+                });
+                product_taxes.push(tax);
             }
             return product_taxes;
         },
