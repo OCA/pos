@@ -21,27 +21,10 @@
 ##############################################################################
 {
     'name': 'Point Of Sale - Order Pricelist Change',
-    'summary': """Fix an incorrect behaviour when changing pricelist on"""
-    """ pos order""",
+    'summary': 'Improve pricelist changes for POS Order in back office',
     'version': '1.0',
     'category': 'Point Of Sale',
-    'description': """
-Fix an incorrect behaviour when changing pricelist on pos order
-===============================================================
-
-Features:
----------
-    * On a POS order, when changing a pricelist, warn the user as in sale"""
-    """ module, when doing a quotation;
-    * On a POS order, provide a 'Recompute With pricelist' button to update"""
-    """ when pricelist has changed;
-
-Copyright, Authors and Licence:
--------------------------------
-    * Copyright: 2014, GRAP: Groupement Régional Alimentaire de Proximité;
-    * Author:
-        * Sylvain LE GAL (https://twitter.com/legalsylvain);""",
-    'author': "GRAP,Odoo Community Association (OCA)",
+    'author': 'GRAP,Odoo Community Association (OCA)',
     'website': 'http://www.grap.coop',
     'license': 'AGPL-3',
     'depends': [
