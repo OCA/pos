@@ -35,5 +35,6 @@
     ],
     'demo': [
         'demo/demo.xml',
+        'demo/res_groups.yml',
     ],
 }
