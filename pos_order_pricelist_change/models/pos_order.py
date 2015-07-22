@@ -20,27 +20,27 @@
 #
 ##############################################################################
 
-from openerp.osv.orm import Model
-from openerp.tools.translate import _
+from openerp.models import Model
+from openerp import fields, api, _
 
 
-class pos_order(Model):
+class PosOrder(Model):
     _inherit = 'pos.order'
 
-    def action_recompute_pricelist(self, cr, uid, ids, context=None):
-        pol_obj = self.pool.get('pos.order.line')
-        for po in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    def action_recompute_pricelist(self):
+        pol_obj = self.env['pos.order.line']
+        for po in self:
             for pol in po.lines:
-                res = pol_obj.onchange_product_id(
-                    cr, uid, [pol.id], po.pricelist_id.id, pol.product_id.id,
-                    pol.qty, po.partner_id.id)
+                res = pol.onchange_product_id(
+                    po.pricelist_id.id, pol.product_id.id, qty=pol.qty,
+                    partner_id=po.partner_id.id)
                 if res['value']['price_unit'] != pol.price_unit:
-                    pol_obj.write(
-                        cr, uid, [pol.id], res['value'], context=context)
+                    pol.write(res['value'])
 
-    def onchange_pricelist_id(
-            self, cr, uid, ids, pricelist_id, lines, context=None):
-        if not pricelist_id or not lines:
+    @api.onchange('pricelist_id')
+    def onchange_pricelist_id(self):
+        if not self.pricelist_id or not self.lines:
             return {}
         warning = {
             'title': _('Pricelist Warning!'),

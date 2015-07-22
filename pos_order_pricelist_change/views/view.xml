@@ -19,7 +19,7 @@
 <!-- ********************************************************************** -->
 <openerp>
     <data>
-    <!-- View : pos.order -->
+        <!-- View : pos.order -->
         <record id="view_pos_order_form" model="ir.ui.view">
             <field name="name">pos.order.form</field>
             <field name="model">pos.order</field>
@@ -28,11 +28,7 @@
                 <header position="inside">
                     <button name="action_recompute_pricelist" string="Recompute With Pricelist"  type="object" states="draft"/>
                 </header>
-                <field name="pricelist_id" position="attributes">
-                    <attribute name="on_change">onchange_pricelist_id(pricelist_id, lines)</attribute>
-                </field>
             </field>
         </record>
-
     </data>
 </openerp>
