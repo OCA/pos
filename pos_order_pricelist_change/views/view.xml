@@ -25,9 +25,9 @@
             <field name="model">pos.order</field>
             <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
             <field name="arch" type="xml">
-                <header position="inside">
+                <xpath expr="//button[@string='Payment']" position="after">
                     <button name="action_recompute_pricelist" string="Recompute With Pricelist"  type="object" states="draft"/>
-                </header>
+                </xpath>
             </field>
         </record>
     </data>
