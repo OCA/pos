@@ -21,7 +21,7 @@
 ##############################################################################
 
 from openerp.models import Model
-from openerp import fields, api, _
+from openerp import api, _
 
 
 class PosOrder(Model):
@@ -29,7 +29,6 @@ class PosOrder(Model):
 
     @api.multi
     def action_recompute_pricelist(self):
-        pol_obj = self.env['pos.order.line']
         for po in self:
             for pol in po.lines:
                 res = pol.onchange_product_id(
