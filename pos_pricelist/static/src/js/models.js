@@ -295,6 +295,20 @@ function pos_pricelist_models(instance, module) {
             return OrderlineParent.prototype.get_display_price.apply(
                 this, arguments
             );
+        },
+        
+        export_as_JSON: function() {
+        	var res = OrderlineParent.prototype.export_as_JSON.apply(this, arguments);
+            var product_tax_ids = this.get_product().taxes_id || [];
+            var partner = this.order ? this.order.get_client() : null;
+            if (partner && partner.property_account_position) {
+            	product_tax_ids =
+                    this.pos.db.find_taxes_by_fiscal_position_id(
+                        partner.property_account_position[0], product_tax_ids
+                    );
+            }
+        	res["tax_ids"] = [[6, false, product_tax_ids]];
+            return res;
         }
     });
 
