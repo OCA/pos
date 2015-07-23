@@ -31,8 +31,7 @@
     'website': 'https://www.akretion.com',
     'data': [
         'point_of_sale_view.xml',
-        'views/pos_remove_pos_category.xml',
+        'views/pos_category.xml',
     ],
     'installable': True,
-    'auto_install': False,
 }
