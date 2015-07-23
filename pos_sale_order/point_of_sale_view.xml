@@ -23,6 +23,7 @@
             <field name="arch" type="xml">
                 <field name="currency_id" position="after">
                     <field name="anonymous_partner_id"/>
+                    <field name="warehouse_id"/>
                 </field>
             </field>
         </record>

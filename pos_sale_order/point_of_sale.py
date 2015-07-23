@@ -44,25 +44,27 @@ class PosOrder(models.Model):
     _inherit = 'pos.order'
 
     @api.multi
-    def _update_sale_order_line_vals(self, pos_session, ui_order, line):
-        sale_line_obj = self.env['sale.order.line'].browse(False)
-        if line.get('qty'):
-            line['product_uom_qty'] = line.pop('qty')
-        defaults = sale_line_obj.product_id_change(
-            pricelist=pos_session.config_id.pricelist_id.id,
-            product=line['product_id'],
-            qty=line['product_uom_qty'],
-            uom=False,
-            qty_uos=0,
-            uos=False,
-            name='',
-            partner_id=ui_order['partner_id'],
-            lang=False,
-            update_tax=True,
-            date_order=False,
-            packaging=False,
-            fiscal_position=False,
-            flag=False)['value']
+    def _prepare_product_onchange_params(self, order, line):
+        return [
+            (order['pricelist_id'], line['product_id']),
+            {
+                'qty': line['product_uom_qty'],
+                'uom': False,
+                'qty_uos': 0,
+                'uos': False,
+                'name': '',
+                'partner_id': order['partner_id'],
+                'lang': False,
+                'update_tax': True,
+                'date_order': False,
+                'packaging': False,
+                'fiscal_position': False,
+                'flag': False,
+                'warehouse_id': order['warehouse_id']
+            }]
+
+    @api.multi
+    def _merge_product_onchange(self, order, onchange_vals, line):
         default_key = [
             'name',
             'product_uos_qty',
@@ -70,21 +72,31 @@ class PosOrder(models.Model):
             'th_weight',
             'product_uos']
         for key in default_key:
-            line[key] = defaults.get(key)
-        if defaults.get('tax_id'):
+            line[key] = onchange_vals.get(key)
+        if onchange_vals.get('tax_id'):
             line['tax_id'] = [[6, 0, defaults['tax_id']]]
+
+    @api.multi
+    def _update_sale_order_line_vals(self, order, line):
+        sale_line_obj = self.env['sale.order.line'].browse(False)
+        if line.get('qty'):
+            line['product_uom_qty'] = line.pop('qty')
+        args, kwargs = self._prepare_product_onchange_params(order, line)
+
+        vals = sale_line_obj.product_id_change_with_wh(*args, **kwargs)
+        self._merge_product_onchange(order, vals['value'], line)
 
     @api.multi
     def _prepare_sale_order_vals(self, ui_order):
         pos_session = self.env['pos.session'].browse(
             ui_order['pos_session_id'])
+        config = pos_session.config_id
         if not ui_order['partner_id']:
-            partner_id = pos_session.config_id.anonymous_partner_id.id
+            partner_id = config.anonymous_partner_id.id
             ui_order['partner_id'] = partner_id
-        for line in ui_order['lines']:
-            self._update_sale_order_line_vals(pos_session, ui_order, line[2])
         return {
-            'pricelist_id': pos_session.config_id.pricelist_id.id,
+            'pricelist_id': config.pricelist_id.id,
+            'warehouse_id': config.warehouse_id.id,
             'section_id': ui_order.get('section_id') or False,
             'user_id': ui_order.get('user_id') or False,
             'session_id': ui_order['pos_session_id'],
@@ -114,9 +126,10 @@ class PosOrder(models.Model):
         for tmp_order in orders_to_save:
             to_invoice = tmp_order['to_invoice']
             ui_order = tmp_order['data']
-            order = sale_obj.create(
-                self._prepare_sale_order_vals(ui_order),
-            )
+            vals = self._prepare_sale_order_vals(ui_order)
+            for line in vals['order_line']:
+                self._update_sale_order_line_vals(vals, line[2])
+            order = sale_obj.create(vals)
             for payments in ui_order['statement_ids']:
                 self.add_payment(
                     order.id,
@@ -242,5 +255,9 @@ class PosSession(models.Model):
 class PosConfig(models.Model):
     _inherit = 'pos.config'
 
-    anonymous_partner_id = fields.Many2one('res.partner',
-                                           string='Anonymous Partner')
+    anonymous_partner_id = fields.Many2one(
+        'res.partner',
+        string='Anonymous Partner')
+    warehouse_id = fields.Many2one(
+        'stock.warehouse',
+        string='Warehouse')
