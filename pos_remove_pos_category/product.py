@@ -41,6 +41,14 @@ class ProductTemplate(models.Model):
         return super(ProductTemplate, self).write(vals)
 
 
+class ProductCategory(models.Model):
+    _inherit = 'product.category'
+
+    available_in_pos = fields.Boolean(
+        string="Available in the Point of Sale",
+        help="Check if you want this category to appear in Point Of Sale")
+
+
 _auto_end_original = models.BaseModel._auto_end
 
 

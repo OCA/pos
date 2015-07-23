@@ -27,6 +27,7 @@ openerp.pos_remove_pos_category = function(instance, local) {
             for (var i = 0 ; i < this.models.length; i++){
                 if (this.models[i].model == 'pos.category') {
                     this.models[i].model = 'product.category';
+                    this.models[i].domain = [['available_in_pos', '=', true]];
                 }
             }
             return initialize_original.call(this, session, attributes);
