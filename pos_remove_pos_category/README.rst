@@ -25,6 +25,10 @@ Configuration
 
 No configuration is needed just use product categories as standard
 pos categories.
+You may uncheck 'Available in the Point of Sale' field
+in regular product categories if you want that a category becomes invisible
+in POS.
+Children categories will becomes invisible too, whatever their checkbox state.
 
 
 Bug Tracker

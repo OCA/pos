@@ -46,7 +46,10 @@ class ProductCategory(models.Model):
 
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
-        help="Check if you want this category to appear in Point Of Sale")
+        default=True,
+        help="Check if you want this category to appear in Point Of Sale.\n"
+             "If you uncheck, children categories will becomes invisible too, "
+             "whatever their checkbox state.")
 
 
 _auto_end_original = models.BaseModel._auto_end
