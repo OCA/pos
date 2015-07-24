@@ -140,14 +140,23 @@ function pos_pricelist_db(instance, module) {
             });
             return list;
         },
-        find_taxes_by_fiscal_position_id: function (fiscal_position_id) {
+        map_tax: function (fiscal_position_id, taxes_ids) {
             var taxes = [];
+            var found_taxes = {};
             for (var id in this.fiscal_position_tax_by_id) {
-                var tax = this.fiscal_position_tax_by_id[id];
-                if (tax && tax.position_id &&
-                    tax.position_id[0] == fiscal_position_id) {
-                    taxes.push(tax);
+                var fp_line = this.fiscal_position_tax_by_id[id];
+                if (fp_line && fp_line.position_id &&
+                		fp_line.position_id[0] == fiscal_position_id &&
+                		taxes_ids.indexOf(fp_line.tax_src_id[0]) > -1) {
+                    taxes.push(fp_line.tax_dest_id[0]);
+                    found_taxes[fp_line.tax_src_id[0]] = true;
                 }
+            }
+            for (var i = 0, len = taxes_ids.length; i < len; i++) {
+            	var tax_id = taxes_ids[i];
+            	if (!(tax_id in found_taxes)) {
+            		taxes.push(tax_id);
+            	}
             }
             return taxes;
         },

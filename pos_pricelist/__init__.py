@@ -17,3 +17,14 @@
 #
 ##############################################################################
 from . import models
+
+
+def set_pos_line_taxes(cr, registry):
+    """Copy the product taxes to the pos.line"""
+    cr.execute("""insert into pline_tax_rel
+                    select l.id, t.id
+                    from pos_order_line l
+                    join pos_order o on l.order_id = o.id
+                    join product_taxes_rel rel on rel.prod_id = l.product_id
+                    join account_tax t on rel.tax_id = t.id
+                    where t.company_id = o.company_id""")
