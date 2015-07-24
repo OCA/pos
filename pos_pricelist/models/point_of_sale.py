@@ -20,8 +20,6 @@
 
 
 from openerp import models, fields, api
-# import logging
-# _logger = logging.getLogger(__name__)
 
 
 class PosOrderLine(models.Model):
@@ -59,4 +57,3 @@ class PosOrder(models.Model):
             val += c.get('amount', 0.0)
         return val
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

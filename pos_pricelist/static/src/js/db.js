@@ -154,7 +154,7 @@ function pos_pricelist_db(instance, module) {
             }
             for (var i = 0, len = taxes_ids.length; i < len; i++) {
             	var tax_id = taxes_ids[i];
-            	if (! tax_id in found_taxes) {
+            	if (!(tax_id in found_taxes)) {
             		taxes.push(tax_id);
             	}
             }

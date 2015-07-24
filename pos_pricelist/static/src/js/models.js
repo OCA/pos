@@ -263,7 +263,6 @@ function pos_pricelist_models(instance, module) {
          */
         get_applicable_taxes_for_orderline: function () {
             // find applicable taxes for this product and this customer
-            var fiscal_position_taxes = [];
             var product = this.get_product();
             var product_tax_ids = product.taxes_id;
             var product_taxes = [];
@@ -296,9 +295,9 @@ function pos_pricelist_models(instance, module) {
                 this, arguments
             );
         },
-        
+
         export_as_JSON: function() {
-        	var res = OrderlineParent.prototype.export_as_JSON.apply(this, arguments);
+            var res = OrderlineParent.prototype.export_as_JSON.apply(this, arguments);
             var product_tax_ids = this.get_product().taxes_id || [];
             var partner = this.order ? this.order.get_client() : null;
             if (partner && partner.property_account_position) {
@@ -307,7 +306,7 @@ function pos_pricelist_models(instance, module) {
                         partner.property_account_position[0], product_tax_ids
                     );
             }
-        	res["tax_ids"] = [[6, false, product_tax_ids]];
+            res["tax_ids"] = [[6, false, product_tax_ids]];
             return res;
         }
     });

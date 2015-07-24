@@ -17,7 +17,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-__name__ = ("Copy the product taxes to the pos.line")
+__name__ = "Copy the product taxes to the pos.line"
 
 
 def migrate(cr, version):
