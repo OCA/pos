@@ -270,7 +270,7 @@ function pos_pricelist_models(instance, module) {
             var partner = this.order ? this.order.get_client() : null;
             if (partner && partner.property_account_position) {
             	product_tax_ids =
-                    this.pos.db.find_taxes_by_fiscal_position_id(
+                    this.pos.db.map_tax(
                         partner.property_account_position[0], product_tax_ids
                     );
             }
@@ -302,7 +302,7 @@ function pos_pricelist_models(instance, module) {
             var partner = this.order ? this.order.get_client() : null;
             if (partner && partner.property_account_position) {
             	product_tax_ids =
-                    this.pos.db.find_taxes_by_fiscal_position_id(
+                    this.pos.db.map_tax(
                         partner.property_account_position[0], product_tax_ids
                     );
             }
