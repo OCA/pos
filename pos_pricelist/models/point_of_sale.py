@@ -56,4 +56,3 @@ class PosOrder(models.Model):
         for c in taxes:
             val += c.get('amount', 0.0)
         return val
-
