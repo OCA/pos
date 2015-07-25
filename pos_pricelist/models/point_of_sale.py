@@ -122,7 +122,7 @@ class PosOrder(models.Model):
             taxes_to_delete = self.env['pos.order.tax'].search(
                 [('pos_order', '=', order.id)])
             # Update order taxes list
-            for key, tax in self._tax_list_get().iteritems():
+            for key, tax in order._tax_list_get().iteritems():
                 current = taxes_to_delete.filtered(
                     lambda r: r.tax.id == tax['tax_id'])
                 if current:
@@ -132,7 +132,7 @@ class PosOrder(models.Model):
                     })
                     taxes_to_delete -= current
                 else:
-                    current = self.env['pos.order.tax'].create({
+                    self.env['pos.order.tax'].create({
                         'pos_order': order.id,
                         'tax': tax['tax_id'],
                         'name': tax['name'],
