@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+
+    <t t-name="LoadButtonWidget">
+        <button class="order-load">Load Draft Order</button>
+    </t>
+
+    <t t-name="SaveButtonWidget">
+        <li class="orderline">
+            <button class="order-save">Save Current Order</button>
+        </li>
+    </t>
+
+    <t t-name="LoadOrderLine">
+        <tr class="order-line" t-att-data-order-id="order.id">
+            <td><t t-esc="order.name"/></td>
+            <td t-if="order.partner_id"><t t-esc="order.partner_id[1]"/></td>
+            <td t-if="!order.partner_id"></td>
+            <td class="total"><t t-esc="widget.format_currency(order.amount_total)"/></td>
+        </tr>
+    </t>
+
+    <t t-name="OrderListScreenWidget">
+        <div class="orderlist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class="button back">
+                        <i class="fa fa-angle-double-left"></i>
+                        Cancel
+                    </span>
+                    <span class="button validate">
+                        <i class="fa fa-angle-double-left"></i>
+                        Validate
+                    </span>
+                    <span class="searchbox">
+                        <input placeholder="Search Orders" />
+                        <span class="search-clear"></span>
+                    </span>
+                    <span class="searchbox"></span>
+                    <span class="button next oe_hidden highlight">
+                        Select Order
+                        <i class="fa fa-angle-double-right"></i>
+                    </span>
+                </section>
+                <section class="full-content">
+                    <div class="window">
+                        <section class="subwindow collapsed">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix order-details-contents">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="subwindow">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix touch-scrollable scrollable-y">
+                                    <table class="order-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Order</th>
+                                                <th>Customer</th>
+                                                <th>Total Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="order-list-contents">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+</template>
