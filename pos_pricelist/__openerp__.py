@@ -34,7 +34,9 @@ New feature for the Point Of Sale:
     'data': [
         "views/pos_pricelist_template.xml",
         "views/pos_pricelist_views.xml",
-        "views/point_of_sale_view.xml"
+        "views/point_of_sale_view.xml",
+        "report/report_receipt.xml",
+        "data/pos_order.yml",
     ],
     'demo': [
         'demo/pos_pricelist_demo.yml',

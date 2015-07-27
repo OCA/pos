@@ -1,0 +1,141 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_pricelist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-24 14:44+0000\n"
+"PO-Revision-Date: 2015-07-24 14:44+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,amount:0
+#: view:website:point_of_sale.report_receipt
+msgid "Amount"
+msgstr "Cuota"
+
+#. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/js/models.js:386
+#, python-format
+msgid "At least one pricelist has no active version ! Please create or activate one."
+msgstr "¡Al menos una lista de precios no tiene ua versión activa! Por favor, cree o active una."
+
+#. module: pos_pricelist
+#: field:pos.order.tax,base:0
+#: view:website:point_of_sale.report_receipt
+msgid "Base"
+msgstr "Base imponible"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: pos_pricelist
+#: help:pos.config,display_price_with_taxes:0
+msgid "Display Prices with taxes on POS"
+msgstr "Mostrar los precios con impuestos incluidos en el TPV"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_pos_order_line
+msgid "Lines of Point of Sale"
+msgstr "Líneas del Terminal Punto de Venta"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,pos_order:0
+msgid "POS Order"
+msgstr "Pedido"
+
+#. module: pos_pricelist
+#: model:product.template,name:pos_pricelist.pos_product_product_1_product_template
+msgid "POS Product 1"
+msgstr "TPV Producto 1"
+
+#. module: pos_pricelist
+#: model:product.template,name:pos_pricelist.pos_product_product_2_product_template
+msgid "POS Product 2"
+msgstr "TPV Producto 2"
+
+#. module: pos_pricelist
+#: model:product.template,name:pos_pricelist.pos_product_product_3_product_template
+msgid "POS Product 3"
+msgstr "TPV Producto 3"
+
+#. module: pos_pricelist
+#: model:product.template,name:pos_pricelist.pos_product_product_4_product_template
+msgid "POS Product 4"
+msgstr "TPV Producto 4"
+
+#. module: pos_pricelist
+#: view:pos.order:pos_pricelist.view_pos_pos_form
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_pos_order
+msgid "Point of Sale"
+msgstr "Terminal Punto de Venta"
+
+#. module: pos_pricelist
+#: field:pos.config,display_price_with_taxes:0
+msgid "Price With Taxes"
+msgstr "Precios con impuestos incluidos"
+
+#. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/js/models.js:385
+#, python-format
+msgid "Pricelist Error"
+msgstr "Error en lista de precios"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,tax:0
+#: view:website:point_of_sale.report_receipt
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,name:0
+msgid "Tax Description"
+msgstr "Descripción del impuesto"
+
+#. module: pos_pricelist
+#: view:pos.order:pos_pricelist.view_pos_pos_form
+#: field:pos.order,taxes:0
+#: field:pos.order.line,tax_ids:0
+msgid "Taxes"
+msgstr "Impuestos"
+
+#. module: pos_pricelist
+#: view:pos.order:pos_pricelist.view_pos_pos_form
+msgid "Taxes detail"
+msgstr "Detalle de impuestos"
+

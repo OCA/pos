@@ -10,6 +10,17 @@
             	<xpath expr="//field[@name='lines']/tree/field[@name='discount']" position="after">
             		<field name="tax_ids" widget="many2many_tags"/>
             	</xpath>
+                <page string="Payments" position="after">
+                    <page string="Taxes">
+                        <field name="taxes" widget="one2many_list">
+                            <tree string="Taxes detail">
+                                <field name="name"/>
+                                <field name="base"/>
+                                <field name="amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                </page>
 			</field>
 		</record>
 
