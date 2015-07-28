@@ -55,7 +55,6 @@ class PosOrder(models.Model):
         # Save Paid Orders
         return super(PosOrder, self).create_from_ui(orders)
 
-
     # Custom Section
     @api.model
     def search_read_orders(self, query):
@@ -90,7 +89,7 @@ class PosOrder(models.Model):
 
             # create Order
             order = self.create(self._order_fields(order_data))
-            
+
             # Create payment
             for statement_data in statements_data:
                 self.add_payment(
