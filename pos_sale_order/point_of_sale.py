@@ -243,8 +243,7 @@ class PosSession(models.Model):
             partner_id = session.config_id.anonymous_partner_id.id
             domains = {}
             domains = self._get_domains(domains, partner_id, session)
-            order_ids = sale_obj.search(domains)
-            orders = sale_obj.browse(order_ids)
+            orders = sale_obj.search(domains)
             orders.action_invoice_create(grouped=True)
             # Dummy call to workflow, will not create another invoice
             # but bind the new invoice to the subflow
