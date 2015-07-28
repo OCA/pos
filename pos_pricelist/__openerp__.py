@@ -36,6 +36,7 @@ New feature for the Point Of Sale:
         "views/pos_pricelist_views.xml",
         "views/point_of_sale_view.xml",
         "report/report_receipt.xml",
+        "security/ir.model.access.csv",
         "data/pos_order.yml",
     ],
     'demo': [
