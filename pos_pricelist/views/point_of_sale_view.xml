@@ -12,8 +12,8 @@
             	</xpath>
                 <page string="Payments" position="after">
                     <page string="Taxes">
-                        <field name="taxes" widget="one2many_list">
-                            <tree string="Taxes detail">
+                        <field name="taxes">
+                            <tree editable="bottom" string="Taxes detail">
                                 <field name="name"/>
                                 <field name="base"/>
                                 <field name="amount"/>

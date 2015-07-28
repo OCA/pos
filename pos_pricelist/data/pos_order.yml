@@ -22,4 +22,8 @@
 #
 ##############################################################################
 
+-
+  !context
+  noupdate: 1
+
 - !function {model: pos.order, name: _install_tax_detail}

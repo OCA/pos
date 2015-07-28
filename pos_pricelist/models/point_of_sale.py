@@ -75,7 +75,7 @@ class PosOrder(models.Model):
     _inherit = "pos.order"
 
     taxes = fields.One2many(comodel_name='pos.order.tax',
-                            inverse_name='pos_order')
+                            inverse_name='pos_order', readonly=True)
 
     @api.model
     def _amount_line_tax(self, line):
