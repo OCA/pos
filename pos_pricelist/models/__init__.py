@@ -1,7 +1,7 @@
-# -#- coding: utf-8 -#-
+# -*- coding: utf-8 -*-
 ##############################################################################
 # Point Of Sale - Pricelist for POS Odoo
-# Copyright (C) 2014 Taktik (http://www.taktik.be)
+# Copyright (C) 2015 Taktik (http://www.taktik.be)
 # @author Adil Houmadi <ah@taktik.be>
 #
 # This program is free software: you can redistribute it and/or modify
@@ -16,15 +16,5 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import models
-
-
-def set_pos_line_taxes(cr, registry):
-    """Copy the product taxes to the pos.line"""
-    cr.execute("""insert into pline_tax_rel
-                    select l.id, t.id
-                    from pos_order_line l
-                    join pos_order o on l.order_id = o.id
-                    join product_taxes_rel rel on rel.prod_id = l.product_id
-                    join account_tax t on rel.tax_id = t.id
-                    where t.company_id = o.company_id""")
+from . import pos_pricelist
+from . import point_of_sale

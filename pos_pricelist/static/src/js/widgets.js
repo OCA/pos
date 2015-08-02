@@ -24,7 +24,7 @@ function pos_pricelist_widgets(instance, module) {
             if (this.editable && order.getSelectedLine()) {
                 var mode = this.numpad_state.get('mode');
                 if (mode === 'price') {
-                    order.getSelectedLine().set_manuel_price(true);
+                    order.getSelectedLine().set_manual_price(true);
                 }
             }
         }
@@ -33,9 +33,35 @@ function pos_pricelist_widgets(instance, module) {
     module.OrderButtonWidget = module.OrderButtonWidget.extend({
         selectOrder: function (event) {
             this._super(event);
-            var partner = this.order.get_client() ? this.order.get_client() : false;
+            var partner = this.order.get_client()
+                ? this.order.get_client()
+                : false;
             this.pos.pricelist_engine.update_products_ui(partner);
         }
-    })
+    });
+
+    instance.point_of_sale.ProductListWidget.include({
+        init: function (parent, options) {
+            this._super(parent, options);
+            this.display_price_with_taxes = false;
+            if (
+                posmodel
+                && posmodel.config
+                && posmodel.config.display_price_with_taxes
+            ) {
+                this.display_price_with_taxes
+                    = posmodel.config.display_price_with_taxes
+            }
+        },
+        renderElement: function () {
+            this._super();
+            var order = posmodel.get_order();
+            var customer = null;
+            if(order) {
+                customer = order.get_client();
+            }
+            this.pos.pricelist_engine.update_products_ui(customer);
+        }
+    });
 }
 

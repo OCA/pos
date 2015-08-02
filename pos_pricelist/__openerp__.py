@@ -18,7 +18,7 @@
 ##############################################################################
 {
     'name': 'POS Pricelist',
-    'version': '1.0.0',
+    'version': '1.1.0',
     'category': 'Point Of Sale',
     'sequence': 1,
     'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA)",
@@ -33,10 +33,19 @@ New feature for the Point Of Sale:
     ],
     'data': [
         "views/pos_pricelist_template.xml",
+        "views/pos_pricelist_views.xml",
+        "views/point_of_sale_view.xml",
+        "report/report_receipt.xml",
+        "security/ir.model.access.csv",
+        "data/pos_order.yml",
     ],
     'demo': [
         'demo/pos_pricelist_demo.yml',
     ],
+    'qweb': [
+        'static/src/xml/pos.xml'
+    ],
+    'post_init_hook': "set_pos_line_taxes",
     'installable': True,
     'application': False,
     'auto_install': False,
