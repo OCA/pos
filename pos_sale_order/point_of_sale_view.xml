@@ -21,12 +21,39 @@
             <field name="model">pos.config</field>
             <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
             <field name="arch" type="xml">
+                <field name="picking_type_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="stock_location_id" position="replace">
+                    <field name="warehouse_id"/>
+                </field>
                 <field name="currency_id" position="after">
                     <field name="anonymous_partner_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_pos_config_tree">
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_config_tree"/>
+            <field name="arch" type="xml">
+                <field name="stock_location_id" position="replace">
                     <field name="warehouse_id"/>
                 </field>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="view_pos_config_search">
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_config_search"/>
+            <field name="arch" type="xml">
+                <field name="stock_location_id" position="replace">
+                    <field name="warehouse_id"/>
+                </field>
+            </field>
+        </record>
+
+
 
     </data>
 </openerp>

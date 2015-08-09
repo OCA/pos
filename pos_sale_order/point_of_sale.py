@@ -259,4 +259,9 @@ class PosConfig(models.Model):
         string='Anonymous Partner')
     warehouse_id = fields.Many2one(
         'stock.warehouse',
-        string='Warehouse')
+        string='Warehouse',
+        required=True)
+    stock_location_id = fields.Many2one(
+        'stock.location',
+        string='Stock Location',
+        required=False)
