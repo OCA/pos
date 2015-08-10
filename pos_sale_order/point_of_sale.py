@@ -264,4 +264,6 @@ class PosConfig(models.Model):
     stock_location_id = fields.Many2one(
         'stock.location',
         string='Stock Location',
+        related='warehouse_id.lot_stock_id',
+        readonly=True,
         required=False)
