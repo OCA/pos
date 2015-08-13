@@ -147,7 +147,7 @@ function pos_pricelist_models(instance, module) {
                 var price = this.pos.pricelist_engine.compute_price_all(
                     db, product, partner, qty
                 );
-                if (price !== false && price !== 0.0) {
+                if (price !== false) {
                     this.price = price;
                 }
             }
@@ -169,7 +169,7 @@ function pos_pricelist_models(instance, module) {
             var price = this.pos.pricelist_engine.compute_price_all(
                 db, product, partner, quantity
             );
-            if (price !== false && price !== 0.0) {
+            if (price !== false) {
                 this.price = price;
             }
             this.trigger('change', this);
@@ -533,7 +533,9 @@ function pos_pricelist_models(instance, module) {
                 var quantities = [];
                 quantities.push(1);
                 for (var j = 0; j < rules.length; j++) {
-                    quantities.push(rules[j].min_quantity);
+                    if ($.inArray(rules[j].min_quantity, quantities) === -1) {
+                        quantities.push(rules[j].min_quantity);
+                    }
                 }
                 quantities = quantities.sort();
                 var prices_displayed = '';
@@ -542,7 +544,7 @@ function pos_pricelist_models(instance, module) {
                     var price = this.compute_price_all(
                         db, product, partner, qty
                     );
-                    if (price !== false && price !== 0.0) {
+                    if (price !== false) {
                         if (this.pos.config.display_price_with_taxes) {
                             var prices = this.simulate_price(
                                 product, partner, price, qty
@@ -602,7 +604,7 @@ function pos_pricelist_models(instance, module) {
                 var price = this.compute_price_all(
                     db, product, partner, quantity
                 );
-                if (price !== false && price !== 0.0) {
+                if (price !== false) {
                     line.price = price;
                 }
                 line.trigger('change', line);
