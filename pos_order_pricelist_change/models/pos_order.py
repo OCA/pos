@@ -34,8 +34,7 @@ class PosOrder(Model):
                 res = pol.onchange_product_id(
                     po.pricelist_id.id, pol.product_id.id, qty=pol.qty,
                     partner_id=po.partner_id.id)
-                if res['value']['price_unit'] != pol.price_unit:
-                    pol.write(res['value'])
+                pol.write(res['value'])
 
     @api.onchange('pricelist_id')
     def onchange_pricelist_id(self):
