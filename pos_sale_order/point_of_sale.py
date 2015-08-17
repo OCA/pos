@@ -74,7 +74,7 @@ class PosOrder(models.Model):
         for key in default_key:
             line[key] = onchange_vals.get(key)
         if onchange_vals.get('tax_id'):
-            line['tax_id'] = [[6, 0, defaults['tax_id']]]
+            line['tax_id'] = [[6, 0, onchange_vals['tax_id']]]
 
     @api.multi
     def _update_sale_order_line_vals(self, order, line):
