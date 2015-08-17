@@ -58,7 +58,7 @@ openerp.pos_order_load = function(instance, local) {
 
     /*************************************************************************
         New Widget SaveButtonWidget:
-            * On click, backup the current draft order;
+            * On click, save the current draft order;
     */
     module.SaveButtonWidget = module.PosBaseWidget.extend({
         template: 'SaveButtonWidget',
