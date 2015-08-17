@@ -1,10 +1,14 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+    :alt: License: AGPL-3
+
 POS Order Load and Save
 =======================
 
-This module allows to load existing POS order.
-In this version, when the loaded order
-is validated in the POS, a new one is created.
-
+This module allows to:
+* save a PoS order from PoS front UI to PoS back UI (server);
+* recover (load) a draft PoS Order from PoS back UI to PoS front UI;
+In this version, when the order is loaded again, the draft order is unlinked
+in the server (in database);
 
 Bug Tracker
 ===========
