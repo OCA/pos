@@ -28,6 +28,10 @@ from openerp.exceptions import Warning
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    _sql_constraints = [('pos_reference_uniq',
+        'unique (pos_reference, session_id)',
+        'The pos_reference must be uniq per session')]
+
     pos_reference = fields.Char(string='Receipt Ref',
                                 readonly=True,
                                 copy=False,
@@ -111,16 +115,12 @@ class PosOrder(models.Model):
         # Keep only new orders
         sale_obj = self.env['sale.order']
         submitted_references = [o['data']['name'] for o in orders]
-        existing_order_ids = sale_obj.search([
+        existing_orders = sale_obj.search([
             ('pos_reference', 'in', submitted_references),
         ])
-        existing_orders = sale_obj.read(existing_order_ids,
-                                        ['pos_reference'])
-        existing_references = set(
-            [o['pos_reference'] for o in existing_orders])
+        existing_references = existing_orders.mapped('pos_reference')
         orders_to_save = [o for o in orders if (
             o['data']['name'] not in existing_references)]
-
         order_ids = []
 
         for tmp_order in orders_to_save:
