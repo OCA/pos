@@ -20,7 +20,7 @@
 ##############################################################################
 
 import sys
-from openerp import models, fields, api
+from openerp import models, fields, api, tools
 
 
 class ProductTemplate(models.Model):
@@ -52,7 +52,7 @@ class ProductCategory(models.Model):
         help="Check if you want this category to appear in Point Of Sale.\n"
              "If you uncheck, children categories will becomes invisible too, "
              "whatever their checkbox state.")
-    
+
     @api.one
     @api.constrains('image')
     def _save_image_medium(self):
