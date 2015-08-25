@@ -45,7 +45,7 @@ class ProductCategory(models.Model):
     _inherit = 'product.category'
 
     image = fields.Binary(help='Show Image Category in Form View')
-    image_medium = fields.Binary(help='Show image category button in POS')
+    image_medium = fields.Binary(help='Show image category button in POS', inverse='_save_image_medium')
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
         default=True,
@@ -53,14 +53,15 @@ class ProductCategory(models.Model):
              "If you uncheck, children categories will becomes invisible too, "
              "whatever their checkbox state.")
 
-    @api.one
-    @api.constrains('image')
+    @api.multi
     def _save_image_medium(self):
-        if self.image:
-            temp = tools.image_get_resized_images(self.image)
-            return self.write({'image_medium': temp['image_medium']})
-        else:
-            return self.write({'image_medium': None})
+        for record in self:
+            if record.image:
+                temp = tools.image_get_resized_images(self.image)
+                record.image_medium = temp['image_medium']
+            else:
+                record.image_medium = None
+        return True
 
 
 _auto_end_original = models.BaseModel._auto_end
