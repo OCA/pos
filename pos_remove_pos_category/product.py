@@ -44,9 +44,9 @@ class ProductTemplate(models.Model):
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    image = fields.Binary(help='Show Image Category in Form View')
-    image_medium = fields.Binary(help='Show image category button in POS',
-                                 inverse='_save_image_medium')
+    image = fields.Binary(help='Show Image Category in Form View',
+                          inverse='_save_image_medium')
+    image_medium = fields.Binary(help='Show image category button in POS')
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
         default=True,
