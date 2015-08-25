@@ -15,6 +15,7 @@
             <field name="priority">20</field>
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='parent']" position="inside">
+                    <field name="image" widget="image"/>
                     <field name="available_in_pos"/>
                 </xpath>
             </field>
