@@ -23,11 +23,6 @@
     'sequence': 1,
     'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA)",
     'summary': 'Pricelist for Point of sale',
-    'description': """
-New feature for the Point Of Sale:
-=============================================
-    Add support for pricelist on the point of sale
-    """,
     'depends': [
         "point_of_sale",
     ],
