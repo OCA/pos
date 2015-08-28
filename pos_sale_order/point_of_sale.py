@@ -121,7 +121,7 @@ class PosOrder(models.Model):
         existing_references = existing_orders.mapped('pos_reference')
         orders_to_save = [o for o in orders if (
             o['data']['name'] not in existing_references)]
-        order_ids = []
+        order_ids = existing_orders.ids
 
         for tmp_order in orders_to_save:
             to_invoice = tmp_order['to_invoice']
