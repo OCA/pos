@@ -24,7 +24,7 @@
 {
     "name": "Gift Ticket",
     "version": "0.1",
-    "author": "FactorLibre",
+    "author": "FactorLibre, Odoo Community Association (OCA)",
     "website": "http://www.factorlibre.com",
     "license": "AGPL-3",
     "category": "Point Of Sale",
