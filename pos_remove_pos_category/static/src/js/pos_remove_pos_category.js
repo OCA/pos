@@ -33,4 +33,12 @@ openerp.pos_remove_pos_category = function(instance, local) {
             return initialize_original.call(this, session, attributes);
         }
    });
+
+    //override method js POS (widgets.js)
+    //change pos.category by product.category
+    module.ProductCategoriesWidget = module.ProductCategoriesWidget.extend({
+        get_image_url: function(category){
+            return window.location.origin + '/web/binary/image?model=product.category&field=image_medium&id='+category.id;
+        }
+    });
 };
