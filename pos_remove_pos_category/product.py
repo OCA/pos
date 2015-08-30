@@ -44,24 +44,12 @@ class ProductTemplate(models.Model):
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    image = fields.Binary(help='Show Image Category in Form View')
-    image_medium = fields.Binary(help='Show image category button in POS')
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
         default=True,
         help="Check if you want this category to appear in Point Of Sale.\n"
              "If you uncheck, children categories will becomes invisible too, "
              "whatever their checkbox state.")
-    
-    @api.one
-    @api.constrains('image')
-    def _save_image_medium(self):
-        if self.image:
-            temp = tools.image_get_resized_images(self.image)
-            return self.write({'image_medium': temp['image_medium']})
-        else:
-            return self.write({'image_medium': None})
-
 
 _auto_end_original = models.BaseModel._auto_end
 
