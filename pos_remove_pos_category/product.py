@@ -44,9 +44,11 @@ class ProductTemplate(models.Model):
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    image = fields.Binary(help='Show Image Category in Form View',
-                          inverse='_save_image_medium')
-    image_medium = fields.Binary(help='Show image category button in POS')
+    image = fields.Binary(help='Show Image Category in Form View')
+    image_medium = fields.Binary(help='Show image category button in POS',
+                                 compute="_get_image",
+                                 inverse="_set_image",
+                                 store=True)
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
         default=True,
@@ -55,15 +57,12 @@ class ProductCategory(models.Model):
              "whatever their checkbox state.")
 
     @api.multi
-    def _save_image_medium(self):
-        for record in self:
-            if record.image:
-                temp = tools.image_get_resized_images(record.image)
-                record.image_medium = temp['image_medium']
-            else:
-                record.image_medium = None
-        return True
+    def _get_image(self):
+        return dict((rec.id, tools.image_get_resized_images(rec.image)) for rec in self)
 
+    @api.one
+    def _set_image(self):
+        return self.write({'image': tools.image_resize_image_big(self.image_medium)})
 
 _auto_end_original = models.BaseModel._auto_end
 
