@@ -51,7 +51,6 @@ class ProductCategory(models.Model):
              "If you uncheck, children categories will becomes invisible too, "
              "whatever their checkbox state.")
 
-
 _auto_end_original = models.BaseModel._auto_end
 
 
