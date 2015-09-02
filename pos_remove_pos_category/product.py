@@ -58,11 +58,15 @@ class ProductCategory(models.Model):
 
     @api.multi
     def _get_image(self):
-        return dict((rec.id, tools.image_get_resized_images(rec.image)) for rec in self)
+        return dict(
+            (rec.id, tools.image_get_resized_images(rec.image)) for rec in
+            self)
 
     @api.one
     def _set_image(self):
-        return self.write({'image': tools.image_resize_image_big(self.image_medium)})
+        return self.write(
+            {'image': tools.image_resize_image_big(self.image_medium)})
+
 
 _auto_end_original = models.BaseModel._auto_end
 
@@ -98,5 +102,6 @@ def _auto_end(self, cr, context=None):
         foreign_keys.append((t, k, r, d))
     self._foreign_keys = foreign_keys
     return _auto_end_original(self, cr, context=context)
+
 
 models.BaseModel._auto_end = _auto_end
