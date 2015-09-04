@@ -12,6 +12,7 @@
         'point_of_sale',
     ],
     'data': [
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': False,

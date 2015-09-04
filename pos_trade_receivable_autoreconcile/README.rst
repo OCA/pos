@@ -27,6 +27,8 @@ counterpart like this:
 When this module is installed 2), 3) and 5) items would be reconciled when
 closing a session.
 
+Module also grants access rights for POS users to create reconciliation records
+
 Usage
 =====
 
