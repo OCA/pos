@@ -71,8 +71,8 @@ class TestPointOfSaleSlate(TransactionCase):
 
         self.assertEquals(
             ps1.state, 'closed',
-            """Draft Orders without Payment must not block the closing
-            process of the associated session.""")
+            "Unpaid Draft Orders must not block the closing process of the"
+            " associated session.")
 
         # Open a second session
         ps2_id = self.ps_obj.create(cr, uid, {
@@ -83,8 +83,8 @@ class TestPointOfSaleSlate(TransactionCase):
 
         self.assertEquals(
             po.session_id.id, ps2_id,
-            """Draft Orders of a previous session must be associated to the
-            new opened session to allow payment.""")
+            "Draft Orders of a previous session must be associated to the"
+            " new opened session to allow payment.")
 
     # Test Section
     def test_02_block_draft_order_partial_paid(self):

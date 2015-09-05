@@ -35,11 +35,10 @@ class pos_session(Model):
             for po in ps.order_ids:
                 # Check if there is a partial payment
                 if po.is_partial_paid:
-                    raise Warning(
-                        _("You cannot confirm this session, because '%s'"
-                            " is in a 'draft' state with payments.\n\n"
-                            "Please finish to pay this Order." % (
-                                po.name)))
+                    raise Warning(_(
+                        "You cannot confirm this session, because '%s' is"
+                        " still in 'draft' state with associated payments.\n\n"
+                        " Please finish to pay this Order first." % (po.name)))
                 # remove session id on the current PoS if it is in draft mode
                 if po.state == 'draft' and ps.config_id.allow_slate:
                     po_obj.write(cr, uid, po.id, {
@@ -49,7 +48,7 @@ class pos_session(Model):
     def wkf_action_closing_control(self, cr, uid, ids, context=None):
         """Remove all PoS Orders in 'draft' to the sessions we want
         to close.
-        Check if there is Partial Paid Orders"""
+        Check if there is any Partial Paid Orders"""
         self._remove_draft_orders(cr, uid, ids, context=context)
         return super(pos_session, self).wkf_action_closing_control(
             cr, uid, ids, context=context)
