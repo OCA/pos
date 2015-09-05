@@ -21,7 +21,7 @@
     <data>
 
 <!-- Model: pos.order -->
-        <record id="view_pos_order_form" model="ir.ui.view">
+        <record id="pos_order_view_form" model="ir.ui.view">
             <field name="model">pos.order</field>
             <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
             <field name="arch" type="xml">
@@ -35,7 +35,7 @@
         </record>
 
 <!-- Model: pos.config -->
-        <record id="view_pos_config_form" model="ir.ui.view">
+        <record id="pos_config_view_form" model="ir.ui.view">
             <field name="model">pos.config</field>
             <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
             <field name="arch" type="xml">
