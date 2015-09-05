@@ -27,10 +27,10 @@ Feature
     :alt: License: Blue, red and black orders depending of payments.
 
 2. Possibility to close session:
-* if a PoS order is in a 'draft' state (without any payment), the PoS Order
-  will be unassociated to the current session, when closing the session;
-* When opening a new session, the PoS Orders in 'draft' state will be
-  associated to the new session, based on the user_id;
+    * if a PoS order is in a 'draft' state (without any payment), the PoS Order
+      will be unassociated to the current session, when closing the session;
+    * When opening a new session, the PoS Orders in 'draft' state will be
+      associated to the new session, based on the user_id;
 
 
 .. image:: ./static/description/1_before_closing.png
