@@ -11,35 +11,50 @@ Allow to close a Session even if there are some PoS Orders in draft state.
 By default, in Odoo, All PoS Orders must be in 'paid' or 'invoiced' state to
 allow user to close the session.
 
-This module can be usefull to manage Orders in slate for some customers.
+This module can be usefull to let Orders on slate for some customers.
 
-Features:
----------
-With this Module:
-    * if a PoS order is in a 'draft' mode (without any payment), the PoS order
-      will be unassociated to the current session, when closing the session;
-    * When opening a new session, the PoS Orders in 'draft' state will be
-      associated to the new session, based on the user_id;
-    * Add a new computed field 'is_partial_paid' on PoS Order:
-        * This field is True, if the PoS order is in a draft mode with
-          some payments;
-        * In the tree view, the partial_paid orders are displayed in red
-          colors;
-        * Forbid to close a session if there is a partial paid Order, to avoid
-          to have Account Move Lines that can not be reconciled;
+Feature
+-------
+1. New computed field 'is_partial_paid' on PoS Order:
+    * This field is True, if the PoS order is in a draft state with some
+      payments;
+    * Forbid to close a session if there is a partial paid Order, to avoid to
+      have Account Move Lines that can not be reconciled;
+    * In the tree view, the partial_paid orders are displayed in red colors;
 
-    * A new field 'allow_slate' is available in PoS Config Model, to allow
-      or block the user to let Orders in slate;
+
+.. image:: ./static/description/pos_order_states.png
+    :alt: License: Blue, red and black orders depending of payments.
+
+2. Possibility to close session:
+* if a PoS order is in a 'draft' state (without any payment), the PoS Order
+  will be unassociated to the current session, when closing the session;
+* When opening a new session, the PoS Orders in 'draft' state will be
+  associated to the new session, based on the user_id;
+
+
+.. image:: ./static/description/1_before_closing.png
+    :alt: License: One PoS order in draft state, before closing the session
+
+.. image:: ./static/description/2_after_closing.png
+    :alt: License: The PoS order is unassociated of the closed session
+
+.. image:: ./static/description/3_after_opening.png
+    :alt: License: The PoS order is associated to the new opened session
 
 Installation
 ============
 
-Classical installation.
+This module will allow users to let orders in a draft state, only for orders
+created in back-office.
+If you want the same feature for the front-office PoS, please install both
+modules : 'pos_slate' and 'pos_order_load'.
 
 Configuration
 =============
 
-Nothing to do.
+* A new field 'allow_slate' is available in PoS Config Model, to allow
+  or block the cashier to let Orders on slate when closing session;
 
 Usage
 =====

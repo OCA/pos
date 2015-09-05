@@ -20,8 +20,7 @@
 #
 ##############################################################################
 
-from openerp import netsvc
-from osv.osv import except_osv
+from openerp.exceptions import Warning
 from openerp.tests.common import TransactionCase
 
 
@@ -31,58 +30,51 @@ class TestPointOfSaleSlate(TransactionCase):
     def setUp(self):
         super(TestPointOfSaleSlate, self).setUp()
 
-        self.imd_obj = self.registry('ir.model.data')
-        self.ps_obj = self.registry('pos.session')
-        self.po_obj = self.registry('pos.order')
-        self.pmp_obj = self.registry('pos.make.payment')
-        self.wf_service = netsvc.LocalService('workflow')
+        self.session_obj = self.registry('pos.session')
+        self.order_obj = self.registry('pos.order')
 
         self.pos_config_id = self.ref('point_of_sale.pos_config_main')
-        self.product_1 = self.ref('product.product_product_48')
+        self.product_id = self.ref('product.product_product_48')
         self.cash_journal_id = self.ref('account.cash_journal')
 
     # Test Section
     def test_01_allow_draft_order_unpaid(self):
         """Test the possibility to let a PoS Order in a slate if it is not
         paid at all."""
-        cr, uid = self.cr, self.uid
-
         # Open a new session
-        ps1_id = self.ps_obj.create(cr, uid, {
-            'config_id': self.pos_config_id,
-        })
+        session_1 = self.session_obj.create({'config_id': self.pos_config_id})
 
         # Create Order
-        po_id = self.po_obj.create(cr, uid, {
-            'session_id': ps1_id,
-            'lines': [
-                [0, False, {
-                    'discount': 0,
-                    'price_unit': 10,
-                    'product_id': self.product_1,
-                    'qty': 1}]]
+        order = self.order_obj.create({
+            'session_id': session_1.id,
+            'lines': [[0, False, {
+                'discount': 0,
+                'price_unit': 10,
+                'product_id': self.product_id,
+                'qty': 1}]]
         })
 
-        # Close Session
-        self.wf_service.trg_validate(
-            uid, 'pos.session', ps1_id, 'close', cr)
+        # Close Session # TODO TEST
+        session_1.signal_workflow('close')
+#        self.wf_service.trg_validate(
+#            uid, 'pos.session', session_1.id, 'close', cr)
 
-        ps1 = self.ps_obj.browse(cr, uid, ps1_id)
+        # TODO TEST WITHOUT
+#        ps1 = self.session_obj.browse(cr, uid, ps1_id)
 
         self.assertEquals(
-            ps1.state, 'closed',
+            session_1.state, 'closed',
             "Unpaid Draft Orders must not block the closing process of the"
             " associated session.")
 
         # Open a second session
-        ps2_id = self.ps_obj.create(cr, uid, {
-            'config_id': self.pos_config_id,
-        })
+        session_2 = self.session_obj.create({'config_id': self.pos_config_id})
 
-        po = self.po_obj.browse(cr, uid, po_id)
+        # TODO TEST WITHOUT
+#        order = self.order_obj.browse(order.id)
 
         self.assertEquals(
-            po.session_id.id, ps2_id,
+            order.session_id.id, session_2.id,
             "Draft Orders of a previous session must be associated to the"
             " new opened session to allow payment.")
 
@@ -90,31 +82,27 @@ class TestPointOfSaleSlate(TransactionCase):
     def test_02_block_draft_order_partial_paid(self):
         """Test the unpossibility to let a PoS Order in a slate if it is
         in a partial paid state."""
-        cr, uid = self.cr, self.uid
-
         # Open a new session
-        ps_id = self.ps_obj.create(cr, uid, {
-            'config_id': self.pos_config_id,
-        })
+        session_1 = self.session_obj.create({'config_id': self.pos_config_id})
 
         # Create Order
-        po_id = self.po_obj.create(cr, uid, {
-            'session_id': ps_id,
-            'lines': [
-                [0, False, {
-                    'discount': 0,
-                    'price_unit': 10,
-                    'product_id': self.product_1,
-                    'qty': 3}]]
+        order = self.order_obj.create({
+            'session_id': session_1.id,
+            'lines': [[0, False, {
+                'discount': 0,
+                'price_unit': 10,
+                'product_id': self.product_id,
+                'qty': 3}]]
         })
 
         # Make partial payment
-        self.po_obj.add_payment(cr, uid, po_id, {
+        order.add_payment({
             'amount': 1,
             'journal': self.cash_journal_id,
         })
 
         # Try Close Session (Must fail)
-        with self.assertRaises(except_osv):
-            self.wf_service.trg_validate(
-                uid, 'pos.session', ps_id, 'close', cr)
+        with self.assertRaises(Warning):
+            session_1.signal_workflow('close')
+#            self.wf_service.trg_validate(
+#                uid, 'pos.session', ps_id, 'close', cr)

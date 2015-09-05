@@ -21,23 +21,20 @@
 #
 ##############################################################################
 
-from openerp.osv import fields
-from openerp.osv.orm import Model
+from openerp import api, fields, models
 
 
-class pos_order(Model):
+class PosOrder(models.Model):
     _inherit = 'pos.order'
 
-    # Functional Field Section
-    def _get_is_partial_paid(
-            self, cr, uid, ids, name, arg, context=None):
-        res = {}
-        for po in self.browse(cr, uid, ids, context=context):
-            res[po.id] = (po.state == 'draft') and len(po.statement_ids) != 0
-        return res
-
     # Column Section
-    _columns = {
-        'is_partial_paid': fields.function(
-            _get_is_partial_paid, string='Is Partially Paid'),
-    }
+    is_partial_paid = fields.Boolean(
+        string='Is Partially Paid', compute='compute_is_partial_paid',
+        store=True)
+
+    # Compute Section
+    @api.one
+    @api.depends('state', 'statement_ids')
+    def compute_is_partial_paid(self):
+        self.is_partial_paid =\
+            (self.state == 'draft') and len(self.statement_ids) != 0

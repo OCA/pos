@@ -21,19 +21,16 @@
 #
 ##############################################################################
 
-from openerp.osv import fields
-from openerp.osv.orm import Model
+from openerp import fields, models
 
 
-class pos_config(Model):
+class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     # Column Section
-    _columns = {
-        'allow_slate': fields.boolean(
-            'Allow Slate', help="If you check this field, users will have"
-            " the possibility to let some PoS orders in the slate, and allow"
-            " the customer to paid later.\n"
-            "Order in the slate will not generate entries during the close"
-            " of the session."),
-    }
+    allow_slate = fields.Boolean(
+        string='Allow Slate', help="If you check this field, users will have"
+        " the possibility to let some PoS orders in the slate, and allow"
+        " the customer to paid later.\n"
+        "Order in the slate will not generate entries during the close"
+        " of the session.")
