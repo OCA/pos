@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    POS Keep Draft Orders module for Odoo
-#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    Point Of Sale - Slate module for Odoo
+#    Copyright (C) 2013-Today GRAP (http://www.grap.coop)
 #    @author Julien WESTE
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #

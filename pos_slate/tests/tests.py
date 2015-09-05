@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    POS Keep Draft Orders module for Odoo
+#    Point Of Sale - Slate module for Odoo
 #    Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
@@ -25,11 +25,11 @@ from osv.osv import except_osv
 from openerp.tests.common import TransactionCase
 
 
-class TestPosKeepDraftOrders(TransactionCase):
-    """Tests for 'Point Of Sale - Keep Draft Orders' Module"""
+class TestPointOfSaleSlate(TransactionCase):
+    """Tests for 'Point Of Sale - Slate' Module"""
 
     def setUp(self):
-        super(TestPosKeepDraftOrders, self).setUp()
+        super(TestPointOfSaleSlate, self).setUp()
 
         self.imd_obj = self.registry('ir.model.data')
         self.ps_obj = self.registry('pos.session')
