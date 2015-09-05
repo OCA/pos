@@ -15,7 +15,7 @@ This module can be usefull to let Orders on slate for some customers.
 
 Feature
 -------
-1. New computed field 'is_partial_paid' on PoS Order:
+1. New computed field 'is_partial_paid' on PoS Order
     * This field is True, if the PoS order is in a draft state with some
       payments;
     * Forbid to close a session if there is a partial paid Order, to avoid to
@@ -26,21 +26,22 @@ Feature
 .. image:: ./static/description/pos_order_states.png
     :alt: License: Blue, red and black orders depending of payments.
 
-2. Possibility to close session:
-    * if a PoS order is in a 'draft' state (without any payment), the PoS Order
-      will be unassociated to the current session, when closing the session;
-    * When opening a new session, the PoS Orders in 'draft' state will be
-      associated to the new session, based on the user_id;
+2. Possibility to close session
+* if a PoS order is in a 'draft' state (without any payment), the PoS Order
+  will be unassociated to the current session, when closing the session;
+* When opening a new session, the PoS Orders in 'draft' state will be
+  associated to the new session, based on the user_id;
 
+**Workflow**
 
+* The PoS order 'Main/0004' is in draft state, before closing the session
 .. image:: ./static/description/1_before_closing.png
-    :alt: License: One PoS order in draft state, before closing the session
 
+* The PoS order is unassociated of the closed session 'POS/2015/09/05/01'
 .. image:: ./static/description/2_after_closing.png
-    :alt: License: The PoS order is unassociated of the closed session
 
+* The PoS order is associated to the new opened session 'POS/2015/09/05/02'
 .. image:: ./static/description/3_after_opening.png
-    :alt: License: The PoS order is associated to the new opened session
 
 Installation
 ============
