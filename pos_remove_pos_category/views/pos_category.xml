@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-
-        <template id="assets_backend" name="pos_remove_pos_category assets" inherit_id="web.assets_backend">
+        <template id="assets_backend" name="pos_remove_pos_category assets"
+                  inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
                 <script type="text/javascript" src="/pos_remove_pos_category/static/src/js/pos_remove_pos_category.js"></script>
             </xpath>
@@ -17,6 +17,14 @@
                 <xpath expr="//group[@name='parent']" position="inside">
                     <field name="available_in_pos"/>
                 </xpath>
+                <field name="name" position="after">
+                    <div class="oe_bottom" style="margin-top: 10px;">
+                        <field name="image_medium"
+                               widget="image"
+                               class="oe_left oe_avatar"
+                               options='{"size": [100, 100]}'/>
+                    </div>
+                </field>
             </field>
         </record>
 
@@ -29,6 +37,5 @@
                 </xpath>
             </field>
         </record>
-
     </data>
 </openerp>
