@@ -513,11 +513,6 @@ function pos_pricelist_models(instance, module) {
                 }
                 break;
             }
-            //default price_extra is not included (product variants)
-            if(product['price_extra'] > 0.0){
-                price += product['price_extra']
-            }
-            
             return price
         },
         /**
@@ -639,7 +634,7 @@ function pos_pricelist_models(instance, module) {
         if (_.size(product_model) == 1) {
             var product_index = parseInt(Object.keys(product_model)[0]);
             pos_model.models[product_index].fields.push(
-                'categ_id', 'seller_ids', 'price_extra'
+                'categ_id', 'seller_ids'
             );
         }
 
