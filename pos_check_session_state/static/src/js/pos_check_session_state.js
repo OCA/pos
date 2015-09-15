@@ -39,12 +39,17 @@ openerp.pos_check_session_state = function (instance) {
                 var loaded = self.pos.fetch('pos.session', ['name','state'], [['id', '=', self.pos.get('pos_session').id]]) 
                 .then(function(sessions){
                     if (sessions[0]['state'] != 'opened') {
+                        // warn user if current session is not opened
                         self.session_name = sessions[0]['name'];
                         self.renderElement();
                         self.pos_widget.screen_selector.show_popup('error-closed-session');
                         clearInterval(self.intervalID);
                     }
                 })
+                .fail(function(error, event){
+                    // Prevent error if server is unreachable
+                    event.preventDefault();
+                });
             }, this.check_session_frequency);
         },
     });
