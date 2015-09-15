@@ -19,7 +19,7 @@ No configuration needed.
 Usage
 =====
 
-.. image:: pos_order_pricelist_change/static/src/img/screenshot_warning.png
+.. image:: ./static/src/img/screenshot_warning.png
 
 Credits
 =======
