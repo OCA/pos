@@ -24,7 +24,7 @@ Feature
 
 
 .. image:: ./static/description/pos_order_states.png
-    :alt: License: Blue, red and black orders depending of payments.
+    :alt: Blue, red and black orders depending of payments.
 
 2. Possibility to close session
 * if a PoS order is in a 'draft' state (without any payment), the PoS Order
