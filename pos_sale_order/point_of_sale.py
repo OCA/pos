@@ -29,8 +29,8 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     _sql_constraints = [('pos_reference_uniq',
-        'unique (pos_reference, session_id)',
-        'The pos_reference must be uniq per session')]
+                         'unique (pos_reference, session_id)',
+                         'The pos_reference must be uniq per session')]
 
     pos_reference = fields.Char(string='Receipt Ref',
                                 readonly=True,
@@ -239,7 +239,6 @@ class PosSession(models.Model):
     def _confirm_orders(self):
         sale_obj = self.env['sale.order']
         for session in self:
-            order_ids = []
             partner_id = session.config_id.anonymous_partner_id.id
             domains = {}
             domains = self._get_domains(domains, partner_id, session)

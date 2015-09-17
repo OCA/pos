@@ -19,7 +19,9 @@ install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
-  - printf '[options]\n\nrunning_env = dev' > ${HOME}/.openerp_serverrc
+  - git clone https://github.com/akretion/e-commerce.git -b 8.0-port-sale-quick-payment-ok ${HOME}/e-commerce-sale-quick-payment
+  - git clone https://github.com/akretion/bank-statement-reconcile.git -b 8.0-sale-order-completion ${HOME}/bank-statement-reconcile
+  - printf '[options]\n\nrunning_env = dev' > ${HOME}/.openerp_serverrc 
 
 script:
   - travis_run_tests
