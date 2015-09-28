@@ -2,14 +2,14 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==================================
-POS Trade Receivable Autoreconcile
-==================================
+=================
+POS Autoreconcile
+=================
 
-This module reconciles "Trade Receivable" record created on Customer account
-with Payments made by this customer.
+Module reconciles Invoices and "Trade Receivable" records with payments made by
+related Customer.
 
-Example:
+Example of "Trade Receivable" reconciliation:
 
 * Product costs 8EUR but customer pays 10EUR by cash getting 2EUR in return.
 In accounting it looks like this:
