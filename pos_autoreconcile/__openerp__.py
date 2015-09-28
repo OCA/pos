@@ -21,7 +21,7 @@
 ##############################################################################
 
 {
-    'name': 'POS Trade Receivable Autoreconcile',
+    'name': 'POS Autoreconcile',
     'version': '0.1',
     'author': 'Versada UAB,Odoo Community Association (OCA)',
     'category': 'Point Of Sale',
