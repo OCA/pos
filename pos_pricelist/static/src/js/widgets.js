@@ -17,6 +17,8 @@
  ******************************************************************************/
 function pos_pricelist_widgets(instance, module) {
 
+    var round_di = instance.web.round_decimals;
+
     module.OrderWidget = module.OrderWidget.extend({
         set_value: function (val) {
             this._super(val);
@@ -61,6 +63,24 @@ function pos_pricelist_widgets(instance, module) {
                 customer = order.get_client();
             }
             this.pos.pricelist_engine.update_products_ui(customer);
+        }
+    });
+
+    module.PosBaseWidget.include({
+        format_pr: function(amount, precision) {
+            // Do not call _super because no addon or XML is using this method
+            var currency = (this.pos && this.pos.currency) ? this.pos.currency : {symbol:'$', position: 'after', rounding: 0.01, decimals: 2};
+            var decimals = currency.decimals;
+
+            if (precision && (typeof this.pos.dp[precision]) !== undefined) {
+                decimals = this.pos.dp[precision];
+            }
+
+            if (typeof amount === 'number') {
+                amount = round_di(amount,decimals).toFixed(decimals);
+                amount = openerp.instances[this.session.name].web.format_value(round_di(amount, decimals), { type: 'float', digits: [69, decimals]});
+            }
+            return amount
         }
     });
 }

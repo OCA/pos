@@ -144,3 +144,7 @@
   border-width: 0 5px 5px;
   border-bottom-color: #000;
 }
+.pos .pos-right-align {
+    text-align: right;
+    vertical-align: top;
+}
