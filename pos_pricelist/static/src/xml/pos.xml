@@ -27,4 +27,11 @@
             </div>
         </t>
     </t>
+    <t t-extend="PosTicket">
+        <t t-jquery="t[t-esc='orderline.get_quantity_str_with_unit()']" t-operation="after">
+            <t t-if="orderline.quantity != 1">
+                x<t t-esc="widget.format_pr(orderline.get_display_unit_price())"/>
+            </t>
+        </t>
+    </t>
 </templates>

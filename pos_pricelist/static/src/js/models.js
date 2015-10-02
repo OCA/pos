@@ -284,6 +284,14 @@ function pos_pricelist_models(instance, module) {
             }
             return product_taxes;
         },
+        get_display_unit_price: function(){
+            var rounding = this.pos.currency.rounding;
+            if (this.pos.config.display_price_with_taxes) {
+                return round_pr(this.get_price_with_tax() / this.get_quantity(), rounding);
+            } else {
+                return round_pr(this.get_base_price() / this.get_quantity(), rounding);
+            }
+        },
         /**
          * @returns {*}
          */
