@@ -23,7 +23,7 @@
 
 {
     'name': 'Hardware Customer Display',
-    'version': '0.1',
+    'version': '8.0.0.1.0',
     'category': 'Hardware Drivers',
     'license': 'AGPL-3',
     'summary': 'Adds support for Customer Display in the Point of Sale',
