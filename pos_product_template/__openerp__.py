@@ -75,4 +75,5 @@ Copyright, Authors and Licence:
     'images': [
         'static/src/img/screenshots/pos_product_template.png',
     ],
+    'installable': False,
 }
