@@ -80,4 +80,5 @@ This module has been written by Alexis de Lattre
         'python': ['serial', 'pycountry'],
     },
     'data': [],
+    'installable': False,
 }

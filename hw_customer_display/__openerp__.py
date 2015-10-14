@@ -82,4 +82,5 @@ This module has been written by Alexis de Lattre from Akretion
         'python': ['serial', 'unidecode'],
     },
     'data': [],
+    'installable': False,
 }
