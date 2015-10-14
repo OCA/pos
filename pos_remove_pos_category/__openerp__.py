@@ -33,5 +33,5 @@
         'point_of_sale_view.xml',
         'views/pos_category.xml',
     ],
-    'installable': True,
+    'installable': False,
 }
