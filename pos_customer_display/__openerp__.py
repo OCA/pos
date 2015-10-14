@@ -57,4 +57,5 @@ Association !
         ],
     'qweb': ['static/src/xml/pos.xml'],
     'demo': ['pos_customer_display_demo.xml'],
+    'installable': False,
 }
