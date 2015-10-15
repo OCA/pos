@@ -24,12 +24,13 @@ openerp.pos_check_session_state = function (instance) {
         Define : New ErrorClosedSessionPopupWidget Widget.
         This pop up will be shown if the current pos.session of the PoS is not
         in an 'open' state;
-        The check will be down each 10 seconds;
+        The check will be down each 10 minuts;
     */  
     module.ErrorClosedSessionPopupWidget = module.ErrorPopupWidget.extend({
         template:'ErrorClosedSessionPopupWidget',
 
-        check_session_frequency: 600*1000,
+        check_session_frequency: 10*60*1000,
+
         session_name: '',
 
         init: function(parent, options) {
@@ -39,12 +40,15 @@ openerp.pos_check_session_state = function (instance) {
                 var loaded = self.pos.fetch('pos.session', ['name','state'], [['id', '=', self.pos.get('pos_session').id]]) 
                 .then(function(sessions){
                     if (sessions[0]['state'] != 'opened') {
+                        // warn user if current session is not opened
                         self.session_name = sessions[0]['name'];
                         self.renderElement();
                         self.pos_widget.screen_selector.show_popup('error-closed-session');
                         clearInterval(self.intervalID);
                     }
-                }).fail(function(error, event){
+                })
+                .fail(function(error, event){
+                    // Prevent error if server is unreachable
                     event.preventDefault();
                 });
             }, this.check_session_frequency);
