@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Point Of Sale - Slate module for Odoo
+#    Point Of Sale - Store Draft Orders Module for Odoo
 #    Copyright (C) 2013-Today GRAP (http://www.grap.coop)
 #    @author Julien WESTE
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -28,9 +28,9 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     # Column Section
-    allow_slate = fields.Boolean(
-        string='Allow Slate', help="If you check this field, users will have"
-        " the possibility to let some PoS orders in the slate, and allow"
-        " the customer to paid later.\n"
-        "Order in the slate will not generate entries during the close"
+    allow_store_draft_order = fields.Boolean(
+        string='Allow to Store Draft Orders', help="If you check this field,"
+        "  users will have the possibility to let some PoS orders in a draft"
+        " state, and allow the customer to paid later.\n"
+        "Order in a draft state will not generate entries during the close"
         " of the session.")

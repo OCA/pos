@@ -1,8 +1,8 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Point Of Sale - Slate module for Odoo
-#    Copyright (C) 2013-2014 GRAP (http://www.grap.coop)
+#    Point Of Sale - Store Draft Orders Module for Odoo
+#    Copyright (C) 2013-Today GRAP (http://www.grap.coop)
 #    @author Julien WESTE
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
@@ -62,5 +62,6 @@ class PosSession(models.Model):
                     " still in 'draft' state with associated payments.\n\n"
                     " Please finish to pay this Order first." % (order.name)))
             # remove session id on the current Order if it is in draft state
-            if order.state == 'draft' and self.config_id.allow_slate:
+            if order.state == 'draft' and\
+                    self.config_id.allow_store_draft_order:
                 order.write({'session_id': False})

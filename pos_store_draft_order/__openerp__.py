@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Point Of Sale - Slate module for Odoo
+#    Point Of Sale - Store Draft Orders Module for Odoo
 #    Copyright (C) 2013-Today GRAP (http://www.grap.coop)
 #    @author Julien WESTE
 #    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -21,20 +21,21 @@
 #
 ##############################################################################
 
-from openerp import api, fields, models
-
-
-class PosOrder(models.Model):
-    _inherit = 'pos.order'
-
-    # Column Section
-    is_partial_paid = fields.Boolean(
-        string='Is Partially Paid', compute='compute_is_partial_paid',
-        store=True)
-
-    # Compute Section
-    @api.one
-    @api.depends('state', 'statement_ids')
-    def compute_is_partial_paid(self):
-        self.is_partial_paid =\
-            (self.state == 'draft') and len(self.statement_ids) != 0
+{
+    'name': 'Point Of Sale - Store Draft Orders',
+    'version': '8.0.1.0.0',
+    'category': 'Point of Sale',
+    'summary': "Allow users to close session with Draft Orders",
+    'author': 'GRAP,Odoo Community Association (OCA)',
+    'website': 'http://www.odoo-community.org',
+    'license': 'AGPL-3',
+    'depends': [
+        'point_of_sale',
+    ],
+    'data': [
+        'view/view.xml',
+    ],
+    'demo': [
+        'demo/pos_config.yml',
+    ],
+}

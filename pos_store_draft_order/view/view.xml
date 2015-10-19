@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ********************************************************************** -->
-<!--Point Of Sale - Slate module for Odoo                                   -->
+<!--Point Of Sale - Store Draft Orders Module for Odoo                      -->
 <!--Copyright (C) 2015-Today GRAP (http://www.grap.coop)                    -->
 <!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
 
@@ -26,7 +26,7 @@
             <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
             <field name="arch" type="xml">
                 <field name="state" position="after">
-                    <field name="is_partial_paid" invisible="1" />
+                    <field name="is_partial_paid" invisible="1" />  
                 </field>
                 <xpath expr="//tree[@string='POS Orders']" position="attributes">
                     <attribute name="colors">red: is_partial_paid==True; blue: state=='draft'; gray: state in ('done','cancel'); black: state not in ('done','cancel')</attribute>
@@ -40,7 +40,7 @@
             <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
             <field name="arch" type="xml">
                 <field name="group_by" position="after">
-                    <field name="allow_slate"/>
+                    <field name="allow_store_draft_order"/>
                 </field>
             </field>
         </record>
