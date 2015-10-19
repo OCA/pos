@@ -55,7 +55,7 @@ class TestPosStoreDraftOrder(TransactionCase):
 
         # Close Session
         session_1.signal_workflow('close')
-        
+
         self.assertEquals(
             session_1.state, 'closed',
             "Unpaid Draft Orders must not block the closing process of the"
