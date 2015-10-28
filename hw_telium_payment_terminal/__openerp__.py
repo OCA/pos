@@ -62,6 +62,8 @@ This module has been successfully tested with:
 
 * Ingenico EFTSmart4S
 * Ingenico EFTSmart2 2640 with Telim Manager version 37784503
+* Ingenico iCT220
+* Ingenico iCT250
 * Ingenico i2200 cheque reader and writer
 
 This module has been developped during a POS code sprint at Akretion
