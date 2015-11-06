@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015 initOS GmbH & Co. KG (<http://www.initos.com>).
+#    Copyright (C) 2015 initOS GmbH(<http://www.initos.com>).
 #    Author Thomas Rehn <thomas.rehn at initos.com>
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
     'name': 'POS Local Storage Product Cache',
     'version': '0.1',
     'category': 'Point Of Sale',
-    'author': 'initOS GmbH & Co. KG, '
+    'author': 'initOS GmbH'
               'Odoo Community Association (OCA)',
     'description': """
 Local Storage Cache for Point of Sale

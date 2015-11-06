@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2010-2013 OpenERP s.a. (<http://openerp.com>).
-#    Copyright (C) 2013 initOS GmbH & Co. KG (<http://www.initos.com>).
+#    Copyright (C) 2015 initOS GmbH(<http://www.initos.com>).
+#    Author Thomas Rehn <thomas.rehn at initos.com>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
