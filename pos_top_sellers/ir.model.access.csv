@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_top_sellers_product_report,Access to pos.top.sellers.product.report,model_pos_top_sellers_product_report,point_of_sale.group_pos_manager,1,0,0,0
+access_pos_top_sellers_shop_report,Access to pos.top.sellers.shop.report,model_pos_top_sellers_shop_report,point_of_sale.group_pos_manager,1,0,0,0

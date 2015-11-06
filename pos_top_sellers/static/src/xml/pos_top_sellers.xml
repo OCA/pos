@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_top_sellers_product_view_product_selector">
+        <div class="oe_form_dropdown_section oe_pos_top_sellers_product_id">
+            <span style="font-weight:bold;">Product code:</span>
+            <input class="oe_pos_top_sellers_product_id_input" size="30"/>
+        </div>
+    </t>
+
+</templates>

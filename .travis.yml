@@ -22,6 +22,7 @@ virtualenv:
 
 install:
   - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+  - git clone https://github.com/initOS/web.git ${HOME}/web -b 7.0-add_web_listview_date_range_bar
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - printf '[options]\n\nrunning_env = dev' > ${HOME}/.openerp_serverrc
