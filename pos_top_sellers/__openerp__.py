@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ###############################################################################
 #
-#   Copyright (C) 2015 initOS GmbH & Co. KG (<http://www.initos.com>).
+#   Copyright (C) 2015 initOS GmbH(<http://www.initos.com>).
 #
 #   This program is free software: you can redistribute it and/or modify
 #   it under the terms of the GNU Affero General Public License as
@@ -42,7 +42,7 @@ Recent sales by shop for a given product
 * Select product by product default code.
 * Show current stock and total quantity of sales for this product and period.
 """,
-    'author': 'initOS GmbH & Co. KG',
+    'author': 'initOS GmbH',
     'website': 'http://www.initos.com',
     'depends': [
         'web',
