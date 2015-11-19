@@ -1,0 +1,14 @@
+<openerp>
+    <data>
+    <record id="pos_order_ext_form_view" model="ir.ui.view">
+            <field name="name">pos.order.ext.form</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+            <field name="arch" type="xml">
+                <button string="Payment" position="after">
+                    <button name="action_confirm_picking" string="Invoice Picking" class="oe_highlight" type="object" states="draft" />
+                </button>
+            </field>
+        </record>
+    </data>
+</openerp>
