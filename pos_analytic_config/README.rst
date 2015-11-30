@@ -6,8 +6,8 @@
 POS Analytic Config
 ===================
 
-This module was written to allow to use analytic account defined on POS configuration
-for invoices and accounting entries generated form POS orders.
+This module allows to use analytic account defined on POS configuration
+for invoices and accounting entries generated from POS orders.
 
 Usage
 =====
