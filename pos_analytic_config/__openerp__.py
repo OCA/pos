@@ -9,7 +9,7 @@
     'author': 'ACSONE SA/NV,'
               'Odoo Community Association (OCA)',
     'website': "http://acsone.eu",
-    'category': 'Point Of Sale',
+    'category': 'Point Of Sale, Accounting',
     'version': '8.0.1.0.0',
     'license': 'AGPL-3',
     'depends': [
