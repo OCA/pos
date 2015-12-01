@@ -163,7 +163,7 @@ function pos_pricelist_models(instance, module) {
          */
         set_quantity: function (quantity) {
             OrderlineParent.prototype.set_quantity.apply(this, arguments);
-            var partner = this.order.get_client();
+            var partner = this.order ? this.order.get_client() : null;
             var product = this.product;
             var db = this.pos.db;
             var price = this.pos.pricelist_engine.compute_price_all(
