@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_account_journal_pos_user_form">
+            <field name="name">POS Journal (pos_payment_entries_globalization)</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[field[@name='journal_user']]" position="after">
+                    <group string="Payment Globalization" name="globalization">
+                        <field name="pos_payment_globalization" />
+                        <field name="pos_payment_globalization_account" attrs="{'required': [('pos_payment_globalization', '=', True)], 'invisible': [('pos_payment_globalization', '=', False)]}"/>
+                        <field name="pos_payment_globalization_journal" attrs="{'required': [('pos_payment_globalization', '=', True)], 'invisible': [('pos_payment_globalization', '=', False)]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
