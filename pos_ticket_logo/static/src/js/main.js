@@ -25,7 +25,7 @@
  */
 
 // Check jQuery available
-if (typeof jQuery === 'undefined') { throw new Error('POS Ticket Logo Addon requires jQuery') }
+if (typeof jQuery === 'undefined') { throw new Error('POS Ticket Logo Addon requires jQuery'); }
 
 +function ($) {
     'use strict';
@@ -35,10 +35,11 @@ if (typeof jQuery === 'undefined') { throw new Error('POS Ticket Logo Addon requ
             _lt = instance.web._lt;
         var QWeb = instance.web.qweb;
 
+        var PosModelParent = instance.point_of_sale.PosModel;
         instance.point_of_sale.PosModel = instance.point_of_sale.PosModel.extend({
             load_server_data: function(){
                 var self = this;
-                var loaded = instance.point_of_sale.PosModel.__super__.load_server_data.apply(this, arguments);
+                var loaded = PosModelParent.prototype.load_server_data.apply(this, arguments);
                 $.when(loaded).then(function(){
                     self.company_logo.onload = function(){
                         var img = self.company_logo;
@@ -55,7 +56,7 @@ if (typeof jQuery === 'undefined') { throw new Error('POS Ticket Logo Addon requ
                         var height = Math.floor(img.height * ratio);
                         var c = document.createElement('canvas');
                             c.width  = width;
-                            c.height = height
+                            c.height = height;
                         var ctx = c.getContext('2d');
                             ctx.drawImage(self.company_logo,0,0, width, height);
 
