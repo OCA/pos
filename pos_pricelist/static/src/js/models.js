@@ -162,17 +162,26 @@ function pos_pricelist_models(instance, module) {
          * @param quantity
          */
         set_quantity: function (quantity) {
-            OrderlineParent.prototype.set_quantity.apply(this, arguments);
-            var partner = this.order.get_client();
+            var partner = this.order ? this.order.get_client() : null;
             var product = this.product;
             var db = this.pos.db;
+            var old_price = 0;
+            if (this.get_quantity()) {
+                old_price = this.pos.pricelist_engine.compute_price_all(
+                    db, product, partner, this.get_quantity()
+                );
+            }
+            OrderlineParent.prototype.set_quantity.apply(this, arguments);
             var price = this.pos.pricelist_engine.compute_price_all(
                 db, product, partner, quantity
             );
-            if (price !== false) {
+            /* Update the price if the unit price is actually different from
+               the unit price of the previous quantity, to preserve manually
+               entered prices as much as possible. */
+            if (price !== false && price !== old_price) {
                 this.price = price;
+                this.trigger('change', this);
             }
-            this.trigger('change', this);
         },
         /**
          * override this method to take fiscal positions in consideration
