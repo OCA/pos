@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_pos_config_form">
+            <field name="name">pos.config.form.view</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id"
+                   ref="point_of_sale.view_pos_config_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@string='Receipt']" position="after">
+                    <group string="Customer" col="4" >
+                        <field name='require_customer' />
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_pos_pos_form_inherit">
+            <field name="name">pos.order</field>
+            <field name="model">pos.order</field>
+            <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <field name="require_customer" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','invoiced')], 'required': [('require_customer','=',True)]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
