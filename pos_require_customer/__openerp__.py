@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2004-2014 Apertoso NV (<http://www.apertoso.be>).
+#    Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
+#    Copyright (C) 2016-Today La Louve (<http://www.lalouve.net/>)
+#
+#    @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
+#    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,36 +24,21 @@
 
 {
     'name': 'Point of Sale Require Customer',
-    'version': '1.0.1',
+    'version': '9.0.2.0.0',
     'category': 'Point Of Sale',
-    'sequence': 6,
     'summary': 'Point of Sale Require Customer',
-    'description': """
-Require customer for pos
-========================
-
-This module allows you to require a customer for each pos order.  In the
-pos session configuration, you can choose to require the customer for pos
-orders.
-
-If a customer is not selected, the pos ui will display an error message.
-In the backend the customer field is required when needed.
-
-    """,
-    'author': 'Apertoso NV, Odoo Community Association (OCA)',
-    'images': [],
-    'depends': ['point_of_sale'],
+    'author': 'Apertoso NV, La Louve, Odoo Community Association (OCA)',
+    'website': 'http://www.apertoso.be',
+    'depends': [
+        'point_of_sale',
+    ],
     'data': [
         'static/src/xml/templates.xml',
-        'views/pos_view.xml',
+        'views/pos_config_view.xml',
+        'views/pos_order_view.xml',
     ],
-    'demo': [],
-    'test': [],
-    'installable': False,
-    'application': True,
-    'qweb': [],
-    'website': 'http://www.apertoso.be',
-    'auto_install': False,
+    'demo': [
+        'demo/pos_config.yml',
+    ],
+    'installable': True,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
