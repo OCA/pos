@@ -32,7 +32,7 @@ class PosOrder(models.Model):
     @api.one
     @api.constrains('partner_id', 'require_customer')
     def _check_partner(self):
-        if (self.session_id.config_id.require_customer == 'order'
-                and not self.partner_id):
+        if (self.session_id.config_id.require_customer == 'order' and
+                not self.partner_id):
             raise exceptions.ValidationError(
                 _('Customer is required for this order and is missing.'))
