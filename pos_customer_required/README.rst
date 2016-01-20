@@ -1,8 +1,11 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
-PoS - Require Customer
-======================
+
+=================================
+Point Of Sale - Customer Required
+=================================
 
 This module was written to extend the functionality of odoo pos
 and allows you to require a customer for each pos order.  In the
@@ -31,7 +34,7 @@ make payment and if a customer is not selected, the pos ui will display an
 error message.
 
 
-.. image:: /pos_require_customer/static/description/frontend_pos_error_message.png
+.. image:: /pos_customer_required/static/description/frontend_pos_error_message.png
 
 Configuration
 =============
@@ -48,9 +51,10 @@ To configure this module, you need to:
 Usage
 =====
 
-For further information, please visit:
 
-* https://www.odoo.com/forum/help-1
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/184/9.0
 
 Bug Tracker
 ===========
@@ -58,7 +62,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/{project_repo}/issues/new?body=module:%20pos_require_customer%0Aversion:%209.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`here <https://github.com/OCA/{project_repo}/issues/new?body=module:%20pos_customer_required%0Aversion:%209.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 
 Credits

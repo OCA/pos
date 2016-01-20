@@ -10,7 +10,7 @@ class TestPosRequireCustomer(common.TransactionCase):
 
     def test_customer_not_required(self):
         posconfig = self.env.ref('point_of_sale.pos_config_main')
-        posconfig.require_customer = False
+        posconfig.require_customer = 'no'
 
         # Now Create new session and create a
         # pos order in this session
@@ -24,7 +24,7 @@ class TestPosRequireCustomer(common.TransactionCase):
 
     def test_customer_is_required(self):
         posconfig = self.env.ref('point_of_sale.pos_config_main')
-        posconfig.require_customer = True
+        posconfig.require_customer = 'order'
 
         # Now Create new session and create a
         # pos order in this session
