@@ -329,6 +329,11 @@ openerp.pos_order_load = function(instance, local) {
             }
         },
 
+        on_click_draft_order: function(event){
+            this.current_order_id = parseInt(event.target.parentNode.dataset['orderId']);
+            this.load_order(this.current_order_id);
+        },
+
         render_list: function(orders){
             var self = this;
             var contents = this.$el[0].querySelector('.order-list-contents');
@@ -340,10 +345,7 @@ openerp.pos_order_load = function(instance, local) {
                 var orderline = document.createElement('tbody');
                 orderline.innerHTML = orderline_html;
                 orderline = orderline.childNodes[1];
-                orderline.addEventListener('click', function() {
-                    self.current_order_id = parseInt(this.dataset['orderId']);
-                    self.load_order(self.current_order_id);
-                });
+                orderline.addEventListener('click', this.on_click_draft_order);
                 contents.appendChild(orderline);
             }
         },
