@@ -5,12 +5,13 @@ Point of Sale - Total of transactions and Orders Quantity
 =========================================================
 
 * add a computed field 'Transactions Total' on the PoS Session model,
-that is the sum of all transactions of all journals of the session;
+  that is the sum of all transactions of all journals of the session;
 
 * add a computed field 'Orders Qty' on the PoS Session model,
-that is the quantity of all orders of the session;;
+  that is the quantity of all orders of the session;
 
-.. image:: /pos_session_total/static/description/pos_session_tree.png
+
+.. image:: /pos_session_summary/static/description/pos_session_list.png
 
 Configuration
 =============
