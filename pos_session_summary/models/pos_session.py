@@ -31,7 +31,9 @@ class PosSession(models.Model):
             session.order_qty = len(session.order_ids)
 
     total_amount = fields.Monetary(
-        compute='_compute_total_amount', string='Transactions Total')
+        compute='_compute_total_amount', string='Transactions Total',
+        store=True)
 
     order_qty = fields.Integer(
-        compute='_compute_order_qty', string='Orders Qty')
+        compute='_compute_order_qty', string='Orders Qty',
+        store=True)
