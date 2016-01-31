@@ -1,0 +1,26 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_session_summary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-31 16:30+0000\n"
+"PO-Revision-Date: 2016-01-31 16:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_order_qty
+msgid "Orders Qty"
+msgstr "Nb. ventes"
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_total_amount
+msgid "Transactions Total"
+msgstr "Total des transactions"
