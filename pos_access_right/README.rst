@@ -16,15 +16,21 @@ This module will add the following groups to Odoo:
 * PoS - Change Unit Price: The cashier can change the unit price of a product
   in Point Of Sale;
 
-Important Note
---------------
+.. image:: /pos_access_right/static/description/new_groups.png
 
-* On PoS Front End, the cashier access right are used. This feature allow
-  a manager to log into PoS to unblock a specific feature, 
+If a user doesn't belong to a group, he can not use the according feature.
 
+For example, here is the default numpad for the demo data user :
 
-.. image:: /pos_access_right/static/description/pos_xxx.png
+.. image:: /pos_access_right/static/description/demo_numpad.png
 
+If the user try to use a forbidden feature, here is the warning displayed.
+
+.. image:: /pos_access_right/static/description/demo_error.png
+
+If the cashier changed, the new right are applied :
+
+.. image:: /pos_access_right/static/description/admin_numpad.png
 
 Installation
 ============
