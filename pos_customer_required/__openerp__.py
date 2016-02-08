@@ -20,22 +20,9 @@
 
 {
     'name': 'Point of Sale Require Customer',
-    'version': '1.0.1',
+    'version': '8.0.1.0.1',
     'category': 'Point Of Sale',
-    'sequence': 6,
     'summary': 'Point of Sale Require Customer',
-    'description': """
-Require customer for pos
-========================
-
-This module allows you to require a customer for each pos order.  In the
-pos session configuration, you can choose to require the customer for pos
-orders.
-
-If a customer is not selected, the pos ui will display an error message.
-In the backend the customer field is required when needed.
-
-    """,
     'author': 'Apertoso NV, Odoo Community Association (OCA)',
     'images': [],
     'depends': ['point_of_sale'],
@@ -51,5 +38,3 @@ In the backend the customer field is required when needed.
     'website': 'http://www.apertoso.be',
     'auto_install': False,
 }
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
