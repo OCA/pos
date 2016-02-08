@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pos_require_customer
+# 	* pos_customer_required
 #
 msgid ""
 msgstr ""
@@ -17,27 +17,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8\n"
 
-#. module: pos_require_customer
+#. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_require_customer/static/src/js/pos_require_customer.js:16
+#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:16
 #, python-format
 msgid "An anonymous order cannot be confirmed"
 msgstr "Een anoniem kassa order kan niet worden bevestigd"
 
-#. module: pos_require_customer
-#: view:pos.config:pos_require_customer.view_pos_config_form
+#. module: pos_customer_required
+#: view:pos.config:pos_customer_required.view_pos_config_form
 msgid "Customer"
 msgstr "Klant"
 
-#. module: pos_require_customer
-#: code:addons/pos_require_customer/pos.py:45
+#. module: pos_customer_required
+#: code:addons/pos_customer_required/pos.py:45
 #, python-format
 msgid "Customer is required for this order and is missing"
 msgstr "Klant is vereist voor deze order en ontbreekt"
 
-#. module: pos_require_customer
+#. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_require_customer/static/src/js/pos_require_customer.js:17
+#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:17
 #, python-format
 msgid ""
 "Please select a client for this order. This can be done by clicking the "
@@ -46,23 +46,23 @@ msgstr ""
 "Selecteer een klant voor dit order. Dit kan gedaan worden door te klikken op "
 "de tab bestelling"
 
-#. module: pos_require_customer
-#: model:ir.model,name:pos_require_customer.model_pos_order
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_order
 msgid "Point of Sale"
 msgstr "Kassa"
 
-#. module: pos_require_customer
+#. module: pos_customer_required
 #: field:pos.config,require_customer:0
 msgid "Require customer"
 msgstr "Klant verplichten"
 
-#. module: pos_require_customer
+#. module: pos_customer_required
 #: help:pos.config,require_customer:0
 msgid "Require customer for orders in this point of sale"
 msgstr "Klant verplichten voor kassa orders in deze kassa."
 
-#. module: pos_require_customer
-#: view:pos.order:pos_require_customer.view_pos_pos_form_inherit
+#. module: pos_customer_required
+#: view:pos.order:pos_customer_required.view_pos_pos_form_inherit
 msgid ""
 "{'readonly': [('state','=','invoiced')], 'required': "
 "[('require_customer','=',True)]}"

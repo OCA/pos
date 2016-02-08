@@ -5,7 +5,7 @@
         <template id="assets_frontend" inherit_id="web.assets_common">
           <xpath expr="." position="inside">
                 <script type="text/javascript"
-                        src="/pos_require_customer/static/src/js/pos_require_customer.js"/>
+                        src="/pos_customer_required/static/src/js/pos_customer_required.js"/>
           </xpath>
         </template>
     </data>

@@ -1,4 +1,4 @@
-openerp.pos_require_customer = function(instance){
+openerp.pos_customer_required = function(instance){
 
     var QWeb = instance.web.qweb,
     _t = instance.web._t;
