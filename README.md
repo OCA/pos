@@ -14,6 +14,7 @@ addon | version | summary
 [hw_customer_display](hw_customer_display/) | 8.0.0.1.0 | Adds support for Customer Display in the Point of Sale
 [hw_telium_payment_terminal](hw_telium_payment_terminal/) | 8.0.0.1.0 | Adds support for Payment Terminals using Telium protocol
 [pos_customer_display](pos_customer_display/) | 8.0.0.1.0 | Manage Customer Display device from POS front end
+[pos_customer_required](pos_customer_required/) | 8.0.1.0.1 | Point of Sale Require Customer
 [pos_gift_ticket](pos_gift_ticket/) | 8.0.0.1.0 | Gift Ticket
 [pos_payment_terminal](pos_payment_terminal/) | 8.0.0.1.0 | Manage Payment Terminal device from POS front end
 [pos_pricelist](pos_pricelist/) | 8.0.1.2.0 | Pricelist for Point of sale
