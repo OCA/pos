@@ -148,7 +148,7 @@ function pos_pricelist_models(instance, module) {
                     db, product, partner, qty
                 );
                 if (price !== false) {
-                    this.price = price;
+                    this.price = round_di(parseFloat(price) || 0, this.pos.dp['Product Price']);
                 }
             }
         },
@@ -179,8 +179,7 @@ function pos_pricelist_models(instance, module) {
                the unit price of the previous quantity, to preserve manually
                entered prices as much as possible. */
             if (price !== false && price !== old_price) {
-                this.price = price;
-                this.trigger('change', this);
+                this.set_unit_price(price);
             }
         },
         /**
