@@ -1,23 +1,6 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    POS To Sale Order module for Odoo
-#    Copyright (C) 2014 AKRETION (<http://www.akretion.com>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# coding: utf-8
+# © 2016 Akretion
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import time
 
@@ -42,6 +25,12 @@ class SaleOrder(models.Model):
                                  states={'draft': [('readonly', False)]},
                                  readonly=True)
     payment_ids = fields.Many2many(readonly=True)
+
+    @api.multi
+    def confirm_sale_from_pos(self):
+        " Make sale confirmation optional "
+        self.ensure_one()
+        return True
 
 
 class PosOrder(models.Model):
@@ -135,7 +124,6 @@ class PosOrder(models.Model):
                     order.id,
                     self._payment_fields(payments[2]),
                 )
-
             session = self.env['pos.session'].browse(
                 ui_order['pos_session_id'])
             if session.sequence_number <= ui_order['sequence_number']:
@@ -143,16 +131,15 @@ class PosOrder(models.Model):
                     {'sequence_number': ui_order['sequence_number'] + 1})
                 session.refresh()
 
-            order.signal_workflow('order_confirm')
-
-            if to_invoice:
-                invoice_obj = self.env['account.invoice']
-                invoice = invoice_obj.browse(order.invoice_ids.id)
-                order.signal_workflow('manual_invoice')
-                invoice.signal_workflow('invoice_open')
-                invoice.write({'sale_ids': [(6, 0, [order.id])]})
-
-            order_ids.append(order.id)
+            if order.confirm_sale_from_pos():
+                order.signal_workflow('order_confirm')
+                if to_invoice:
+                    invoice_obj = self.env['account.invoice']
+                    invoice = invoice_obj.browse(order.invoice_ids.id)
+                    order.signal_workflow('manual_invoice')
+                    invoice.signal_workflow('invoice_open')
+                    invoice.write({'sale_ids': [(6, 0, [order.id])]})
+                order_ids.append(order.id)
 
         return order_ids
 
@@ -172,9 +159,10 @@ class PosOrder(models.Model):
         account_def = property_obj.get('property_account_receivable',
                                        'res.partner')
         args['account_id'] = ((
-            order.partner_id and order.partner_id.property_account_receivable
-            and order.partner_id.property_account_receivable.id)
-            or (account_def and account_def.id) or False)
+            order.partner_id and
+            order.partner_id.property_account_receivable and
+            order.partner_id.property_account_receivable.id) or
+            (account_def and account_def.id) or False)
 
         if not args['account_id']:
             if not args['partner_id']:
