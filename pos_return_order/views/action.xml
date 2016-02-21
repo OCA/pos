@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="action_pos_partial_return_wizard" model="ir.actions.act_window">
+        <field name="name">Partial Return Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.partial.return.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
+
