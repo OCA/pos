@@ -29,13 +29,14 @@ class PosOrder(models.Model):
         for order in self:
             order.refund_order_qty = len(order.refund_order_ids)
 
-    # Action Section
     @api.multi
-    def refund(self):
+    def _blank_refund(self):
         self.ensure_one()
 
         # Call super to use original refund algorithm (session management, ...)
-        res = super(PosOrder, self).refund()
+        ctx = self.env.context.copy()
+        ctx.update({'do_not_check_negative_qty': True})
+        res = super(PosOrder, self.with_context(ctx)).refund()
 
         # Link Order
         original_order = self[0]
@@ -44,13 +45,36 @@ class PosOrder(models.Model):
 
         # Remove created lines and recreate and link Lines
         new_order.lines.unlink()
-        for line in original_order.lines:
-            qty = - line.max_returnable_qty
+        return res, new_order
+
+    # Action Section
+    @api.multi
+    def refund(self):
+        res, new_order = self._blank_refund()
+
+        for line in self[0].lines:
+            qty = - line.max_returnable_qty([])
             if qty != 0:
                 copy_line = line.copy()
                 copy_line.write({
                     'order_id': new_order.id,
                     'returned_line_id': line.id,
+                    'qty': qty,
+                })
+        return res
+
+    # Action Section
+    @api.multi
+    def partial_refund(self, partial_return_wizard):
+        res, new_order = self._blank_refund()
+
+        for wizard_line in partial_return_wizard.line_ids:
+            qty = - wizard_line.qty
+            if qty != 0:
+                copy_line = wizard_line.pos_order_line_id.copy()
+                copy_line.write({
+                    'order_id': new_order.id,
+                    'returned_line_id': wizard_line.pos_order_line_id.id,
                     'qty': qty,
                 })
         return res

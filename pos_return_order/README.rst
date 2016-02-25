@@ -4,20 +4,37 @@
 PoS - Return Order
 ==================
 
-This module was written to extend the functionality of odoo pos about order
-return.
+This module was written to extend the functionality of odoo Point Of Sale about
+ Order returns.
 
-The following feature are implemented:
+With this module, it is now forbidden to return more products than the quantity
+of the initial Order.
 
+A link is created between the returned Order and the initial Order.
+A link is created between the returned Order Line and the initial Order Line.
 
-Control of the Returned Quantity
---------------------------------
+Implemented Features
+--------------------
 
-It is now not allowed to return more products than the quantity of the original
-  Order.
+* A wizard that allow to select just some products to return:
 
-.. image:: /pos_return_order/description/TODO.png
+.. image:: /pos_return_order/static/description/partial_return_wizard.png
 
+Implemented Constraints
+-----------------------
+
+* User can not return more products than the initial quantity:
+
+.. image:: /pos_return_order/static/description/returned_qty_over_initial.png
+
+* If a line has been partially refund, only a reduced quantity can be returned:
+
+.. image:: /pos_return_order/static/description/sum_returned_qty_over_initial.png
+
+* It is not possible to set a negative quantity if the initial Pos Order is
+  not indicated:
+
+.. image:: /pos_return_order/static/description/initial_pos_order_required.png
 
 Installation
 ============
@@ -27,7 +44,13 @@ Normal installation.
 Configuration
 =============
 
-No configuration is needed.
+In some case, you can want to let the possibility to allow negative quantity
+in a PoS Order, without mention initial order. This can be possible for special
+products like returnable products, ...
+
+In that case, a checkbox is possible on Product Form View to allow such case
+
+.. image:: /pos_return_order/static/description/product_returnable_bottle.png
 
 Usage
 =====

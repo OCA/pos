@@ -15,7 +15,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <attribute name="attrs">{'invisible':['|', ('state','=','draft'), ('returned_order_id', '!=', False)]}</attribute>
             </button>
             <button name="refund" position="after">
-                <button name="%(action_pos_partial_return_wizard)d" string="Partial Return"
+                <button name="%(action_pos_partial_return_wizard)d" string="Partial Return" type="action"
                     attrs="{'invisible':['|', ('state','=','draft'), ('returned_order_id', '!=', False)]}"/>
             </button>
             <notebook>
@@ -25,6 +25,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <field name="refund_order_qty" invisible="1"/>
                 </page>
             </notebook>
+            <xpath expr="//field[@name='lines']/form/group" position="after">
+                <group col="4" string="Refund">
+                    <field name="returned_line_id" colspan="4"/>
+                    <field name="refund_line_ids" />
+                </group>
+            </xpath>
         </field>
     </record>
 

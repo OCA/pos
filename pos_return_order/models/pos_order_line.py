@@ -21,40 +21,39 @@ class PosOrderLine(models.Model):
         comodel_name='pos.order.line', inverse_name='returned_line_id',
         string='Refund Lines', readonly=True)
 
-    max_returnable_qty = fields.Float(
-        compute='_compute_max_returnable_qty', string='Returnable Quantity',
-        help="Compute maximum quantity that can returned for this line,"
-        " depending of the quantity of the line and other possible refunds.")
-
     # Compute Section
-    @api.multi
-    def _compute_max_returnable_qty(self):
-        for line in self:
-            qty = line.qty
-            for refund_lines in line.refund_line_ids:
-                qty += refund_lines
-            line.max_returnable_qty = qty
+    @api.model
+    def max_returnable_qty(self, ignored_line_ids):
+        qty = self.qty
+        for refund_line in self.refund_line_ids:
+            if refund_line.id not in ignored_line_ids:
+                qty += refund_line.qty
+        return qty
 
     # Constraint Section
     @api.one
     @api.constrains('returned_line_id', 'qty')
     def _check_return_qty(self):
+        if self.env.context.get('do_not_check_negative_qty', False):
+            return True
         if self.returned_line_id:
-            if self.returned_line_id.qty > - self.qty:
+            if - self.qty > self.returned_line_id.qty:
                 raise ValidationError(_(
                     "You can not return %d %s of %s because the original"
                     " Order line only mentions %d %s.") % (
-                        self.qty, self.product_id.uom_id.name,
+                        - self.qty, self.product_id.uom_id.name,
                         self.product_id.name, self.returned_line_id.qty,
                         self.product_id.uom_id.name))
-            elif self.returned_line_id.max_returnable_qty > - self.qty:
+            elif - self.qty >\
+                    self.returned_line_id.max_returnable_qty([self.id]):
                 raise ValidationError(_(
                     "You can not return %d %s of %s because some refunds"
                     " has been yet done.\n Maximum quantity allowed :"
                     " %d %s.") % (
-                        self.qty, self.product_id.uom_id.name,
+                        - self.qty, self.product_id.uom_id.name,
                         self.product_id.name,
-                        self.returned_line_id.max_returnable_qty))
+                        self.returned_line_id.max_returnable_qty([self.id]),
+                        self.product_id.uom_id.name))
         else:
             if self.qty < 0 and\
                     not self.product_id.product_tmpl_id.pos_allow_negative_qty:

@@ -17,7 +17,12 @@
     'data': [
         'views/action.xml',
         'views/pos_order_view.xml',
+        'views/pos_order_line_view.xml',
         'views/product_product_view.xml',
+        'views/pos_partial_return_wizard_view.xml',
+    ],
+    'demo': [
+        'demo/product_product.xml',
     ],
     'installable': True,
 }
