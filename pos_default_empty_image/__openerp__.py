@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# © <2015> <Akretion, OCA>
+# © <2015> <Akretion, GRAP, OCA>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'POS Default empty image',
@@ -39,8 +39,18 @@ only one request for all the products with no images.
 
 Indeed, if the product has an image, it will load normally.
 
+
+Other
+=====
+
+See also this module: [pos_improve_images from GRAP]
+(https://github.com/grap/odoo-addons-grap/tree/7.0/pos_improve_images)
+ for OpenERP 7 which emphasis the name of the product
+instead of displaying the placeholder.
+
+
     """,
-    'author': "Akretion / Odoo Community Association (OCA)",
+    'author': "Akretion, GRAP, Odoo Community Association (OCA)",
     'website': "https://akretion.com",
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
