@@ -10,7 +10,18 @@
             	<xpath expr="//field[@name='lines']/tree/field[@name='discount']" position="after">
             		<field name="tax_ids" widget="many2many_tags"/>
             	</xpath>
-                <page string="Payments" position="after">
+                <!--<page string="Payments" position="after">-->
+                    <!--<page string="Taxes">-->
+                        <!--<field name="taxes">-->
+                            <!--<tree editable="bottom" string="Taxes detail">-->
+                                <!--<field name="name"/>-->
+                                <!--<field name="base"/>-->
+                                <!--<field name="amount"/>-->
+                            <!--</tree>-->
+                        <!--</field>-->
+                    <!--</page>-->
+                <!--</page>-->
+	            <xpath expr="//notebook/page[2]" position="after">
                     <page string="Taxes">
                         <field name="taxes">
                             <tree editable="bottom" string="Taxes detail">
@@ -20,7 +31,7 @@
                             </tree>
                         </field>
                     </page>
-                </page>
+                </xpath>
 			</field>
 		</record>
 

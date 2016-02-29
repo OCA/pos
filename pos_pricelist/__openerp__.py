@@ -18,7 +18,7 @@
 ##############################################################################
 {
     'name': 'POS Pricelist',
-    'version': '8.0.1.2.0',
+    'version': '9.0.1.2.0',
     'category': 'Point Of Sale',
     'sequence': 1,
     'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA)",
@@ -40,7 +40,7 @@
         'static/src/xml/pos.xml'
     ],
     'post_init_hook': "set_pos_line_taxes",
-    'installable': False,
+    'installable': True,
     'application': False,
     'auto_install': False,
 }
