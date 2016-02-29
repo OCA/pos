@@ -24,5 +24,6 @@ class PosPriceListConfig(models.Model):
 
     display_price_with_taxes = fields.Boolean(
         string='Price With Taxes',
-        help="Display Prices with taxes on POS"
+        help="Display Prices with taxes on POS",
+        related="iface_tax_included"
     )

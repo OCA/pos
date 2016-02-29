@@ -15,29 +15,62 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-function pos_pricelist_models(instance, module) {
+odoo.define('pos_pricelist.models', function (require) {
+	"use strict";
 
-    var _t = instance.web._t;
-    var round_pr = instance.web.round_precision;
-    var round_di = instance.web.round_decimals;
+	var models = require('point_of_sale.models');
+	var screens = require('point_of_sale.screens');
+	var PosDB = require('pos_pricelist.DB');
+	var core = require('web.core');
+	var utils = require('web.utils');
 
-    /**
+    var round_pr = utils.round_precision;
+    var round_di = utils.round_decimals;
+
+	PosDB = PosDB.extend({
+	    add_products: function (products) {
+	        this._super(products);
+
+	        var pos = posmodel.pricelist_engine.pos;
+		    var order = new models.Order({}, {pos: pos});
+	        for (var id in this.product_by_id) {
+	            if (this.product_by_id.hasOwnProperty(id)) {
+	                var product = this.product_by_id[id];
+	                var orderline = new models.Orderline({}, {
+	                    pos: pos,
+	                    order: order,
+	                    product: product,
+	                    price: product.price
+	                });
+	                var prices = orderline.get_all_prices();
+	                this.product_by_id[id].price_with_taxes
+	                    = prices['priceWithTax'];
+	            }
+	        }
+            order.destroy({'reason': 'abandon'});
+	    }
+	});
+
+	/**
      * Extend the POS model
      */
-    var PosModelParent = module.PosModel;
-    module.PosModel = module.PosModel.extend({
+    var _super_posmodel = models.PosModel.prototype;
+    models.PosModel = models.PosModel.extend({
         /**
          * @param session
          * @param attributes
          */
-        initialize: function (session, attributes) {
-            PosModelParent.prototype.initialize.apply(this, arguments);
-            this.pricelist_engine = new module.PricelistEngine({
+        initialize: function (session, attributes) {    
+            var partner_model = _.find(this.models, function(model){ return model.model === 'product.product'; });
+            partner_model.fields.push('categ_id','seller_ids');
+            var result = _super_posmodel.initialize.apply(this, arguments);
+            this.db = new PosDB();
+            this.pricelist_engine = new models.PricelistEngine({
                 'pos': this,
-                'db': this.db,
-                'pos_widget': this.pos_widget
-            });
+                'db': this.db
+            });                       
             arrange_elements(this);
+            return result;
         },
         /**
          * find model based on name
@@ -60,7 +93,7 @@ function pos_pricelist_models(instance, module) {
          * @param reason
          */
         on_removed_order: function (removed_order, index, reason) {
-            PosModelParent.prototype.on_removed_order.apply(this, arguments);
+            _super_posmodel.on_removed_order.apply(this, arguments);
             if ((reason === 'abandon' || removed_order.temporary)
                 && this.get('orders').size() > 0) {
                 var current_order = (this.get('orders').at(index)
@@ -73,10 +106,11 @@ function pos_pricelist_models(instance, module) {
         }
     });
 
-    /**
+
+	/**
      * Extend the order
      */
-    module.Order = module.Order.extend({
+    models.Order = models.Order.extend({
         /**
          * override this method to merge lines
          * TODO : Need some refactoring in the standard POS to Do it better
@@ -89,7 +123,7 @@ function pos_pricelist_models(instance, module) {
             var attr = JSON.parse(JSON.stringify(product));
             attr.pos = this.pos;
             attr.order = this;
-            var line = new module.Orderline({}, {
+            var line = new openerp.point_of_sale.Orderline({}, {
                 pos: this.pos,
                 order: this,
                 product: product
@@ -108,8 +142,8 @@ function pos_pricelist_models(instance, module) {
             }
 
             var orderlines = [];
-            if (self.get('orderLines').models !== undefined) {
-                orderlines = self.get('orderLines').models;
+            if (self.orderlines.models !== undefined) {
+                orderlines = self.orderlines.models;
             }
             for (var i = 0; i < orderlines.length; i++) {
                 var _line = orderlines[i];
@@ -121,7 +155,7 @@ function pos_pricelist_models(instance, module) {
                 }
             }
             if (!found) {
-                this.get('orderLines').add(line);
+                this.orderlines.add(line);
             }
             this.selectLine(this.getLastOrderline());
         }
@@ -130,14 +164,14 @@ function pos_pricelist_models(instance, module) {
     /**
      * Extend the Order line
      */
-    var OrderlineParent = module.Orderline;
-    module.Orderline = module.Orderline.extend({
+    var _super_orderline = models.Orderline.prototype;
+    models.Orderline = models.Orderline.extend({
         /**
          * @param attr
          * @param options
          */
         initialize: function (attr, options) {
-            OrderlineParent.prototype.initialize.apply(this, arguments);
+            var result = _super_orderline.initialize.apply(this, arguments);
             this.manual_price = false;
             if (this.product !== undefined) {
                 var qty = this.compute_qty(this.order, this.product);
@@ -148,9 +182,10 @@ function pos_pricelist_models(instance, module) {
                     db, product, partner, qty
                 );
                 if (price !== false) {
-                    this.price = price;
+	                this.price = round_di(parseFloat(price) || 0, this.pos.dp['Product Price']);
                 }
             }
+            return result;
         },
         /**
          * @param state
@@ -162,17 +197,25 @@ function pos_pricelist_models(instance, module) {
          * @param quantity
          */
         set_quantity: function (quantity) {
-            OrderlineParent.prototype.set_quantity.apply(this, arguments);
-            var partner = this.order.get_client();
+            var partner = this.order ? this.order.get_client() : null;
             var product = this.product;
             var db = this.pos.db;
+            var old_price = 0;
+            if (this.get_quantity()) {
+                old_price = this.pos.pricelist_engine.compute_price_all(
+                    db, product, partner, this.get_quantity()
+                );
+            }
+            _super_orderline.set_quantity.apply(this, arguments);
             var price = this.pos.pricelist_engine.compute_price_all(
                 db, product, partner, quantity
             );
-            if (price !== false) {
-                this.price = price;
+            /* Update the price if the unit price is actually different from
+               the unit price of the previous quantity, to preserve manually
+               entered prices as much as possible. */
+            if (price !== false && price !== old_price) {
+	            this.set_unit_price(price);
             }
-            this.trigger('change', this);
         },
         /**
          * override this method to take fiscal positions in consideration
@@ -217,7 +260,7 @@ function pos_pricelist_models(instance, module) {
          * @returns {boolean}
          */
         can_be_merged_with: function (orderline) {
-            var result = OrderlineParent.prototype.can_be_merged_with.apply(
+            var result = _super_orderline.can_be_merged_with.apply(
                 this, arguments
             );
             if (!result) {
@@ -236,7 +279,7 @@ function pos_pricelist_models(instance, module) {
          * @param orderline
          */
         merge: function (orderline) {
-            OrderlineParent.prototype.merge.apply(this, arguments);
+            _super_orderline.merge.apply(this, arguments);
             this.set_unit_price(orderline.price);
         },
         /**
@@ -247,8 +290,8 @@ function pos_pricelist_models(instance, module) {
         compute_qty: function (order, product) {
             var qty = 1;
             var orderlines = [];
-            if (order && order.get('orderLines').models !== undefined) {
-                orderlines = order.get('orderLines').models;
+	        if (order && order.orderlines.models !== undefined) {
+                orderlines = order.orderlines.models;
             }
             for (var i = 0; i < orderlines.length; i++) {
                 if (orderlines[i].product.id === product.id
@@ -299,13 +342,13 @@ function pos_pricelist_models(instance, module) {
             if (this.pos.config.display_price_with_taxes) {
                 return this.get_price_with_tax();
             }
-            return OrderlineParent.prototype.get_display_price.apply(
+            return _super_orderline.get_display_price.apply(
                 this, arguments
             );
         },
 
         export_as_JSON: function() {
-            var res = OrderlineParent.prototype.export_as_JSON.apply(this, arguments);
+            var res = _super_orderline.export_as_JSON.apply(this, arguments);
             var product_tax_ids = this.get_product().taxes_id || [];
             var partner = this.order ? this.order.get_client() : null;
             if (partner && partner.property_account_position) {
@@ -322,7 +365,7 @@ function pos_pricelist_models(instance, module) {
     /**
      * Pricelist Engine to compute price
      */
-    module.PricelistEngine = instance.web.Class.extend({
+    models.PricelistEngine = core.Class.extend({
         /**
          * @param options
          */
@@ -330,7 +373,6 @@ function pos_pricelist_models(instance, module) {
             options = options || {};
             this.pos = options.pos;
             this.db = options.db;
-            this.pos_widget = options.pos_widget;
         },
         /**
          * compute price for all price list
@@ -352,28 +394,6 @@ function pos_pricelist_models(instance, module) {
             );
         },
         /**
-         * loop find a valid version for the price list id given in param
-         * @param db
-         * @param pricelist_id
-         * @returns {boolean}
-         */
-        find_valid_pricelist_version: function (db, pricelist_id) {
-            var date = new Date();
-            var version = false;
-            var pricelist = db.pricelist_by_id[pricelist_id];
-            for (var i = 0, len = pricelist.version_id.length; i < len; i++) {
-                var v = db.pricelist_version_by_id[pricelist.version_id[i]];
-                if (((v.date_start == false)
-                    || (new Date(v.date_start) <= date)) &&
-                    ((v.date_end == false)
-                    || (new Date(v.date_end) >= date))) {
-                    version = v;
-                    break;
-                }
-            }
-            return version;
-        },
-        /**
          * compute the price for the given product
          * @param database
          * @param product
@@ -386,16 +406,6 @@ function pos_pricelist_models(instance, module) {
 
             var self = this;
             var db = database;
-
-            // get a valid version
-            var version = this.find_valid_pricelist_version(db, pricelist_id);
-            if (version == false) {
-                var message = _t('Pricelist Error');
-                var comment = _t('At least one pricelist has no active ' +
-                    'version ! Please create or activate one.');
-                show_error(this, message, comment);
-                return false;
-            }
 
             // get categories
             var categ_ids = [];
@@ -410,24 +420,32 @@ function pos_pricelist_models(instance, module) {
             var items = [], i, len;
             for (i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
                 var item = db.pricelist_item_sorted[i];
-                if ((item.product_id === false
-                    || item.product_id[0] === product.id) &&
-                    (item.categ_id === false
-                    || categ_ids.indexOf(item.categ_id[0]) !== -1) &&
-                    (item.price_version_id[0] === version.id)) {
+                if (
+                    (item.product_tmpl_id === false || item.product_tmpl_id[0] === product.product_tmpl_id)
+                    && (item.categ_id === false || categ_ids.indexOf(item.categ_id[0]) !== -1)
+                    && (
+                        (!partner && item.pricelist_id && item.pricelist_id[0] === this.pos.config.pricelist_id[0])
+                        || (partner && item.pricelist_id && item.pricelist_id[0] === pricelist_id)
+                    )
+                ) {
                     items.push(item);
                 }
             }
 
             var results = {};
             results[product.id] = 0.0;
-            var price_types = {};
             var price = false;
 
             // loop through items
             for (i = 0, len = items.length; i < len; i++) {
                 var rule = items[i];
-
+                var today = new Date();
+                var dateoftoday = today.toISOString().substring(0, 10);
+                
+                if ((rule.date_start !== false && rule.date_start > dateoftoday )
+                        ||(rule.date_end !== false && rule.date_end < dateoftoday )){
+                    continue;
+                }
                 if (rule.min_quantity && qty < rule.min_quantity) {
                     continue;
                 }
@@ -449,7 +467,7 @@ function pos_pricelist_models(instance, module) {
                 }
                 // Based on field
                 switch (rule.base) {
-                    case -1:
+                    case 'pricelist':
                         if (rule.base_pricelist_id) {
                             price = self.compute_price(
                                 db, product, false, qty,
@@ -457,48 +475,21 @@ function pos_pricelist_models(instance, module) {
                             );
                         }
                         break;
-                    case -2:
-                        var seller = false;
-                        for (var index in product.seller_ids) {
-                            var seller_id = product.seller_ids[index];
-                            var _tmp_seller = db.supplierinfo_by_id[seller_id];
-                            if ((!partner) || (_tmp_seller.name.length
-                                && _tmp_seller.name[0] != partner.name))
-                                continue;
-                            seller = _tmp_seller
-                        }
-                        if (!seller && product.seller_ids) {
-                            seller =
-                                db.supplierinfo_by_id[product.seller_ids[0]];
-                        }
-                        if (seller) {
-                            for (var _id in seller.pricelist_ids) {
-                                var info_id = seller.pricelist_ids[_id];
-                                var line =
-                                    db.pricelist_partnerinfo_by_id[info_id];
-                                if (line.min_quantity <= qty) {
-                                    price = line.price
-                                }
-                            }
-                        }
-                        break;
                     default:
-                        if (!price_types.hasOwnProperty(rule.base)) {
-                            price_types[rule.base] =
-                                db.product_price_type_by_id[rule.base];
-                        }
-                        var price_type = price_types[rule.base];
-                        if (db.product_by_id[product.id]
-                                .hasOwnProperty(price_type.field)) {
-                            price =
-                                db.product_by_id[product.id][price_type.field];
+                        if (db.product_by_id[product.id]) {
+                            price = db.product_by_id[product.id].price;
                         }
                 }
                 if (price !== false) {
                     var price_limit = price;
-                    price = price * (1.0 + (rule['price_discount']
-                            ? rule['price_discount']
-                            : 0.0));
+
+	                if (rule['price_discount']) {
+		                price = price * ((100.0 - rule['price_discount']) / 100.0);
+	                } else if (rule['percent_price']) {
+		                price = price * ((100.0 - rule['percent_price']) / 100.0);
+	                } else if (rule['fixed_price']) {
+		                price = rule['fixed_price'];
+	                }
                     if (rule['price_round']) {
                         price = parseFloat(price.toFixed(
                                 Math.ceil(Math.log(1.0 / rule['price_round'])
@@ -528,11 +519,8 @@ function pos_pricelist_models(instance, module) {
          */
         update_products_ui: function (partner) {
             var db = this.db;
-            if (!this.pos_widget.product_screen) return;
-            var product_list_ui
-                = this.pos_widget.product_screen.$(
-                '.product-list span.product'
-            );
+
+	        var product_list_ui = $('.product-list .product');
             for (var i = 0, len = product_list_ui.length; i < len; i++) {
                 var product_ui = product_list_ui[i];
                 var product_id = $(product_ui).data('product-id');
@@ -561,7 +549,10 @@ function pos_pricelist_models(instance, module) {
                         }
                         price = round_di(parseFloat(price)
                             || 0, this.pos.dp['Product Price']);
-                        price = this.pos_widget.format_currency(price);
+
+                        var product_screen_widget = new screens.ProductScreenWidget(this, {});
+                        price = product_screen_widget.format_currency(price);
+
                         if (k == 0) {
                             $(product_ui).find('.price-tag').html(price);
                         }
@@ -585,9 +576,9 @@ function pos_pricelist_models(instance, module) {
         simulate_price: function (product, partner, price, qty) {
             // create a fake order in order to get price
             // for this customer
-            var order = new module.Order({pos: this.pos});
+            var order = new models.Order({pos: this.pos});
             order.set_client(partner);
-            var orderline = new openerp.point_of_sale.Orderline
+            var orderline = new models.Orderline
             ({}, {
                 pos: this.pos, order: order,
                 product: product, price: price
@@ -619,32 +610,20 @@ function pos_pricelist_models(instance, module) {
             }
         }
     });
-    /**
-     * show error
-     * @param context
-     * @param message
-     * @param comment
-     */
-    function show_error(context, message, comment) {
-        context.pos.pos_widget.screen_selector.show_popup('error', {
-            'message': message,
-            'comment': comment
-        });
-    }
 
-    /**
+	/**
      * patch models to load some entities
      * @param pos_model
      */
     function arrange_elements(pos_model) {
-
-        var product_model = pos_model.find_model('product.product');
-        if (_.size(product_model) == 1) {
-            var product_index = parseInt(Object.keys(product_model)[0]);
-            pos_model.models[product_index].fields.push(
-                'categ_id', 'seller_ids'
-            );
-        }
+        
+//        var product_model = pos_model.find_model('product.product');
+//        if (_.size(product_model) == 1) {
+//            var product_index = parseInt(Object.keys(product_model)[0]);
+//            pos_model.models[product_index].fields.push(
+//                'categ_id', 'seller_ids'
+//            );
+//        }
 
         var res_product_pricelist = pos_model.find_model('product.pricelist');
         if (_.size(res_product_pricelist) == 1) {
@@ -666,31 +645,17 @@ function pos_pricelist_models(instance, module) {
                     }
                 },
                 {
-                    model: 'pricelist.partnerinfo',
-                    fields: ['display_name',
-                        'min_quantity',
-                        'name',
-                        'price',
-                        'suppinfo_id'],
-                    domain: null,
-                    loaded: function (self, pricelist_partnerinfos) {
-                        self.db.add_pricelist_partnerinfo(
-                            pricelist_partnerinfos
-                        );
-                    }
-                },
-                {
                     model: 'product.supplierinfo',
-                    fields: ['delay',
+                    fields: ['id','delay',
                         'name',
                         'min_qty',
-                        'pricelist_ids',
+	                    'price',
                         'product_code',
                         'product_name',
                         'sequence',
                         'qty',
                         'product_tmpl_id'],
-                    domain: null,
+                    domain: [['id', '<', 0]],
                     loaded: function (self, supplierinfos) {
                         self.db.add_supplierinfo(supplierinfos);
                     }
@@ -711,75 +676,37 @@ function pos_pricelist_models(instance, module) {
                     model: 'product.pricelist',
                     fields: ['display_name',
                         'name',
-                        'version_id',
                         'currency_id'],
-                    domain: function () {
-                        return [
-                            ['type', '=', 'sale']
-                        ]
-                    },
+                    domain: null,
                     loaded: function (self, pricelists) {
                         self.db.add_pricelists(pricelists);
                     }
                 },
                 {
-                    model: 'product.pricelist.version',
-                    fields: ['name',
-                        'pricelist_id',
-                        'date_start',
-                        'date_end',
-                        'items'],
-                    domain: null,
-                    loaded: function (self, versions) {
-                        self.db.add_pricelist_versions(versions);
-                    }
-                },
-                {
                     model: 'product.pricelist.item',
-                    fields: ['name',
+                    fields: [
                         'base',
                         'base_pricelist_id',
+	                    'pricelist_id',
                         'categ_id',
                         'min_quantity',
+                        'applied_on',
+	                    'fixed_price',
+	                    'percent_price',
                         'price_discount',
                         'price_max_margin',
                         'price_min_margin',
                         'price_round',
                         'price_surcharge',
-                        'price_version_id',
                         'product_id',
                         'product_tmpl_id',
-                        'sequence'
+                        'sequence',
+                        'date_start',
+                        'date_end'
                     ],
                     domain: null,
                     loaded: function (self, items) {
                         self.db.add_pricelist_items(items);
-                    }
-                },
-                {
-                    model: 'product.price.type',
-                    fields: ['name', 'field', 'currency_id'],
-                    domain: null,
-                    loaded: function (self, price_types) {
-                        // we need to add price type
-                        // field to product.product model if not the case
-                        var product_model =
-                            posmodel.find_model('product.product');
-                        for (var i = 0, len = price_types.length;
-                             i < len; i++) {
-                            var p_type = price_types[i].field;
-                            if (_.size(product_model) == 1) {
-                                var product_index =
-                                    parseInt(Object.keys(product_model)[0]);
-                                if (posmodel.models[product_index]
-                                        .fields.indexOf(p_type) === -1) {
-                                    posmodel.models[product_index].fields.push(
-                                        p_type
-                                    );
-                                }
-                            }
-                        }
-                        self.db.add_price_types(price_types);
                     }
                 }
             );
@@ -794,7 +721,9 @@ function pos_pricelist_models(instance, module) {
                 'property_product_pricelist'
             );
         }
-
     }
 
-}
+	return models;
+
+});
+
