@@ -107,7 +107,7 @@ Contributors
 * Pablo Cayuela <pablo.cayuela@aserti.es>
 * Antonio Espinosa <antonioea@antiun.com>
 * Florent THOMAS (financial support) <https://github.com/MindAndGo>
-* Pavel Romanchenko <romanchenko@it-projects.info>св
+* Pavel Romanchenko <romanchenko@it-projects.info>
 
 
 Maintainer
