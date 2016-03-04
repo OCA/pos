@@ -1,29 +1,17 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-# Point Of Sale - Pricelist for POS Odoo
-# Copyright (C) 2014 Taktik (http://www.taktik.be)
-# @author Adil Houmadi <ah@taktik.be>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2014-2015 Taktik (http://www.taktik.be) - Adil Houmadi <ah@taktik.be>
+# © 2016 Serv. Tecnol. Avanzados - Pedro M. Baeza
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
 {
     'name': 'POS Pricelist',
-    'version': '9.0.1.2.0',
+    'version': '9.0.1.3.0',
     'category': 'Point Of Sale',
     'images': [],
     'sequence': 1,
-    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), \
-     IT-Projects LLC",
+    'author': "Adil Houmadi @Taktik, \
+     IT-Projects LLC, Serv. Tecnol. Avanzados - Pedro M. Baeza, \
+     Odoo Community Association (OCA)",
     'summary': 'Pricelist for Point of sale',
     'license': 'AGPL-3',
     'depends': [
@@ -35,6 +23,7 @@
         "views/point_of_sale_view.xml",
         "report/report_receipt.xml",
         "security/ir.model.access.csv",
+        "security/account_fiscal_position_security.xml",
     ],
     'demo': [
         'demo/pos_pricelist_demo.yml',
@@ -44,6 +33,4 @@
     ],
     'post_init_hook': "set_pos_line_taxes",
     'installable': True,
-    'application': False,
-    'auto_install': False,
 }
