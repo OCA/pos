@@ -15,9 +15,13 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 ******************************************************************************/
-function pos_pricelist_screens(instance, module) {
+odoo.define('pos_pricelist.screens', function (require) {
+	"use strict";
 
-    module.ClientListScreenWidget = module.ClientListScreenWidget.extend({
+	var screens = require('point_of_sale.screens');
+	var core = require('web.core');
+
+    screens.ClientListScreenWidget = screens.ClientListScreenWidget.extend({
         save_changes: function () {
             this._super();
             if (this.has_client_changed()) {
@@ -29,4 +33,7 @@ function pos_pricelist_screens(instance, module) {
             }
         }
     });
-}
+
+	return screens;
+
+});

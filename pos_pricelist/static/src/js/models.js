@@ -15,24 +15,217 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-function pos_pricelist_models(instance, module) {
+odoo.define('pos_pricelist.models', function (require) {
+	"use strict";
 
-    var _t = instance.web._t;
-    var round_pr = instance.web.round_precision;
-    var round_di = instance.web.round_decimals;
+	var PosDB = require('point_of_sale.DB');
+	var models = require('point_of_sale.models');
+	var screens = require('pos_pricelist.widgets');
+	var core = require('web.core');
+	var gui = require('point_of_sale.gui');
 
-    /**
+	var _t = models._t;
+    var round_pr = models.round_precision;
+    var round_di = models.round_decimals;
+
+	PosDB = PosDB.extend({
+	    init: function (options) {
+	        options = options || {};
+	        this._super(options);
+	        this.pricelist_by_id = {};
+	        this.pricelist_version_by_id = {};
+	        this.pricelist_item_by_id = {};
+	        this.pricelist_item_sorted = [];
+	        this.product_category_by_id = {};
+	        this.product_category_children = {};
+	        this.product_category_ancestors = {};
+	        this.product_price_type_by_id = {};
+	        this.supplierinfo_by_id = {};
+	        this.pricelist_partnerinfo_by_id = {};
+	        this.fiscal_position_tax_by_id = {};
+	    },
+	    add_fiscal_position_taxes: function (fiscal_position_taxes) {
+	        if (!(fiscal_position_taxes instanceof Array)) {
+	            fiscal_position_taxes = [fiscal_position_taxes];
+	        }
+	        var fiscal_position_tax;
+	        while (fiscal_position_tax = fiscal_position_taxes.pop()) {
+	            this.fiscal_position_tax_by_id[fiscal_position_tax.id]
+	                = fiscal_position_tax;
+	        }
+	    },
+        add_pricelist_partnerinfo: function (pricelist_partnerinfos) {
+            if (!(pricelist_partnerinfos instanceof Array)) {
+                pricelist_partnerinfos = [pricelist_partnerinfos];
+            }
+            var partner_info;
+            while (partner_info = pricelist_partnerinfos.pop()) {
+                this.pricelist_partnerinfo_by_id[partner_info.id]
+                    = partner_info;
+            }
+        },
+		add_supplierinfo: function (supplierinfos) {
+	        if (!(supplierinfos instanceof Array)) {
+	            supplierinfos = [supplierinfos];
+	        }
+	        var supplier_info;
+	        while (supplier_info = supplierinfos.pop()) {
+	            this.supplierinfo_by_id[supplier_info.id] = supplier_info;
+	        }
+	    },
+	    add_pricelists: function (pricelists) {
+	        if (!(pricelists instanceof Array)) {
+	            pricelists = [pricelists];
+	        }
+	        var pricelist;
+	        while (pricelist = pricelists.pop()) {
+	            this.pricelist_by_id[pricelist.id] = pricelist;
+	        }
+	    },
+        add_pricelist_versions: function (versions) {
+            if (!(versions instanceof Array)) {
+                versions = [versions];
+            }
+            var version;
+            while (version = versions.pop()) {
+                this.pricelist_version_by_id[version.id] = version;
+            }
+        },
+	    add_pricelist_items: function (items) {
+	        if (!(items instanceof Array)) {
+	            items = [items];
+	        }
+	        var item;
+	        while (item = items.pop()) {
+	            this.pricelist_item_by_id[item.id] = item;
+	        }
+	        this.pricelist_item_sorted = this._items_sorted();
+	    },
+		add_price_types: function (price_types) {
+            if (!(price_types instanceof Array)) {
+                price_types = [price_types];
+            }
+            var ptype;
+            while (ptype = price_types.pop()) {
+                this.product_price_type_by_id[ptype.id] = ptype;
+            }
+        },
+	    add_product_categories: function (categories) {
+	        if (!(categories instanceof Array)) {
+	            categories = [categories];
+	        }
+	        var category;
+	        while (category = categories.pop()) {
+	            this.product_category_by_id[category.id] = category;
+	            this.product_category_children[category.id] =
+	                category.child_id;
+	        }
+	        this._make_ancestors();
+	    },
+	    _make_ancestors: function () {
+	        var category, ancestors;
+	        for (var id in this.product_category_by_id) {
+	            category = this.product_category_by_id[id];
+	            ancestors = [];
+	            while (category.parent_id) {
+	                ancestors.push(category.parent_id[0]);
+	                category = category.parent_id ?
+	                    this.product_category_by_id[category.parent_id[0]] :
+	                    false;
+	            }
+	            this.product_category_ancestors[parseInt(id)] = ancestors;
+	        }
+	    },
+	    _items_sorted: function () {
+	        var items = this.pricelist_item_by_id;
+	        var list = [];
+	        for (var key in items) {
+	            list.push(items[key]);
+	        }
+	        list.sort(function (a, b) {
+	            if (a.sequence < b.sequence) return -1;
+	            if (a.sequence > b.sequence) return 1;
+	            if (a.min_quantity > b.min_quantity) return -1;
+	            if (a.min_quantity < b.min_quantity) return 1;
+	            return 0;
+	        });
+	        return list;
+	    },
+	    map_tax: function (fiscal_position_id, taxes_ids) {
+	        var taxes = [];
+	        var found_taxes = {};
+	        for (var id in this.fiscal_position_tax_by_id) {
+	            var fp_line = this.fiscal_position_tax_by_id[id];
+	            if (fp_line && fp_line.position_id &&
+	                    fp_line.position_id[0] == fiscal_position_id &&
+	                    taxes_ids.indexOf(fp_line.tax_src_id[0]) > -1) {
+	                taxes.push(fp_line.tax_dest_id[0]);
+	                found_taxes[fp_line.tax_src_id[0]] = true;
+	            }
+	        }
+	        for (var i = 0, len = taxes_ids.length; i < len; i++) {
+	            var tax_id = taxes_ids[i];
+	            if (!(tax_id in found_taxes)) {
+	                taxes.push(tax_id);
+	            }
+	        }
+	        return taxes;
+	    },
+	    add_products: function (products) {
+	        this._super(products);
+            //console.log('posmodel:', posmodel);
+            //console.log('screens:', screens);
+            //console.log('this:', this);
+
+	        var pos = posmodel.pricelist_engine.pos;
+		    var order = new models.Order({}, {pos: pos});
+            //console.log('pos:', pos);
+            //console.log('order:', order);
+	        for (var id in this.product_by_id) {
+	            if (this.product_by_id.hasOwnProperty(id)) {
+	                var product = this.product_by_id[id];
+	                var orderline = new models.Orderline({}, {
+	                    pos: pos,
+	                    order: order,
+	                    product: product,
+	                    price: product.price
+	                });
+	                var prices = orderline.get_all_prices();
+	                this.product_by_id[id].price_with_taxes
+	                    = prices['priceWithTax'];
+		            order.destroy({'reason': 'abandon'});
+	            }
+	        }
+	    },
+	    find_product_rules: function (product) {
+	        var len = this.pricelist_item_sorted.length;
+	        var rules = [];
+	        for (var i = 0; i < len; i++) {
+	            var rule = this.pricelist_item_sorted[i];
+	            if ((rule.product_id && rule.product_id[0] == product.id) ||
+	                (rule.categ_id && product.categ_id
+	                && rule.categ_id[0] == product.categ_id[0])) {
+	                rules.push(rule);
+	            }
+	        }
+	        return rules;
+	    }
+	});
+
+	/**
      * Extend the POS model
      */
-    var PosModelParent = module.PosModel;
-    module.PosModel = module.PosModel.extend({
+    var _super_posmodel = models.PosModel.prototype;
+    models.PosModel = models.PosModel.extend({
         /**
          * @param session
          * @param attributes
          */
         initialize: function (session, attributes) {
-            PosModelParent.prototype.initialize.apply(this, arguments);
-            this.pricelist_engine = new module.PricelistEngine({
+            _super_posmodel.initialize.apply(this, arguments);
+	        this.db = new PosDB();
+	        this.pos_widget = screens;
+            this.pricelist_engine = new models.PricelistEngine({
                 'pos': this,
                 'db': this.db,
                 'pos_widget': this.pos_widget
@@ -60,7 +253,7 @@ function pos_pricelist_models(instance, module) {
          * @param reason
          */
         on_removed_order: function (removed_order, index, reason) {
-            PosModelParent.prototype.on_removed_order.apply(this, arguments);
+            _super_posmodel.on_removed_order.apply(this, arguments);
             if ((reason === 'abandon' || removed_order.temporary)
                 && this.get('orders').size() > 0) {
                 var current_order = (this.get('orders').at(index)
@@ -73,10 +266,11 @@ function pos_pricelist_models(instance, module) {
         }
     });
 
-    /**
+
+	/**
      * Extend the order
      */
-    module.Order = module.Order.extend({
+    models.Order = models.Order.extend({
         /**
          * override this method to merge lines
          * TODO : Need some refactoring in the standard POS to Do it better
@@ -89,7 +283,7 @@ function pos_pricelist_models(instance, module) {
             var attr = JSON.parse(JSON.stringify(product));
             attr.pos = this.pos;
             attr.order = this;
-            var line = new module.Orderline({}, {
+            var line = new openerp.point_of_sale.Orderline({}, {
                 pos: this.pos,
                 order: this,
                 product: product
@@ -130,14 +324,14 @@ function pos_pricelist_models(instance, module) {
     /**
      * Extend the Order line
      */
-    var OrderlineParent = module.Orderline;
-    module.Orderline = module.Orderline.extend({
+    var _super_orderline = models.Orderline.prototype;
+    models.Orderline = models.Orderline.extend({
         /**
          * @param attr
          * @param options
          */
         initialize: function (attr, options) {
-            OrderlineParent.prototype.initialize.apply(this, arguments);
+            _super_orderline.initialize.apply(this, arguments);
             this.manual_price = false;
             if (this.product !== undefined) {
                 var qty = this.compute_qty(this.order, this.product);
@@ -171,7 +365,7 @@ function pos_pricelist_models(instance, module) {
                     db, product, partner, this.get_quantity()
                 );
             }
-            OrderlineParent.prototype.set_quantity.apply(this, arguments);
+            _super_orderline.set_quantity.apply(this, arguments);
             var price = this.pos.pricelist_engine.compute_price_all(
                 db, product, partner, quantity
             );
@@ -226,7 +420,7 @@ function pos_pricelist_models(instance, module) {
          * @returns {boolean}
          */
         can_be_merged_with: function (orderline) {
-            var result = OrderlineParent.prototype.can_be_merged_with.apply(
+            var result = _super_orderline.can_be_merged_with.apply(
                 this, arguments
             );
             if (!result) {
@@ -245,7 +439,7 @@ function pos_pricelist_models(instance, module) {
          * @param orderline
          */
         merge: function (orderline) {
-            OrderlineParent.prototype.merge.apply(this, arguments);
+            _super_orderline.merge.apply(this, arguments);
             this.set_unit_price(orderline.price);
         },
         /**
@@ -308,13 +502,13 @@ function pos_pricelist_models(instance, module) {
             if (this.pos.config.display_price_with_taxes) {
                 return this.get_price_with_tax();
             }
-            return OrderlineParent.prototype.get_display_price.apply(
+            return _super_orderline.get_display_price.apply(
                 this, arguments
             );
         },
 
         export_as_JSON: function() {
-            var res = OrderlineParent.prototype.export_as_JSON.apply(this, arguments);
+            var res = _super_orderline.export_as_JSON.apply(this, arguments);
             var product_tax_ids = this.get_product().taxes_id || [];
             var partner = this.order ? this.order.get_client() : null;
             if (partner && partner.property_account_position) {
@@ -331,7 +525,7 @@ function pos_pricelist_models(instance, module) {
     /**
      * Pricelist Engine to compute price
      */
-    module.PricelistEngine = instance.web.Class.extend({
+    models.PricelistEngine = core.Class.extend({
         /**
          * @param options
          */
@@ -397,14 +591,14 @@ function pos_pricelist_models(instance, module) {
             var db = database;
 
             // get a valid version
-            var version = this.find_valid_pricelist_version(db, pricelist_id);
-            if (version == false) {
-                var message = _t('Pricelist Error');
-                var comment = _t('At least one pricelist has no active ' +
-                    'version ! Please create or activate one.');
-                show_error(this, message, comment);
-                return false;
-            }
+            //var version = this.find_valid_pricelist_version(db, pricelist_id);
+            //if (version == false) {
+            //    var message = _t('Pricelist Error');
+            //    var comment = _t('At least one pricelist has no active ' +
+            //        'version ! Please create or activate one.');
+            //    show_error(this, message, comment);
+            //    return false;
+            //}
 
             // get categories
             var categ_ids = [];
@@ -422,8 +616,9 @@ function pos_pricelist_models(instance, module) {
                 if ((item.product_id === false
                     || item.product_id[0] === product.id) &&
                     (item.categ_id === false
-                    || categ_ids.indexOf(item.categ_id[0]) !== -1) &&
-                    (item.price_version_id[0] === version.id)) {
+                    || categ_ids.indexOf(item.categ_id[0]) !== -1)
+	                //&& (item.price_version_id[0] === version.id)
+                ) {
                     items.push(item);
                 }
             }
@@ -497,11 +692,11 @@ function pos_pricelist_models(instance, module) {
                                 db.product_price_type_by_id[rule.base];
                         }
                         var price_type = price_types[rule.base];
-                        if (db.product_by_id[product.id]
-                                .hasOwnProperty(price_type.field)) {
-                            price =
-                                db.product_by_id[product.id][price_type.field];
-                        }
+                        //if (db.product_by_id[product.id]
+                        //        .hasOwnProperty(price_type.field)) {
+                        //    price =
+                        //        db.product_by_id[product.id][price_type.field];
+                        //}
                 }
                 if (price !== false) {
                     var price_limit = price;
@@ -594,9 +789,9 @@ function pos_pricelist_models(instance, module) {
         simulate_price: function (product, partner, price, qty) {
             // create a fake order in order to get price
             // for this customer
-            var order = new module.Order({pos: this.pos});
+            var order = new models.Order({pos: this.pos});
             order.set_client(partner);
-            var orderline = new openerp.point_of_sale.Orderline
+            var orderline = new models.Orderline
             ({}, {
                 pos: this.pos, order: order,
                 product: product, price: price
@@ -628,20 +823,21 @@ function pos_pricelist_models(instance, module) {
             }
         }
     });
-    /**
+
+	/**
      * show error
      * @param context
      * @param message
      * @param comment
      */
     function show_error(context, message, comment) {
-        context.pos.pos_widget.screen_selector.show_popup('error', {
-            'message': message,
-            'comment': comment
+        context.pos.gui.show_popup('error', {
+            'title': message,
+            'body': comment
         });
     }
 
-    /**
+	/**
      * patch models to load some entities
      * @param pos_model
      */
@@ -660,6 +856,7 @@ function pos_pricelist_models(instance, module) {
             var pricelist_index = parseInt(Object.keys(
                     res_product_pricelist)[0]
             );
+	        //console.log('pos_model:', pos_model);
             pos_model.models.splice(++pricelist_index, 0,
                 {
                     model: 'account.fiscal.position.tax',
@@ -671,20 +868,6 @@ function pos_pricelist_models(instance, module) {
                     loaded: function (self, fiscal_position_taxes) {
                         self.db.add_fiscal_position_taxes(
                             fiscal_position_taxes
-                        );
-                    }
-                },
-                {
-                    model: 'pricelist.partnerinfo',
-                    fields: ['display_name',
-                        'min_quantity',
-                        'name',
-                        'price',
-                        'suppinfo_id'],
-                    domain: null,
-                    loaded: function (self, pricelist_partnerinfos) {
-                        self.db.add_pricelist_partnerinfo(
-                            pricelist_partnerinfos
                         );
                     }
                 },
@@ -720,27 +903,10 @@ function pos_pricelist_models(instance, module) {
                     model: 'product.pricelist',
                     fields: ['display_name',
                         'name',
-                        'version_id',
                         'currency_id'],
-                    domain: function () {
-                        return [
-                            ['type', '=', 'sale']
-                        ]
-                    },
+                    domain: null,
                     loaded: function (self, pricelists) {
                         self.db.add_pricelists(pricelists);
-                    }
-                },
-                {
-                    model: 'product.pricelist.version',
-                    fields: ['name',
-                        'pricelist_id',
-                        'date_start',
-                        'date_end',
-                        'items'],
-                    domain: null,
-                    loaded: function (self, versions) {
-                        self.db.add_pricelist_versions(versions);
                     }
                 },
                 {
@@ -764,32 +930,6 @@ function pos_pricelist_models(instance, module) {
                     loaded: function (self, items) {
                         self.db.add_pricelist_items(items);
                     }
-                },
-                {
-                    model: 'product.price.type',
-                    fields: ['name', 'field', 'currency_id'],
-                    domain: null,
-                    loaded: function (self, price_types) {
-                        // we need to add price type
-                        // field to product.product model if not the case
-                        var product_model =
-                            posmodel.find_model('product.product');
-                        for (var i = 0, len = price_types.length;
-                             i < len; i++) {
-                            var p_type = price_types[i].field;
-                            if (_.size(product_model) == 1) {
-                                var product_index =
-                                    parseInt(Object.keys(product_model)[0]);
-                                if (posmodel.models[product_index]
-                                        .fields.indexOf(p_type) === -1) {
-                                    posmodel.models[product_index].fields.push(
-                                        p_type
-                                    );
-                                }
-                            }
-                        }
-                        self.db.add_price_types(price_types);
-                    }
                 }
             );
         }
@@ -803,7 +943,9 @@ function pos_pricelist_models(instance, module) {
                 'property_product_pricelist'
             );
         }
-
     }
 
-}
+	return models;
+
+});
+
