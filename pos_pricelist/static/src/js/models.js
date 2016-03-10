@@ -22,11 +22,10 @@ odoo.define('pos_pricelist.models', function (require) {
 	var widgets = require('pos_pricelist.widgets');
 	var PosDB = require('pos_pricelist.DB');
 	var core = require('web.core');
-	var gui = require('point_of_sale.gui');
+	var utils = require('web.utils');
 
-	var _t = models._t;
-    var round_pr = models.round_precision;
-    var round_di = models.round_decimals;
+    var round_pr = utils.round_precision;
+    var round_di = utils.round_decimals;
 
 	PosDB = PosDB.extend({
 	    add_products: function (products) {
@@ -430,16 +429,6 @@ odoo.define('pos_pricelist.models', function (require) {
             var self = this;
             var db = database;
 
-            // get a valid version
-            //var version = this.find_valid_pricelist_version(db, pricelist_id);
-            //if (version == false) {
-            //    var message = _t('Pricelist Error');
-            //    var comment = _t('At least one pricelist has no active ' +
-            //        'version ! Please create or activate one.');
-            //    show_error(this, message, comment);
-            //    return false;
-            //}
-
             // get categories
             var categ_ids = [];
             if (product.categ_id) {
@@ -457,7 +446,6 @@ odoo.define('pos_pricelist.models', function (require) {
                     || item.product_id[0] === product.id) &&
                     (item.categ_id === false
                     || categ_ids.indexOf(item.categ_id[0]) !== -1)
-	                //&& (item.price_version_id[0] === version.id)
                 ) {
                     items.push(item);
                 }
@@ -531,12 +519,6 @@ odoo.define('pos_pricelist.models', function (require) {
                             price_types[rule.base] =
                                 db.product_price_type_by_id[rule.base];
                         }
-                        var price_type = price_types[rule.base];
-                        //if (db.product_by_id[product.id]
-                        //        .hasOwnProperty(price_type.field)) {
-                        //    price =
-                        //        db.product_by_id[product.id][price_type.field];
-                        //}
                 }
                 if (price !== false) {
                     var price_limit = price;
@@ -663,19 +645,6 @@ odoo.define('pos_pricelist.models', function (require) {
             }
         }
     });
-
-	/**
-     * show error
-     * @param context
-     * @param message
-     * @param comment
-     */
-    function show_error(context, message, comment) {
-        context.pos.gui.show_popup('error', {
-            'title': message,
-            'body': comment
-        });
-    }
 
 	/**
      * patch models to load some entities

@@ -68,7 +68,6 @@ odoo.define('pos_pricelist.widgets', function (require) {
             if(order) {
                 customer = order.get_client();
             }
-	        console.log('this:', this);
             this.pos.pricelist_engine.update_products_ui(customer);
         }
     });
