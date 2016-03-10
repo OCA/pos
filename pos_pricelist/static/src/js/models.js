@@ -290,8 +290,8 @@ odoo.define('pos_pricelist.models', function (require) {
         compute_qty: function (order, product) {
             var qty = 1;
             var orderlines = [];
-            if (order && order.get('orderLines').models !== undefined) {
-                orderlines = order.get('orderLines').models;
+	        if (order && order.orderlines.models !== undefined) {
+                orderlines = order.orderlines.models;
             }
             for (var i = 0; i < orderlines.length; i++) {
                 if (orderlines[i].product.id === product.id
