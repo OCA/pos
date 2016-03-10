@@ -15,9 +15,12 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-function pos_pricelist_db(instance, module) {
+odoo.define('pos_pricelist.DB', function (require) {
+    "use strict";
 
-    module.PosDB = module.PosDB.extend({
+    var PosDB = require('point_of_sale.DB');
+
+    PosDB = PosDB.extend({
         init: function (options) {
             options = options || {};
             this._super(options);
@@ -160,24 +163,6 @@ function pos_pricelist_db(instance, module) {
             }
             return taxes;
         },
-        add_products: function (products) {
-            this._super(products);
-            var pos = posmodel.pos_widget.pos;
-            for (var id in this.product_by_id) {
-                if (this.product_by_id.hasOwnProperty(id)) {
-                    var product = this.product_by_id[id];
-                    var orderline = new openerp.point_of_sale.Orderline({}, {
-                        pos: pos,
-                        order: null,
-                        product: product,
-                        price: product.price
-                    });
-                    var prices = orderline.get_all_prices();
-                    this.product_by_id[id].price_with_taxes
-                        = prices['priceWithTax']
-                }
-            }
-        },
         find_product_rules: function (product) {
             var len = this.pricelist_item_sorted.length;
             var rules = [];
@@ -191,5 +176,7 @@ function pos_pricelist_db(instance, module) {
             }
             return rules;
         }
-    })
-}
+    });
+
+    return PosDB;
+});
