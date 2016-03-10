@@ -45,9 +45,9 @@ odoo.define('pos_pricelist.models', function (require) {
 	                var prices = orderline.get_all_prices();
 	                this.product_by_id[id].price_with_taxes
 	                    = prices['priceWithTax'];
-		            order.destroy({'reason': 'abandon'});
 	            }
 	        }
+            order.destroy({'reason': 'abandon'});
 	    }
 	});
 
@@ -181,7 +181,8 @@ odoo.define('pos_pricelist.models', function (require) {
                     db, product, partner, qty
                 );
                 if (price !== false) {
-                    this.price = price;
+                    //this.price = price;
+	                this.price = round_di(parseFloat(price) || 0, this.pos.dp['Product Price']);
                 }
             }
         },
@@ -212,8 +213,9 @@ odoo.define('pos_pricelist.models', function (require) {
                the unit price of the previous quantity, to preserve manually
                entered prices as much as possible. */
             if (price !== false && price !== old_price) {
-                this.price = price;
-                this.trigger('change', this);
+                //this.price = price;
+                //this.trigger('change', this);
+	            this.set_unit_price(price);
             }
         },
         /**

@@ -14,7 +14,6 @@
                         type="text/javascript"></script>
                 <script src="/pos_pricelist/static/src/js/tests.js"
                         type="text/javascript"></script>
-                <!--<script src="/pos_pricelist/static/src/js/main.js" type="text/javascript"></script>-->
             </xpath>
         </template>
 
