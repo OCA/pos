@@ -52,7 +52,6 @@ class PosOrderLine(models.Model):
             taxes = line.tax_ids.compute_all(
                 price, quantity=line.qty, product=line.product_id,
                 partner=line.order_id.partner_id)
-            print('taxes:', taxes)
             # res['total'] += taxes['total']
             res['total_excluded'] += taxes['total_excluded']
             res['total_included'] += taxes['total_included']
@@ -81,10 +80,10 @@ class PosOrder(models.Model):
                             inverse_name='pos_order', readonly=True)
 
     @api.model
-    def _amount_line_tax(self, line):
+    def _amount_line_tax(self, line, context=None):
         price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
         taxes = line.tax_ids.compute_all(
-            price, line.qty, product=line.product_id,
+            price, quantity=line.qty, product=line.product_id,
             partner=line.order_id.partner_id)['taxes']
         val = 0.0
         for c in taxes:
