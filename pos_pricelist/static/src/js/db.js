@@ -46,16 +46,6 @@ odoo.define('pos_pricelist.DB', function (require) {
                     = fiscal_position_tax;
             }
         },
-        add_pricelist_partnerinfo: function (pricelist_partnerinfos) {
-            if (!(pricelist_partnerinfos instanceof Array)) {
-                pricelist_partnerinfos = [pricelist_partnerinfos];
-            }
-            var partner_info;
-            while (partner_info = pricelist_partnerinfos.pop()) {
-                this.pricelist_partnerinfo_by_id[partner_info.id]
-                    = partner_info;
-            }
-        },
         add_supplierinfo: function (supplierinfos) {
             if (!(supplierinfos instanceof Array)) {
                 supplierinfos = [supplierinfos];
@@ -74,15 +64,6 @@ odoo.define('pos_pricelist.DB', function (require) {
                 this.pricelist_by_id[pricelist.id] = pricelist;
             }
         },
-        add_pricelist_versions: function (versions) {
-            if (!(versions instanceof Array)) {
-                versions = [versions];
-            }
-            var version;
-            while (version = versions.pop()) {
-                this.pricelist_version_by_id[version.id] = version;
-            }
-        },
         add_pricelist_items: function (items) {
             if (!(items instanceof Array)) {
                 items = [items];
@@ -92,15 +73,6 @@ odoo.define('pos_pricelist.DB', function (require) {
                 this.pricelist_item_by_id[item.id] = item;
             }
             this.pricelist_item_sorted = this._items_sorted();
-        },
-        add_price_types: function (price_types) {
-            if (!(price_types instanceof Array)) {
-                price_types = [price_types];
-            }
-            var ptype;
-            while (ptype = price_types.pop()) {
-                this.product_price_type_by_id[ptype.id] = ptype;
-            }
         },
         add_product_categories: function (categories) {
             if (!(categories instanceof Array)) {

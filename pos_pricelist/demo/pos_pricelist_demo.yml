@@ -68,16 +68,22 @@
       - name: 10% Discount on POS Product 1 (Qty 3)
         sequence: 2
         product_id: pos_product_product_1
+        compute_price: 'formula'
+        base: 'list_price'
         price_discount: 10
         min_quantity: 3
       - name: 30% Discount on POS Product 1 (Qty 5)
         sequence: 1
         product_id: pos_product_product_1
         min_quantity: 5
+        compute_price: 'formula'
+        base: 'list_price'
         price_discount: 30
       - name: 10% Discount (POS Product 2)
         sequence: 1
         product_id: pos_product_product_2
+        compute_price: 'formula'
+        base: 'list_price'
         price_discount: 10
         min_quantity: 2
       - name: 20% Discount given by supplier
@@ -88,4 +94,6 @@
         sequence: 1
         min_quantity: 2
         categ_id: product.product_category_4
+        compute_price: 'formula'
+        base: 'list_price'
         price_discount: 5

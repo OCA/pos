@@ -181,7 +181,6 @@ odoo.define('pos_pricelist.models', function (require) {
                     db, product, partner, qty
                 );
                 if (price !== false) {
-                    //this.price = price;
 	                this.price = round_di(parseFloat(price) || 0, this.pos.dp['Product Price']);
                 }
             }
@@ -213,8 +212,6 @@ odoo.define('pos_pricelist.models', function (require) {
                the unit price of the previous quantity, to preserve manually
                entered prices as much as possible. */
             if (price !== false && price !== old_price) {
-                //this.price = price;
-                //this.trigger('change', this);
 	            this.set_unit_price(price);
             }
         },
@@ -396,28 +393,6 @@ odoo.define('pos_pricelist.models', function (require) {
             );
         },
         /**
-         * loop find a valid version for the price list id given in param
-         * @param db
-         * @param pricelist_id
-         * @returns {boolean}
-         */
-        find_valid_pricelist_version: function (db, pricelist_id) {
-            var date = new Date();
-            var version = false;
-            var pricelist = db.pricelist_by_id[pricelist_id];
-            for (var i = 0, len = pricelist.version_id.length; i < len; i++) {
-                var v = db.pricelist_version_by_id[pricelist.version_id[i]];
-                if (((v.date_start == false)
-                    || (new Date(v.date_start) <= date)) &&
-                    ((v.date_end == false)
-                    || (new Date(v.date_end) >= date))) {
-                    version = v;
-                    break;
-                }
-            }
-            return version;
-        },
-        /**
          * compute the price for the given product
          * @param database
          * @param product
@@ -522,9 +497,7 @@ odoo.define('pos_pricelist.models', function (require) {
                 }
                 if (price !== false) {
                     var price_limit = price;
-                    price = price * (1.0 + (rule['price_discount']
-                            ? rule['price_discount']
-                            : 0.0));
+	                price = price * ((100.0 - (rule['price_discount'] ? rule['price_discount'] : 0.0)) / 100.0);
                     if (rule['price_round']) {
                         price = parseFloat(price.toFixed(
                                 Math.ceil(Math.log(1.0 / rule['price_round'])
