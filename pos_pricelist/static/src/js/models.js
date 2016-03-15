@@ -517,9 +517,12 @@ odoo.define('pos_pricelist.models', function (require) {
                         }
                         break;
                     default:
-                        if (!price_types.hasOwnProperty(rule.base)) {
-                            price_types[rule.base] =
-                                db.product_price_type_by_id[rule.base];
+                        //if (!price_types.hasOwnProperty(rule.base)) {
+                        //    price_types[rule.base] =
+                        //        db.product_price_type_by_id[rule.base];
+                        //}
+                        if (db.product_by_id[product.id]) {
+                            price = db.product_by_id[product.id].price;
                         }
                 }
                 if (price !== false) {
@@ -556,11 +559,13 @@ odoo.define('pos_pricelist.models', function (require) {
          */
         update_products_ui: function (partner) {
             var db = this.db;
-            if (!this.pos_widget.product_screen) return;
-            var product_list_ui
-                = this.pos_widget.product_screen.$(
-                '.product-list span.product'
-            );
+            //if (!this.pos_widget.product_screen) return;
+            //var product_list_ui
+            //    = this.pos_widget.product_screen.$(
+            //    '.product-list span.product'
+            //);
+
+	        var product_list_ui = $('.product-list .product');
             for (var i = 0, len = product_list_ui.length; i < len; i++) {
                 var product_ui = product_list_ui[i];
                 var product_id = $(product_ui).data('product-id');
@@ -589,7 +594,11 @@ odoo.define('pos_pricelist.models', function (require) {
                         }
                         price = round_di(parseFloat(price)
                             || 0, this.pos.dp['Product Price']);
-                        price = this.pos_widget.format_currency(price);
+                        //price = this.pos_widget.format_currency(price);
+
+                        var product_screen_widget = new this.pos_widget.ProductScreenWidget(this, {});
+                        price = product_screen_widget.format_currency(price);
+
                         if (k == 0) {
                             $(product_ui).find('.price-tag').html(price);
                         }
