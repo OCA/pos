@@ -684,7 +684,7 @@ odoo.define('pos_pricelist.models', function (require) {
                     fields: ['delay',
                         'name',
                         'min_qty',
-                        'pricelist_ids',
+	                    'price',
                         'product_code',
                         'product_name',
                         'sequence',
@@ -719,7 +719,7 @@ odoo.define('pos_pricelist.models', function (require) {
                 },
                 {
                     model: 'product.pricelist.item',
-                    fields: ['name',
+                    fields: [
                         'base',
                         'base_pricelist_id',
                         'categ_id',
@@ -729,7 +729,6 @@ odoo.define('pos_pricelist.models', function (require) {
                         'price_min_margin',
                         'price_round',
                         'price_surcharge',
-                        'price_version_id',
                         'product_id',
                         'product_tmpl_id',
                         'sequence'
