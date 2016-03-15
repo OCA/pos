@@ -621,9 +621,8 @@ function pos_pricelist_models(instance, module) {
                     db, product, partner, quantity
                 );
                 if (price !== false) {
-                    line.price = price;
+                    line.set_unit_price(price);
                 }
-                line.trigger('change', line);
             }
         }
     });
