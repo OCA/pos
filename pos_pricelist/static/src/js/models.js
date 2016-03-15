@@ -444,8 +444,8 @@ odoo.define('pos_pricelist.models', function (require) {
             var items = [], i, len;
             for (i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
                 var item = db.pricelist_item_sorted[i];
-                if ((item.product_id === false
-                    || item.product_id[0] === product.id) &&
+                if ((item.product_tmpl_id === false
+                    || item.product_tmpl_id[0] === product.id) &&
                     (item.categ_id === false
                     || categ_ids.indexOf(item.categ_id[0]) !== -1)
                 ) {
@@ -455,7 +455,6 @@ odoo.define('pos_pricelist.models', function (require) {
 
             var results = {};
             results[product.id] = 0.0;
-            var price_types = {};
             var price = false;
 
             // loop through items
@@ -517,10 +516,6 @@ odoo.define('pos_pricelist.models', function (require) {
                         }
                         break;
                     default:
-                        //if (!price_types.hasOwnProperty(rule.base)) {
-                        //    price_types[rule.base] =
-                        //        db.product_price_type_by_id[rule.base];
-                        //}
                         if (db.product_by_id[product.id]) {
                             price = db.product_by_id[product.id].price;
                         }
@@ -559,11 +554,6 @@ odoo.define('pos_pricelist.models', function (require) {
          */
         update_products_ui: function (partner) {
             var db = this.db;
-            //if (!this.pos_widget.product_screen) return;
-            //var product_list_ui
-            //    = this.pos_widget.product_screen.$(
-            //    '.product-list span.product'
-            //);
 
 	        var product_list_ui = $('.product-list .product');
             for (var i = 0, len = product_list_ui.length; i < len; i++) {
@@ -594,7 +584,6 @@ odoo.define('pos_pricelist.models', function (require) {
                         }
                         price = round_di(parseFloat(price)
                             || 0, this.pos.dp['Product Price']);
-                        //price = this.pos_widget.format_currency(price);
 
                         var product_screen_widget = new this.pos_widget.ProductScreenWidget(this, {});
                         price = product_screen_widget.format_currency(price);
