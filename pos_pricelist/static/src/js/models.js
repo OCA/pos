@@ -497,7 +497,13 @@ odoo.define('pos_pricelist.models', function (require) {
                 }
                 if (price !== false) {
                     var price_limit = price;
-	                price = price * ((100.0 - (rule['price_discount'] ? rule['price_discount'] : 0.0)) / 100.0);
+	                if (rule['price_discount']) {
+		                price = price * ((100.0 - (rule['price_discount'] ? rule['price_discount'] : 0.0)) / 100.0);
+	                } else if (rule['percent_price']) {
+		                price = price * ((100.0 - (rule['percent_price'] ? rule['percent_price'] : 0.0)) / 100.0);
+	                } else if (rule['fixed_price']) {
+		                price = price - (rule['fixed_price'] ? rule['fixed_price'] : 0.0);
+	                }
                     if (rule['price_round']) {
                         price = parseFloat(price.toFixed(
                                 Math.ceil(Math.log(1.0 / rule['price_round'])
@@ -697,6 +703,8 @@ odoo.define('pos_pricelist.models', function (require) {
                         'base_pricelist_id',
                         'categ_id',
                         'min_quantity',
+	                    'fixed_price',
+	                    'percent_price',
                         'price_discount',
                         'price_max_margin',
                         'price_min_margin',
