@@ -19,6 +19,7 @@ odoo.define('pos_pricelist.widgets', function (require) {
 	"use strict";
 
 	var screens = require('point_of_sale.screens');
+	var models = require('pos_pricelist.models');
 	var core = require('web.core');
 	var utils = require('web.utils');
 

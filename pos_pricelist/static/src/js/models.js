@@ -19,7 +19,7 @@ odoo.define('pos_pricelist.models', function (require) {
 	"use strict";
 
 	var models = require('point_of_sale.models');
-	var widgets = require('pos_pricelist.widgets');
+	var screens = require('point_of_sale.screens');
 	var PosDB = require('pos_pricelist.DB');
 	var core = require('web.core');
 	var utils = require('web.utils');
@@ -63,11 +63,9 @@ odoo.define('pos_pricelist.models', function (require) {
         initialize: function (session, attributes) {
             _super_posmodel.initialize.apply(this, arguments);
 	        this.db = new PosDB();
-	        this.pos_widget = widgets;
             this.pricelist_engine = new models.PricelistEngine({
                 'pos': this,
-                'db': this.db,
-                'pos_widget': this.pos_widget
+                'db': this.db
             });
             arrange_elements(this);
         },
@@ -371,7 +369,6 @@ odoo.define('pos_pricelist.models', function (require) {
             options = options || {};
             this.pos = options.pos;
             this.db = options.db;
-            this.pos_widget = options.pos_widget;
         },
         /**
          * compute price for all price list
@@ -564,7 +561,7 @@ odoo.define('pos_pricelist.models', function (require) {
                         price = round_di(parseFloat(price)
                             || 0, this.pos.dp['Product Price']);
 
-                        var product_screen_widget = new this.pos_widget.ProductScreenWidget(this, {});
+                        var product_screen_widget = new screens.ProductScreenWidget(this, {});
                         price = product_screen_widget.format_currency(price);
 
                         if (k == 0) {

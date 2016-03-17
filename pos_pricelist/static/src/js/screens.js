@@ -26,7 +26,7 @@ odoo.define('pos_pricelist.screens', function (require) {
             this._super();
             if (this.has_client_changed()) {
                 var currentOrder = this.pos.get('selectedOrder');
-                var orderLines = currentOrder.get('orderLines').models;
+                var orderLines = currentOrder.orderlines.models;
                 var partner = currentOrder.get_client();
                 this.pos.pricelist_engine.update_products_ui(partner);
                 this.pos.pricelist_engine.update_ticket(partner, orderLines);
