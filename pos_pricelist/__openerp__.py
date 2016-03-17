@@ -20,9 +20,12 @@
     'name': 'POS Pricelist',
     'version': '9.0.1.2.0',
     'category': 'Point Of Sale',
+    'images': [],
     'sequence': 1,
-    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), IT-Projects LLC, Pavel Romanchenko",
+    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), \
+    IT-Projects LLC, Pavel Romanchenko",
     'summary': 'Pricelist for Point of sale',
+    'license': 'LGPL-3',
     'depends': [
         "point_of_sale",
     ],
