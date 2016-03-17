@@ -25,7 +25,7 @@
     'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), \
     IT-Projects LLC, Pavel Romanchenko",
     'summary': 'Pricelist for Point of sale',
-    'license': 'LGPL-3',
+    'license': 'AGPL-3',
     'depends': [
         "point_of_sale",
     ],
