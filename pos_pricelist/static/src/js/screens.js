@@ -21,7 +21,7 @@ odoo.define('pos_pricelist.screens', function (require) {
 	var screens = require('point_of_sale.screens');
 	var core = require('web.core');
 
-    screens.ClientListScreenWidget = screens.ClientListScreenWidget.extend({
+    screens.ClientListScreenWidget.include({
         save_changes: function () {
             this._super();
             if (this.has_client_changed()) {
@@ -33,7 +33,5 @@ odoo.define('pos_pricelist.screens', function (require) {
             }
         }
     });
-
-	return screens;
 
 });
