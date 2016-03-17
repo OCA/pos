@@ -21,7 +21,7 @@
     'version': '9.0.1.2.0',
     'category': 'Point Of Sale',
     'sequence': 1,
-    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA)",
+    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), IT-Projects LLC, Pavel Romanchenko",
     'summary': 'Pricelist for Point of sale',
     'depends': [
         "point_of_sale",
