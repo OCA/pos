@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="PosTicket">
+        <t t-jquery=".pos-center-align t:first" t-operation="after">
+            <br/>
+            <t t-esc="order.get('sequence_ref')"/>
+            <br/>
+        </t>
+    </t>
+
+	<t t-extend="XmlReceipt">
+        <t t-jquery="[t-if='!receipt.company.logo']" t-operation="after">
+            <br/>
+            <t t-esc="receipt.sequence_ref"/>
+            <br/>
+        </t>
+	</t>
+
+</templates>
