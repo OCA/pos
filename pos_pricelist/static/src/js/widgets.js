@@ -19,9 +19,11 @@ odoo.define('pos_pricelist.widgets', function (require) {
 	"use strict";
 
 	var screens = require('point_of_sale.screens');
+	var PosBaseWidget = require('point_of_sale.BaseWidget');
 	var models = require('pos_pricelist.models');
 	var core = require('web.core');
 	var utils = require('web.utils');
+	var formats = require('web.formats');
 
     var round_di = utils.round_decimals;
 
@@ -72,7 +74,7 @@ odoo.define('pos_pricelist.widgets', function (require) {
         }
     });
 
-    screens.PosBaseWidget.include({
+    PosBaseWidget.include({
         format_pr: function(amount, precision) {
             // Do not call _super because no addon or XML is using this method
             var currency = (this.pos && this.pos.currency) ? this.pos.currency : {symbol:'$', position: 'after', rounding: 0.01, decimals: 2};
@@ -84,7 +86,7 @@ odoo.define('pos_pricelist.widgets', function (require) {
 
             if (typeof amount === 'number') {
                 amount = round_di(amount,decimals).toFixed(decimals);
-                amount = openerp.instances[this.session.name].web.format_value(round_di(amount, decimals), { type: 'float', digits: [69, decimals]});
+                amount = formats.format_value(round_di(amount, decimals), { type: 'float', digits: [69, decimals]});
             }
             return amount
         }

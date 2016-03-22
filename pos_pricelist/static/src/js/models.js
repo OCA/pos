@@ -139,8 +139,8 @@ odoo.define('pos_pricelist.models', function (require) {
             }
 
             var orderlines = [];
-            if (self.get('orderLines').models !== undefined) {
-                orderlines = self.get('orderLines').models;
+            if (self.orderlines.models !== undefined) {
+                orderlines = self.orderlines.models;
             }
             for (var i = 0; i < orderlines.length; i++) {
                 var _line = orderlines[i];
@@ -152,7 +152,7 @@ odoo.define('pos_pricelist.models', function (require) {
                 }
             }
             if (!found) {
-                this.get('orderLines').add(line);
+                this.orderlines.add(line);
             }
             this.selectLine(this.getLastOrderline());
         }
@@ -494,12 +494,17 @@ odoo.define('pos_pricelist.models', function (require) {
                 }
                 if (price !== false) {
                     var price_limit = price;
+
+	                if (!partner || rule.pricelist_id[1] != partner.property_product_pricelist[1]) {
+		                continue
+	                }
+
 	                if (rule['price_discount']) {
-		                price = price * ((100.0 - (rule['price_discount'] ? rule['price_discount'] : 0.0)) / 100.0);
+		                price = price * ((100.0 - rule['price_discount']) / 100.0);
 	                } else if (rule['percent_price']) {
-		                price = price * ((100.0 - (rule['percent_price'] ? rule['percent_price'] : 0.0)) / 100.0);
+		                price = price * ((100.0 - rule['percent_price']) / 100.0);
 	                } else if (rule['fixed_price']) {
-		                price = price - (rule['fixed_price'] ? rule['fixed_price'] : 0.0);
+		                price = rule['fixed_price'];
 	                }
                     if (rule['price_round']) {
                         price = parseFloat(price.toFixed(
@@ -698,6 +703,7 @@ odoo.define('pos_pricelist.models', function (require) {
                     fields: [
                         'base',
                         'base_pricelist_id',
+	                    'pricelist_id',
                         'categ_id',
                         'min_quantity',
 	                    'fixed_price',
