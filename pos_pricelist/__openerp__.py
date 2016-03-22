@@ -22,7 +22,8 @@
     'category': 'Point Of Sale',
     'images': [],
     'sequence': 1,
-    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), IT-Projects LLC",
+    'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA), \
+     IT-Projects LLC",
     'summary': 'Pricelist for Point of sale',
     'license': 'AGPL-3',
     'depends': [
