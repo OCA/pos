@@ -51,7 +51,7 @@ class PosOrder(models.Model):
                 'update_tax': True,
                 'date_order': False,
                 'packaging': False,
-                'fiscal_position': False,
+                'fiscal_position': order.get('fiscal_position'),
                 'flag': False,
                 'warehouse_id': order['warehouse_id']
             }]
