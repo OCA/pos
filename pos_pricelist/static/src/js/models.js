@@ -706,6 +706,7 @@ odoo.define('pos_pricelist.models', function (require) {
 	                    'pricelist_id',
                         'categ_id',
                         'min_quantity',
+                        'applied_on',
 	                    'fixed_price',
 	                    'percent_price',
                         'price_discount',
