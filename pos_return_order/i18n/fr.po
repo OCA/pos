@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-25 18:08+0000\n"
-"PO-Revision-Date: 2016-02-25 18:08+0000\n"
+"POT-Creation-Date: 2016-04-03 23:54+0000\n"
+"PO-Revision-Date: 2016-04-03 23:54+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -52,12 +52,6 @@ msgstr "Créé le"
 #: model:ir.model.fields,field_description:pos_return_order.field_pos_partial_return_wizard_line_display_name
 msgid "Display Name"
 msgstr "Nom affiché"
-
-#. module: pos_return_order
-#: code:addons/pos_return_order/models/pos_order_line.py:60
-#, python-format
-msgid "For legal and traceability reasons, you can not set a negative quantity (%d %s of %s), without using return wizard."
-msgstr "Pour des raisons légales vous ne mouvez pas appliquer une quantité négative (%d %s de %s), sans utiliser l'assistant de retour de vente."
 
 #. module: pos_return_order
 #: model:ir.model.fields,field_description:pos_return_order.field_pos_partial_return_wizard_id
@@ -184,15 +178,12 @@ msgid "Wizard"
 msgstr "Assistant"
 
 #. module: pos_return_order
-#: code:addons/pos_return_order/models/pos_order_line.py:49
-#, python-format
-msgid "You can not return %d %s of %s because some refunds has been yet done.\n"
-" Maximum quantity allowed : %d %s."
-msgstr "Vous ne pouvez pas retourner %d %s de %s car certains retours ont déjà été réalisés.\n"
-" Quantité maximum autorisée : %d %s."
+#: model:ir.model,name:pos_return_order.model_pos_partial_return_wizard
+msgid "pos.partial.return.wizard"
+msgstr "pos.partial.return.wizard"
 
 #. module: pos_return_order
-#: code:addons/pos_return_order/models/pos_order_line.py:41
-#, python-format
-msgid "You can not return %d %s of %s because the original Order line only mentions %d %s."
-msgstr "Vous ne pouvez pas retourner %d %s de %s car la ligne de vente original ne mentionne que %d %s."
+#: model:ir.model,name:pos_return_order.model_pos_partial_return_wizard_line
+msgid "pos.partial.return.wizard.line"
+msgstr "pos.partial.return.wizard.line"
+
