@@ -13,10 +13,9 @@ class PosSession(models.Model):
     @api.depends('statement_ids.balance_end')
     def _compute_total_amount(self):
         for session in self:
-            total_amount = 0
-            for statement in session.statement_ids:
-                total_amount += statement.balance_end
-            session.total_amount = total_amount
+            session.total_amount =\
+                sum(session.mapped('statement_ids.balance_end')) -\
+                sum(session.mapped('statement_ids.balance_start'))
 
     @api.multi
     @api.depends('order_ids')
