@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_access_right
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-04 00:00+0000\n"
+"PO-Revision-Date: 2016-04-04 00:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:99
+#, python-format
+msgid "Change Unit Price - Unauthorized function"
+msgstr "Changer le prix unitaire - Fonctionnalité non autorisée"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:92
+#, python-format
+msgid "Discount - Unauthorized function"
+msgstr "Remise - Fonctionnalité non autorisée"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:78
+#, python-format
+msgid "Negative Quantity - Unauthorized function"
+msgstr "Quantité négative - Fonctionnalité non autorisée"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:79
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:93
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:100
+#, python-format
+msgid "Please ask your manager to do it."
+msgstr "Veuillez vous rapprocher d'un superviseur"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_pos_discount
+#: model:res.groups,name:pos_access_right.group_pos_discount
+msgid "Point of Sale - Allow Discount"
+msgstr "Point de vente - Autoriser les remises"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_pos_negative_qty
+#: model:res.groups,name:pos_access_right.group_pos_negative_qty
+msgid "Point of Sale - Allow Negative Quantity"
+msgstr "Point de vente - Autoriser les quantités négatives"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_pos_change_unit_price
+#: model:res.groups,name:pos_access_right.group_pos_change_unit_price
+msgid "Point of Sale - Allow Unit Price Change"
+msgstr "Point de vente - Autoriser les changements de prix unitaire"
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_discount
+msgid "This field is there to pass the id of the 'PoS - Allow Discount' Group to the Point of Sale Frontend."
+msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les remises' au sein du point de vente tactile."
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_negative_qty
+msgid "This field is there to pass the id of the 'PoS - Allow Negative Quantity' Group to the Point of Sale Frontend."
+msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les quantités négatives' au sein du point de vente tactile."
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_change_unit_price
+msgid "This field is there to pass the id of the 'PoS - Allow Unit Price Change' Group to the Point of Sale Frontend."
+msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les changements de prix' au sein du point de vente tactile."
+
+#. module: pos_access_right
+#: model:ir.model,name:pos_access_right.model_pos_config
+msgid "pos.config"
+msgstr "pos.config"
+
