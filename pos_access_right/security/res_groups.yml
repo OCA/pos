@@ -13,5 +13,5 @@
     category_id: base.module_category_usability
 
 - !record {model: res.groups, id: group_pos_change_unit_price}:
-    name: Point of Sale - Allow Price Change
+    name: Point of Sale - Allow Unit Price Change
     category_id: base.module_category_usability
