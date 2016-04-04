@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-31 16:30+0000\n"
-"PO-Revision-Date: 2016-01-31 16:30+0000\n"
+"POT-Creation-Date: 2016-04-03 23:55+0000\n"
+"PO-Revision-Date: 2016-04-03 23:55+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,3 +24,9 @@ msgstr "Nb. ventes"
 #: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_total_amount
 msgid "Transactions Total"
 msgstr "Total des transactions"
+
+#. module: pos_session_summary
+#: model:ir.model,name:pos_session_summary.model_pos_session
+msgid "pos.session"
+msgstr "pos.session"
+
