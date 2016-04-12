@@ -27,7 +27,7 @@
         </template>
 
 <!-- Add: CSS Files -->
-<template id="index" name="pos_product_template index" inherit_id="point_of_sale.index">
+<template id="index" name="pos_product_template assets" inherit_id="point_of_sale.assets">
     <xpath expr="//link[@id='pos-stylesheet']" position="after">
         <link rel="stylesheet" href="/pos_product_template/static/src/css/ppt.css" id="pos_product_template-stylesheet"/>
     </xpath>
