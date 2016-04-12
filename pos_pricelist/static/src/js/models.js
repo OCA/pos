@@ -419,7 +419,10 @@ odoo.define('pos_pricelist.models', function (require) {
                 if (
                     (item.product_tmpl_id === false || item.product_tmpl_id[0] === product.id)
                     && (item.categ_id === false || categ_ids.indexOf(item.categ_id[0]) !== -1)
-                    && (!partner || item.pricelist_id === false || item.pricelist_id[0] === pricelist_id)
+                    && (
+                        (!partner && item.pricelist_id && item.pricelist_id[0] === this.pos.config.pricelist_id[0])
+                        || (partner && item.pricelist_id && item.pricelist_id[0] === pricelist_id)
+                    )
                 ) {
                     items.push(item);
                 }
