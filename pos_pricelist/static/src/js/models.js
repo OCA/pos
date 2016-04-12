@@ -416,10 +416,10 @@ odoo.define('pos_pricelist.models', function (require) {
             var items = [], i, len;
             for (i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
                 var item = db.pricelist_item_sorted[i];
-                if ((item.product_tmpl_id === false
-                    || item.product_tmpl_id[0] === product.id) &&
-                    (item.categ_id === false
-                    || categ_ids.indexOf(item.categ_id[0]) !== -1)
+                if (
+                    (item.product_tmpl_id === false || item.product_tmpl_id[0] === product.id)
+                    && (item.categ_id === false || categ_ids.indexOf(item.categ_id[0]) !== -1)
+                    && (!partner || item.pricelist_id === false || item.pricelist_id[0] === pricelist_id)
                 ) {
                     items.push(item);
                 }
@@ -494,10 +494,6 @@ odoo.define('pos_pricelist.models', function (require) {
                 }
                 if (price !== false) {
                     var price_limit = price;
-
-	                if (!partner || rule.pricelist_id[1] != partner.property_product_pricelist[1]) {
-		                continue
-	                }
 
 	                if (rule['price_discount']) {
 		                price = price * ((100.0 - rule['price_discount']) / 100.0);
