@@ -16,21 +16,33 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ******************************************************************************/
-
-openerp.pos_product_template = function (instance) {
-    module = instance.point_of_sale;
-    var QWeb = instance.web.qweb;
-    var _t = instance.web._t;
-
-/* ********************************************************
-Overload: point_of_sale.ProductListWidget
-
-- The overload will:
-    - display only product template;
-    - Add an extra behaviour on click on a template, if template has many
-      variant, displaying an extra scren to select the variant;
-*********************************************************** */
-    module.ProductListWidget = module.ProductListWidget.extend({
+odoo.define("pos_product_template.pos_product_template", function(require){
+    "use strict";
+    
+    var screens = require("point_of_sale.screens");
+    var popups = require("point_of_sale.popups");
+    var models = require('point_of_sale.models');
+    var chrome = require('point_of_sale.chrome');
+    var gui = require('point_of_sale.gui');
+    var PosDB = require("point_of_sale.DB");
+    var PosBaseWidget = require('point_of_sale.BaseWidget');
+    
+    var core = require('web.core');
+    var utils = require('web.utils');
+    
+    var QWeb     = core.qweb;
+    var _t = core._t;
+    
+    /* ********************************************************
+    Overload: point_of_sale.ProductListWidget
+    
+    - The overload will:
+        - display only product template;
+        - Add an extra behaviour on click on a template, if template has many
+          variant, displaying an extra scren to select the variant;
+    *********************************************************** */
+    var _render_product_ = screens.ProductListWidget.prototype.render_product;
+    screens.ProductListWidget.include({
 
         init: function(parent, options) {
             this._super(parent,options);
@@ -47,7 +59,8 @@ Overload: point_of_sale.ProductListWidget
                 }
                 else{
                     // Display for selection all the variants of a template
-                     self.pos.pos_widget.screen_selector.show_popup('select-variant-popup', product.product_tmpl_id);
+                     //self.pos.pos_widget.screen_selector.show_popup('select-variant-popup', product.product_tmpl_id);
+                     self.gui.show_popup('select-variant-popup', product.product_tmpl_id);    
                 }
             };
         },
@@ -67,71 +80,68 @@ Overload: point_of_sale.ProductListWidget
             }
             this._super(product_list);
         },
-    });
-
-    var _render_product_ = module.ProductListWidget.prototype.render_product;
-    module.ProductListWidget.prototype.render_product = function(product){
-        self = this;
-
-        if (product.product_variant_count == 1){
-            // Normal Display
-            return _render_product_.call(this, product);
-        }
-        else{
-            var cached = this.product_cache.get_node(product.id);
-            if(!cached){
-                var image_url = this.get_product_image_url(product);
-                var product_html = QWeb.render('Template',{ 
-                        widget:  this, 
-                        product: product, 
-                        image_url: this.get_product_image_url(product),
-                    });
-                var product_node = document.createElement('div');
-                product_node.innerHTML = product_html;
-                product_node = product_node.childNodes[1];
-                this.product_cache.cache_node(product.id,product_node);
-                return product_node;
+        
+        render_product: function(product){
+            self = this;
+    
+            if (product.product_variant_count == 1){
+                // Normal Display
+                return _render_product_.call(this, product);
             }
-            return cached;
-        }
-    };
-
-
-/* ********************************************************
-Overload: point_of_sale.PosWidget
-
-- Add a new PopUp 'SelectVariantPopupWidget';
-*********************************************************** */
-    module.PosWidget = module.PosWidget.extend({
-
+            else{
+                var cached = this.product_cache.get_node(product.id);
+                if(!cached){
+                    var image_url = this.get_product_image_url(product);
+                    var product_html = QWeb.render('Template',{ 
+                            widget:  this, 
+                            product: product, 
+                            image_url: this.get_product_image_url(product),
+                        });
+                    var product_node = document.createElement('div');
+                    product_node.innerHTML = product_html;
+                    product_node = product_node.childNodes[1];
+                    this.product_cache.cache_node(product.id,product_node);
+                    return product_node;
+                }
+                return cached;
+            }
+        },
+    });
+    
+    /* ********************************************************
+    Overload: point_of_sale.PosWidget
+    
+    - Add a new PopUp 'SelectVariantPopupWidget';
+    ************************************************************/
+    chrome.Chrome.include({
         /* Overload Section */
         build_widgets: function(){
             this._super();
-            this.select_variant_popup = new module.SelectVariantPopupWidget(this, {});
+            this.select_variant_popup = new SelectVariantPopupWidget(this, {});
             this.select_variant_popup.appendTo($(this.$el));
-            this.screen_selector.popup_set['select-variant-popup'] = this.select_variant_popup;
+        
             // Hide the popup because all pop up are displayed at the
             // beginning by default
             this.select_variant_popup.hide();
         },
     });
-
-/* ********************************************************
-Define : pos_product_template.SelectVariantPopupWidget
     
-- This widget that display a pop up to select a variant of a Template;
-*********************************************************** */
-    module.SelectVariantPopupWidget = module.PopUpWidget.extend({
+    /* ********************************************************
+    Define : pos_product_template.SelectVariantPopupWidget
+        
+    - This widget that display a pop up to select a variant of a Template;
+    ***********************************************************/
+    var SelectVariantPopupWidget = popups.extend({
         template:'SelectVariantPopupWidget',
 
         start: function(){
             var self = this;
             // Define Variant Widget
-            this.variant_list_widget = new module.VariantListWidget(this,{});
+            this.variant_list_widget = new VariantListWidget(this,{});
             this.variant_list_widget.replace(this.$('.placeholder-VariantListWidget'));
 
             // Define Attribute Widget
-            this.attribute_list_widget = new module.AttributeListWidget(this,{});
+            this.attribute_list_widget = new AttributeListWidget(this,{});
             this.attribute_list_widget.replace(this.$('.placeholder-AttributeListWidget'));
 
             // Add behaviour on Cancel Button
@@ -163,17 +173,21 @@ Define : pos_product_template.SelectVariantPopupWidget
                 attribute_list.push(this.pos.db.get_product_attribute_by_id(attribute_ids[i]));
             }
             this.attribute_list_widget.set_attribute_list(attribute_list, template);
-            this._super();
+            
+            if(this.$el){
+                this.$el.removeClass('oe_hidden');
+            }
         },
     });
+    gui.define_popup({name:'select-variant-popup', widget: SelectVariantPopupWidget});
 
-/* ********************************************************
-Define: pos_product_template.VariantListWidget
-
-- This widget will display a list of Variants;
-- This widget has some part of code that come from point_of_sale.ProductListWidget;
-*********************************************************** */
-    module.VariantListWidget = module.PosBaseWidget.extend({
+    /* ********************************************************
+    Define: pos_product_template.VariantListWidget
+    
+    - This widget will display a list of Variants;
+    - This widget has some part of code that come from point_of_sale.ProductListWidget;
+    ***********************************************************/
+    var VariantListWidget = PosBaseWidget.extend({
         template:'VariantListWidget',
 
         init: function(parent, options) {
@@ -189,7 +203,7 @@ Define: pos_product_template.VariantListWidget
                     self.pos_widget.screen_selector.set_current_screen('scale',{product: variant});
                 }else{
                     self.__parentedParent.hide();
-                    self.pos.get('selectedOrder').addProduct(variant);
+                    self.pos.get('selectedOrder').add_product(variant);
                 }
             };
         },
@@ -213,14 +227,14 @@ Define: pos_product_template.VariantListWidget
         },
 
         filter_variant: function(){
-            value_list = []
+            var value_list = []
             for (var item in this.filters){
                 value_list.push(parseInt(this.filters[item]));
             }
             this.filter_variant_list = [];
-            for (index in this.variant_list){
-                variant = this.variant_list[index];
-                found = true;
+            for (var index in this.variant_list){
+                var variant = this.variant_list[index];
+                var found = true;
                 for (var i = 0; i < value_list.length; i++){
                     found = found && (variant.attribute_value_ids.indexOf(value_list[i]) != -1);
                 }
@@ -267,13 +281,14 @@ Define: pos_product_template.VariantListWidget
         },
 
     });
-
-/* ********************************************************
-Define: pos_product_template.AttributeListWidget
-
-    - This widget will display a list of Attribute;
-*********************************************************** */
-    module.AttributeListWidget = module.PosBaseWidget.extend({
+    
+    
+    /* ********************************************************
+    Define: pos_product_template.AttributeListWidget
+    
+        - This widget will display a list of Attribute;
+    ***********************************************************/ 
+    var AttributeListWidget = PosBaseWidget.extend({
         template:'AttributeListWidget',
 
         init: function(parent, options) {
@@ -281,12 +296,12 @@ Define: pos_product_template.AttributeListWidget
             this.attribute_list = [];
             this.product_template = null;
             this.click_set_attribute_handler = function(event){
-                /*TODO: Refactor this function with elegant DOM manipulation */
+                //TODO: Refactor this function with elegant DOM manipulation 
                 // remove selected item
                 parent = this.parentElement.parentElement.parentElement;
                 parent.children[0].classList.remove('selected');
                 for (var i = 0 ; i < parent.children[1].children[0].children.length; i ++){
-                    elem = parent.children[1].children[0].children[i];
+                    var elem = parent.children[1].children[0].children[i];
                     elem.children[0].classList.remove('selected');
                 }
                 // add selected item
@@ -294,12 +309,12 @@ Define: pos_product_template.AttributeListWidget
                 self.__parentedParent.variant_list_widget.set_filter(this.dataset['attributeId'], this.dataset['attributeValueId']);
             };
             this.click_reset_attribute_handler = function(event){
-                /*TODO: Refactor this function with elegant DOM manipulation */
+                //TODO: Refactor this function with elegant DOM manipulation 
                 // remove selected item
                 parent = this.parentElement;
                 parent.children[0].classList.remove('selected');
                 for (var i = 0 ; i < parent.children[1].children[0].children.length; i ++){
-                    elem = parent.children[1].children[0].children[i];
+                    var elem = parent.children[1].children[0].children[i];
                     elem.children[0].classList.remove('selected');
                 }
                 // add selected item
@@ -357,8 +372,7 @@ Define: pos_product_template.AttributeListWidget
             value_node = value_node.childNodes[1];
             return value_node;
         },
-
-
+        
         renderElement: function() {
             var self = this;
             var el_html  = openerp.qweb.render(this.template, {widget: this});
@@ -374,26 +388,24 @@ Define: pos_product_template.AttributeListWidget
             for(var i = 0, len = this.attribute_list.length; i < len; i++){
                 var attribute_node = this.render_attribute(this.attribute_list[i]);
                 attribute_node.querySelector('.attribute-name').addEventListener('click', this.click_reset_attribute_handler);
-//                attribute_node.addEventListener('click', this.click_reset_attribute_handler);
                 list_container.appendChild(attribute_node);
             };
         },
 
     });
-
-
-/* ********************************************************
-Overload: point_of_sale.PosDB
-
-- Add to local storage Product Templates Data.
-- Link Product Variants to Product Templates.
-- Add an extra field 'is_primary_variant' on product object. the product
-    will be display on product list, only if it is the primary variant;
-    Otherwise, the product will be displayed only on Template Screen.
-- Add an extra field 'product_variant_count' on product object that
-    indicates the number of variant of the template of the product.
-*********************************************************** */
-    module.PosDB = module.PosDB.extend({
+    
+    /* ********************************************************
+    Overload: point_of_sale.PosDB
+    
+    - Add to local storage Product Templates Data.
+    - Link Product Variants to Product Templates.
+    - Add an extra field 'is_primary_variant' on product object. the product
+        will be display on product list, only if it is the primary variant;
+        Otherwise, the product will be displayed only on Template Screen.
+    - Add an extra field 'product_variant_count' on product object that
+        indicates the number of variant of the template of the product.
+    ********************************************************** */ 
+    PosDB.include({
         init: function(options){
             this.template_by_id = {};
             this.product_attribute_by_id = {};
@@ -429,12 +441,12 @@ Overload: point_of_sale.PosDB
 
 
         attribute_by_template_id: function(template_id){
-            template = this.template_by_id[template_id];
+            var template = this.template_by_id[template_id];
             return this.attribute_by_attribute_value_ids(template.attribute_value_ids);
         },
 
         attribute_by_attribute_value_ids: function(value_ids){
-            attribute_ids = [];
+            var attribute_ids = [];
             for (var i = 0; i < value_ids.length; i++){
                 var value = this.product_attribute_value_by_id[value_ids[i]];
                 if (attribute_ids.indexOf(value.attribute_id[0])==-1){
@@ -480,7 +492,6 @@ Overload: point_of_sale.PosDB
         },
     });
 
-
 /* ********************************************************
 Overload: point_of_sale.PosModel
 
@@ -488,8 +499,8 @@ Overload: point_of_sale.PosModel
      - Load 'name' field of model product.product;
      - Load product.template model;
 *********************************************************** */
-    var _initialize_ = module.PosModel.prototype.initialize;
-    module.PosModel.prototype.initialize = function(session, attributes){
+    var _initialize_ = models.PosModel.prototype.initialize;
+    models.PosModel.prototype.initialize = function(session, attributes){
         self = this;
         // Add the load of the field product_product.name
         // that is the name of the template
@@ -506,7 +517,7 @@ Overload: point_of_sale.PosModel
         }
 
         // Load Product Template
-        model = {
+        var model = {
             model: 'product.template',
             fields: [
                 'name',
@@ -558,4 +569,5 @@ Overload: point_of_sale.PosModel
 
         return _initialize_.call(this, session, attributes);
     };
-};
+
+});
