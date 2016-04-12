@@ -23,7 +23,7 @@ Usage
 
 You can use configured products on "Put Money In" and "Take Money Out" wizard available in point of sale session:
 
-.. figure:: static/description/pos_cash_move_reason_02.png
+.. figure:: /pos_cash_move_reason/static/description/pos_cash_move_reason_02.png
    :alt: Take money out wizard
 
 
