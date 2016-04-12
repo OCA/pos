@@ -15,7 +15,7 @@ class PosOrder(models.Model):
         next = vals.get('_sequence_ref_number', False)
         next = int(next) if next else False
         if vals.get('session_id') and next is not False:
-            session = self.env['pos.session'].browse(vals['session_id'])
+            session = self.env['pos.session'].sudo().browse(vals['session_id'])
             if next != session.config_id.sequence_id.number_next_actual:
                 session.config_id.sequence_id.number_next_actual = next
         if vals.get('_sequence_ref_number') is not None:
