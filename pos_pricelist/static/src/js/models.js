@@ -417,7 +417,7 @@ odoo.define('pos_pricelist.models', function (require) {
             for (i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
                 var item = db.pricelist_item_sorted[i];
                 if (
-                    (item.product_tmpl_id === false || item.product_tmpl_id[0] === product.id)
+                    (item.product_tmpl_id === false || item.product_tmpl_id[0] === product.product_tmpl_id)
                     && (item.categ_id === false || categ_ids.indexOf(item.categ_id[0]) !== -1)
                     && (
                         (!partner && item.pricelist_id && item.pricelist_id[0] === this.pos.config.pricelist_id[0])

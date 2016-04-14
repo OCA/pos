@@ -142,9 +142,11 @@ odoo.define('pos_pricelist.DB', function (require) {
             var rules = [];
             for (var i = 0; i < len; i++) {
                 var rule = this.pricelist_item_sorted[i];
-                if ((rule.product_id && rule.product_id[0] == product.id) ||
-                    (rule.categ_id && product.categ_id
-                    && rule.categ_id[0] == product.categ_id[0])) {
+                if (
+                    (rule.product_id && rule.product_id[0] == product.id)
+                    || (rule.product_tmpl_id && rule.product_tmpl_id[0] == product.product_tmpl_id)
+                    || (rule.categ_id && product.categ_id && rule.categ_id[0] == product.categ_id[0])
+                ) {
                     rules.push(rule);
                 }
             }
