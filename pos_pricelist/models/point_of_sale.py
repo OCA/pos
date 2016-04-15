@@ -143,6 +143,8 @@ class PosOrder(models.Model):
                     })
         if taxes_to_delete:
             taxes_to_delete.unlink()
+        
+        return []
 
     @api.multi
     def action_paid(self):
