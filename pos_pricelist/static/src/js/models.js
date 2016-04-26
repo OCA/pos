@@ -697,7 +697,7 @@ function pos_pricelist_models(instance, module) {
                         'sequence',
                         'qty',
                         'product_tmpl_id'],
-                    domain: null,
+                    domain: [['product_tmpl_id.available_in_pos','=',true]],
                     loaded: function (self, supplierinfos) {
                         self.db.add_supplierinfo(supplierinfos);
                     }
