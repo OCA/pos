@@ -60,14 +60,16 @@ odoo.define('pos_pricelist.models', function (require) {
          * @param session
          * @param attributes
          */
-        initialize: function (session, attributes) {
+        initialize: function (session, attributes) {    
+            var partner_model = _.find(this.models, function(model){ return model.model === 'product.product'; });
+            partner_model.fields.push('categ_id','seller_ids');
             _super_posmodel.initialize.apply(this, arguments);
-	        this.db = new PosDB();
+	    this.db = new PosDB();
             this.pricelist_engine = new models.PricelistEngine({
                 'pos': this,
                 'db': this.db
-            });
-            arrange_elements(this);
+            });                       
+            arrange_elements(this);            
         },
         /**
          * find model based on name
@@ -631,14 +633,14 @@ odoo.define('pos_pricelist.models', function (require) {
      * @param pos_model
      */
     function arrange_elements(pos_model) {
-
-        var product_model = pos_model.find_model('product.product');
-        if (_.size(product_model) == 1) {
-            var product_index = parseInt(Object.keys(product_model)[0]);
-            pos_model.models[product_index].fields.push(
-                'categ_id', 'seller_ids'
-            );
-        }
+        
+//        var product_model = pos_model.find_model('product.product');
+//        if (_.size(product_model) == 1) {
+//            var product_index = parseInt(Object.keys(product_model)[0]);
+//            pos_model.models[product_index].fields.push(
+//                'categ_id', 'seller_ids'
+//            );
+//        }
 
         var res_product_pricelist = pos_model.find_model('product.pricelist');
         if (_.size(res_product_pricelist) == 1) {
