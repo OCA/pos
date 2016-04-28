@@ -457,37 +457,12 @@ odoo.define('pos_pricelist.models', function (require) {
                 }
                 // Based on field
                 switch (rule.base) {
-                    case -1:
+                    case 'pricelist':
                         if (rule.base_pricelist_id) {
                             price = self.compute_price(
                                 db, product, false, qty,
                                 rule.base_pricelist_id[0]
                             );
-                        }
-                        break;
-                    case -2:
-                        var seller = false;
-                        for (var index in product.seller_ids) {
-                            var seller_id = product.seller_ids[index];
-                            var _tmp_seller = db.supplierinfo_by_id[seller_id];
-                            if ((!partner) || (_tmp_seller.name.length
-                                && _tmp_seller.name[0] != partner.name))
-                                continue;
-                            seller = _tmp_seller
-                        }
-                        if (!seller && product.seller_ids) {
-                            seller =
-                                db.supplierinfo_by_id[product.seller_ids[0]];
-                        }
-                        if (seller) {
-                            for (var _id in seller.pricelist_ids) {
-                                var info_id = seller.pricelist_ids[_id];
-                                var line =
-                                    db.pricelist_partnerinfo_by_id[info_id];
-                                if (line.min_quantity <= qty) {
-                                    price = line.price
-                                }
-                            }
                         }
                         break;
                     default:
