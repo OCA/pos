@@ -6,3 +6,4 @@
 from . import account_fiscal_position
 from . import pos_pricelist
 from . import point_of_sale
+from . import pos_order_patch

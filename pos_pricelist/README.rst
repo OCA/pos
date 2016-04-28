@@ -86,6 +86,7 @@ Missing features
 ----------------
 
 * As you may know, product template is not fully implemented in the POS, so I decided to drop it from this module.
+* Applying a fiscal position on a product with inclusive taxes is not yet supported. In this case, the mapped taxes will be applied to the price incuding taxes.
 
 
 Bug Tracker
