@@ -31,4 +31,5 @@
     ],
     'post_init_hook': "set_pos_line_taxes",
     'installable': True,
+    'license': 'AGPL-3',
 }

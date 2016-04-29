@@ -2,6 +2,7 @@
 # Copyright: Odoo S.A.
 # License: AGPL-3
 # flake8: noqa
+# pylint: skip-file
 from openerp.tools.translate import _
 
 

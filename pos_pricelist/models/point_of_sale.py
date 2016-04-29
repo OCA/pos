@@ -162,7 +162,6 @@ class PosOrder(models.Model):
         orders.compute_tax_detail()
         _logger.info("%d orders computed installing module.", len(orders))
 
-
     def _register_hook(self, cr):
         res = super(PosOrder, self)._register_hook(cr)
         base_order._create_account_move_line = _create_account_move_line

@@ -52,9 +52,9 @@ The POS will recognize it and will compute the price according to the rule defin
 
 - Implemented Rules are :
 
-1. (-1) : Rule based on other pricelist
-2. (-2) : Rule based on supplierinfo
-3. (default) : Any price type which is set on the product form
+   1. (-1) : Rule based on other pricelist
+   2. (-2) : Rule based on supplierinfo
+   3. (default) : Any price type which is set on the product form
 
 3. An new option is introduced in the POS config to let the user show price with taxes in product widget.
 the UI is updated when we change the customer in order to adapt the prices.
@@ -71,12 +71,12 @@ Implemented features at backend
 
 1. Tax details
 
-- Tax details per order line
-- Tax details aggregated by tax at order level
+   - Tax details per order line
+   - Tax details aggregated by tax at order level
 
 2. Ticket
 
-- Tax details table added at end of printed ticket
+   - Tax details table added at end of printed ticket
 
 
 Known issues / Roadmap
