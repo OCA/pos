@@ -10,23 +10,17 @@ class PosSession(models.Model):
     _inherit = 'pos.session'
 
     @api.multi
-    @api.depends('statement_ids.balance_end')
-    def _compute_total_amount(self):
-        for session in self:
-            session.total_amount =\
-                sum(session.mapped('statement_ids.balance_end')) -\
-                sum(session.mapped('statement_ids.balance_start'))
-
-    @api.multi
-    @api.depends('order_ids')
-    def _compute_order_qty(self):
+    @api.depends('order_ids.lines.price_subtotal_incl')
+    def _compute_orders(self):
         for session in self:
             session.order_qty = len(session.order_ids)
+            session.total_amount = sum(
+                session.mapped('order_ids.amount_total'))
 
     total_amount = fields.Monetary(
-        compute='_compute_total_amount', string='Transactions Total',
+        compute='_compute_orders', string='Transactions Total', multi='orders',
         store=True)
 
     order_qty = fields.Integer(
-        compute='_compute_order_qty', string='Orders Qty',
+        compute='_compute_orders', string='Orders Qty', multi='orders',
         store=True)
