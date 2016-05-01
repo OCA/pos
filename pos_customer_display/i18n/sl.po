@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_customer_display
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: pos (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-26 16:09+0000\n"
+"PO-Revision-Date: 2016-04-24 06:12+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_next_l2:0
+msgid ""
+"Bottom line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr "Spodnja vrstica sporočila na zaslonu kupca, ki je prikazan ob zagonu POS in po potrditvi naloga."
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_closed_l2:0
+msgid ""
+"Bottom line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr "Spodnja vrstica sporočila na zaslonu kupca, ki je prikazan ob zaprtju POS"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:56
+#, python-format
+msgid "Cancel Payment"
+msgstr "Preklic plačila"
+
+#. module: pos_customer_display
+#: view:pos.config:pos_customer_display.view_pos_config_form2
+#: field:pos.config,iface_customer_display:0
+msgid "Customer Display"
+msgstr "Zaslon kupca"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:41
+#, python-format
+msgid "Delete Item"
+msgstr "Izbris postavke"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/xml/pos.xml:7
+#, python-format
+msgid "Display Total to Customer"
+msgstr "Prikaz skupnega zneska kupcu"
+
+#. module: pos_customer_display
+#: help:pos.config,iface_customer_display:0
+msgid "Display data on the customer display"
+msgstr "Prikaz podatkov na zaslonu kupca"
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_line_length:0
+msgid "Length of the LEDs lines of the customer display"
+msgstr "Dolžina LED vrstic na zaslonu kupca"
+
+#. module: pos_customer_display
+#: field:pos.config,customer_display_line_length:0
+msgid "Line Length of the Customer Display"
+msgstr "Dolžina vrstice na zaslonu kupca"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:64
+#: field:pos.config,customer_display_msg_next_l2:0
+#, python-format
+msgid "Next Customer (bottom line)"
+msgstr "Naslednji kupec (spodnja vrstica)"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:62
+#: field:pos.config,customer_display_msg_next_l1:0
+#, python-format
+msgid "Next Customer (top line)"
+msgstr "Naslednji kupec (zgornja vrstica)"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:68
+#: field:pos.config,customer_display_msg_closed_l2:0
+#, python-format
+msgid "POS Closed (bottom line)"
+msgstr "POS zaprt (spodnja vrstica)"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:66
+#: field:pos.config,customer_display_msg_closed_l1:0
+#, python-format
+msgid "POS Closed (top line)"
+msgstr "POS zaprt (zgornja vrstica)"
+
+#. module: pos_customer_display
+#: view:pos.config:pos_customer_display.view_pos_config_form2
+msgid "Receipt"
+msgstr "Blagajniški izpisek"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:48
+#, python-format
+msgid "TOTAL: "
+msgstr "SKUPAJ:"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:74
+#, python-format
+msgid ""
+"The message for customer display '%s' is too long: it has %d chars whereas "
+"the maximum is %d chars."
+msgstr "Sporočilo za zaslon kupca '%s' je predolgo: vsebuje %d znakov, moralo bi pa biti le do %d znakov."
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_next_l1:0
+msgid ""
+"Top line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr "Zgornja vrstica sporočila na zaslonu kupca, ki je prikazan ob zagonu POS in po potrditvi naloga."
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_closed_l1:0
+msgid ""
+"Top line of the message on the customer display which is displayed when POS "
+"is closed"
+msgstr "Zgornja vrstica sporočila na zaslonu kupca, ki je prikazan ob zaprtju POS"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:63
+#, python-format
+msgid "Your Change:"
+msgstr "Vaše vračilo:"
