@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 16:09+0000\n"
+"POT-Creation-Date: 2016-05-01 05:28+0000\n"
 "PO-Revision-Date: 2016-04-24 06:14+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
@@ -51,12 +51,12 @@ msgid "Point of Sale"
 msgstr "POS prodajna točka"
 
 #. module: pos_customer_required
-#: field:pos.config,require_customer:0
+#: field:pos.config,require_customer:0 field:pos.order,require_customer:0
 msgid "Require customer"
 msgstr "Zahtevaj kupca"
 
 #. module: pos_customer_required
-#: help:pos.config,require_customer:0
+#: help:pos.config,require_customer:0 help:pos.order,require_customer:0
 msgid "Require customer for orders in this point of sale"
 msgstr "Zahtevaj kupca pri nalogih na tej prodajni točki"
 

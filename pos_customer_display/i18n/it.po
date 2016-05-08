@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_customer_display
+# 
+# Translators:
+# Paolo Valier, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: pos (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-01 05:28+0000\n"
+"PO-Revision-Date: 2016-05-01 08:47+0000\n"
+"Last-Translator: Paolo Valier\n"
+"Language-Team: Italian (http://www.transifex.com/oca/OCA-pos-8-0/language/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_next_l2:0
+msgid ""
+"Bottom line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_closed_l2:0
+msgid ""
+"Bottom line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:56
+#, python-format
+msgid "Cancel Payment"
+msgstr "Annulla Pagamento"
+
+#. module: pos_customer_display
+#: view:pos.config:pos_customer_display.view_pos_config_form2
+#: field:pos.config,iface_customer_display:0
+msgid "Customer Display"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:41
+#, python-format
+msgid "Delete Item"
+msgstr "Elimina Oggetto"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/xml/pos.xml:7
+#, python-format
+msgid "Display Total to Customer"
+msgstr ""
+
+#. module: pos_customer_display
+#: help:pos.config,iface_customer_display:0
+msgid "Display data on the customer display"
+msgstr ""
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_line_length:0
+msgid "Length of the LEDs lines of the customer display"
+msgstr ""
+
+#. module: pos_customer_display
+#: field:pos.config,customer_display_line_length:0
+msgid "Line Length of the Customer Display"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:64
+#: field:pos.config,customer_display_msg_next_l2:0
+#, python-format
+msgid "Next Customer (bottom line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:62
+#: field:pos.config,customer_display_msg_next_l1:0
+#, python-format
+msgid "Next Customer (top line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:68
+#: field:pos.config,customer_display_msg_closed_l2:0
+#, python-format
+msgid "POS Closed (bottom line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:66
+#: field:pos.config,customer_display_msg_closed_l1:0
+#, python-format
+msgid "POS Closed (top line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: view:pos.config:pos_customer_display.view_pos_config_form2
+msgid "Receipt"
+msgstr "Ricevuta"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:48
+#, python-format
+msgid "TOTAL: "
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/pos_customer_display.py:74
+#, python-format
+msgid ""
+"The message for customer display '%s' is too long: it has %d chars whereas "
+"the maximum is %d chars."
+msgstr ""
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_next_l1:0
+msgid ""
+"Top line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+
+#. module: pos_customer_display
+#: help:pos.config,customer_display_msg_closed_l1:0
+msgid ""
+"Top line of the message on the customer display which is displayed when POS "
+"is closed"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:63
+#, python-format
+msgid "Your Change:"
+msgstr "Il resto:"
