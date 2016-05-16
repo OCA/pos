@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="account_pos_transfer_account" model="account.account">
+        <field name="name">Demo PoS Liquidity Transfers</field>
+        <field name="code">101710</field>
+        <field name="user_type_id" ref="account.data_account_type_current_assets" />
+        <field name="company_id" ref="base.main_company" />
+    </record>
+
+</odoo>

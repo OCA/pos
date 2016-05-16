@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_config_specific_transfer_account" model="pos.config">
+        <field name="name">Point Of Sale with Specific Transfer Account</field>
+        <field name="transfer_account_id" ref="account_pos_transfer_account" />
+        <field name="company_id" ref="base.main_company" />
+        <field name="stock_location_id" ref="stock.stock_location_stock" />
+        <field name="pricelist_id" ref="product.list0" />
+        <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature" />
+    </record>
+
+</odoo>
