@@ -18,7 +18,7 @@
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
             <field name="arch" type="xml">
-                <field name="self_checkout_payment_method" position="after">
+                <field name="amount_authorized_diff" position="after">
                     <field name="payment_mode"/>
                 </field>
             </field>
