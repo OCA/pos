@@ -18,23 +18,12 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
     var _t = core._t;
     var QWeb = core.qweb;
 
-/*
-    //TODO : surcharger  models.exports.PosModel.load_server_data pour récupérer le champ 'payement_mode' des journaux
-    var _r_ = models.exports.PosModel.prototype.load_server_data;
-    models.exports.PosModel.prototype.load_server_data = function(){
-	var self = this;
-	for (var i = 0; i < self.models.length; i++){
-		if (self.models[i].model== 'account.journal'){
-			self.models[i].fields.push('payment_mode');
-		}
-	}
-        _r_.call(this);
-    });
-*/
+    models.load_fields("account.journal",['payment_mode']);
+
     devices.ProxyDevice.include({
         payment_terminal_transaction_start: function(line_cid, currency_iso){
-            var lines = this.pos.get_order().get_paymentlines();
             var line;
+            var lines = this.pos.get_order().get_paymentlines();
             for ( var i = 0; i < lines.length; i++ ) {
                 if (lines[i].cid === line_cid) {
                     line = lines[i];
@@ -44,16 +33,23 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
             var data = {'amount' : line.get_amount(),
                         'currency_iso' : currency_iso,
                         'payment_mode' : line.cashregister.journal.payment_mode};
-alert(JSON.stringify(data));
+//alert(JSON.stringify(data));
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
     });
 
 
 // TODO : overload instead of redefine
-//    var _render_paymentlines_ = screens.PaymentScreenWidget.prototype.render_paymentlines;
-    screens.PaymentScreenWidget.prototype.render_paymentlines = function(){
-//        _render_paymentlines_.call(this);
+// BUG : its works fine when redefine but calls 5 times the function is overload
+    screens.PaymentScreenWidget.include({
+	render_paymentlines : function(){
+   	    this._super.apply(this, arguments);
+            var self  = this;
+            this.$('.paymentlines-container').on('click','.payment-terminal-transaction-start',function(){
+                self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
+            });
+
+/*
         var self  = this;
         var order = this.pos.get_order();
         if (!order) {
@@ -88,9 +84,9 @@ alert(JSON.stringify(data));
             self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
         });
 
-
         lines.appendTo(this.$('.paymentlines-container'));
-        //if (line.cashregister.journal.payment_mode && this.pos.config.iface_payment_terminal){
+*/
+    },
 
-    };
+    });
 });
