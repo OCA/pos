@@ -33,60 +33,23 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
             var data = {'amount' : line.get_amount(),
                         'currency_iso' : currency_iso,
                         'payment_mode' : line.cashregister.journal.payment_mode};
-//alert(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
     });
 
 
-// TODO : overload instead of redefine
-// BUG : its works fine when redefine but calls 5 times the function is overload
     screens.PaymentScreenWidget.include({
-	render_paymentlines : function(){
-   	    this._super.apply(this, arguments);
-            var self  = this;
-            this.$('.paymentlines-container').on('click','.payment-terminal-transaction-start',function(){
-                self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
-            });
+	    render_paymentlines : function(){
+		this._super.apply(this, arguments);
+		    var self  = this;
+		    this.$('.paymentlines-container').unbind('click').on('click','.payment-terminal-transaction-start',function(event){
+            // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
+			//console.log(event.target);
+			self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
+		    });
 
-/*
-        var self  = this;
-        var order = this.pos.get_order();
-        if (!order) {
-            return;
-        }
-
-        var lines = order.get_paymentlines();
-        var due   = order.get_due();
-        var extradue = 0;
-        if (due && lines.length  && due !== order.get_due(lines[lines.length-1])) {
-            extradue = due;
-        }
-
-
-        this.$('.paymentlines-container').empty();
-        var lines = $(QWeb.render('PaymentScreen-Paymentlines', {
-            widget: this,
-            order: order,
-            paymentlines: lines,
-            extradue: extradue,
-        }));
-
-        lines.on('click','.delete-button',function(){
-            self.click_delete_paymentline($(this).data('cid'));
-        });
-
-        lines.on('click','.paymentline',function(){
-            self.click_paymentline($(this).data('cid'));
-        });
-
-        lines.on('click','.payment-terminal-transaction-start',function(){
-            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
-        });
-
-        lines.appendTo(this.$('.paymentlines-container'));
-*/
-    },
+	    },
 
     });
 });
