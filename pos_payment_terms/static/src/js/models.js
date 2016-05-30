@@ -39,6 +39,8 @@ function pos_payment_terms_models(instance, module){
     module.Order = module.Order.extend({
         export_as_JSON: function() {
             var orderLines, paymentLines;
+            var attributes;
+            payment_terms_id = $(".paymentline-input").val();;
             orderLines = [];
             (this.get('orderLines')).each(_.bind( function(item) {
                 return orderLines.push([0, 0, item.export_as_JSON()]);
@@ -60,7 +62,7 @@ function pos_payment_terms_models(instance, module){
                 user_id: this.pos.cashier ? this.pos.cashier.id : this.pos.user.id,
                 uid: this.uid,
                 sequence_number: this.sequence_number,
-                payment_terms_id: this.attributes.payment_term_id,
+                payment_terms_id: payment_terms_id
             };
         }
     });

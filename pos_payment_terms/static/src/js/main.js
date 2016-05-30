@@ -17,7 +17,7 @@
 ******************************************************************************/
 openerp.pos_payment_terms = function (instance) {
     var module = instance.point_of_sale;
-//    pos_payment_terms_db(instance, module);
+    pos_payment_terms_db(instance, module);
     pos_payment_terms_models(instance, module);
     pos_payment_terms_screens(instance, module);
 };

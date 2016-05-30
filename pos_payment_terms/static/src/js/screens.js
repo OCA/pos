@@ -24,7 +24,6 @@ function pos_payment_terms_screens(instance, module) {
 
             var currentOrder = this.pos.get('selectedOrder');
             currentOrder.attributes.payment_term_id = $(".paymentline-input").val();
-            console.log(currentOrder);
         }
      });
 
