@@ -437,7 +437,13 @@ odoo.define('pos_pricelist.models', function (require) {
             // loop through items
             for (i = 0, len = items.length; i < len; i++) {
                 var rule = items[i];
-
+                var today = new Date();
+                var dateoftoday = today.toISOString().substring(0, 10);
+                
+                if ((rule.date_start !== false && rule.date_start > dateoftoday )
+                        ||(rule.date_end !== false && rule.date_end < dateoftoday )){
+                    continue;
+                }
                 if (rule.min_quantity && qty < rule.min_quantity) {
                     continue;
                 }
@@ -692,7 +698,9 @@ odoo.define('pos_pricelist.models', function (require) {
                         'price_surcharge',
                         'product_id',
                         'product_tmpl_id',
-                        'sequence'
+                        'sequence',
+                        'date_start',
+                        'date_end'
                     ],
                     domain: null,
                     loaded: function (self, items) {
