@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 <data>
-<template id="pos_payment_terms_assets_backend"
-          name="pos_payment_terms_assets_backend"
+<template id="pos_payment_term_assets_backend"
+          name="pos_payment_term_assets_backend"
           inherit_id="point_of_sale.assets_backend">
     <xpath expr="." position="inside">
-        <script src="/pos_payment_terms/static/src/js/db.js"
+        <script src="/pos_payment_term/static/src/js/db.js"
                 type="text/javascript"></script>
-        <script src="/pos_payment_terms/static/src/js/models.js"
+        <script src="/pos_payment_term/static/src/js/models.js"
                 type="text/javascript"></script>
-        <script src="/pos_payment_terms/static/src/js/screens.js"
+        <script src="/pos_payment_term/static/src/js/screens.js"
                 type="text/javascript"></script>
-        <script src="/pos_payment_terms/static/src/js/main.js"
+        <script src="/pos_payment_term/static/src/js/main.js"
                 type="text/javascript"></script>
     </xpath>
 </template>
 
-<template id="pos_payment_terms_assets"
-          name="pos_payment_terms_css"
+<template id="pos_payment_term_assets"
+          name="pos_payment_term_css"
           inherit_id="point_of_sale.index">
     <xpath expr="//script[@id='loading-script']" position="before">
-        <link rel="stylesheet" href="/pos_payment_terms/static/src/css/pos.css"/>
+        <link rel="stylesheet" href="/pos_payment_term/static/src/css/pos.css"/>
     </xpath>
 </template>
 
