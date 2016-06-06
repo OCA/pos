@@ -4,7 +4,7 @@
 <templates id="template" xml:space="preserve">
     <t t-extend="Paymentline">
         <t t-jquery="div.paymentline-name" t-operation="after">
-            <select class="paymentline-input" name="payment-terms">
+            <select class="paymentline-input payment_term" name="payment-terms">
                 <option value="">Nenhuma</option>
                 <t t-foreach='widget.pos.payment_terms' t-as='payment_term'>
                     <option t-att-value='payment_term.id'>
