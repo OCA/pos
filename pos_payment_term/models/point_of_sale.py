@@ -10,17 +10,8 @@ from openerp import models, api
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
-
     @api.cr_uid_ids_context
     def _payment_fields(self, cr, uid, ui_paymentline, context=None):
-        """
-
-        @param cr:
-        @param uid:
-        @param ui_paymentline:
-        @param context:
-        @return:
-        """
 
         result = super(PosOrder, self)._payment_fields(
             cr, uid, ui_paymentline, context
@@ -28,22 +19,27 @@ class PosOrder(models.Model):
         result['payment_term'] = ui_paymentline.get('payment_term', False)
         return result
 
-    @api.model
-    def add_payment(self, order_id, data, **kwargs):
-        """
-
-        @param data:
-        @return:
-        """
+    @api.cr_uid_ids_context
+    def add_payment(self, cr, uid, order_id, data, context=None):
 
         if data.get('payment_term'):
-            payment_terms = self.env['account.payment.term']
-            ctx = dict(self._context)
-            compute = payment_terms.with_context(ctx).compute(
-                self.payment_terms_id.id , self.amount_total)
+            payment_terms = self.pool.get('account.payment.term')
+            date_payment = data['payment_date'].split(" ")
+            compute = payment_terms.compute(cr, uid,
+                int(data['payment_term']),
+                data['amount'],
+                date_payment[0],
+                context=context
+            )
             result = []
             for item in compute:
-                result.append(super(PosOrder, self).add_payment(data, context=None))
+                data['amount'] = item[1]
+                data['payment_date'] = item[0]
+                result.append(
+                    super(PosOrder, self).add_payment(cr, uid,
+                        order_id, data, context=None
+                    )
+                )
             return result
 
-        return super(PosOrder, self).add_payment(data, context=None)
+        return super(PosOrder, self).add_payment(cr, uid, order_id, data, context=None)
