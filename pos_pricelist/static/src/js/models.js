@@ -60,14 +60,16 @@ odoo.define('pos_pricelist.models', function (require) {
          * @param session
          * @param attributes
          */
-        initialize: function (session, attributes) {
+        initialize: function (session, attributes) {    
+            var partner_model = _.find(this.models, function(model){ return model.model === 'product.product'; });
+            partner_model.fields.push('categ_id','seller_ids');
             _super_posmodel.initialize.apply(this, arguments);
-	        this.db = new PosDB();
+	    this.db = new PosDB();
             this.pricelist_engine = new models.PricelistEngine({
                 'pos': this,
                 'db': this.db
-            });
-            arrange_elements(this);
+            });                       
+            arrange_elements(this);            
         },
         /**
          * find model based on name
@@ -435,7 +437,13 @@ odoo.define('pos_pricelist.models', function (require) {
             // loop through items
             for (i = 0, len = items.length; i < len; i++) {
                 var rule = items[i];
-
+                var today = new Date();
+                var dateoftoday = today.toISOString().substring(0, 10);
+                
+                if ((rule.date_start !== false && rule.date_start > dateoftoday )
+                        ||(rule.date_end !== false && rule.date_end < dateoftoday )){
+                    continue;
+                }
                 if (rule.min_quantity && qty < rule.min_quantity) {
                     continue;
                 }
@@ -606,14 +614,14 @@ odoo.define('pos_pricelist.models', function (require) {
      * @param pos_model
      */
     function arrange_elements(pos_model) {
-
-        var product_model = pos_model.find_model('product.product');
-        if (_.size(product_model) == 1) {
-            var product_index = parseInt(Object.keys(product_model)[0]);
-            pos_model.models[product_index].fields.push(
-                'categ_id', 'seller_ids'
-            );
-        }
+        
+//        var product_model = pos_model.find_model('product.product');
+//        if (_.size(product_model) == 1) {
+//            var product_index = parseInt(Object.keys(product_model)[0]);
+//            pos_model.models[product_index].fields.push(
+//                'categ_id', 'seller_ids'
+//            );
+//        }
 
         var res_product_pricelist = pos_model.find_model('product.pricelist');
         if (_.size(res_product_pricelist) == 1) {
@@ -636,7 +644,7 @@ odoo.define('pos_pricelist.models', function (require) {
                 },
                 {
                     model: 'product.supplierinfo',
-                    fields: ['delay',
+                    fields: ['id','delay',
                         'name',
                         'min_qty',
 	                    'price',
@@ -645,7 +653,7 @@ odoo.define('pos_pricelist.models', function (require) {
                         'sequence',
                         'qty',
                         'product_tmpl_id'],
-                    domain: null,
+                    domain: [['id', '<', 0]],
                     loaded: function (self, supplierinfos) {
                         self.db.add_supplierinfo(supplierinfos);
                     }
@@ -690,7 +698,9 @@ odoo.define('pos_pricelist.models', function (require) {
                         'price_surcharge',
                         'product_id',
                         'product_tmpl_id',
-                        'sequence'
+                        'sequence',
+                        'date_start',
+                        'date_end'
                     ],
                     domain: null,
                     loaded: function (self, items) {
