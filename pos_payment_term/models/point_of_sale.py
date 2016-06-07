@@ -42,4 +42,7 @@ class PosOrder(models.Model):
                 )
             return result
 
-        return super(PosOrder, self).add_payment(cr, uid, order_id, data, context=None)
+        return super(PosOrder, self).add_payment(
+            cr, uid, order_id, data, context=None
+        )
+
