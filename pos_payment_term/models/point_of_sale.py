@@ -25,7 +25,9 @@ class PosOrder(models.Model):
         if data.get('payment_term'):
             payment_terms = self.pool.get('account.payment.term')
             date_payment = data['payment_date'].split(" ")
-            compute = payment_terms.compute(cr, uid,
+            compute = payment_terms.compute(
+                cr,
+                uid,
                 int(data['payment_term']),
                 data['amount'],
                 date_payment[0],
@@ -36,8 +38,12 @@ class PosOrder(models.Model):
                 data['amount'] = item[1]
                 data['payment_date'] = item[0]
                 result.append(
-                    super(PosOrder, self).add_payment(cr, uid,
-                        order_id, data, context=None
+                    super(PosOrder, self).add_payment(
+                        cr,
+                        uid,
+                        order_id,
+                        data,
+                        context=None
                     )
                 )
             return result
@@ -45,4 +51,3 @@ class PosOrder(models.Model):
         return super(PosOrder, self).add_payment(
             cr, uid, order_id, data, context=None
         )
-
