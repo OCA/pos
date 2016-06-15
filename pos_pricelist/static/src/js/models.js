@@ -389,7 +389,16 @@ function pos_pricelist_models(instance, module) {
          * @param version
          * @returns {boolean}
          */
-        rule_match: function (item, product, qty, version) {
+        rule_match: function (db, item, product, qty, version) {
+          // get categories
+          var categ_ids = [];
+          if (product.categ_id) {
+              categ_ids.push(product.categ_id[0]);
+              categ_ids = categ_ids.concat(
+                  db.product_category_ancestors[product.categ_id[0]]
+              );
+          }
+
           var cond = true
           var template_false = item.product_tmpl_id === false
           var product_false = item.product_id === false
@@ -452,20 +461,12 @@ function pos_pricelist_models(instance, module) {
                 return false;
             }
 
-            // get categories
-            var categ_ids = [];
-            if (product.categ_id) {
-                categ_ids.push(product.categ_id[0]);
-                categ_ids = categ_ids.concat(
-                    db.product_category_ancestors[product.categ_id[0]]
-                );
-            }
 
             // find items
             var items = [], i, len;
             for (i = 0, len = db.pricelist_item_sorted.length; i < len; i++) {
                 var item = db.pricelist_item_sorted[i];
-                if (this.rule_match(item, product, qty, version)) {
+                if (this.rule_match(db, item, product, qty, version)) {
                   items.push(item)
                 }
             }
