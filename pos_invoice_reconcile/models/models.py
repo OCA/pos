@@ -1,27 +1,9 @@
 # -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    This module copyright :
-#        (c) 2016 SDI
-#                 Juan Carlos Montoya <jcmontoya@sdi.es>
-#                 Javier Garcia       <jgarcia@sdi.es>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-from openerp import models, fields, api
+#   Copyright 2016 SDI Juan Carlos Montoya  <jcmontoya@sdi.es>
+#   Copyright 2016 SDI  Javier Garcia   <jgarcia@sdi.es>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
+from openerp import models, api
 
 
 class PosSession(models.Model):
@@ -31,7 +13,7 @@ class PosSession(models.Model):
     @api.multi
     def _confirm_orders(self):
         acc_default = self.env['ir.property'].get(
-                'property_account_receivable', 'res.partner')
+            'property_account_receivable', 'res.partner')
         grouped_data = {}
         # Filter only invoiced pos orders
         orders = self.order_ids.filtered(lambda o: o.state == "invoiced")
@@ -53,16 +35,13 @@ class PosSession(models.Model):
                     continue
 
                 for line in statement.journal_entry_id.line_id:
-                    if (line.account_id.id == order_account and
-                                line.state == 'valid'):
+                    account_id = line.account_id.id
+                    if account_id == order_account and line.state == 'valid':
                         grouped_data[key].append(line.id)
 
             for key, value in grouped_data.iteritems():
                 for line in order.invoice_id.move_id.line_id:
-                    if (line.partner_id.id == key[0] and
-                                line.account_id.id == key[1] and
-                                (line.debit > 0) == key[2] and
-                                line.state == 'valid'):
+                    if self._check_valid_line(line, key):
                         grouped_data[key].append(line.id)
 
             # reconcile invoice
@@ -72,8 +51,20 @@ class PosSession(models.Model):
                 context = self._context.copy()
                 context.update({'active_ids': value})
                 self.env['account.move.line.reconcile'].with_context(
-                        context).trans_rec_reconcile_full()
+                    context).trans_rec_reconcile_full()
 
             grouped_data.clear()
 
         return super(PosSession, self)._confirm_orders()
+
+    def _check_valid_line(self, line, key):
+        result = True
+        if not line.partner_id.id == key[0]:
+            return False
+        if not line.account_id.id == key[1]:
+            return False
+        if not (line.debit > 0) == key[2]:
+            return False
+        if not line.state == 'valid':
+            return False
+        return result
