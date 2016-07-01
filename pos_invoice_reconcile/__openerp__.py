@@ -26,7 +26,7 @@
     "name": "POS Invoice auto reconcile",
     "version": "8.0.0.1.0",
     "author": "Juan Carlos Montoya,"
-              "Javier Garcia <jgarcia@sdi.es>,"
+              "Javier Garcia,"
               "Odoo Community Association (OCA)",
     "website": "http://sdi.es",
     "license": "AGPL-3",
