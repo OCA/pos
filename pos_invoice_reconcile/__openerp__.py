@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -25,7 +25,9 @@
 {
     "name": "POS Invoice auto reconcile",
     "version": "8.0.0.1.0",
-    "author": "Juan Carlos Montoya",
+    "author": "Juan Carlos Montoya,"
+              "Javier Garcia <jgarcia@sdi.es>,"
+              "Odoo Community Association (OCA)",
     "website": "http://sdi.es",
     "license": "AGPL-3",
     "category": "Accounting",
