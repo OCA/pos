@@ -18,6 +18,7 @@
     ],
     'data': [
         "views/pos_template.xml",
+        "views/account_journal.xml",
     ],
     "qweb": [
         'static/src/xml/pos.xml',
