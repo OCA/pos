@@ -18,6 +18,7 @@ addon | version | summary
 [pos_customer_required](pos_customer_required/) | 8.0.1.0.1 | Point of Sale Require Customer
 [pos_default_empty_image](pos_default_empty_image/) | 8.0.0.1.0 | Optimise load time for products with no image
 [pos_gift_ticket](pos_gift_ticket/) | 8.0.0.1.0 | Gift Ticket
+[pos_invoice_reconcile](pos_invoice_reconcile/) | 8.0.0.1.0 | Automatically reconciles invoiced orders 
 [pos_payment_terminal](pos_payment_terminal/) | 8.0.0.1.0 | Manage Payment Terminal device from POS front end
 [pos_pricelist](pos_pricelist/) | 8.0.1.3.0 | Pricelist for Point of sale
 [pos_product_template](pos_product_template/) | 8.0.0.2.0 | Manage Product Template in Front End Point Of Sale
