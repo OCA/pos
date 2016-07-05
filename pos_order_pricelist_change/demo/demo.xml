@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************************************************************** -->
+<!--Point Of Sale - Order Pricelist Change for Odoo                         -->
+<!--Copyright (C) 2014 GRAP (http://www.grap.coop)                          -->
+<!--@author Sylvain LE GAL (https://twitter.com/legalsylvain)               -->
+
+<!--This program is free software: you can redistribute it and/or modify    -->
+<!--it under the terms of the GNU Affero General Public License as          -->
+<!--published by the Free Software Foundation, either version 3 of the      -->
+<!--License, or (at your option) any later version.                         -->
+
+<!--This program is distributed in the hope that it will be useful,         -->
+<!--but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!--GNU Affero General Public License for more details.                     -->
+
+<!--You should have received a copy of the GNU Affero General Public License-->
+<!--along with this program.  If not, see <http://www.gnu.org/licenses/>.   -->
+<!-- ********************************************************************** -->
+<openerp>
+    <data noupdate="1">
+
+        <!-- Price List -->
+        <record id="pricelist_surcharge" model="product.pricelist">
+            <field name="name">Surcharge Pricelist</field>
+            <field name="type">sale</field>
+        </record>
+        <record id="pricelist_version_surcharge" model="product.pricelist.version">
+            <field name="pricelist_id" ref="pricelist_surcharge"/>
+            <field name="name">Surcharge Pricelist Version</field>
+        </record>
+        <record id="pricelist_item_surcharge" model="product.pricelist.item">
+            <field name="price_version_id" ref="pricelist_version_surcharge"/>
+            <field name="base" ref="product.list_price"/>
+            <field name="price_surcharge">10</field>
+            <field name="name">Surcharge Pricelist Line</field>
+        </record>
+
+        <!-- Partner -->
+        <record id="partner_surcharge" model="res.partner">
+            <field name="name">Surcharge Customer</field>
+            <field name="customer" eval="True" />
+            <field name="property_product_pricelist" eval="ref('pricelist_surcharge')" />
+        </record>
+
+    </data>
+</openerp>
