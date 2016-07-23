@@ -54,6 +54,12 @@ Configuration
 
 Once installed, you have to give correct access right to your cashiers.
 
+Limits / Roadmap
+================
+
+The feature are only blocked on the Point of sale Frond End UI. it could be
+interesting do the same in the back-end office for some of this blockages.
+
 Usage
 =====
 
