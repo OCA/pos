@@ -6,6 +6,12 @@
 Point of Sale - Extra Access Right for Certain Actions
 ======================================================
 
+This module extends Odoo Point Of Sale features, restricting possibility
+to cashier to make some actions in the Point of Sale (set discount, change
+unit prices, etc...)
+
+this module can be usefull to limit errors and / or fraud.
+
 This module will add the following groups to Odoo:
 
 * PoS - Negative Quantity: The cashier can sell negative quantity in Point Of
@@ -15,6 +21,12 @@ This module will add the following groups to Odoo:
 
 * PoS - Change Unit Price: The cashier can change the unit price of a product
   in Point Of Sale;
+
+* PoS - Many Orders: The cashier can many orders at the same time;
+
+* PoS - Delete Order: The cashier can not delete a full order;
+
+* PoS - Delete Order Line: The cashier can not delete an order line;
 
 .. image:: /pos_access_right/static/description/new_groups.png
 
