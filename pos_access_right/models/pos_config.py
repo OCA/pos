@@ -30,23 +30,59 @@ class PosConfig(models.Model):
         help="This field is there to pass the id of the 'PoS - Allow Unit"
         " Price Change' Group to the Point of Sale Frontend.")
 
+    group_pos_multi_order = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_pos_multi_order',
+        string='Point of Sale - Many Orders',
+        help="This field is there to pass the id of the 'PoS - Many Orders"
+        " Group to the Point of Sale Frontend.")
+
+    group_pos_delete_order = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_pos_delete_order',
+        string='Point of Sale - Delete Order',
+        help="This field is there to pass the id of the 'PoS - Delete Order'"
+        " Group to the Point of Sale Frontend.")
+
+    group_pos_delete_order_line = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_pos_delete_order_line',
+        string='Point of Sale - Delete Order Line',
+        help="This field is there to pass the id of the 'PoS - Delete Order"
+        " Line' Group to the Point of Sale Frontend.")
+
     @api.multi
     def _compute_group_pos_negative_qty(self):
-        print self.env.ref('pos_access_right.group_pos_negative_qty')
         for config in self:
             self.group_pos_negative_qty = \
                 self.env.ref('pos_access_right.group_pos_negative_qty')
 
     @api.multi
     def _compute_group_pos_discount(self):
-        print self.env.ref('pos_access_right.group_pos_discount')
         for config in self:
             self.group_pos_discount = \
                 self.env.ref('pos_access_right.group_pos_discount')
 
     @api.multi
     def _compute_group_pos_change_unit_price(self):
-        print self.env.ref('pos_access_right.group_pos_change_unit_price')
         for config in self:
             self.group_pos_change_unit_price = \
                 self.env.ref('pos_access_right.group_pos_change_unit_price')
+
+    @api.multi
+    def _compute_group_pos_multi_order(self):
+        for config in self:
+            self.group_pos_discount = \
+                self.env.ref('pos_access_right.group_pos_multi_order')
+
+    @api.multi
+    def _compute_group_pos_delete_order(self):
+        for config in self:
+            self.group_pos_discount = \
+                self.env.ref('pos_access_right.group_pos_delete_order')
+
+    @api.multi
+    def _compute_group_pos_delete_order_line(self):
+        for config in self:
+            self.group_pos_discount = \
+                self.env.ref('pos_access_right.group_pos_delete_order_line')
