@@ -16,3 +16,16 @@
 - !record {model: res.groups, id: group_pos_change_unit_price}:
     users:
         - base.user_root
+
+- !record {model: res.groups, id: group_pos_multi_order}:
+    users:
+        - base.user_root
+
+- !record {model: res.groups, id: group_pos_delete_order}:
+    users:
+        - base.user_root
+
+- !record {model: res.groups, id: group_pos_delete_order_line}:
+    users:
+        - base.user_root
+        - base.user_demo
