@@ -76,7 +76,7 @@ chrome.OrderSelectorWidget
         neworder_click_handler: function(event, $el) {
             if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_pos_multi_order[0]) == -1) {
                 this.gui.show_popup('error',{
-                    'title': _t('Negative Quantity - Unauthorized function'),
+                    'title': _t('Many Orders - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
                 });
             }
