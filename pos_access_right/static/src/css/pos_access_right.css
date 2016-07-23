@@ -6,6 +6,7 @@
 
 .pos-disabled-mode {
     color: #bbb !important;
+    background-color: #d3d3d3 !important;
 }
 .pos-disabled-mode:hover {
     background: #e2e2e2 !important;
