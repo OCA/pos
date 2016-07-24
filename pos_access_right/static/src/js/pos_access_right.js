@@ -39,11 +39,11 @@ point_of_sale.gui
         else{
             $(".mode-button[data-mode='price']").addClass('pos-disabled-mode');
         }
-        if (user.groups_id.indexOf(this.pos.config.group_pos_multi_order[0]) != -1){
-            $('.neworder-button').removeClass('pos-disabled-mode');
+        if (user.groups_id.indexOf(this.pos.config.group_pos_delete_order_line[0]) != -1){
+            $('.numpad-backspace').removeClass('pos-disabled-mode');
         }
         else{
-            $('.neworder-button').addClass('pos-disabled-mode');
+            $('.numpad-backspace').addClass('pos-disabled-mode');
         }
     };
 
