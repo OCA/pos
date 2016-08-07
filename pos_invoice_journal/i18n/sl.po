@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_invoice_journal
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-01 02:43+0000\n"
+"PO-Revision-Date: 2016-08-01 02:43+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: pos_invoice_journal
+#: field:pos.config,invoice_journal_id:0 field:pos.order,invoice_journal_id:0
+msgid "Invoice Journal"
+msgstr "Dnevnik računov"
+
+#. module: pos_invoice_journal
+#: model:ir.model,name:pos_invoice_journal.model_pos_order
+msgid "Point of Sale"
+msgstr "POS prodajna točka"
+
+#. module: pos_invoice_journal
+#: help:pos.config,invoice_journal_id:0 help:pos.order,invoice_journal_id:0
+msgid ""
+"When choosing to invoice the pos order, this is the Accounting Journal used "
+"to post sales entries."
+msgstr ""
+"Pri izbiri obračuna POS naloga, je to knjigovodski dnevnik za knjiženje "
+"prodajnih vnosov."
