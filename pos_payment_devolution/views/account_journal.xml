@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_pos_credit_payment_form" model="ir.ui.view">
+			<field name="name">pos.credit.payment.form</field>
+			<field name="model">account.journal</field>
+			<field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form" />
+			<field name="arch" type="xml">
+                <xpath expr="//page[last()]" position="inside">
+                    <group>
+                        <field name="pos_credit_analise" />
+                    </group>
+                </xpath>
+			</field>
+        </record>
+    </data>
+</openerp>
