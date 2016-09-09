@@ -33,7 +33,7 @@ install:
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - printf '[options]\n\nrunning_env = dev' > ${HOME}/.openerp_serverrc
-  - pip install unidecode pyserial pycountry
+  - pip install unidecode pyserial pycountry openupgradelib
 
 script:
   - travis_run_tests
