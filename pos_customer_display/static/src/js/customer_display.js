@@ -8,23 +8,28 @@
     The licence is in the file __openerp__.py
 */
 
-openerp.pos_customer_display = function(instance){
-    module = instance.point_of_sale;
+odoo.define('pos_customer_display', function(require) {
+    "use strict";
+    var chrome = require('point_of_sale.chrome');
+    var core = require('web.core');
+    var devices = require('point_of_sale.devices');
+    var gui = require('point_of_sale.gui');
+    var models = require('point_of_sale.models');
+    var screens = require('point_of_sale.screens');
+    var _t = core._t;
+    var PosModelSuper = models.PosModel;
 
-    var _t = instance.web._t;
-    var PosModelSuper = module.PosModel;
-
-    module.PosModel = module.PosModel.extend({
+    models.PosModel = models.PosModel.extend({
         prepare_text_customer_display: function(type, data){
             if (this.config.iface_customer_display != true)
                 return;
             var line_length = this.config.customer_display_line_length || 20;
             var currency_rounding = Math.ceil(Math.log(1.0 / this.currency.rounding) / Math.log(10));
 
-            if (type == 'addProduct'){
+            if (type == 'add_product'){
                 // in order to not recompute qty in options..., we assume that the new ordeLine is the last of the collection
-                // addOrderline exists but is not called by addProduct, should we handle it ?
-                var line = this.get('selectedOrder').getLastOrderline(); 
+                // addOrderline exists but is not called by add_product, should we handle it ?
+                var line = this.get('selectedOrder').get_last_orderline(); 
                 var price_unit = line.get_unit_price() * (1.0 - (line.get_discount() / 100.0));
                 price_unit = price_unit.toFixed(currency_rounding);
                 var l21 = line.get_quantity_str_with_unit() + ' x ' + price_unit;
@@ -34,7 +39,7 @@ openerp.pos_customer_display = function(instance){
                     this.proxy.align_left(l21, line_length - l22.length) + l22
                     );
 
-            } else if (type == 'removeOrderline') {
+            } else if (type == 'remove_orderline') {
                 // first click on the backspace button set the amount to 0 => we can't precise the deleted qunatity and price
                 var line = data['line'];
                 var lines_to_send = new Array(
@@ -42,14 +47,14 @@ openerp.pos_customer_display = function(instance){
                     this.proxy.align_right(line.get_product().display_name, line_length)
                     );
 
-            } else if (type == 'addPaymentline') {
-                var total = this.get('selectedOrder').getTotalTaxIncluded().toFixed(currency_rounding);
+            } else if (type == 'add_paymentline') {
+                var total = this.get('selectedOrder').get_total_with_tax().toFixed(currency_rounding);
                 var lines_to_send = new Array(
                     this.proxy.align_left(_t("TOTAL: "), line_length),
                     this.proxy.align_right(total, line_length)
                     );
 
-            } else if (type == 'removePaymentline') {
+            } else if (type == 'remove_paymentline') {
                 var line = data['line'];
                 var amount = line.get_amount().toFixed(currency_rounding);
                 var lines_to_send = new Array(
@@ -64,7 +69,7 @@ openerp.pos_customer_display = function(instance){
                     this.proxy.align_right(change, line_length)
                 );
 
-            } else if (type == 'pushOrder') {
+            } else if (type == 'push_order') {
                 var lines_to_send = new Array(
                     this.proxy.align_center(this.config.customer_display_msg_next_l1, line_length),
                     this.proxy.align_center(this.config.customer_display_msg_next_l2, line_length)
@@ -91,17 +96,16 @@ openerp.pos_customer_display = function(instance){
         },
 
         push_order: function(order){
-            res = PosModelSuper.prototype.push_order.call(this, order);
+            var res = PosModelSuper.prototype.push_order.call(this, order);
             if (order) {
-                this.prepare_text_customer_display('pushOrder', {'order' : order});
+                this.prepare_text_customer_display('push_order', {'order' : order});
             }
             return res;
         },
 
     });
 
-
-    module.ProxyDevice = module.ProxyDevice.extend({
+    devices.ProxyDevice = devices.ProxyDevice.extend({
         send_text_customer_display: function(data, line_length){
             //FIXME : this function is call twice. The first time, it is not called by prepare_text_customer_display : WHY ?
             if (_.isEmpty(data) || data.length != 2 || data[0].length != line_length || data[1].length != line_length){
@@ -160,7 +164,7 @@ openerp.pos_customer_display = function(instance){
                 }
                 else if (string.length < length)
                 {
-                    ini = (length - string.length) / 2;
+                    var ini = (length - string.length) / 2;
                     while(string.length < length - ini)
                         string = ' ' + string;
                     while(string.length < length)
@@ -176,64 +180,64 @@ openerp.pos_customer_display = function(instance){
         },
     });
 
-    var OrderSuper = module.Order;
+    var OrderSuper = models.Order;
 
-    module.Order = module.Order.extend({
-        addProduct: function(product, options){
-            res = OrderSuper.prototype.addProduct.call(this, product, options);
+    models.Order = models.Order.extend({
+        add_product: function(product, options){
+            var res = OrderSuper.prototype.add_product.call(this, product, options);
             if (product) {
-                this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
+                this.pos.prepare_text_customer_display('add_product', {'product' : product, 'options' : options});
             }
             return res;
         },
 
-        removeOrderline: function(line){
+        remove_orderline: function(line){
             if (line) {
-                this.pos.prepare_text_customer_display('removeOrderline', {'line' : line});
+                this.pos.prepare_text_customer_display('remove_orderline', {'line' : line});
             }
-            return OrderSuper.prototype.removeOrderline.call(this, line);
+            return OrderSuper.prototype.remove_orderline.call(this, line);
         },
 
-        removePaymentline: function(line){
+        remove_paymentline: function(line){
             if (line) {
-                this.pos.prepare_text_customer_display('removePaymentline', {'line' : line});
+                this.pos.prepare_text_customer_display('remove_paymentline', {'line' : line});
             }
-            return OrderSuper.prototype.removePaymentline.call(this, line);
+            return OrderSuper.prototype.remove_paymentline.call(this, line);
         },
 
-        addPaymentline: function(cashregister){
-            res = OrderSuper.prototype.addPaymentline.call(this, cashregister);
+        add_paymentline: function(cashregister){
+            var res = OrderSuper.prototype.add_paymentline.call(this, cashregister);
             if (cashregister) {
-                this.pos.prepare_text_customer_display('addPaymentline', {'cashregister' : cashregister});
+                this.pos.prepare_text_customer_display('add_paymentline', {'cashregister' : cashregister});
             }
             return res;
         },
 
     });
 
-    module.PaymentScreenWidget.include({
-        update_payment_summary: function(){
-            res = this._super();
-            var currentOrder = this.pos.get('selectedOrder');
-            var paidTotal = currentOrder.getPaidTotal();
-            var dueTotal = currentOrder.getTotalTaxIncluded();
+    screens.PaymentScreenWidget.include({
+        render_paymentlines: function(){
+            var res = this._super();
+            var currentOrder = this.pos.get_order();
+            var paidTotal = currentOrder.get_total_paid();
+            var dueTotal = currentOrder.get_total_with_tax();
             var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
             if (change) {
-                change_rounded = change.toFixed(2);
+                var change_rounded = change.toFixed(2);
                 this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
             }
             return res;
         },
     });
 
-    module.PosWidget.include({
+    gui.Gui.include({
         close: function(){
             this._super();
             this.pos.prepare_text_customer_display('closePOS', {});
         },
     });
 
-    module.ProxyStatusWidget.include({
+    chrome.ProxyStatusWidget.include({
         start: function(){
             this._super();
             this.pos.prepare_text_customer_display('openPOS', {});
@@ -241,16 +245,17 @@ openerp.pos_customer_display = function(instance){
     });
 
     /* Handle Button "Display Total to Customer" */
-    var _saved_renderElement = module.OrderWidget.prototype.renderElement;
-    module.OrderWidget.prototype.renderElement = function() {
+    var _saved_renderElement = screens.OrderWidget.prototype.renderElement;
+    screens.OrderWidget.prototype.renderElement = function() {
         _saved_renderElement.apply(this, arguments);
         var self = this;
-        if (self.pos.config.iface_customer_display) {
+        if (self.pos.config.iface_customer_display && self.el.querySelector('.show-total-to-customer')) {
+            // .show-total-to-customer is empty when we show the bon during payment
             self.el.querySelector('.show-total-to-customer')
                 .addEventListener('click', function(){
-                    self.pos.prepare_text_customer_display('addPaymentline', {})
+                    self.pos.prepare_text_customer_display('add_paymentline', {})
                 });
         }
     };
+});
 
-};
