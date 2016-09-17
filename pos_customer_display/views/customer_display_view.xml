@@ -10,7 +10,7 @@
                     <field name="iface_customer_display"/>
                     <field name="customer_display_line_length"/>
                 </field>
-                <group string="Receipt" position="after">
+                <group name="receipt" position="after">
                     <group name="customer_display" string="Customer Display">
                         <field name="customer_display_msg_next_l1"/>
                         <field name="customer_display_msg_next_l2"/>
