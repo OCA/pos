@@ -52,10 +52,10 @@ Association !
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [
-        'pos_customer_display.xml',
-        'customer_display_view.xml',
+        'views/pos_customer_display.xml',
+        'views/customer_display_view.xml',
         ],
     'qweb': ['static/src/xml/pos.xml'],
     'demo': ['pos_customer_display_demo.xml'],
-    'installable': False,
+    'installable': True,
 }
