@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_session_summary
+#   * pos_session_summary
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-03 23:55+0000\n"
-"PO-Revision-Date: 2016-04-03 23:55+0000\n"
+"POT-Creation-Date: 2016-09-07 14:33+0000\n"
+"PO-Revision-Date: 2016-09-07 14:33+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,44 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_session_summary
+#: model:ir.ui.view,arch_db:pos_session_summary.report_sessionsummary_louve
+msgid "<strong>Cash Moves</strong>"
+msgstr "<strong>Mouvements d'argent</strong>"
+
+#. module: pos_session_summary
+#: model:ir.ui.view,arch_db:pos_session_summary.report_sessionsummary_louve
+msgid "<strong>Sale Transactions Subtotal</strong>"
+msgstr "<strong>Ss-total des ventes</strong>"
+
+#. module: pos_session_summary
+#: model:ir.model,name:pos_session_summary.model_account_bank_statement
+msgid "Bank Statement"
+msgstr "Relevé bancaire"
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_account_bank_statement_total_entry_encoding_cash
+msgid "Cash Moves"
+msgstr "Mouvements d'argent"
+
+#. module: pos_session_summary
 #: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_order_qty
 msgid "Orders Qty"
 msgstr "Nb. ventes"
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_account_bank_statement_total_entry_encoding_sales
+msgid "Sale Transactions Subtotal"
+msgstr "Ss-total des Ventes"
+
+#. module: pos_session_summary
+#: model:ir.model.fields,help:pos_session_summary.field_account_bank_statement_total_entry_encoding_cash
+msgid "Total of cash inputs or outputs."
+msgstr "Total des entrées ou sorties d'argent."
+
+#. module: pos_session_summary
+#: model:ir.model.fields,help:pos_session_summary.field_account_bank_statement_total_entry_encoding_sales
+msgid "Total of sale transaction lines."
+msgstr "Total des transactions de vente."
 
 #. module: pos_session_summary
 #: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_total_amount
@@ -29,4 +64,3 @@ msgstr "Total des transactions"
 #: model:ir.model,name:pos_session_summary.model_pos_session
 msgid "pos.session"
 msgstr "pos.session"
-

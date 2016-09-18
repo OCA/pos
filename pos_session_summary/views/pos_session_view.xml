@@ -26,6 +26,10 @@
                 <field name="order_qty" />
                 <field name="total_amount" />
             </field>
+            <field name="total_entry_encoding" position="replace">
+                <field name="total_entry_encoding_sales" />
+                <field name="total_entry_encoding_cash" />
+            </field>
         </field>
     </record>
 
