@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_product_template
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: pos (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-15 21:29+0000\n"
+"PO-Revision-Date: 2016-04-06 15:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: Catalan (http://www.transifex.com/oca/OCA-pos-8-0/language/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_product_template
+#: model:product.attribute.value,name:pos_product_template.attribute_wifi_extra
+msgid "2.399GHz"
+msgstr ""
+
+#. module: pos_product_template
+#. openerp-web
+#: code:addons/pos_product_template/static/src/xml/ppt.xml:31
+#, python-format
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#. module: pos_product_template
+#. openerp-web
+#: code:addons/pos_product_template/static/src/xml/ppt.xml:29
+#, python-format
+msgid "Variant Selection of"
+msgstr ""
+
+#. module: pos_product_template
+#. openerp-web
+#: code:addons/pos_product_template/static/src/xml/ppt.xml:57
+#: code:addons/pos_product_template/static/src/xml/ppt.xml:95
+#, python-format
+msgid "Variants"
+msgstr ""

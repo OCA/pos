@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-06 02:42+0000\n"
-"PO-Revision-Date: 2016-07-06 02:42+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2016-08-15 21:29+0000\n"
+"PO-Revision-Date: 2016-08-15 21:29+0000\n"
+"Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>, 2016\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr ""
 #. module: pos_order_pricelist_change
 #: model:ir.model,name:pos_order_pricelist_change.model_pos_order
 msgid "Point of Sale"
-msgstr ""
+msgstr "Point de vente"
 
 #. module: pos_order_pricelist_change
 #: code:addons/pos_order_pricelist_change/models/pos_order.py:44
@@ -48,9 +49,9 @@ msgstr "Recalculer avec la Liste de Prix"
 #. module: pos_order_pricelist_change
 #: model:product.pricelist,name:pos_order_pricelist_change.pricelist_surcharge
 msgid "Surcharge Pricelist"
-msgstr ""
+msgstr "Surcharge de la liste de prix"
 
 #. module: pos_order_pricelist_change
 #: model:product.pricelist.version,name:pos_order_pricelist_change.pricelist_version_surcharge
 msgid "Surcharge Pricelist Version"
-msgstr ""
+msgstr "Surcharge la version de la liste de prix"
