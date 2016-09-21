@@ -3,4 +3,4 @@
 # License LGPLv3 (https://github.com/odoo/odoo/blob/9.0/LICENSE).
 # flake8: noqa
 
-import barcode_events_mixin
+# import barcode_events_mixin

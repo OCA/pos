@@ -6,7 +6,7 @@
             <field name="name">Barcode Nomenclatures</field>
             <field name="model">barcode.nomenclature</field>
             <field name="arch" type="xml">
-                <form string="Barcode Nomenclature">
+                <form string="Barcode Nomenclature" version="7.0">
                     <sheet>
                         <group col="4">
                             <field name="name" />
@@ -82,5 +82,11 @@
                 </form>
             </field>
         </record>
+
+        <!-- Barcode Nomenclatures -->
+        <!-- Backport Note : come from point_of_sale V9.0 module -->
+        <menuitem parent="point_of_sale.menu_point_config_product" action="action_barcode_nomenclature_form" id="point_of_sale.menu_pos_barcode_nomenclature_all"
+            sequence="30"/>
+
     </data>
 </openerp>

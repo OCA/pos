@@ -2,16 +2,10 @@
 # Copyright (C) 2004-Today Odoo S.A.
 # License LGPLv3 (https://github.com/odoo/odoo/blob/9.0/LICENSE).
 # flake8: noqa
-import logging
 import re
 
-import openerp
-from openerp import tools, models, fields, api
 from openerp.osv import fields, osv
 from openerp.tools.translate import _
-from openerp.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 UPC_EAN_CONVERSIONS = [
@@ -177,29 +171,38 @@ class barcode_nomenclature(osv.osv):
 
         return parsed_result
 
-class barcode_rule(models.Model):
+class barcode_rule(osv.osv):
     _name = 'barcode.rule'
     _order = 'sequence asc'
 
-    @api.model
-    def _encoding_selection_list(self):
-        return [
+    _encoding_selection_list = [
                 ('any', _('Any')),
                 ('ean13', 'EAN-13'),
                 ('ean8', 'EAN-8'),
                 ('upca', 'UPC-A'),
         ]
 
-    @api.model
-    def _get_type_selection(self):
-        return [('alias', _('Alias')), ('product', _('Unit Product'))]
+    _get_type_selection = [
+        ('alias', _('Alias')),
+        ('product', _('Unit Product')),
+        # Backport Note : come from point_of_sale V9.0 module
+        ('weight', _('Weighted Product')),
+        ('price', _('Priced Product')),
+        ('discount', _('Discounted Product')),
+        ('client', _('Client')),
+        ('cashier', _('Cashier')),
+        # Backport Note : come from stock V9.0 module
+        ('location', _('Location')),
+        ('lot', _('Lot')),
+        ('package', _('Package')),
+    ]
 
     _columns = {
         'name':     fields.char('Rule Name', size=32, required=True, help='An internal identification for this barcode nomenclature rule'),
         'barcode_nomenclature_id':     fields.many2one('barcode.nomenclature','Barcode Nomenclature'),
         'sequence': fields.integer('Sequence', help='Used to order rules such that rules with a smaller sequence match first'),
-        'encoding': fields.selection('_encoding_selection_list','Encoding',required=True,help='This rule will apply only if the barcode is encoded with the specified encoding'),
-        'type':     fields.selection('_get_type_selection','Type', required=True),
+        'encoding': fields.selection(selection=_encoding_selection_list,string='Encoding',required=True,help='This rule will apply only if the barcode is encoded with the specified encoding'),
+        'type':     fields.selection(selection=_get_type_selection,string='Type', required=True),
         'pattern':  fields.char('Barcode Pattern', size=32, help="The barcode matching pattern", required=True),
         'alias':    fields.char('Alias',size=32,help='The matched pattern will alias to this barcode', required=True),      
     }
@@ -211,19 +214,37 @@ class barcode_rule(models.Model):
         'alias': "0",
     }
 
-    @api.one
-    @api.constrains('pattern')
-    def _check_pattern(self):
-        p = self.pattern.replace("\\\\", "X").replace("\{", "X").replace("\}", "X")
+    def _check_pattern_multi(self, cr, uid, ids, context=None):
+        res = []
+        for rule in self.browse(cr, uid, ids, context=context):
+            res.append(self._check_pattern_one(cr, uid, rule, context=context))
+        return all(res)
+
+    _constraints = [
+        (
+            _check_pattern_multi,
+            "There is a syntax error in the barcode pattern. "
+            "One of the following errors occured : \n"
+            "- braces can only contain N's followed by D's.\n"
+            "- empty braces\n"
+            "- a rule can only contain one pair of braces\n"
+            "- '*' is not a valid Regex Barcode Pattern. "
+            "(Did you mean '.*' ?)",
+            ['pattern']),
+    ]
+
+    def _check_pattern_one(self, cr, uid, rule, context=None):
+        p = rule.pattern.replace("\\\\", "X").replace("\{", "X").replace("\}", "X")
         findall = re.findall("[{]|[}]", p) # p does not contain escaped { or }
         if len(findall) == 2: 
             if not re.search("[{][N]*[D]*[}]", p):
-                raise ValidationError(_("There is a syntax error in the barcode pattern ") + self.pattern + _(": braces can only contain N's followed by D's."))
+                return False
             elif re.search("[{][}]", p):
-                raise ValidationError(_("There is a syntax error in the barcode pattern ") + self.pattern + _(": empty braces."))
+                return False
         elif len(findall) != 0:
-            raise ValidationError(_("There is a syntax error in the barcode pattern ") + self.pattern + _(": a rule can only contain one pair of braces."))
+            return False
         elif p == '*':
-            raise ValidationError(_(" '*' is not a valid Regex Barcode Pattern. Did you mean '.*' ?"))
+            return False
+        return True
 
         
