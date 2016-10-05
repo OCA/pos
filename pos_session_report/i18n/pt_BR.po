@@ -1,0 +1,152 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_journal_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-06 18:31+0000\n"
+"PO-Revision-Date: 2016-09-06 18:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "- Troco"
+msgstr "- Troco"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Amount"
+msgstr "Valor"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Closing Date"
+msgstr "Data de Fechamento"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Date"
+msgstr "Data"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Difference"
+msgstr "Diferença"
+
+#. module: pos_journal_report
+#: field:report.pos_journal_report.pos_journal_report,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Ending Balance"
+msgstr "Saldo Final"
+
+#. module: pos_journal_report
+#: field:report.pos_journal_report.pos_journal_report,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Journal"
+msgstr "Diário"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Journal:"
+msgstr "Diário:"
+
+#. module: pos_journal_report
+#: field:report.pos_journal_report.pos_journal_report,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: pos_journal_report
+#: model:ir.actions.report.xml,name:pos_journal_report.action_report_pos_journal_report
+msgid "Mapa da Caixa"
+msgstr "Mapa da Caixa"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Name"
+msgstr "Nome"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Opening Date"
+msgstr "Data de Abertura"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Point of Sale"
+msgstr "Ponto de Venda"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Pos Order"
+msgstr "Pos Order"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "QTD Parcelas"
+msgstr "QTD Parcelas"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Reference"
+msgstr "Referência"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Responsible"
+msgstr "Responsável"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Session Summary:"
+msgstr "Resumo da sessão :"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Starting Balance"
+msgstr "Saldo Inicial"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "State"
+msgstr "Situação"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Statement Summary"
+msgstr "Resumo declaração"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Status"
+msgstr "Situação"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Total Transactions"
+msgstr "Transações Totais"
+
+#. module: pos_journal_report
+#: view:website:pos_journal_report.pos_journal_report_document
+msgid "Total:"
+msgstr "Total:"
+
