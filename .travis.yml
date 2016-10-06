@@ -16,16 +16,16 @@ addons:
       - wkhtmltopdf
 
 env:
-  - VERSION="9.0" LINT_CHECK="1"
-  - VERSION="9.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
-  - VERSION="9.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
-  - VERSION="9.0" UNIT_TEST="1" LINT_CHECK="0"
+  - VERSION="10.0" LINT_CHECK="1"
+  - VERSION="10.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
+  - VERSION="10.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
+  - VERSION="10.0" UNIT_TEST="1" LINT_CHECK="0"
 
 virtualenv:
   system_site_packages: true
 
 before_install:
-  - "export DISPLAY=:99.0"
+  - "export DISPLAY=:910.0"
   - "sh -e /etc/init.d/xvfb start"
 
 install:
