@@ -22,7 +22,7 @@
 {
     'name': 'Point Of Sale - Order Pricelist Change',
     'summary': 'Improve pricelist changes for POS Order in back office',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'category': 'Point Of Sale',
     'author': 'GRAP,Odoo Community Association (OCA)',
     'website': 'http://www.grap.coop',
