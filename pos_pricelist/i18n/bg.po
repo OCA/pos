@@ -10,11 +10,11 @@ msgstr ""
 "POT-Creation-Date: 2016-09-18 01:07+0000\n"
 "PO-Revision-Date: 2016-04-06 15:48+0000\n"
 "Last-Translator: <>\n"
-"Language-Team: German (http://www.transifex.com/oca/OCA-pos-8-0/language/de/)\n"
+"Language-Team: Bulgarian (http://www.transifex.com/oca/OCA-pos-8-0/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: de\n"
+"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_pricelist
@@ -39,22 +39,22 @@ msgstr ""
 #. module: pos_pricelist
 #: field:account.fiscal.position.tax,company_id:0
 msgid "Company"
-msgstr "Unternehmen"
+msgstr "Фирма"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_uid:0
 msgid "Created by"
-msgstr "Erstellt von"
+msgstr "Създадено от"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_date:0
 msgid "Created on"
-msgstr "Erstellt am:"
+msgstr "Създадено на"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
 msgid "Display Name"
-msgstr "Anzeigename"
+msgstr ""
 
 #. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0
@@ -69,17 +69,17 @@ msgstr "ID"
 #. module: pos_pricelist
 #: field:pos.order.tax,__last_update:0
 msgid "Last Modified on"
-msgstr "Zuletzt geändert am"
+msgstr "Последно обновено на"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
 msgid "Last Updated by"
-msgstr "Zuletzt aktualisiert von"
+msgstr "Последно обновено от"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_date:0
 msgid "Last Updated on"
-msgstr "Zuletzt aktualisiert am"
+msgstr "Последно обновено на"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order_line
