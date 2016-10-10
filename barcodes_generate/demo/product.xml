@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2016-Today La Louve (http://www.lalouve.net)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="product_template_barcode_mono_variant" model="product.template">
+        <field name="name">Template with Generated Barcode (Mono Variant)</field>
+        <field name="barcode_rule_id" ref="product_generated_barcode" />
+        <field name="barcode_base">50</field>
+    </record>
+
+    <record id="product_template_barcode_multi_variant" model="product.template">
+        <field name="name">Template with Generated Barcode (Multi Variant)</field>
+        <field name="barcode_rule_id" ref="product_generated_barcode" />
+        <field name="attribute_line_ids" eval="[(6,0,[ref('product.product_attribute_2')])]"/>
+    </record>
+
+    <record id="product_product_barcode_variant_1" model="product.product">
+        <field name="name">Product with Generated Barcode (Variant 1 - White)</field>
+        <field name="barcode_rule_id" ref="product_generated_barcode" />
+        <field name="barcode_base">10001</field>
+        <field name="product_tmpl_id" ref="product_template_barcode_multi_variant"/>
+        <field name="attribute_value_ids" eval="[(6,0,[ref('product.product_attribute_value_3')])]"/>
+    </record>
+
+    <record id="product_product_barcode_variant_2" model="product.product">
+        <field name="name">Product with Generated Barcode (Variant 2 - Black)</field>
+        <field name="barcode_rule_id" ref="product_generated_barcode" />
+        <field name="barcode_base">10002</field>
+        <field name="product_tmpl_id" ref="product_template_barcode_multi_variant"/>
+        <field name="attribute_value_ids" eval="[(6,0,[ref('product.product_attribute_value_4')])]"/>
+    </record>
+
+    <record id="product_template_barcode_multi_variant" model="product.template">
+        <field name="name">Template with Generated Barcode (Multi Variant)</field>
+    </record>
+
+</odoo>

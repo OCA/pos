@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2016-Today La Louve (http://www.lalouve.net)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="view_barcode_rule_form" model="ir.ui.view">
+        <field name="model">barcode.rule</field>
+        <field name="inherit_id" ref="barcodes.view_barcode_rule_form"/>
+        <field name="arch" type="xml">
+            <field name="pattern" position="after">
+                <vbnewline />
+                <group string="Barcode Generation" colspan='4' attrs="{'invisible': ['|',
+                        ('encoding', '=', 'any'),
+                        ('padding', '=', 0)]}">
+                    <field name="generate_type"/>
+                    <field name="padding" attrs="{'invisible': [('generate_type', '=', 'no')]}"/>
+                    <field name="generate_model" attrs="{'invisible': [('generate_type', '=', 'no')]}"/>
+                    <vbnewline />
+                    <button name="generate_sequence" type="object" string="Generate Sequence" colspan="2"
+                        attrs="{'invisible': [('generate_type', '!=', 'sequence')]}"/>
+                    <field name="sequence_id" attrs="{'invisible': [('generate_type', '!=', 'sequence')]}"/>
+                </group>
+            </field>
+        </field>
+    </record>
+
+</odoo>
