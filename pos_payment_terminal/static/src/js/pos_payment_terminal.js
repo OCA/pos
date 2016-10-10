@@ -1,10 +1,10 @@
 /*
     POS Payment Terminal module for Odoo
     Copyright (C) 2014-2016 Aurélien DUMAINE
-    Copyright (C) 2014-2015 Akretion (www.akretion.com)
+    Copyright (C) 2014-2016 Akretion (www.akretion.com)
     @author: Aurélien DUMAINE
     @author: Alexis de Lattre <alexis.delattre@akretion.com>
-    The licence is in the file __openerp__.py
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
 odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
@@ -13,12 +13,11 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
     var screens = require('point_of_sale.screens');
     var devices = require('point_of_sale.devices');
     var models = require('point_of_sale.models');
-//    var gui = require('point_of_sale.gui');
     var core = require('web.core');
     var _t = core._t;
     var QWeb = core.qweb;
 
-    models.load_fields("account.journal",['payment_mode']);
+    models.load_fields('account.journal', ['payment_mode']);
 
     devices.ProxyDevice.include({
         payment_terminal_transaction_start: function(line_cid, currency_iso){
@@ -40,16 +39,14 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
 
 
     screens.PaymentScreenWidget.include({
-	    render_paymentlines : function(){
-		this._super.apply(this, arguments);
-		    var self  = this;
-		    this.$('.paymentlines-container').unbind('click').on('click','.payment-terminal-transaction-start',function(event){
+        render_paymentlines : function(){
+        this._super.apply(this, arguments);
+            var self  = this;
+            this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
             // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
-			//console.log(event.target);
-			self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
-		    });
-
-	    },
-
+            //console.log(event.target);
+            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
+            });
+        },
     });
 });
