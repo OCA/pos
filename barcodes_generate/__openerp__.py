@@ -13,31 +13,28 @@
 Generate Barcodes for Products and Customers
 ============================================
 
-This module depends on a backport of the V9 modules of Odoo 'barcodes'.
-
-It expends Odoo functionnality, to allow user to generate barcode depending
-on a given barcode rule.
+This module expends Odoo functionnality, allowing user to generate barcode
+depending on a given barcode rule.
 
 For exemple, a typical pattern for products is  "23.....{NNNDD}" that means
 that the EAN13 code will begin by '23', followed by 5 digits and after 5 others
 digits to define the variable price. (EAN13 has a third char for control).
 
 With this module, it is possible to:
-- Affect a pattern (barcode.rule) to a product.product or a res.partner
-- To generate an EAN13 depending on the defined pattern and a custom ID
+
+* Affect a pattern (barcode.rule) to a product.product or a res.partner
+* To generate an EAN13 depending on the defined pattern and a custom ID
 
 Note
 ----
-Dependency to point_of_sale is required because ean13 field, defined in 'base'
-module (in the res.partner model), is defined in a point_of_sale view.
-
-The same design error is present in odoo 9.0 with the renamed 'barcode' field.
+Dependency to point_of_sale is required because barcode field, defined in 'base'
+module (in the res.partner model), is defined in a 'point_of_sale' view.
 
 It's a relative problem, because product barcodes generation will occures
 mostly in a Point of Sale context.
 
-You could comment 'point_of_sale' dependency if you use this module without
-point of sale.
+You could comment 'point_of_sale' dependency if you want to use this module
+without point of sale.
 
 Copyright Note
 --------------
