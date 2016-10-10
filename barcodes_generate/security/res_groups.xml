@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2016-Today GRAP (http://www.lalouve.net)
 @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 
-<openerp><data>
+<odoo>
 
     <record id="generate_product_barcode" model="res.groups">
         <field name="name">Generate Barcodes for Products</field>
@@ -17,4 +18,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="category_id" ref="base.module_category_hidden" />
     </record>
 
-</data></openerp>
+</odoo>
