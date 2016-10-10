@@ -1,1 +1,3 @@
-from . import pos_payment_terminal
+# -*- coding: utf-8 -*-
+
+from . import models
