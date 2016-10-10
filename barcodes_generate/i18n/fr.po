@@ -1,0 +1,110 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* barcodes_generate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-21 00:43+0000\n"
+"PO-Revision-Date: 2016-09-21 00:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: barcodes_generate
+#: field:barcode.rule,is_partner_available:0
+msgid "Available for Partners"
+msgstr "Disponible pour les partenaires"
+
+#. module: barcodes_generate
+#: field:barcode.rule,is_product_available:0
+msgid "Available for Products"
+msgstr "Disponible pour les articles"
+
+#. module: barcodes_generate
+#: field:barcode.generate.mixin,barcode_base:0
+#: field:product.product,barcode_base:0
+#: field:res.partner,barcode_base:0
+msgid "Barcode Base"
+msgstr "Base du code Barre"
+
+#. module: barcodes_generate
+#: field:barcode.generate.mixin,barcode_rule_id:0
+#: field:product.product,barcode_rule_id:0
+#: field:res.partner,barcode_rule_id:0
+msgid "Barcode Rule"
+msgstr "Règle de code barre"
+
+#. module: barcodes_generate
+#: constraint:res.partner:0
+msgid "Error: Invalid ean code"
+msgstr "Erreur : code EAN incorrect"
+
+#. module: barcodes_generate
+#: view:product.product:0
+#: view:res.partner:0
+msgid "Generate Barcode"
+msgstr "Générer un code barre"
+
+#. module: barcodes_generate
+#: model:res.groups,name:barcodes_generate.generate_partner_barcode
+msgid "Generate Barcodes for Partners"
+msgstr "Générer un code barre pour les partenaires"
+
+#. module: barcodes_generate
+#: model:res.groups,name:barcodes_generate.generate_product_barcode
+msgid "Generate Barcodes for Products"
+msgstr "Générer un code barre pour les articles"
+
+#. module: barcodes_generate
+#: help:barcode.rule,is_partner_available:0
+msgid "If checked, users with specific access right will have the possibility to generate barcodes with this pattern for the partners."
+msgstr "Si cette case est cochée, les utilisateurs avec une autorisation adéquate auront la possibilité de générer des codes barres en suivant ce motif, pour les partenaires."
+
+#. module: barcodes_generate
+#: help:barcode.rule,is_product_available:0
+msgid "If checked, users with specific access right will have the possibility to generate barcodes with this pattern for the products."
+msgstr "Si cette case est cochée, les utilisateurs avec une autorisation adéquate auront la possibilité de générer des codes barres en suivant ce motif, pour les articles."
+
+#. module: barcodes_generate
+#: code:_description:0
+#: model:ir.model,name:barcodes_generate.model_res_partner
+#, python-format
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: barcodes_generate
+#: code:_description:0
+#: model:ir.model,name:barcodes_generate.model_product_product
+#, python-format
+msgid "Product"
+msgstr "Article"
+
+#. module: barcodes_generate
+#: constraint:res.partner:0
+msgid "You cannot create recursive Partner hierarchies."
+msgstr "Vous ne pouvez pas créer de hiérarchies de partenaires récursives."
+
+#. module: barcodes_generate
+#: constraint:product.product:0
+msgid "You provided an invalid \"EAN13 Barcode\" reference. You may use the \"Internal Reference\" field instead."
+msgstr "Vous avez indiqué un code barre EAN13 erroné. Vous pouvez utiliser le champ \"Référence interne\" à la place."
+
+#. module: barcodes_generate
+#: code:_description:0
+#: model:ir.model,name:barcodes_generate.model_barcode_generate_mixin
+#, python-format
+msgid "barcode.generate.mixin"
+msgstr "barcode.generate.mixin"
+
+#. module: barcodes_generate
+#: code:_description:0
+#: model:ir.model,name:barcodes_generate.model_barcode_rule
+#, python-format
+msgid "barcode.rule"
+msgstr "barcode.rule"
+
