@@ -45,7 +45,7 @@ To use this module, you need to:
 * Go to a Product form (or a Partner Form):
 * set a rule to the current object
 
-.. image:: /barcodes_generate/static/description/product_product_form_empty.png
+.. image:: /barcodes_generate/static/description/product_product_form_generate_base_barcode.png
 
 * Click on 'Generate Base and Barcode'
 
@@ -53,6 +53,8 @@ To use this module, you need to:
 
 
 Alternatively you can set manually a barcode base, and click only on Generate barcode.
+
+.. image:: /barcodes_generate/static/description/product_product_form_generate_barcode.png
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot

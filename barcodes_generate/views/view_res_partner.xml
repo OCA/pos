@@ -28,8 +28,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             ('barcode_base', '!=', False)]}"
                     groups="barcodes_generate.generate_partner_barcode" colspan="1"/>
                 <button name="generate_barcode" type="object" string="Generate Barcode"
-                    attrs="{'invisible': ['|',
+                    attrs="{'invisible': ['|', '|',
                             ('barcode_rule_id', '=', False),
+                            ('barcode_base', '=', False),
                             ('barcode', '!=', False)]}"
                     groups="barcodes_generate.generate_partner_barcode" colspan="1"/>
             </field>
