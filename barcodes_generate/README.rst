@@ -2,10 +2,6 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
-{module_title}
-==============
-
 ============================================
 Generate Barcodes for Products and Customers
 ============================================
@@ -35,11 +31,11 @@ To configure this module, you need to:
 * Go to Point Of Sale / Configuration / Barcode Nomenclatures and select
 * Select a Nomenclature
 * Create or select a rule
-.. figure:: barcodes_generate/static/description/barcode_rule_tree.png
+.. image:: /barcodes_generate/static/description/barcode_rule_tree.png
 
 * Check 'Available for Products', or 'Available for Partners' Checkbox.
 
-.. figure:: barcodes_generate/static/description/barcode_rule_form.png
+.. image:: /barcodes_generate/static/description/barcode_rule_form.png
 
 Usage
 =====
@@ -49,11 +45,12 @@ To use this module, you need to:
 * Go to a Product form (or a Partner Form):
 * set a rule to the current object
 
-.. figure:: barcodes_generate/static/description/product_product_form_empty.png
+.. image:: /barcodes_generate/static/description/product_product_form_empty.png
 
 * Click on 'Generate Base and Barcode'
 
-.. figure:: barcodes_generate/static/description/product_product_form_generated.png
+.. image:: /barcodes_generate/static/description/product_product_form_generated.png
+
 
 Alternatively you can set manually a barcode base, and click only on Generate barcode.
 
