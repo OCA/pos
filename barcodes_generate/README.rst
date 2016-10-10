@@ -57,6 +57,7 @@ Alternatively you can set manually a barcode base, and click only on Generate ba
 .. image:: /barcodes_generate/static/description/product_product_form_generate_barcode.png
 
 
+Try this module on Runbot
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
