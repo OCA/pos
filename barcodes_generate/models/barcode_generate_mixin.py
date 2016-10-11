@@ -31,11 +31,19 @@ class barcode_generate_mixin(models.AbstractModel):
     def generate_base(self):
         for item in self:
             padding = item.barcode_rule_id.pattern.count('.')
+            full_padding = item.barcode_rule_id.pattern.count('.') +\
+                item.barcode_rule_id.pattern.count('N') +\
+                item.barcode_rule_id.pattern.count('D')
             generic_code = self._get_custom_barcode(item)
+            full_generic_code = self._get_custom_barcode(item, True)
             if generic_code:
                 generic_code = generic_code.replace(
                     '.' * padding, '_' * padding)
-                reserved_barcodes = self.search([('barcode', 'ilike', generic_code)]).mapped('barcode')
+                full_generic_code = full_generic_code.replace(
+                    '.' * full_padding, '_' * full_padding)
+                reserved_barcodes = self.search(
+                    [('barcode', 'ilike', full_generic_code)]).mapped(
+                        'barcode')
                 next_base = str(self._get_next_integer_base(
                     item, generic_code, reserved_barcodes)).rjust(padding, '0')
                 item.barcode_base = next_base
@@ -76,10 +84,12 @@ class barcode_generate_mixin(models.AbstractModel):
         return int(max_barcode[begin:end]) + 1
 
     @api.model
-    def _get_custom_barcode(self, item):
+    def _get_custom_barcode(self, item, full=False):
         """
             if the pattern is '23.....{NNNDD}'
             this function will return '23.....00000'
+            or return                 '23..........'
+            if 'full' is set to True
         """
         if not item.barcode_rule_id:
                 return False
@@ -87,10 +97,13 @@ class barcode_generate_mixin(models.AbstractModel):
         # Define barcode
         custom_code = item.barcode_rule_id.pattern
         custom_code = custom_code.replace('{', '').replace('}', '')
-        custom_code = custom_code.replace(
-            'D', self._get_replacement_char('D'))
-        return custom_code.replace(
-            'N', self._get_replacement_char('N'))
+        if not full:
+            custom_code = custom_code.replace(
+                'D', self._get_replacement_char('D'))
+            return custom_code.replace(
+                'N', self._get_replacement_char('N'))
+        else:
+            return custom_code.replace('D', '.').replace('N', '.')
 
     @api.model
     def _get_replacement_char(self, char):
