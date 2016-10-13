@@ -31,13 +31,6 @@ msgstr "Supprimer une commande de vente - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:130
-#, python-format
-msgid "Delete Order Line - Unauthorized function"
-msgstr "Supprimer une ligne de commande de vente - Fonctionnalité non autorisée"
-
-#. module: pos_access_right
-#. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:144
 #, python-format
 msgid "Discount - Unauthorized function"
@@ -76,12 +69,6 @@ msgid "Point of Sale - Delete Order"
 msgstr "Point de Vente - Supprimer une commande"
 
 #. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_pos_delete_order_line
-#: model:res.groups,name:pos_access_right.group_pos_delete_order_line
-msgid "Point of Sale - Delete Order Line"
-msgstr "Point de Vente - Supprimer une ligne de commande"
-
-#. module: pos_access_right
 #: model:res.groups,name:pos_access_right.group_pos_discount
 msgid "Point of Sale - Discount"
 msgstr "Point de Vente - Remise"
@@ -116,11 +103,6 @@ msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les quanti
 #: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_change_unit_price
 msgid "This field is there to pass the id of the 'PoS - Allow Unit Price Change' Group to the Point of Sale Frontend."
 msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les changements de prix' au sein du point de vente tactile."
-
-#. module: pos_access_right
-#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_delete_order_line
-msgid "This field is there to pass the id of the 'PoS - Delete Order Line' Group to the Point of Sale Frontend."
-msgstr "The champs existe pour passer l'ID du groupe 'PdV - Supprimer une ligne de commande' au sein du point de vente tactile."
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_delete_order
