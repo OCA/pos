@@ -44,13 +44,6 @@ class PosConfig(models.Model):
         help="This field is there to pass the id of the 'PoS - Delete Order'"
         " Group to the Point of Sale Frontend.")
 
-    group_pos_delete_order_line = fields.Many2one(
-        comodel_name='res.groups',
-        compute='_compute_group_pos_delete_order_line',
-        string='Point of Sale - Delete Order Line',
-        help="This field is there to pass the id of the 'PoS - Delete Order"
-        " Line' Group to the Point of Sale Frontend.")
-
     @api.multi
     def _compute_group_pos_negative_qty(self):
         for config in self:
@@ -72,17 +65,11 @@ class PosConfig(models.Model):
     @api.multi
     def _compute_group_pos_multi_order(self):
         for config in self:
-            self.group_pos_discount = \
+            self.group_pos_multi_order = \
                 self.env.ref('pos_access_right.group_pos_multi_order')
 
     @api.multi
     def _compute_group_pos_delete_order(self):
         for config in self:
-            self.group_pos_discount = \
+            self.group_pos_delete_order = \
                 self.env.ref('pos_access_right.group_pos_delete_order')
-
-    @api.multi
-    def _compute_group_pos_delete_order_line(self):
-        for config in self:
-            self.group_pos_discount = \
-                self.env.ref('pos_access_right.group_pos_delete_order_line')

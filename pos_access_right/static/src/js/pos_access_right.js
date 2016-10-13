@@ -39,12 +39,6 @@ point_of_sale.gui
         else{
             $(".mode-button[data-mode='price']").addClass('pos-disabled-mode');
         }
-        if (user.groups_id.indexOf(this.pos.config.group_pos_delete_order_line[0]) != -1){
-            $('.numpad-backspace').removeClass('pos-disabled-mode');
-        }
-        else{
-            $('.numpad-backspace').addClass('pos-disabled-mode');
-        }
     };
 
 
@@ -58,7 +52,6 @@ point_of_sale.models
     models.load_fields("pos.config", "group_pos_change_unit_price");
     models.load_fields("pos.config", "group_pos_multi_order");
     models.load_fields("pos.config", "group_pos_delete_order");
-    models.load_fields("pos.config", "group_pos_delete_order_line");
 
     // Overload 'set_cashier' function to display correctly
     // unauthorized function after cashier changed
@@ -115,19 +108,6 @@ screens.NumpadWidget
             if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_pos_negative_qty[0]) == -1) {
                 this.gui.show_popup('error',{
                     'title': _t('Negative Quantity - Unauthorized function'),
-                    'body':  _t('Please ask your manager to do it.'),
-                });
-            }
-            else {
-                return this._super();
-            }
-        },
-
-        // block '+/-' button if user doesn't belong to the correct group
-        clickDeleteLastChar: function() {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_pos_delete_order_line[0]) == -1) {
-                this.gui.show_popup('error',{
-                    'title': _t('Delete Order Line - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
                 });
             }
