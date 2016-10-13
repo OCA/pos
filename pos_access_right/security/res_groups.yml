@@ -23,7 +23,3 @@
 - !record {model: res.groups, id: group_pos_delete_order}:
     name: Point of Sale - Delete Order
     category_id: base.module_category_usability
-
-- !record {model: res.groups, id: group_pos_delete_order_line}:
-    name: Point of Sale - Delete Order Line
-    category_id: base.module_category_usability
