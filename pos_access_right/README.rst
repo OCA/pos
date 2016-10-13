@@ -26,8 +26,6 @@ This module will add the following groups to Odoo:
 
 * PoS - Delete Order: The cashier can not delete a full order;
 
-* PoS - Delete Order Line: The cashier can not delete an order line;
-
 .. image:: /pos_access_right/static/description/new_groups.png
 
 If a user doesn't belong to a group, he can not use the according feature.
