@@ -24,7 +24,4 @@
         'demo/pos_config.yml',
     ],
     'installable': True,
-    'external_dependencies': {
-        'python': ['openupgradelib'],
-    },
 }
