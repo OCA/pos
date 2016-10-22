@@ -1,1 +1,3 @@
-from . import pos_customer_display
+# -*- coding: utf-8 -*-
+
+from . import models
