@@ -1,24 +1,26 @@
 <?xml version="1.0"?>
-<openerp>
-    <data>
-        <record id="view_pos_config_form2" model="ir.ui.view">
-            <field name="name">pos.config.form.view.inherit</field>
-            <field name="model">pos.config</field>
-            <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
-            <field name="arch" type="xml">
-                <field name="iface_cashdrawer" position="after">
-                    <field name="iface_customer_display"/>
-                    <field name="customer_display_line_length"/>
-                </field>
-                <group name="receipt" position="after">
-                    <group name="customer_display" string="Customer Display">
-                        <field name="customer_display_msg_next_l1"/>
-                        <field name="customer_display_msg_next_l2"/>
-                        <field name="customer_display_msg_closed_l1"/>
-                        <field name="customer_display_msg_closed_l2"/>
-                    </group>
-                </group>
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="name">pos_customer_display.pos.config.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="arch" type="xml">
+            <field name="iface_cashdrawer" position="after">
+                <field name="iface_customer_display"/>
+                <field name="customer_display_line_length"/>
             </field>
-        </record>
-    </data>
-</openerp>
+            <group name="receipt" position="after">
+                <group name="customer_display" string="Customer Display">
+                    <label string="Next Customer Message" name="next_customer" colspan="2"/>
+                    <field name="customer_display_msg_next_l1" string="Top Line"/>
+                    <field name="customer_display_msg_next_l2" string="Bottom Line"/>
+                    <label string="POS Closed Message" name="pos_closed" colspan="2"/>
+                    <field name="customer_display_msg_closed_l1" string="Top Line"/>
+                    <field name="customer_display_msg_closed_l2" string="Bottom Line"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
