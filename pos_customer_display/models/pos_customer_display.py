@@ -1,28 +1,10 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    POS Customer Display module for Odoo
-#    Copyright (C) 2014 Aurélien DUMAINE
-#    Copyright (C) 2015 Akretion (www.akretion.com)
-#    @author: Alexis de Lattre <alexis.delattre@akretion.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# © 2014-2016 Aurélien DUMAINE
+# © 2015-2016 Akretion (Alexis de Lattre <alexis.delattre@akretion.com>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
-from openerp.exceptions import ValidationError
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class PosConfig(models.Model):
@@ -70,8 +52,8 @@ class PosConfig(models.Model):
             }
             for field, msg in to_check.iteritems():
                 if msg and len(msg) > maxsize:
-                    raise ValidationError(
-                        _("The message for customer display '%s' is too "
-                            "long: it has %d chars whereas the maximum "
-                            "is %d chars.")
+                    raise ValidationError(_(
+                        "The message for customer display '%s' is too "
+                        "long: it has %d chars whereas the maximum "
+                        "is %d chars.")
                         % (field, len(msg), maxsize))
