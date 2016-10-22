@@ -22,7 +22,7 @@
 
 {
     'name': 'POS Customer Display',
-    'version': '8.0.0.1.0',
+    'version': '9.0.0.1.0',
     'category': 'Point Of Sale',
     'summary': 'Manage Customer Display device from POS front end',
     'description': """
