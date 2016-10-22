@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<openerp>
-<data noupdate="1">
+<odoo noupdate="1">
 
 
 <record id="point_of_sale.pos_config_main" model="pos.config">
@@ -9,5 +8,4 @@
 </record>
 
 
-</data>
-</openerp>
+</odoo>
