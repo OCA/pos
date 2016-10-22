@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
-        <template id="assets" name="pos_customer_display assets" inherit_id="point_of_sale.assets">
-            <xpath expr="." position="inside">
-                <script type="text/javascript" src="/pos_customer_display/static/src/js/customer_display.js"></script>
-                <link rel="stylesheet" href="/pos_customer_display/static/src/css/pos_customer_display.css" id="pos_customer_display-stylesheet"/>
-            </xpath>
-        </template>
-    </data>
-</openerp>
+<odoo>
+
+    <template id="assets" name="pos_customer_display assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_customer_display/static/src/js/customer_display.js"></script>
+        </xpath>
+    </template>
+
+</odoo>
