@@ -1,11 +1,11 @@
 /*
-    POS Customer display module for Odoo
-    Copyright (C) 2014 Aurélien DUMAINE
-    Copyright (C) 2014 Barroux Abbey (www.barroux.org)
+    © 2014-2016 Aurélien DUMAINE
+    © 2014-2016 Barroux Abbey (www.barroux.org)
+    © 2014-2016 Akretion (www.akretion.com)
     @author: Aurélien DUMAINE
     @author: Alexis de Lattre <alexis.delattre@akretion.com>
     @author: Father Odilon (Barroux Abbey)
-    The licence is in the file __openerp__.py
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
 odoo.define('pos_customer_display', function(require) {
@@ -244,18 +244,11 @@ odoo.define('pos_customer_display', function(require) {
         },
     });
 
-    /* Handle Button "Display Total to Customer" */
-    var _saved_renderElement = screens.OrderWidget.prototype.renderElement;
-    screens.OrderWidget.prototype.renderElement = function() {
-        _saved_renderElement.apply(this, arguments);
-        var self = this;
-        if (self.pos.config.iface_customer_display && self.el.querySelector('.show-total-to-customer')) {
-            // .show-total-to-customer is empty when we show the bon during payment
-            self.el.querySelector('.show-total-to-customer')
-                .addEventListener('click', function(){
-                    self.pos.prepare_text_customer_display('add_paymentline', {})
-                });
-        }
-    };
-});
+    screens.PaymentScreenWidget.include({
+        show: function(){
+            this._super();
+            this.pos.prepare_text_customer_display('add_paymentline', {});
+        },
+    });
 
+});
