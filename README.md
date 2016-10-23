@@ -12,7 +12,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[pos_customer_display](pos_customer_display/) | 8.0.0.1.0 | Manage Customer Display device from POS front end
+[pos_customer_display](pos_customer_display/) | 9.0.0.1.0 | Manage Customer Display device from POS front end
 
 Unported addons
 ---------------
