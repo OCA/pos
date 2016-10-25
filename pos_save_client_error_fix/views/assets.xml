@@ -1,0 +1,11 @@
+<openerp>
+<data>
+
+    <template id="pos_save_client_error_fix_assets" name="pos_save_client_error_fix assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_save_client_error_fix/static/src/js/pos_save_client_error_fix.js"></script>
+        </xpath>
+    </template>
+
+</data>
+</openerp>
