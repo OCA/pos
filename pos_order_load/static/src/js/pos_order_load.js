@@ -95,8 +95,7 @@ openerp.pos_order_load = function(instance, local) {
             this.orderlist_screen.appendTo(this.$('.screens'));
             this.orderlist_screen.hide();
 
-            this.screen_selector.screen_set['orderlist'] =
-                this.orderlist_screen;
+            this.screen_selector.screen_set.orderlist = this.orderlist_screen;
 
             // Add buttons
             this.load_button = new module.LoadButtonWidget(this,{});
@@ -232,10 +231,9 @@ openerp.pos_order_load = function(instance, local) {
             return orderModel.call('load_order', [order_id])
             .then(function (result) {
                 var order = self.pos.get('selectedOrder');
-                var result = result[0];
                 order = self.load_order_fields(order, result);
                 order.get('orderLines').reset();
-                var orderlines = result.orderlines || [];
+                var orderlines = result.orderlines || [];
                 var unknown_products = [];
                 for (var i=0, len=orderlines.length; i<len; i++) {
                     var orderline = orderlines[i];
@@ -247,7 +245,7 @@ openerp.pos_order_load = function(instance, local) {
                         continue;
                     }
 
-                    for (key in orderline) {
+                    for (var key in orderline) {
                         if (!key.indexOf('product__')) {
                             product = self.add_product_attribute(
                                     product, key, orderline
@@ -330,7 +328,7 @@ openerp.pos_order_load = function(instance, local) {
         },
 
         on_click_draft_order: function(event){
-            this.current_order_id = parseInt(event.target.parentNode.dataset['orderId']);
+            this.current_order_id = parseInt(event.target.parentNode.dataset.orderId);
             this.load_order(this.current_order_id);
         },
 
@@ -351,7 +349,7 @@ openerp.pos_order_load = function(instance, local) {
         },
 
         perform_search: function(query){
-            this.load_orders(query)
+            this.load_orders(query);
         },
 
         clear_search: function(){
@@ -362,4 +360,4 @@ openerp.pos_order_load = function(instance, local) {
 
     });
 
-}
+};
