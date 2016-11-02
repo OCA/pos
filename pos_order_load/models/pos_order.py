@@ -68,15 +68,16 @@ class PosOrder(models.Model):
         fields = ['name', 'partner_id', 'amount_total']
         return self.search_read(condition, fields, limit=10)
 
-    @api.one
-    def load_order(self):
-        condition = [('order_id', '=', self.id)]
+    @api.model
+    def load_order(self, order_id):
+        order = self.browse(order_id)
+        condition = [('order_id', '=', order_id)]
         fields = ['product_id', 'price_unit', 'qty', 'discount']
         orderlines = self.lines.search_read(condition, fields)
         return {
-            'id': self.id,
-            'name': self.pos_reference,
-            'partner_id': self.partner_id and self.partner_id.id or False,
+            'id': order.id,
+            'name': order.pos_reference,
+            'partner_id': self.partner_id.id,
             'orderlines': orderlines
         }
 
