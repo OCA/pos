@@ -4,23 +4,23 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-- !record {model: res.groups, id: group_pos_negative_qty}:
+- !record {model: res.groups, id: group_negative_qty}:
     users:
         - base.user_root
 
-- !record {model: res.groups, id: group_pos_discount}:
+- !record {model: res.groups, id: group_discount}:
     users:
         - base.user_root
         - base.user_demo
 
-- !record {model: res.groups, id: group_pos_change_unit_price}:
+- !record {model: res.groups, id: group_change_unit_price}:
     users:
         - base.user_root
 
-- !record {model: res.groups, id: group_pos_multi_order}:
+- !record {model: res.groups, id: group_multi_order}:
     users:
         - base.user_root
 
-- !record {model: res.groups, id: group_pos_delete_order}:
+- !record {model: res.groups, id: group_delete_order}:
     users:
         - base.user_root
