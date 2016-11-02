@@ -8,7 +8,7 @@
     'version': '9.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Point of Sale - Extra Access Right for certain actions',
-    'author': 'La Louve, Odoo Community Association (OCA)',
+    'author': 'La Louve, GRAP, Odoo Community Association (OCA)',
     'website': 'http://www.lalouve.net/',
     'license': 'AGPL-3',
     'depends': [
