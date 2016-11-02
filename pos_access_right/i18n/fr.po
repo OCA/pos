@@ -63,54 +63,54 @@ msgid "Please ask your manager to do it."
 msgstr "Veuillez vous rapprocher d'un superviseur"
 
 #. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_pos_delete_order
-#: model:res.groups,name:pos_access_right.group_pos_delete_order
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_delete_order
+#: model:res.groups,name:pos_access_right.group_delete_order
 msgid "Point of Sale - Delete Order"
 msgstr "Point de Vente - Supprimer une commande"
 
 #. module: pos_access_right
-#: model:res.groups,name:pos_access_right.group_pos_discount
+#: model:res.groups,name:pos_access_right.group_discount
 msgid "Point of Sale - Discount"
 msgstr "Point de Vente - Remise"
 
 #. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_pos_multi_order
-#: model:res.groups,name:pos_access_right.group_pos_multi_order
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_multi_order
+#: model:res.groups,name:pos_access_right.group_multi_order
 msgid "Point of Sale - Many Orders"
 msgstr "Point de Vente - Plusieurs commandes simultanées"
 
 #. module: pos_access_right
-#: model:res.groups,name:pos_access_right.group_pos_negative_qty
+#: model:res.groups,name:pos_access_right.group_negative_qty
 msgid "Point of Sale - Negative Quantity"
 msgstr "Point de Vente - Quantité négative"
 
 #. module: pos_access_right
-#: model:res.groups,name:pos_access_right.group_pos_change_unit_price
+#: model:res.groups,name:pos_access_right.group_change_unit_price
 msgid "Point of Sale - Unit Price Change"
 msgstr "Point de Vente - Changer de prix"
 
 #. module: pos_access_right
-#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_discount
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_discount
 msgid "This field is there to pass the id of the 'PoS - Allow Discount' Group to the Point of Sale Frontend."
 msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les remises' au sein du point de vente tactile."
 
 #. module: pos_access_right
-#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_negative_qty
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_negative_qty
 msgid "This field is there to pass the id of the 'PoS - Allow Negative Quantity' Group to the Point of Sale Frontend."
 msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les quantités négatives' au sein du point de vente tactile."
 
 #. module: pos_access_right
-#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_change_unit_price
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_change_unit_price
 msgid "This field is there to pass the id of the 'PoS - Allow Unit Price Change' Group to the Point of Sale Frontend."
 msgstr "The champs existe pour passer l'ID du groupe 'PdV - Autoriser les changements de prix' au sein du point de vente tactile."
 
 #. module: pos_access_right
-#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_delete_order
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_delete_order
 msgid "This field is there to pass the id of the 'PoS - Delete Order' Group to the Point of Sale Frontend."
 msgstr "The champs existe pour passer l'ID du groupe 'PdV - Supprimer une commande' au sein du point de vente tactile."
 
 #. module: pos_access_right
-#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_pos_multi_order
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_multi_order
 msgid "This field is there to pass the id of the 'PoS - Many Orders Group to the Point of Sale Frontend."
 msgstr "The champs existe pour passer l'ID du groupe 'PdV - Plusieurs commandes' au sein du point de vente tactile."
 
