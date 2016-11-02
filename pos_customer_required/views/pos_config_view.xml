@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
+    Copyright (C) 2016-Today La Louve (<http://www.lalouve.net/>)
+
+    @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+
+    The licence is in the file __openerp__.py
+-->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_config_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form" />
+        <field name="arch" type="xml">
+            <field name="iface_tax_included" position="after">
+                    <field name="require_customer" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
