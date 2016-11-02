@@ -1,0 +1,15 @@
+/*
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+*/
+
+.pos .pos-branding .pos-logout{
+    float:right;
+    color:#DDD;
+    font-size:16px;
+    margin-right:32px;
+    line-height: 48px;
+    font-style:italic;
+    cursor: pointer;
+}
