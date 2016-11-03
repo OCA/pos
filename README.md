@@ -13,6 +13,8 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [pos_customer_display](pos_customer_display/) | 9.0.0.1.0 | Manage Customer Display device from POS front end
+[pos_customer_required](pos_customer_required/) | 9.0.1.0.0 | Point of Sale Require Customer
+[pos_quick_logout](pos_quick_logout/) | 9.0.1.0.0 | Allow PoS user to logout quickly after user changed
 
 Unported addons
 ---------------
