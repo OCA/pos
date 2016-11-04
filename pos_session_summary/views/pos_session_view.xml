@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_session_tree">
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_tree"/>
+        <field name="arch" type="xml">
+            <field name="stop_at" position="after">
+                <field name="order_qty" />
+                <field name="total_amount" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_pos_session_form">
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <field name="config_id" position="after">
+                <field name="order_qty" />
+                <field name="total_amount" />
+            </field>
+            <field name="total_entry_encoding" position="replace">
+                <field name="total_entry_encoding_sales" />
+                <field name="total_entry_encoding_cash" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
+
