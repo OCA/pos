@@ -11,9 +11,9 @@ depending on a given barcode rule.
 
 For exemple, a typical pattern for products is  "23.....{NNNDD}" that means
 that:
-* the EAN13 code will begin by '23' ;
-* followed by 5 digits (named Barcode Base in this module, ) ;
-* and after 5 others digits to define the variable price ;
+* the EAN13 code will begin by '23'
+* followed by 5 digits (named Barcode Base in this module)
+* and after 5 others digits to define the variable price
 * a 13 digit control
 
 With this module, it is possible to:
@@ -21,7 +21,16 @@ With this module, it is possible to:
 * Affect a pattern (barcode.rule) to a product.product or a res.partner
 
 * Generate the next Barcode base of a pattern. (to avoid duplicate barcode)
+
 * Generate a barcode, based on a pattern and a barcode base
+
+Installation
+============
+
+This module use an extra python librairy named 'pyBarcode' you should install
+to make barcode generation works properly.
+
+sudo pip install pyBarcode
 
 Configuration
 =============
@@ -63,10 +72,32 @@ Try this module on Runbot
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/184/9.0
 
+Inheritance
+===========
+
+If you want to generate barcode for another model, you can create a custom
+module that inherits on 'barcodes_generate' and inherit your model like that:
+
+class MyModel(models.Model):
+    _name = 'my.model'
+    _inherit = ['my.model', 'barcode.generate.mixin']
+
+class barcode_rule(models.Model):
+    _inherit = 'barcode.rule'
+
+    generate_model = fields.Selection(selection_add=[('my.model', 'My Model')])
+
+Finally, you should inherit your model view adding buttons and fields.
+
+Note
+----
+
+Your model should have a field 'barcode' defined.
+
 Known issues / Roadmap
 ======================
 
-Dependency to point_of_sale is required because barcode field, defined in 'base'
+1. Dependency to point_of_sale is required because barcode field, defined in 'base'
 module (in the res.partner model), is defined in a 'point_of_sale' view.
 Furthermore, barcode nomenclature menu is available on Point Of Sale submenu.
 
@@ -75,6 +106,9 @@ mostly in a Point of Sale context.
 
 You could comment 'point_of_sale' dependencies if you want to use this module
 without point of sale installed.
+
+2. On barcode.rule model, constraint and domain system could be set between
+'type' and 'generate_model' fields.
 
 Bug Tracker
 ===========

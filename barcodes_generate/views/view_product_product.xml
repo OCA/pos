@@ -14,25 +14,29 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="arch" type="xml">
             <field name="barcode" position="before">
                 <field name="barcode_rule_id"
-                    domain="[('is_product_available', '=', True)]"
-                    groups="barcodes_generate.generate_product_barcode" colspan="2"
-                    attrs="{'readonly': [('barcode', '!=', False)]}"/>
-                <field name="barcode_base" attrs="{'invisible': [('barcode_rule_id', '=', False)], 'readonly': [('barcode', '!=', False)]}"
-                    groups="barcodes_generate.generate_product_barcode" colspan="2"/>
+                    domain="[('generate_model', '=', 'product.product')]"
+                    groups="barcodes_generate.generate_barcode" colspan="2"/>
+                <field name="generate_type" invisible="1" />
+                <field name="barcode_base" attrs="{
+                    'invisible': [('barcode_rule_id', '=', False)],
+                    'readonly': [('generate_type', '!=', 'manual')]}"
+                    groups="barcodes_generate.generate_barcode" colspan="2"/>
+                <button name="generate_base" type="object" string="Generate Base (Using Sequence)" attrs="{'invisible': ['|',
+                    ('generate_type', '!=', 'sequence'),
+                    ('barcode_base', '!=', 0)]}"
+                    groups="barcodes_generate.generate_barcode" colspan="2"/>
             </field>
+
+            <field name="barcode" position="attributes">
+                <attribute name="attrs">{'readonly': [('generate_type', '=', 'sequence')]}</attribute>
+            </field>
+
             <field name="barcode" position="after">
-                <button name="generate_base_barcode" type="object" string="Generate Base and Barcode"
-                    attrs="{'invisible': ['|', '|',
+                <button name="generate_barcode" type="object" string="Generate Barcode (Using Barcode Rule)"
+                    attrs="{'invisible': ['|',
                             ('barcode_rule_id', '=', False),
-                            ('barcode', '!=', False),
-                            ('barcode_base', '!=', False)]}"
-                    groups="barcodes_generate.generate_product_barcode" colspan="1"/>
-                <button name="generate_barcode" type="object" string="Generate Barcode"
-                    attrs="{'invisible': ['|', '|',
-                            ('barcode_rule_id', '=', False),
-                            ('barcode_base', '=', False),
-                            ('barcode', '!=', False)]}"
-                    groups="barcodes_generate.generate_partner_barcode" colspan="1"/>
+                            ('barcode_base', '=', 0)]}"
+                    groups="barcodes_generate.generate_barcode" colspan="2"/>
             </field>
         </field>
     </record>

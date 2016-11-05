@@ -8,8 +8,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 <odoo>
 
-    <record id="generate_barcode" model="res.groups">
-        <field name="name">Generate Barcodes</field>
+    <record id="partner_ir_sequence" model="ir.sequence">
+        <field name="name">Partner Sequence (Generated Barcode)</field>
+        <field name="padding">10</field>
     </record>
 
 </odoo>

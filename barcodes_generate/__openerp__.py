@@ -28,6 +28,7 @@
     'demo': [
         'demo/res_users.xml',
         'demo/barcode_rule.xml',
+        'demo/ir_sequence.xml',
     ],
     'images': [
         'static/description/barcode_rule.png'

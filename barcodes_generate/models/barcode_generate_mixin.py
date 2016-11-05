@@ -6,7 +6,10 @@
 
 import logging
 
-from openerp import models, fields, api, exceptions
+from openerp import models, fields, api, exceptions, _
+
+from openerp.addons.barcodes_generate.models.barcode_rule import\
+    _GENERATE_TYPE
 
 _logger = logging.getLogger(__name__)
 
@@ -24,80 +27,44 @@ class barcode_generate_mixin(models.AbstractModel):
     barcode_rule_id = fields.Many2one(
         string='Barcode Rule', comodel_name='barcode.rule')
 
-    barcode_base = fields.Char(string='Barcode Base')
+    barcode_base = fields.Integer(string='Barcode Base')
 
-    # Constrains Section
-    @api.multi
-    @api.constrains('barcode_base')
-    def _constrains_barcode_base(self):
-        for item in self:
-            if item.barcode_base and not item.barcode_base.isdigit():
-                raise exceptions.Warning(_("Barcode Base should be numeric"))
+    generate_type = fields.Selection(
+        string='Generate Type', selection=_GENERATE_TYPE, readonly=True,
+        related='barcode_rule_id.generate_type')
 
     # View Section
     @api.multi
     def generate_base(self):
         for item in self:
-            padding = item.barcode_rule_id.pattern.count('.')
-            full_padding = item.barcode_rule_id.pattern.count('.') +\
-                item.barcode_rule_id.pattern.count('N') +\
-                item.barcode_rule_id.pattern.count('D')
-            generic_code = self._get_custom_barcode(item)
-            full_generic_code = self._get_custom_barcode(item, True)
-            if generic_code:
-                generic_code = generic_code.replace(
-                    '.' * padding, '_' * padding)
-                full_generic_code = full_generic_code.replace(
-                    '.' * full_padding, '_' * full_padding)
-                reserved_barcodes = self.search(
-                    [('barcode', 'ilike', full_generic_code)]).mapped(
-                        'barcode')
-                next_base = str(self._get_next_integer_base(
-                    item, generic_code, reserved_barcodes)).rjust(padding, '0')
-                item.barcode_base = next_base
+            if item.generate_type != 'sequence':
+                raise exceptions.UserError(_(
+                    "Generate Base can be used only with barcode rule with"
+                    " 'Generate Type' set to 'Base managed by Sequence'"))
+            else:
+                item.barcode_base =\
+                    item.barcode_rule_id.sequence_id.next_by_id()
 
     @api.multi
     def generate_barcode(self):
         for item in self:
-            padding = item.barcode_rule_id.pattern.count('.')
-            full_base = str(item.barcode_base).rjust(padding, '0')
+            padding = item.barcode_rule_id.padding
+            str_base = str(item.barcode_base).rjust(padding, '0')
             custom_code = self._get_custom_barcode(item)
             if custom_code:
-                custom_code = custom_code.replace('.' * padding, full_base)
+                custom_code = custom_code.replace('.' * padding, str_base)
                 barcode_class = barcode.get_barcode_class(
                     item.barcode_rule_id.encoding)
                 item.barcode = barcode_class(custom_code)
 
-    @api.multi
-    def generate_base_barcode(self):
-        for item in self:
-            if not item.barcode_base:
-                item.generate_base()
-            item.generate_barcode()
-
     # Custom Section
     @api.model
-    def _get_next_integer_base(self, item, generic_code, reserved_barcodes):
-        """Given a list of reserved_barcodes, This will return the next"
-        base barcode. By default, return the max barcode base + 1.
-        Overload / Overwrite this function to provide custom behaviour.
-        (specially, fill gaps functionnality).
-        generic_code should have the '_' pattern.
-        """
-        if not reserved_barcodes:
-            return 1
-        max_barcode = sorted(reserved_barcodes)[len(reserved_barcodes) - 1]
-        begin = generic_code.find('_')
-        end = begin + generic_code.count('_')
-        return int(max_barcode[begin:end]) + 1
-
-    @api.model
-    def _get_custom_barcode(self, item, full=False):
+    def _get_custom_barcode(self, item):
         """
             if the pattern is '23.....{NNNDD}'
             this function will return '23.....00000'
-            or return                 '23..........'
-            if 'full' is set to True
+            Note : Overload _get_replacement_char to have another char
+            instead that replace 'N' and 'D' char.
         """
         if not item.barcode_rule_id:
                 return False
@@ -105,13 +72,10 @@ class barcode_generate_mixin(models.AbstractModel):
         # Define barcode
         custom_code = item.barcode_rule_id.pattern
         custom_code = custom_code.replace('{', '').replace('}', '')
-        if not full:
-            custom_code = custom_code.replace(
-                'D', self._get_replacement_char('D'))
-            return custom_code.replace(
-                'N', self._get_replacement_char('N'))
-        else:
-            return custom_code.replace('D', '.').replace('N', '.')
+        custom_code = custom_code.replace(
+            'D', self._get_replacement_char('D'))
+        return custom_code.replace(
+            'N', self._get_replacement_char('N'))
 
     @api.model
     def _get_replacement_char(self, char):

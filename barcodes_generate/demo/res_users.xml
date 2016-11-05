@@ -10,8 +10,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <record id="base.user_root" model="res.users">
         <field name="groups_id" eval="[
-            (4, ref('barcodes_generate.generate_product_barcode')),
-            (4, ref('barcodes_generate.generate_partner_barcode')),
+            (4, ref('barcodes_generate.generate_barcode')),
             (4, ref('product.group_product_variant')),
             ]" />
     </record>
