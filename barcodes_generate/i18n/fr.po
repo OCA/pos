@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-05 15:15+0000\n"
-"PO-Revision-Date: 2016-11-05 15:15+0000\n"
+"POT-Creation-Date: 2016-11-08 10:26+0000\n"
+"PO-Revision-Date: 2016-11-08 10:26+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,7 @@ msgstr ""
 #: model:ir.model.fields,help:barcodes_generate.field_barcode_generate_mixin_generate_type
 #: model:ir.model.fields,help:barcodes_generate.field_barcode_rule_generate_type
 #: model:ir.model.fields,help:barcodes_generate.field_product_product_generate_type
+#: model:ir.model.fields,help:barcodes_generate.field_product_template_generate_type
 #: model:ir.model.fields,help:barcodes_generate.field_res_partner_generate_type
 msgid "Allow to generate barcode, including a number  (a base) in the final barcode.\n"
 " 'Base Set Manually' : User should set manually the value of the barcode base\n"
@@ -35,6 +36,7 @@ msgstr "Disponible dans le point de vente"
 #. module: barcodes_generate
 #: model:ir.model.fields,field_description:barcodes_generate.field_barcode_generate_mixin_barcode_base
 #: model:ir.model.fields,field_description:barcodes_generate.field_product_product_barcode_base
+#: model:ir.model.fields,field_description:barcodes_generate.field_product_template_barcode_base
 #: model:ir.model.fields,field_description:barcodes_generate.field_res_partner_barcode_base
 msgid "Barcode Base"
 msgstr "Base du code Barre"
@@ -47,6 +49,7 @@ msgstr "Génération d'un code barre"
 #. module: barcodes_generate
 #: model:ir.model.fields,field_description:barcodes_generate.field_barcode_generate_mixin_barcode_rule_id
 #: model:ir.model.fields,field_description:barcodes_generate.field_product_product_barcode_rule_id
+#: model:ir.model.fields,field_description:barcodes_generate.field_product_template_barcode_rule_id
 #: model:ir.model.fields,field_description:barcodes_generate.field_res_partner_barcode_rule_id
 msgid "Barcode Rule"
 msgstr "Règle de code barre"
@@ -78,6 +81,7 @@ msgstr "Nom affiché"
 
 #. module: barcodes_generate
 #: model:ir.ui.view,arch_db:barcodes_generate.view_product_product_form
+#: model:ir.ui.view,arch_db:barcodes_generate.view_product_template_form
 #: model:ir.ui.view,arch_db:barcodes_generate.view_res_partner_form
 msgid "Generate Barcode (Using Barcode Rule)"
 msgstr "Générer un code barre (via règle de codes barre)"
@@ -89,12 +93,13 @@ msgstr "Générer des codes barre"
 
 #. module: barcodes_generate
 #: model:ir.ui.view,arch_db:barcodes_generate.view_product_product_form
+#: model:ir.ui.view,arch_db:barcodes_generate.view_product_template_form
 #: model:ir.ui.view,arch_db:barcodes_generate.view_res_partner_form
 msgid "Generate Base (Using Sequence)"
 msgstr "Générer une base (via une séquence)"
 
 #. module: barcodes_generate
-#: code:addons/barcodes_generate/models/barcode_generate_mixin.py:41
+#: code:addons/barcodes_generate/models/barcode_generate_mixin.py:40
 #, python-format
 msgid "Generate Base can be used only with barcode rule with 'Generate Type' set to 'Base managed by Sequence'"
 msgstr "Générer une base de code barre peut être utilisée seulement si la règle de code barre est de type 'gérée via une séquence'"
@@ -119,6 +124,7 @@ msgstr "Générer une séquence possible seulement si le type de génération es
 #: model:ir.model.fields,field_description:barcodes_generate.field_barcode_generate_mixin_generate_type
 #: model:ir.model.fields,field_description:barcodes_generate.field_barcode_rule_generate_type
 #: model:ir.model.fields,field_description:barcodes_generate.field_product_product_generate_type
+#: model:ir.model.fields,field_description:barcodes_generate.field_product_template_generate_type
 #: model:ir.model.fields,field_description:barcodes_generate.field_res_partner_generate_type
 msgid "Generate Type"
 msgstr "Type de génération"
@@ -164,6 +170,11 @@ msgid "Product"
 msgstr "Article"
 
 #. module: barcodes_generate
+#: model:ir.model,name:barcodes_generate.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: barcodes_generate
 #: selection:barcode.rule,generate_model:0
 msgid "Products"
 msgstr "Variantes d'article"
@@ -178,6 +189,20 @@ msgstr "Séquence"
 #, python-format
 msgid "Sequence - %s"
 msgstr "Séquence - %s"
+
+#. module: barcodes_generate
+#: model:product.template,name:barcodes_generate.product_template_barcode_mono_variant
+msgid "Template with Generated Barcode (Mono Variant)"
+msgstr "Article avec un code barre généré (Mono Variante)"
+
+#. module: barcodes_generate
+#: model:product.product,name:barcodes_generate.product_product_barcode_variant_1
+#: model:product.product,name:barcodes_generate.product_product_barcode_variant_2
+#: model:product.template,name:barcodes_generate.product_product_barcode_variant_1_product_template
+#: model:product.template,name:barcodes_generate.product_product_barcode_variant_2_product_template
+#: model:product.template,name:barcodes_generate.product_template_barcode_multi_variant
+msgid "Template with Generated Barcode (Multi Variant)"
+msgstr "Article avec un code barre généré (Multi Variante)"
 
 #. module: barcodes_generate
 #: model:ir.model.fields,help:barcodes_generate.field_product_product_pos_categ_id
@@ -203,3 +228,4 @@ msgstr "barcode.rule"
 #: model:ir.model.fields,help:barcodes_generate.field_barcode_rule_generate_model
 msgid "if 'Generate Type' is set, mention the model related to this rule."
 msgstr "Si le type de génération est défini, veuillez indiquer un modèle sur lequel l'appliquer."
+
