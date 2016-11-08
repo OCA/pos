@@ -39,15 +39,17 @@ class Tests(TransactionCase):
                 self.product_variant_1.barcode_base))
 
     def test_03_sequence_generation_partner(self):
-        # Reset sequence to avoid to fail if test are runned many times
-        self.sequence = self.sequence_obj.browse(self.ref(
-            'barcodes_generate.partner_ir_sequence'))
-        self.sequence.number_next_actual = 1
         self.partner = self.partner_obj.browse(self.ref(
             'barcodes_generate.res_partner_barcode'))
         self.partner.generate_barcode()
+
+        # Get Expected value
+        self.sequence = self.sequence_obj.browse(self.ref(
+            'barcodes_generate.partner_ir_sequence'))
+        expected_value = self.sequence.number_next_actual
+
         self.assertEqual(
-            self.partner.barcode_base, 1,
+            self.partner.barcode_base, expected_value,
             "Incorrect base Generation (by sequence) for Partner.")
         self.assertEqual(
             self.partner.barcode, "0420000000013",
