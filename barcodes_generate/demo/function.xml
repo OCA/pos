@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2016-Today: GRAP (http://www.grap.coop)
+Copyright (C) 2016-Today La Louve (http://www.lalouve.net)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo noupdate="1">
+
+    <function model="product.template" name="generate_barcode" eval="[ref('product_template_barcode_mono_variant')]"/>
+
+    <function model="product.product" name="generate_barcode" eval="[ref('product_product_barcode_variant_1')]"/>
+
+    <function model="product.product" name="generate_barcode" eval="[ref('product_product_barcode_variant_2')]"/>
+
+    <function model="res.partner" name="generate_base" eval="[ref('res_partner_barcode')]"/>
+
+    <function model="res.partner" name="generate_barcode" eval="[ref('res_partner_barcode')]"/>
+
+</odoo>
