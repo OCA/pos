@@ -39,7 +39,7 @@ msgstr ""
 #. module: pos_pricelist
 #: field:account.fiscal.position.tax,company_id:0
 msgid "Company"
-msgstr ""
+msgstr "Empresa"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_uid:0

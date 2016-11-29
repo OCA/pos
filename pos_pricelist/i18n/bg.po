@@ -54,7 +54,7 @@ msgstr "Създадено на"
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Име за Показване"
 
 #. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0

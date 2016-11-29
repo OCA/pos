@@ -136,7 +136,7 @@ msgstr ""
 #. module: pos_pricelist
 #: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
 msgid "Tax"
-msgstr ""
+msgstr "Porez"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,name:0

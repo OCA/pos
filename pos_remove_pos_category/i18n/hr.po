@@ -37,7 +37,7 @@ msgstr ""
 #. module: pos_remove_pos_category
 #: field:product.category,image:0
 msgid "Image"
-msgstr ""
+msgstr "Slika"
 
 #. module: pos_remove_pos_category
 #: field:product.category,image_medium:0

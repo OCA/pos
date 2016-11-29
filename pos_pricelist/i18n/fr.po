@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-15 21:29+0000\n"
-"PO-Revision-Date: 2016-09-17 19:03+0000\n"
+"POT-Creation-Date: 2016-09-18 01:07+0000\n"
+"PO-Revision-Date: 2016-11-25 14:55+0000\n"
 "Last-Translator: Christophe CHAUVET <christophe.chauvet@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/oca/OCA-pos-8-0/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -115,7 +115,7 @@ msgstr ""
 #. module: pos_pricelist
 #: view:pos.order:pos_pricelist.view_pos_pos_form
 msgid "Payments"
-msgstr ""
+msgstr "Paiements"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
