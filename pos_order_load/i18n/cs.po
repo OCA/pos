@@ -11,12 +11,12 @@ msgstr ""
 "POT-Creation-Date: 2016-12-02 03:44+0000\n"
 "PO-Revision-Date: 2016-12-02 03:44+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language-Team: Czech (https://www.transifex.com/oca/teams/23907/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. module: pos_order_load
 #. openerp-web
@@ -25,8 +25,6 @@ msgstr ""
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
-"Impossible d'exécuter cette action car le Point de vente est actuellement "
-"hors ligne"
 
 #. module: pos_order_load
 #. openerp-web
@@ -34,15 +32,13 @@ msgstr ""
 #, python-format
 msgid "Can not load the Selected Order because the POS is currently offline"
 msgstr ""
-"Impossible de charger la vente sélectionnée car le Point de vente est "
-"actuellement hors ligne"
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:28
 #, python-format
 msgid "Cancel"
-msgstr "Annuler"
+msgstr "Zrušit"
 
 #. module: pos_order_load
 #. openerp-web
@@ -51,61 +47,61 @@ msgstr "Annuler"
 #: code:addons/pos_order_load/static/src/js/pos_order_load.js:314
 #, python-format
 msgid "Connection error"
-msgstr "Erreur de connection"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:60
 #, python-format
 msgid "Customer"
-msgstr "Client"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:5
 #, python-format
 msgid "Load Draft Order"
-msgstr "Charger la vente en brouillon"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:59
 #, python-format
 msgid "Order"
-msgstr "Vente"
+msgstr ""
 
 #. module: pos_order_load
 #: model:ir.model,name:pos_order_load.model_pos_order
 msgid "Point of Sale"
-msgstr "Point de Vente"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:10
 #, python-format
 msgid "Save Current Order"
-msgstr "Sauvegarder la vente"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/js/pos_order_load.js:71
 #, python-format
 msgid "Save The current Order ?"
-msgstr "Sauvegarder la vente en cours ?"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:36
 #, python-format
 msgid "Search Orders"
-msgstr "Chercher des ventes"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:40
 #, python-format
 msgid "Select Order"
-msgstr "Choisir une vente"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
@@ -115,15 +111,13 @@ msgid ""
 "This operation will save the current order in a draft state. You'll have to "
 "mark it as paid after."
 msgstr ""
-"Cette opération va sauvegarder la vente en cours à l'état de brouillon. Vous"
-" devrez la marquer comme payée ultérieurement"
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:61
 #, python-format
 msgid "Total Amount"
-msgstr "Montant Total"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
@@ -136,22 +130,17 @@ msgid ""
 "\n"
 "  * "
 msgstr ""
-"Impossible de charger certaines lignes de ventes parce que les produits ne sont pas disponibles dans le cache du point de vente.\n"
-"\n"
-"Veuillez vérifier ces lignes :\n"
-"\n"
-"  * "
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/js/pos_order_load.js:266
 #, python-format
 msgid "Unknown Products"
-msgstr "Produits Iconnu"
+msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:32
 #, python-format
 msgid "Validate"
-msgstr "Valider"
+msgstr ""
