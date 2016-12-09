@@ -478,6 +478,28 @@ Overload: point_of_sale.PosDB
                 this.product_attribute_value_by_id[product_attribute_values[i].id] = product_attribute_values[i];
             }
         },
+    
+        /*
+        Overwrite  get_product_by_category so templates with lots of variants do not hide results
+        */
+        get_product_by_category: function(category_id){
+            var product_ids  = this.product_by_category_id[category_id];
+            var list = [];
+            if (product_ids) {
+                var templates = [];
+                var i = 0;
+                var product;
+                while (templates.length <= this.limit && i<5000 && i<product_ids.length) {
+                    product = this.product_by_id[product_ids[i]];
+                    if (templates.indexOf(product.product_tmpl_id)==-1) {
+                        templates.push(product.product_tmpl_id)
+                    }
+                    list.push(product);
+                    i++;
+                }
+            }
+            return list;
+        },
     });
 
 
