@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_default_customer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-18 17:49+0000\n"
+"PO-Revision-Date: 2016-07-18 19:51+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.3\n"
+"Language: es_ES\n"
+
+#. module: pos_default_customer
+#: view:pos.config:pos_default_customer.view_pos_config_form
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: pos_default_customer
+#: field:pos.config,default_partner_id:0
+msgid "Partner"
+msgstr "Cliente por defecto"
