@@ -39,6 +39,12 @@ except (ImportError, IOError) as err:
     logger.debug(err)
 
 
+try:
+    from unidecode import unidecode
+except ImportError:
+    logger.info('`unidecode` Python pacakge not found')
+
+
 class CustomerDisplayDriver(Thread):
     def __init__(self):
         Thread.__init__(self)
