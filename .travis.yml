@@ -1,10 +1,12 @@
 language: python
+sudo: false
+cache:
+  apt: true
+  directories:
+    - $HOME/.cache/pip
 
 python:
   - "2.7"
-
-sudo: false
-cache: pip
 
 addons:
   apt:
@@ -15,28 +17,33 @@ addons:
       - python-lxml  # because pip installation is slow
       - wkhtmltopdf
 
-env:
-  - VERSION="9.0" LINT_CHECK="1"
-  - VERSION="9.0" ODOO_REPO="odoo/odoo" LINT_CHECK="0"
-  - VERSION="9.0" ODOO_REPO="OCA/OCB" LINT_CHECK="0"
-  - VERSION="9.0" UNIT_TEST="1" LINT_CHECK="0"
-
-virtualenv:
-  system_site_packages: true
-
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 
+env:
+  global:
+  - VERSION="9.0" TESTS="0" LINT_CHECK="0" TRANSIFEX="0"
+  - TRANSIFEX_USER='transbot@odoo-community.org'
+  - secure: jX9I8iBSTGMGYNzj5zJkh/bvmXmemjqlKpVezZ2QMqaoXHgPPUlktxBwTMlmNeuJ5L9DlDiCqOiXpF41LDmKmjX/e99G15cvNSfQc/jG+exIfo9KSbc6aQSu8cqP+yu1MGTsuuq67Wm8N45+fFJGGsySUbGWFPXnF4MVIiZpqx0=
+
+  matrix:
+  - LINT_CHECK="1"
+  - TRANSIFEX="1"
+  - TESTS="1" ODOO_REPO="odoo/odoo"
+  - TESTS="1" ODOO_REPO="OCA/OCB"
+
+virtualenv:
+  system_site_packages: true
+
 install:
-  - git clone https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
+  - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
   - printf '[options]\n\nrunning_env = dev' > ${HOME}/.openerp_serverrc
-  - pip install unidecode pyserial pycountry openupgradelib
 
 script:
   - travis_run_tests
 
 after_success:
-  coveralls
+  - travis_after_tests_success
