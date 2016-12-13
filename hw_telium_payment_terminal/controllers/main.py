@@ -40,6 +40,12 @@ except (ImportError, IOError) as err:
     logger.debug(err)
 
 
+try:
+    import pycountry
+except ImportError:
+    _logger.info('`pycountry` Python package not found')
+
+
 class TeliumPaymentTerminalDriver(Thread):
     def __init__(self):
         Thread.__init__(self)
