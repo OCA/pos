@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_order_picking_link
+# 
+# Translators:
+# Paolo Valier <paolo.valier@hotmail.it>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-15 03:44+0000\n"
+"PO-Revision-Date: 2016-12-15 03:44+0000\n"
+"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2016\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_order_picking_link
+#: field:stock.picking,pos_order_ids:0
+msgid "POS order"
+msgstr ""
+
+#. module: pos_order_picking_link
+#: model:ir.model,name:pos_order_picking_link.model_stock_picking
+msgid "Picking List"
+msgstr "Lista Picking"
