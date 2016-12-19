@@ -2,37 +2,33 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==============
+===========================
 Pos Session Report Detailed
-==============
+===========================
 
-This module extends the functionality of Pos Session Sumary
-and to allow you to show detailed informations about pos session
+This module extents the POS Session Summary functionality, showing detailed
+information about the each transaction payments.
+
+This functionality works better when using together with the module
+pos_payment_term, which allows you to sell using various payment terms.
+
+
+.. image:: /pos_session_report/static/description/pos_session_summary_datailed.png
+
 
 Installation
 ============
 
-To install this module, you need to:
-
-#. Do this ...
+Normal installation.
 
 Configuration
 =============
 
-To configure this module, you need to:
+No configuration is needed.
 
-#. Go to ...
-
-.. figure:: path/to/local/image.png
-   :alt: alternative description
-   :width: 600 px
 
 Usage
 =====
-
-To use this module, you need to:
-
-#. Go to ...
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -41,10 +37,7 @@ To use this module, you need to:
 .. repo_id is available in https://github.com/OCA/maintainer-tools/blob/master/tools/repos_with_ids.txt
 .. branch is "8.0" for example
 
-Known issues / Roadmap
-======================
 
-* ...
 
 Bug Tracker
 ===========
@@ -52,7 +45,11 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/{project_repo}/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed feedback.
+help us smashing it by providing a detailed and welcomed `feedback
+<https://github.com/OCA/
+pos/issues/new?body=module:%20
+pos_session_summary%0Aversion:%20
+9.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Credits
 =======

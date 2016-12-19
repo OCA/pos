@@ -112,7 +112,8 @@
                                             <th>Date</th>
                                             <th>Pos Order</th>
                                             <th>State</th>
-                                            <th>QTD Payments</th>
+                                            <th>Quantity Payments</th>
+                                            <th>Sub Total</th>
                                             <th class="text-right">Amount</th>
                                         </tr>
                                     </thead>
@@ -135,7 +136,10 @@
                                                     <span t-esc="bank_statement_line['pos_statement_id'].state"/>
                                                 </td>
                                                 <td>
-                                                    <span t-esc="bank_statement_line['qtd_payments']"/>
+                                                    <span t-esc="bank_statement_line['quantity_payments']"/>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="bank_statement_line['sub_total']"/>
                                                 </td>
                                                 <td class="text-right">
                                                     <span t-esc="bank_statement_line['amount']"/>
