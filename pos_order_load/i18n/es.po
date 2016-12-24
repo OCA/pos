@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Janire Olagibel <janire.olagibel@factorlibre.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-02 03:44+0000\n"
-"PO-Revision-Date: 2016-12-02 03:44+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2016-12-15 03:43+0000\n"
+"PO-Revision-Date: 2016-12-15 03:43+0000\n"
+"Last-Translator: Janire Olagibel <janire.olagibel@factorlibre.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +26,7 @@ msgstr ""
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
+"No se puede ejecutar esta acción porque el TPV está actualmente sin conexión"
 
 #. module: pos_order_load
 #. openerp-web
@@ -32,6 +34,8 @@ msgstr ""
 #, python-format
 msgid "Can not load the Selected Order because the POS is currently offline"
 msgstr ""
+"No se puede cargar la Orden seleccionada porque el TPV está actualmente sin "
+"conexión"
 
 #. module: pos_order_load
 #. openerp-web
@@ -47,7 +51,7 @@ msgstr "Cancelar"
 #: code:addons/pos_order_load/static/src/js/pos_order_load.js:314
 #, python-format
 msgid "Connection error"
-msgstr ""
+msgstr "Error de conexión"
 
 #. module: pos_order_load
 #. openerp-web
@@ -61,7 +65,7 @@ msgstr "Cliente"
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:5
 #, python-format
 msgid "Load Draft Order"
-msgstr ""
+msgstr "Cargar Pedido en Borrador"
 
 #. module: pos_order_load
 #. openerp-web
@@ -80,28 +84,28 @@ msgstr "Terminal Punto de Venta"
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:10
 #, python-format
 msgid "Save Current Order"
-msgstr ""
+msgstr "Guardar Pedido Actual"
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/js/pos_order_load.js:71
 #, python-format
 msgid "Save The current Order ?"
-msgstr ""
+msgstr "¿Guardar Pedido Actual?"
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:36
 #, python-format
 msgid "Search Orders"
-msgstr ""
+msgstr "Buscar Pedidos"
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:40
 #, python-format
 msgid "Select Order"
-msgstr ""
+msgstr "Seleccionar Pedido"
 
 #. module: pos_order_load
 #. openerp-web
@@ -111,6 +115,8 @@ msgid ""
 "This operation will save the current order in a draft state. You'll have to "
 "mark it as paid after."
 msgstr ""
+"Esta operación guardará el pedido actual en estado borrador. Tendrá que "
+"marcarlo como pagado después."
 
 #. module: pos_order_load
 #. openerp-web
@@ -130,13 +136,15 @@ msgid ""
 "\n"
 "  * "
 msgstr ""
+"No es posible cargar algunas líneas de pedido porque los productos no están disponibles en la caché del TPV.\n"
+"Por favor, compruebe las líneas :"
 
 #. module: pos_order_load
 #. openerp-web
 #: code:addons/pos_order_load/static/src/js/pos_order_load.js:266
 #, python-format
 msgid "Unknown Products"
-msgstr ""
+msgstr "Productos Desconocidos"
 
 #. module: pos_order_load
 #. openerp-web
