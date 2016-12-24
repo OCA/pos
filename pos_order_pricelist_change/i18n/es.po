@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2016
+# Janire Olagibel <janire.olagibel@factorlibre.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-06 02:42+0000\n"
-"PO-Revision-Date: 2016-07-06 02:42+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2016\n"
+"POT-Creation-Date: 2016-12-15 03:44+0000\n"
+"PO-Revision-Date: 2016-12-15 03:44+0000\n"
+"Last-Translator: Janire Olagibel <janire.olagibel@factorlibre.com>, 2016\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +26,9 @@ msgid ""
 "If you change the pricelist of this order, prices of existing order lines "
 "will not be updated. Please click on the 'Recompute With Pricelist'."
 msgstr ""
+"Si cambia la tarifa de este pedido, los precios de las líneas de pedido "
+"existentes no se actualizarán. Haga clic en el botón \"Recalcular con "
+"Tarifa\"."
 
 #. module: pos_order_pricelist_change
 #: model:ir.model,name:pos_order_pricelist_change.model_pos_order
@@ -35,19 +39,19 @@ msgstr "Terminal Punto de Venta"
 #: code:addons/pos_order_pricelist_change/models/pos_order.py:44
 #, python-format
 msgid "Pricelist Warning!"
-msgstr ""
+msgstr "¡Aviso de tarifa!"
 
 #. module: pos_order_pricelist_change
 #: view:pos.order:pos_order_pricelist_change.view_pos_order_form
 msgid "Recompute With Pricelist"
-msgstr ""
+msgstr "Recalcular Con Tarifa"
 
 #. module: pos_order_pricelist_change
 #: model:product.pricelist,name:pos_order_pricelist_change.pricelist_surcharge
 msgid "Surcharge Pricelist"
-msgstr ""
+msgstr "Recargo de Tarifa"
 
 #. module: pos_order_pricelist_change
 #: model:product.pricelist.version,name:pos_order_pricelist_change.pricelist_version_surcharge
 msgid "Surcharge Pricelist Version"
-msgstr ""
+msgstr "Vesión de Recargo de Tarifa"
