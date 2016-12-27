@@ -153,14 +153,14 @@ Define : pos_product_template.SelectVariantPopupWidget
             for (var i = 0, len = variant_ids.length; i < len; i++) {
                 variant_list.push(this.pos.db.get_product_by_id(variant_ids[i]));
             }
-            this.variant_list_widget.filters = {}
+            this.variant_list_widget.filters = {};
             this.variant_list_widget.set_variant_list(variant_list);
 
             // Render Attributes
             var attribute_ids  = this.pos.db.attribute_by_template_id(template.id);
             var attribute_list = [];
-            for (var i = 0, len = attribute_ids.length; i < len; i++) {
-                attribute_list.push(this.pos.db.get_product_attribute_by_id(attribute_ids[i]));
+            for (var j = 0, len = attribute_ids.length; j < len; j++) {
+                attribute_list.push(this.pos.db.get_product_attribute_by_id(attribute_ids[j]));
             }
             this.attribute_list_widget.set_attribute_list(attribute_list, template);
             this._super();
@@ -213,12 +213,12 @@ Define: pos_product_template.VariantListWidget
         },
 
         filter_variant: function(){
-            value_list = []
+            value_list = [];
             for (var item in this.filters){
                 value_list.push(parseInt(this.filters[item]));
             }
             this.filter_variant_list = [];
-            for (index in this.variant_list){
+            for (var index in this.variant_list){
                 variant = this.variant_list[index];
                 found = true;
                 for (var i = 0; i < value_list.length; i++){
@@ -337,12 +337,12 @@ Define: pos_product_template.AttributeListWidget
                 var subproduct_list = this.pos.db.get_product_by_value_and_products(value.id, product_list);
                 var variant_qty = subproduct_list.length;
                 // Hide product attribute value if there is no product associated to it
-                if (variant_qty != 0) {
+                if (variant_qty !== 0) {
                     var value_node = this.render_value(value, variant_qty);
                     value_node.addEventListener('click', this.click_set_attribute_handler);
                     list_container.appendChild(value_node);
                 }
-            };
+            }
             return attribute_node;
         },
 
@@ -374,9 +374,9 @@ Define: pos_product_template.AttributeListWidget
             for(var i = 0, len = this.attribute_list.length; i < len; i++){
                 var attribute_node = this.render_attribute(this.attribute_list[i]);
                 attribute_node.querySelector('.attribute-name').addEventListener('click', this.click_reset_attribute_handler);
-//                attribute_node.addEventListener('click', this.click_reset_attribute_handler);
+                //attribute_node.addEventListener('click', this.click_reset_attribute_handler);
                 list_container.appendChild(attribute_node);
-            };
+            }
         },
 
     });
@@ -452,14 +452,14 @@ Overload: point_of_sale.PosDB
 
                 // Update Product information
                 for (var j = 0; j <templates[i].product_variant_ids.length; j++){
-                    var product = this.product_by_id[templates[i].product_variant_ids[j]]
+                    var product = this.product_by_id[templates[i].product_variant_ids[j]];
                     for (var k = 0; k < product.attribute_value_ids.length; k++){
                         if (attribute_value_ids.indexOf(product.attribute_value_ids[k])==-1){
                             attribute_value_ids.push(product.attribute_value_ids[k]);
                         }
                     }
                     product.product_variant_count = templates[i].product_variant_count;
-                    product.is_primary_variant = (j==0);
+                    product.is_primary_variant = (j===0);
                 }
                 this.template_by_id[templates[i].id].attribute_value_ids = attribute_value_ids;
             }
@@ -492,7 +492,7 @@ Overload: point_of_sale.PosDB
                 while (templates.length <= this.limit && i<5000 && i<product_ids.length) {
                     product = this.product_by_id[product_ids[i]];
                     if (templates.indexOf(product.product_tmpl_id)==-1) {
-                        templates.push(product.product_tmpl_id)
+                        templates.push(product.product_tmpl_id);
                     }
                     list.push(product);
                     i++;
@@ -549,7 +549,7 @@ Overload: point_of_sale.PosModel
             loaded: function(self, templates){
                  self.db.add_templates(templates);
             },
-        }
+        };
         this.models.push(model);
 
         // Load Product Attribute
@@ -562,7 +562,7 @@ Overload: point_of_sale.PosModel
             loaded: function(self, attributes){
                  self.db.add_product_attributes(attributes);
             },
-        }
+        };
         this.models.push(model);
 
         // Load Product Attribute Value
@@ -575,7 +575,7 @@ Overload: point_of_sale.PosModel
             loaded: function(self, values){
                  self.db.add_product_attribute_values(values);
             },
-        }
+        };
         this.models.push(model);
 
         return _initialize_.call(this, session, attributes);
