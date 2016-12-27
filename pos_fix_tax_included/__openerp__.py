@@ -6,7 +6,8 @@
     'version': '8.0.0.0.1',
     'category': 'Point Of Sale',
     'sequence': 1,
-    'author': "Digital5 S.L.",
+    'author': "Digital5 S.L., "
+              "Odoo Community Association (OCA)",
     'summary': 'Prices',
     'depends': [
         "pos_pricelist",

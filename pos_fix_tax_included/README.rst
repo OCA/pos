@@ -31,7 +31,7 @@ Known issues / Roadmap
 Missing features
 ----------------
 * Only percent and fixed taxes types have been ported to the js engine.
-All the variables have been maintained to make easier the debugging.
+  (All the variables have been maintained to make easier the debugging.)
 
 
 Credits

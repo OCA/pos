@@ -54,18 +54,20 @@ function pos_fix_tax_included_models(instance, module) {
             var tax_id;
             var tax;
             var taxes = []; //incl_tax
-            
+
+            var filter_func = function(obj){
+                return obj.id == tax_id;
+            }
+
             for (var i = 0; i < product.taxes_id.length; i++) {
                 tax_id = product.taxes_id[i];
                 tax = this.pos.taxes_by_id[tax_id];
-                line_search = line_taxes.filter(function( obj ) {
-                    return obj.id == tax_id;
-                });
-                if (tax.price_include === true && line_search.length==0){
+                line_search = line_taxes.filter(filter_func);
+                if (tax.price_include===true && line_search.length===0){
                     taxes.push(tax);
                 }
             }
-            if (taxes.length==0){
+            if (taxes.length===0){
                 return price;
             }
             
@@ -73,38 +75,38 @@ function pos_fix_tax_included_models(instance, module) {
             var tax_parent_tot = 0.0;
             var cur_price_unit = price;
             
-            for (var i = 0; i < taxes.length; i++) {
-                tax = taxes[i];
+            for (var j = 0; j < taxes.length; j++) {
+                tax = taxes[j];
                 if (tax.type=='percent' && !tax.include_base_amount) {
                     tax_parent_tot += tax.amount;
                 }
             }
-            for (var i = 0; i < taxes.length; i++) {
-                tax = taxes[i];
+            for (var k = 0; k < taxes.length; k++) {
+                tax = taxes[k];
                 if (tax.type=='fixed' && !tax.include_base_amount) {
                     cur_price_unit -= tax.amount;
                 }
             }
             
-            for (var i = 0; i < product.taxes_id.length; i++) {
-                tax = taxes[i];
+            for (var m = 0; m < product.taxes_id.length; m++) {
+                tax = taxes[m];
                 if (tax.type=='percent') {
-                    if (tax.include_base_amount==true) {
-                        amount = cur_price_unit - (cur_price_unit / (1 + tax.amount))
+                    if (tax.include_base_amount===true) {
+                        amount = cur_price_unit - (cur_price_unit / (1 + tax.amount));
                     } else {
-                        amount = (cur_price_unit / (1 + tax_parent_tot)) * tax.amount
+                        amount = (cur_price_unit / (1 + tax_parent_tot)) * tax.amount;
                     }
                 } else if (tax.type=='fixed') {
-                    amount = tax.amount
+                    amount = tax.amount;
                 } else {
                     //TODO
                     console.log('Tax type not done');
                 }
                 
                 if (tax.include_base_amount) {
-                    cur_price_unit -= amount
+                    cur_price_unit -= amount;
                 } else {
-                    total += amount
+                    total += amount;
                 }
             }
             res = price-1.0*total;
