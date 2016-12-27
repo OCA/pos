@@ -57,7 +57,7 @@ function pos_fix_tax_included_models(instance, module) {
 
             var filter_func = function(obj){
                 return obj.id == tax_id;
-            }
+            };
 
             for (var i = 0; i < product.taxes_id.length; i++) {
                 tax_id = product.taxes_id[i];
