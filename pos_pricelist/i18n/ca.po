@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-15 21:29+0000\n"
+"POT-Creation-Date: 2017-01-07 04:35+0000\n"
 "PO-Revision-Date: 2016-04-06 15:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-pos-8-0/language/ca/)\n"
@@ -54,7 +54,7 @@ msgstr "Creat el"
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Veure el nom"
 
 #. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0
@@ -69,7 +69,7 @@ msgstr "ID"
 #. module: pos_pricelist
 #: field:pos.order.tax,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Darrera modificació el"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
