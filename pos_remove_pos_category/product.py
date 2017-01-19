@@ -76,7 +76,8 @@ def _auto_end(self, cr, context=None):
         (pos_remove_pos_category monkey patching)
     """
     context = context or {}
-    module = context['module']
+    # If the field is created by the user, there is no module.
+    module = context.get('module', False)
     foreign_keys = []
     patched = 'openerp.addons.pos_remove_pos_category' in sys.modules
 
