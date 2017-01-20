@@ -19,33 +19,32 @@
 #
 ##############################################################################
 
-from openerp import models
+from openerp import models, api
 
 
 class Module(models.Model):
 
     _inherit = 'ir.module.module'
 
-    def module_uninstall(self, cr, uid, ids, context=None):
-
-        context = context or {}
-
-        for module in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    def module_uninstall(self):
+        for module in self:
             if module.name == 'pos_remove_pos_category':
 
                 # As we have loose previous POS categs restore them
                 # in a sane empty state
-
-                cr.execute('UPDATE product_template SET pos_categ_id=NULL')
-
-                # And restore original constraint
-                cr.execute('''
-                    ALTER TABLE product_template
-                    DROP CONSTRAINT IF EXISTS
-                    product_template_pos_categ_id_fkey
+                self.env.cr.execute('''
+                    UPDATE product_template SET pos_categ_id=NULL;
                 ''')
 
-                cr.execute('''
+                # And restore original constraint
+                self.env.cr.execute('''
+                    ALTER TABLE product_template
+                    DROP CONSTRAINT IF EXISTS
+                    product_template_pos_categ_id_fkey;
+                ''')
+
+                self.env.cr.execute('''
                     ALTER TABLE product_template ADD CONSTRAINT
                     "product_template_pos_categ_id_fkey"
                     FOREIGN KEY (pos_categ_id)
@@ -54,17 +53,15 @@ class Module(models.Model):
 
                 # Restore POS category menu action
                 # in SQL because pool/env is not available here
-                cr.execute('''
+                self.env.cr.execute('''
                     UPDATE ir_act_window iaw SET res_model='pos.category'
                     FROM ir_model_data imd
                     WHERE
                         iaw.id = imd.res_id AND
                         imd.model = 'ir.actions.act_window' AND
-                        imd.name = 'product_pos_category_action'
+                        imd.name = 'product_pos_category_action';
                 ''')
 
                 break
 
-        return super(Module, self).module_uninstall(
-            cr, uid, ids, context=context
-        )
+        return super(Module, self).module_uninstall()

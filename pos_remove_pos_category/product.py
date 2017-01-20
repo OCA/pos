@@ -46,8 +46,8 @@ class ProductCategory(models.Model):
 
     image = fields.Binary(help='Show Image Category in Form View')
     image_medium = fields.Binary(help='Show image category button in POS',
-                                 compute="_get_image",
-                                 inverse="_set_image",
+                                 compute="_compute_get_image",
+                                 inverse="_inverse_set_image",
                                  store=True)
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
@@ -57,13 +57,14 @@ class ProductCategory(models.Model):
              "whatever their checkbox state.")
 
     @api.multi
-    def _get_image(self):
+    def _compute_get_image(self):
         return dict(
             (rec.id, tools.image_get_resized_images(rec.image)) for rec in
             self)
 
-    @api.one
-    def _set_image(self):
+    @api.multi
+    def _inverse_set_image(self):
+        self.ensure_one()
         return self.write(
             {'image': tools.image_resize_image_big(self.image_medium)})
 
@@ -76,7 +77,8 @@ def _auto_end(self, cr, context=None):
         (pos_remove_pos_category monkey patching)
     """
     context = context or {}
-    module = context['module']
+    # If the field is created by the user, there is no module.
+    module = context.get('module', False)
     foreign_keys = []
     patched = 'openerp.addons.pos_remove_pos_category' in sys.modules
 

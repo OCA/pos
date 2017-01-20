@@ -27,14 +27,17 @@ import time
 import curses.ascii
 from threading import Thread, Lock
 from Queue import Queue
-from serial import Serial
-import pycountry
 import openerp.addons.hw_proxy.controllers.main as hw_proxy
 from openerp import http
 from openerp.tools.config import config
 
-
 logger = logging.getLogger(__name__)
+
+try:
+    import pycountry
+    from serial import Serial
+except (ImportError, IOError) as err:
+    logger.debug(err)
 
 
 class TeliumPaymentTerminalDriver(Thread):
@@ -267,6 +270,7 @@ class TeliumPaymentTerminalDriver(Thread):
                     pass
             except Exception as e:
                 self.set_status('error', str(e))
+
 
 driver = TeliumPaymentTerminalDriver()
 
