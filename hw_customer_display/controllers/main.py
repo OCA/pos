@@ -167,6 +167,7 @@ class CustomerDisplayDriver(Thread):
             except Exception as e:
                 self.set_status('error', str(e))
 
+
 driver = CustomerDisplayDriver()
 
 hw_proxy.drivers['customer_display'] = driver

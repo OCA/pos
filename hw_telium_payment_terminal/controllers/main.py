@@ -271,6 +271,7 @@ class TeliumPaymentTerminalDriver(Thread):
             except Exception as e:
                 self.set_status('error', str(e))
 
+
 driver = TeliumPaymentTerminalDriver()
 
 hw_proxy.drivers['telium_payment_terminal'] = driver

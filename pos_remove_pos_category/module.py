@@ -33,14 +33,15 @@ class Module(models.Model):
 
                 # As we have loose previous POS categs restore them
                 # in a sane empty state
-
-                self.env.cr.execute('UPDATE product_template SET pos_categ_id=NULL')
+                self.env.cr.execute('''
+                    UPDATE product_template SET pos_categ_id=NULL;
+                ''')
 
                 # And restore original constraint
                 self.env.cr.execute('''
                     ALTER TABLE product_template
                     DROP CONSTRAINT IF EXISTS
-                    product_template_pos_categ_id_fkey
+                    product_template_pos_categ_id_fkey;
                 ''')
 
                 self.env.cr.execute('''
@@ -58,7 +59,7 @@ class Module(models.Model):
                     WHERE
                         iaw.id = imd.res_id AND
                         imd.model = 'ir.actions.act_window' AND
-                        imd.name = 'product_pos_category_action'
+                        imd.name = 'product_pos_category_action';
                 ''')
 
                 break
