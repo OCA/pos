@@ -26,11 +26,9 @@ class Module(models.Model):
 
     _inherit = 'ir.module.module'
 
-    def module_uninstall(self, cr, uid, ids, context=None):
-
-        context = context or {}
-
-        for module in self.browse(cr, uid, ids, context=context):
+    @api.multi
+    def module_uninstall(self):
+        for module in self:
             if module.name == 'pos_remove_pos_category':
 
                 # As we have loose previous POS categs restore them
@@ -65,6 +63,4 @@ class Module(models.Model):
 
                 break
 
-        return super(Module, self).module_uninstall(
-            cr, uid, ids, context=context
-        )
+        return super(Module, self).module_uninstall()
