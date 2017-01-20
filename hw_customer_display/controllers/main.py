@@ -26,14 +26,17 @@ import simplejson
 import time
 from threading import Thread, Lock
 from Queue import Queue
-from unidecode import unidecode
-from serial import Serial
 import openerp.addons.hw_proxy.controllers.main as hw_proxy
 from openerp import http
 from openerp.tools.config import config
 
-
 logger = logging.getLogger(__name__)
+
+try:
+    from serial import Serial
+    from unidecode import unidecode
+except (ImportError, IOError) as err:
+    logger.debug(err)
 
 
 class CustomerDisplayDriver(Thread):
