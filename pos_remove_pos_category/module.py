@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp import models
+from openerp import models, api
 
 
 class Module(models.Model):
@@ -34,16 +34,16 @@ class Module(models.Model):
                 # As we have loose previous POS categs restore them
                 # in a sane empty state
 
-                cr.execute('UPDATE product_template SET pos_categ_id=NULL')
+                self.env.cr.execute('UPDATE product_template SET pos_categ_id=NULL')
 
                 # And restore original constraint
-                cr.execute('''
+                self.env.cr.execute('''
                     ALTER TABLE product_template
                     DROP CONSTRAINT IF EXISTS
                     product_template_pos_categ_id_fkey
                 ''')
 
-                cr.execute('''
+                self.env.cr.execute('''
                     ALTER TABLE product_template ADD CONSTRAINT
                     "product_template_pos_categ_id_fkey"
                     FOREIGN KEY (pos_categ_id)
@@ -52,7 +52,7 @@ class Module(models.Model):
 
                 # Restore POS category menu action
                 # in SQL because pool/env is not available here
-                cr.execute('''
+                self.env.cr.execute('''
                     UPDATE ir_act_window iaw SET res_model='pos.category'
                     FROM ir_model_data imd
                     WHERE

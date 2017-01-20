@@ -6,9 +6,16 @@
 # with the customer display independantly from the Odoo server
 # It has been tested with a Bixolon BCD-1100
 
-from serial import Serial
-from unidecode import unidecode
 import sys
+import logging
+
+_logger = logging.getLogger(__name__)
+
+try:
+    from serial import Serial
+    from unidecode import unidecode
+except (ImportError, IOError) as err:
+    _logger.debug(err)
 
 DEVICE = '/dev/ttyUSB0'
 DEVICE_RATE = 9600
