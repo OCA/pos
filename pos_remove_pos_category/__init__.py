@@ -19,5 +19,4 @@
 #
 ##############################################################################
 
-from . import product
-from . import module
+from . import models

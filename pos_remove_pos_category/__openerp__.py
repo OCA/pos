@@ -21,8 +21,8 @@
 
 {
     'name': 'POS Remove POS Category',
-    'version': '8.0.0.1.0',
-    'author': 'Akretion, Odoo Community Association (OCA)',
+    'version': '9.0.0.1.0',
+    'author': 'Akretion, Camptocamp SA, Odoo Community Association (OCA)',
     'category': 'Sales Management',
     'depends': [
         'point_of_sale',
@@ -30,8 +30,9 @@
     'demo': [],
     'website': 'https://www.akretion.com',
     'data': [
-        'point_of_sale_view.xml',
-        'views/pos_category.xml',
+        'views/assets.xml',
+        'views/pos_view.xml',
+        'views/pos_category_view.xml',
     ],
-    'installable': False,
+    'installable': True,
 }
