@@ -22,7 +22,7 @@
 {
     'name': 'Point Of Sale - Product Template',
     'summary': 'Manage Product Template in Front End Point Of Sale',
-    'version': '8.0.0.2.0',
+    'version': '9.0.0.0.1',
     'category': 'Point Of Sale',
     'description': """
 Manage Product Template in Front End Point Of Sale
@@ -75,5 +75,5 @@ Copyright, Authors and Licence:
     'images': [
         'static/src/img/screenshots/pos_product_template.png',
     ],
-    'installable': False,
+    'installable': True,
 }
