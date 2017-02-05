@@ -1,0 +1,124 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* pos_invoicing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-03-10 16:52+0000\n"
+"PO-Revision-Date: 2015-03-10 16:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_invoicing
+#: code:_description:0
+#: model:ir.model,name:pos_invoicing.model_account_voucher
+#, python-format
+msgid "Accounting Voucher"
+msgstr "Justificatif comptable"
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "Do you confirm?"
+msgstr "Voulez-vous continuer ?"
+
+#. module: pos_invoicing
+#: code:addons/pos_invoicing/model/pos_order.py:39
+#: code:addons/pos_invoicing/model/pos_order.py:43
+#: code:addons/pos_invoicing/model/pos_order.py:47
+#, python-format
+msgid "Error!"
+msgstr "Erreur!"
+
+#. module: pos_invoicing
+#: view:account.invoice:0
+#: field:account.invoice,forbid_payment:0
+msgid "Forbid Payment"
+msgstr "Interdire le paiement"
+
+#. module: pos_invoicing
+#: help:account.invoice,forbid_payment:0
+msgid "Indicates an invoice where no payment should be registered. eg: invoice from POS are already paid."
+msgstr "Indique une facture pour laquelle les paiements ne peuvent être réalisé. Par exemple, une facture depuis le point de Vente qui a déjà été payée."
+
+#. module: pos_invoicing
+#: code:_description:0
+#: model:ir.model,name:pos_invoicing.model_account_invoice
+#, python-format
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: pos_invoicing
+#: model:ir.actions.act_window,name:pos_invoicing.action_pos_invoice_draft_order_wizard
+msgid "Invoice Draft Order"
+msgstr "Facturer une vente en caisse en brouillon"
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "Invoice Draft Orders"
+msgstr "Facturer des ventes en caisse en brouillon"
+
+#. module: pos_invoicing
+#: view:pos.order:0
+msgid "Invoice and Pay Latter"
+msgstr "Facturer avec paiement différé"
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "OK"
+msgstr "OK"
+
+#. module: pos_invoicing
+#: code:_description:0
+#: model:ir.model,name:pos_invoicing.model_pos_order
+#, python-format
+msgid "Point of Sale"
+msgstr "Point de Vente"
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "You are about to validate this POS Order without payment and to create an invoice."
+msgstr "Vous êtes sur le point de valider une vente en caisse sans paiement, et de créer une facture."
+
+#. module: pos_invoicing
+#: code:addons/pos_invoicing/model/pos_order.py:40
+#, python-format
+msgid "You can not invoice a non new or non paid POS Order"
+msgstr "Vous ne pouvez pas facturer une vente en caisse qui n'est pas à l'état de brouillon ou payée."
+
+#. module: pos_invoicing
+#: code:addons/pos_invoicing/model/pos_order.py:44
+#, python-format
+msgid "You can not invoice a partial paid POS Order"
+msgstr "Vous ne pouvez pas facturer une vente en caisse qui est partiellement payée."
+
+#. module: pos_invoicing
+#: code:addons/pos_invoicing/model/pos_order.py:48
+#, python-format
+msgid "You can not invoice an empty POS Order"
+msgstr "Vous ne pouvez pas facturer une vente en caisse avec un montant nul."
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "You'll have to check and validate the invoice and register the payments against it."
+msgstr "Vous devrez vérifier et valider la facture et enregistrer les paiements."
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "You'll not put the payment of this invoice in the cash register (as a normal Invoice, created from a Sale Order)."
+msgstr "Vous ne mettrez pas le paiement de cette facture dans la caisse. (comme une facture normale, créée depuis le module de Vente)."
+
+#. module: pos_invoicing
+#: view:pos.invoice.draft.order.wizard:0
+msgid "or"
+msgstr "ou"
