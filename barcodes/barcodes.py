@@ -193,7 +193,18 @@ class barcode_rule(models.Model):
 
     @api.model
     def _get_type_selection(self):
-        return [('alias', _('Alias')), ('product', _('Unit Product'))]
+        return [('alias', _('Alias')), ('product', _('Unit Product')),
+        # Backport Note : come from point_of_sale V9.0 module
+        ('weight', _('Weighted Product')),
+        ('price', _('Priced Product')),
+        ('discount', _('Discounted Product')),
+        ('client', _('Client')),
+        ('cashier', _('Cashier')),
+        # Backport Note : come from stock V9.0 module
+        ('location', _('Location')),
+        ('lot', _('Lot')),
+        ('package', _('Package')),
+    ]
 
     _columns = {
         'name':     fields.char('Rule Name', size=32, required=True, help='An internal identification for this barcode nomenclature rule'),
