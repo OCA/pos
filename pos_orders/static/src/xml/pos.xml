@@ -48,7 +48,7 @@
     <t t-name="OrderLine">
         <tr class='order-line' t-att-data-id='order.id'>
             <td><t t-esc='order.name' /></td>
-            <td><t t-esc='order.partner_id.name' /></td>
+            <td><t t-esc='order.partner_id[1]' /></td>
             <td><t t-esc='order.date_order' /></td>
             <td><t t-esc='order.amount_total' /></td>
         </tr>
