@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ListOrderButtonWidget">
+        <div class="header-button">
+            <t t-esc="widget.label" />
+        </div>
+    </t>
+
+    <t t-name="OrderListScreenWidget">
+        <div class="clientlist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <span class='searchbox'>
+                        <input placeholder='Search Order' />
+                        <span class='search-clear'></span>
+                    </span>
+                    <span class='searchbox'></span>
+                </section>
+                <section class="full-content">
+                    <div class="window">
+                        <section class="subwindow">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix touch-scrollable scrollable-y">
+                                    <table class="client-list">
+                                        <thead>
+                                            <th>Ref.</th>
+                                            <th>Customer</th>
+                                            <th>Date</th>
+                                            <th>Amount Total</th>
+                                        </thead>
+                                        <tbody class="order-list-contents">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="OrderLine">
+        <tr class='order-line' t-att-data-id='order.id'>
+            <td><t t-esc='order.name' /></td>
+            <td><t t-esc='order.partner_id.name' /></td>
+            <td><t t-esc='order.date_order' /></td>
+            <td><t t-esc='order.amount_total' /></td>
+        </tr>
+    </t>
+</templates>
