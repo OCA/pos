@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_order_pricelist_change
+# 
+# Translators:
+# Rudolf Schnapka <rs@techno-flex.de>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-21 05:04+0000\n"
+"PO-Revision-Date: 2017-01-21 05:04+0000\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>, 2017\n"
+"Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_order_pricelist_change
+#: code:addons/pos_order_pricelist_change/models/pos_order.py:45
+#, python-format
+msgid ""
+"If you change the pricelist of this order, prices of existing order lines "
+"will not be updated. Please click on the 'Recompute With Pricelist'."
+msgstr ""
+
+#. module: pos_order_pricelist_change
+#: model:ir.model,name:pos_order_pricelist_change.model_pos_order
+msgid "Point of Sale"
+msgstr "Verkaufsstelle"
+
+#. module: pos_order_pricelist_change
+#: code:addons/pos_order_pricelist_change/models/pos_order.py:44
+#, python-format
+msgid "Pricelist Warning!"
+msgstr ""
+
+#. module: pos_order_pricelist_change
+#: view:pos.order:pos_order_pricelist_change.view_pos_order_form
+msgid "Recompute With Pricelist"
+msgstr ""
+
+#. module: pos_order_pricelist_change
+#: model:product.pricelist,name:pos_order_pricelist_change.pricelist_surcharge
+msgid "Surcharge Pricelist"
+msgstr ""
+
+#. module: pos_order_pricelist_change
+#: model:product.pricelist.version,name:pos_order_pricelist_change.pricelist_version_surcharge
+msgid "Surcharge Pricelist Version"
+msgstr ""

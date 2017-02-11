@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-15 03:44+0000\n"
+"POT-Creation-Date: 2017-01-21 05:04+0000\n"
 "PO-Revision-Date: 2016-04-06 15:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: German (http://www.transifex.com/oca/OCA-pos-8-0/language/de/)\n"
@@ -119,7 +119,7 @@ msgstr "Zahlungswesen"
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
 msgid "Point of Sale"
-msgstr ""
+msgstr "Verkaufsstelle"
 
 #. module: pos_pricelist
 #: field:pos.config,display_price_with_taxes:0

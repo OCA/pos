@@ -1,9 +1,8 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_invoice_journal
+# * pos_autoreconcile
 # 
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
 # Rudolf Schnapka <rs@techno-flex.de>, 2017
 msgid ""
 msgstr ""
@@ -19,19 +18,7 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: pos_invoice_journal
-#: field:pos.config,invoice_journal_id:0 field:pos.order,invoice_journal_id:0
-msgid "Invoice Journal"
-msgstr "Rechnungsjournal"
-
-#. module: pos_invoice_journal
-#: model:ir.model,name:pos_invoice_journal.model_pos_order
+#. module: pos_autoreconcile
+#: model:ir.model,name:pos_autoreconcile.model_pos_order
 msgid "Point of Sale"
 msgstr "Verkaufsstelle"
-
-#. module: pos_invoice_journal
-#: help:pos.config,invoice_journal_id:0 help:pos.order,invoice_journal_id:0
-msgid ""
-"When choosing to invoice the pos order, this is the Accounting Journal used "
-"to post sales entries."
-msgstr ""
