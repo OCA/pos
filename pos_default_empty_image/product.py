@@ -8,8 +8,9 @@ from openerp import models, fields, api
 class ProductTemplate(models.Model):
     _inherit = ['product.template']
 
-    @api.one
+    @api.multi
     def _get_has_image(self):
+        self.ensure_one()
         self.has_image = self.image is not False
 
     has_image = fields.Boolean(compute='_get_has_image', string='Has Image')
