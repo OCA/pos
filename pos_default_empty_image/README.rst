@@ -29,14 +29,16 @@ network connections to Odoo server and will wait for free slots instead of
 loading other valuable contents. Then the POS is then very slow to work with.
 
 
-This module adds a field _has_image_ in product.template and will 
-change the product image url to his default placeholder directly in the POS.
+This module adds a field _has_image in product.template.
 
-Because there is only one url for this placeholder, 
-you will have only one request for all the products with no images.
+If product has no image, the product image url is not sent to the POS
 
+In the product list, the display of the product is changed,
+          (Size of the name is increased for better visibility);
 
 Indeed, if the product has an image, it will load normally.
+
+This module is compatible with pos_product_template
 
 
 Known issues
@@ -47,13 +49,16 @@ Updates
 =======
 
 * Feb 2016 : First version
+* Feb 2017 : migration to v10 and improvements for Display - taken from 
+    this module `pos_improve_images from GRAP 
+    <https://github.com/grap/odoo-addons-grap/tree/7.0/pos_improve_images>`_ for OpenERP 7.
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/web/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/web/issues/new?body=module:%20pos_default_empty_image%0Aversion:%200.1%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/pos/issues/new?body=module:%20pos_default_empty_image%0Aversion:%200.1%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 
 Credits
@@ -64,9 +69,6 @@ Contributors
 
 * Hparfr <https://github.com/hparfr> `Akretion <https://akretion.com>`_
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
-
-See also this module `pos_improve_images from GRAP 
-<https://github.com/grap/odoo-addons-grap/tree/7.0/pos_improve_images>`_ for OpenERP 7.
 
 
 Maintainer
