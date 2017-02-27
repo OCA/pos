@@ -14,7 +14,8 @@ class ProductTemplate(models.Model):
 
     @api.model
     def create(self, vals):
-        vals['pos_categ_id'] = vals['categ_id']
+        if 'categ_id' in vals:
+            vals['pos_categ_id'] = vals['categ_id']
         return super(ProductTemplate, self).create(vals)
 
     @api.multi
