@@ -47,6 +47,7 @@ Contributors
 ------------
 
 * Sylvain Calador <sylvain.calador@akretion.com>
+* Simone Orsi <simone.orsi@camptocamp.com>
 
 Maintainer
 ----------

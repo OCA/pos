@@ -1,47 +1,54 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_remove_pos_category
+# 	* pos_remove_pos_category
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-24 07:13+0000\n"
-"PO-Revision-Date: 2015-07-24 07:13+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2017-01-23 13:13+0100\n"
+"Last-Translator: Simone Orsi <simone.orsi@camptocamp.com>\n"
 "Language-Team: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: pos_remove_pos_category
 #: view:product.category:pos_remove_pos_category.product_category_list_view
 msgid "Available in POS"
-msgstr ""
+msgstr "Disponibile nel POS"
 
 #. module: pos_remove_pos_category
 #: field:product.category,available_in_pos:0
 msgid "Available in the Point of Sale"
-msgstr ""
+msgstr "Disponibile nel POS"
 
 #. module: pos_remove_pos_category
 #: help:product.category,available_in_pos:0
-msgid "Check if you want this category to appear in Point Of Sale.\n"
-"If you uncheck, children categories will becomes invisible too, whatever their checkbox state."
+msgid ""
+"Check if you want this category to appear in Point Of Sale.\n"
+"If you uncheck, children categories will becomes invisible too, whatever "
+"their checkbox state."
 msgstr ""
+"Attiva per far apparire questa categoria nel POS.\n"
+"Se disattivato, anche le sotto-categorie saranno nascoste, anche se "
+"attivate singolarmente."
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_ir_module_module
 msgid "Module"
-msgstr ""
+msgstr "Module"
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria Prodotto"
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Template Prodotto"
