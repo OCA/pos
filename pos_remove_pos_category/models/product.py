@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import sys
-from openerp import models, fields, api, tools
+from odoo import models, fields, api, tools
 
 
 class ProductTemplate(models.Model):
@@ -30,7 +30,7 @@ class ProductCategory(models.Model):
 
     image = fields.Binary(help='Show Image Category in Form View')
     image_medium = fields.Binary(help='Show image category button in POS',
-                                 compute="_get_image",
+                                 compute="_compute_image",
                                  inverse="_set_image",
                                  store=True)
     available_in_pos = fields.Boolean(
@@ -41,7 +41,7 @@ class ProductCategory(models.Model):
              "whatever their checkbox state.")
 
     @api.multi
-    def _get_image(self):
+    def _compute_image(self):
         return dict(
             (rec.id, tools.image_get_resized_images(rec.image)) for rec in
             self)
@@ -55,37 +55,39 @@ class ProductCategory(models.Model):
 _auto_end_original = models.BaseModel._auto_end
 
 
-def _auto_end(self, cr, context=None):
+@api.model
+def _auto_end(self):
     """ Create the foreign keys recorded by _auto_init.
         (pos_remove_pos_category monkey patching)
     """
-    context = context or {}
-    module = context['module']
+    module = self._context['module']
     foreign_keys = []
-    patched = 'openerp.addons.pos_remove_pos_category' in sys.modules
+    patched = 'odoo.addons.pos_remove_pos_category' in sys.modules
 
-    for t, k, r, d in self._foreign_keys:
+    for fk in self._foreign_keys:
+        t = fk[0]
+        k = fk[1]
         if patched and (t, k) == ('product_template', 'pos_categ_id'):
             if module == 'pos_remove_pos_category':
-                cr.execute('''
+                self._cr.execute('''
                     ALTER TABLE product_template
                     DROP CONSTRAINT IF EXISTS
                     product_template_pos_categ_id_fkey
                 ''')
-                cr.execute('''
+                self._cr.execute('''
                     UPDATE product_template
                     SET pos_categ_id = categ_id;
                 ''')
-                cr.execute('''
+                self._cr.execute('''
                     ALTER TABLE product_template ADD CONSTRAINT
                     "product_template_pos_categ_id_fkey"
                     FOREIGN KEY (pos_categ_id)
                     REFERENCES product_category(id) ON DELETE SET NULL;
                 ''')
             continue
-        foreign_keys.append((t, k, r, d))
+        foreign_keys.append(fk)
     self._foreign_keys = foreign_keys
-    return _auto_end_original(self, cr, context=context)
+    return _auto_end_original
 
 
 models.BaseModel._auto_end = _auto_end
