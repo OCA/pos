@@ -8,6 +8,7 @@ pos
 Point of sale
 
 [//]: # (addons)
+
 Available addons
 ----------------
 addon | version | summary
