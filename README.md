@@ -15,6 +15,7 @@ addon | version | summary
 --- | --- | ---
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.0 | Manage Payment Terminal device from POS front end
 
+
 Unported addons
 ---------------
 addon | version | summary
