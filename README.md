@@ -20,6 +20,7 @@ addon | version | summary
 [pos_remove_pos_category](pos_remove_pos_category/) | 9.0.0.1.0 | POS Remove POS Category
 [pos_session_summary](pos_session_summary/) | 9.0.1.0.0 | Point of Sale - Total of transactions and Orders Quantity
 
+
 Unported addons
 ---------------
 addon | version | summary
