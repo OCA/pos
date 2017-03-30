@@ -105,7 +105,6 @@ odoo.define('pos_customer_display', function(require) {
             }
 
             this.proxy.send_text_customer_display(lines_to_send, line_length);
-            //console.log('prepare_text_customer_display type=' + type + ' | l1=' + lines_to_send[0] + ' | l2=' + lines_to_send[1]);
         },
 
         push_order: function(order){
