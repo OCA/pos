@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_margin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-10 09:02+0000\n"
+"PO-Revision-Date: 2017-04-10 09:02+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_margin
+#: field:pos.order.line,purchase_price:0
+msgid "Cost Price"
+msgstr "Prix de revient"
+
+#. module: pos_margin
+#: help:pos.order,margin:0
+msgid "It gives profitability by calculating the difference between the Unit Price and the cost price."
+msgstr "Il donne la rentabilité en calculant la différence entre le prix unitaire et le prix de revient."
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_order_line
+msgid "Lines of Point of Sale"
+msgstr "Lignes de Points de Vente"
+
+#. module: pos_margin
+#: field:pos.order,margin:0
+#: field:pos.order.line,margin:0
+msgid "Margin"
+msgstr "Marge"
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_order
+msgid "Point of Sale"
+msgstr "Point de Vente"
+
