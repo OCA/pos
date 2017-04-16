@@ -3,7 +3,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import api, fields, models
+from odoo import api, fields, models
 import openerp.addons.decimal_precision as dp
 
 
@@ -13,13 +13,11 @@ class PosOrderLine(models.Model):
     # Columns Section
     margin = fields.Float(
         'Margin', compute='_compute_multi_margin', store=True,
-        multi='multi_margin',
-        digits_compute=dp.get_precision('Product Price'))
+        multi='multi_margin', digits=dp.get_precision('Product Price'))
 
     purchase_price = fields.Float(
         'Cost Price', compute='_compute_multi_margin', store=True,
-        multi='multi_margin',
-        digits_compute=dp.get_precision('Product Price'))
+        multi='multi_margin', digits=dp.get_precision('Product Price'))
 
     # Compute Section
     @api.multi
