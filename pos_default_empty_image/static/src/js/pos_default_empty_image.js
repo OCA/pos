@@ -1,34 +1,26 @@
-'use strict';
+odoo.define('pos_default_empty_image', function (require) {
+"use strict";
 
-openerp.pos_default_empty_image = function (instance) {
-	var module = instance.point_of_sale;
-	var _t = instance.web._t;
+    var models = require('point_of_sale.models');
+    var screens = require('point_of_sale.screens');
 
-	//don't try to get an image if we know the product ain't one
-	module.ProductListWidget = module.ProductListWidget.extend({
-		get_product_image_url: function(product){
-			if (product.has_image)
-				return this._super(product);
+    //don't try to get an image if we know the product ain't one
+    var ProductListImageWidget = screens.ProductListWidget.include({
+        get_product_image_url: function(product){
+            if (product.has_image)
+                return this._super(product);
 
-			return '/web/static/src/img/placeholder.png';
-		}
-	});
+            return '/web/static/src/img/placeholder.png';
+        }
+    });
 
-	//we can't extend it because self.pos not ready yet
-	var _initializePosModel_ = module.PosModel.prototype.initialize;
-	module.PosModel.prototype.initialize = function(session, attributes){
-		//add has_image to the request of product product
-		this.models.some(function (m, idx) {
-			if (m.model !== "product.product")
-				return false;
+    var _super_posmodel = models.PosModel.prototype;
+    models.PosModel = models.PosModel.extend({
+        initialize: function (session, attributes) {
+            var product_model = _.find(this.models, function(model){ return model.model === 'product.product'; });
+            product_model.fields.push('has_image');
 
-			//check if not already done by someone else
-			if (m.fields.indexOf('has_image') === -1) {
-				m.fields.push('has_image');
-			}
-
-			return true; //no need to continue
-		});
-		return _initializePosModel_.call(this, session, attributes);
-	};
-};
+            return _super_posmodel.initialize.call(this, session, attributes);
+        },
+    });
+});
