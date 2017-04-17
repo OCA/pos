@@ -6,59 +6,66 @@
 POS Default Empty Image
 =======================
 
-In the point of sale, trying to load known inexistant images 
-is a waste of time.
+This module extends the functionality of point of sale to make PoS load faster
+and to improve products display.
 
+Point Of Sale Load faster
+-------------------------
+
+In the point of sale, trying to load known inexistant images is a waste of time.
 
 When you have 8000 products in your Point of Sale and most of them 
 don't have images, you are happy to save thousands of useless requests:
 the POS load way faster.
 
+
+Improve products display
+------------------------
+
+By default, Odoo PoS display a useless generic image for products that doesn't
+have images.
+
+  .. figure:: /pos_default_empty_image/static/description/pos_display_default.png
+     :width: 800 px
+
+With this module, the display of the product is changed, (Size of the name
+is increased for better visibility);
+
+  .. figure:: /pos_default_empty_image/static/description/pos_display_improved.png
+     :width: 800 px
+
 Technical information
 =====================
 
-Each time the pos instantiate a product, it will add an
+Each time the pos instantiate a product, it will add this code for each product
+
+.. code:: html
 
     <img src="'/web/binary/image?model=product.product&field=image_medium&id='+product.id;" />
 
-The browser will trigger as many requests than there is different url.
-
+The browser will trigger as many requests than there are different urls.
 
 If you have many products, the browser will soon reach his limit of 
 network connections to Odoo server and will wait for free slots instead of 
 loading other valuable contents. Then the POS is then very slow to work with.
 
-
-This module adds a field _has_image in product.template.
+This module adds a field has_image in product.product model.
 
 If product has no image, the product image url is not sent to the POS
-
-In the product list, the display of the product is changed,
-          (Size of the name is increased for better visibility);
-
-Indeed, if the product has an image, it will load normally.
-
-This module is compatible with pos_product_template
-
-
-Known issues
-============
-
 
 Updates
 =======
 
 * Feb 2016 : First version
-* Feb 2017 : migration to v10 and improvements for Display - taken from 
-    this module `pos_improve_images from GRAP 
-    <https://github.com/grap/odoo-addons-grap/tree/7.0/pos_improve_images>`_ for OpenERP 7.
+* Feb 2017 : migration to v10 and improvements for Display
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
-In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback `here <https://github.com/OCA/pos/issues/new?body=module:%20pos_default_empty_image%0Aversion:%200.1%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+Bugs are tracked on `GitHub Issues
+<https://github.com/OCA/pos/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us smash it by providing detailed and welcomed feedback.
 
 
 Credits
@@ -69,6 +76,7 @@ Contributors
 
 * Hparfr <https://github.com/hparfr> `Akretion <https://akretion.com>`_
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
+* Invitu <https://github.com/invitu>
 
 
 Maintainer
