@@ -9,7 +9,14 @@
     'author': "Akretion, GRAP, Odoo Community Association (OCA)",
     'website': "https://akretion.com",
     'license': 'AGPL-3',
-    'depends': ['point_of_sale'],
-    'data': ['view/view.xml'],
-    'qweb': [],
+    'depends': [
+        'point_of_sale',
+    ],
+    'data': [
+        'views/templates.xml',
+    ],
+    'qweb': [
+        'static/src/xml/pos_default_empty_image.xml',
+    ],
+    'installable': True,
 }
