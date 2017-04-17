@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'POS Default empty image',
-    'version': '8.0.0.1.0',
+    'version': '10.0.0.1.0',
     'category': 'Point Of Sale',
     'summary': 'Optimise load time for products with no image',
     'author': "Akretion, GRAP, Odoo Community Association (OCA)",
