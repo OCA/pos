@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ProductNoImage">
+        <span class='product' t-att-data-product-id="product.id">
+            <div class="product-img-without-image">
+                <t t-if="!product.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(product.price,'Product Price')"/>
+                    </span>
+                </t>
+                <t t-if="product.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(product.price,'Product Price')+'/'+widget.pos.units_by_id[product.uom_id[0]].name"/>
+                    </span>
+                </t>
+            </div>
+            <div class="product-name-without-image">
+                <t t-esc="product.display_name"/>
+            </div>
+        </span>
+    </t>
+</templates>
+
