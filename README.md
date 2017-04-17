@@ -21,6 +21,7 @@ addon | version | summary
 [pos_default_empty_image](pos_default_empty_image/) | 8.0.0.1.0 | Optimise load time for products with no image
 [pos_gift_ticket](pos_gift_ticket/) | 8.0.0.1.0 | Gift Ticket
 [pos_invoice_journal](pos_invoice_journal/) | 8.0.1.0.0 | Use a different journal for the invoices created from the pos
+[pos_margin](pos_margin/) | 8.0.1.0.0 | Margin on PoS Order
 [pos_order_load](pos_order_load/) | 8.0.1.0.0 | POS Order Load and Save
 [pos_order_picking_link](pos_order_picking_link/) | 8.0.1.1.0 | Adds link between Pos orders and generated pickings
 [pos_order_pricelist_change](pos_order_pricelist_change/) | 8.0.1.0.0 | Improve pricelist changes for POS Order in back office
