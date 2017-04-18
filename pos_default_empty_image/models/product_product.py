@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-# © <2015> <Akretion, GRAP, OCA>
+# Copyright (C) 2017 - Today:
+#   GRAP (http://www.grap.coop)
+#   Akretion (http://www.akretion.com)
+# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import models, fields, api
