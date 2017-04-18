@@ -22,7 +22,6 @@ odoo.define('pos_default_empty_image.widgets', function (require) {
             else {
                 var cached = this.product_cache.get_node(product.id);
                 if(!cached){
-                    var image_url = this.get_product_image_url(product);
                     var product_html = QWeb.render('ProductNoImage',{
                         widget:  this,
                         product: product,
