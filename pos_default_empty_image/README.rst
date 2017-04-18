@@ -10,10 +10,10 @@ This module extends the functionality of point of sale to make PoS load faster
 and to improve products display.
 
 Point Of Sale Load faster
--------------------------
+=========================
 
-In the point of sale, loading product without image spend unnecessary time
-and resources
+In the point of sale, loading products without image spend unnecessary time
+and resources.
 
 When you have 8000 products in your Point of Sale and most of them 
 don't have images, removing thousands of useless requests is welcome:
@@ -21,7 +21,7 @@ the POS loads faster that way.
 
 
 Improve products display
-------------------------
+========================
 
 By default, Odoo PoS display a useless generic image for products that doesn't
 have images.
