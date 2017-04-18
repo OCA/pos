@@ -2,9 +2,9 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-POS Default Empty Image
-=======================
+================================================
+Optimize loading time for products without image
+================================================
 
 This module extends the functionality of point of sale to make PoS load faster
 and to improve products display.
@@ -12,11 +12,12 @@ and to improve products display.
 Point Of Sale Load faster
 -------------------------
 
-In the point of sale, trying to load known inexistant images is a waste of time.
+In the point of sale, loading product without image spend unnecessary time
+and resources
 
 When you have 8000 products in your Point of Sale and most of them 
-don't have images, you are happy to save thousands of useless requests:
-the POS load way faster.
+don't have images, removing thousands of useless requests is welcome:
+the POS loads faster that way.
 
 
 Improve products display
