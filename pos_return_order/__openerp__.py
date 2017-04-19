@@ -9,7 +9,7 @@
     'version': '9.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Point of Sale Return Order',
-    'author': 'La Louve, Odoo Community Association (OCA)',
+    'author': 'La Louve, GRAP, Odoo Community Association (OCA)',
     'website': 'http://www.lalouve.net',
     'depends': [
         'point_of_sale',

@@ -1,27 +1,29 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
+==================
 PoS - Return Order
 ==================
 
-This module was written to extend the functionality of odoo Point Of Sale about
- Order returns.
+This module extends the functionality of odoo Point Of Sale about POS Order
+returns.
 
-With this module, it is now forbidden to return more products than the quantity
-of the initial Order.
+With this module, it is now forbidden to return more quantity than the initial
+one.
 
 A link is created between the returned Order and the initial Order.
 A link is created between the returned Order Line and the initial Order Line.
 
 Implemented Features
---------------------
+====================
 
 * A wizard that allow to select just some products to return:
 
 .. image:: /pos_return_order/static/description/partial_return_wizard.png
 
 Implemented Constraints
------------------------
+=======================
 
 * User can not return more products than the initial quantity:
 
@@ -36,16 +38,11 @@ Implemented Constraints
 
 .. image:: /pos_return_order/static/description/initial_pos_order_required.png
 
-Installation
-============
-
-Normal installation.
-
 Configuration
 =============
 
-In some case, you can want to let the possibility to allow negative quantity
-in a PoS Order, without mention initial order. This can be possible for special
+In some case, you want to let the possibility to allow negative quantity
+in a PoS Order, without mentioning initial order. This can happen for special
 products like returnable products, ...
 
 In that case, a checkbox is possible on Product Form View to allow such case
@@ -65,24 +62,23 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues
 <https://github.com/OCA/pos/issues>`_. In case of trouble, please
 check there if your issue has already been reported. If you spotted it first,
-help us smashing it by providing a detailed and welcomed `feedback
-<https://github.com/OCA/
-pos/issues/new?body=module:%20
-pos_return_order%0Aversion:%20
-9.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+help us smash it by providing detailed and welcomed feedback.
 
 Credits
 =======
-
-Images
-------
-
-* Odoo Community Association: `Icon <https://github.com/OCA/maintainer-tools/blob/master/template/module/static/description/icon.svg>`_.
 
 Contributors
 ------------
 
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
+
+Funders
+-------
+
+The development of this module has been financially supported by:
+
+* La Louve (www.lalouve.net)
+* GRAP, Groupement Régional Alimentaire de Proximité (www.grap.coop)
 
 Maintainer
 ----------
@@ -98,4 +94,3 @@ mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
 To contribute to this module, please visit https://odoo-community.org.
-
