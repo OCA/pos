@@ -25,7 +25,7 @@
 {
     'name': 'Pos ticket logo',
     'category': 'Point Of Sale',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     'depends': [
         'point_of_sale',
     ],
