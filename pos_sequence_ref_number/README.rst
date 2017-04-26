@@ -46,7 +46,7 @@ Contributors
 
 * Jordi Ballester <jordi.ballester@eficent.com>
 * Rafael Blasco <rblasco@rbnpro.com>
-* Ivan Yelizariev
+* Ivan Yelizariev <yelizariev@it-projects.info>
 * Antonio Espinosa <antonioea@antiun.com>
 
 
