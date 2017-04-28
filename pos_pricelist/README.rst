@@ -36,6 +36,8 @@ Configuration
 You'll have new configuration parameters at Point of Sale > Configuration > Point of Sales
 
 * Price with Taxes: Show prices with taxes in POS session or not
+* Included taxes always included: Choose whether to use the included taxes in the pos even if the fiscal position maps
+them (as the sale order process does)
 
 
 Usage
@@ -96,6 +98,9 @@ In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
 `here <https://github.com/OCA/pos/issues/new?body=module:%20pos_pricelist%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
+Fix tax included (method compute_price_all_incl):
+* Only percent and fixed taxes types have been ported to the js engine.
+  (All the variables have been maintained to make easier the debugging.)
 
 Credits
 =======
@@ -106,6 +111,7 @@ Contributors
 * Adil Houmadi <ah@taktik.be>
 * Pablo Cayuela <pablo.cayuela@aserti.es>
 * Antonio Espinosa <antonioea@antiun.com>
+* Jon Erik Ceberio <jonerikceberio@digital5.es>
 
 
 Maintainer

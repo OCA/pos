@@ -144,13 +144,88 @@ function pos_pricelist_models(instance, module) {
                 var partner = this.order ? this.order.get_client() : null;
                 var product = this.product;
                 var db = this.pos.db;
-                var price = this.pos.pricelist_engine.compute_price_all(
+                var price = this.compute_price_all_incl(
                     db, product, partner, qty
                 );
                 if (price !== false) {
                     this.price = round_di(parseFloat(price) || 0, this.pos.dp['Product Price']);
                 }
             }
+        },
+        /**
+         * fix tax included in the case the config has always_tax_included marked
+         */
+        compute_price_all_incl: function (db, product, partner, qty) {
+            var price = this.pos.pricelist_engine.compute_price_all(
+                    db, product, partner, qty
+                );
+            if (!this.pos.config.always_tax_included){
+                return price;
+            }
+            var total = 0.0;
+            var line_search;
+            var line_taxes = this.get_applicable_taxes_for_orderline();
+            
+            var tax_id;
+            var tax;
+            var taxes = []; //incl_tax
+
+            var filter_func = function(obj){
+                return obj.id == tax_id;
+            };
+
+            for (var i = 0; i < product.taxes_id.length; i++) {
+                tax_id = product.taxes_id[i];
+                tax = this.pos.taxes_by_id[tax_id];
+                line_search = line_taxes.filter(filter_func);
+                if (tax.price_include===true && line_search.length===0){
+                    taxes.push(tax);
+                }
+            }
+            if (taxes.length===0){
+                return price;
+            }
+            
+            var amount = 0.0;
+            var tax_parent_tot = 0.0;
+            var cur_price_unit = price;
+            
+            for (var j = 0; j < taxes.length; j++) {
+                tax = taxes[j];
+                if (tax.type=='percent' && !tax.include_base_amount) {
+                    tax_parent_tot += tax.amount;
+                }
+            }
+            for (var k = 0; k < taxes.length; k++) {
+                tax = taxes[k];
+                if (tax.type=='fixed' && !tax.include_base_amount) {
+                    cur_price_unit -= tax.amount;
+                }
+            }
+            
+            for (var m = 0; m < product.taxes_id.length; m++) {
+                tax = taxes[m];
+                if (tax.type=='percent') {
+                    if (tax.include_base_amount===true) {
+                        amount = cur_price_unit - (cur_price_unit / (1 + tax.amount));
+                    } else {
+                        amount = (cur_price_unit / (1 + tax_parent_tot)) * tax.amount;
+                    }
+                } else if (tax.type=='fixed') {
+                    amount = tax.amount;
+                } else {
+                    //TODO
+                    console.log('Tax type not done');
+                }
+                
+                if (tax.include_base_amount) {
+                    cur_price_unit -= amount;
+                } else {
+                    total += amount;
+                }
+            }
+            res = price-1.0*total;
+            return res;
         },
         /**
          * @param state

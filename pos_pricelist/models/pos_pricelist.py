@@ -26,3 +26,8 @@ class PosPriceListConfig(models.Model):
         string='Price With Taxes',
         help="Display Prices with taxes on POS"
     )
+    always_tax_included = fields.Boolean(
+        string='Included taxes always included',
+        help="If marked, the included taxes in the product will always be included in the POS order, even if the fiscal"
+             " position changes them. This behaviour is the default one in the sale order process, so if you want POS"
+             " and sale order processes to be equal, you should mark it.")
