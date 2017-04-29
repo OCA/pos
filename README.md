@@ -29,6 +29,7 @@ addon | version | summary
 [pos_pricelist](pos_pricelist/) | 8.0.1.3.0 | Pricelist for Point of sale
 [pos_product_template](pos_product_template/) | 8.0.0.2.0 | Manage Product Template in Front End Point Of Sale
 [pos_remove_pos_category](pos_remove_pos_category/) | 8.0.0.1.0 | POS Remove POS Category
+[pos_sequence_ref_number](pos_sequence_ref_number/) | 8.0.1.0.0 | Sequential Order numbers for Point of sale
 [pos_ticket_logo](pos_ticket_logo/) | 8.0.1.0.0 | Pos ticket logo
 
 [//]: # (end addons)
