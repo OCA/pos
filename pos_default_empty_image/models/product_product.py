@@ -4,16 +4,17 @@
 from openerp import api, fields, models
 
 
-class ProductTemplate(models.Model):
-    _inherit = ['product.template']
+class ProductProduct(models.Model):
+    _inherit = ['product.product']
 
     @api.multi
     @api.depends('image')
-    def _has_image(self):
+    def _compute_has_image(self):
         for record in self:
             record.has_image = bool(record.image)
 
     has_image = fields.Boolean(
-        compute='_has_image',
+        compute='_compute_has_image',
         store=True,
-        readonly=True)
+        readonly=True,
+    )
