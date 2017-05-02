@@ -2,7 +2,7 @@
 # © 2017 Therp BV <https://therp.nl>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': 'POS with anonymous customers',
+    'name': 'POS with limited list of customers downloaded',
     'version': '8.0.0.1.0',
     'category': 'Point Of Sale',
     'summary': 'Optimise load time for POS where customer data not needed',

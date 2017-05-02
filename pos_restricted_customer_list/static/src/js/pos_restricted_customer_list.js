@@ -1,6 +1,6 @@
 'use strict';
 
-openerp.pos_anonymous_customer = function (instance) {
+openerp.pos_restricted_customer_list = function (instance) {
 	var module = instance.point_of_sale;
 
 	// we can't extend it because self.pos not ready yet
