@@ -31,7 +31,7 @@
                     <span id="variant-popup-cancel" class="button">
                         Cancel
                     </span>
-                    
+
                 </div>
                 <div class="content-container container-attribute-list">
                     <span class="placeholder-AttributeListWidget" />
@@ -52,7 +52,7 @@
     <t t-name="Template">
         <span class='product' t-att-data-product-id="product.id">
             <div class="product-img">
-                <img t-att-src='image_url' /> 
+                <img t-att-src='image_url' />
                 <span class="price-tag">
                     <t t-esc="product.product_variant_count"/> Variants
                 </span>
