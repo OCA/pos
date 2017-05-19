@@ -75,6 +75,7 @@ Contributors
 ------------
 
 * Andrius Preimantas <andrius@versada.lt>
+* Meyomesse Gilles <meyomesse.gilles@gmail.com>
 
 Maintainer
 ----------
