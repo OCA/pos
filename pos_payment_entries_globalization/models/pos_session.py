@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-# Copyright 2015 ACSONE SA/NV (<http://acsone.eu>)
+# Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields, api, _
+from odoo import models, fields, api, _
 from collections import defaultdict
 
 
@@ -27,11 +27,10 @@ class PosSession(models.Model):
         return grouped_move_lines
 
     @api.model
-    def _create_globalization_move(self, journal_id, period_id):
+    def _prepare_globalization_move(self, journal_id):
         """Create the globalization move"""
         entries_vals = {
             'journal_id': journal_id,
-            'period_id': period_id,
             'date': fields.Date.today(),
             'name': "%s - %s" % (
                 self.name, _("Payment globalization")),
@@ -39,8 +38,8 @@ class PosSession(models.Model):
         return self.env['account.move'].create(entries_vals)
 
     @api.model
-    def _create_globalization_counterpart_line(self, debit, credit, account_id,
-                                               move):
+    def _prepare_globalization_counterpart_line(self, debit, credit,
+                                                account_id, move):
         """Create the globalization counterpart line"""
         item_vals = {
             'name': _("Payment globalization counterpart"),
@@ -49,7 +48,8 @@ class PosSession(models.Model):
             'account_id': account_id,
             'move_id': move.id
         }
-        return self.env['account.move.line'].create(item_vals)
+        return self.env['account.move.line'].with_context(
+            {'check_move_validity': False}).create(item_vals)
 
     @api.model
     def _create_reverse_line(self, line_to_reverse, move):
@@ -63,7 +63,11 @@ class PosSession(models.Model):
             'account_id': line_to_reverse.account_id.id,
             'move_id': move.id
         }
-        return self.env['account.move.line'].create(item_vals)
+        # case of reverse account move line don't check move validity
+        # because it will assert balanced move
+        # that need : sum(debit) - sum(credit) must be gt 0
+        return self.env['account.move.line'].with_context(
+            {'check_move_validity': False}).create(item_vals)
 
     @api.multi
     def _generate_globalization_entries(self):
@@ -71,11 +75,9 @@ class PosSession(models.Model):
         self.ensure_one()
         grouped_move_lines = self._get_move_lines_for_globalization()
         to_reconcile = []
-        period = self.env['account.period'].find()
         for key, lines in grouped_move_lines.iteritems():
             global_account_id, global_journal_id = key
-            move = self._create_globalization_move(global_journal_id,
-                                                   period.id)
+            move = self._prepare_globalization_move(global_journal_id)
             counterpart_debit = 0.0
             counterpart_credit = 0.0
             for line in lines:
@@ -85,18 +87,17 @@ class PosSession(models.Model):
                 # Pair to reconcile : payment line and the reverse line
                 to_reconcile.append(line + new_line)
             if counterpart_debit:
-                self._create_globalization_counterpart_line(
+                self._prepare_globalization_counterpart_line(
                     counterpart_debit, 0.0, global_account_id, move)
             if counterpart_credit:
-                self._create_globalization_counterpart_line(
+                self._prepare_globalization_counterpart_line(
                     0.0, counterpart_credit, global_account_id, move)
         for lines in to_reconcile:
             lines.reconcile()
 
     @api.multi
-    def wkf_action_close(self):
-        res = super(PosSession, self).wkf_action_close()
+    def action_pos_session_closing_control(self):
+        super(PosSession, self).action_pos_session_closing_control()
         for record in self:
             # Call the method to generate globalization entries
             record._generate_globalization_entries()
-        return res
