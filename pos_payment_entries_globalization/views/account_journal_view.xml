@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<!-- Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
     <data>
         <record model="ir.ui.view" id="view_account_journal_pos_user_form">
             <field name="name">POS Journal (pos_payment_entries_globalization)</field>
@@ -16,4 +18,4 @@
             </field>
         </record>
     </data>
-</openerp>
+</odoo>
