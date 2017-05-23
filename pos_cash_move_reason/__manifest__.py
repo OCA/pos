@@ -8,12 +8,13 @@
               'Odoo Community Association (OCA)',
     'website': "http://acsone.eu",
     'category': 'POS',
-    'version': '8.0.1.0.0',
+    'version': '10.0.1.0.0',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
     ],
     'data': [
         'wizard/pos_box.xml',
+        'views/product_template.xml',
     ],
 }

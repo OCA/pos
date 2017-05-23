@@ -23,13 +23,13 @@ Usage
 
 You can use configured products on "Put Money In" and "Take Money Out" wizard available in point of sale session:
 
-.. figure:: /pos_cash_move_reason/static/description/pos_cash_move_reason_02.png
+.. figure:: /pos_cash_move_reason/static/description/pos_cash_move_reason.png
    :alt: Take money out wizard
 
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/184/8.0
+   :target: https://runbot.odoo-community.org/runbot/184/10.0
 
 
 Bug Tracker
@@ -47,6 +47,7 @@ Contributors
 ------------
 
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
+* Meyomesse Gilles <meyomesse.gilles@gmail.com>
 
 Maintainer
 ----------
