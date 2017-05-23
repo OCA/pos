@@ -17,7 +17,7 @@ Configuration
 
 To configure this module, you need to:
 
- * Configure globalize account and journal on POS payment method (Account journal).
+ * Configure globalize account and journal on POS payment methods (Account journal).
 
 A globalization entry is generated for each globalization journal and each globalization account defined on payment methods.
 
@@ -26,7 +26,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/184/8.0
+   :target: https://runbot.odoo-community.org/runbot/184/10.0
 
 For further information, please visit:
 
@@ -47,6 +47,7 @@ Contributors
 ------------
 
 * Adrien Peiffer <adrien.peiffer@acsone.eu>
+* Meyomesse Gilles <meyomesse.gilles@gmail.com>
 
 Maintainer
 ----------
