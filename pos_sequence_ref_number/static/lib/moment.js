@@ -1,8 +1,5 @@
-//! moment.js
-//! version : 2.8.1
-//! authors : Tim Wood, Iskren Chernev, Moment.js contributors
-//! license : MIT
-//! momentjs.com
+/* Copyright 2017 Tim Wood, Iskren Chernev, Moment.js contributors
+ * License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). */
 
 (function (undefined) {
     /************************************

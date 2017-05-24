@@ -1,25 +1,27 @@
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-    :alt: License: AGPL-3
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
 
+=======================
 POS Sequence Ref Number
 =======================
 
 This module loads the Order Number in the POS, so as to produce and print
 a sequential POS order number in the POS Ticket.
 
-
 Installation
 ============
 
 Nothing special is needed to install this module.
-
-
 
 Usage
 =====
 
 The POS number is generated and shown in the printed POS Ticket.
 
+.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
+   :alt: Try me on Runbot
+   :target: https://runbot.odoo-community.org/runbot/184/10.0
 
 Known issues / Roadmap
 ======================
@@ -48,6 +50,7 @@ Contributors
 * Rafael Blasco <rblasco@rbnpro.com>
 * Ivan Yelizariev <yelizariev@it-projects.info>
 * Antonio Espinosa <antonioea@antiun.com>
+* Meyomesse Gilles <meyomesse.gilles@gmail.com>
 
 
 Maintainer
