@@ -1,3 +1,4 @@
+=============================================
 This module adds the 'Margin' on sales order.
 =============================================
 
@@ -6,7 +7,7 @@ This module adds the 'Margin' on sales order.
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===================
+
 Margin on PoS order
 ===================
 
