@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+# Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+
+- !record {model: res.groups, id: group_negative_qty}:
+    name: Point of Sale - Negative Quantity
+    category_id: base.module_category_usability
+
+- !record {model: res.groups, id: group_discount}:
+    name: Point of Sale - Discount
+    category_id: base.module_category_usability
+
+- !record {model: res.groups, id: group_change_unit_price}:
+    name: Point of Sale - Unit Price Change
+    category_id: base.module_category_usability
+
+- !record {model: res.groups, id: group_multi_order}:
+    name: Point of Sale - Many Orders
+    category_id: base.module_category_usability
+
+- !record {model: res.groups, id: group_delete_order}:
+    name: Point of Sale - Delete Order
+    category_id: base.module_category_usability
