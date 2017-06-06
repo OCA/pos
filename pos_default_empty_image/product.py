@@ -9,12 +9,8 @@ class ProductTemplate(models.Model):
     _inherit = ['product.template']
 
     @api.multi
-    @api.depends('field.image')
-    def _has_image(self):
-        for record in self:
-            record.has_image = bool(record.image)
+    def _get_has_image(self):
+        self.ensure_one()
+        self.has_image = self.image is not False
 
-    has_image = fields.Boolean(
-        compute='_has_image',
-        store=True,
-        readonly=True)
+    has_image = fields.Boolean(compute='_get_has_image', string='Has Image')
