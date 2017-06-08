@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2017-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <template id="assets_frontend" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_price_to_weight/static/src/js/screens.js"/>
+            <script type="text/javascript" src="/pos_price_to_weight/static/src/js/models.js"/>
+        </xpath>
+    </template>
+</odoo>
+
+
