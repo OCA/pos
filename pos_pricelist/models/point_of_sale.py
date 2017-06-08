@@ -18,9 +18,12 @@
 #
 ##############################################################################
 
-
 from openerp import models, fields, api
 from openerp.addons import decimal_precision as dp
+from openerp.addons.point_of_sale.point_of_sale import pos_order as base_order
+from openerp.addons.pos_pricelist.models.pos_order_patch import (
+    _create_account_move_line)
+
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -158,3 +161,8 @@ class PosOrder(models.Model):
         # Compute tax detail
         orders.compute_tax_detail()
         _logger.info("%d orders computed installing module.", len(orders))
+
+    def _register_hook(self, cr):
+        res = super(PosOrder, self)._register_hook(cr)
+        base_order._create_account_move_line = _create_account_move_line
+        return res
