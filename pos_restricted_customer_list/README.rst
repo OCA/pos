@@ -23,7 +23,7 @@ POS: restricted customer list
     :target: https://runbot.odoo-community.org/runbot/184/9.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 In the point of sale, many installations work with cash registers with
 anonymous customers. In that case, loading thousands, or even tens of
