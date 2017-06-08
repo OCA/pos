@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="cash_box_in_form">
+            <field name="name">cash.box.in.form</field>
+            <field name="model">cash.box.in</field>
+            <field name="inherit_id" ref="account.cash_box_in_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="product_id" required="1" class="oe_inline" />
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="cash_box_out_form">
+            <field name="name">cash.box.out.form</field>
+            <field name="model">cash.box.out</field>
+            <field name="inherit_id" ref="account.cash_box_out_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="product_id" required="1" class="oe_inline"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
