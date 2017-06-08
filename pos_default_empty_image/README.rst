@@ -64,6 +64,7 @@ Contributors
 
 * Hparfr <https://github.com/hparfr> `Akretion <https://akretion.com>`_
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
+* Ronald Portier <ronald@therp.nl>
 
 See also this module `pos_improve_images from GRAP 
 <https://github.com/grap/odoo-addons-grap/tree/7.0/pos_improve_images>`_ for OpenERP 7.
