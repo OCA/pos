@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template
+            id="assets_backend"
+            name="pos_restricted_customer_list assets"
+            inherit_id="web.assets_backend"
+            >
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_restricted_customer_list/static/src/js/pos_restricted_customer_list.js"
+                    >
+                </script>
+            </xpath>
+        </template>
+    </data>
+</openerp>
