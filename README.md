@@ -16,6 +16,8 @@ addon | version | summary
 [pos_access_right](pos_access_right/) | 9.0.1.0.0 | Point of Sale - Extra Access Right for certain actions
 [pos_customer_display](pos_customer_display/) | 9.0.0.1.0 | Manage Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 9.0.1.0.0 | Point of Sale Require Customer
+[pos_empty_home](pos_empty_home/) | 9.0.1.0.0 | Hide products at the start of the Point of Sale
+[pos_price_to_weight](pos_price_to_weight/) | 9.0.1.0.0 | Compute weight based on barcodes with prices
 [pos_quick_logout](pos_quick_logout/) | 9.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_remove_pos_category](pos_remove_pos_category/) | 9.0.0.1.0 | POS Remove POS Category
 [pos_session_summary](pos_session_summary/) | 9.0.1.0.0 | Point of Sale - Total of transactions and Orders Quantity
