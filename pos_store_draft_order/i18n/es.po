@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_store_draft_order
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_store_draft_order
+#: field:pos.config,allow_store_draft_order:0
+msgid "Allow to Store Draft Orders"
+msgstr ""
+
+#. module: pos_store_draft_order
+#: help:pos.config,allow_store_draft_order:0
+msgid ""
+"If you check this field,  users will have the possibility to let some PoS orders in a draft state, and allow the customer to paid later.\n"
+"Order in a draft state will not generate entries during the close of the session."
+msgstr ""
+
+#. module: pos_store_draft_order
+#: field:pos.order,is_partial_paid:0
+msgid "Is Partially Paid"
+msgstr ""
+
+#. module: pos_store_draft_order
+#: model:ir.model,name:pos_store_draft_order.model_pos_order
+msgid "Point of Sale"
+msgstr "Terminal Punto de Venta"
+
+#. module: pos_store_draft_order
+#: code:addons/pos_store_draft_order/model/pos_session.py:63
+#, python-format
+msgid ""
+"You cannot confirm this session, because '%s' is still in 'draft' state with associated payments.\n"
+"\n"
+" Please finish to pay this Order first."
+msgstr ""
+
+#. module: pos_store_draft_order
+#: view:pos.order:pos_store_draft_order.pos_order_view_form
+msgid ""
+"red: is_partial_paid==True; blue: state=='draft'; gray: state in "
+"('done','cancel'); black: state not in ('done','cancel')"
+msgstr ""

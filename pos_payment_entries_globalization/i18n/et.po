@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_payment_entries_globalization
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Estonian (https://www.transifex.com/oca/teams/23907/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_payment_entries_globalization
+#: model:ir.model,name:pos_payment_entries_globalization.model_account_journal
+msgid "Journal"
+msgstr "Päevik"
+
+#. module: pos_payment_entries_globalization
+#: view:account.journal:pos_payment_entries_globalization.view_account_journal_pos_user_form
+msgid "Payment Globalization"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: code:addons/pos_payment_entries_globalization/models/pos_session.py:37
+#: code:addons/pos_payment_entries_globalization/models/pos_session.py:60
+#, python-format
+msgid "Payment globalization"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: code:addons/pos_payment_entries_globalization/models/pos_session.py:46
+#, python-format
+msgid "Payment globalization counterpart"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: field:account.journal,pos_payment_globalization:0
+msgid "Pos payment globalization"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: field:account.journal,pos_payment_globalization_account:0
+msgid "Pos payment globalization account"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: field:account.journal,pos_payment_globalization_journal:0
+msgid "Pos payment globalization journal"
+msgstr ""

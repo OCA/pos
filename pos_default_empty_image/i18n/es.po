@@ -1,0 +1,94 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_default_empty_image
+# 
+# Translators:
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_default_empty_image
+#: field:product.product,available_in_pos:0
+msgid "Available in the Point of Sale"
+msgstr "Disponible en el Punto de Venta"
+
+#. module: pos_default_empty_image
+#: help:product.product,to_weight:0
+msgid ""
+"Check if the product should be weighted using the hardware scale integration"
+msgstr ""
+"Marque esta casilla si el producto debe ser pesado usando la integración de "
+"hardware de la balanza"
+
+#. module: pos_default_empty_image
+#: help:product.product,available_in_pos:0
+msgid "Check if you want this product to appear in the Point of Sale"
+msgstr "Marque esta casilla si quiere que este producto aparezca en el TPV"
+
+#. module: pos_default_empty_image
+#: help:product.product,income_pdt:0
+msgid ""
+"Check if, this is a product you can use to put cash into a statement for the"
+" point of sale backend."
+msgstr ""
+"Marque esta casilla si el producto se puede usar para poner dinero en un "
+"extracto para el backend del TPV."
+
+#. module: pos_default_empty_image
+#: help:product.product,expense_pdt:0
+msgid ""
+"Check if, this is a product you can use to take cash from a statement for "
+"the point of sale backend, example: money lost, transfer to bank, etc."
+msgstr ""
+"Marque esta casilla si éste es un producto que puede usar para retirar "
+"dinero de un extracto del «backend» del TPV, por ejemplo: dinero perdido, "
+"transferencia a un banco, etc."
+
+#. module: pos_default_empty_image
+#: field:product.product,has_image:0
+msgid "Has image"
+msgstr ""
+
+#. module: pos_default_empty_image
+#: field:product.product,income_pdt:0
+msgid "Point of Sale Cash In"
+msgstr "Entrada de efectivo del TPV"
+
+#. module: pos_default_empty_image
+#: field:product.product,expense_pdt:0
+msgid "Point of Sale Cash Out"
+msgstr "Dinero retirado del TPV"
+
+#. module: pos_default_empty_image
+#: field:product.product,pos_categ_id:0
+msgid "Point of Sale Category"
+msgstr "Categoría del punto de venta"
+
+#. module: pos_default_empty_image
+#: model:ir.model,name:pos_default_empty_image.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: pos_default_empty_image
+#: help:product.product,pos_categ_id:0
+msgid "Those categories are used to group similar products for point of sale."
+msgstr ""
+"Estas categorías se usan para agrupar productos similares para el punto de "
+"venta."
+
+#. module: pos_default_empty_image
+#: field:product.product,to_weight:0
+msgid "To Weigh With Scale"
+msgstr "Para pesar en una báscula"

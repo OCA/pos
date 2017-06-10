@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-18 01:07+0000\n"
-"PO-Revision-Date: 2016-11-25 14:55+0000\n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2017-06-08 14:28+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/oca/OCA-pos-8-0/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -61,6 +61,13 @@ msgstr "Nombre mostrado"
 #: help:pos.config,display_price_with_taxes:0
 msgid "Display Prices with taxes on POS"
 msgstr "Mostrar los precios con impuestos incluidos en el TPV"
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#, python-format
+msgid "Error!"
+msgstr "¡Error!"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,id:0
@@ -118,6 +125,12 @@ msgid "Payments"
 msgstr "Pagos"
 
 #. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#, python-format
+msgid "Please define income account for this product: \"%s\" (id:%d)."
+msgstr ""
+
+#. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
 msgid "Point of Sale"
 msgstr "Terminal Punto de Venta"
@@ -135,7 +148,16 @@ msgid "Pricelist Error"
 msgstr "Error en lista de precios"
 
 #. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#, python-format
+msgid "Selected orders do not have the same session!"
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:188
+#: code:addons/pos_pricelist/models/pos_order_patch.py:205
 #: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
+#, python-format
 msgid "Tax"
 msgstr "Impuesto"
 
@@ -159,3 +181,15 @@ msgstr "Impuestos de posición fiscal"
 #: view:pos.order:pos_pricelist.view_pos_pos_form
 msgid "Taxes detail"
 msgstr "Detalle de impuestos"
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:117
+#, python-format
+msgid "The POS order must have lines when calling this method"
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:218
+#, python-format
+msgid "Trade Receivables"
+msgstr ""
