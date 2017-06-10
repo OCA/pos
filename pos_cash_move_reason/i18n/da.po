@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_cash_move_reason
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Danish (https://www.transifex.com/oca/teams/23907/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:36
+#, python-format
+msgid "Description"
+msgstr "Beskrivelse"
+
+#. module: pos_cash_move_reason
+#: field:cash.box.in,product_id:0 field:cash.box.out,product_id:0
+msgid "Reason"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:84
+#, python-format
+msgid ""
+"You have to define an\n"
+"                    expense account on the related product"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:60
+#, python-format
+msgid ""
+"You have to define an\n"
+"                    income account on the related product"
+msgstr ""
