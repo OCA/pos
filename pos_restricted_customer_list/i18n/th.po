@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_restricted_customer_list
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Thai (https://www.transifex.com/oca/teams/23907/th/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: pos_restricted_customer_list
+#: field:res.partner,available_in_pos:0
+msgid "Available for POS"
+msgstr ""
+
+#. module: pos_restricted_customer_list
+#: model:ir.model,name:pos_restricted_customer_list.model_res_partner
+msgid "Partner"
+msgstr "พาร์ทเนอร์"
