@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-09 03:25+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-06-10 07:31+0000\n"
+"PO-Revision-Date: 2017-06-10 07:31+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,6 +37,8 @@ msgid ""
 "You have to define an\n"
 "                    expense account on the related product"
 msgstr ""
+"Določiti morate\n"
+"                    konto stroškov za povezani proizvod"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/pos_box.py:60
@@ -44,3 +47,5 @@ msgid ""
 "You have to define an\n"
 "                    income account on the related product"
 msgstr ""
+"Določiti morate\n"
+"                    konto prihodkov za povezani proizvod"
