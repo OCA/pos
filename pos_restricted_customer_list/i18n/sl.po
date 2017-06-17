@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"POT-Creation-Date: 2017-06-10 07:31+0000\n"
+"PO-Revision-Date: 2017-06-10 07:31+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. module: pos_restricted_customer_list
 #: field:res.partner,available_in_pos:0
 msgid "Available for POS"
-msgstr ""
+msgstr "Razpoložljivo za POS"
 
 #. module: pos_restricted_customer_list
 #: model:ir.model,name:pos_restricted_customer_list.model_res_partner
