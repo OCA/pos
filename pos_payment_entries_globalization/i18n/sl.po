@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-09 03:25+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-06-10 07:31+0000\n"
+"PO-Revision-Date: 2017-06-10 07:31+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,32 +27,32 @@ msgstr "Dnevnik"
 #. module: pos_payment_entries_globalization
 #: view:account.journal:pos_payment_entries_globalization.view_account_journal_pos_user_form
 msgid "Payment Globalization"
-msgstr ""
+msgstr "Globalizacija plačil"
 
 #. module: pos_payment_entries_globalization
 #: code:addons/pos_payment_entries_globalization/models/pos_session.py:37
 #: code:addons/pos_payment_entries_globalization/models/pos_session.py:60
 #, python-format
 msgid "Payment globalization"
-msgstr ""
+msgstr "Globalizacija plačil"
 
 #. module: pos_payment_entries_globalization
 #: code:addons/pos_payment_entries_globalization/models/pos_session.py:46
 #, python-format
 msgid "Payment globalization counterpart"
-msgstr ""
+msgstr "Proti-postavka plačilne globalizacije"
 
 #. module: pos_payment_entries_globalization
 #: field:account.journal,pos_payment_globalization:0
 msgid "Pos payment globalization"
-msgstr ""
+msgstr "POS globalizacija plačil"
 
 #. module: pos_payment_entries_globalization
 #: field:account.journal,pos_payment_globalization_account:0
 msgid "Pos payment globalization account"
-msgstr ""
+msgstr "POS konto globalizacije plačil"
 
 #. module: pos_payment_entries_globalization
 #: field:account.journal,pos_payment_globalization_journal:0
 msgid "Pos payment globalization journal"
-msgstr ""
+msgstr "POS dnevnik globalizacije plačil"

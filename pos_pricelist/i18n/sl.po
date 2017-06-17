@@ -3,14 +3,14 @@
 # * pos_pricelist
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-08 14:28+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
+"POT-Creation-Date: 2017-06-10 07:31+0000\n"
+"PO-Revision-Date: 2017-06-14 04:44+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -128,7 +128,7 @@ msgstr "Plačila"
 #: code:addons/pos_pricelist/models/pos_order_patch.py:152
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d)."
-msgstr ""
+msgstr "Določite konto prihodkov za proizvod: \"%s\" (id:%d)."
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
@@ -151,7 +151,7 @@ msgstr "Napaka pri ceniku"
 #: code:addons/pos_pricelist/models/pos_order_patch.py:26
 #, python-format
 msgid "Selected orders do not have the same session!"
-msgstr ""
+msgstr "Izbrani nalogi nimajo iste seje!"
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_order_patch.py:188
@@ -186,10 +186,10 @@ msgstr "Podrobnosti davkov"
 #: code:addons/pos_pricelist/models/pos_order_patch.py:117
 #, python-format
 msgid "The POS order must have lines when calling this method"
-msgstr ""
+msgstr "POS nalog mora vsebovati postavke, ko se kliče to metodo"
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_order_patch.py:218
 #, python-format
 msgid "Trade Receivables"
-msgstr ""
+msgstr "Trgovske terjatve"

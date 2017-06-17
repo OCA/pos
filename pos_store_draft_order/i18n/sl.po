@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-09 03:25+0000\n"
+"POT-Creation-Date: 2017-06-10 07:31+0000\n"
+"PO-Revision-Date: 2017-06-10 07:31+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. module: pos_store_draft_order
 #: field:pos.config,allow_store_draft_order:0
 msgid "Allow to Store Draft Orders"
-msgstr ""
+msgstr "Dovoli shranjevanje osnutkov nalogov"
 
 #. module: pos_store_draft_order
 #: help:pos.config,allow_store_draft_order:0
@@ -29,11 +29,13 @@ msgid ""
 "If you check this field,  users will have the possibility to let some PoS orders in a draft state, and allow the customer to paid later.\n"
 "Order in a draft state will not generate entries during the close of the session."
 msgstr ""
+"Če označite to polje, bodo lahko uporabniki pustili nekatere POS naloge v stanju osnutka, da bodo lahko kupci plačali kasneje.\n"
+"Nalogi v stanju osnutek ne generirajo vnosov ob zaključku seje."
 
 #. module: pos_store_draft_order
 #: field:pos.order,is_partial_paid:0
 msgid "Is Partially Paid"
-msgstr ""
+msgstr "Je delno plačano"
 
 #. module: pos_store_draft_order
 #: model:ir.model,name:pos_store_draft_order.model_pos_order
@@ -48,6 +50,9 @@ msgid ""
 "\n"
 " Please finish to pay this Order first."
 msgstr ""
+"Te seje ne morete potrditi, ker je '%s' še vedno v stanju 'osnutek' skupaj s povezanimi plačili.\n"
+"\n"
+"Najprej dokončajte plačilo za ta nalog."
 
 #. module: pos_store_draft_order
 #: view:pos.order:pos_store_draft_order.pos_order_view_form
@@ -55,3 +60,5 @@ msgid ""
 "red: is_partial_paid==True; blue: state=='draft'; gray: state in "
 "('done','cancel'); black: state not in ('done','cancel')"
 msgstr ""
+"red: is_partial_paid==True; blue: state=='draft'; gray: state in "
+"('done','cancel'); black: state not in ('done','cancel')"
