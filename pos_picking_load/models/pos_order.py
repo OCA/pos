@@ -30,7 +30,8 @@ class PosOrder(models.Model):
             sale_orders = sale_order_obj.search([
                 ('procurement_group_id', '=',
                     order.origin_picking_id.group_id.id)])
-            sale_orders.action_ignore_delivery_exception()
+#            sale_orders.action_ignore_delivery_exception()
+            sale_orders.signal_workflow('ship_corrected')
             sale_orders.write({'final_pos_order_id': order.id})
 
     # Overload Section

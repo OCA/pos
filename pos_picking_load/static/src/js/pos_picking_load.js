@@ -295,23 +295,23 @@ openerp.pos_picking_load = function(instance, local) {
         },
 
         on_click_picking: function(event){
-            this.load_picking(parseInt(event.target.parentNode.dataset.pickingId));
+            this.load_picking(parseInt(event.target.parentNode.dataset.pickingId, 10));
         },
 
         render_list: function(pickings){
             var self = this;
             var contents = this.$el[0].querySelector('.picking-list-contents');
             contents.innerHTML = "";
-            for (var i = 0, len = pickings.length; i < len; i++){
-                var picking = pickings[i];
-                var pickingline_html = QWeb.render('LoadPickingLine',
-                    {widget: this, picking:pickings[i]});
-                var pickingline = document.createElement('tbody');
-                pickingline.innerHTML = pickingline_html;
-                pickingline = pickingline.childNodes[1];
-                pickingline.addEventListener('click', this.on_click_picking);
-                contents.appendChild(pickingline);
-            }
+            var line_list = document.createDocumentFragment();
+            _.each(pickings, function(picking){
+                var picking_line_html = QWeb.render('LoadPickingLine',{widget: this, picking:picking});
+                var picking_line = document.createElement('tbody');
+                picking_line.innerHTML = picking_line_html;
+                picking_line = picking_line.childNodes[1];
+                picking_line.addEventListener('click', self.on_click_picking);
+                line_list.appendChild(picking_line);
+            });
+            contents.appendChild(line_list);
         },
 
         perform_search: function(query){
