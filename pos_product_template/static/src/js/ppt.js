@@ -159,7 +159,7 @@ Define : pos_product_template.SelectVariantPopupWidget
             // Render Attributes
             var attribute_ids  = this.pos.db.attribute_by_template_id(template.id);
             var attribute_list = [];
-            for (var j = 0, len = attribute_ids.length; j < len; j++) {
+            for (var j = 0, len2 = attribute_ids.length; j < len2; j++) {
                 attribute_list.push(this.pos.db.get_product_attribute_by_id(attribute_ids[j]));
             }
             this.attribute_list_widget.set_attribute_list(attribute_list, template);

@@ -23,6 +23,7 @@ Technical Information:
         * product.template;
         * product.attribute;
         * product.attribute.value;
+
 Usage
 =====
 
