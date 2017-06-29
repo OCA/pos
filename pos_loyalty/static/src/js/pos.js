@@ -225,6 +225,21 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
             }
         },
 
+        has_discount_reward: function(){
+            var res = false;
+            var lines = this.get_orderlines();
+
+            for (var i = 0; i < lines.length; i++) {
+                var line = lines[i];
+                var reward = line.get_reward();
+                if (reward && reward.type === 'discount') {
+                    res = true;
+                    break;
+                }
+            }
+            return res;
+        },
+
         /* The list of rewards that the current customer can get */
         get_available_rewards: function(){
             var client = this.get_client();
@@ -232,13 +247,17 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
                 return [];
             }
             var rewards = [];
+            var discount_reward_set = this.has_discount_reward();
             for (var i = 0; i < this.pos.loyalty.rewards.length; i++) {
                 var reward = this.pos.loyalty.rewards[i];
 
                 if (reward.minimum_points > this.get_spendable_points()) {
                     continue;
-                } else if(['gift', 'discount'].indexOf(reward.type) > -1  &&
+                } else if(reward.type === 'gift'  &&
                           reward.point_cost > this.get_spendable_points()) {
+                    continue;
+                } else if(reward.type === 'discount' &&
+                         (discount_reward_set || reward.point_cost > this.get_spendable_points())){
                     continue;
                 }
                 rewards.push(reward);
