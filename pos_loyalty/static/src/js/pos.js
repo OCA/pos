@@ -276,7 +276,7 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
                     return;
                 }
 
-                var line = this.add_product(product, {
+                this.add_product(product, {
                     price: 0,
                     quantity: 1,
                     merge: false,
@@ -300,7 +300,7 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
                     return;
                 }
 
-                var line = this.add_product(product, {
+                this.add_product(product, {
                     price: -discount,
                     quantity: 1,
                     merge: false,
@@ -328,7 +328,7 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
                     return;
                 }
 
-                var line = this.add_product(product, {
+                this.add_product(product, {
                     quantity: -spendable,
                     merge: false,
                     extras: { reward_id: reward.id },
@@ -384,10 +384,8 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
                     'title': _t('No Rewards Available'),
                     'body':  _t('There are no rewards available for this customer as part of the loyalty program'),
                 });
-                return;
             } else if (rewards.length === 1 && this.pos.loyalty.rewards.length === 1) {
                 order.apply_reward(rewards[0]);
-                return;
             } else {
                 var list = [];
                 for (var i = 0; i < rewards.length; i++) {
