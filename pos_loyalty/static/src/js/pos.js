@@ -37,27 +37,22 @@ odoo.define('pos_loyalty.loyalty_program', function (require){
                 self.loyalty.rules_by_product_id = {};
                 self.loyalty.rules_by_category_id = {};
 
-                for (var i = 0; i < rules.length; i++){
-                    var rule = rules[i];
-                    if (rule.type === 'product') {
-                        if (!self.loyalty.rules_by_product_id[rule.product_id[0]]) {
-                            self.loyalty.rules_by_product_id[rule.product_id[0]] = [rule];
-                        } else if (rule.cumulative) {
-                            self.loyalty.rules_by_product_id[rule.product_id[0]].unshift(rule);
-                        } else {
-                            self.loyalty.rules_by_product_id[rule.product_id[0]].push(rule);
-                        }
-                    } else if (rule.type === 'category') {
-                        var category = self.db.get_category_by_id(rule.category_id[0]);
-                        if (!self.loyalty.rules_by_category_id[category.id]) {
-                            self.loyalty.rules_by_category_id[category.id] = [rule];
-                        } else if (rule.cumulative) {
-                            self.loyalty.rules_by_category_id[category.id].unshift(rule);
-                        } else {
-                            self.loyalty.rules_by_category_id[category.id].push(rule);
-                        }
+                function update_rules(rules, rule, id) {
+                    if (!rules[id]){
+                        rules[id] = [rule];
+                    } else if (rule.cumulative){
+                        rules[id].unshift(rule);
+                    } else {
+                        rules[id].push(rule);
                     }
                 }
+
+                _.each(rules, function(rule) {
+                    if (rule.type === 'product')
+                        update_rules(self.loyalty.rules_by_product_id, rule, rule.product_id[0])
+                    else if (rule.type === 'category')
+                        update_rules(self.loyalty.rules_by_category_id, rule, rule.category_id[0]);
+                });
             },
         },{
             model: 'loyalty.reward',
