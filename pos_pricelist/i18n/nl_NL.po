@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 14:51+0000\n"
-"PO-Revision-Date: 2016-04-06 15:48+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2017-06-17 05:46+0000\n"
+"PO-Revision-Date: 2017-06-30 08:53+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-pos-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,6 +37,11 @@ msgid "Base"
 msgstr ""
 
 #. module: pos_pricelist
+#: field:account.fiscal.position.tax,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: pos_pricelist
 #: field:pos.order.tax,create_uid:0
 msgid "Created by"
 msgstr ""
@@ -47,14 +52,31 @@ msgid "Created on"
 msgstr ""
 
 #. module: pos_pricelist
+#: field:pos.order.tax,display_name:0
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0
 msgid "Display Prices with taxes on POS"
 msgstr ""
 
 #. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: pos_pricelist
 #: field:pos.order.tax,id:0
 msgid "ID"
-msgstr ""
+msgstr "ID"
+
+#. module: pos_pricelist
+#: field:pos.order.tax,__last_update:0
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
@@ -102,6 +124,12 @@ msgid "Payments"
 msgstr ""
 
 #. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#, python-format
+msgid "Please define income account for this product: \"%s\" (id:%d)."
+msgstr ""
+
+#. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
 msgid "Point of Sale"
 msgstr "Kassa"
@@ -119,7 +147,16 @@ msgid "Pricelist Error"
 msgstr ""
 
 #. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#, python-format
+msgid "Selected orders do not have the same session!"
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:188
+#: code:addons/pos_pricelist/models/pos_order_patch.py:205
 #: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
+#, python-format
 msgid "Tax"
 msgstr ""
 
@@ -142,4 +179,16 @@ msgstr ""
 #. module: pos_pricelist
 #: view:pos.order:pos_pricelist.view_pos_pos_form
 msgid "Taxes detail"
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:117
+#, python-format
+msgid "The POS order must have lines when calling this method"
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_order_patch.py:218
+#, python-format
+msgid "Trade Receivables"
 msgstr ""
