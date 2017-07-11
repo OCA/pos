@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="loyalty_rule_form_view" model="ir.ui.view">
+        <field name="name">loyalty.rule.form</field>
+        <field name="model">loyalty.rule</field>
+        <field name="arch" type="xml">
+            <form string="Loyalty Rule">
+                <div class="oe_title">
+                    <label class="oe_edit_only" for="name"/>
+                    <h1>
+                        <field name="name" class="oe_inline"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="type"/>
+                    </group>
+                    <group>
+                        <field name="product_id"  attrs="{'invisible': [('type','!=','product')], 'required': [('type','=','product')]}"/>
+                        <field name="category_id" attrs="{'invisible': [('type','!=','category')], 'required': [('type','=','category')]}"/>
+                    </group>
+                </group>
+                <group col="6">
+                    <field name="pp_product"/>
+                    <field name="pp_currency"/>
+                    <field name="cumulative"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>
