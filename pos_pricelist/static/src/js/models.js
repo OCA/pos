@@ -275,7 +275,7 @@ odoo.define('pos_pricelist.models', function (require) {
         },
         get_display_unit_price: function(){
             var rounding = this.pos.currency.rounding;
-            if (this.pos.config.display_price_with_taxes) {
+            if (this.pos.config.iface_tax_included) {
                 return round_pr(this.get_price_with_tax() / this.get_quantity(), rounding);
             } else {
                 return round_pr(this.get_base_price() / this.get_quantity(), rounding);
@@ -285,7 +285,7 @@ odoo.define('pos_pricelist.models', function (require) {
          * @returns {*}
          */
         get_display_price: function () {
-            if (this.pos.config.display_price_with_taxes) {
+            if (this.pos.config.iface_tax_included) {
                 return this.get_price_with_tax();
             }
             return _super_orderline.get_display_price.apply(
@@ -492,7 +492,7 @@ odoo.define('pos_pricelist.models', function (require) {
                         db, product, partner, qty
                     );
                     if (price !== false) {
-                        if (this.pos.config.display_price_with_taxes) {
+                        if (this.pos.config.iface_tax_included) {
                             var prices = this.simulate_price(
                                 product, partner, price, qty
                             );

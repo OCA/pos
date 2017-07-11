@@ -42,7 +42,6 @@ class PosOrderLine(models.Model):
     @api.multi
     def _compute_taxes(self):
         res = {
-            # 'total': 0,
             'total_excluded': 0,
             'total_included': 0,
             'taxes': [],

@@ -19,7 +19,6 @@
     ],
     'data': [
         "views/pos_pricelist_template.xml",
-        "views/pos_pricelist_views.xml",
         "views/point_of_sale_view.xml",
         "report/report_receipt.xml",
         "security/ir.model.access.csv",

@@ -53,14 +53,14 @@ odoo.define('pos_pricelist.widgets', function (require) {
     screens.ProductListWidget.include({
         init: function (parent, options) {
             this._super(parent, options);
-            this.display_price_with_taxes = false;
+            this.iface_tax_included = false;
             if (
                 posmodel
                 && posmodel.config
-                && posmodel.config.display_price_with_taxes
+                && posmodel.config.iface_tax_included
             ) {
-                this.display_price_with_taxes
-                    = posmodel.config.display_price_with_taxes
+                this.iface_tax_included
+                    = posmodel.config.iface_tax_included
             }
         },
         renderElement: function () {

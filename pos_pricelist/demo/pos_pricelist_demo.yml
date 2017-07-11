@@ -39,12 +39,6 @@
     uom_id: product.product_uom_unit
     uom_po_id: product.product_uom_unit
     available_in_pos: True
-#    seller_ids:
-#      - delay: 1
-#        name: base.res_partner_3
-#        pricelist_ids:
-#          - min_quantity : 2.0
-#            price : 80
 
 -
   This product belgon to computer category (5% dicount)
