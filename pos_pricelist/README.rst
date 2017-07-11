@@ -108,7 +108,7 @@ Contributors
 * Antonio Espinosa <antonioea@antiun.com>
 * Florent THOMAS (financial support) <https://github.com/MindAndGo>
 * Pavel Romanchenko <romanchenko@it-projects.info>
-
+* Wolfgang Pichler <wpichler@callino.at>
 
 Maintainer
 ----------

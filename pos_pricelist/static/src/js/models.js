@@ -61,14 +61,14 @@ odoo.define('pos_pricelist.models', function (require) {
          * @param attributes
          */
         initialize: function (session, attributes) {    
-            var partner_model = _.find(this.models, function(model){ return model.model === 'product.product'; });
-            partner_model.fields.push('categ_id','seller_ids');
+            var product_model = _.find(this.models, function(model){ return model.model === 'product.product'; });
+            product_model.fields.push('categ_id','seller_ids','standard_price');
             var result = _super_posmodel.initialize.apply(this, arguments);
             this.db = new PosDB();
             this.pricelist_engine = new models.PricelistEngine({
                 'pos': this,
                 'db': this.db
-            });                       
+            });
             arrange_elements(this);
             return result;
         },
@@ -106,60 +106,6 @@ odoo.define('pos_pricelist.models', function (require) {
         }
     });
 
-
-	/**
-     * Extend the order
-     */
-    models.Order = models.Order.extend({
-        /**
-         * override this method to merge lines
-         * TODO : Need some refactoring in the standard POS to Do it better
-         * TODO : from line 73 till 85, we need to move this to another method
-         * @param product
-         * @param options
-         */
-        addProduct: function (product, options) {
-            options = options || {};
-            var attr = JSON.parse(JSON.stringify(product));
-            attr.pos = this.pos;
-            attr.order = this;
-            var line = new openerp.point_of_sale.Orderline({}, {
-                pos: this.pos,
-                order: this,
-                product: product
-            });
-            var self = this;
-            var found = false;
-
-            if (options.quantity !== undefined) {
-                line.set_quantity(options.quantity);
-            }
-            if (options.price !== undefined) {
-                line.set_unit_price(options.price);
-            }
-            if (options.discount !== undefined) {
-                line.set_discount(options.discount);
-            }
-
-            var orderlines = [];
-            if (self.orderlines.models !== undefined) {
-                orderlines = self.orderlines.models;
-            }
-            for (var i = 0; i < orderlines.length; i++) {
-                var _line = orderlines[i];
-                if (_line && _line.can_be_merged_with(line) &&
-                    options.merge !== false) {
-                    _line.merge(line);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                this.orderlines.add(line);
-            }
-            this.selectLine(this.getLastOrderline());
-        }
-    });
 
     /**
      * Extend the Order line
@@ -441,7 +387,7 @@ odoo.define('pos_pricelist.models', function (require) {
                 var rule = items[i];
                 var today = new Date();
                 var dateoftoday = today.toISOString().substring(0, 10);
-                
+
                 if ((rule.date_start !== false && rule.date_start > dateoftoday )
                         ||(rule.date_end !== false && rule.date_end < dateoftoday )){
                     continue;
@@ -473,6 +419,11 @@ odoo.define('pos_pricelist.models', function (require) {
                                 db, product, false, qty,
                                 rule.base_pricelist_id[0]
                             );
+                        }
+                        break;
+                    case 'standard_price':
+                        if (db.product_by_id[product.id]) {
+                            price = db.product_by_id[product.id].standard_price;
                         }
                         break;
                     default:
@@ -576,7 +527,7 @@ odoo.define('pos_pricelist.models', function (require) {
         simulate_price: function (product, partner, price, qty) {
             // create a fake order in order to get price
             // for this customer
-            var order = new models.Order({pos: this.pos});
+            var order = new models.Order({}, {pos: this.pos});
             order.set_client(partner);
             var orderline = new models.Orderline
             ({}, {
@@ -726,4 +677,3 @@ odoo.define('pos_pricelist.models', function (require) {
 	return models;
 
 });
-
