@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+
+    <t t-name="LoadPickingButtonWidget">
+        <br/><button class="input-button">Load Picking</button>
+    </t>
+
+    <t t-name="LoadPickingLine">
+        <tr class="picking-line" t-att-data-picking-id="picking.id">
+            <td><t t-esc="picking.name"/></td>
+            <td><t t-esc="picking.partner_id[1]"/></td>
+            <td><t t-esc="picking.min_date"/></td>
+            <td><t t-esc="picking.origin"/></td>
+        </tr>
+    </t>
+
+    <t t-name="PickingListScreenWidget">
+        <div class="pickinglist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class="button cancel picking-button">
+                        <i class="fa fa-times"></i>
+                        Cancel
+                    </span>
+                    <span class="button validate picking-button">
+                        <i class="fa fa-arrow-circle-o-left"></i>
+                        Select
+                    </span>
+                    <span class="searchbox">
+                        <input placeholder="Search Picking" />
+                        <span class="search-clear"></span>
+                    </span>
+                    <span class="searchbox"></span>
+                </section>
+                <section class="full-content">
+                    <div class="window">
+                        <section class="subwindow collapsed">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="subwindow">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix touch-scrollable scrollable-y">
+                                    <table class="picking-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Customer</th>
+                                                <th>Scheduled Date</th>
+                                                <th>Source Document</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="picking-list-contents">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery="[t-if='receipt.cashier']" t-operation="after">
+            <t t-if="receipt.origin_picking_name">
+                <div>--------------------------------</div>
+                <div>Origin Picking: <t t-esc='receipt.origin_picking_name' /></div>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="[t-esc='widget.pos.shop.name']" t-operation="after">
+            <t t-if="order.get('origin_picking_name')">
+                <br /><br />Origin Picking: <t t-esc="order.get('origin_picking_name')"/>
+            </t>
+        </t>
+    </t>
+
+
+</template>
