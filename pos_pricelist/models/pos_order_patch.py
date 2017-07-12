@@ -4,8 +4,10 @@
 # flake8: noqa
 # pylint: skip-file
 from openerp.tools.translate import _
+from openerp import api
 
 
+@api.cr_uid_ids_context
 def _create_account_move_line(self, cr, uid, ids, session=None, move_id=None, context=None):
     """ Monkeypatch for this method's version on pos.order in the point_of_sale
     module. Only change is to refer to the line's taxes instead of the
