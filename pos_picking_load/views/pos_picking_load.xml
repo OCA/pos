@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:
+-->
+<openerp>
+    <data>
+        <template id="assets_backend" name="pos_picking_load assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_picking_load/static/src/js/pos_picking_load.js"></script>
+            </xpath>
+        </template>
+        <template id="index_pos_picking_load" name="POS Index Picking Load" inherit_id="point_of_sale.index">
+            <xpath expr="//head" position="inside">
+                <link rel="stylesheet" href="/pos_picking_load/static/src/css/pos_picking_load.css"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>
+

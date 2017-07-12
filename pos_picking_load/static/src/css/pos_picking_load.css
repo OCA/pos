@@ -1,0 +1,40 @@
+.pos .pickinglist-screen .button.picking-button {
+    width: 150px;
+}
+
+.pos .pickinglist-screen .button.cancel {
+    margin-left: -180px;
+}
+
+.pos .pickinglist-screen .picking-list{
+    font-size: 16px;
+    width: 100%;
+    line-height: 40px;
+}
+
+.pos .pickinglist-screen .picking-list th,
+.pos .pickinglist-screen .picking-list td {
+    padding: 0px 8px;
+}
+
+.pos .pickinglist-screen .picking-list tbody > tr{
+    background: rgb(230,230,230);
+    cursor: pointer;
+}
+
+.pos .pickinglist-screen .picking-list thead > tr,
+.pos .pickinglist-screen .picking-list tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
+
+.pos .pickinglist-screen .picking-list tbody > tr:hover {
+    background: rgb(220,220,220);
+}
+
+.pos .pickinglist-screen .searchbox{
+    margin-top:8px;
+}
+
+.pos .pickinglist-screen .searchbox input{
+    width: 150px;
+}
