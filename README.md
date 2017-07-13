@@ -28,6 +28,7 @@ addon | version | summary
 [pos_order_pricelist_change](pos_order_pricelist_change/) | 8.0.1.0.0 | Improve pricelist changes for POS Order in back office
 [pos_payment_entries_globalization](pos_payment_entries_globalization/) | 8.0.1.0.0 | Globalize POS Payment
 [pos_payment_terminal](pos_payment_terminal/) | 8.0.0.1.0 | Manage Payment Terminal device from POS front end
+[pos_picking_load](pos_picking_load/) | 8.0.1.0.0 | POS Picking Load
 [pos_pricelist](pos_pricelist/) | 8.0.1.3.0 | Pricelist for Point of sale
 [pos_product_template](pos_product_template/) | 8.0.0.2.0 | Manage Product Template in Front End Point Of Sale
 [pos_remove_pos_category](pos_remove_pos_category/) | 8.0.0.1.0 | POS Remove POS Category
