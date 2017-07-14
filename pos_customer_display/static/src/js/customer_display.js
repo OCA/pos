@@ -21,13 +21,26 @@ openerp.pos_customer_display = function(instance){
             var line_length = this.config.customer_display_line_length || 20;
             var currency_rounding = Math.ceil(Math.log(1.0 / this.currency.rounding) / Math.log(10));
 
-            if (type == 'addProduct'){
-                // in order to not recompute qty in options..., we assume that the new ordeLine is the last of the collection
-                // addOrderline exists but is not called by addProduct, should we handle it ?
-                var line = this.get('selectedOrder').getLastOrderline(); 
-                var price_unit = line.get_unit_price() * (1.0 - (line.get_discount() / 100.0));
+            if (type == 'add_update_line'){
+                var line = data['line'];
+                var price_unit = line.get_unit_price();
+                var discount = line.get_discount();
+                if (discount) {
+                    price_unit = price_unit * (1.0 - (discount / 100.0));
+                    }
                 price_unit = price_unit.toFixed(currency_rounding);
-                var l21 = line.get_quantity_str_with_unit() + ' x ' + price_unit;
+                var qty = line.get_quantity();
+                // only display decimals when qty is not an integer
+                if (qty.toFixed(0) == qty) {
+                    qty = qty.toFixed(0);
+                }
+                // only display unit when != Unit(s)
+                var unit = line.get_unit();
+                var unit_display = '';
+                if (unit && !unit.is_unit) {
+                    unit_display = unit.name;
+                }
+                var l21 = qty + unit_display + ' x ' + price_unit;
                 var l22 = ' ' + line.get_display_price().toFixed(currency_rounding);
                 var lines_to_send = new Array(
                     this.proxy.align_left(line.get_product().display_name, line_length),
@@ -176,13 +189,48 @@ openerp.pos_customer_display = function(instance){
         },
     });
 
+    var OrderlineSuper = module.Orderline;
+
+    module.Orderline = module.Orderline.extend({
+        /* set_quantity() is called when you force the qty via the dedicated button
+        AND when you create a new order line via add_product().
+        So, when you add a product, we call prepare_text_customer_display() twice...
+        but I haven't found any good solution to avoid this -- Alexis */
+        set_quantity: function(quantity){
+            var res = OrderlineSuper.prototype.set_quantity.call(this, quantity);
+            if (quantity != 'remove') {
+                var line = this;
+                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            }
+            return res;
+        },
+
+        set_discount: function(discount){
+            var res = OrderlineSuper.prototype.set_discount.call(this, discount);
+            if (discount) {
+                var line = this;
+                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            }
+            return res;
+        },
+
+        set_unit_price: function(price){
+            var res = OrderlineSuper.prototype.set_unit_price.call(this, price);
+            var line = this;
+            this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            return res;
+        },
+
+    });
+
     var OrderSuper = module.Order;
 
     module.Order = module.Order.extend({
         addProduct: function(product, options){
             res = OrderSuper.prototype.addProduct.call(this, product, options);
             if (product) {
-                this.pos.prepare_text_customer_display('addProduct', {'product' : product, 'options' : options});
+                var line = this.getLastOrderline();
+                this.pos.prepare_text_customer_display('add_update_line', {'line' : line});
             }
             return res;
         },
