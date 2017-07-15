@@ -4,13 +4,14 @@
 # 
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# leemannd <denis.leemann@camptocamp.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-01 04:05+0000\n"
-"PO-Revision-Date: 2017-03-01 04:05+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-07-12 02:44+0000\n"
+"PO-Revision-Date: 2017-07-12 02:44+0000\n"
+"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +41,7 @@ msgstr ""
 #. module: pos_remove_pos_category
 #: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_image
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 #. module: pos_remove_pos_category
 #: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_image_medium
