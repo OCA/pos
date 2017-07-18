@@ -27,14 +27,14 @@ odoo.define('pos_pricelist.widgets', function (require) {
 
     var round_di = utils.round_decimals;
 
-    screens.OrderWidget = screens.OrderWidget.extend({
+    screens.OrderWidget.include({
         set_value: function (val) {
             this._super(val);
             var order = this.pos.get('selectedOrder');
-            if (this.editable && order.getSelectedLine()) {
+            if (!order.finalized && order.get_selected_orderline()) {
                 var mode = this.numpad_state.get('mode');
                 if (mode === 'price') {
-                    order.getSelectedLine().set_manual_price(true);
+                    order.get_selected_orderline().set_manual_price(true);
                 }
             }
         }
