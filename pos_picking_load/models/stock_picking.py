@@ -17,7 +17,7 @@ class StockPicking(models.Model):
 
     # Custom Section
     @api.model
-    def _prepare_filter_for_pos(self):
+    def _prepare_filter_for_pos(self, pos_session_id):
         return [
             ('state', 'in', ['confirmed', 'partially_available', 'assigned']),
             ('invoice_state', '=', '2binvoiced'),
@@ -28,12 +28,12 @@ class StockPicking(models.Model):
         return ['name', 'partner_id', 'min_date', 'origin']
 
     @api.model
-    def search_pickings_for_pos(self, query):
+    def search_pickings_for_pos(self, query, pos_session_id):
         # Get Picking Types available for PoS
         picking_type_obj = self.env['stock.picking.type']
         picking_types = picking_type_obj.search(
             [('available_in_pos', '=', True)])
-        condition = self._prepare_filter_for_pos() + [
+        condition = self._prepare_filter_for_pos(pos_session_id) + [
             ('picking_type_id', 'in', picking_types.ids),
             '|', '|',
             ('name', 'ilike', query),
