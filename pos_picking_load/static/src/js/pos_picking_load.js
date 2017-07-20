@@ -195,7 +195,7 @@ openerp.pos_picking_load = function(instance, local) {
         load_picking: function(origin_picking_id) {
             var self = this;
             var pickingModel = new instance.web.Model(this.model);
-            return pickingModel.call('load_picking_for_pos', [origin_picking_id])
+            return pickingModel.call('load_picking_for_pos', [[origin_picking_id]])
             .then(function (picking) {
                 self.current_picking_id = origin_picking_id;
                 self.current_picking_name = picking.name;
