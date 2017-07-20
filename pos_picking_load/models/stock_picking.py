@@ -43,10 +43,11 @@ class StockPicking(models.Model):
         fields = self._prepare_fields_for_pos_list()
         return self.search_read(condition, fields, limit=10)
 
-    @api.model
-    def _prepare_pos_order(self, picking):
+    @api.multi
+    def load_picking_for_pos(self):
+        self.ensure_one()
         pickinglines = []
-        for line in picking.move_lines.filtered(lambda x: x.state != 'cancel'):
+        for line in self.move_lines.filtered(lambda x: x.state != 'cancel'):
             picking_line = {
                 'name': line.name,
                 'product_id': line.product_id.id,
@@ -60,16 +61,11 @@ class StockPicking(models.Model):
                 picking_line['discount'] = sale_order_line.discount
             pickinglines.append(picking_line)
         return {
-            'id': picking.id,
-            'name': picking.name,
-            'partner_id': picking.partner_id.id,
+            'id': self.id,
+            'name': self.name,
+            'partner_id': self.partner_id.id,
             'line_ids': pickinglines,
         }
-
-    @api.model
-    def load_picking_for_pos(self, picking_id):
-        picking = self.browse(picking_id)
-        return self._prepare_pos_order(picking)
 
     @api.multi
     def update_from_origin_picking(self, origin_picking):
