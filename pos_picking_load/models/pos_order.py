@@ -30,7 +30,6 @@ class PosOrder(models.Model):
             sale_orders = sale_order_obj.search([
                 ('procurement_group_id', '=',
                     order.origin_picking_id.group_id.id)])
-#            sale_orders.action_ignore_delivery_exception()
             sale_orders.signal_workflow('ship_corrected')
             sale_orders.write({'final_pos_order_id': order.id})
 
@@ -41,7 +40,7 @@ class PosOrder(models.Model):
         res = super(PosOrder, self).create_from_ui(orders)
         orders_with_original_picking = self.search([
             ('id', 'in', res), ('origin_picking_id', '!=', False),
-            ('state', 'not in', [('draft')])])
+            ('state', '!=', 'draft')])
 
         orders_with_original_picking._handle_orders_with_original_picking()
 
@@ -53,3 +52,17 @@ class PosOrder(models.Model):
         if 'origin_picking_id' in ui_order:
             res['origin_picking_id'] = ui_order['origin_picking_id']
         return res
+
+    @api.multi
+    def create_picking(self):
+        """ Call super() for each order separately with the origin picking id
+        in the context. The new picking will be updated accordingly in the
+        picking's action_confirm() """
+        for order in self:
+            if order.picking_id:
+                continue
+            if order.origin_picking_id:
+                order = order.with_context(
+                    origin_picking_id=order.origin_picking_id.id)
+            super(PosOrder, order).create_picking()
+        return True

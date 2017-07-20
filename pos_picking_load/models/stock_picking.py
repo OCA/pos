@@ -70,3 +70,17 @@ class StockPicking(models.Model):
     def load_picking_for_pos(self, picking_id):
         picking = self.browse(picking_id)
         return self._prepare_pos_order(picking)
+
+    @api.multi
+    def update_from_origin_picking(self, origin_picking):
+        if origin_picking.group_id:
+            self.filtered(lambda p: not p.group_id).write({
+                'group_id': origin_picking.group_id.id})
+
+    @api.multi
+    def action_confirm(self):
+        """ Assign to same procurement group as the origin picking """
+        if self.env.context.get('origin_picking_id'):
+            self.update_from_origin_picking(
+                self.browse(self.env.context['origin_picking_id']))
+        return super(StockPicking, self).action_confirm()
