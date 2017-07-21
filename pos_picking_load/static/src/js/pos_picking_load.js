@@ -271,7 +271,7 @@ openerp.pos_picking_load = function(instance, local) {
         search_pickings: function(query) {
             var self = this;
             var pickingModel = new instance.web.Model(this.model);
-            return pickingModel.call('search_pickings_for_pos', [query || ''])
+            return pickingModel.call('search_pickings_for_pos', [query || '', this.pos.pos_session.id])
             .then(function (result) {
                 self.render_list(result);
             }).fail(function (error, event){
