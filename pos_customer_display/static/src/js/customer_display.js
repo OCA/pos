@@ -272,12 +272,14 @@ odoo.define('pos_customer_display', function(require) {
         render_paymentlines: function(){
             var res = this._super();
             var currentOrder = this.pos.get_order();
-            var paidTotal = currentOrder.get_total_paid();
-            var dueTotal = currentOrder.get_total_with_tax();
-            var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
-            if (change) {
-                var change_rounded = change.toFixed(2);
-                this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
+            if (currentOrder) {
+                var paidTotal = currentOrder.get_total_paid();
+                var dueTotal = currentOrder.get_total_with_tax();
+                var change = paidTotal > dueTotal ? paidTotal - dueTotal : 0;
+                if (change) {
+                    var change_rounded = change.toFixed(2);
+                    this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
+                }
             }
             return res;
         },
