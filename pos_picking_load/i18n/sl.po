@@ -3,15 +3,15 @@
 # * pos_picking_load
 # 
 # Translators:
-# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2017-07-13 03:00+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2017-07-22 00:52+0000\n"
+"PO-Revision-Date: 2017-07-22 00:52+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,12 +24,12 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:70
 #, python-format
 msgid "--------------------------------"
-msgstr ""
+msgstr "--------------------------------"
 
 #. module: pos_picking_load
 #: field:stock.picking.type,available_in_pos:0
 msgid "Available in Point Of Sale"
-msgstr ""
+msgstr "Razpoložljivo v prodajni točki"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -65,7 +65,7 @@ msgstr "Kupec"
 #: field:sale.order,final_pos_order_id:0
 #: field:stock.picking,final_pos_order_id:0
 msgid "Final PoS Order"
-msgstr ""
+msgstr "Končni POS nalog"
 
 #. module: pos_picking_load
 #: help:stock.picking.type,available_in_pos:0
@@ -73,18 +73,20 @@ msgid ""
 "If checked, associated pickings will be available in the point of sale, to "
 "be changed and paid in it"
 msgstr ""
+"Če označeno, bodo povezani zbirniki na voljo v prodajni točki za "
+"spreminjanje in plačevanje."
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:5
 #, python-format
 msgid "Load Picking"
-msgstr ""
+msgstr "Naloži zbirnik"
 
 #. module: pos_picking_load
 #: field:pos.config,iface_load_picking:0
 msgid "Load Pickings"
-msgstr ""
+msgstr "Naloži zbirnike"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -96,7 +98,7 @@ msgstr "Naziv"
 #. module: pos_picking_load
 #: field:pos.order,origin_picking_id:0
 msgid "Origin Picking"
-msgstr ""
+msgstr "Izvorni zbirnik"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -104,7 +106,7 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:79
 #, python-format
 msgid "Origin Picking:"
-msgstr ""
+msgstr "Izvorni zbirnik:"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking
@@ -133,7 +135,7 @@ msgstr "Načrtovani datum"
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:30
 #, python-format
 msgid "Search Picking"
-msgstr ""
+msgstr "Iskanje zbirnika"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -157,14 +159,14 @@ msgstr "Tip zbirnika določi prikaz zbirnika"
 #. module: pos_picking_load
 #: help:sale.order,final_pos_order_id:0
 msgid "This Sale Order has beend replaced by this PoS Order"
-msgstr ""
+msgstr "Ta prodajni nalog je bil zamenjan s tem POS nalogom."
 
 #. module: pos_picking_load
 #: help:stock.picking,final_pos_order_id:0
 msgid ""
 "This picking has been canceled, because it has been replaced by this PoS "
 "Order"
-msgstr ""
+msgstr "Ta zbirnik je bil preklican, ker je bil zamenjan s tem POS nalogom."
 
 #. module: pos_picking_load
 #. openerp-web
@@ -177,6 +179,11 @@ msgid ""
 "\n"
 "  * "
 msgstr ""
+"Nekaterih postavk naloga ni bilo mogoče naložiti, ker proizvodi niso na voljo v POS predpomnilniku.\n"
+"\n"
+"Preverite te postavke :\n"
+"\n"
+"  * "
 
 #. module: pos_picking_load
 #. openerp-web
@@ -185,14 +192,14 @@ msgstr ""
 msgid ""
 "Unable to load this picking because the partner is not known in the Point Of"
 " Sale as a customer"
-msgstr ""
+msgstr "Tega zbirnika ni mogoče uvoziti, ker partner v POS ni znan kot kupec."
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:238
 #, python-format
 msgid "Unknown Partner"
-msgstr ""
+msgstr "Neznan partner"
 
 #. module: pos_picking_load
 #. openerp-web
