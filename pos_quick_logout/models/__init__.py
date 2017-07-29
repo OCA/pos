@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-import pos_quick_logout
+from . import pos_config

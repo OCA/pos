@@ -31,14 +31,14 @@ chrome.Chrome
             if (self.widget.username) {
                 self.pos.set_cashier(self.pos.user);
                 self.widget.username.renderElement();
-            };
+            }
         },
         resetTimer: function() {
             var self = this;
             clearTimeout(this.timer);
             this.timer = setTimeout(function(){
                 self.logout();
-            }, self.pos.config.logout_timeout * 1000);  // time is in milliseconds
+            }, self.pos.config.logout_timeout * 1000);
         },
         renderElement: function(){
             this._super();
@@ -47,7 +47,7 @@ chrome.Chrome
                 self.pos.set_cashier(self.pos.user);
                 self.widget.username.renderElement();
             });
-        },
+        }
     });
 
 /* ********************************************************
@@ -56,12 +56,12 @@ chrome.Chrome
     chrome.UsernameWidget.include({
         renderElement: function(){
             this._super();
-             if (this.pos.user.id != this.pos.get_cashier().id){
-                $('#pos-quick-logout').show();
-            }else{
+             if (this.pos.user.id === this.pos.get_cashier().id){
                 $('#pos-quick-logout').hide();
+            }else{
+                $('#pos-quick-logout').show();
             }
-        },
+        }
     });
 
 });
