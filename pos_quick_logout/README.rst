@@ -24,8 +24,7 @@ Implemented Features
 .. image:: /pos_quick_logout/static/description/cashier_user_identical.png
 
 
-* If the cashier changed, and is not the user logged in Odoo, the extra button
-appears
+* If the cashier changed, and is not the user logged in Odoo, the extra button appears
 
 .. image:: /pos_quick_logout/static/description/cashier_user_different.png
 

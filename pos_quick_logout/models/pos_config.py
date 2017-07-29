@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, api, fields, exceptions
+from odoo import models, fields
 
 
 class PosConfig(models.Model):
