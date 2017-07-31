@@ -50,7 +50,7 @@ chrome.Chrome
                 self.pos.set_cashier(self.pos.user);
                 self.widget.username.renderElement();
             });
-        },
+        }
     });
 
 /* ********************************************************
@@ -59,11 +59,11 @@ chrome.Chrome
     chrome.UsernameWidget.include({
         renderElement: function(){
             this._super();
-             if (this.pos.user.id != this.pos.get_cashier().id){
+             if (this.pos.user.id !== this.pos.get_cashier().id){
                 $('#pos-quick-logout').show();
             }else{
                 $('#pos-quick-logout').hide();
             }
-        },
+        }
     });
 });
