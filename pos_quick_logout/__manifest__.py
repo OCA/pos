@@ -6,7 +6,7 @@
 
 {
     'name': 'Point of Sale - Quick Logout',
-    'version': '1.0.0',
+    'version': '10.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Allow PoS user to logout quickly after user changed',
     'author': 'La Louve, Odoo Community Association (OCA)',
