@@ -25,7 +25,7 @@ class PosOrder(models.Model):
         grouped_data = {}
 
         for order in self:
-            order_account = self._order_account()
+            order_account = order._order_account()
             debit = ((order.amount_total > 0) and order.amount_total) or 0.0
             key = (order.partner_id.id, order_account, debit > 0)
             grouped_data.setdefault(key, [])
