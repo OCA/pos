@@ -69,7 +69,7 @@ class PosOrderLine(models.Model):
 
     tax_ids = fields.Many2many(
         'account.tax', 'pline_tax_rel', 'pos_line_id', 'tax_id',
-        "Taxes", domain=[('type_tax_use', '=', 'sale')])
+        "Taxes", domain=[('type_tax_use', 'in', ['sale', 'all'])])
     price_subtotal = fields.Float(compute="_amount_line_all", store=True)
     price_subtotal_incl = fields.Float(compute="_amount_line_all", store=True)
 
