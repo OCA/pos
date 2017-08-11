@@ -46,4 +46,4 @@ def set_pos_line_taxes(cr, registry):
             FROM pos_order_line_tax_rel poltr
             INNER JOIN pos_order_line pol ON pol.id = poltr.orderline_id
             INNER JOIN account_tax at on at.id = poltr.tax_id
-            GROUP BY pol.order_id, poltr.tax_id, at.name"""
+            GROUP BY pol.order_id, poltr.tax_id, at.name""")
