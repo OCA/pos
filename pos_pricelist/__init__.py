@@ -21,14 +21,29 @@ from openerp import SUPERUSER_ID
 
 
 def set_pos_line_taxes(cr, registry):
-    """Copy the product taxes to the pos.line"""
-    cr.execute("""insert into pline_tax_rel
-                    select l.id, t.id
-                    from pos_order_line l
-                    join pos_order o on l.order_id = o.id
-                    join product_product p on l.product_id = p.id
-                    join product_template pt on pt.id = p.product_tmpl_id
-                    join product_taxes_rel rel on rel.prod_id = pt.id
-                    join account_tax t on rel.tax_id = t.id
-                    where t.company_id = o.company_id""")
-    registry['pos.order']._install_tax_detail(cr, SUPERUSER_ID)
+    # <GRAP> migrate from grap_change_account_move_line
+    # Populate pos_order_line.pline_tax_rel
+    cr.execute("""
+        INSERT INTO pline_tax_rel
+                (pos_line_id, tax_id)
+            SELECT poltr.orderline_id, poltr.tax_id
+            FROM pos_order_line_tax_rel poltr""")
+
+    # Populate pos_order_tax
+    cr.execute("""
+        INSERT INTO pos_order_tax
+                (create_uid, create_date, name, tax, amount, write_uid,
+                pos_order, base, write_date)
+            SELECT max(poltr.create_uid) as create_uid,
+                max(poltr.create_date) as create_date,
+                at.name,
+                poltr.tax_id as tax,
+                sum(poltr.amount_tax) as amount,
+                max(poltr.write_uid) as write_uid,
+                pol.order_id as pos_order,
+                sum(poltr."baseHT") as base,
+                max(poltr.write_date) as write_date
+            FROM pos_order_line_tax_rel poltr
+            INNER JOIN pos_order_line pol ON pol.id = poltr.orderline_id
+            INNER JOIN account_tax at on at.id = poltr.tax_id
+            GROUP BY pol.order_id, poltr.tax_id, at.name"""
