@@ -17,7 +17,6 @@ addon | version | summary
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
 [pos_margin](pos_margin/) | 10.0.1.0.0 | Margin on PoS Order
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.0 | Manage Payment Terminal device from POS front end
-[pos_remove_pos_category](pos_remove_pos_category/) | 10.0.0.1.0 | POS Remove POS Category
 
 
 Unported addons
