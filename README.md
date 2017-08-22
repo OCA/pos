@@ -31,7 +31,6 @@ addon | version | summary
 [pos_picking_load](pos_picking_load/) | 8.0.1.1.0 | POS Picking Load
 [pos_pricelist](pos_pricelist/) | 8.0.1.3.0 | Pricelist for Point of sale
 [pos_product_template](pos_product_template/) | 8.0.0.2.0 | Manage Product Template in Front End Point Of Sale
-[pos_remove_pos_category](pos_remove_pos_category/) | 8.0.0.1.0 | POS Remove POS Category
 [pos_restricted_customer_list](pos_restricted_customer_list/) | 8.0.0.1.0 | Optimise load time for POS where customer data not needed
 [pos_sequence_ref_number](pos_sequence_ref_number/) | 8.0.1.0.0 | Sequential Order numbers for Point of sale
 [pos_store_draft_order](pos_store_draft_order/) | 8.0.1.0.0 | Allow users to close session with Draft Orders
