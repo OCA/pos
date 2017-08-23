@@ -1,15 +1,10 @@
-=============================================
-This module adds the 'Margin' on sales order.
-=============================================
-
-
 .. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-
-Margin on PoS order
-===================
+====================
+Margin on PoS Orders
+====================
 
 This module extends the functionality of point of sale to support margin on
 pos orders.
@@ -17,16 +12,29 @@ pos orders.
 This gives the profitability by calculating the difference between the Unit
 Price and Cost Price.
 
+Configuration
+=============
+
+this module create a new Decimal precision for the field 'Margin (%)' of the
+pos.order model, with two digits, by default. you can change the precision,
+going to 'Settings' / 'Technical' / 'Database Structure' / 'Decimal Accuracy'
+
 
 Usage
 =====
 
 To use this module, you need to:
 
-#. Go to 'Point Of Sale' / 'Daily Operations' / 'Orders'
-#. Open an order
+* Go to 'Point Of Sale' / 'Daily Operations' / 'Orders'
 
-.. figure:: ./pos_margin/static/description/pos_order_form.png
+* View Orders
+
+.. figure:: ./pos_margin/static/description/pos_order_tree_view.png
+   :width: 800px
+
+* Open an Order
+
+.. figure:: ./pos_margin/static/description/pos_order_form_view.png
    :width: 800px
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas

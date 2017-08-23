@@ -12,12 +12,26 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='order_total']" position="after">
-                <group name="margin">
-                    <field name="margin" widget='monetary'/>
+                <group name="margin" string="Margin">
+                    <field name="margin" widget="monetary"/>
+                    <field name="margin_percent"/>
                 </group>
             </xpath>
-            <xpath expr="//field[@name='lines']/tree/field[@name='price_unit']" position="after">
+            <xpath expr="//field[@name='lines']/tree/field[@name='price_subtotal']" position="before">
                 <field name="purchase_price"/>
+                <field name="margin"/>
+                <field name="margin_percent"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_id']" position="after">
+                <field name="margin" widget="monetary" sum="Total"/>
+                <field name="margin_percent"/>
             </xpath>
         </field>
     </record>
