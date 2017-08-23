@@ -1,0 +1,73 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_remove_pos_category
+# 
+# Translators:
+# Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-28 05:50+0000\n"
+"PO-Revision-Date: 2017-03-28 05:50+0000\n"
+"Last-Translator: Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017\n"
+"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_remove_pos_category
+#: model:ir.ui.view,arch_db:pos_remove_pos_category.product_category_list_view
+msgid "Available in POS"
+msgstr "Disponible al TPV"
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_available_in_pos
+msgid "Available in the Point of Sale"
+msgstr "Disponible al Punt de Venda "
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category_available_in_pos
+msgid ""
+"Check if you want this category to appear in Point Of Sale.\n"
+"If you uncheck, children categories will becomes invisible too, whatever their checkbox state."
+msgstr ""
+"Marqueu si voleu que aquesta categoria aparegui al Punt de Venda.\n"
+"Si el desmarqueu, les categories filles també  es tornaran invisibles,  encara que estiguin marcades. "
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_image
+msgid "Image"
+msgstr "Imatge"
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_image_medium
+msgid "Image medium"
+msgstr "Imatge mitjana "
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_ir_module_module
+msgid "Module"
+msgstr "Mòdul "
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_category
+msgid "Product Category"
+msgstr "Categoria de Producte "
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de Producte "
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category_image
+msgid "Show Image Category in Form View"
+msgstr "Mostra la imatge de la categoria a la vista del formulari "
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category_image_medium
+msgid "Show image category button in POS"
+msgstr "Mostra la imatge de la categoria al TPV "
