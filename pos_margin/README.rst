@@ -29,12 +29,12 @@ To use this module, you need to:
 
 * View Orders
 
-.. figure:: ./pos_margin/static/description/pos_order_tree_view.png
+.. figure:: static/description/pos_order_tree_view.png
    :width: 800px
 
 * Open an Order
 
-.. figure:: ./pos_margin/static/description/pos_order_form_view.png
+.. figure:: static/description/pos_order_form_view.png
    :width: 800px
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
