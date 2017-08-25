@@ -22,6 +22,14 @@ from openerp import SUPERUSER_ID
 
 def set_pos_line_taxes(cr, registry):
     # <GRAP> migrate from grap_change_account_move_line
+    # Test if pos_tax is installed
+    cr.execute("""
+        SELECT count(*)
+        FROM ir_module_module
+        WHERE name = 'pos_tax' and state != 'uninstalled';""")
+    if not cr.fetchone()[0]:
+        return
+
     # Populate pos_order_line.pline_tax_rel
     cr.execute("""
         INSERT INTO pline_tax_rel
