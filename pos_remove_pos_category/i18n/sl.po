@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_remove_pos_category
+# 
+# Translators:
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: pos (8.0)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-26 16:09+0000\n"
+"PO-Revision-Date: 2016-04-24 06:24+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: pos_remove_pos_category
+#: view:product.category:pos_remove_pos_category.product_category_list_view
+msgid "Available in POS"
+msgstr "Razpoložljivo v POS"
+
+#. module: pos_remove_pos_category
+#: field:product.category,available_in_pos:0
+msgid "Available in the Point of Sale"
+msgstr "Razpoložljivo v prodajni točki"
+
+#. module: pos_remove_pos_category
+#: help:product.category,available_in_pos:0
+msgid ""
+"Check if you want this category to appear in Point Of Sale.\n"
+"If you uncheck, children categories will becomes invisible too, whatever their checkbox state."
+msgstr "Označite, če želite, da se ta kategorija pojavlja v prodajni točki.\nČe ni označeno, postanejo nevidne tudi podrejene kategorije, ne glede na stanje oznake v njih."
+
+#. module: pos_remove_pos_category
+#: field:product.category,image:0
+msgid "Image"
+msgstr "Slika"
+
+#. module: pos_remove_pos_category
+#: field:product.category,image_medium:0
+msgid "Image medium"
+msgstr "Slika srednja"
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_ir_module_module
+msgid "Module"
+msgstr "Modul"
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_category
+msgid "Product Category"
+msgstr "Kategorija proizvoda"
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_template
+msgid "Product Template"
+msgstr "Predloga proizvoda"
+
+#. module: pos_remove_pos_category
+#: help:product.category,image:0
+msgid "Show Image Category in Form View"
+msgstr "Prikaz slike kategorije v obrazcu"
+
+#. module: pos_remove_pos_category
+#: help:product.category,image_medium:0
+msgid "Show image category button in POS"
+msgstr "Prikaz gumba slike kategorije v POS"
