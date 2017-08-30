@@ -1,0 +1,13 @@
+<odoo>
+    <record id="view_pos_config_view_form_quick_logout" model="ir.ui.view">
+        <field name="name">pos.config.form.quick.logout</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="priority" eval="30"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_big_scrollbars']" position="after">
+                <field name="logout_timeout"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
