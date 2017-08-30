@@ -20,7 +20,7 @@ class DetailsPosSessionReport(report_sxw.rml_parse):
 
     def _get_account_bank_statement_lines(self):
         pos_session_obj = self.pool.get('pos.session').browse(
-            self.cr, self.uid,self.ids, context='')
+            self.cr, self.uid, self.ids, context='')
         statements_lines = []
         lines_done = []
 
