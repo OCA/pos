@@ -15,6 +15,7 @@
         'point_of_sale',
     ],
     'data': [
+        'views/pos_quick_logout_view.xml',
         'static/src/xml/templates.xml',
     ],
     'qweb': [
