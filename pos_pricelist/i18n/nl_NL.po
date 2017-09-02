@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-17 05:46+0000\n"
-"PO-Revision-Date: 2017-06-30 08:53+0000\n"
+"POT-Creation-Date: 2017-08-29 01:16+0000\n"
+"PO-Revision-Date: 2017-08-29 08:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-pos-8-0/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -44,12 +44,12 @@ msgstr ""
 #. module: pos_pricelist
 #: field:pos.order.tax,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Aangemaakt door"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Aangemaakt op"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
@@ -81,12 +81,12 @@ msgstr "Laatst gewijzigd op"
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Laatst bijgewerkt door"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Laatst bijgewerkt op"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order_line
@@ -121,7 +121,7 @@ msgstr ""
 #. module: pos_pricelist
 #: view:pos.order:pos_pricelist.view_pos_pos_form
 msgid "Payments"
-msgstr ""
+msgstr "Betalingen"
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_order_patch.py:152

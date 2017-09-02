@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-08 14:28+0000\n"
+"POT-Creation-Date: 2017-08-29 01:16+0000\n"
+"PO-Revision-Date: 2017-08-21 07:27+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/oca/OCA-pos-8-0/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -169,7 +169,7 @@ msgstr ""
 #: view:pos.order:pos_pricelist.view_pos_pos_form field:pos.order,taxes:0
 #: field:pos.order.line,tax_ids:0
 msgid "Taxes"
-msgstr ""
+msgstr "Impostos"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_account_fiscal_position_tax
