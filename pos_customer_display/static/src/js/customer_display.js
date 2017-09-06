@@ -203,7 +203,9 @@ odoo.define('pos_customer_display', function(require) {
             var res = OrderlineSuper.prototype.set_quantity.call(this, quantity);
             if (quantity != 'remove') {
                 var line = this;
-                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                if(this.selected){
+                    this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                }
             }
             return res;
         },
@@ -212,7 +214,9 @@ odoo.define('pos_customer_display', function(require) {
             var res = OrderlineSuper.prototype.set_discount.call(this, discount);
             if (discount) {
                 var line = this;
-                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                if(this.selected){
+                    this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                }
             }
             return res;
         },
@@ -220,7 +224,9 @@ odoo.define('pos_customer_display', function(require) {
         set_unit_price: function(price){
             var res = OrderlineSuper.prototype.set_unit_price.call(this, price);
             var line = this;
-            this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            if(this.selected){
+                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            }
             return res;
         },
 
