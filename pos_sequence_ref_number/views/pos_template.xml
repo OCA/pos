@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <template id="pos_sequence_ref_number_assets_backend"
+              name="pos_sequence_ref_number_assets_backend"
+              inherit_id="point_of_sale.assets_backend">
+        <xpath expr="." position="inside">
+            <script src="/pos_sequence_ref_number/static/src/js/main.js"
+                    type="text/javascript"/>
+            <script type="text/javascript"
+                    src="/pos_sequence_ref_number/static/lib/moment.js"/>
+        </xpath>
+    </template>
+
+</data>
+</openerp>

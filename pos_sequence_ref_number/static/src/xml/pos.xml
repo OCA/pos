@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+
+    <t t-extend="PosTicket">
+
+        <t t-jquery="t[t-esc='order.name']" t-operation="replace">
+            <span > | Receipt :
+                <span style="font-weight: bold;"><t t-esc="order.get('sequence_ref')"/></span>
+            </span>
+        </t>
+        
+    </t>
+
+</templates>
