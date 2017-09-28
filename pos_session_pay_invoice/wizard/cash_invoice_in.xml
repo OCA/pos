@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <act_window
+            id="action_pos_invoice_in"
+            name="Pay invoice"
+            res_model="cash.invoice.in"
+            src_model="pos.session"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+        />
+</odoo>
