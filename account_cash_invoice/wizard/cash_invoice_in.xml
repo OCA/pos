@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="cash_invoice_in_form" model="ir.ui.view">
+        <field name="name">cash_invoice_in_form</field>
+        <field name="model">cash.invoice.in</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Pay supplier invoice or customer refund">
+                <group>
+                    <field name="company_id" invisible="1"/>
+                    <field name="journal_ids" invisible="1"/>
+                    <field name="journal_count" invisible="1"/>
+                    <field name="journal_id"
+                           class="oe_inline"
+                           domain="[('id', 'in', journal_ids[0][2])]"
+                           options="{'no_create': True, 'no_open':True}"
+                           attrs="{'invisible':[('journal_count', '&lt;', 2)]}"
+                    />
+                    <field name="invoice_id"
+                           class="oe_inline"
+                           domain="[('company_id', '=', company_id),
+                           ('state', '=', 'open'),
+                           ('currency_id', '=', currency_id),
+                           ('type', 'in', ['in_invoice', 'out_refund'])]"
+                           options="{'no_create': True, 'no_open':True}"
+                    />
+                    <label for="amount"/>
+                    <div>
+                        <field name="amount" class="oe_inline"/><field name="currency_id" class="oe_inline" groups="base.group_multi_currency"/>
+                    </div>
+                </group>
+                <footer>
+                    <button name="run" string="Pay invoice" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+            id="action_cash_invoice_in_from_statement"
+            name="Pay invoice"
+            res_model="cash.invoice.in"
+            src_model="account.bank.statement"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+        />
+</odoo>
