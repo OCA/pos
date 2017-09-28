@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pos_config_kanban" model="ir.ui.view">
+       <field name="name">pos.config.kanban.view</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+        <field name="arch" type="xml">
+            <button name="open_ui" position="after">
+                <button t-if="record.current_session_state.raw_value === 'opened'"
+                        class="btn btn-info"
+                        name="open_existing_session_cb"
+                        type="object">Summary</button>
+            </button>
+        </field>
+    </record>
+
+    <record id="view_pos_session_form" model="ir.ui.view">
+        <field name="name">pos.session.form.view</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <button name="open_cashbox" position="after">
+                <button class="oe_stat_button" name="%(action_pos_invoice_in)d"
+                        type="action" icon="fa-level-up"
+                        attrs="{'invisible':['|','|',('cash_control', '=', False),('state', 'not in', ['opened', 'closing_control']), ('statement_ids', '=', False)]}">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Pay</span>
+                        <span class="o_stat_text">Invoice</span>
+                    </div>
+                </button>
+                <button class="oe_stat_button" name="%(action_pos_invoice_out)d"
+                        type="action" icon="fa-level-down"
+                        attrs="{'invisible':['|',('state', 'not in', ['opened', 'closing_control']), ('statement_ids', '=', False)]}">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">Collect Payment</span>
+                        <span class="o_stat_text">from Invoice</span>
+                    </div>
+                </button>
+
+            </button>
+        </field>
+    </record>
+</odoo>
