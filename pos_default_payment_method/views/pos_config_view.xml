@@ -6,7 +6,9 @@
         <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
         <field name="arch" type="xml">
             <field name="journal_ids" position="after">
-                <field name="default_payment_method_id" />
+                <group name="default_payment">
+                    <field name="default_payment_method_id" />
+                </group>
             </field>
         </field>
     </record>
