@@ -16,7 +16,8 @@ odoo.define('pos_default_invoice_active.activate_invoicing', function (require) 
     show: function(){
       this._super();
       // activate invoicing
-      if (this.pos.config.iface_invoicing_active) {
+      // TODO: any better way to check if the button is already enabled?
+      if (this.pos.config.iface_invoicing_active && !this.$('.js_invoice').hasClass('highlight')) {
         this.$('.js_invoice').trigger('click');
       }
     },
