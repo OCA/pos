@@ -2,7 +2,7 @@
 <odoo>
     <act_window
             id="action_pos_invoice_out"
-            name="Pay invoice"
+            name="Collect Payment from Invoice"
             res_model="cash.invoice.out"
             src_model="pos.session"
             view_mode="form"
