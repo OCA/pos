@@ -54,10 +54,25 @@ class TestSessionPayInvoice(common.TransactionCase):
         self.config = self.env.ref('point_of_sale.pos_config_main')
         self.config.cash_control = True
 
+        self.account_cash_differences_id = self.env['account.account'].create({
+            'code': 'test_cash_differences',
+            'company_id': self.company.id,
+            'name': 'Test Cash Differences',
+            'user_type_id': self.env.ref(
+                'account.data_account_type_revenue').id
+        })
+
     def test_pos_invoice(self):
         self.config.open_session_cb()
         session = self.config.current_session_id
         self.assertIsNotNone(session.statement_ids)
+        cash_statements = session.statement_ids.filtered(
+            lambda x: x.journal_id.type == 'cash')
+        self.assertEquals(len(cash_statements), 1)
+        journal = cash_statements[0].journal_id
+        journal.profit_account_id = self.account_cash_differences_id
+        journal.loss_account_id = self.account_cash_differences_id
+
         session.action_pos_session_open()
         in_invoice = self.env['cash.invoice.in'].with_context(
             active_ids=session.ids, active_model='pos.session'
@@ -81,6 +96,6 @@ class TestSessionPayInvoice(common.TransactionCase):
         })
         box.run()
         session.action_pos_session_closing_control()
-        session.action_pos_session_closing_control()
+        session.action_pos_session_validate()
         self.assertEqual(self.invoice_out.residual, 25.)
         self.assertEqual(self.invoice_in.residual, 0.)
