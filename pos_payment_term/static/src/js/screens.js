@@ -7,17 +7,20 @@
 function pos_payment_term_screens(instance, module) {
 
     module.PaymentScreenWidget = module.PaymentScreenWidget.extend({
-        bind_events: function() {
-            if(this.old_order){
-                this.old_order.unbind(null,null,this);
+        get_line_payment_terms: function(line){
+            var payment_term_input = line.node.firstElementChild.nextElementSibling;
+            for (var i = 0; i < payment_term_input.childNodes.length; i++){
+                payment_options = payment_term_input.childNodes;
+                if (payment_options[i].hasChildNodes("value")){
+                    if (line.cashregister.journal.payment_term_ids.toString().indexOf(payment_options[i].value) == -1) {
+                        payment_options[i-1].remove();
+                        payment_options[i-1].remove();
+                        i = 0;
+                    }
+                }
             }
-            var order = this.pos.get('selectedOrder');
-                order.bind('change:selected_paymentline',this.focus_selected_line,this);
-
-            this.old_order = order;
-
-            if(this.old_paymentlines){
-                this.old_paymentlines.unbind(null,null,this);
+            return line.node;
+        },
             }
             var paymentlines = order.get('paymentLines');
                 paymentlines.bind('add', this.add_paymentline, this);
