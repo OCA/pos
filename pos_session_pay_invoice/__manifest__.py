@@ -18,6 +18,5 @@
         "wizard/cash_invoice_out.xml",
         "wizard/cash_invoice_in.xml",
         "views/pos_session.xml",
-        "views/account_bank_statement.xml",
     ],
 }
