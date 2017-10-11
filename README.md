@@ -15,6 +15,7 @@ addon | version | summary
 --- | --- | ---
 [account_cash_invoice](account_cash_invoice/) | 10.0.1.0.0 | Pay and receive invoices from bank statements
 [pos_customer_display](pos_customer_display/) | 10.0.1.0.1 | Manage Customer Display device from POS front end
+[pos_default_payment_method](pos_default_payment_method/) | 10.0.1.0.0 | POS Default payment mehotd
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
 [pos_margin](pos_margin/) | 10.0.1.0.0 | Margin on PoS Order
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.0 | Manage Payment Terminal device from POS front end
