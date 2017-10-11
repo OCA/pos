@@ -21,33 +21,35 @@ function pos_payment_term_screens(instance, module) {
             }
             return line.node;
         },
+        check_payment_terms_lines: function () {
+            var paymentLines = this.pos.get('selectedOrder').get('paymentLines');
+            if (paymentLines.length == 1) {
+                var line = this.pos.get('selectedOrder').selected_paymentline;
+                var payment_term = line.node.querySelector('select');
+                if (payment_term.value == "") {
+                    return true;
+                }
             }
-            var paymentlines = order.get('paymentLines');
-                paymentlines.bind('add', this.add_paymentline, this);
-                paymentlines.bind('change:amount', function(line){
-                        if(!line.selected && line.node){
-                            line.node.value = line.amount.toFixed(this.pos.currency.decimals);
-                        }
-                        this.update_payment_summary();
-                    },this);
-                paymentlines.bind('change:amount', function(line){
-                        if(!line.selected && line.node){
-                            line.node.value = line.amount.toFixed(this.pos.currency.decimals);
-                        }
-                        this.update_payment_summary();
-                    },this);
-                paymentlines.bind('remove', this.remove_paymentline, this);
-                paymentlines.bind('all', this.update_payment_summary, this);
-
-            this.old_paymentlines = paymentlines;
-
-            if(this.old_orderlines){
-                this.old_orderlines.unbind(null,null,this);
+            return false;
+        },
+        focus_selected_line: function() {
+            if (this.check_payment_terms_lines()){
+                this._super();
             }
-            var orderlines = order.get('orderLines');
-                orderlines.bind('all', this.update_payment_summary, this);
+        },
+        render_paymentline: function(line) {
+            this._super(line);
+            var self = this;
+            line.node = self.get_line_payment_terms(line);
 
-            this.old_orderlines = orderlines;
+            return line.node;
+        },
+        rerender_paymentline: function(line) {
+            if (this.check_payment_terms_lines()){
+                this._super(line);
+            }
+            var input = line.node.querySelector('input');
+            input.focus();
         },
         validate_order: function(options) {
             var self = this;
