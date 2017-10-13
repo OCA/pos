@@ -1,13 +1,12 @@
 .. image:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
     :alt: License: LGPL-3
 
-===============
-PoS Pay invoice
-===============
+====================
+Account Cash Invoice
+====================
 
 This modules allows to pay an existing Supplier Invoice / Customer Refund, or
-to collect payment for an existing Customer Invoice, using the PoS
-backend session.
+to collect payment for an existing Customer Invoice from a Cash Statement.
 
 
 Usage
@@ -44,7 +43,7 @@ Contributors
 ------------
 
 * Enric Tobella <etobella@creublanca.es>
-
+* Jordi Ballester <jordi.ballester@eficent.com>
 
 Maintainer
 ----------

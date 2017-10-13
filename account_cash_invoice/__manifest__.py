@@ -12,7 +12,7 @@
     'summary': 'Pay and receive invoices from bank statements',
     "license": "LGPL-3",
     'depends': [
-        "account",
+        "account_invoicing",
     ],
     'data': [
         "wizard/cash_invoice_out.xml",
