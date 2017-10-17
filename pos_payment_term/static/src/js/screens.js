@@ -25,9 +25,11 @@ function pos_payment_term_screens(instance, module) {
             var paymentLines = this.pos.get('selectedOrder').get('paymentLines');
             if (paymentLines.length == 1) {
                 var line = this.pos.get('selectedOrder').selected_paymentline;
-                var payment_term = line.node.querySelector('select');
-                if (payment_term.value == "") {
-                    return true;
+                if (line) {
+                   var payment_term = line.node.querySelector('select');
+                    if (payment_term.value == "") {
+                        return true;
+                    }
                 }
             }
             return false;
