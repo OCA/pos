@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Grap, OCA   
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<openerp><data>
+
+        <!-- UNIT OF MEASURE CATEGS -->
+        <!-- Form view -->
+        <record id="product_uom_categ_form_view_inherit_pos_to_weight_by_product_uom" model="ir.ui.view">
+            <field name="model">product.uom.categ</field>
+            <field name="inherit_id" ref="product.product_uom_categ_form_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="to_weigh" />
+                    <button name="action_recompute_to_weigh" string="Set 'to weigh' in each product of this category"  type="object"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Tree view -->
+        <record id="product_uom_categ_tree_view_inherit_pos_to_weight_by_product_uom" model="ir.ui.view">
+            <field name="model">product.uom.categ</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="to_weigh" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- UNITS OF MEASURE -->
+        <!-- Form view -->
+        <record id="product_uom_form_view_inherit_pos_to_weight_by_product_uom" model="ir.ui.view">
+            <field name="model">product.uom</field>
+            <field name="inherit_id" ref="product.product_uom_form_view"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="to_weigh" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Tree view -->
+        <record id="product_uom_tree_view_inherit_pos_to_weight_by_product_uom" model="ir.ui.view">
+            <field name="model">product.uom</field>
+            <field name="inherit_id" ref="product.product_uom_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="to_weigh" />
+                </field>
+            </field>
+        </record>
+
+</data></openerp>
