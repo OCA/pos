@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017, Grap
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<openerp><data>
+
+        <record model="product.uom.categ" id="product_uom_categ_to_weigh">
+            <field name="name">Demo - New Category To Weigh</field>
+            <field name="to_weigh">True</field>
+        </record>
+
+</data></openerp>
