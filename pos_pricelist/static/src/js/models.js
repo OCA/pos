@@ -454,13 +454,12 @@ odoo.define('pos_pricelist.models', function(require) {
                             );
                         }
                         break;
-                    case 'cost_price':
+                    case 'standard_price':
                         var seller = false;
                         for (var index in product.seller_ids) {
                             var seller_id = product.seller_ids[index];
                             var _tmp_seller = db.supplierinfo_by_id[seller_id];
-                            if ((!partner) || (_tmp_seller.name.length
-                                && _tmp_seller.name[0] != partner.name))
+                            if (_tmp_seller.name.length == 0)
                                 continue;
                             seller = _tmp_seller
                         }
@@ -469,13 +468,8 @@ odoo.define('pos_pricelist.models', function(require) {
                                 db.supplierinfo_by_id[product.seller_ids[0]];
                         }
                         if (seller) {
-                            for (var _id in seller.pricelist_ids) {
-                                var info_id = seller.pricelist_ids[_id];
-                                var line =
-                                    db.pricelist_partnerinfo_by_id[info_id];
-                                if (line.min_quantity <= qty) {
-                                    price = line.price
-                                }
+                            if (seller.min_qty <= qty) {
+                                price = seller.price
                             }
                         }
                         break;
@@ -662,11 +656,11 @@ odoo.define('pos_pricelist.models', function(require) {
                     fields: ['delay',
                         'name',
                         'min_qty',
-                        'pricelist_ids',
                         'product_code',
                         'product_name',
                         'sequence',
                         'qty',
+                        'price',
                         'product_tmpl_id'],
                     domain: null,
                     loaded: function (self, supplierinfos) {
@@ -703,7 +697,6 @@ odoo.define('pos_pricelist.models', function(require) {
                         'categ_id',
                         'fixed_price',
                         'percent_price',
-                        '',
                         'min_quantity',
                         'price_discount',
                         'price_max_margin',
@@ -736,3 +729,4 @@ odoo.define('pos_pricelist.models', function(require) {
     }
 
 });
+
