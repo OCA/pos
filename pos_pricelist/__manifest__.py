@@ -18,23 +18,21 @@
 ##############################################################################
 {
     'name': 'POS Pricelist',
-    'version': '8.0.1.2.0',
+    'version': '10.0.1.0.0',
     'category': 'Point Of Sale',
     'sequence': 1,
     'author': "Adil Houmadi @Taktik,Odoo Community Association (OCA)",
     'summary': 'Pricelist for Point of sale',
     'depends': [
+        'sale',
         "point_of_sale",
     ],
     'data': [
         "views/pos_pricelist_template.xml",
         "views/pos_pricelist_views.xml",
-        "views/point_of_sale_view.xml",
-        "report/report_receipt.xml",
         "security/ir.model.access.csv",
     ],
     'demo': [
-        'demo/pos_pricelist_demo.yml',
     ],
     'qweb': [
         'static/src/xml/pos.xml'

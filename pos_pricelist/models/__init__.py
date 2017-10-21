@@ -16,5 +16,5 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import pos_pricelist
-from . import point_of_sale
+import pos_pricelist
+import point_of_sale

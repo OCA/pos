@@ -16,13 +16,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import openerp.tests
+import odoo.tests
 
 
-@openerp.tests.common.at_install(False)
-@openerp.tests.common.post_install(True)
-class TestPOS(openerp.tests.HttpCase):
+@odoo.tests.common.at_install(False)
+@odoo.tests.common.post_install(True)
+class TestPOS(odoo.tests.HttpCase):
     def test_01_pos(self):
-        self.phantom_js("/", "openerp.Tour.run('pos_pricelist_order', 'test')",
-                        "openerp.Tour.tours.pos_pricelist_order",
+        self.phantom_js("/", "odoo.Tour.run('pos_pricelist_order', 'test')",
+                        "odoo.Tour.tours.pos_pricelist_order",
                         login="admin")
