@@ -5,44 +5,58 @@
     The licence is in the file __openerp__.py
 */
 
+odoo.define('pos_gift_ticket.gift_print_widget', function(require) {
+    "use strict";
 
-openerp.pos_gift_ticket = function (instance) {
-    var _t = instance.web._t,
-        _lt = instance.web._lt;
-    var QWeb = instance.web.qweb;
+    var core = require('web.core');
+    var QWeb = core.qweb;
+    var _t = core._t;
 
-    instance.point_of_sale.ReceiptScreenWidget.include({
-        show: function(){
-            this._super()
-            var self = this;
-            var print_gift_ticket_button = this.add_action_button({
-                    label: _t('Gift Ticket'),
-                    icon: '/point_of_sale/static/src/img/icons/png48/printer.png',
-                    click: function(){
-                        self.print_gift();
-                    },
-                });
-        },
+    var HeaderButtonWidget = require('point_of_sale.chrome').HeaderButtonWidget;
+
+    var GiftPrintWidget = HeaderButtonWidget.extend({
         refresh_gift_ticket: function(){
             var order = this.pos.get('selectedOrder');
             $('.pos-receipt-container', this.$el).html(QWeb.render('PosGiftTicket',{
-                    widget:this,
-                    order: order,
-                    orderlines: order.get('orderLines').models,
-                }));
+                widget:this,
+                order: order,
+                orderlines: order.orderlines.models,
+            }));
         },
-        print: function() {
-            this.refresh()
-            this._super()
-        },
+
         print_gift: function() {
-            this.refresh_gift_ticket()
-            this.pos.get('selectedOrder')._printed = true;
-            setTimeout(function() {
+            if(this.pos.get('selectedOrder').orderlines.models.length){
+                this.refresh_gift_ticket();
+                this.pos.get('selectedOrder')._printed = true;
+                setTimeout(function () {
                     window.print();
                 }, 2000);
-              // window.print();
+            }
         },
+
     });
 
-};
+    return GiftPrintWidget;
+});
+
+
+odoo.define('pos_gift_ticket.chrome_extensions', function(require) {
+    "use strict";
+
+    var chrome = require('point_of_sale.chrome').Chrome;
+    var GiftPrintWidget = require('pos_gift_ticket.gift_print_widget');
+    var core = require('web.core');
+    var _t = core._t;
+
+    chrome.prototype.widgets.splice(0, 0, {
+        'name':   'print_gift_tickent',
+        'widget': GiftPrintWidget,
+        'append':  '.pos-rightheader',
+        'args': {
+            label: _t('Print Gift'),
+            action: function(){
+                this.print_gift();
+            },
+        }
+    });
+});

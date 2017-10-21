@@ -3,8 +3,7 @@
 
     <t t-extend="PosTicket">
         <t t-jquery=".pos-center-align t:first" t-operation="replace">
-            <t t-esc="order.get('creationDate').toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
-                Date.CultureInfo.formatPatterns.longTime)"/>
+            <t t-esc="order.formatted_validation_date"/>
         </t>
     </t>
 
@@ -12,8 +11,7 @@
         <div class="pos-sale-ticket">
 
             <div class="pos-center-align">
-                <t t-esc="order.get('creationDate').toString(Date.CultureInfo.formatPatterns.shortDate + ' ' +
-                Date.CultureInfo.formatPatterns.longTime)"/><br />
+                <t t-esc="order.formatted_validation_date"/><br />
                 <t t-esc="order.get('name')"/></div>
             <br />
             <t t-esc="widget.pos.company.name"/><br />
@@ -28,6 +26,9 @@
                 <br />
             </t>
             <div class="pos-center-align" style="font-size:1.2em;font-weight:bold;">GIFT TICKET</div>
+            <div>
+                DIV DIV DIV DIV
+            </div>
             <br />
             <table>
                 <colgroup>
