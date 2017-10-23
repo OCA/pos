@@ -131,7 +131,7 @@ class TeliumPaymentTerminalDriver(Thread):
             return False
         cur_iso_letter = payment_info_dict['currency_iso'].upper()
         try:
-            cur = pycountry.currencies.get(letter=cur_iso_letter)
+            cur = pycountry.currencies.get(alpha_3=cur_iso_letter)
             cur_numeric = str(cur.numeric)
         except:
             logger.error("Currency %s is not recognized" % cur_iso_letter)
