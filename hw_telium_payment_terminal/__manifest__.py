@@ -41,8 +41,8 @@ The configuration of the hardware is done in the configuration file of
 the Odoo server of the POSbox. You should add the following entries in
 the configuration file:
 
-* payment_terminal_device_name (default = /dev/ttyACM0)
-* payment_terminal_device_rate (default = 9600)
+* telium_terminal_device_name (default = /dev/ttyACM0)
+* telium_terminal_device_rate (default = 9600)
 
 The Telium protocol is used by Ingenico and Sagem payment terminals. It
 is based on the Concert protocol, so it can probably work with payment
