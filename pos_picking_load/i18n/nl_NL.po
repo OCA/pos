@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 01:16+0000\n"
-"PO-Revision-Date: 2017-08-29 01:16+0000\n"
+"POT-Creation-Date: 2017-10-24 11:35+0000\n"
+"PO-Revision-Date: 2017-10-24 11:35+0000\n"
 "Last-Translator: Peter Hageman <hageman.p@gmail.com>, 2017\n"
 "Language-Team: Dutch (Netherlands) (https://www.transifex.com/oca/teams/23907/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:49
 #, python-format
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 #. module: pos_picking_load
 #: field:pos.order,origin_picking_id:0
