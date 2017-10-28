@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-08 14:28+0000\n"
+"POT-Creation-Date: 2017-10-24 11:35+0000\n"
+"PO-Revision-Date: 2017-09-22 22:56+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Macedonian (http://www.transifex.com/oca/OCA-pos-8-0/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -62,8 +62,8 @@ msgid "Display Prices with taxes on POS"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:26
-#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#: code:addons/pos_pricelist/models/pos_order_patch.py:28
+#: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Error!"
 msgstr "Грешка!"
@@ -124,7 +124,7 @@ msgid "Payments"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d)."
 msgstr ""
@@ -147,14 +147,14 @@ msgid "Pricelist Error"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#: code:addons/pos_pricelist/models/pos_order_patch.py:28
 #, python-format
 msgid "Selected orders do not have the same session!"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:188
-#: code:addons/pos_pricelist/models/pos_order_patch.py:205
+#: code:addons/pos_pricelist/models/pos_order_patch.py:190
+#: code:addons/pos_pricelist/models/pos_order_patch.py:207
 #: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Tax"
@@ -182,13 +182,13 @@ msgid "Taxes detail"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:117
+#: code:addons/pos_pricelist/models/pos_order_patch.py:119
 #, python-format
 msgid "The POS order must have lines when calling this method"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:218
+#: code:addons/pos_pricelist/models/pos_order_patch.py:220
 #, python-format
 msgid "Trade Receivables"
 msgstr ""

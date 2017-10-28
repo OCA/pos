@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-26 16:09+0000\n"
-"PO-Revision-Date: 2016-04-24 06:12+0000\n"
+"POT-Creation-Date: 2017-10-24 11:35+0000\n"
+"PO-Revision-Date: 2017-09-23 22:23+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Spodnja vrstica sporočila na zaslonu kupca, ki je prikazan ob zaprtju P
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:56
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:69
 #, python-format
 msgid "Cancel Payment"
 msgstr "Preklic plačila"
@@ -47,7 +47,7 @@ msgstr "Zaslon kupca"
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:41
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:54
 #, python-format
 msgid "Delete Item"
 msgstr "Izbris postavke"
@@ -109,7 +109,7 @@ msgstr "Blagajniški izpisek"
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:48
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:61
 #, python-format
 msgid "TOTAL: "
 msgstr "SKUPAJ:"
@@ -138,7 +138,7 @@ msgstr "Zgornja vrstica sporočila na zaslonu kupca, ki je prikazan ob zaprtju P
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:63
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:76
 #, python-format
 msgid "Your Change:"
 msgstr "Vaše vračilo:"

@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Paolo Valier, 2016
+# Paolo Valier, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-01 05:28+0000\n"
-"PO-Revision-Date: 2016-05-01 08:47+0000\n"
+"POT-Creation-Date: 2017-10-24 11:35+0000\n"
+"PO-Revision-Date: 2017-09-22 22:09+0000\n"
 "Last-Translator: Paolo Valier\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-pos-8-0/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +35,7 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:56
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:69
 #, python-format
 msgid "Cancel Payment"
 msgstr "Annulla Pagamento"
@@ -47,7 +48,7 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:41
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:54
 #, python-format
 msgid "Delete Item"
 msgstr "Elimina Oggetto"
@@ -109,7 +110,7 @@ msgstr "Ricevuta"
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:48
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:61
 #, python-format
 msgid "TOTAL: "
 msgstr ""
@@ -138,7 +139,7 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:63
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:76
 #, python-format
 msgid "Your Change:"
 msgstr "Il resto:"

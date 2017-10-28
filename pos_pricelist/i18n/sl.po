@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-10 07:31+0000\n"
-"PO-Revision-Date: 2017-06-14 04:44+0000\n"
+"POT-Creation-Date: 2017-10-24 11:35+0000\n"
+"PO-Revision-Date: 2017-10-23 10:54+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
 "MIME-Version: 1.0\n"
@@ -63,8 +63,8 @@ msgid "Display Prices with taxes on POS"
 msgstr "Prikaži cene z davki v POS"
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:26
-#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#: code:addons/pos_pricelist/models/pos_order_patch.py:28
+#: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Error!"
 msgstr "Napaka!"
@@ -125,7 +125,7 @@ msgid "Payments"
 msgstr "Plačila"
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d)."
 msgstr "Določite konto prihodkov za proizvod: \"%s\" (id:%d)."
@@ -148,14 +148,14 @@ msgid "Pricelist Error"
 msgstr "Napaka pri ceniku"
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#: code:addons/pos_pricelist/models/pos_order_patch.py:28
 #, python-format
 msgid "Selected orders do not have the same session!"
 msgstr "Izbrani nalogi nimajo iste seje!"
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:188
-#: code:addons/pos_pricelist/models/pos_order_patch.py:205
+#: code:addons/pos_pricelist/models/pos_order_patch.py:190
+#: code:addons/pos_pricelist/models/pos_order_patch.py:207
 #: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Tax"
@@ -183,13 +183,13 @@ msgid "Taxes detail"
 msgstr "Podrobnosti davkov"
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:117
+#: code:addons/pos_pricelist/models/pos_order_patch.py:119
 #, python-format
 msgid "The POS order must have lines when calling this method"
 msgstr "POS nalog mora vsebovati postavke, ko se kliče to metodo"
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:218
+#: code:addons/pos_pricelist/models/pos_order_patch.py:220
 #, python-format
 msgid "Trade Receivables"
 msgstr "Trgovske terjatve"
