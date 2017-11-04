@@ -5,7 +5,7 @@
 
 {
     'name': 'Point of Sale - Price to Weight',
-    'version': '9.0.1.0.0',
+    'version': '10.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Compute weight based on barcodes with prices',
     'author': 'La Louve, GRAP, Odoo Community Association (OCA)',
