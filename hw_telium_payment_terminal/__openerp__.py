@@ -23,7 +23,7 @@
 
 {
     'name': 'Hardware Telium Payment Terminal',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.1.1',
     'category': 'Hardware Drivers',
     'license': 'AGPL-3',
     'summary': 'Adds support for Payment Terminals using Telium protocol',
@@ -65,6 +65,11 @@ This module has been successfully tested with:
 * Ingenico iCT220
 * Ingenico iCT250
 * Ingenico i2200 cheque reader and writer
+
+This module requires the Python library *pycountry* version >= 16.11.08.
+To install it, run:
+
+sudo pip install pycountry
 
 This module has been developped during a POS code sprint at Akretion
 France from July 7th to July 10th 2014. This module is part of the POS
