@@ -85,7 +85,7 @@ def prepare_data_to_send():
         return False
     cur_iso_letter = CURRENCY_ISO.upper()
     try:
-        cur = pycountry.currencies.get(letter=cur_iso_letter)
+        cur = pycountry.currencies.get(alpha_3=cur_iso_letter)
         cur_numeric = str(cur.numeric)
     except:
         print "Currency %s is not recognized" % cur_iso_letter
