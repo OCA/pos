@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 01:16+0000\n"
+"POT-Creation-Date: 2017-11-14 01:45+0000\n"
 "PO-Revision-Date: 2016-04-06 15:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/oca/OCA-pos-8-0/language/pt_BR/)\n"
@@ -52,7 +52,7 @@ msgstr "Módulo"
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_product_category
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria do produto"
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_product_template
