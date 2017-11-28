@@ -21,6 +21,7 @@ On each client's browser, during the first run, the permission for opening popup
 Roadmap
 =======
 
+- See pos_backend_communication
 
 Bug Tracker
 ===========
