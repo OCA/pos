@@ -1,4 +1,3 @@
 unidecode
 pyserial
 pycountry
-https://github.com/akretion/pos.git#10.0-add-pos_backend_communication
