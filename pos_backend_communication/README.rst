@@ -38,6 +38,11 @@ Roadmap
 - Try to use frames instead of popups
 - Use notifications for supported browsers
 
+Known limitation
+================
+
+- It doesn't work offline.
+
 Bug Tracker
 ===========
 
