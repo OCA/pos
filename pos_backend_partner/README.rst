@@ -12,15 +12,15 @@ Choose a POS customer from the backend.
 - Benefit from the backend features: advanced search, easy to extend views, etc.
 
 
-.. figure:: ./pos_backend_partner/static/description/pos_backend_partner1.png
+.. figure:: ./static/description/pos_backend_partner_1.png
    :width: 800px
 
 
-.. figure:: ./pos_backend_partner/static/description/pos_backend_partner2.png
+.. figure:: ./static/description/pos_backend_partner_2.png
    :width: 800px
 
 
-.. figure:: ./pos_backend_partner/static/description/pos_backend_partner3.png
+.. figure:: ./static/description/pos_backend_partner_3.png
    :width: 800px
 
 
