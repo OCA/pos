@@ -12,6 +12,20 @@ Choose a POS customer from the backend.
 - Benefit from the backend features: advanced search, easy to extend views, etc.
 
 
+.. figure:: ./static/description/pos_backend_partner_1.png
+   :width: 800px
+
+
+.. figure:: ./static/description/pos_backend_partner_2.png
+   :width: 800px
+
+
+.. figure:: ./static/description/pos_backend_partner_3.png
+   :width: 800px
+
+
+
+
 Warning about offline mode
 --------------------------
 
