@@ -12,7 +12,7 @@ function pos_payment_term_screens(instance, module) {
             for (var i = 0; i < payment_term_input.childNodes.length; i++){
                 payment_options = payment_term_input.childNodes;
                 if (payment_options[i].hasChildNodes("value")){
-                    if (line.cashregister.journal.payment_term_ids.toString().indexOf(payment_options[i].value) == -1 || payment_options[i].value == "") {
+                    if (line.cashregister.journal.payment_term_ids.indexOf(parseInt(payment_options[i].value)) == -1 || payment_options[i].value == "") {
                         payment_options[i-1].remove();
                         payment_options[i-1].remove();
                         i = 0;
