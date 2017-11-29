@@ -29,8 +29,8 @@ Choose a POS customer from the backend.
 Warning about offline mode
 --------------------------
 
-Due to design of this module, you can't choose a _named customer_ while offline but you
-can still register orders with _anonymous_ user.
+Due to design of this module, you can't choose a **named customer** while offline but you
+can still register orders with **anonymous** user.
 
 
 Configuration
