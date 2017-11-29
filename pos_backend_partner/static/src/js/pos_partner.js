@@ -33,24 +33,35 @@ odoo.define('pos_backend_partner.partner_pos', function (require) {
         });
     }
 
+    // Bind customer button in main screen
     ProductScreenWidget.ActionpadWidget.include({
-      init: function(parent, options) {
-        this._super(parent, options);
-        pos_instance = this.pos;
-
-      },
-      renderElement: function() {
+        init: function(parent, options) {
+            this._super(parent, options);
+            pos_instance = this.pos;
+        },
+        renderElement: function() {
           var self = this;
           this._super();
           this.$('.set-customer').unbind('click');
           this.$('.set-customer').click(function(){
               open_backend();
           });
-      }
+        }
     });
-  
+
+    // Bind customer button in payement screen
+    ProductScreenWidget.PaymentScreenWidget.include({
+        init: function(parent, options) {
+            this._super(parent, options);
+            pos_instance = this.pos;
+        },
+        click_set_customer: function() {
+            open_backend();
+        }
+    });
+
     tools.callbacks['partner.partner_selected'] = set_client;
- 
+
     return {
         callbacks: tools.callbacks
     };
