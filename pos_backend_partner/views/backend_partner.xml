@@ -13,18 +13,6 @@
         </field>
     </record>
 
-    <record id="view_partner_form" model="ir.ui.view">
-        <field name="model">res.partner</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
-        <field name="arch" type="xml">
-            <field name="display_name" position="after">
-                    <button string="Choose"
-                        type="object" name="select_in_pos_current_order"
-                        help="Select as customer in point of sale"/>
-            </field>
-        </field>
-    </record>
-
     <record id="action_select_partner_pos" model="ir.actions.act_window">
         <field name="name">Client</field>
         <field name="type">ir.actions.act_window</field>

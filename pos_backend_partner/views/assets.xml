@@ -9,6 +9,9 @@
     <template id="assets_backend" name="back partner " inherit_id="web.assets_backend">
         <xpath expr="." position="inside">  <!-- both back and POS -->
             <script type="text/javascript" src="/pos_backend_partner/static/src/js/back_partner.js"></script>
+
+            <link rel="stylesheet" href="/pos_backend_partner/static/src/css/pos_backend_partner.css"/>
+
         </xpath>
     </template>
 
