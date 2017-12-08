@@ -45,6 +45,7 @@ Known issues / Roadmap
 ======================
 
 * See module pos_backend_communication (OCA/POS)
+* css glitch: previously clicked buttons are not reset to initial value
 
 
 Bug Tracker
