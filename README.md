@@ -36,5 +36,6 @@ addon | version | summary
 [pos_sequence_ref_number](pos_sequence_ref_number/) | 8.0.1.0.0 | Sequential Order numbers for Point of sale
 [pos_store_draft_order](pos_store_draft_order/) | 8.0.1.0.0 | Allow users to close session with Draft Orders
 [pos_ticket_logo](pos_ticket_logo/) | 8.0.1.0.0 | Pos ticket logo
+[pos_to_weight_by_product_uom](pos_to_weight_by_product_uom/) | 8.0.1.0.0 | Module summary
 
 [//]: # (end addons)
