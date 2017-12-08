@@ -26,8 +26,6 @@ Unported addons
 ---------------
 addon | version | summary
 --- | --- | ---
-[hw_customer_display](hw_customer_display/) | 8.0.0.1.0 (unported) | Adds support for Customer Display in the Point of Sale
-[hw_telium_payment_terminal](hw_telium_payment_terminal/) | 8.0.0.1.0 (unported) | Adds support for Payment Terminals using Telium protocol
 [pos_gift_ticket](pos_gift_ticket/) | 8.0.0.1.0 (unported) | Gift Ticket
 [pos_payment_terminal](pos_payment_terminal/) | 8.0.0.1.0 (unported) | Manage Payment Terminal device from POS front end
 [pos_pricelist](pos_pricelist/) | 8.0.1.2.0 (unported) | Pricelist for Point of sale
