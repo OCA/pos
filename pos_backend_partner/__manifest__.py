@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Pos Backend customer",
+    "name": "POS Backend Customer",
     "summary": "Choose point of sale customers in backend",
     "version": "10.0.1.0.0",
     "category": "Point of sale",
@@ -20,6 +20,4 @@
         'views/assets.xml',
         'views/backend_partner.xml',
     ],
-    "qweb": [
-    ]
 }
