@@ -9,11 +9,11 @@ odoo.define('pos_backend_communication.tools', function (require) {
     function dispatchMessageEvent(message) {
         //don't be tricked by others sites
         if (message.origin !== window.location.origin) {
-            return console.error('Message comming from untrusted source');
+            return console.error('Message coming from untrusted source');
         }
 
         if (!message.data.type) {
-            return console.error('Message uncompliant');
+            return console.error('Uncompliant message');
         }
 
         var fun = callbacks[message.data.type];
