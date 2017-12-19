@@ -15,18 +15,23 @@
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 ******************************************************************************/
-function pos_pricelist_screens(instance, module) {
+odoo.define('pos_pricelist.screens', function (require) {
+	"use strict";
 
-    module.ClientListScreenWidget = module.ClientListScreenWidget.extend({
+	var screens = require('point_of_sale.screens');
+	var core = require('web.core');
+
+    screens.ClientListScreenWidget.include({
         save_changes: function () {
             this._super();
             if (this.has_client_changed()) {
                 var currentOrder = this.pos.get('selectedOrder');
-                var orderLines = currentOrder.get('orderLines').models;
+                var orderLines = currentOrder.orderlines.models;
                 var partner = currentOrder.get_client();
                 this.pos.pricelist_engine.update_products_ui(partner);
                 this.pos.pricelist_engine.update_ticket(partner, orderLines);
             }
         }
     });
-}
+
+});

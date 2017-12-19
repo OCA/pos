@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
             <field name="arch" type="xml">
                 <field name="iface_big_scrollbars" position="after">
-                    <field name="display_price_with_taxes"/>
+                    <field name="display_price_with_taxes" readonly="1"/>
                 </field>
             </field>
         </record>
