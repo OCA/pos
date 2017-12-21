@@ -1,0 +1,7 @@
+td[data-field="select_in_pos_current_order"] {
+  display:none;
+}
+
+.pos_backend_communication td[data-field="select_in_pos_current_order"] {
+  display:block;
+}

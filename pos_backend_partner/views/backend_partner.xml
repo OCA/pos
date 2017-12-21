@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_tree" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <field name="display_name" position="before">
+                    <button string="Choose"
+                        type="object" name="select_in_pos_current_order"
+                        help="Select as customer in point of sale"/>
+                </field>
+        </field>
+    </record>
+
+    <record id="action_select_partner_pos" model="ir.actions.act_window">
+        <field name="name">Client</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('customer', '=', True)]</field>
+        <field name="context">{}</field>
+    </record>
+
+</odoo>
