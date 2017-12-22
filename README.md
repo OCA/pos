@@ -14,6 +14,8 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [account_cash_invoice](account_cash_invoice/) | 10.0.1.0.0 | Pay and receive invoices from bank statements
+[pos_backend_communication](pos_backend_communication/) | 10.0.1.0.0 | Communicate with odoo's backend from POS.
+[pos_backend_partner](pos_backend_partner/) | 10.0.1.0.0 | Choose point of sale customers in backend
 [pos_customer_display](pos_customer_display/) | 10.0.1.0.1 | Manage Customer Display device from POS front end
 [pos_default_payment_method](pos_default_payment_method/) | 10.0.1.0.0 | POS Default payment mehotd
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
