@@ -9,4 +9,5 @@ class AccountFiscalPositionTax(models.Model):
     _inherit = "account.fiscal.position.tax"
 
     company_id = fields.Many2one(
-        related="position_id.company_id", string="Company")
+        related="position_id.company_id", string="Company",
+        store=True)
