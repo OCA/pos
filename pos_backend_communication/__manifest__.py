@@ -8,7 +8,7 @@
     "summary": "Communicate with odoo's backend from POS.",
     "version": "10.0.1.0.0",
     "category": "Point of Sale",
-    "website": "www.akretion.com",
+    "website": "http://www.akretion.com",
     'author': 'Akretion, Odoo Community Association (OCA)',
     "license": "AGPL-3",
     "application": False,
