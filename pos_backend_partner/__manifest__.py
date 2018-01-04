@@ -8,7 +8,7 @@
     "summary": "Choose point of sale customers in backend",
     "version": "10.0.1.0.0",
     "category": "Point of sale",
-    "website": "www.akretion.com",
+    "website": "http://www.akretion.com",
     'author': "Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
