@@ -74,60 +74,6 @@ function pos_pricelist_models(instance, module) {
     });
 
     /**
-     * Extend the order
-     */
-    module.Order = module.Order.extend({
-        /**
-         * override this method to merge lines
-         * TODO : Need some refactoring in the standard POS to Do it better
-         * TODO : from line 73 till 85, we need to move this to another method
-         * @param product
-         * @param options
-         */
-        addProduct: function (product, options) {
-            options = options || {};
-            var attr = JSON.parse(JSON.stringify(product));
-            attr.pos = this.pos;
-            attr.order = this;
-            var line = new module.Orderline({}, {
-                pos: this.pos,
-                order: this,
-                product: product
-            });
-            var self = this;
-            var found = false;
-
-            if (options.quantity !== undefined) {
-                line.set_quantity(options.quantity);
-            }
-            if (options.price !== undefined) {
-                line.set_unit_price(options.price);
-            }
-            if (options.discount !== undefined) {
-                line.set_discount(options.discount);
-            }
-
-            var orderlines = [];
-            if (self.get('orderLines').models !== undefined) {
-                orderlines = self.get('orderLines').models;
-            }
-            for (var i = 0; i < orderlines.length; i++) {
-                var _line = orderlines[i];
-                if (_line && _line.can_be_merged_with(line) &&
-                    options.merge !== false) {
-                    _line.merge(line);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                this.get('orderLines').add(line);
-            }
-            this.selectLine(this.getLastOrderline());
-        }
-    });
-
-    /**
      * Extend the Order line
      */
     var OrderlineParent = module.Orderline;
