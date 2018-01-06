@@ -45,6 +45,7 @@ odoo.define('pos_customer_required.pos_customer_required', function (require) {
     var _show_screen_ = gui.Gui.prototype.show_screen;
     gui.Gui.prototype.show_screen = function(screen_name, params, refresh){
         if(this.pos.config.require_customer == 'order'
+                && this.pos.get('selectedOrder')
                 && !this.pos.get('selectedOrder').get_client()
                 && screen_name != 'clientlist'){
             // We call first the original screen, to avoid to break the
