@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-13 11:50+0000\n"
-"PO-Revision-Date: 2017-07-13 11:50+0000\n"
+"POT-Creation-Date: 2018-01-06 10:02+0000\n"
+"PO-Revision-Date: 2018-01-06 10:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,86 +17,95 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:98
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:112
 #, python-format
 msgid "Check your internet connection and try again."
 msgstr "Veuillez vérifier votre connexion internet et essayer de nouveau."
 
 #. module: pos_order_to_sale_order
-#: help:pos.config,iface_create_sale_order_action:0
-msgid "Choose wich operation will be done after creating a Sale Order from a PoS Order:\n"
-" * 'Draft Sale Order' : The sale order will be created in a draft  mode, and could be changed later;\n"
-" * 'Confirmed Sale Order': The Sale order will be created and confirmed\n"
-" * 'Delivered Picking': The sale Order will be created, and confirmed. The related picking will be marked as delivered. Only invoices process will be possible"
-msgstr "Choisissez quelle opération sera réalisée après la création du devis de vente, depuis le point de vente:\n"
-" * 'Devis en brouillon' : Le devis sera créé à l'état de brouillon, et pourra être modifié par la suite;\n"
-" * 'Vente confirmée': Le devis sera créé puis validé;\n"
-" * 'Livraison réalisée': Le devis sera créé et validé. La livraison associée sera marqué comme livrée. Seul le process de facturation sera possible."
-
-#. module: pos_order_to_sale_order
-#: selection:pos.config,iface_create_sale_order_action:0
-msgid "Confirmed Sale Order"
-msgstr "Vente confirmée"
-
-#. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:27
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:33
 #, python-format
 msgid "Create Confirmed Order"
 msgstr "Créer une vente confirmée"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:30
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:34
 #, python-format
-msgid "Create Delivered Picking"
-msgstr "Créer une livraison réalisée"
+msgid "Create Confirmed Sale Order and discard the current PoS Order ?"
+msgstr "Créer une vente confirmée, et supprimer le ticket de caisse en cours ?"
+
+#. module: pos_order_to_sale_order
+#: field:pos.config,iface_create_confirmed_sale_order:0
+msgid "Create Confirmed Sale Orders"
+msgstr "Créer des ventes confirmées"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:25
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:38
+#, python-format
+msgid "Create Delivered Order"
+msgstr "Créer une vente livrée"
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:39
+#, python-format
+msgid "Create Delivered Sale Order and discard the current PoS Order ?"
+msgstr "Créer une vente livrée, et supprimer le ticket de caisse en cours ?"
+
+#. module: pos_order_to_sale_order
+#: field:pos.config,iface_create_delivered_sale_order:0
+msgid "Create Delivered Sale Orders"
+msgstr "Créer des ventes livrées"
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:28
 #, python-format
 msgid "Create Draft Order"
 msgstr "Créer un devis en brouillon"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:56
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:29
 #, python-format
-msgid "Create Sale Order and discard the current PoS Order ?"
-msgstr "Créer une vente et supprimer la commande en cours ?"
+msgid "Create Draft Sale Order and discard the current PoS Order ?"
+msgstr "Créer une vente en brouillon, et supprimer le ticket de caisse en cours ?"
 
 #. module: pos_order_to_sale_order
-#: field:pos.config,iface_create_sale_order:0
-msgid "Create Sale Orders"
-msgstr "Créer des ventes"
-
-#. module: pos_order_to_sale_order
-#: selection:pos.config,iface_create_sale_order_action:0
-msgid "Delivered Picking"
-msgstr "Livraison réalisée"
-
-#. module: pos_order_to_sale_order
-#: selection:pos.config,iface_create_sale_order_action:0
-msgid "Draft Sale Order"
-msgstr "Devis en brouillon"
+#: field:pos.config,iface_create_draft_sale_order:0
+msgid "Create Draft Sale Orders"
+msgstr "Créer des ventes en brouillon"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:42
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:52
 #, python-format
 msgid "Empty Order"
 msgstr "Commande vide"
 
 #. module: pos_order_to_sale_order
-#: help:pos.config,iface_create_sale_order:0
-msgid "If checked, the cashier will have the possibility to create a Sale Order, based on the current draft PoS Order.\n"
-" If so, the current PoS Order will be discarded."
-msgstr "En cochant cette case, le caissier aura la possibilité de créer une vente, basée sur la commande du point de vente en cours."
+#: help:pos.config,iface_create_confirmed_sale_order:0
+msgid "If checked, the cashier will have the possibility to create a confirmed Sale Order, based on the current draft PoS Order."
+msgstr "En cochant la case, le caissier aura la possibilité de créer une vente confirmée, à partir du ticket de caisse en cours."
+
+#. module: pos_order_to_sale_order
+#: help:pos.config,iface_create_delivered_sale_order:0
+msgid "If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered. Only invoices process will be possible."
+msgstr "En cochant la case, le caissier aura la possibilité de créer une vente confirmée, à partir du ticket de caisse en cours.\n"
+" Le bon de livraison correspondant sera marqué comme livré. Seul le processus de facturation sera possible."
+
+#. module: pos_order_to_sale_order
+#: help:pos.config,iface_create_draft_sale_order:0
+msgid "If checked, the cashier will have the possibility to create a draft Sale Order, based on the current draft PoS Order."
+msgstr "En cochant la case, le caissier aura la possibilité de créer une vente en brouillon, à partir du ticket de caisse en cours."
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:50
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:60
 #, python-format
 msgid "No customer defined"
 msgstr "Pas de client défini"
@@ -108,41 +117,51 @@ msgid "Point of Sale %s"
 msgstr "Point de vente %s"
 
 #. module: pos_order_to_sale_order
-#: field:pos.config,iface_create_sale_order_action:0
-msgid "Sale Order Actions"
-msgstr "Actions liées à la vente"
-
-#. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order
 msgid "Sales Order"
 msgstr "Commande de ventes"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:97
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:111
 #, python-format
 msgid "The order could not be sent"
 msgstr "La commande n'a pas pu être envoyée"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:43
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:53
 #, python-format
 msgid "There must be at least one product in your order to create Sale Order."
 msgstr "Il doit y avoir au moins un produit dans votre commande pour créer une vente"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:57
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:35
 #, python-format
-msgid "This operation will permanently destroy the current PoS Order and create a Sale Order, based on the current order lines. You'll have to create later an invoice.\n"
-" Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again."
-msgstr "Cette opération supprimera définitivement la commande de point de vente en cours, et créera une vente, basé sur les lignes de la commande en cours. Vous devrez créer une facture plus tard.\n"
-" Remarque : si vous avez modifié des prix unitaires manuellement pour certains produits, ces changements ne seront pas pris en compte dans la nouvelle vente, et devront être réappliqués de nouveau manuellement, sur la facture."
+msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente, et devront être refait manuellement sur la facture."
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:51
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:40
+#, python-format
+msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered.\n"
+" Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Le bone de livraison correspondant sera marqué comme livré. \n"
+"Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente, et devront être refait manuellement sur la facture."
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:30
+#, python-format
+msgid "This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines. Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente en brouillon, en se basant sur les lignes du ticket en cours. Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente."
+
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:61
 #, python-format
 msgid "You should select a customer in order to create a Sale Order. Please select one by clicking the order tab."
 msgstr "Vous devez sélectionner un client, afin de créer une vente. Veuillez en sélectionner un en cliquant sur l'onglet de la commande."

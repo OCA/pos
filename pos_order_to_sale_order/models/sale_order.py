@@ -42,21 +42,16 @@ class SaleOrder(models.Model):
 
     @api.model
     def create_order_from_pos(self, order_data):
-        session_obj = self.env['pos.session']
-        session = session_obj.browse(order_data['pos_session_id'])
-
         # Create Draft Sale order
         sale_order = self.create(
             self._prepare_order_field_from_pos(order_data))
 
         # Confirm Sale Order
-        if session.config_id.iface_create_sale_order_action in [
-                'confirmed_order', 'delivered_picking']:
+        if order_data['sale_order_state'] in ['confirmed', 'delivered']:
             sale_order.action_button_confirm()
 
         # mark picking as delivered
-        if session.config_id.iface_create_sale_order_action ==\
-                'delivered_picking':
+        if order_data['sale_order_state'] == 'delivered':
             sale_order.picking_ids.force_assign()
             sale_order.picking_ids.do_transfer()
 

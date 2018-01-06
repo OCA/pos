@@ -8,17 +8,22 @@ POS Order To Sale Order
 =======================
 
 
-This module extends the functionality of point of sale to allow you create
-Sale Orders from the Point of sale.
+This module extends the functionality of point of sale to allow sale orders
+creation from the Point of Sale.
 
-It adds a new button, below the current bill on the point of sale front end UI,
-that allows you to create a Sale order, based on the current PoS Order lines
-and then to discard the current PoS Order.
 
-This module is usefull if you have some customers that come every day in your
-shop, but want to have a unique invoice at the end of the month. With that
-module, you can create a sale order adn deliver products every time to keep
-your stock value correct, and to create a unique invoice, when you want.
+In the POS UI, buttons has been added to create a sale order and discard
+the current POS order.
+
+This module is usefull in many cases, for exemple :
+
+* take orders with a very simple interface
+
+* if you have some customers that come every day in your shop, but want to
+  have a unique invoice at the end of the month. With that module, you can
+  create a sale order and deliver products every time to keep your stock value
+  correct, and to create a unique invoice, when you want.
+
 
 Three options are available:
 

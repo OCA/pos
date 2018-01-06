@@ -21,13 +21,23 @@ openerp.pos_order_to_sale_order = function(instance, local) {
         template: 'CreateSaleOrderButtonWidget',
 
         init: function(parent, options){
+            console.log(options);
             this._super(parent, options);
-            this.display_text = _t("Create Draft Order");
-            if (this.pos.config.iface_create_sale_order_action == 'confirmed_order'){
-                this.display_text = _t("Create Confirmed Order");
+            this.sale_order_state = options.sale_order_state;
+            if (this.sale_order_state == 'draft') {
+                this.display_text = _t("Create Draft Order");
+                this.confirmation_message = _t('Create Draft Sale Order and discard the current PoS Order ?');
+                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines. Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order.");
             }
-            if (this.pos.config.iface_create_sale_order_action == 'delivered_picking'){
-                this.display_text = _t("Create Delivered Picking");
+            else if (options.sale_order_state == 'confirmed') {
+                this.display_text = _t("Create Confirmed Order");
+                this.confirmation_message = _t('Create Confirmed Sale Order and discard the current PoS Order ?');
+                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again.");
+            }
+            else if (options.sale_order_state == 'delivered') {
+                this.display_text = _t("Create Delivered Order");
+                this.confirmation_message = _t('Create Delivered Sale Order and discard the current PoS Order ?');
+                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered.\n Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again.");
             }
         },
 
@@ -45,7 +55,7 @@ openerp.pos_order_to_sale_order = function(instance, local) {
                     return;
                 }
                 // Check Customer
-                if (current_order.get('client') ===  null){
+                if (!current_order.get('client')){
                     self.pos_widget.screen_selector.show_popup('error',{
                         'message': _t('No customer defined'),
                         'comment': _t('You should select a customer in order to create a Sale Order. Please select one by clicking the order tab.'),
@@ -53,10 +63,11 @@ openerp.pos_order_to_sale_order = function(instance, local) {
                     return;
                 }
                 self.pos.pos_widget.screen_selector.show_popup('confirm', {
-                    message: _t('Create Sale Order and discard the current PoS Order ?'),
-                    comment: _t("This operation will permanently destroy the current PoS Order and create a Sale Order, based on the current order lines. You'll have to create later an invoice.\n Note if you had manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again."),
+                    message: self.confirmation_message,
+                    comment: self.confirmation_comment,
                     confirm: function(){
                         var SaleOrderModel = new instance.web.Model('sale.order');
+                        current_order.sale_order_state = self.sale_order_state;
                         SaleOrderModel.call('create_order_from_pos', [self.prepare_create_sale_order(current_order)]
                         ).then(function (result) {
                             self.hook_create_sale_order_success(result);
@@ -71,7 +82,10 @@ openerp.pos_order_to_sale_order = function(instance, local) {
 
         // Overload This function to send custom sale order data to server
         prepare_create_sale_order: function(order) {
-            return order.export_as_JSON();
+            var res = order.export_as_JSON();
+            console.log(res);
+            res.sale_order_state = this.sale_order_state;
+            return res;
         },
 
         // Overload this function to make custom action after Sale order
@@ -106,14 +120,25 @@ openerp.pos_order_to_sale_order = function(instance, local) {
 
     /*************************************************************************
         Extend PosWidget:
-            * Create a new button, depending of the configuration
+            * Create new buttons, depending of the configuration
     */
     module.PosWidget = module.PosWidget.extend({
         build_widgets: function() {
             this._super();
-            if (this.pos.config.iface_create_sale_order){
-                this.create_sale_order_button = new module.CreateSaleOrderButtonWidget(this, {});
-                this.create_sale_order_button.appendTo(this.pos_widget.$('ul.orderlines'));
+            if (this.pos.config.iface_create_draft_sale_order){
+                this.create_draft_sale_order_button = new module.CreateSaleOrderButtonWidget(
+                    this, {'sale_order_state': 'draft'});
+                this.create_draft_sale_order_button.appendTo(this.pos_widget.$('ul.orderlines'));
+            }
+            if (this.pos.config.iface_create_confirmed_sale_order){
+                this.create_confirmed_sale_order_button = new module.CreateSaleOrderButtonWidget(
+                    this, {'sale_order_state': 'confirmed'});
+                this.create_confirmed_sale_order_button.appendTo(this.pos_widget.$('ul.orderlines'));
+            }
+            if (this.pos.config.iface_create_delivered_sale_order){
+                this.create_delivered_sale_order_button = new module.CreateSaleOrderButtonWidget(
+                    this, {'sale_order_state': 'delivered'});
+                this.create_delivered_sale_order_button.appendTo(this.pos_widget.$('ul.orderlines'));
             }
         },
     });
@@ -121,16 +146,27 @@ openerp.pos_order_to_sale_order = function(instance, local) {
 
     /*************************************************************************
         Extend OrderWidget:
-            Overload renderElement, to display button when the order change.
+            Overload renderElement, to display buttons when the order change.
     */
     module.OrderWidget = module.OrderWidget.extend({
         renderElement: function(scrollbottom){
             this._super(scrollbottom);
-            if (this.pos_widget.create_sale_order_button) {
-                this.pos_widget.create_sale_order_button.appendTo(
+            if (this.pos_widget.create_draft_sale_order_button) {
+                this.pos_widget.create_draft_sale_order_button.appendTo(
                     this.pos_widget.$('ul.orderlines')
                 );
             }
+            if (this.pos_widget.create_confirmed_sale_order_button) {
+                this.pos_widget.create_confirmed_sale_order_button.appendTo(
+                    this.pos_widget.$('ul.orderlines')
+                );
+            }
+            if (this.pos_widget.create_delivered_sale_order_button) {
+                this.pos_widget.create_delivered_sale_order_button.appendTo(
+                    this.pos_widget.$('ul.orderlines')
+                );
+            }
+
         }
     });
 
