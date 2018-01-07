@@ -11,6 +11,7 @@
     'category': 'Point Of Sale',
     'summary': 'Point of Sale Require Customer',
     'author': 'Apertoso NV, La Louve, Odoo Community Association (OCA)',
+    'license': 'AGPL-3',
     'website': 'http://www.apertoso.be',
     'depends': [
         'point_of_sale',
