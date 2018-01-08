@@ -1,23 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_customer_required
-# 
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2016
-# leemannd <denis.leemann@camptocamp.com>, 2016
+#	* pos_customer_required
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-21 03:45+0000\n"
-"PO-Revision-Date: 2016-12-21 03:45+0000\n"
-"Last-Translator: leemannd <denis.leemann@camptocamp.com>, 2016\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"POT-Creation-Date: 2018-01-08 09:31+0000\n"
+"PO-Revision-Date: 2018-01-08 09:31+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: pos_customer_required
 #. openerp-web
@@ -29,23 +25,16 @@ msgstr "Une commande anonyme ne peut pas être confirmée"
 #. module: pos_customer_required
 #: code:addons/pos_customer_required/models/pos_make_payment.py:23
 #, python-format
-msgid ""
-"An anonymous order cannot be confirmed.\n"
+msgid "An anonymous order cannot be confirmed.\n"
 "Please select a customer for this order."
-msgstr ""
-"Une commande anonyme ne peut pas être confirmée\n"
+msgstr "Une commande anonyme ne peut pas être confirmée\n"
 "Sélectionnez un client pour cette commande."
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_order.py:33
+#: code:addons/pos_customer_required/models/pos_order.py:34
 #, python-format
 msgid "Customer is required for this order and is missing."
 msgstr "Un client est requis et manquant."
-
-#. module: pos_customer_required
-#: selection:pos.config,require_customer:0
-msgid "Optional"
-msgstr "Facultatif"
 
 #. module: pos_customer_required
 #. openerp-web
@@ -76,16 +65,10 @@ msgstr "Client requis"
 
 #. module: pos_customer_required
 #: model:ir.model.fields,help:pos_customer_required.field_pos_config_require_customer
-msgid ""
-"Require customer for orders in this point of sale:\n"
-"* 'Optional' (customer is optional);\n"
-"* 'Required before paying';\n"
-"* 'Required before starting the order';"
-msgstr ""
-"Client requis pour les commandes de ce terminal de point de vente:\n"
-"* 'Optionnel' (Le client est optionnel);\n"
-"* 'Le client est requis avant le payement';\n"
-"* 'Le client est requis avant de commencer la commande';"
+msgid "Require customer for orders in this point of sale.\n"
+" Let empty if your want to let customer field optional"
+msgstr "Client requis pour les commandes de ce terminal de ce point de vente.\n"
+" Ne pas renseigner le champ si vous souhaitez laisser le champ client optionel."
 
 #. module: pos_customer_required
 #: selection:pos.config,require_customer:0
@@ -99,14 +82,13 @@ msgstr "Requis avant de commencer la vente"
 
 #. module: pos_customer_required
 #: model:ir.model.fields,help:pos_customer_required.field_pos_order_require_customer
-msgid ""
-"True if a customer is required to begin the order.\n"
+msgid "True if a customer is required to begin the order.\n"
 "See the PoS Config to change this setting"
-msgstr ""
-"Vrai si un client est requis pour commencer une vente.\n"
+msgstr "Vrai si un client est requis pour commencer une vente.\n"
 "Voir la configuration du point de vente pour changer ce paramètre."
 
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_config
 msgid "pos.config"
 msgstr "pos.config"
+

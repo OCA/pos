@@ -19,7 +19,7 @@ odoo.define('pos_customer_required.pos_customer_required', function (require) {
 
     screens.PaymentScreenWidget.include({
         validate_order: function(options) {
-            if(this.pos.config.require_customer !== 'no' &&
+            if(this.pos.config.require_customer !== false &&
                     !this.pos.get('selectedOrder').get_client()){
                 this.gui.show_popup('error',{
                     'title': _t('An anonymous order cannot be confirmed'),
