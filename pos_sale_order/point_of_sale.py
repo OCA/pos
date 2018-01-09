@@ -6,6 +6,7 @@ import time
 
 from openerp import fields, models, api, _
 from openerp.exceptions import Warning
+from openerp.tools import float_is_zero
 
 
 class SaleOrder(models.Model):
@@ -101,6 +102,8 @@ class PosOrder(models.Model):
 
     @api.model
     def create_from_ui(self, orders):
+
+
         # Keep only new orders
         sale_obj = self.env['sale.order']
         submitted_references = [o['data']['name'] for o in orders]
@@ -112,24 +115,58 @@ class PosOrder(models.Model):
             o['data']['name'] not in existing_references)]
         order_ids = existing_orders.ids
 
+        prec_acc = self.env['decimal.precision'].precision_get('Account')
+
         for tmp_order in orders_to_save:
             to_invoice = tmp_order['to_invoice']
             ui_order = tmp_order['data']
+
+            session = self.env['pos.session'].browse(
+                ui_order['pos_session_id'])
+
+            if session.state == 'closing_control' or session.state == 'closed':
+                session_id = self._get_valid_session(ui_order)
+                session = self.env['pos.session'].browse(session_id)
+                ui_order['pos_session_id'] = session_id
+
             vals = self._prepare_sale_order_vals(ui_order)
             for line in vals['order_line']:
                 self._update_sale_order_line_vals(vals, line[2])
             order = sale_obj.create(vals)
+
+            journal_ids = set()
             for payments in ui_order['statement_ids']:
-                self.add_payment(
-                    order.id,
-                    self._payment_fields(payments[2]),
-                )
-            session = self.env['pos.session'].browse(
-                ui_order['pos_session_id'])
+                self.add_payment(order.id, self._payment_fields(payments[2]))
+                journal_ids.add(payments[2]['journal_id'])
+
             if session.sequence_number <= ui_order['sequence_number']:
                 session.write(
                     {'sequence_number': ui_order['sequence_number'] + 1})
                 session.refresh()
+
+            if not float_is_zero(ui_order['amount_return'], self.env['decimal.precision'].precision_get('Account')):
+                cash_journal = session.cash_journal_id.id
+                if not cash_journal:
+                    # Select for change one of the cash journals used in this payment
+                    cash_journal_ids = self.env['account.journal'].search([
+                        ('type', '=', 'cash'),
+                        ('id', 'in', list(journal_ids)),
+                    ], limit=1)
+                    if not cash_journal_ids:
+                        # If none, select for change one of the cash journals of the POS
+                        # This is used for example when a customer pays by credit card
+                        # an amount higher than total amount of the order and gets cash back
+                        cash_journal_ids = [statement.journal_id.id for statement in session.statement_ids
+                                            if statement.journal_id.type == 'cash']
+                        if not cash_journal_ids:
+                            raise Warning(_("No cash statement found for this session. Unable to record returned cash."))
+                    cash_journal = cash_journal_ids[0]
+                self.add_payment(order.id, {
+                    'amount': -ui_order['amount_return'],
+                    'payment_date': time.strftime('%Y-%m-%d %H:%M:%S'),
+                    'payment_name': _('return'),
+                    'journal': cash_journal.id,
+                })
 
             if order.confirm_sale_from_pos():
                 order.signal_workflow('order_confirm')
