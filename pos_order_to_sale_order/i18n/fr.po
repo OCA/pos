@@ -33,7 +33,7 @@ msgstr "Créer une vente confirmée"
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:34
 #, python-format
-msgid "Create Confirmed Sale Order and discard the current PoS Order ?"
+msgid "Create Confirmed Sale Order and discard the current PoS Order?"
 msgstr "Créer une vente confirmée, et supprimer le ticket de caisse en cours ?"
 
 #. module: pos_order_to_sale_order
@@ -52,7 +52,7 @@ msgstr "Créer une vente livrée"
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:39
 #, python-format
-msgid "Create Delivered Sale Order and discard the current PoS Order ?"
+msgid "Create Delivered Sale Order and discard the current PoS Order?"
 msgstr "Créer une vente livrée, et supprimer le ticket de caisse en cours ?"
 
 #. module: pos_order_to_sale_order
@@ -71,7 +71,7 @@ msgstr "Créer un devis en brouillon"
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:29
 #, python-format
-msgid "Create Draft Sale Order and discard the current PoS Order ?"
+msgid "Create Draft Sale Order and discard the current PoS Order?"
 msgstr "Créer une vente en brouillon, et supprimer le ticket de caisse en cours ?"
 
 #. module: pos_order_to_sale_order
