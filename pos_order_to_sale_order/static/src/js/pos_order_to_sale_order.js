@@ -21,7 +21,6 @@ openerp.pos_order_to_sale_order = function(instance, local) {
         template: 'CreateSaleOrderButtonWidget',
 
         init: function(parent, options){
-            console.log(options);
             this._super(parent, options);
             this.sale_order_state = options.sale_order_state;
             if (this.sale_order_state == 'draft') {
@@ -83,7 +82,6 @@ openerp.pos_order_to_sale_order = function(instance, local) {
         // Overload This function to send custom sale order data to server
         prepare_create_sale_order: function(order) {
             var res = order.export_as_JSON();
-            console.log(res);
             res.sale_order_state = this.sale_order_state;
             return res;
         },
