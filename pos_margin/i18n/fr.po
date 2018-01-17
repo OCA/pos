@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-10 09:02+0000\n"
-"PO-Revision-Date: 2017-04-10 09:02+0000\n"
+"POT-Creation-Date: 2017-08-24 13:16+0000\n"
+"PO-Revision-Date: 2017-08-24 13:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,13 +31,25 @@ msgid "Lines of Point of Sale"
 msgstr "Lignes de Points de Vente"
 
 #. module: pos_margin
+#: view:pos.order:pos_margin.view_pos_order_form
 #: field:pos.order,margin:0
 #: field:pos.order.line,margin:0
 msgid "Margin"
 msgstr "Marge"
 
 #. module: pos_margin
+#: field:pos.order,margin_percent:0
+#: field:pos.order.line,margin_percent:0
+msgid "Margin (%)"
+msgstr "Marge (%)"
+
+#. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order
 msgid "Point of Sale"
 msgstr "Point de Vente"
+
+#. module: pos_margin
+#: view:pos.order:pos_margin.view_pos_order_tree
+msgid "Total"
+msgstr "Total"
 
