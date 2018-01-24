@@ -100,39 +100,17 @@ odoo.define('pos_order_load', function (require) {
      * Create new screen;
      * Add load and save button;
      */
-    //chrome.Chrome.include({
-        //build_widgets: function() {
-            //this._super();
+    chrome.Chrome.include({
+        build_widgets: function() {
+            this._super();
 
+            this.load_button = new LoadButtonWidget(this, {});
+            this.load_button.appendTo(this.$('div.order-empty'));
 
-            //this.load_button.appendTo(this.pos_widget.$('li.orderline.empty'));
+            this.save_button = new SaveButtonWidget(this, {});
 
-
-        //},
-    //});.
-    var widgets = chrome.Chrome.prototype.widgets;
-    widgets.push(
-        {
-            'name': 'load_button',
-            'widget': LoadButtonWidget,
-            'append': '.pos-branding',
         },
-        {
-            'name': 'save_button',
-            'widget': SaveButtonWidget,
-            'append': '.pos-branding',
-        }
-    );
-
-    screens.define_action_button({
-        'name': 'load_button',
-        'widget': LoadButtonWidget,
     });
-    screens.define_action_button({
-        'name': 'save_button',
-        'widget': SaveButtonWidget,
-    });
-
 
 
     /*************************************************************************
@@ -140,19 +118,19 @@ odoo.define('pos_order_load', function (require) {
      */
     screens.OrderWidget.include({
         renderElement: function(scrollbottom){
-            var self= this;
             this._super(scrollbottom);
-            console.log(this);
-            //if (this.pos_widget.load_button) {
-            //this.pos_widget.load_button.appendTo(
-            //this.pos_widget.$('li.orderline.empty')
-            //);
-            //}
-            //if (this.pos_widget.save_button && (this.pos.get('selectedOrder').get_orderlines().length > 0)) {
-            //this.pos_widget.save_button.appendTo(
-            //this.pos_widget.$('div.summary')
-            //);
-            //}
+            if (this.chrome.load_button) {
+                this.chrome.load_button.appendTo(
+                    this.chrome.$('div.order-empty')
+                );
+            }
+            if (this.pos.get_order()) {
+                if (this.chrome.save_button && (this.pos.get_order().get_orderlines().length > 0)) {
+                    this.chrome.save_button.appendTo(
+                        this.chrome.$('div.summary')
+                    );
+                }
+            }
         }
     });
 
@@ -177,8 +155,7 @@ odoo.define('pos_order_load', function (require) {
         reset_order: function(order) {
             order.set_client(undefined);
             order.set_order_id(undefined);
-            console.log(order);
-            //order.get_orderlines().remove();
+            order.orderlines.reset();
             return order;
         },
 
@@ -188,7 +165,7 @@ odoo.define('pos_order_load', function (require) {
             this.$el.find('span.button.back').click(function(){
                 var order = self.pos.get('selectedOrder');
                 self.reset_order(order);
-                self.pos_widget.order_widget.change_selected_order();
+                self.chrome.screens.products.order_widget.change_selected_order();
                 self.gui.show_screen('products');
             });
             this.$el.find('span.button.validate').click(function(){
@@ -262,7 +239,7 @@ odoo.define('pos_order_load', function (require) {
                 .then(function (result) {
                     var order = self.pos.get('selectedOrder');
                     order = self.load_order_fields(order, result);
-                    //order.get_orderlines().remove();
+                    order.orderlines.reset();
                     var orderlines = result.orderlines || [];
                     var unknown_products = [];
                     for (var i=0, len=orderlines.length; i<len; i++) {
@@ -283,10 +260,10 @@ odoo.define('pos_order_load', function (require) {
                             }
                         }
 
-                        order.addProduct(product,
+                        order.add_product(product,
                             self.prepare_orderline_options(orderline)
                         );
-                        last_orderline = order.getLastOrderline();
+                        var last_orderline = order.get_last_orderline();
                         last_orderline = jQuery.extend(last_orderline, orderline);
                     }
                     // Forbid POS Order loading if some products are unknown
