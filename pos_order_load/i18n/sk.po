@@ -1,0 +1,147 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_order_load
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# gebri <gebri@inmail.sk>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-15 03:43+0000\n"
+"PO-Revision-Date: 2016-12-15 03:43+0000\n"
+"Last-Translator: gebri <gebri@inmail.sk>, 2016\n"
+"Language-Team: Slovak (https://www.transifex.com/oca/teams/23907/sk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:289
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:315
+#, python-format
+msgid "Can not execute this action because the POS is currently offline"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:181
+#, python-format
+msgid "Can not load the Selected Order because the POS is currently offline"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:28
+#, python-format
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:180
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:288
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:314
+#, python-format
+msgid "Connection error"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:60
+#, python-format
+msgid "Customer"
+msgstr "Zákazník"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:5
+#, python-format
+msgid "Load Draft Order"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:59
+#, python-format
+msgid "Order"
+msgstr ""
+
+#. module: pos_order_load
+#: model:ir.model,name:pos_order_load.model_pos_order
+msgid "Point of Sale"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:10
+#, python-format
+msgid "Save Current Order"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:71
+#, python-format
+msgid "Save The current Order ?"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:36
+#, python-format
+msgid "Search Orders"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:40
+#, python-format
+msgid "Select Order"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:72
+#, python-format
+msgid ""
+"This operation will save the current order in a draft state. You'll have to "
+"mark it as paid after."
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:61
+#, python-format
+msgid "Total Amount"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:267
+#, python-format
+msgid ""
+"Unable to load some order lines because the products are not available in the POS cache.\n"
+"\n"
+"Please check that lines :\n"
+"\n"
+"  * "
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:266
+#, python-format
+msgid "Unknown Products"
+msgstr ""
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:32
+#, python-format
+msgid "Validate"
+msgstr ""
