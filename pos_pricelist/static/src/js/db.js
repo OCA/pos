@@ -15,12 +15,17 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-function pos_pricelist_db(instance, module) {
+odoo.define('pos_pricelist.db', function(require){
+    "use strict";
 
-    module.PosDB = module.PosDB.extend({
+    var PosDB = require('point_of_sale.DB');
+    var models = require('point_of_sale.models');
+
+    PosDB.include({
         init: function (options) {
             options = options || {};
             this._super(options);
+
             this.pricelist_by_id = {};
             this.pricelist_version_by_id = {};
             this.pricelist_item_by_id = {};
@@ -33,6 +38,7 @@ function pos_pricelist_db(instance, module) {
             this.pricelist_partnerinfo_by_id = {};
             this.fiscal_position_tax_by_id = {};
         },
+
         add_fiscal_position_taxes: function (fiscal_position_taxes) {
             if (!(fiscal_position_taxes instanceof Array)) {
                 fiscal_position_taxes = [fiscal_position_taxes];
@@ -43,6 +49,7 @@ function pos_pricelist_db(instance, module) {
                     = fiscal_position_tax;
             }
         },
+
         add_pricelist_partnerinfo: function (pricelist_partnerinfos) {
             if (!(pricelist_partnerinfos instanceof Array)) {
                 pricelist_partnerinfos = [pricelist_partnerinfos];
@@ -53,6 +60,7 @@ function pos_pricelist_db(instance, module) {
                     = partner_info;
             }
         },
+
         add_supplierinfo: function (supplierinfos) {
             if (!(supplierinfos instanceof Array)) {
                 supplierinfos = [supplierinfos];
@@ -62,6 +70,7 @@ function pos_pricelist_db(instance, module) {
                 this.supplierinfo_by_id[supplier_info.id] = supplier_info;
             }
         },
+
         add_pricelists: function (pricelists) {
             if (!(pricelists instanceof Array)) {
                 pricelists = [pricelists];
@@ -71,6 +80,7 @@ function pos_pricelist_db(instance, module) {
                 this.pricelist_by_id[pricelist.id] = pricelist;
             }
         },
+
         add_pricelist_versions: function (versions) {
             if (!(versions instanceof Array)) {
                 versions = [versions];
@@ -80,6 +90,7 @@ function pos_pricelist_db(instance, module) {
                 this.pricelist_version_by_id[version.id] = version;
             }
         },
+
         add_pricelist_items: function (items) {
             if (!(items instanceof Array)) {
                 items = [items];
@@ -90,6 +101,7 @@ function pos_pricelist_db(instance, module) {
             }
             this.pricelist_item_sorted = this._items_sorted();
         },
+
         add_price_types: function (price_types) {
             if (!(price_types instanceof Array)) {
                 price_types = [price_types];
@@ -99,6 +111,7 @@ function pos_pricelist_db(instance, module) {
                 this.product_price_type_by_id[ptype.id] = ptype;
             }
         },
+
         add_product_categories: function (categories) {
             if (!(categories instanceof Array)) {
                 categories = [categories];
@@ -111,6 +124,7 @@ function pos_pricelist_db(instance, module) {
             }
             this._make_ancestors();
         },
+
         _make_ancestors: function () {
             var category, ancestors;
             for (var id in this.product_category_by_id) {
@@ -125,6 +139,7 @@ function pos_pricelist_db(instance, module) {
                 this.product_category_ancestors[parseInt(id)] = ancestors;
             }
         },
+
         _items_sorted: function () {
             var items = this.pricelist_item_by_id;
             var list = [];
@@ -140,6 +155,7 @@ function pos_pricelist_db(instance, module) {
             });
             return list;
         },
+
         map_tax: function (fiscal_position_id, taxes_ids) {
             var taxes = [];
             var found_taxes = {};
@@ -160,24 +176,7 @@ function pos_pricelist_db(instance, module) {
             }
             return taxes;
         },
-        add_products: function (products) {
-            this._super(products);
-            var pos = posmodel.pos_widget.pos;
-            for (var id in this.product_by_id) {
-                if (this.product_by_id.hasOwnProperty(id)) {
-                    var product = this.product_by_id[id];
-                    var orderline = new openerp.point_of_sale.Orderline({}, {
-                        pos: pos,
-                        order: null,
-                        product: product,
-                        price: product.price
-                    });
-                    var prices = orderline.get_all_prices();
-                    this.product_by_id[id].price_with_taxes
-                        = prices['priceWithTax']
-                }
-            }
-        },
+
         find_product_rules: function (product) {
             var len = this.pricelist_item_sorted.length;
             var rules = [];
@@ -192,4 +191,4 @@ function pos_pricelist_db(instance, module) {
             return rules;
         }
     })
-}
+});

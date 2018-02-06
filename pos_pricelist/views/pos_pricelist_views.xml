@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<openerp>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
     <data>
         <record id="view_pos_config_form_pos_pricelist" model="ir.ui.view">
             <field name="name">view.pos.config.form.pos.pricelist</field>
@@ -12,4 +12,4 @@
             </field>
         </record>
     </data>
-</openerp>
+</odoo>
