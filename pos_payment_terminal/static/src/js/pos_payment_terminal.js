@@ -20,7 +20,7 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
     models.load_fields('account.journal', ['payment_mode']);
 
     devices.ProxyDevice.include({
-        payment_terminal_transaction_start: function(line_cid, currency_iso){
+        payment_terminal_transaction_start: function(line_cid, currency_iso, currency_decimals){
             var line;
             var lines = this.pos.get_order().get_paymentlines();
             for ( var i = 0; i < lines.length; i++ ) {
@@ -31,6 +31,7 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
 
             var data = {'amount' : line.get_amount(),
                         'currency_iso' : currency_iso,
+                        'currency_decimals' : currency_decimals,
                         'payment_mode' : line.cashregister.journal.payment_mode};
             //console.log(JSON.stringify(data));
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
@@ -45,7 +46,7 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
             this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
             // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
             //console.log(event.target);
-            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name);
+            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name, self.pos.currency.decimals);
             });
         },
     });
