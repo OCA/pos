@@ -129,6 +129,8 @@ class TeliumPaymentTerminalDriver(Thread):
                 "The payment mode '%s' is not supported"
                 % payment_info_dict['payment_mode'])
             return False
+        cur_decimals = payment_info_dict['currency_decimals']
+        cur_fact = 10**cur_decimals
         cur_iso_letter = payment_info_dict['currency_iso'].upper()
         try:
             cur = pycountry.currencies.get(alpha_3=cur_iso_letter)
@@ -145,7 +147,7 @@ class TeliumPaymentTerminalDriver(Thread):
             'private': ' ' * 10,
             'delay': 'A011',
             'auto': 'B010',
-            'amount_msg': ('%.0f' % (amount * 100)).zfill(8),
+            'amount_msg': ('%.0f' % (amount * cur_fact)).zfill(8),
         }
         return data
 
