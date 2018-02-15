@@ -1,37 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates id="template" xml:space="preserve">
-    <t t-extend="Product">
-        <t t-jquery=".product-img" t-operation="replace">
-            <div class="product-img">
-                <img t-att-src='image_url' />
-                <t t-if="!product.to_weight">
-                    <span class="price-tag">
-                        <t t-if="widget.display_price_with_taxes">
-                            <t t-esc="widget.format_currency(product.price_with_taxes,'Product Price')"/>
-                        </t>
-                        <t t-if="!widget.display_price_with_taxes">
-                            <t t-esc="widget.format_currency(product.price,'Product Price')"/>
-                        </t>
-                    </span>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2018 Tecnativa - Jairo Llopis
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+
+<templates>
+    <t t-name="SetPricelistButton">
+        <div class='control-button o_pricelist_button'>
+            <i class='fa fa-th-list' /> <t t-esc='widget.get_current_pricelist_name()'/>
+        </div>
+    </t>
+
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div t-attf-class='client-detail #{widget.pos.pricelists.length &lt;= 1 ? "oe_hidden" : ""}'>
+                <span class='label'>Pricelist</span>
+                <select class='detail needsclick' name='property_product_pricelist'>
+                    <t t-foreach='widget.pos.pricelists' t-as='pricelist'>
+                        <option t-att-value='pricelist.id'
+                                t-att-selected="partner.property_product_pricelist ? (pricelist.id === partner.property_product_pricelist[0] ? true : undefined) : undefined">
+                            <t t-esc='pricelist.display_name'/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="ClientDetails">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div t-attf-class='client-detail #{widget.pos.pricelists.length &lt;= 1 ? "oe_hidden" : ""}'>
+                <span class='label'>Pricelist</span>
+                <t t-if='partner.property_product_pricelist'>
+                    <span class='detail property_product_pricelist'><t t-esc='partner.property_product_pricelist[1]'/></span>
                 </t>
-                <t t-if="product.to_weight">
-                    <span class="price-tag">
-                        <t t-if="widget.display_price_with_taxes">
-                            <t t-esc="widget.format_currency(product.price_with_taxes,'Product Price')+'/Kg'"/>
-                        </t>
-                        <t t-if="!widget.display_price_with_taxes">
-                            <t t-esc="widget.format_currency(product.price,'Product Price')+'/Kg'"/>
-                        </t>
-                    </span>
+                <t t-if='!partner.property_product_pricelist'>
+                    <span class='detail property_product_pricelist empty'>N/A</span>
                 </t>
             </div>
         </t>
     </t>
-    <t t-extend="PosTicket">
-        <t t-jquery="t[t-esc='orderline.get_quantity_str_with_unit()']" t-operation="after">
-            <t t-if="orderline.quantity != 1">
-                x<t t-esc="widget.format_pr(orderline.get_display_unit_price())"/>
-            </t>
+
+    <t t-extend="Product">
+        <t t-jquery=".price-tag:eq(0)" t-operation="inner">
+            <t t-esc="widget.format_currency(product.get_price(widget._get_active_pricelist(), 1),'Product Price')"/>
+        </t>
+
+        <t t-jquery=".price-tag:eq(0)" t-operation="inner">
+            <t t-esc="widget.format_currency(product.get_price(widget._get_active_pricelist(), 1),'Product Price')+'/'+widget.pos.units_by_id[product.uom_id[0]].name"/>
         </t>
     </t>
 </templates>
