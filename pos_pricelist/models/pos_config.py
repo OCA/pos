@@ -17,7 +17,6 @@ class PosConfig(models.Model):
              "customer has no Sale Pricelist configured.",
     )
     # New fields
-    # TODO Prefill with post init hook
     available_pricelist_ids = fields.Many2many(
         'product.pricelist',
         string='Available Pricelists',

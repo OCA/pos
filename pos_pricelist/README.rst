@@ -36,13 +36,15 @@ Usage
 #. Use the new pricelist button to change it on the fly.
 #. When a new order is created, it always has the default pricelist.
 #. When you change to a customer that has a different pricelist, the current
-   order and the listed product prices are udpated accordingly.
+   order and the listed product prices are updated accordingly.
 
 Known issues / Roadmap
 ======================
 
 * This module is a backport from Odoo 11.0 core pricelist functionalities. As
   such, do not migrate it to that version or higher.
+* Conflicts with ``pos_backend_partner`` make that when both are installed,
+  changing the partner does not change the pricelist.
 
 Bug Tracker
 ===========
