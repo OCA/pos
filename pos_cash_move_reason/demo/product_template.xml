@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<openerp><data>
+
+    <record id="income_reason" model="product.template">
+        <field name="name">Miscellaneous income</field>
+        <field name="income_pdt" eval="True" />
+        <field name="property_account_income" ref="account.o_income"/>
+    </record>
+
+    <record id="expense_reason" model="product.template">
+        <field name="name">Miscellaneous expense</field>
+        <field name="expense_pdt" eval="True" />
+        <field name="property_account_expense" ref="account.a_expense"/>
+    </record>
+
+</data></openerp>
