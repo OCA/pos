@@ -215,7 +215,7 @@ odoo.define("pos_pricelist.models", function (require) {
             );
         }
     };
-    models.Orderline.prototype.init_from_JSON = function (attr, options) {
+    models.Orderline.prototype.init_from_JSON = function () {
         this.keep_price = 'do not recompute unit price';
         return _Orderline_init_from_JSON.apply(this, arguments);
     };
