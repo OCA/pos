@@ -5,15 +5,19 @@
     'name': "POS cash in-out reason",
     'summary': """""",
     'author': 'ACSONE SA/NV,'
+              'GRAP,'
               'Odoo Community Association (OCA)',
     'website': "http://acsone.eu",
     'category': 'POS',
-    'version': '8.0.1.0.0',
+    'version': '8.0.2.0.0',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
     ],
     'data': [
         'wizard/pos_box.xml',
+    ],
+    'demo': [
+        'demo/product_template.xml',
     ],
 }

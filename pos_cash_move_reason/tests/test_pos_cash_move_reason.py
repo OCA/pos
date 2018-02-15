@@ -18,13 +18,11 @@ class TestPosCashMoveReason(common.TransactionCase):
         self.cash_journal = self.env.ref('account.cash_journal')
         self.income_account = self.env.ref('account.o_income')
         self.expense_account = self.env.ref('account.a_expense')
+        self.income_reason = self.env.ref('pos_cash_move_reason.income_reason')
+        self.expense_reason = self.env.ref(
+            'pos_cash_move_reason.expense_reason')
 
     def test01(self):
-        # I create one move reason
-        vals = {'name': 'Miscellaneous income',
-                'property_account_income': self.income_account.id,
-                'income_pdt': True}
-        move_reason = self.cash_move_reason_obj.create(vals)
         # I set cash control on cash journal
         self.cash_journal.cash_control = True
         # I create and open a new session
@@ -44,7 +42,7 @@ class TestPosCashMoveReason(common.TransactionCase):
         # I create a cash in
         cash_in = self.cash_in_obj.with_context(ctx).create(
             {'name': 'Initialization',
-             'product_id': move_reason.id,
+             'product_id': self.income_reason.id,
              'amount': 500.0})
         cash_in.with_context(ctx).run()
         # I close the session
@@ -63,11 +61,6 @@ class TestPosCashMoveReason(common.TransactionCase):
         self.assertEquals(len(move_line.ids), 1)
 
     def test02(self):
-        # I create one move reason
-        vals = {'name': 'Miscellaneous expense',
-                'property_account_expense': self.expense_account.id,
-                'expense_pdt': True}
-        move_reason = self.cash_move_reason_obj.create(vals)
         # I set cash control on cash journal
         self.cash_journal.cash_control = True
         # I create and open a new session
@@ -87,7 +80,7 @@ class TestPosCashMoveReason(common.TransactionCase):
         # I create a cash out
         cash_out = self.cash_out_obj.with_context(ctx).create(
             {'name': 'Miscellaneous expense',
-             'product_id': move_reason.id,
+             'product_id': self.expense_reason.id,
              'amount': 500.0})
         cash_out.with_context(ctx).run()
         # I close the session
