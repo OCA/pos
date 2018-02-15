@@ -200,7 +200,9 @@ odoo.define("pos_pricelist.models", function (require) {
     });
 
     // Patch Orderline
-    var _Orderline_initialize = models.Orderline.prototype.initialize;
+    var _Orderline_initialize = models.Orderline.prototype.initialize,
+        _Orderline_init_from_JSON = models.Orderline.prototype.init_from_JSON,
+        _Orderline_set_quantity = models.Orderline.prototype.set_quantity;
     models.Orderline.prototype.initialize = function (attr, options) {
         _Orderline_initialize.apply(this, arguments);
         if (options.product) {
@@ -211,6 +213,23 @@ odoo.define("pos_pricelist.models", function (require) {
                     this.get_quantity()
                 )
             );
+        }
+    };
+    models.Orderline.prototype.init_from_JSON = function (attr, options) {
+        this.keep_price = 'do not recompute unit price';
+        return _Orderline_init_from_JSON.apply(this, arguments);
+    };
+    models.Orderline.prototype.set_quantity = function () {
+        _Orderline_set_quantity.apply(this, arguments);
+        var keep_price = this.keep_price;
+        delete this.keep_price;
+        // just like in sale.order changing the quantity will recompute the unit price
+        if (!keep_price) {
+            this.set_unit_price(this.product.get_price(
+                this.order.pricelist,
+                this.get_quantity()
+            ));
+            this.order.fix_tax_included_price(this);
         }
     };
 
