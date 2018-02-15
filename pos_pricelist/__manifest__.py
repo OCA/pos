@@ -10,6 +10,7 @@
               "Odoo SA, "
               "Odoo Community Association (OCA)",
     'summary': 'Pricelist for Point of sale',
+    'license': 'LGPL-3',
     'post_init_hook': 'post_init_hook',
     'depends': [
         "point_of_sale",
