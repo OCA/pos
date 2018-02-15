@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-12 11:10+0000\n"
-"PO-Revision-Date: 2016-04-12 11:10+0000\n"
+"POT-Creation-Date: 2018-02-15 13:30+0000\n"
+"PO-Revision-Date: 2018-02-15 13:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: \n"
@@ -18,31 +18,35 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/pos_box.py:36
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:39
 #, python-format
 msgid "Description"
 msgstr "Description"
 
 #. module: pos_cash_move_reason
-#: field:cash.box.in,product_id:0 field:cash.box.out,product_id:0
+#: model:product.template,name:pos_cash_move_reason.expense_reason
+msgid "Miscellaneous expense"
+msgstr "Dépense diverse"
+
+#. module: pos_cash_move_reason
+#: model:product.template,name:pos_cash_move_reason.income_reason
+msgid "Miscellaneous income"
+msgstr "Revenu divers"
+
+#. module: pos_cash_move_reason
+#: field:cash.box.in,product_id:0
+#: field:cash.box.out,product_id:0
 msgid "Reason"
 msgstr "Motif"
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/pos_box.py:84
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:62
 #, python-format
-msgid ""
-"You have to define an\n"
-"                    expense account on the related product"
-msgstr ""
-"Vous devez définir un\n"
-"                    compte de charge sur le produit lié"
+msgid "You have to define an expense account on the related product %s"
+msgstr "Vous devez définir un compte de charge sur le produit lié %s"
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/pos_box.py:60
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:55
 #, python-format
-msgid ""
-"You have to define an\n"
-"                    income account on the related product"
-msgstr ""
-"Vous devez définir un\n"
-"                    compte de produit sur le produit lié"
+msgid "You have to define an income account on the related product %s"
+msgstr "Vous devez définir un compte de produit sur le produit lié %s"
