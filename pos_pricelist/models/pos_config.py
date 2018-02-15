@@ -2,9 +2,16 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
-from oca.decorators import foreach
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+import logging
+
+_logger = logging.getLogger(__name__)
+
+try:
+    from oca.decorators import foreach
+except ImportError:  # pragma: no-cover
+    _logger.warn("Missing dependency", exc_info=True)
 
 
 class PosConfig(models.Model):
