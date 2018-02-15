@@ -12,6 +12,9 @@ import simplejson
 class PosBoxCashMoveReason(PosBox):
     _register = False
 
+    product_id = fields.Many2one(
+        comodel_name='product.template', string='Reason')
+
     @api.onchange('product_id')
     def onchange_reason(self):
         for record in self:
@@ -37,50 +40,36 @@ class PosBoxCashMoveReason(PosBox):
         res['arch'] = etree.tostring(doc)
         return res
 
-
-class PosBoxIn(PosBoxCashMoveReason):
-    _inherit = 'cash.box.in'
-
-    product_id = fields.Many2one(
-        comodel_name='product.template', string='Reason',
-        domain="[('income_pdt', '=', True)]")
-
     @api.model
     def _compute_values_for_statement_line(self, box, record):
-        values = super(PosBoxIn, self)._compute_values_for_statement_line(
-            box, record)
+        values = super(
+            PosBoxCashMoveReason, self)._compute_values_for_statement_line(
+                box, record)
         if self.env.context.get('active_model', '') == 'pos.session':
-            if box.product_id.id:
-                product = box.product_id
+            product = box.product_id
+            account_id = False
+            if self._name == 'cash.box.in':
                 account_id = product.property_account_income.id or\
                     product.categ_id.property_account_income_categ.id
-                if account_id:
-                    values['account_id'] = account_id
-                else:
-                    raise exceptions.Warning(_("""You have to define an
-                    income account on the related product"""))
+                if not account_id:
+                    raise exceptions.Warning(_(
+                        "You have to define an income account on the related"
+                        " product %s") % (product.name))
+            elif self._name == 'cash.box.out':
+                account_id = product.property_account_expense.id or\
+                    product.categ_id.property_account_expense_categ.id
+                if not account_id:
+                    raise exceptions.Warning(_(
+                        "You have to define an expense account on the related"
+                        " product %s") % (product.name))
+            values['account_id'] = account_id
         return values
+
+
+# the following lines are required for correct inheritance mechanism
+class PosBoxIn(PosBoxCashMoveReason):
+    _inherit = 'cash.box.in'
 
 
 class PosBoxOut(PosBoxCashMoveReason):
     _inherit = 'cash.box.out'
-
-    product_id = fields.Many2one(
-        comodel_name='product.template', string='Reason',
-        domain="[('expense_pdt', '=', True)]")
-
-    @api.model
-    def _compute_values_for_statement_line(self, box, record):
-        values = super(PosBoxOut, self)._compute_values_for_statement_line(
-            box, record)
-        if self.env.context.get('active_model', '') == 'pos.session':
-            if box.product_id.id:
-                product = box.product_id
-                account_id = product.property_account_expense.id or\
-                    product.categ_id.property_account_expense_categ.id
-                if account_id:
-                    values['account_id'] = account_id
-                else:
-                    raise exceptions.Warning(_("""You have to define an
-                    expense account on the related product"""))
-        return values
