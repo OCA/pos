@@ -1,141 +1,141 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_pricelist
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+# * point_of_sale
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-24 14:44+0000\n"
-"PO-Revision-Date: 2015-07-24 14:44+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2018-02-15 09:10+0000\n"
+"PO-Revision-Date: 2018-02-15 09:18+0000\n"
+"Last-Translator: Jairo Llopis <yajo.sk8@gmail.com>\n"
+"Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #. module: pos_pricelist
-#: field:pos.order.tax,amount:0
-#: view:website:point_of_sale.report_receipt
-msgid "Amount"
-msgstr "Cuota"
+#: code:addons/pos_pricelist/models/pos_config.py:57
+#, python-format
+msgid ""
+"All available pricelists must be in the same currency as the company or as "
+"the Sales Journal set on this point of sale if you use the Accounting "
+"application."
+msgstr ""
+"Todas las tarifas deben estar en la misma moneda que la compañía o el diario "
+"de ventas escogido para este punto de venta si usted está usando la "
+"aplicación de contabilidad."
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:69
+#, python-format
+msgid ""
+"All payment methods must be in the same currency as the Sales Journal or the "
+"company currency if that is not set."
+msgstr ""
+"Todos los métodos de pago deben estar en la misma moneda que el diario de "
+"ventas o, si no lo hay, de la compañía."
+
+#. module: pos_pricelist
+#: model:ir.model.fields,help:pos_pricelist.field_pos_config_group_sale_pricelist
+msgid ""
+"Allows to manage different prices based on rules per category of customers. "
+"Example: 10% for retailers, promotion of 5 EUR on this product, etc."
+msgstr ""
+"Permite gestionar diferentes precios basándose en reglas por categoría de "
+"clientes. Por ejemplo: 10% para minoristas, promoción de 5€ en este "
+"producto, etc."
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_available_pricelist_ids
+msgid "Available Pricelists"
+msgstr "Listas de Precio Disponibles"
+
+#. module: pos_pricelist
+#: model:ir.model.fields,help:pos_pricelist.field_pos_config_available_pricelist_ids
+msgid ""
+"Make several pricelists available in the Point of Sale. You can also apply a "
+"pricelist to specific customers from their contact form (in Sales tab). To "
+"be valid, this pricelist must be listed here as an available pricelist. "
+"Otherwise the default pricelist will apply."
+msgstr ""
+"Hacer disponibles varias tarifas en este punto de venta. También puede "
+"aplicar una tarifa a clientes específicos desde su formulario de contacto "
+"(en la pestaña de ventas). Para que sea válida, esa tarifa debe estar "
+"disponible aquí. En caso contrario, se le aplicará la tarifa por defecto."
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:386
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:36
 #, python-format
-msgid "At least one pricelist has no active version ! Please create or activate one."
-msgstr "¡Al menos una lista de precios no tiene ua versión activa! Por favor, cree o active una."
-
-#. module: pos_pricelist
-#: field:pos.order.tax,base:0
-#: view:website:point_of_sale.report_receipt
-msgid "Base"
-msgstr "Base imponible"
-
-#. module: pos_pricelist
-#: field:pos.order.tax,create_uid:0
-msgid "Created by"
-msgstr "Creado por"
-
-#. module: pos_pricelist
-#: field:pos.order.tax,create_date:0
-msgid "Created on"
-msgstr "Creado en"
-
-#. module: pos_pricelist
-#: help:pos.config,display_price_with_taxes:0
-msgid "Display Prices with taxes on POS"
-msgstr "Mostrar los precios con impuestos incluidos en el TPV"
-
-#. module: pos_pricelist
-#: field:pos.order.tax,id:0
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_pricelist
-#: field:pos.order.tax,write_uid:0
-msgid "Last Updated by"
-msgstr "Última actualización por"
-
-#. module: pos_pricelist
-#: field:pos.order.tax,write_date:0
-msgid "Last Updated on"
-msgstr "Última actualización en"
-
-#. module: pos_pricelist
-#: model:ir.model,name:pos_pricelist.model_pos_order_line
-msgid "Lines of Point of Sale"
-msgstr "Líneas del Terminal Punto de Venta"
-
-#. module: pos_pricelist
-#: field:pos.order.tax,pos_order:0
-msgid "POS Order"
-msgstr "Pedido"
-
-#. module: pos_pricelist
-#: model:product.template,name:pos_pricelist.pos_product_product_1_product_template
-msgid "POS Product 1"
-msgstr "TPV Producto 1"
-
-#. module: pos_pricelist
-#: model:product.template,name:pos_pricelist.pos_product_product_2_product_template
-msgid "POS Product 2"
-msgstr "TPV Producto 2"
-
-#. module: pos_pricelist
-#: model:product.template,name:pos_pricelist.pos_product_product_3_product_template
-msgid "POS Product 3"
-msgstr "TPV Producto 3"
-
-#. module: pos_pricelist
-#: model:product.template,name:pos_pricelist.pos_product_product_4_product_template
-msgid "POS Product 4"
-msgstr "TPV Producto 4"
-
-#. module: pos_pricelist
-#: view:pos.order:pos_pricelist.view_pos_pos_form
-msgid "Payments"
-msgstr "Pagos"
+msgid "N/A"
+msgstr "N/A"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
-msgid "Point of Sale"
-msgstr "Terminal Punto de Venta"
-
-#. module: pos_pricelist
-#: field:pos.config,display_price_with_taxes:0
-msgid "Price With Taxes"
-msgstr "Precios con impuestos incluidos"
+msgid "Point of Sale Orders"
+msgstr "Pedidos del TPV"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:385
+#: code:addons/pos_pricelist/static/src/js/screens.js:186
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:15
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:31
 #, python-format
-msgid "Pricelist Error"
-msgstr "Error en lista de precios"
+msgid "Pricelist"
+msgstr "Tarifa"
 
 #. module: pos_pricelist
-#: field:pos.order.tax,tax:0
-#: view:website:point_of_sale.report_receipt
-msgid "Tax"
-msgstr "Impuesto"
+#: model:ir.ui.view,arch_db:pos_pricelist.view_pos_config_form
+msgid "Pricelists"
+msgstr "Tarifas"
 
 #. module: pos_pricelist
-#: field:pos.order.tax,name:0
-msgid "Tax Description"
-msgstr "Descripción del impuesto"
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/js/screens.js:173
+#, python-format
+msgid "Select pricelist"
+msgstr "Seleccionar tarifa"
 
 #. module: pos_pricelist
-#: view:pos.order:pos_pricelist.view_pos_pos_form
-#: field:pos.order,taxes:0
-#: field:pos.order.line,tax_ids:0
-msgid "Taxes"
-msgstr "Impuestos"
+#: model:ir.model.fields,help:pos_pricelist.field_pos_config_use_pricelist
+msgid "Set shop-specific prices, seasonal discounts, etc."
+msgstr ""
+"Establecer precios específicos por tienda, descuentos por campaña especial, "
+"etc."
 
 #. module: pos_pricelist
-#: view:pos.order:pos_pricelist.view_pos_pos_form
-msgid "Taxes detail"
-msgstr "Detalle de impuestos"
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_group_pricelist_item
+msgid "Show pricelists to customers"
+msgstr "Mostrar tarifas a los clientes"
 
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:52
+#, python-format
+msgid "The default pricelist must be included in the available pricelists."
+msgstr "La tarifa por defecto debe estar incluida entre las disponibles."
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:63
+#, python-format
+msgid ""
+"The invoice journal must be in the same currency as the Sales Journal or the "
+"company currency if that is not set."
+msgstr ""
+"El diario de facturación debe estar en la misma moneda que el de ventas o, "
+"si no lo hay, que la compañía."
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_use_pricelist
+msgid "Use pricelists"
+msgstr "Usar tarifas"
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_group_sale_pricelist
+msgid "Use pricelists to adapt your price per customers"
+msgstr "Usar tarifas para adaptar los precios a cada cliente"
+
+#. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_pos_config
+msgid "pos.config"
+msgstr "pos.config"
