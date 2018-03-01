@@ -74,6 +74,24 @@ function pos_pricelist_models(instance, module) {
     });
 
     /**
+     * Extend the Order
+     */
+    var moduleOrderParent = module.Order;
+    module.Order = module.Order.extend({
+        export_as_JSON: function() {
+            var order = moduleOrderParent.prototype.export_as_JSON.apply(this, arguments);
+            partner = this.get_client();
+            if (partner && partner.property_product_pricelist) {
+                pricelist_id = partner.property_product_pricelist[0];
+            } else {
+                pricelist_id = this.pos.config.pricelist_id[0];
+            }
+            order['pricelist_id'] =  pricelist_id;
+            return order;
+        },
+    });
+
+    /**
      * Extend the Order line
      */
     var OrderlineParent = module.Orderline;

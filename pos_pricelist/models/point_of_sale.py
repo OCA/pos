@@ -91,6 +91,12 @@ class PosOrder(models.Model):
                             inverse_name='pos_order', readonly=True)
 
     @api.model
+    def _order_fields(self, ui_order):
+        res = super(PosOrder, self)._order_fields(ui_order)
+        res.update({'pricelist_id': ui_order['pricelist_id']})
+        return res
+
+    @api.model
     def _amount_line_tax(self, line):
         price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
         taxes = line.tax_ids.compute_all(
