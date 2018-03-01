@@ -34,4 +34,36 @@
             </t>
         </t>
     </t>
+
+    <t t-extend="ClientDetails">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>Pricelist</span>
+                <t t-if='partner.property_product_pricelist'>
+                    <span class='detail pricelist'><t t-esc='partner.property_product_pricelist[1]'/></span>
+                </t>
+                <t t-if='!partner.property_product_pricelist'>
+                    <span class='detail pricelist empty'>N/A</span>
+                </t>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div class='client-detail'>
+                <span class='label'>Pricelist</span>
+                <select class='detail client-pricelist_id needsclick' name='property_product_pricelist'>
+                    <option value=''></option>
+                    <t t-foreach='widget.pos.db.pricelist_by_id' t-as='pricelist_id'>
+                        <t t-set="pricelist" t-value="widget.pos.db.pricelist_by_id[pricelist_id]"/>
+                        <option t-att-value='pricelist.id' t-att-selected="partner.property_product_pricelist ? ((pricelist.id === partner.property_product_pricelist[0]) ? true : undefined) : undefined">
+                            <t t-esc='pricelist.name'/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </t>
+    </t>
+
 </templates>
