@@ -84,6 +84,7 @@ class PosOrderLine(models.Model):
             res['value']['tax_ids'] = product.taxes_id.ids
         return res
 
+
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
