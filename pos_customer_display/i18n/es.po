@@ -3,13 +3,14 @@
 # * pos_customer_display
 # 
 # Translators:
+# enjolras <yo@miguelrevilla.com>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-12 02:44+0000\n"
-"PO-Revision-Date: 2017-07-12 02:44+0000\n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2018-03-01 02:01+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +22,7 @@ msgstr ""
 #. module: pos_customer_display
 #: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "Bottom Line"
-msgstr ""
+msgstr "Línea inferior"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_next_l2
@@ -29,6 +30,8 @@ msgid ""
 "Bottom line of the message on the customer display which is displayed after "
 "starting POS and also after validation of an order"
 msgstr ""
+"Línea inferior del mensaje en la pantalla del cliente que se mostrará "
+"después de iniciar el TPV y también después de la validación de una venta"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_closed_l2
@@ -36,79 +39,81 @@ msgid ""
 "Bottom line of the message on the customer display which is displayed when "
 "POS is closed"
 msgstr ""
+"Línea inferior del mensaje en la pantalla del cliente que se mostrará cuando"
+" se cierre el TPV"
 
 #. module: pos_customer_display
 #. openerp-web
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:74
 #, python-format
 msgid "Cancel Payment"
-msgstr "Pago Cancelado"
+msgstr "Cancelar pago"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_iface_customer_display
 #: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "Customer Display"
-msgstr ""
+msgstr "Pantalla del cliente"
 
 #. module: pos_customer_display
 #. openerp-web
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:59
 #, python-format
 msgid "Delete Item"
-msgstr "Producto Eliminado"
+msgstr "Eliminar elemento"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config_iface_customer_display
 msgid "Display data on the customer display"
-msgstr "Mostrar información en el visor de cliente"
+msgstr "Mostrar información en la pantalla del cliente"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_line_length
 msgid "Length of the LEDs lines of the customer display"
-msgstr "Longitud de las líneas LED en el visor de cliente"
+msgstr "Longitud de las líneas LED en la pantalla del cliente"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_line_length
 msgid "Line Length of the Customer Display"
-msgstr ""
+msgstr "Longitud de la línea en la pantalla del cliente"
 
 #. module: pos_customer_display
 #: code:addons/pos_customer_display/models/pos_customer_display.py:46
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_next_l2
 #, python-format
 msgid "Next Customer (bottom line)"
-msgstr ""
+msgstr "Cliente siguiente (línea inferior)"
 
 #. module: pos_customer_display
 #: code:addons/pos_customer_display/models/pos_customer_display.py:44
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_next_l1
 #, python-format
 msgid "Next Customer (top line)"
-msgstr ""
+msgstr "Cliente siguiente (línea superior)"
 
 #. module: pos_customer_display
 #: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "Next Customer Message"
-msgstr ""
+msgstr "Mensaje del cliente siguiente"
 
 #. module: pos_customer_display
 #: code:addons/pos_customer_display/models/pos_customer_display.py:50
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_closed_l2
 #, python-format
 msgid "POS Closed (bottom line)"
-msgstr ""
+msgstr "TPV cerrado (línea inferior)"
 
 #. module: pos_customer_display
 #: code:addons/pos_customer_display/models/pos_customer_display.py:48
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_closed_l1
 #, python-format
 msgid "POS Closed (top line)"
-msgstr ""
+msgstr "TPV cerrado (línea superior)"
 
 #. module: pos_customer_display
 #: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "POS Closed Message"
-msgstr ""
+msgstr "Mensaje de TPV cerrado"
 
 #. module: pos_customer_display
 #. openerp-web
@@ -124,11 +129,13 @@ msgid ""
 "The message for customer display '%s' is too long: it has %d chars whereas "
 "the maximum is %d chars."
 msgstr ""
+"El mensaje para la pantalla del cliente '%s' es demasiado largo: tiene %d "
+"caracteres, siendo el máximo de %d."
 
 #. module: pos_customer_display
 #: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "Top Line"
-msgstr ""
+msgstr "Línea superior"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_next_l1
@@ -136,6 +143,8 @@ msgid ""
 "Top line of the message on the customer display which is displayed after "
 "starting POS and also after validation of an order"
 msgstr ""
+"Línea superior del mensaje en la pantalla del cliente que se mostrará "
+"después de iniciar el TPV y también después de la validación de una venta"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_closed_l1
@@ -143,15 +152,17 @@ msgid ""
 "Top line of the message on the customer display which is displayed when POS "
 "is closed"
 msgstr ""
+"Línea superior del mensaje en la pantalla del cliente que se mostrará cuando"
+" se cierre el TPV"
 
 #. module: pos_customer_display
 #. openerp-web
 #: code:addons/pos_customer_display/static/src/js/customer_display.js:81
 #, python-format
 msgid "Your Change:"
-msgstr "Su Cambio:"
+msgstr "Cambio: "
 
 #. module: pos_customer_display
 #: model:ir.model,name:pos_customer_display.model_pos_config
 msgid "pos.config"
-msgstr "Configuración del TPV"
+msgstr "pos.config"
