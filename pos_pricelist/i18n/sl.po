@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-08 09:21+0000\n"
+"POT-Creation-Date: 2018-02-28 18:31+0000\n"
 "PO-Revision-Date: 2017-11-23 23:29+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
 "Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
@@ -25,7 +25,7 @@ msgstr "Znesek"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:348
+#: code:addons/pos_pricelist/static/src/js/models.js:404
 #, python-format
 msgid ""
 "At least one pricelist has no active version ! Please create or activate "
@@ -142,7 +142,7 @@ msgstr "Cena z davki"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:347
+#: code:addons/pos_pricelist/static/src/js/models.js:403
 #, python-format
 msgid "Pricelist Error"
 msgstr "Napaka pri ceniku"

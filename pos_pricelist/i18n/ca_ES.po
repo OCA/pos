@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-29 01:16+0000\n"
-"PO-Revision-Date: 2017-08-21 07:26+0000\n"
+"POT-Creation-Date: 2018-02-28 18:31+0000\n"
+"PO-Revision-Date: 2018-02-02 14:11+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Catalan (Spain) (http://www.transifex.com/oca/OCA-pos-8-0/language/ca_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:402
+#: code:addons/pos_pricelist/static/src/js/models.js:404
 #, python-format
 msgid ""
 "At least one pricelist has no active version ! Please create or activate "
@@ -44,17 +44,17 @@ msgstr "Companyia"
 #. module: pos_pricelist
 #: field:pos.order.tax,create_uid:0
 msgid "Created by"
-msgstr ""
+msgstr "Creat per"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_date:0
 msgid "Created on"
-msgstr ""
+msgstr "Creat a"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
 msgid "Display Name"
-msgstr ""
+msgstr "Nom visible"
 
 #. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0
@@ -62,8 +62,8 @@ msgid "Display Prices with taxes on POS"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:26
-#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#: code:addons/pos_pricelist/models/pos_order_patch.py:28
+#: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Error!"
 msgstr ""
@@ -76,17 +76,17 @@ msgstr ""
 #. module: pos_pricelist
 #: field:pos.order.tax,__last_update:0
 msgid "Last Modified on"
-msgstr ""
+msgstr "Darrera modificació en"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
 msgid "Last Updated by"
-msgstr ""
+msgstr "Darrera actualització per"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_date:0
 msgid "Last Updated on"
-msgstr ""
+msgstr "Darrera actualització el"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order_line
@@ -124,7 +124,7 @@ msgid "Payments"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:152
+#: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d)."
 msgstr ""
@@ -141,20 +141,20 @@ msgstr ""
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:401
+#: code:addons/pos_pricelist/static/src/js/models.js:403
 #, python-format
 msgid "Pricelist Error"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:26
+#: code:addons/pos_pricelist/models/pos_order_patch.py:28
 #, python-format
 msgid "Selected orders do not have the same session!"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:188
-#: code:addons/pos_pricelist/models/pos_order_patch.py:205
+#: code:addons/pos_pricelist/models/pos_order_patch.py:190
+#: code:addons/pos_pricelist/models/pos_order_patch.py:207
 #: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Tax"
@@ -182,13 +182,13 @@ msgid "Taxes detail"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:117
+#: code:addons/pos_pricelist/models/pos_order_patch.py:119
 #, python-format
 msgid "The POS order must have lines when calling this method"
 msgstr ""
 
 #. module: pos_pricelist
-#: code:addons/pos_pricelist/models/pos_order_patch.py:218
+#: code:addons/pos_pricelist/models/pos_order_patch.py:220
 #, python-format
 msgid "Trade Receivables"
 msgstr ""

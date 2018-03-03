@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-08 09:21+0000\n"
+"POT-Creation-Date: 2018-02-28 18:31+0000\n"
 "PO-Revision-Date: 2017-12-01 20:36+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-pos-8-0/language/it/)\n"
@@ -26,7 +26,7 @@ msgstr "Importo"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:348
+#: code:addons/pos_pricelist/static/src/js/models.js:404
 #, python-format
 msgid ""
 "At least one pricelist has no active version ! Please create or activate "
@@ -143,7 +143,7 @@ msgstr "Prezzi con Imposte"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:347
+#: code:addons/pos_pricelist/static/src/js/models.js:403
 #, python-format
 msgid "Pricelist Error"
 msgstr "Errore Listino di Vendita"
