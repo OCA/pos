@@ -73,12 +73,29 @@ class PosOrderLine(models.Model):
     price_subtotal = fields.Float(compute="_amount_line_all", store=True)
     price_subtotal_incl = fields.Float(compute="_amount_line_all", store=True)
 
+    @api.multi
+    def onchange_product_id(
+            self, pricelist, product_id, qty=0, partner_id=False):
+        product_obj = self.env['product.product']
+        res = super(PosOrderLine, self).onchange_product_id(
+            pricelist, product_id, qty=qty, partner_id=partner_id)
+        if product_id:
+            product = product_obj.browse(product_id)
+            res['value']['tax_ids'] = product.taxes_id.ids
+        return res
+
 
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
     taxes = fields.One2many(comodel_name='pos.order.tax',
                             inverse_name='pos_order', readonly=True)
+
+    @api.model
+    def _order_fields(self, ui_order):
+        res = super(PosOrder, self)._order_fields(ui_order)
+        res.update({'pricelist_id': ui_order['pricelist_id']})
+        return res
 
     @api.model
     def _amount_line_tax(self, line):
