@@ -278,6 +278,9 @@ openerp.pos_customer_display = function(instance){
                 change_rounded = change.toFixed(2);
                 this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
             }
+            else{
+                this.pos.prepare_text_customer_display('addPaymentline', {})
+            }
             return res;
         },
     });
