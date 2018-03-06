@@ -16,8 +16,6 @@ openerp.pos_customer_display = function(instance){
 
     module.PosModel = module.PosModel.extend({
         prepare_text_customer_display: function(type, data){
-            console.log("prepare_text_customer_display");
-            console.log(data);
             if (this.config.iface_customer_display != true)
                 return;
             var line_length = this.config.customer_display_line_length || 20;
