@@ -2,8 +2,9 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
 from .hooks import post_init_hook
-
 try:
     from . import models
-except NameError: # pragma: no-cover
-    pass
+except ImportError:  # pragma: no-cover
+    import logging
+    _logger = logging.getLogger(__name__)
+    _logger.warn("Missing dependency", exc_info=True)

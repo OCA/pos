@@ -4,14 +4,10 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from oca.decorators import foreach
 import logging
 
 _logger = logging.getLogger(__name__)
-
-try:
-    from oca.decorators import foreach
-except ImportError:  # pragma: no-cover
-    _logger.warn("Missing dependency", exc_info=True)
 
 
 class PosConfig(models.Model):
