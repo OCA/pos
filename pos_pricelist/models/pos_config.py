@@ -4,7 +4,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
-from oca.decorators import foreach
+from oca.decorators import foreach  # pylint: disable=W7935
 import logging
 
 _logger = logging.getLogger(__name__)
