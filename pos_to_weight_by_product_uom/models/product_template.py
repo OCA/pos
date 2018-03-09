@@ -12,7 +12,7 @@ class ProductTemplate(models.Model):
     def onchange_uom(self, uom_id, uom_po_id):
         res = super(ProductTemplate, self).onchange_uom(uom_id, uom_po_id)
         if uom_id:
-            res and res or {}
+            res = res and res or {}
             if not res.get('value', False):
                 res['value'] = {}
             res['value']['to_weight'] =\
