@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+
+    <t t-name="CreateSaleOrderButtonWidget">
+        <br />
+        <div style="text-align: center">
+            <button class="input-button">
+                <t t-esc="widget.display_text"/>
+            </button>
+        </div>
+    </t>
+
+</template>
