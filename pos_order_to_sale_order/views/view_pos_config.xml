@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp><data>
+
+    <record  id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="arch" type="xml">
+            <field name="iface_invoicing" position="after">
+                <field name="iface_create_draft_sale_order" />
+                <field name="iface_create_confirmed_sale_order" />
+                <field name="iface_create_delivered_sale_order" />
+            </field>
+        </field>
+    </record>
+
+</data></openerp>
