@@ -6,7 +6,7 @@
 
     <t t-extend="PackLotLinePopupWidget">
         <t t-jquery=".title" t-operation="append">
-            <div class="packlot-select oe_hidden">
+            <div class="packlot-select">
                 <t t-if="widget.options.pack_lot_lines and widget.options.pack_lot_lines.lot_name">
                     <select class="packlot-line-select">
                         <option disabled="" selected="" value="">Select a Serial/Lot Number</option>
@@ -18,9 +18,6 @@
                     </select>
                 </t>
             </div>
-        </t>
-        <t t-jquery="i.remove-lot" t-operation="after">
-            <i t-attf-class="oe_link_icon lot-select-list fa fa-list #{widget.options.pack_lot_lines.lot_name.length &lt; 1 ? 'oe_hidden' : ''}"></i>
         </t>
     </t>
 

@@ -12,32 +12,32 @@ odoo.define("pos_lot_selection.chrome", function (require) {
             var packlotline = this.gui.popup_instances.packlotline;
             // Add events over instanced popup
             var events = {
-                "click .lot-select-list": "show_lot_select",
                 "change .packlot-line-select": "lot_to_input",
             };
             packlotline.events = Object.assign(
                 packlotline.events, events
             );
             // Add methods over instanced popup
-            // Show lot block with select control
-            packlotline.show_lot_select = function (event) {
-                var $input = $(event.target).prev().prev();
-                this.$("div.packlot-select").removeClass("oe_hidden");
-                var $select = this.$("select.packlot-line-select");
-                this.active_cid = $input.attr("cid");
-                $select.focus();
-            };
-            // Hide lot block
-            packlotline.hide_lot_select = function () {
-                this.$("div.packlot-select").addClass("oe_hidden");
-            };
             // Write the value in the corresponding input
             packlotline.lot_to_input = function (event) {
                 var $select = this.$("select.packlot-line-select");
+                var $option = this.$("select.packlot-line-select option");
                 var $input = this.$el.find("input[cid='" + this.active_cid + "']");
-                $input[0].value = $select[0].value;
-                $input.focus();
-                this.hide_lot_select();
+                if ($input.length) {
+                    $input[0].value = $select[0].value;
+                    $input.focus();
+                }
+                $option.prop('selected', function () {
+                    return this.defaultSelected;
+                });
+            };
+            // Tracks the last selected input
+            packlotline.lose_input_focus = function (event) {
+                var $input = $(event.target),
+                    cid = $input.attr('cid');
+                this.active_cid = cid;
+                var lot_model = this.options.pack_lot_lines.get({cid: cid});
+                lot_model.set_lot_name($input.val());
             };
             this.gui.popup_instances.packlotline = packlotline;
             return res;
