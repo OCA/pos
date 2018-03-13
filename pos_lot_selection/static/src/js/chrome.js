@@ -13,6 +13,7 @@ odoo.define("pos_lot_selection.chrome", function (require) {
             // Add events over instanced popup
             var events = {
                 "change .packlot-line-select": "lot_to_input",
+                "click .lot-clone": "clone_input",
             };
             packlotline.events = Object.assign(
                 packlotline.events, events
@@ -39,6 +40,20 @@ odoo.define("pos_lot_selection.chrome", function (require) {
                 var lot_model = this.options.pack_lot_lines.get({cid: cid});
                 lot_model.set_lot_name($input.val());
             };
+            // Clones content of input to all the others
+            packlotline.clone_input = function (event) {
+                var $input = $(event.target).prev().prev(),
+                    cid = $input.attr('cid');
+                var $clone_input = this.$el.find("input");
+                if ($clone_input.length > 1) {
+                    for (var i = 0; i < $clone_input.length; i++) {
+                        if ($clone_input[i].getAttribute('cid') != cid) {
+                            $clone_input[i].value = $input.val();
+                            $clone_input[i].blur();
+                        }
+                    }
+                }
+            }
             this.gui.popup_instances.packlotline = packlotline;
             return res;
         },
