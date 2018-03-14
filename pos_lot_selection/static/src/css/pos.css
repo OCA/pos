@@ -1,0 +1,29 @@
+/* Copyright 2018 Tecnativa - David Vidal
+   License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+*/
+
+.pos .popup .packlot-select {
+    border-bottom: solid 1px rgba(60,60,60,0.1);
+    margin-top: 3px;
+}
+
+.pos .popup select {
+    text-align: left;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 3px;
+    border: solid 1px #cecbcb;
+    margin-bottom: 4px;
+    background: white;
+    font-family: "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+    color: #444;
+    width: 80%;
+    min-height: 44px;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+.pos .popup select:focus, .pos .popup select:active {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px #6EC89B;
+}
