@@ -730,6 +730,7 @@ function pos_pricelist_models(instance, module) {
                             ['type', '=', 'sale']
                         ]
                     },
+                    context: function(self){ return { pos_config_id: self.config.id }; },
                     loaded: function (self, pricelists) {
                         self.db.add_pricelists(pricelists);
                     }

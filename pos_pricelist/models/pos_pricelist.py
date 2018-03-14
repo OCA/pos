@@ -45,7 +45,7 @@ class product_pricelist(models.Model):
             If pricelist has none pos_config_ids assume is available for all the pos
         """
         if 'pos' in http.request.httprequest.headers.get('Referer', ''):
-            pos_config_id = self.env.user.pos_config.id
+            pos_config_id = self._context.get('pos_config_id')
             q = """
                 SELECT pl.id
                 FROM product_pricelist pl
