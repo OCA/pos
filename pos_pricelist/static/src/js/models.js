@@ -725,9 +725,14 @@ function pos_pricelist_models(instance, module) {
                         'name',
                         'version_id',
                         'currency_id'],
-                    domain: function () {
+                    domain: function (self) {
                         return [
-                            ['type', '=', 'sale']
+                            '|',
+                            '|',
+                            ['id', '=', self.config.pricelist_id[0]],
+                            ['pos_config_ids', '=', false],
+                            ['pos_config_ids', 'in', [self.config.id]],
+                            ['type', '=', 'sale'],
                         ]
                     },
                     context: function(self){ return { pos_config_id: self.config.id }; },
