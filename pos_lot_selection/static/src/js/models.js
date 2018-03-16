@@ -17,13 +17,14 @@ odoo.define("pos_lot_selection.models", function (require) {
                     ["product_id", "=", product],
                     ["lot_id", "!=", false]]
             }, {'async': false}).then(function (result) {
-                var product_lot = [];
+                var product_lot = {};
                 if (result.length) {
                     for (var i = 0; i < result.length; i++) {
-                        product_lot.push({
-                            'lot_name': result.records[i].lot_id[1],
-                            'quantity': result.records[i].quantity,
-                        });
+                        if (product_lot[result.records[i].lot_id[1]]) {
+                            product_lot[result.records[i].lot_id[1]] += result.records[i].quantity;
+                        } else {
+                            product_lot[result.records[i].lot_id[1]] = result.records[i].quantity;
+                        }
                     }
                 }
                 done.resolve(product_lot);
