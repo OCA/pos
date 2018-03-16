@@ -16,8 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api
-from openerp import http
+from openerp import models, fields
 
 import logging
 
@@ -36,5 +35,7 @@ class PosPriceListConfig(models.Model):
 class product_pricelist(models.Model):
     _inherit = 'product.pricelist'
 
-    pos_config_ids = fields.Many2many('pos.config', 'pricelist_posconfig_rel', 'pricelist_id', 'pos_id', string='PoS', help='if empty will be available for all the pos')
-
+    pos_config_ids = fields.Many2many(
+        'pos.config', 'pricelist_posconfig_rel',
+        'pricelist_id', 'pos_id', string='PoS',
+        help='if empty will be available for all the pos')
