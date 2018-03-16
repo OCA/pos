@@ -19,9 +19,6 @@
                 </t>
             </div>
         </t>
-        <t t-jquery="i.remove-lot" t-operation="after">
-            <i t-attf-class="oe_link_icon lot-clone fa fa-clone #{widget.options.pack_lot_lines.lot_name.length &lt; 1 ? 'oe_hidden' : ''}"></i>
-        </t>
     </t>
 
 </templates>

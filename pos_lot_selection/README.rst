@@ -29,8 +29,6 @@ Usage
 * There is a new select field with the lots available for that product.
 * If lot quantity can't cover the order line demand it won't be available to
   pick.
-* If there were many lots to fill the value of one of them can be propagated to
-  the rest with the new clone control on the right of the lot field.
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
