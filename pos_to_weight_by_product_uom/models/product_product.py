@@ -13,9 +13,7 @@ class ProductProduct(models.Model):
     def onchange_uom(self, uom_id, uom_po_id):
         res = super(ProductProduct, self).onchange_uom(uom_id, uom_po_id)
         if uom_id:
-            res = res and res or {}
-            if not res.get('value', False):
-                res['value'] = {}
-            res['value']['to_weight'] =\
-                self.env['product.uom'].browse(uom_id).to_weigh
+            res = res or {}
+            val = res.setdefault('value', {})
+            val['to_weight'] = self.env['product.uom'].browse(uom_id).to_weigh
         return res
