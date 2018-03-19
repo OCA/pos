@@ -21,7 +21,11 @@ odoo.define("pos_lot_selection.models", function (require) {
                 var product_lot = {};
                 if (result.length) {
                     for (var i = 0; i < result.length; i++) {
-                        product_lot[result.records[i].lot_id[1]] = result.records[i].qty;
+                        if (product_lot[result.records[i].lot_id[1]]) {
+                            product_lot[result.records[i].lot_id[1]] += result.records[i].qty;
+                        } else {
+                            product_lot[result.records[i].lot_id[1]] = result.records[i].qty;
+                        }
                     }
                 }
                 done.resolve(product_lot);
