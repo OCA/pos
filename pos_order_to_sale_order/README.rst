@@ -15,36 +15,45 @@ creation from the Point of Sale.
 In the POS UI, buttons has been added to create a sale order and discard
 the current POS order.
 
-This module is usefull in many cases, for exemple :
+This module is useful in many cases, for example :
 
+
+* take quotations with a very simple interface
 * take orders with a very simple interface
-
+* allow clients to pay later
 * if you have some customers that come every day in your shop, but want to
-  have a unique invoice at the end of the month. With that module, you can
-  create a sale order and deliver products every time to keep your stock value
-  correct, and to create a unique invoice, when you want.
+  have a unique invoice at the end of the month. With this module, you can
+  create a sale order and deliver products every time he comes 
+  to keep your stock value correct and to create a unique invoice periodically.
 
 
-Three options are available:
+Four options are available:
 
-#. '**Create a draft Order**'
-  A new sale order in a draft mode will be created that can be changed later.
+#. '**Allow PoS order**'
 
-.. figure:: static/description/pos_create_picking_option_1.png
-   :width: 800 px
+   A PoS Order is the default type of order (opposed to sale orders).
+   If you want to use only sales order, uncheck this option.
 
-#. '**Create a Confirmed Order**'
-  A new sale order will be created and confirmed.
+#. '**Allow draft order**'
 
-.. figure:: static/description/pos_create_picking_option_2.png
-   :width: 800 px
+   A draft sale order is a quotation. 
+   It can be changed and confirmed later from the backend.
+   No payment can be taken with draft orders.
 
-#. '**Create Delivered Picking**' (by default)
-  A new sale order will be created and confirmed. the associated picking
-  will be marked as delivered.
+#. '**Allow confirmed order**'
 
-.. figure:: static/description/pos_create_picking_option_3.png
-   :width: 800 px
+   A confirmed sale order without picking.
+   Useful if you don't manage stock or sell services otherwise
+   use 'delivered picking'.
+
+#. '**Allow delivered picking**'
+
+   A sale order will be created and confirmed. The associated picking
+   will be marked as delivered.
+   Use this option if you delivery your customer frequently and bill him periodically
+
+If multiple options are activated, buttons will appear on the payment screen.
+
 
 Configuration
 =============
@@ -52,14 +61,18 @@ Configuration
 To configure this module, you need to:
 
 #. Go to Point Of Sale / Configuration / Point of Sale
-#. Check the box 'Create Sale Orders'
-#. Select the desired default behaviour
+#. Select the desired default behavior
 
-.. figure:: static/description/pos_config_form.png
-   :width: 800 px
 
 Usage
 =====
+
+In the PoS, on the payment screen, new buttons will appear according
+ to options set in the configuration.
+
+.. figure:: static/description/pos_order_to_sale_order.png
+   :width: 800 px
+
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
@@ -68,21 +81,21 @@ Usage
 Technical Notes
 ===============
 
-* Some hooks are defined in the JS file, to define custom behaviour after
+* Some hooks are defined in the JS file, to define custom behavior after
   having created the sale order (and the stock picking).
 
 * Some prepare functions are available in the sale.order model, to overload
   the creation of the sale order.
 
-* You could be interested by another module, pos_sale_order, that completely
-  alter Point of Sale module, avoiding creating Pos Orders, and creating
-  allways Sale Orders.
-  This module is a WIP state, and is available here:
-  https://github.com/OCA/pos/pull/35
+* An additional, not displayed option, is to allow payment for sale orders.
+  It requires an additinnal module (not yet written) to handle it correctly.
+
+
 
 Known issues / Roadmap
 ======================
 
+* Demo not ported yet. It was non functionnal before migration.
 * Because of the poor design of the Odoo Point of Sale, some basic features
   are not available by default, like pricelist, fiscal position, etc ...
   For that reason, unit price will be recomputed by default, when creating the
@@ -91,9 +104,6 @@ Known issues / Roadmap
 
 For more information about that point, you could check pos_pricelist OCA
 module. (same repository).
-
-.. figure:: static/description/pos_create_picking_confirm.png
-   :width: 800 px
 
 
 Bug Tracker
@@ -111,6 +121,7 @@ Contributors
 ------------
 
 * Sylvain Le Gal (https://twitter.com/legalsylvain)
+* Raphaël Reverdy (https://github.com/hparfr)
 
 Funders
 -------
@@ -118,6 +129,7 @@ Funders
 The development of this module has been financially supported by:
 
 * GRAP, Groupement Régional Alimentaire de Proximité (http://www.grap.coop)
+* Akretion
 
 Maintainer
 ----------
