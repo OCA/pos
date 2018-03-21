@@ -17,7 +17,7 @@ and resources.
 
 When you have 8000 products in your Point of Sale and most of them 
 don't have images, removing thousands of useless requests is welcome:
-the POS loads faster that way.
+the PoS loads faster that way.
 
 
 Improve products display
@@ -38,7 +38,7 @@ is increased for better visibility);
 Technical information
 =====================
 
-Each time the pos instantiate a product, it will add this code for each product
+Each time the PoS instantiate a product, it will add this code for each product
 
 .. code:: html
 
@@ -48,17 +48,17 @@ The browser will trigger as many requests than there are different urls.
 
 If you have many products, the browser will soon reach his limit of 
 network connections to Odoo server and will wait for free slots instead of 
-loading other valuable contents. Then the POS is then very slow to work with.
+loading other valuable contents. Then the PoS is then very slow to work with.
 
 This module adds a field has_image in product.product model.
 
-If product has no image, the product image url is not sent to the POS
+If product has no image, the product image url is not sent to the PoS
 
 Updates
 =======
 
 * Feb 2016 : First version
-* Feb 2017 : migration to v10 and improvements for Display
+* March 2018 : migration to v10 and improvements for Display
 
 Bug Tracker
 ===========
@@ -93,4 +93,4 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-To contribute to this module, please visit http://odoo-community.org.
+To contribute to this module, please visit https://odoo-community.org.
