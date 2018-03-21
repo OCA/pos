@@ -1,0 +1,1 @@
+server-tools https://github.com/OCA/server-tools.git 10.0

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+
+    <t t-name="DeliveryButtonWidget">
+        <t t-set="isPicking" t-value="widget.isPicking()" />
+        <div t-attf-class='button #{ isPicking ? "highlight": ""}'>
+            <i t-attf-class='fa #{ isPicking ? "fa-arrow-circle-down": "fa-forward"}' />
+            Delivery 
+            <t t-if="!isPicking"> Later</t>
+            <t t-if="isPicking"> Now</t>
+        </div>
+    </t>
+
+    <t t-name="OrderTypeButtonWidget">
+        <t t-set="isPosOrder" t-value="widget.isPosOrder()" />
+        <div t-attf-class='button #{ isPosOrder ? "": "highlight" }'>
+            <i t-attf-class='fa #{ isPosOrder ? "fa-shopping-basket": "fa-shopping-cart"}' />
+                <t t-if="isPosOrder">PoS</t> Order
+        </div>
+    </t>
+    <t t-name="PayLaterButtonWidget">
+        <div t-attf-class='button #{ widget.isQuote() ? "highlight" : ""}'>
+            <i class='fa fa-file-o' /> Quotation
+        </div>
+    </t>
+
+</template>
