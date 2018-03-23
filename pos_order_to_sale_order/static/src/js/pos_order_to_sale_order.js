@@ -26,17 +26,21 @@ openerp.pos_order_to_sale_order = function(instance, local) {
             if (this.sale_order_state == 'draft') {
                 this.display_text = _t("Create Draft Order");
                 this.confirmation_message = _t('Create Draft Sale Order and discard the current PoS Order?');
-                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines. Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order.");
+                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines.");
+                console.log(this);
             }
             else if (options.sale_order_state == 'confirmed') {
                 this.display_text = _t("Create Confirmed Order");
                 this.confirmation_message = _t('Create Confirmed Sale Order and discard the current PoS Order?');
-                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again.");
+                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines.");
             }
             else if (options.sale_order_state == 'delivered') {
                 this.display_text = _t("Create Delivered Order");
                 this.confirmation_message = _t('Create Delivered Sale Order and discard the current PoS Order?');
-                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered.\n Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again.");
+                this.confirmation_comment = _t("This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered.");
+            }
+            if (! this.pos.pricelist_engine){
+                this.confirmation_comment += _t("\nNote if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order.")
             }
         },
 
