@@ -87,10 +87,10 @@ Known issues / Roadmap
   are not available by default, like pricelist, fiscal position, etc ...
   For that reason, unit price will be recomputed by default, when creating the
   sale order, and the unit price of the current bill will not be used.
-  We could imagine to create an option 'Use Pos Order Unit Price' in a setting.
 
-For more information about that point, you could check pos_pricelist OCA
-module. (same repository).
+Note that this problem is fixed if ``pos_pricelist`` is installed.
+(same repository) In that cases, the pricelist, the unit prices and the taxes
+will be the same in the order, as in the displayed bill.
 
 .. figure:: static/description/pos_create_picking_confirm.png
    :width: 800 px
