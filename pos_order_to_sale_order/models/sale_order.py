@@ -21,6 +21,10 @@ class SaleOrder(models.Model):
             'user_id':          order_data['user_id'] or False,
             'order_line':       [],
         })
+        if self.env.context.get('is_pos_pricelist'):
+            res.update({
+                'pricelist_id': order_data['pricelist_id'],
+            })
         for line_data in order_data['lines']:
             res['order_line'].append([
                 0, False, self._prepare_order_line_field_from_pos(
@@ -28,23 +32,33 @@ class SaleOrder(models.Model):
         return res
 
     @api.model
-    def _prepare_order_line_field_from_pos(self, line_data, order_data):
+    def _prepare_order_line_field_from_pos(self, line_data, sale_order_data):
         line_obj = self.env['sale.order.line']
         res = line_obj.product_id_change(
-            order_data['pricelist_id'], line_data['product_id'],
-            qty=line_data['qty'], partner_id=order_data['partner_id'])['value']
+            sale_order_data['pricelist_id'], line_data['product_id'],
+            qty=line_data['qty'],
+            partner_id=sale_order_data['partner_id'])['value']
         res.update({
             'product_id':       line_data['product_id'],
             'product_uom_qty':  line_data['qty'],
             'discount':         line_data['discount'],
+            'tax_id':           [(6, False, res['tax_id'])],
         })
+        if self.env.context.get('is_pos_pricelist'):
+            res.update({
+            'price_unit':       line_data['price_unit'],
+            'tax_id':           line_data['tax_ids'],
+            })
         return res
 
     @api.model
     def create_order_from_pos(self, order_data):
+        is_pos_pricelist = len(self.env['ir.module.module'].search(
+            [('name', '=', 'pos_pricelist'), ('state', '=', 'installed')]))
         # Create Draft Sale order
         sale_order = self.create(
-            self._prepare_order_field_from_pos(order_data))
+            self.with_context(is_pos_pricelist=is_pos_pricelist).
+            _prepare_order_field_from_pos(order_data))
 
         # Confirm Sale Order
         if order_data['sale_order_state'] in ['confirmed', 'delivered']:
