@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-06 10:02+0000\n"
-"PO-Revision-Date: 2018-01-06 10:02+0000\n"
+"POT-Creation-Date: 2018-03-23 15:48+0000\n"
+"PO-Revision-Date: 2018-03-23 15:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,16 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:112
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:43
+#, python-format
+msgid "\n"
+"Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order."
+msgstr "\n"
+"Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente."
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:114
 #, python-format
 msgid "Check your internet connection and try again."
 msgstr "Veuillez vérifier votre connexion internet et essayer de nouveau."
@@ -62,14 +71,14 @@ msgstr "Créer des ventes livrées"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:28
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:27
 #, python-format
 msgid "Create Draft Order"
 msgstr "Créer un devis en brouillon"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:29
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:28
 #, python-format
 msgid "Create Draft Sale Order and discard the current PoS Order?"
 msgstr "Créer une vente en brouillon, et supprimer le ticket de caisse en cours ?"
@@ -81,7 +90,7 @@ msgstr "Créer des ventes en brouillon"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:52
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:55
 #, python-format
 msgid "Empty Order"
 msgstr "Commande vide"
@@ -105,7 +114,7 @@ msgstr "En cochant la case, le caissier aura la possibilité de créer une vente
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:60
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:63
 #, python-format
 msgid "No customer defined"
 msgstr "Pas de client défini"
@@ -123,14 +132,14 @@ msgstr "Commande de ventes"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:111
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:113
 #, python-format
 msgid "The order could not be sent"
 msgstr "La commande n'a pas pu être envoyée"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:53
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:56
 #, python-format
 msgid "There must be at least one product in your order to create Sale Order."
 msgstr "Il doit y avoir au moins un produit dans votre commande pour créer une vente"
@@ -139,29 +148,26 @@ msgstr "Il doit y avoir au moins un produit dans votre commande pour créer une 
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:35
 #, python-format
-msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again."
-msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente, et devront être refait manuellement sur la facture."
+msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours."
 
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:40
 #, python-format
-msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered.\n"
-" Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order, and should be done manually on the invoice again."
-msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Le bone de livraison correspondant sera marqué comme livré. \n"
-"Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente, et devront être refait manuellement sur la facture."
+msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Le bone de livraison correspondant sera marqué comme livré."
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:30
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:29
 #, python-format
-msgid "This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines. Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order."
-msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente en brouillon, en se basant sur les lignes du ticket en cours. Remarque : si vous aviez changé le prix unitaire de certains produits, ces changements ne seront pas pris en compte dans la vente."
-
+msgid "This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente en brouillon, en se basant sur les lignes du ticket en cours."
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:61
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:64
 #, python-format
 msgid "You should select a customer in order to create a Sale Order. Please select one by clicking the order tab."
 msgstr "Vous devez sélectionner un client, afin de créer une vente. Veuillez en sélectionner un en cliquant sur l'onglet de la commande."
