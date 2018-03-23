@@ -5,7 +5,7 @@
 
 {
     'name': 'PoS Order To Sale Order',
-    'version': '8.0.1.0.0',
+    'version': '8.0.2.0.0',
     'author': 'GRAP,Odoo Community Association (OCA)',
     'category': 'Point Of Sale',
     'license': 'AGPL-3',
