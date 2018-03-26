@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock.picking_type_out" model="stock.picking.type">
+        <field name="available_in_pos" eval="True" />
+    </record>
+
+</odoo>

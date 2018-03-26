@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="arch" type="xml">
+            <field name="iface_invoicing" position="after">
+                <field name="iface_allow_pos_order" />
+                <field name="iface_allow_draft_order" />
+                <field name="iface_allow_confirmed_order" />
+                <field name="iface_allow_delivered_order" />
+            </field>
+        </field>
+    </record>
+</odoo>
