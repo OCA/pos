@@ -17,6 +17,7 @@ addon | version | summary
 [pos_backend_communication](pos_backend_communication/) | 10.0.1.0.0 | Communicate with odoo's backend from POS.
 [pos_backend_partner](pos_backend_partner/) | 10.0.1.0.0 | Choose point of sale customers in backend
 [pos_customer_display](pos_customer_display/) | 10.0.1.0.1 | Manage Customer Display device from POS front end
+[pos_default_empty_image](pos_default_empty_image/) | 10.0.1.0.0 | Optimize loading time for products without image
 [pos_default_payment_method](pos_default_payment_method/) | 10.0.1.0.0 | POS Default payment mehotd
 [pos_lot_selection](pos_lot_selection/) | 10.0.1.0.0 | POS Lot Selection
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
@@ -27,6 +28,7 @@ addon | version | summary
 [pos_quick_logout](pos_quick_logout/) | 10.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_remove_pos_category](pos_remove_pos_category/) | 10.0.2.0.0 | POS Remove POS Category
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 10.0.1.0.0 | Pay and receive invoices from PoS Session
+[pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 10.0.1.0.0 | POS Stock Picking Invoice Link
 [pos_timeout](pos_timeout/) | 10.0.1.0.0 | Set the timeout of the point of sale
 
 
