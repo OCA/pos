@@ -34,19 +34,19 @@ Four options are available:
    A PoS Order is the default type of order (opposed to sale orders).
    If you want to use only sales order, uncheck this option.
 
-#. '**Allow draft order**'
+#. '**Allow Quotations**'
 
-   A draft sale order is a quotation. 
+   A quotation is a draft sale order. 
    It can be changed and confirmed later from the backend.
    No payment can be taken with draft orders.
 
-#. '**Allow confirmed order**'
+#. '**Allow Sale Orders**'
 
    A confirmed sale order without picking.
    Useful if you don't manage stock or sell services otherwise
    use 'delivered picking'.
 
-#. '**Allow delivered picking**'
+#. '**Allow Delivered Sale Orders**'
 
    A sale order will be created and confirmed. The associated picking
    will be marked as delivered.
