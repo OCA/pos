@@ -61,7 +61,12 @@ Configuration
 To configure this module, you need to:
 
 #. Go to Point Of Sale / Configuration / Point of Sale
-#. Select the desired default behavior
+#. Select the desired behavior by setting some of the checkboxes: 
+
+  - Allow PoS order, 
+  - Allow Quotations, 
+  - Allow Sale Orders,
+  - Allow Delivered Sale Orders
 
 
 Usage
