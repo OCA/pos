@@ -55,19 +55,19 @@ msgstr "Créer des ventes confirmées"
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:38
 #, python-format
 msgid "Create Delivered Order"
-msgstr "Créer une vente livrée"
+msgstr "Créer une vente livrée (BL)"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:39
 #, python-format
 msgid "Create Delivered Sale Order and discard the current PoS Order?"
-msgstr "Créer une vente livrée, et supprimer le ticket de caisse en cours ?"
+msgstr "Créer une vente livrée (BL), et supprimer le ticket de caisse en cours ?"
 
 #. module: pos_order_to_sale_order
 #: field:pos.config,iface_create_delivered_sale_order:0
 msgid "Create Delivered Sale Orders"
-msgstr "Créer des ventes livrées"
+msgstr "Créer des ventes livrées (BL)"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
@@ -156,7 +156,7 @@ msgstr "Cette opération va supprimer définitivement le ticket de caisse en cou
 #: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:40
 #, python-format
 msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered."
-msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Le bone de livraison correspondant sera marqué comme livré."
+msgstr "Cette opération va supprimer définitivement le ticket de caisse en cours, et créer une vente confirmée, en se basant sur les lignes du ticket en cours. Le bon de livraison correspondant sera marqué comme livré."
 
 #. module: pos_order_to_sale_order
 #. openerp-web
