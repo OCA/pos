@@ -16,7 +16,8 @@ odoo.define("pos_lot_selection.models", function (require) {
                 "domain": [
                     ["location_id", "=", location_id],
                     ["product_id", "=", product],
-                    ["lot_id", "!=", false]],
+                    ["lot_id", "!=", false],
+                    ["reservation_id", "=", false]],
             }, {'async': false}).then(function (result) {
                 var product_lot = {};
                 if (result.length) {
