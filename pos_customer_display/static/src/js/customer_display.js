@@ -200,7 +200,9 @@ openerp.pos_customer_display = function(instance){
             var res = OrderlineSuper.prototype.set_quantity.call(this, quantity);
             if (quantity != 'remove') {
                 var line = this;
-                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                if(this.selected){
+                    this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                }
             }
             return res;
         },
@@ -209,7 +211,9 @@ openerp.pos_customer_display = function(instance){
             var res = OrderlineSuper.prototype.set_discount.call(this, discount);
             if (discount) {
                 var line = this;
-                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                if(this.selected){
+                    this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+                }
             }
             return res;
         },
@@ -217,7 +221,9 @@ openerp.pos_customer_display = function(instance){
         set_unit_price: function(price){
             var res = OrderlineSuper.prototype.set_unit_price.call(this, price);
             var line = this;
-            this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            if(this.selected){
+                this.pos.prepare_text_customer_display('add_update_line', {'line': line});
+            }
             return res;
         },
 
@@ -269,6 +275,9 @@ openerp.pos_customer_display = function(instance){
             if (change) {
                 change_rounded = change.toFixed(2);
                 this.pos.prepare_text_customer_display('update_payment', {'change': change_rounded});
+            }
+            else{
+                this.pos.prepare_text_customer_display('addPaymentline', {})
             }
             return res;
         },
