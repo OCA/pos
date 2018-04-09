@@ -10,3 +10,6 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     iface_load_picking = fields.Boolean(string='Load Pickings', default=True)
+
+    iface_load_picking_max_qty = fields.Integer(
+        string='Max Picking Quantity To Load', default=10, required=True)
