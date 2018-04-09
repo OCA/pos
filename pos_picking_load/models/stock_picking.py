@@ -18,9 +18,22 @@ class StockPicking(models.Model):
     # Custom Section
     @api.model
     def _prepare_filter_for_pos(self, pos_session_id):
+        picking_type_obj = self.env['stock.picking.type']
+        picking_types = picking_type_obj.search(
+            [('available_in_pos', '=', True)])
         return [
+            ('picking_type_id', 'in', picking_types.ids),
             ('state', 'in', ['confirmed', 'partially_available', 'assigned']),
             ('invoice_state', '=', '2binvoiced'),
+        ]
+
+    @api.model
+    def _prepare_filter_query_for_pos(self, pos_session_id, query):
+        return [
+            '|', '|',
+            ('name', 'ilike', query),
+            ('origin', 'ilike', query),
+            ('partner_id', 'ilike', query),
         ]
 
     @api.model
@@ -29,19 +42,13 @@ class StockPicking(models.Model):
 
     @api.model
     def search_pickings_for_pos(self, query, pos_session_id):
-        # Get Picking Types available for PoS
-        picking_type_obj = self.env['stock.picking.type']
-        picking_types = picking_type_obj.search(
-            [('available_in_pos', '=', True)])
-        condition = self._prepare_filter_for_pos(pos_session_id) + [
-            ('picking_type_id', 'in', picking_types.ids),
-            '|', '|',
-            ('name', 'ilike', query),
-            ('origin', 'ilike', query),
-            ('partner_id', 'ilike', query)
-        ]
+        session_obj = self.env['pos.session']
+        config = session_obj.browse(pos_session_id).config_id
+        condition = self._prepare_filter_for_pos(pos_session_id) +\
+            self._prepare_filter_query_for_pos(pos_session_id, query)
         fields = self._prepare_fields_for_pos_list()
-        return self.search_read(condition, fields, limit=10)
+        return self.search_read(
+            condition, fields, limit=config.iface_load_picking_max_qty)
 
     @api.multi
     def load_picking_for_pos(self):

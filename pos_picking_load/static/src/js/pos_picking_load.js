@@ -162,7 +162,7 @@ openerp.pos_picking_load = function(instance, local) {
 
         prepare_orderline: function(product, pickingline) {
             return {
-                quantity: pickingline.qty,
+                quantity: pickingline.quantity,
                 price: pickingline.price_unit || product.price,
                 discount: pickingline.discount || 0.0,
             };
