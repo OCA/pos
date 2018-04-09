@@ -5,7 +5,7 @@
 
 {
     'name': 'POS Picking Load',
-    'version': '8.0.1.1.0',
+    'version': '8.0.1.2.0',
     'author': 'GRAP,Odoo Community Association (OCA)',
     'category': 'Point Of Sale',
     'license': 'AGPL-3',
