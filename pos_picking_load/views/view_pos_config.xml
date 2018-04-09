@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <field name="iface_invoicing" position="after">
                 <field name="iface_load_picking" />
+                <field name="iface_load_picking_max_qty" attrs="{'invisible': [('iface_load_picking', '=', False)]}" />
             </field>
         </field>
     </record>
