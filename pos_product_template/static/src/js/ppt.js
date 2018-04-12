@@ -14,11 +14,11 @@ odoo.define("pos_product_template.pos_product_template", function(require){
     var gui = require('point_of_sale.gui');
     var PosDB = require("point_of_sale.DB");
     var PosBaseWidget = require('point_of_sale.BaseWidget');
-    
+
     var core = require('web.core');
     var utils = require('web.utils');
-    
-    var QWeb     = core.qweb;
+
+    var QWeb = core.qweb;
     var _t = core._t;
     
     /* ********************************************************
@@ -30,29 +30,17 @@ odoo.define("pos_product_template.pos_product_template", function(require){
           variant, displaying an extra scren to select the variant;
     *********************************************************** */
     var _render_product_ = screens.ProductListWidget.prototype.render_product;
+
+    screens.ProductScreenWidget.include({
+        click_product: function(product) {
+            if (product.product_variant_count > 1) {
+                this.gui.show_popup('select-variant-popup', product.product_tmpl_id);
+            } else {
+                this._super(product);
+            }
+        }
+    });
     screens.ProductListWidget.include({
-
-        init: function(parent, options) {
-            this._super(parent,options);
-            var self = this;
-            // OVERWRITE 'click_product_handler' function to do
-            // a different behaviour if template with one or many variants
-            // are selected.
-            this.click_product_handler = function(event){
-                var product = self.pos.db.get_product_by_id(this.dataset['productId']);
-
-                if (product.product_variant_count == 1) {
-                    // Normal behaviour, The template has only one variant
-                    options.click_product_action(product);
-                }
-                else{
-                    // Display for selection all the variants of a template
-                     //self.pos.pos_widget.screen_selector.show_popup('select-variant-popup', product.product_tmpl_id);
-                     self.gui.show_popup('select-variant-popup', product.product_tmpl_id);    
-                }
-            };
-        },
-
         /* ************************************************
         Overload: 'set_product_list'
 
@@ -60,7 +48,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         (at the beginning, after a category selection, after a research, etc. 
         we just splice all products that are not the 'primary variant'
         */
-        set_product_list: function(product_list){
+        set_product_list: function(product_list) {
             for (var i = product_list.length - 1; i >= 0; i--){
                 if (!product_list[i].is_primary_variant){
                     product_list.splice(i, 1);
@@ -70,29 +58,32 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
         
         render_product: function(product){
-            self = this;
+            var self = this;
     
             if (product.product_variant_count == 1){
                 // Normal Display
-                return _render_product_.call(this, product);
+                return this._super(product);
             }
-            else{
-                var cached = this.product_cache.get_node(product.id);
-                if(!cached){
-                    var image_url = this.get_product_image_url(product);
-                    var product_html = QWeb.render('Template',{ 
-                            widget:  this, 
-                            product: product, 
-                            image_url: this.get_product_image_url(product),
-                        });
-                    var product_node = document.createElement('div');
-                    product_node.innerHTML = product_html;
-                    product_node = product_node.childNodes[1];
-                    this.product_cache.cache_node(product.id,product_node);
-                    return product_node;
-                }
-                return cached;
+            if (!product.is_primary_variant) {
+                //TODO: workaround merdique
+                return document.createElement('div');
             }
+            //TODO reuse upper function
+            var cached = this.product_cache.get_node(product.id);
+            if(!cached) {
+                var image_url = this.get_product_image_url(product);
+                var product_html = QWeb.render('Template',{
+                        widget:  this,
+                        product: product,
+                        image_url: this.get_product_image_url(product),
+                    });
+                var product_node = document.createElement('div');
+                product_node.innerHTML = product_html;
+                product_node = product_node.childNodes[1];
+                this.product_cache.cache_node(product.id,product_node);
+                return product_node;
+            }
+            return cached;
         },
     });
     
@@ -146,20 +137,18 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             this.$('#variant-title-name').html(template.name);
 
             // Render Variants
-            var variant_ids  = this.pos.db.template_by_id[product_tmpl_id].product_variant_ids;
-            var variant_list = [];
-            for (var i = 0, len = variant_ids.length; i < len; i++) {
-                variant_list.push(this.pos.db.get_product_by_id(variant_ids[i]));
-            }
+            var variant_ids = this.pos.db.template_by_id[product_tmpl_id].product_variant_ids;
+            var variant_list = variant_ids.map(function (variant) {
+                return this.pos.db.get_product_by_id(variant);
+            }, this);
             this.variant_list_widget.filters = {}
             this.variant_list_widget.set_variant_list(variant_list);
 
             // Render Attributes
-            var attribute_ids  = this.pos.db.attribute_by_template_id(template.id);
-            var attribute_list = [];
-            for (var i = 0, len = attribute_ids.length; i < len; i++) {
-                attribute_list.push(this.pos.db.get_product_attribute_by_id(attribute_ids[i]));
-            }
+            var attribute_ids = this.pos.db.attribute_by_template_id(template.id);
+            var attribute_list = attribute_ids.map(function (attribute) {
+                return this.pos.db.get_product_attribute_by_id(attribute);
+            }, this);
             this.attribute_list_widget.set_attribute_list(attribute_list, template);
             
             if(this.$el){
