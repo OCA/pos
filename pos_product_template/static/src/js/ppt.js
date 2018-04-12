@@ -1,21 +1,10 @@
-/******************************************************************************
-    Point Of Sale - Product Template module for Odoo
-    Copyright (C) 2014-Today Akretion (http://www.akretion.com)
+/* Copyright (C) 2014-Today Akretion (https://www.akretion.com) 
     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    @author Navarromiguel (https://github.com/navarromiguel)
+    @author Raphaël Reverdy (https://www.akretion.com)
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+*/
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU Affero General Public License as
-    published by the Free Software Foundation, either version 3 of the
-    License, or (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
-    You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-******************************************************************************/
 odoo.define("pos_product_template.pos_product_template", function(require){
     "use strict";
     
@@ -26,11 +15,11 @@ odoo.define("pos_product_template.pos_product_template", function(require){
     var gui = require('point_of_sale.gui');
     var PosDB = require("point_of_sale.DB");
     var PosBaseWidget = require('point_of_sale.BaseWidget');
-    
+
     var core = require('web.core');
     var utils = require('web.utils');
-    
-    var QWeb     = core.qweb;
+
+    var QWeb = core.qweb;
     var _t = core._t;
     
     /* ********************************************************
@@ -42,69 +31,65 @@ odoo.define("pos_product_template.pos_product_template", function(require){
           variant, displaying an extra scren to select the variant;
     *********************************************************** */
     var _render_product_ = screens.ProductListWidget.prototype.render_product;
+
+    screens.ProductScreenWidget.include({
+        click_product: function(product) {
+            if (product.product_variant_count > 1) {
+                this.gui.show_popup('select-variant-popup', product.product_tmpl_id);
+            } else {
+                this._super(product);
+            }
+        }
+    });
     screens.ProductListWidget.include({
 
-        init: function(parent, options) {
-            this._super(parent,options);
-            var self = this;
-            // OVERWRITE 'click_product_handler' function to do
-            // a different behaviour if template with one or many variants
-            // are selected.
-            this.click_product_handler = function(event){
-                var product = self.pos.db.get_product_by_id(this.dataset['productId']);
+        set_product_list: function(product_list) {
+            /* ************************************************
+            Overload: 'set_product_list'
 
-                if (product.product_variant_count == 1) {
-                    // Normal behaviour, The template has only one variant
-                    options.click_product_action(product);
-                }
-                else{
-                    // Display for selection all the variants of a template
-                     //self.pos.pos_widget.screen_selector.show_popup('select-variant-popup', product.product_tmpl_id);
-                     self.gui.show_popup('select-variant-popup', product.product_tmpl_id);    
-                }
-            };
-        },
-
-        /* ************************************************
-        Overload: 'set_product_list'
-
-        'set_product_list' is a function called before displaying Products.
-        (at the beginning, after a category selection, after a research, etc. 
-        we just splice all products that are not the 'primary variant'
-        */
-        set_product_list: function(product_list){
-            for (var i = product_list.length - 1; i >= 0; i--){
-                if (!product_list[i].is_primary_variant){
-                    product_list.splice(i, 1);
-                }
-            }
-            this._super(product_list);
+            'set_product_list' is a function called before displaying Products.
+            (at the beginning, after a category selection, after a research, etc.
+            we just remove all products that are not the 'primary variant'
+            */
+            var list = product_list.filter(function(product) {
+                return product.is_primary_variant;
+            });
+            this._super(list);
         },
         
         render_product: function(product){
-            self = this;
+            var self = this;
     
             if (product.product_variant_count == 1){
                 // Normal Display
-                return _render_product_.call(this, product);
+                return this._super(product);
             }
-            else{
-                var cached = this.product_cache.get_node(product.id);
-                if(!cached){
-                    var image_url = this.get_product_image_url(product);
-                    var product_html = QWeb.render('Template',{ 
-                            widget:  this, 
-                            product: product, 
-                            image_url: this.get_product_image_url(product),
-                        });
-                    var product_node = document.createElement('div');
-                    product_node.innerHTML = product_html;
-                    product_node = product_node.childNodes[1];
-                    this.product_cache.cache_node(product.id,product_node);
-                    return product_node;
-                }
-                return cached;
+            if (!product.is_primary_variant) {
+                //because screens.js:556: renderElement is called
+                //once before set_product_list
+                //So we get product.is_primary_variant
+                //which are not to be displayed
+                //
+                //Here we return mock element for
+                //products which will not be displayed
+                return document.createElement('div');
             }
+            //TODO reuse upper function
+            var cached = this.product_cache.get_node(product.id);
+            if(!cached) {
+                var image_url = this.get_product_image_url(product);
+                var product_html = QWeb.render('Template',{
+                        widget:  this,
+                        product: product,
+                        image_url: this.get_product_image_url(product),
+                    });
+                var product_node = document.createElement('div');
+                product_node.innerHTML = product_html;
+                product_node = product_node.childNodes[1];
+                this.product_cache.cache_node(product.id,product_node);
+                return product_node;
+            }
+            return cached;
         },
     });
     
@@ -158,20 +143,18 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             this.$('#variant-title-name').html(template.name);
 
             // Render Variants
-            var variant_ids  = this.pos.db.template_by_id[product_tmpl_id].product_variant_ids;
-            var variant_list = [];
-            for (var i = 0, len = variant_ids.length; i < len; i++) {
-                variant_list.push(this.pos.db.get_product_by_id(variant_ids[i]));
-            }
+            var variant_ids = this.pos.db.template_by_id[product_tmpl_id].product_variant_ids;
+            var variant_list = variant_ids.map(function (variant) {
+                return this.pos.db.get_product_by_id(variant);
+            }, this);
             this.variant_list_widget.filters = {}
             this.variant_list_widget.set_variant_list(variant_list);
 
             // Render Attributes
-            var attribute_ids  = this.pos.db.attribute_by_template_id(template.id);
-            var attribute_list = [];
-            for (var i = 0, len = attribute_ids.length; i < len; i++) {
-                attribute_list.push(this.pos.db.get_product_attribute_by_id(attribute_ids[i]));
-            }
+            var attribute_ids = this.pos.db.attribute_by_template_id(template.id);
+            var attribute_list = attribute_ids.map(function (attribute) {
+                return this.pos.db.get_product_attribute_by_id(attribute);
+            }, this);
             this.attribute_list_widget.set_attribute_list(attribute_list, template);
             
             if(this.$el){
@@ -227,7 +210,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
 
         filter_variant: function(){
-            var value_list = []
+            var value_list = [];
             for (var item in this.filters){
                 value_list.push(parseInt(this.filters[item]));
             }
@@ -492,82 +475,74 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
     });
 
-/* ********************************************************
-Overload: point_of_sale.PosModel
+    /*********************************************************
+    Overload: point_of_sale.PosModel
 
-- Overload module.PosModel.initialize function to load extra-data
-     - Load 'name' field of model product.product;
-     - Load product.template model;
-*********************************************************** */
-    var _initialize_ = models.PosModel.prototype.initialize;
-    models.PosModel.prototype.initialize = function(session, attributes){
-        self = this;
-        // Add the load of the field product_product.name
-        // that is the name of the template
-        // Add the load of attribute values
-        for (var i = 0 ; i < this.models.length; i++){
-            if (this.models[i].model == 'product.product'){
-                if (this.models[i].fields.indexOf('name') == -1) {
-                    this.models[i].fields.push('name');
-                }
-                if (this.models[i].fields.indexOf('attribute_value_ids') == -1) {
-                    this.models[i].fields.push('attribute_value_ids');
-                }
+    - Overload module.PosModel.initialize function to load extra-data
+         - Load 'name' field of model product.product;
+         - Load product.template model;
+    *********************************************************** */
+    // change product.product call
+    models.PosModel.prototype.models.some(function (model) {
+        if (model.model !== 'product.product') {
+            return false;
+        }
+        // add name and attribute_value_ids to list of fields
+        // to fetch for product.product
+        ['name', 'attribute_value_ids'].forEach(function (field) {
+            if (model.fields.indexOf(field) == -1) {
+                model.fields.push(field);
             }
-        }
+        });
+        return true; //exit early the iteration of this.models
+    });
 
-        // Load Product Template
-        var model = {
-            model: 'product.template',
-            fields: [
-                'name',
-                'display_name',
-                'product_variant_ids',
-                'product_variant_count',
-                ],
-            domain:  function(self){
-                return [
-                    ['sale_ok','=',true],
-                    ['available_in_pos','=',true],
-                ];},
-            context: function(self){
-                return {
-                    pricelist: self.pricelist.id,
-                    display_default_code: false,
-                };},
-            loaded: function(self, templates){
-                 self.db.add_templates(templates);
-            },
-        }
-        this.models.push(model);
-
-        // Load Product Attribute
-        model = {
-            model: 'product.attribute',
-            fields: [
-                'name',
-                'value_ids',
+    //Add our new models
+    models.PosModel.prototype.models.push({
+        model: 'product.template',
+        fields: [
+            'name',
+            'display_name',
+            'product_variant_ids',
+            'product_variant_count',
             ],
-            loaded: function(self, attributes){
-                 self.db.add_product_attributes(attributes);
-            },
-        }
-        this.models.push(model);
-
-        // Load Product Attribute Value
-        model = {
-            model: 'product.attribute.value',
-            fields: [
-                'name',
-                'attribute_id',
-            ],
-            loaded: function(self, values){
-                 self.db.add_product_attribute_values(values);
-            },
-        }
-        this.models.push(model);
-
-        return _initialize_.call(this, session, attributes);
+        domain:  function(self){
+            return [
+                ['sale_ok','=',true],
+                ['available_in_pos','=',true],
+            ];},
+        context: function(self){
+            return {
+                pricelist: self.pricelist.id,
+                display_default_code: false,
+            };},
+        loaded: function(self, templates){
+             self.db.add_templates(templates);
+        },
+    },
+    {
+        model: 'product.attribute',
+        fields: [
+            'name',
+            'value_ids',
+        ],
+        loaded: function(self, attributes){
+             self.db.add_product_attributes(attributes);
+        },
+    },
+    {
+        model: 'product.attribute.value',
+        fields: [
+            'name',
+            'attribute_id',
+        ],
+        loaded: function(self, values){
+             self.db.add_product_attribute_values(values);
+        },
+    });
+    return {
+        'SelectVariantPopupWidget': SelectVariantPopupWidget,
+        'VariantListWidget': VariantListWidget,
+        'AttributeListWidget': AttributeListWidget,
     };
-
 });
