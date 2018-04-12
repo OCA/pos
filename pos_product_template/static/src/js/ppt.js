@@ -198,6 +198,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
 
         reset_filter: function(attribute_id){
             if (attribute_id in this.filters){
+                //TODO ! Remplace it with splice
                 delete this.filters[attribute_id];
             }
             this.filter_variant();
@@ -469,82 +470,70 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
     });
 
-/* ********************************************************
-Overload: point_of_sale.PosModel
+    /*********************************************************
+    Overload: point_of_sale.PosModel
 
-- Overload module.PosModel.initialize function to load extra-data
-     - Load 'name' field of model product.product;
-     - Load product.template model;
-*********************************************************** */
-    var _initialize_ = models.PosModel.prototype.initialize;
-    models.PosModel.prototype.initialize = function(session, attributes){
-        self = this;
-        // Add the load of the field product_product.name
-        // that is the name of the template
-        // Add the load of attribute values
-        for (var i = 0 ; i < this.models.length; i++){
-            if (this.models[i].model == 'product.product'){
-                if (this.models[i].fields.indexOf('name') == -1) {
-                    this.models[i].fields.push('name');
-                }
-                if (this.models[i].fields.indexOf('attribute_value_ids') == -1) {
-                    this.models[i].fields.push('attribute_value_ids');
-                }
+    - Overload module.PosModel.initialize function to load extra-data
+         - Load 'name' field of model product.product;
+         - Load product.template model;
+    *********************************************************** */
+    // change product.product call
+    models.PosModel.prototype.models.some(function (model) {
+        if (model.model !== 'product.product') {
+            return false;
+        }
+        // add name and attribute_value_ids to list of fields
+        // to fetch for product.product
+        ['name', 'attribute_value_ids'].forEach(function (field) {
+            if (model.fields.indexOf(field) == -1) {
+                model.fields.push(field);
             }
-        }
+        });
+        return true; //exit early the iteration of this.models
+    });
 
-        // Load Product Template
-        var model = {
-            model: 'product.template',
-            fields: [
-                'name',
-                'display_name',
-                'product_variant_ids',
-                'product_variant_count',
-                ],
-            domain:  function(self){
-                return [
-                    ['sale_ok','=',true],
-                    ['available_in_pos','=',true],
-                ];},
-            context: function(self){
-                return {
-                    pricelist: self.pricelist.id,
-                    display_default_code: false,
-                };},
-            loaded: function(self, templates){
-                 self.db.add_templates(templates);
-            },
-        }
-        this.models.push(model);
-
-        // Load Product Attribute
-        model = {
-            model: 'product.attribute',
-            fields: [
-                'name',
-                'value_ids',
+    //Add our new models
+    models.PosModel.prototype.models.push({
+        model: 'product.template',
+        fields: [
+            'name',
+            'display_name',
+            'product_variant_ids',
+            'product_variant_count',
             ],
-            loaded: function(self, attributes){
-                 self.db.add_product_attributes(attributes);
-            },
-        }
-        this.models.push(model);
-
-        // Load Product Attribute Value
-        model = {
-            model: 'product.attribute.value',
-            fields: [
-                'name',
-                'attribute_id',
-            ],
-            loaded: function(self, values){
-                 self.db.add_product_attribute_values(values);
-            },
-        }
-        this.models.push(model);
-
-        return _initialize_.call(this, session, attributes);
-    };
+        domain:  function(self){
+            return [
+                ['sale_ok','=',true],
+                ['available_in_pos','=',true],
+            ];},
+        context: function(self){
+            return {
+                pricelist: self.pricelist.id,
+                display_default_code: false,
+            };},
+        loaded: function(self, templates){
+             self.db.add_templates(templates);
+        },
+    },
+    {
+        model: 'product.attribute',
+        fields: [
+            'name',
+            'value_ids',
+        ],
+        loaded: function(self, attributes){
+             self.db.add_product_attributes(attributes);
+        },
+    },
+    {
+        model: 'product.attribute.value',
+        fields: [
+            'name',
+            'attribute_id',
+        ],
+        loaded: function(self, values){
+             self.db.add_product_attribute_values(values);
+        },
+    });
 
 });
