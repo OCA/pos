@@ -41,20 +41,19 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         }
     });
     screens.ProductListWidget.include({
-        /* ************************************************
-        Overload: 'set_product_list'
 
-        'set_product_list' is a function called before displaying Products.
-        (at the beginning, after a category selection, after a research, etc. 
-        we just splice all products that are not the 'primary variant'
-        */
         set_product_list: function(product_list) {
-            for (var i = product_list.length - 1; i >= 0; i--){
-                if (!product_list[i].is_primary_variant){
-                    product_list.splice(i, 1);
-                }
-            }
-            this._super(product_list);
+            /* ************************************************
+            Overload: 'set_product_list'
+
+            'set_product_list' is a function called before displaying Products.
+            (at the beginning, after a category selection, after a research, etc.
+            we just remove all products that are not the 'primary variant'
+            */
+            var list = product_list.filter(function(product) {
+                return product.is_primary_variant;
+            });
+            this._super(list);
         },
         
         render_product: function(product){
