@@ -1,6 +1,7 @@
 /* Copyright (C) 2014-Today Akretion (https://www.akretion.com) 
     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
     @author Navarromiguel (https://github.com/navarromiguel)
+    @author Raphaël Reverdy (https://www.akretion.com)
     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 */
 
@@ -64,7 +65,13 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 return this._super(product);
             }
             if (!product.is_primary_variant) {
-                //TODO: workaround merdique
+                //because screens.js:556: renderElement is called
+                //once before set_product_list
+                //So we get product.is_primary_variant
+                //which are not to be displayed
+                //
+                //Here we return mock element for
+                //products which will not be displayed
                 return document.createElement('div');
             }
             //TODO reuse upper function
@@ -197,14 +204,13 @@ odoo.define("pos_product_template.pos_product_template", function(require){
 
         reset_filter: function(attribute_id){
             if (attribute_id in this.filters){
-                //TODO ! Remplace it with splice
                 delete this.filters[attribute_id];
             }
             this.filter_variant();
         },
 
         filter_variant: function(){
-            var value_list = []
+            var value_list = [];
             for (var item in this.filters){
                 value_list.push(parseInt(this.filters[item]));
             }
