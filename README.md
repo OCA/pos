@@ -19,6 +19,7 @@ addon | version | summary
 [pos_customer_display](pos_customer_display/) | 10.0.1.0.1 | Manage Customer Display device from POS front end
 [pos_default_empty_image](pos_default_empty_image/) | 10.0.1.0.0 | Optimize loading time for products without image
 [pos_default_payment_method](pos_default_payment_method/) | 10.0.1.0.0 | POS Default payment mehotd
+[pos_fix_search_limit](pos_fix_search_limit/) | 10.0.1.0.0 | Increase search in the PoS
 [pos_lot_selection](pos_lot_selection/) | 10.0.1.0.0 | POS Lot Selection
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
 [pos_margin](pos_margin/) | 10.0.1.0.0 | Margin on PoS Order
