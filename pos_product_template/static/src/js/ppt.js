@@ -540,5 +540,9 @@ odoo.define("pos_product_template.pos_product_template", function(require){
              self.db.add_product_attribute_values(values);
         },
     });
-
+    return {
+        'SelectVariantPopupWidget': SelectVariantPopupWidget,
+        'VariantListWidget': VariantListWidget,
+        'AttributeListWidget': AttributeListWidget,
+    };
 });
