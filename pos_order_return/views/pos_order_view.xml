@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- Copyright 2016-2018 Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).-->
+
+<odoo>
+
+    <record id="action_pos_partial_return_wizard" model="ir.actions.act_window">
+        <field name="name">Partial Return Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.partial.return.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="view_pos_order_form" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <button name="refund" position="attributes">
+                <attribute name="attrs">{'invisible':['|', ('state','=','draft'), ('returned_order_id', '!=', False)]}</attribute>
+            </button>
+            <button name="refund" position="after">
+                <button name="%(action_pos_partial_return_wizard)d" string="Partial Return" type="action"
+                    attrs="{'invisible':['|', ('state','=','draft'), ('returned_order_id', '!=', False)]}"/>
+            </button>
+            <notebook>
+                <page string="Refund" attrs="{'invisible':[('returned_order_id', '=', False), ('refund_order_qty', '=', 0)]}">
+                    <field name="returned_order_id" attrs="{'invisible':[('returned_order_id', '=', False)]}"/>
+                    <field name="refund_order_ids" attrs="{'invisible':[('refund_order_qty', '=', 0)]}"/>
+                    <field name="refund_order_qty" invisible="1"/>
+                </page>
+            </notebook>
+            <xpath expr="//field[@name='lines']/form/group" position="after">
+                <group col="4" string="Refund">
+                    <field name="returned_line_id" colspan="4"/>
+                    <field name="refund_line_ids" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_line_form" model="ir.ui.view">
+        <field name="model">pos.order.line</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_line_form"/>
+        <field name="arch" type="xml">
+            <group position="after">
+                <group col="4" string="Refund">
+                    <field name="returned_line_id" colspan="4"/>
+                    <field name="refund_line_ids" />
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
