@@ -1,10 +1,10 @@
-.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
-   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+   :target: https://www.gnu.org/licenses/agpl
    :alt: License: AGPL-3
 
-==================
-PoS - Return Order
-==================
+================
+PoS Order Return
+================
 
 This module extends the functionality of odoo Point Of Sale about POS Order
 returns.
@@ -15,46 +15,48 @@ one.
 A link is created between the returned Order and the initial Order.
 A link is created between the returned Order Line and the initial Order Line.
 
-Implemented Features
-====================
+Usage
+=====
 
-* A wizard that allow to select just some products to return:
+Select an PoS Order an choose either *Return Products* (full return of the
+order) or *Partial Return*. In this case, a wizard allows to select just some
+products and quantities to return:
 
-.. image:: /pos_return_order/static/description/partial_return_wizard.png
+.. image:: /pos_order_return/static/description/partial_return_wizard.png
+
+Register the refund payment to finish the return. If the original order was
+invoiced, a refund invoice will be made.
 
 Implemented Constraints
-=======================
+-----------------------
 
 * User can not return more products than the initial quantity:
 
-.. image:: /pos_return_order/static/description/returned_qty_over_initial.png
+.. image:: /pos_order_return/static/description/returned_qty_over_initial.png
 
 * If a line has been partially refund, only a reduced quantity can be returned:
 
-.. image:: /pos_return_order/static/description/sum_returned_qty_over_initial.png
+.. image:: /pos_order_return/static/description/sum_returned_qty_over_initial.png
 
 * It is not possible to set a negative quantity if the initial Pos Order is
   not indicated:
 
-.. image:: /pos_return_order/static/description/initial_pos_order_required.png
+.. image:: /pos_order_return/static/description/initial_pos_order_required.png
 
 Configuration
 =============
 
-In some case, you want to let the possibility to allow negative quantity
+In some cases, you may want to let the possibility to allow negative quantity
 in a PoS Order, without mentioning initial order. This can happen for special
-products like returnable products, ...
+products like returnable products, etc.
 
 In that case, a checkbox is possible on Product Form View to allow such case
 
-.. image:: /pos_return_order/static/description/product_returnable_bottle.png
-
-Usage
-=====
+.. image:: /pos_order_return/static/description/product_returnable_bottle.png
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/184/9.0
+   :target: https://runbot.odoo-community.org/runbot/184/10.0
 
 Bug Tracker
 ===========
@@ -71,6 +73,7 @@ Contributors
 ------------
 
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
+* David Vidal <david.vidal@tecnativa.com>
 
 Funders
 -------
