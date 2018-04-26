@@ -11,5 +11,30 @@
                 </field>
             </field>
         </record>
+        <record id="view_product_pricelist_form_inherit_pos" model="ir.ui.view">
+            <field name="name">product.pricelist.form.inherit.pos</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='type']" position="after">
+                        <field name="pos_config_ids" attrs="{'invisible': [('type','!=','sale')]}" widget="many2many_tags"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        
+        <record id="view_product_pricelist_tree_inherit_pos" model="ir.ui.view">
+            <field name="name">product.pricelist.tree.inherit.pos</field>
+            <field name="model">product.pricelist</field>
+            <field name="inherit_id" ref="product.product_pricelist_view_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='type']" position="after">
+                        <field name="pos_config_ids" widget="many2many_tags"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
     </data>
 </openerp>
