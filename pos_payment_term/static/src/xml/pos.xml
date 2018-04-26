@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim:fdl=1:
+-->
+<templates id="template" xml:space="preserve">
+    <t t-extend="Paymentline">
+        <t t-jquery="div.paymentline-name" t-operation="after">
+            <select class="paymentline-input payment_term" name="payment-terms">
+                <option value="">None</option>
+                <t t-foreach='widget.pos.payment_terms' t-as='payment_term'>
+                    <option t-att-value='payment_term.id'>
+                        <t t-esc='payment_term.name'/>
+                    </option>
+                </t>
+            </select>
+        </t>
+    </t>
+</templates>

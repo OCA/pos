@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_pos_payment_term_account_journal_form" model="ir.ui.view">
+            <field name="name">pos_payment_term_account.journal.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <notebook>
+					<page string="Condições de Pagamento">
+						<group>
+							<field name="payment_term_ids"/>
+						</group>
+					</page>
+				</notebook>
+            </field>
+        </record>
+    </data>
+</openerp>
