@@ -18,6 +18,10 @@
 ##############################################################################
 from openerp import models, fields
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 
 class PosPriceListConfig(models.Model):
     _inherit = 'pos.config'
@@ -26,3 +30,12 @@ class PosPriceListConfig(models.Model):
         string='Price With Taxes',
         help="Display Prices with taxes on POS"
     )
+
+
+class product_pricelist(models.Model):
+    _inherit = 'product.pricelist'
+
+    pos_config_ids = fields.Many2many(
+        'pos.config', 'pricelist_posconfig_rel',
+        'pricelist_id', 'pos_id', string='PoS',
+        help='if empty will be available for all the pos')

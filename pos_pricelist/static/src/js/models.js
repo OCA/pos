@@ -725,11 +725,17 @@ function pos_pricelist_models(instance, module) {
                         'name',
                         'version_id',
                         'currency_id'],
-                    domain: function () {
+                    domain: function (self) {
                         return [
-                            ['type', '=', 'sale']
+                            '|',
+                            '|',
+                            ['id', '=', self.config.pricelist_id[0]],
+                            ['pos_config_ids', '=', false],
+                            ['pos_config_ids', 'in', [self.config.id]],
+                            ['type', '=', 'sale'],
                         ]
                     },
+                    context: function(self){ return { pos_config_id: self.config.id }; },
                     loaded: function (self, pricelists) {
                         self.db.add_pricelists(pricelists);
                     }
@@ -741,7 +747,12 @@ function pos_pricelist_models(instance, module) {
                         'date_start',
                         'date_end',
                         'items'],
-                    domain: null,
+                    domain: function (self) {
+                        var pricelist_ids = _.map(_.keys(self.db.pricelist_by_id), function(el){return parseInt(el)});
+                        return [
+                            ['pricelist_id', 'in', pricelist_ids]
+                        ]
+                    },
                     loaded: function (self, versions) {
                         self.db.add_pricelist_versions(versions);
                     }
@@ -763,7 +774,12 @@ function pos_pricelist_models(instance, module) {
                         'product_tmpl_id',
                         'sequence'
                     ],
-                    domain: null,
+                    domain: function (self) {
+                        var version_ids = _.map(_.keys(self.db.pricelist_version_by_id), function (el){return parseInt(el);});
+                        return [
+                            ['price_version_id', 'in', version_ids]
+                        ];
+                    },
                     loaded: function (self, items) {
                         self.db.add_pricelist_items(items);
                     }
