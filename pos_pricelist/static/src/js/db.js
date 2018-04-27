@@ -15,9 +15,12 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-function pos_pricelist_db(instance, module) {
+odoo.define('pos_pricelist.DB', function (require) {
+    "use strict";
 
-    module.PosDB = module.PosDB.extend({
+    var PosDB = require('point_of_sale.DB');
+
+    PosDB = PosDB.extend({
         init: function (options) {
             options = options || {};
             this._super(options);
@@ -43,16 +46,6 @@ function pos_pricelist_db(instance, module) {
                     = fiscal_position_tax;
             }
         },
-        add_pricelist_partnerinfo: function (pricelist_partnerinfos) {
-            if (!(pricelist_partnerinfos instanceof Array)) {
-                pricelist_partnerinfos = [pricelist_partnerinfos];
-            }
-            var partner_info;
-            while (partner_info = pricelist_partnerinfos.pop()) {
-                this.pricelist_partnerinfo_by_id[partner_info.id]
-                    = partner_info;
-            }
-        },
         add_supplierinfo: function (supplierinfos) {
             if (!(supplierinfos instanceof Array)) {
                 supplierinfos = [supplierinfos];
@@ -71,15 +64,6 @@ function pos_pricelist_db(instance, module) {
                 this.pricelist_by_id[pricelist.id] = pricelist;
             }
         },
-        add_pricelist_versions: function (versions) {
-            if (!(versions instanceof Array)) {
-                versions = [versions];
-            }
-            var version;
-            while (version = versions.pop()) {
-                this.pricelist_version_by_id[version.id] = version;
-            }
-        },
         add_pricelist_items: function (items) {
             if (!(items instanceof Array)) {
                 items = [items];
@@ -89,15 +73,6 @@ function pos_pricelist_db(instance, module) {
                 this.pricelist_item_by_id[item.id] = item;
             }
             this.pricelist_item_sorted = this._items_sorted();
-        },
-        add_price_types: function (price_types) {
-            if (!(price_types instanceof Array)) {
-                price_types = [price_types];
-            }
-            var ptype;
-            while (ptype = price_types.pop()) {
-                this.product_price_type_by_id[ptype.id] = ptype;
-            }
         },
         add_product_categories: function (categories) {
             if (!(categories instanceof Array)) {
@@ -136,6 +111,8 @@ function pos_pricelist_db(instance, module) {
                 if (a.sequence > b.sequence) return 1;
                 if (a.min_quantity > b.min_quantity) return -1;
                 if (a.min_quantity < b.min_quantity) return 1;
+                if (parseInt(a.applied_on[0]) < parseInt(b.applied_on[0])) return -1;
+                if (parseInt(a.applied_on[0]) > parseInt(b.applied_on[0])) return 1;
                 return 0;
             });
             return list;
@@ -160,36 +137,22 @@ function pos_pricelist_db(instance, module) {
             }
             return taxes;
         },
-        add_products: function (products) {
-            this._super(products);
-            var pos = posmodel.pos_widget.pos;
-            for (var id in this.product_by_id) {
-                if (this.product_by_id.hasOwnProperty(id)) {
-                    var product = this.product_by_id[id];
-                    var orderline = new openerp.point_of_sale.Orderline({}, {
-                        pos: pos,
-                        order: null,
-                        product: product,
-                        price: product.price
-                    });
-                    var prices = orderline.get_all_prices();
-                    this.product_by_id[id].price_with_taxes
-                        = prices['priceWithTax']
-                }
-            }
-        },
         find_product_rules: function (product) {
             var len = this.pricelist_item_sorted.length;
             var rules = [];
             for (var i = 0; i < len; i++) {
                 var rule = this.pricelist_item_sorted[i];
-                if ((rule.product_id && rule.product_id[0] == product.id) ||
-                    (rule.categ_id && product.categ_id
-                    && rule.categ_id[0] == product.categ_id[0])) {
+                if (
+                    (rule.product_id && rule.product_id[0] == product.id)
+                    || (rule.product_tmpl_id && rule.product_tmpl_id[0] == product.product_tmpl_id)
+                    || (rule.categ_id && product.categ_id && rule.categ_id[0] == product.categ_id[0])
+                ) {
                     rules.push(rule);
                 }
             }
             return rules;
         }
-    })
-}
+    });
+
+    return PosDB;
+});

@@ -42,16 +42,17 @@ class PosOrderLine(models.Model):
     @api.multi
     def _compute_taxes(self):
         res = {
-            'total': 0,
+            'total_excluded': 0,
             'total_included': 0,
             'taxes': [],
         }
         for line in self:
             price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
             taxes = line.tax_ids.compute_all(
-                price, line.qty, product=line.product_id,
+                price, quantity=line.qty, product=line.product_id,
                 partner=line.order_id.partner_id)
-            res['total'] += taxes['total']
+            # res['total'] += taxes['total']
+            res['total_excluded'] += taxes['total_excluded']
             res['total_included'] += taxes['total_included']
             res['taxes'] += taxes['taxes']
         return res
@@ -61,7 +62,7 @@ class PosOrderLine(models.Model):
                  'product_id', 'discount', 'order_id.partner_id')
     def _amount_line_all(self):
         taxes = self._compute_taxes()
-        self.price_subtotal = taxes['total']
+        self.price_subtotal = taxes['total_excluded']
         self.price_subtotal_incl = taxes['total_included']
 
     tax_ids = fields.Many2many(
@@ -78,10 +79,10 @@ class PosOrder(models.Model):
                             inverse_name='pos_order', readonly=True)
 
     @api.model
-    def _amount_line_tax(self, line):
+    def _amount_line_tax(self, line, context=None):
         price = line.price_unit * (1 - (line.discount or 0.0) / 100.0)
         taxes = line.tax_ids.compute_all(
-            price, line.qty, product=line.product_id,
+            price, quantity=line.qty, product=line.product_id,
             partner=line.order_id.partner_id)['taxes']
         val = 0.0
         for c in taxes:
@@ -141,6 +142,8 @@ class PosOrder(models.Model):
                     })
         if taxes_to_delete:
             taxes_to_delete.unlink()
+        
+        return []
 
     @api.multi
     def action_paid(self):

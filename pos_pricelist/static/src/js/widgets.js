@@ -15,24 +15,32 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  ******************************************************************************/
-function pos_pricelist_widgets(instance, module) {
+odoo.define('pos_pricelist.widgets', function (require) {
+	"use strict";
 
-    var round_di = instance.web.round_decimals;
+	var screens = require('point_of_sale.screens');
+	var PosBaseWidget = require('point_of_sale.BaseWidget');
+	var models = require('pos_pricelist.models');
+	var core = require('web.core');
+	var utils = require('web.utils');
+	var formats = require('web.formats');
 
-    module.OrderWidget = module.OrderWidget.extend({
+    var round_di = utils.round_decimals;
+
+    screens.OrderWidget.include({
         set_value: function (val) {
             this._super(val);
             var order = this.pos.get('selectedOrder');
-            if (this.editable && order.getSelectedLine()) {
+            if (!order.finalized && order.get_selected_orderline()) {
                 var mode = this.numpad_state.get('mode');
                 if (mode === 'price') {
-                    order.getSelectedLine().set_manual_price(true);
+                    order.get_selected_orderline().set_manual_price(true);
                 }
             }
         }
     });
 
-    module.OrderButtonWidget = module.OrderButtonWidget.extend({
+    screens.ActionButtonWidget = screens.ActionButtonWidget.extend({
         selectOrder: function (event) {
             this._super(event);
             var partner = this.order.get_client()
@@ -42,17 +50,17 @@ function pos_pricelist_widgets(instance, module) {
         }
     });
 
-    instance.point_of_sale.ProductListWidget.include({
+    screens.ProductListWidget.include({
         init: function (parent, options) {
             this._super(parent, options);
-            this.display_price_with_taxes = false;
+            this.iface_tax_included = false;
             if (
                 posmodel
                 && posmodel.config
-                && posmodel.config.display_price_with_taxes
+                && posmodel.config.iface_tax_included
             ) {
-                this.display_price_with_taxes
-                    = posmodel.config.display_price_with_taxes
+                this.iface_tax_included
+                    = posmodel.config.iface_tax_included
             }
         },
         renderElement: function () {
@@ -66,7 +74,7 @@ function pos_pricelist_widgets(instance, module) {
         }
     });
 
-    module.PosBaseWidget.include({
+    PosBaseWidget.include({
         format_pr: function(amount, precision) {
             // Do not call _super because no addon or XML is using this method
             var currency = (this.pos && this.pos.currency) ? this.pos.currency : {symbol:'$', position: 'after', rounding: 0.01, decimals: 2};
@@ -78,10 +86,11 @@ function pos_pricelist_widgets(instance, module) {
 
             if (typeof amount === 'number') {
                 amount = round_di(amount,decimals).toFixed(decimals);
-                amount = openerp.instances[this.session.name].web.format_value(round_di(amount, decimals), { type: 'float', digits: [69, decimals]});
+                amount = formats.format_value(round_di(amount, decimals), { type: 'float', digits: [69, decimals]});
             }
             return amount
         }
     });
-}
 
+	return screens;
+});
