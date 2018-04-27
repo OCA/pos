@@ -19,6 +19,7 @@ addon | version | summary
 [pos_empty_home](pos_empty_home/) | 9.0.1.0.0 | Hide products at the start of the Point of Sale
 [pos_price_to_weight](pos_price_to_weight/) | 9.0.1.0.0 | Compute weight based on barcodes with prices
 [pos_quick_logout](pos_quick_logout/) | 9.0.1.0.0 | Allow PoS user to logout quickly after user changed
+[pos_return_order](pos_return_order/) | 9.0.1.0.0 | Point of Sale Return Order
 [pos_session_summary](pos_session_summary/) | 9.0.1.0.0 | Point of Sale - Total of transactions and Orders Quantity
 
 
