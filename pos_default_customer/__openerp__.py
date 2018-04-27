@@ -18,10 +18,12 @@
 
 {
     'name': 'Point of Sale Default Customer',
-    'version': '8.0.0.1',
+    'summary': 'Default Customer in Point of Sale config',
+    'version': '8.0.1.0.0',
+	'website': 'https://github.com/OCA/pos',
     'category': 'Point Of Sale',
-    'summary': 'Point of Sale Default Customer',
-    'author': 'Digital5 S.L.',
+    'author': 'Digital5 S.L., Odoo Community Association (OCA)',
+	'license': 'AGPL-3',
     'images': [],
     'depends': ['point_of_sale'],
     'data': [
