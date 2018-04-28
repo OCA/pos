@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo10-addon-pos_payment_terminal',
         'odoo10-addon-pos_price_to_weight',
         'odoo10-addon-pos_pricelist',
+        'odoo10-addon-pos_product_template',
         'odoo10-addon-pos_quick_logout',
         'odoo10-addon-pos_remove_pos_category',
         'odoo10-addon-pos_session_pay_invoice',
