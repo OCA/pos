@@ -39,15 +39,15 @@ class SaleOrder(models.Model):
             qty=line_data['qty'],
             partner_id=sale_order_data['partner_id'])['value']
         res.update({
-            'product_id':       line_data['product_id'],
-            'product_uom_qty':  line_data['qty'],
-            'discount':         line_data['discount'],
-            'tax_id':           [(6, False, res['tax_id'])],
+            'product_id': line_data['product_id'],
+            'product_uom_qty': line_data['qty'],
+            'discount': line_data['discount'],
+            'tax_id': [(6, False, res['tax_id'])],
         })
         if self.env.context.get('is_pos_pricelist'):
             res.update({
-            'price_unit':       line_data['price_unit'],
-            'tax_id':           line_data['tax_ids'],
+                'price_unit': line_data['price_unit'],
+                'tax_id': line_data['tax_ids'],
             })
         return res
 
