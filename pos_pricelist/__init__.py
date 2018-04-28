@@ -7,4 +7,4 @@ try:
 except ImportError:  # pragma: no-cover
     import logging
     _logger = logging.getLogger(__name__)
-    _logger.warn("Missing dependency", exc_info=True)
+    _logger.debug("Missing dependency", exc_info=True)
