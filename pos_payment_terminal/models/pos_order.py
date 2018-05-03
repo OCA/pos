@@ -16,6 +16,9 @@ class PosOrder(models.Model):
     def _match_transactions_to_payments(self, pos_order):
         payments = pos_order['statement_ids']
         transactions = pos_order['transactions']
+        pos_session = self.env['pos.session'].browse(
+            pos_order['pos_session_id'])
+        currency_digits = pos_session.currency_id.decimal_places
         card_journals = self.env['account.journal'].search([
             ('id', 'in', [p[2]['journal_id'] for p in payments]),
             ('payment_mode', '!=', False),
@@ -27,7 +30,7 @@ class PosOrder(models.Model):
             if 'amount_cents' in obj:
                 return obj['amount_cents']
             else:
-                return int(round(obj['amount'] * 100))
+                return int(round(obj['amount'] * pow(10, currency_digits)))
 
         try:
             for payment, transaction in match(card_payments, transactions,
