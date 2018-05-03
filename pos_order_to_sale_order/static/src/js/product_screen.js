@@ -19,6 +19,7 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
             this.init_listeners();
             this.init_config();
             this.init_buttons();
+            stateMachine.init();
         },
         init_listeners: function() {
             var self = this;

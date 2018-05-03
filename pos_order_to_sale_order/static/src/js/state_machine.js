@@ -21,6 +21,10 @@ odoo.define('pos_order_to_sale_order.state_machine', function (require) {
             var next = {
                 name: target
             };
+            if (this.allowedStates.indexOf(target) == -1) {
+                // don't enter in a disallowed state
+                return this.exit(target);
+            }
             if (target == 'draft' ) {
                 next.isPayable = false && this.allowPayment;
                 next.isPosOrder = false;
@@ -51,7 +55,7 @@ odoo.define('pos_order_to_sale_order.state_machine', function (require) {
                 //confirmed is not allowed, fallback to something else.
                 possibles = this.allowedStates.filter(function (state) {
                     return state != target;
-                }); //possibles = allowedStates - target - order
+                }); //possibles = allowedStates - target - confirmed
                 fallback = possibles.shift(); //take first
             }
             map = {
@@ -75,9 +79,13 @@ odoo.define('pos_order_to_sale_order.state_machine', function (require) {
             this.listeners.forEach(function (cb) {
                 cb(this.current, prev);
             }, this);
+        },
+        init: function() {
+            //will goes to poso if available
+            //or fall back to confirmed
+            this.exit('confirmed');
         }
     };
 
-    window.stateMachine = stateMachine;
     return stateMachine;
 });

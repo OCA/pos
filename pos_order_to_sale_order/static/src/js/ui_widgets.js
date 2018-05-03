@@ -32,8 +32,8 @@ odoo.define('pos_order_to_sale_order.ui_widgets', function (require) {
         //switch between Draft SO (=Quotation) and something else
         template: 'PayLaterButtonWidget',
         init: function (parent, options) {
-            this._super(parent, options);
             var self = this;
+            this._super(parent, options);
             stateMachine.listeners.push(function (next, prev) {
                 self.renderElement();
             });
