@@ -38,16 +38,13 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
 
                     var transactions = drivers[driver_name].latest_transactions;
                     if(!!transactions && transactions.hasOwnProperty(order.uid)) {
+                        var previous_transactions = order.transactions;
                         order.transactions = transactions[order.uid];
-
-                        var order_total = Math.round(order.get_total_with_tax() * 100.0);
-                        var paid_total = order.transactions.map(function(t) {
-                            return t.amount_cents;
-                        }).reduce(function add(a, b) {
-                            return a + b;
-                        }, 0);
-
-                        if(order_total === paid_total) {
+                        var has_new_transactions = (
+                            !previous_transactions ||
+                            previous_transactions.length < order.transactions.length
+                        );
+                        if(has_new_transactions && order.is_paid()) {
                             paymentwidget.validate_order();
                         }
                     }
