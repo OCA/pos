@@ -124,6 +124,7 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
             return res;
         },
         validate_order: function(force_validation) {
+            var self = this;
             // use our flow only if sale order
             if (stateMachine.current.isPosOrder) {
                 return this._super(force_validation);
@@ -134,7 +135,7 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
                     'title': _t('Please select the Customer'),
                     'body': _t('You need to select the customer before you can invoice an order.'),
                     confirm: function(){
-                        this.gui.show_screen('clientlist');
+                        self.click_set_customer();
                     },
                 });
                 return false;
