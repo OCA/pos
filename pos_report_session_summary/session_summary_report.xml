@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<odoo>
+    <report
+        id="action_report_pos_session_summary"
+        string="Session Summary"
+        model="pos.session"
+        report_type="qweb-pdf"
+        name="pos_report_session_summary.report_session_summary"
+        file="pos_report_session_summary.report_session_summary"
+    />
+</odoo>
