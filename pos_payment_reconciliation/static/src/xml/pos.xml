@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vim:fdl=1:
+-->
+<templates id="template" xml:space="preserve">
+    <t t-extend="Paymentline">
+        <t t-jquery="span.paymentline-delete" t-operation="after">
+            <t t-if="line.cashregister.journal.pos_payment_card_reconciliation">
+                Bandeira: <input class='paymentline-input payment-flag' />
+                Autorizaçao: <input class='paymentline-input payment-authorization' />
+                DOC: <input class='paymentline-input payment-doc' />
+            </t>
+            <t t-if="!line.cashregister.journal.pos_payment_card_reconciliation">
+                <input type="hidden" class='paymentline-input payment-flag' />
+                <input type="hidden" class='paymentline-input payment-authorization' />
+                <input type="hidden" class='paymentline-input payment-doc' />
+            </t>
+        </t>
+    </t>
+</templates>
