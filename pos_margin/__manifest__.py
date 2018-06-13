@@ -11,6 +11,7 @@
     'author': "GRAP,"
               "Odoo Community Association (OCA)",
     'summary': 'Margin on PoS Order',
+    'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
     ],
