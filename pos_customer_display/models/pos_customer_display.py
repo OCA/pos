@@ -32,12 +32,12 @@ class PosConfig(models.Model):
         help="Bottom line of the message on the customer display which "
         "is displayed when POS is closed")
 
-    @api.one
     @api.constrains(
         'customer_display_line_length',
         'customer_display_msg_next_l1', 'customer_display_msg_next_l2',
         'customer_display_msg_closed_l1', 'customer_display_msg_closed_l2')
     def _check_customer_display_length(self):
+        self.ensure_one()
         if self.customer_display_line_length:
             maxsize = self.customer_display_line_length
             to_check = {
