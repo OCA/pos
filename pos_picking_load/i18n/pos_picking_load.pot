@@ -1,23 +1,17 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_picking_load
+#	* pos_picking_load
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2017-07-13 03:00+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: Spanish (Ecuador) (https://www.transifex.com/oca/teams/23907/"
-"es_EC/)\n"
-"Language: es_EC\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -44,7 +38,7 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:22
 #, python-format
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
 
 #. module: pos_picking_load
 #. openerp-web
@@ -69,9 +63,7 @@ msgstr ""
 
 #. module: pos_picking_load
 #: help:stock.picking.type,available_in_pos:0
-msgid ""
-"If checked, associated pickings will be available in the point of sale, to "
-"be changed and paid in it"
+msgid "If checked, associated pickings will be available in the point of sale, to be changed and paid in it"
 msgstr ""
 
 #. module: pos_picking_load
@@ -91,7 +83,7 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:49
 #, python-format
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #. module: pos_picking_load
 #: field:pos.order,origin_picking_id:0
@@ -161,18 +153,14 @@ msgstr ""
 
 #. module: pos_picking_load
 #: help:stock.picking,final_pos_order_id:0
-msgid ""
-"This picking has been canceled, because it has been replaced by this PoS "
-"Order"
+msgid "This picking has been canceled, because it has been replaced by this PoS Order"
 msgstr ""
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:228
 #, python-format
-msgid ""
-"Unable to load some picking lines because the products are not available in "
-"the POS cache.\n"
+msgid "Unable to load some picking lines because the products are not available in the POS cache.\n"
 "\n"
 "Please check that lines :\n"
 "\n"
@@ -183,9 +171,7 @@ msgstr ""
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:239
 #, python-format
-msgid ""
-"Unable to load this picking because the partner is not known in the Point Of "
-"Sale as a customer"
+msgid "Unable to load this picking because the partner is not known in the Point Of Sale as a customer"
 msgstr ""
 
 #. module: pos_picking_load
@@ -201,3 +187,4 @@ msgstr ""
 #, python-format
 msgid "Unknown Products"
 msgstr ""
+
