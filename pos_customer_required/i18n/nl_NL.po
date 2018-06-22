@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_customer_required
-# 
+#
 # Translators:
 msgid ""
 msgstr ""
@@ -10,11 +10,12 @@ msgstr ""
 "POT-Creation-Date: 2016-05-01 05:28+0000\n"
 "PO-Revision-Date: 2016-04-06 15:47+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-pos-8-0/language/nl_NL/)\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/oca/OCA-pos-8-0/"
+"language/nl_NL/)\n"
+"Language: nl_NL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_customer_required
@@ -42,7 +43,9 @@ msgstr "Klant is vereist voor deze order en ontbreekt"
 msgid ""
 "Please select a client for this order. This can be done by clicking the "
 "order tab"
-msgstr "Selecteer een klant voor dit order. Dit kan gedaan worden door te klikken op de tab bestelling"
+msgstr ""
+"Selecteer een klant voor dit order. Dit kan gedaan worden door te klikken op "
+"de tab bestelling"
 
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
