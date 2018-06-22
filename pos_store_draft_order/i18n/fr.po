@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_store_draft_order
+# 	* pos_store_draft_order
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2015-10-19 11:47+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -22,10 +23,17 @@ msgstr "Autoriser les ardoises"
 
 #. module: pos_store_draft_order
 #: help:pos.config,allow_store_draft_order:0
-msgid "If you check this field,  users will have the possibility to let some PoS orders in a draft state, and allow the customer to paid later.\n"
-"Order in a draft state will not generate entries during the close of the session."
-msgstr "Si vous cochez cette case, les utilisateurs auront la possibilité de laisser certaines ventes à l'état de brouillon, et autorisera le client à payer plus tard.\n"
-"Ces ventes à l'état de brouillon ne génèrent pas d'écritures comptables lors de la clôture de la session."
+msgid ""
+"If you check this field,  users will have the possibility to let some PoS "
+"orders in a draft state, and allow the customer to paid later.\n"
+"Order in a draft state will not generate entries during the close of the "
+"session."
+msgstr ""
+"Si vous cochez cette case, les utilisateurs auront la possibilité de laisser "
+"certaines ventes à l'état de brouillon, et autorisera le client à payer plus "
+"tard.\n"
+"Ces ventes à l'état de brouillon ne génèrent pas d'écritures comptables lors "
+"de la clôture de la session."
 
 #. module: pos_store_draft_order
 #: field:pos.order,is_partial_paid:0
@@ -40,9 +48,20 @@ msgstr "Point de Vente"
 #. module: pos_store_draft_order
 #: code:addons/pos_store_draft_order/model/pos_session.py:63
 #, python-format
-msgid "You cannot confirm this session, because '%s' is still in 'draft' state with associated payments.\n"
+msgid ""
+"You cannot confirm this session, because '%s' is still in 'draft' state with "
+"associated payments.\n"
 "\n"
 " Please finish to pay this Order first."
-msgstr "Vous ne pouvez pas fermer cette session car '%s' est en brouillon avec des paiments.\n"
+msgstr ""
+"Vous ne pouvez pas fermer cette session car '%s' est en brouillon avec des "
+"paiments.\n"
 "\n"
 "Merci de compléter les paiments."
+
+#. module: pos_store_draft_order
+#: view:pos.order:pos_store_draft_order.pos_order_view_form
+msgid ""
+"red: is_partial_paid==True; blue: state=='draft'; gray: state in "
+"('done','cancel'); black: state not in ('done','cancel')"
+msgstr ""
