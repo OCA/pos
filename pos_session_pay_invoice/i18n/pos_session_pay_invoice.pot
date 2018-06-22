@@ -1,34 +1,27 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_session_pay_invoice
+#	* pos_session_pay_invoice
 #
-# Translators:
-# Francesco Fresta <franco.fresta@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: Francesco Fresta <franco.fresta@gmail.com>, 2018\n"
-"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
-"Language: it\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: \n"
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
-msgid ""
-"<span class=\"o_stat_text\">Collect Payment</span>\n"
+msgid "<span class=\"o_stat_text\">Collect Payment</span>\n"
 "                        <span class=\"o_stat_text\">from Invoice</span>"
 msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
-msgid ""
-"<span class=\"o_stat_text\">Pay</span>\n"
+msgid "<span class=\"o_stat_text\">Pay</span>\n"
 "                        <span class=\"o_stat_text\">Invoice</span>"
 msgstr ""
 
@@ -43,7 +36,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
 msgid "Pay invoice"
-msgstr "Paga la fattura"
+msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
@@ -59,9 +52,10 @@ msgstr ""
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
 msgid "cash.invoice.in"
-msgstr "cash.invoice.in"
+msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_out
 msgid "cash.invoice.out"
 msgstr ""
+
