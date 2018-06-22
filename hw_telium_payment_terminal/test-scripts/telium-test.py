@@ -30,7 +30,7 @@ import pycountry
 
 DEVICE = '/dev/ttyACM0'
 DEVICE_RATE = 9600
-PAYMENT_MODE = 'card'  # 'card' ou 'check'
+PAYMENT_MODE = 'card'  # 'card' or 'check'
 CURRENCY_ISO = 'EUR'
 AMOUNT = 12.42
 
