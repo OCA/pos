@@ -1,33 +1,26 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_default_empty_image
+#	* pos_default_empty_image
 #
-# Translators:
-# abdullah alsabi <alsabi.abdullah@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-17 05:46+0000\n"
-"PO-Revision-Date: 2017-06-17 05:46+0000\n"
-"Last-Translator: abdullah alsabi <alsabi.abdullah@gmail.com>, 2017\n"
-"Language-Team: Arabic (https://www.transifex.com/oca/teams/23907/ar/)\n"
-"Language: ar\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: \n"
 
 #. module: pos_default_empty_image
 #: field:product.product,available_in_pos:0
 msgid "Available in the Point of Sale"
-msgstr "متوفر في نقاط البيع"
+msgstr ""
 
 #. module: pos_default_empty_image
 #: help:product.product,to_weight:0
-msgid ""
-"Check if the product should be weighted using the hardware scale integration"
+msgid "Check if the product should be weighted using the hardware scale integration"
 msgstr ""
 
 #. module: pos_default_empty_image
@@ -37,16 +30,12 @@ msgstr ""
 
 #. module: pos_default_empty_image
 #: help:product.product,income_pdt:0
-msgid ""
-"Check if, this is a product you can use to put cash into a statement for the "
-"point of sale backend."
+msgid "Check if, this is a product you can use to put cash into a statement for the point of sale backend."
 msgstr ""
 
 #. module: pos_default_empty_image
 #: help:product.product,expense_pdt:0
-msgid ""
-"Check if, this is a product you can use to take cash from a statement for "
-"the point of sale backend, example: money lost, transfer to bank, etc."
+msgid "Check if, this is a product you can use to take cash from a statement for the point of sale backend, example: money lost, transfer to bank, etc."
 msgstr ""
 
 #. module: pos_default_empty_image
@@ -83,3 +72,4 @@ msgstr ""
 #: field:product.product,to_weight:0
 msgid "To Weigh With Scale"
 msgstr ""
+
