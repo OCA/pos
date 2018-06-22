@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_default_empty_image
-# 
+#
 # Translators:
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
 # OCA Transbot <transbot@odoo-community.org>, 2017
@@ -13,11 +13,12 @@ msgstr ""
 "PO-Revision-Date: 2017-06-10 07:31+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: pos_default_empty_image
 #: field:product.product,available_in_pos:0
@@ -28,8 +29,7 @@ msgstr "Razpoložljivo v prodajni točki"
 #: help:product.product,to_weight:0
 msgid ""
 "Check if the product should be weighted using the hardware scale integration"
-msgstr ""
-"Označite, če naj se proizvod tehta preko integrirane strojne tehtnice."
+msgstr "Označite, če naj se proizvod tehta preko integrirane strojne tehtnice."
 
 #. module: pos_default_empty_image
 #: help:product.product,available_in_pos:0
@@ -39,8 +39,8 @@ msgstr "Označite, če naj se proizvod pojavi v prodajni točki"
 #. module: pos_default_empty_image
 #: help:product.product,income_pdt:0
 msgid ""
-"Check if, this is a product you can use to put cash into a statement for the"
-" point of sale backend."
+"Check if, this is a product you can use to put cash into a statement for the "
+"point of sale backend."
 msgstr ""
 "Označite, če se ta proizvod lahko uporabi za polog gotovine v izpisek za "
 "ozadje prodajne točke."
