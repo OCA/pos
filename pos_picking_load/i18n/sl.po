@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_picking_load
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2017
@@ -13,11 +13,12 @@ msgstr ""
 "PO-Revision-Date: 2017-07-22 00:52+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2017\n"
 "Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -173,13 +174,15 @@ msgstr "Ta zbirnik je bil preklican, ker je bil zamenjan s tem POS nalogom."
 #: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:228
 #, python-format
 msgid ""
-"Unable to load some picking lines because the products are not available in the POS cache.\n"
+"Unable to load some picking lines because the products are not available in "
+"the POS cache.\n"
 "\n"
 "Please check that lines :\n"
 "\n"
 "  * "
 msgstr ""
-"Nekaterih postavk naloga ni bilo mogoče naložiti, ker proizvodi niso na voljo v POS predpomnilniku.\n"
+"Nekaterih postavk naloga ni bilo mogoče naložiti, ker proizvodi niso na "
+"voljo v POS predpomnilniku.\n"
 "\n"
 "Preverite te postavke :\n"
 "\n"
@@ -190,8 +193,8 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:239
 #, python-format
 msgid ""
-"Unable to load this picking because the partner is not known in the Point Of"
-" Sale as a customer"
+"Unable to load this picking because the partner is not known in the Point Of "
+"Sale as a customer"
 msgstr "Tega zbirnika ni mogoče uvoziti, ker partner v POS ni znan kot kupec."
 
 #. module: pos_picking_load
