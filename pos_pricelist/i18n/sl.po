@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_pricelist
-# 
+#
 # Translators:
 # Matjaž Mozetič <m.mozetic@matmoz.si>, 2016-2017
 msgid ""
@@ -11,12 +11,14 @@ msgstr ""
 "POT-Creation-Date: 2018-02-28 18:31+0000\n"
 "PO-Revision-Date: 2017-11-23 23:29+0000\n"
 "Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>\n"
-"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/sl/)\n"
+"Language-Team: Slovenian (http://www.transifex.com/oca/OCA-pos-8-0/language/"
+"sl/)\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: sl\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,amount:0 view:website:point_of_sale.report_receipt
@@ -25,11 +27,10 @@ msgstr "Znesek"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:404
+#: code:addons/pos_pricelist/static/src/js/models.js:422
 #, python-format
 msgid ""
-"At least one pricelist has no active version ! Please create or activate "
-"one."
+"At least one pricelist has no active version ! Please create or activate one."
 msgstr "Vsaj en cenik nima aktivne verzije! Ustvarite jo ali aktivirajte."
 
 #. module: pos_pricelist
@@ -95,6 +96,13 @@ msgid "Lines of Point of Sale"
 msgstr "Postavke prodajne točke"
 
 #. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:46
+#, python-format
+msgid "N/A"
+msgstr ""
+
+#. module: pos_pricelist
 #: field:pos.order.tax,pos_order:0
 msgid "POS Order"
 msgstr "POS nalog"
@@ -120,6 +128,11 @@ msgid "POS Product 4"
 msgstr "POS proizvod 4"
 
 #. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: pos_pricelist
 #: view:pos.order:pos_pricelist.view_pos_pos_form
 msgid "Payments"
 msgstr "Plačila"
@@ -129,6 +142,11 @@ msgstr "Plačila"
 #, python-format
 msgid "Please define income account for this product: \"%s\" (id:%d)."
 msgstr "Določite konto prihodkov za proizvod: \"%s\" (id:%d)."
+
+#. module: pos_pricelist
+#: field:product.pricelist,pos_config_ids:0
+msgid "PoS"
+msgstr ""
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
@@ -142,7 +160,16 @@ msgstr "Cena z davki"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/models.js:403
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:41
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:55
+#: model:ir.model,name:pos_pricelist.model_product_pricelist
+#, fuzzy, python-format
+msgid "Pricelist"
+msgstr "Napaka pri ceniku"
+
+#. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/js/models.js:421
 #, python-format
 msgid "Pricelist Error"
 msgstr "Napaka pri ceniku"
@@ -193,3 +220,8 @@ msgstr "POS nalog mora vsebovati postavke, ko se kliče to metodo"
 #, python-format
 msgid "Trade Receivables"
 msgstr "Trgovske terjatve"
+
+#. module: pos_pricelist
+#: help:product.pricelist,pos_config_ids:0
+msgid "if empty will be available for all the pos"
+msgstr ""

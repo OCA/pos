@@ -1,24 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_pricelist
+#	* pos_pricelist
 #
-# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: pos (8.0)\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-24 11:35+0000\n"
-"PO-Revision-Date: 2017-09-22 22:56+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>\n"
-"Language-Team: Thai (http://www.transifex.com/oca/OCA-pos-8-0/language/th/)\n"
-"Language: th\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: \n"
 
 #. module: pos_pricelist
-#: field:pos.order.tax,amount:0 view:website:point_of_sale.report_receipt
+#: field:pos.order.tax,amount:0
+#: view:website:point_of_sale.report_receipt
 msgid "Amount"
 msgstr ""
 
@@ -26,34 +23,34 @@ msgstr ""
 #. openerp-web
 #: code:addons/pos_pricelist/static/src/js/models.js:422
 #, python-format
-msgid ""
-"At least one pricelist has no active version ! Please create or activate one."
+msgid "At least one pricelist has no active version ! Please create or activate one."
 msgstr ""
 
 #. module: pos_pricelist
-#: field:pos.order.tax,base:0 view:website:point_of_sale.report_receipt
+#: field:pos.order.tax,base:0
+#: view:website:point_of_sale.report_receipt
 msgid "Base"
 msgstr ""
 
 #. module: pos_pricelist
 #: field:account.fiscal.position.tax,company_id:0
 msgid "Company"
-msgstr "บริษัท"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_uid:0
 msgid "Created by"
-msgstr "สร้างโดย"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,create_date:0
 msgid "Created on"
-msgstr "สร้างเมื่อ"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
 msgid "Display Name"
-msgstr "ชื่อที่ใช้แสดง"
+msgstr ""
 
 #. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0
@@ -65,27 +62,27 @@ msgstr ""
 #: code:addons/pos_pricelist/models/pos_order_patch.py:154
 #, python-format
 msgid "Error!"
-msgstr "ผิดพลาด!"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,id:0
 msgid "ID"
-msgstr "รหัส"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,__last_update:0
 msgid "Last Modified on"
-msgstr "แก้ไขครั้งสุดท้ายเมื่อ"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
 msgid "Last Updated by"
-msgstr "อัพเดทครั้งสุดท้ายโดย"
+msgstr ""
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_date:0
 msgid "Last Updated on"
-msgstr "อัพเดทครั้งสุดท้ายเมื่อ"
+msgstr ""
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order_line
@@ -180,7 +177,8 @@ msgstr ""
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_order_patch.py:190
 #: code:addons/pos_pricelist/models/pos_order_patch.py:207
-#: field:pos.order.tax,tax:0 view:website:point_of_sale.report_receipt
+#: field:pos.order.tax,tax:0
+#: view:website:point_of_sale.report_receipt
 #, python-format
 msgid "Tax"
 msgstr ""
@@ -191,7 +189,8 @@ msgid "Tax Description"
 msgstr ""
 
 #. module: pos_pricelist
-#: view:pos.order:pos_pricelist.view_pos_pos_form field:pos.order,taxes:0
+#: view:pos.order:pos_pricelist.view_pos_pos_form
+#: field:pos.order,taxes:0
 #: field:pos.order.line,tax_ids:0
 msgid "Taxes"
 msgstr ""
@@ -222,3 +221,4 @@ msgstr ""
 #: help:product.pricelist,pos_config_ids:0
 msgid "if empty will be available for all the pos"
 msgstr ""
+
