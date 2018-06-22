@@ -36,8 +36,18 @@ msgid ""
 msgstr ""
 "Cochez si vous voulez que cette catégorie apparaisse dans le Point de "
 "Vente.\n"
-"Si vous décochez, les catégories enfants deviendront invisible "
-"également, quel que soit l'état de leur case à cocher."
+"Si vous décochez, les catégories enfants deviendront invisible également, "
+"quel que soit l'état de leur case à cocher."
+
+#. module: pos_remove_pos_category
+#: field:product.category,image:0
+msgid "Image"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: field:product.category,image_medium:0
+msgid "Image medium"
+msgstr ""
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_ir_module_module
@@ -53,3 +63,13 @@ msgstr "Catégorie de Produit"
 #: model:ir.model,name:pos_remove_pos_category.model_product_template
 msgid "Product Template"
 msgstr "Modèle d'article"
+
+#. module: pos_remove_pos_category
+#: help:product.category,image:0
+msgid "Show Image Category in Form View"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: help:product.category,image_medium:0
+msgid "Show image category button in POS"
+msgstr ""
