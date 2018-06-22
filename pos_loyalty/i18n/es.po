@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_loyalty
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 # enjolras <yo@miguelrevilla.com>, 2017
@@ -13,10 +13,10 @@ msgstr ""
 "PO-Revision-Date: 2018-03-01 02:01+0000\n"
 "Last-Translator: enjolras <yo@miguelrevilla.com>, 2017\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_loyalty
@@ -36,8 +36,7 @@ msgstr ""
 #. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_program_pp_currency
 msgid "Amount of loyalty points given to the customer per sold currency"
-msgstr ""
-"Cantidad de puntos de fidelidad añadidos al cliente por moneda vendida"
+msgstr "Cantidad de puntos de fidelidad añadidos al cliente por moneda vendida"
 
 #. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_rule_pp_currency
@@ -457,8 +456,8 @@ msgid ""
 "There are no rewards available for this customer as part of the loyalty "
 "program"
 msgstr ""
-"No hay recompensas disponibles para este cliente como parte de este programa"
-" de fidelización"
+"No hay recompensas disponibles para este cliente como parte de este programa "
+"de fidelización"
 
 #. module: pos_loyalty
 #. openerp-web
