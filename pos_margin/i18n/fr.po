@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_margin
-# 
+#
 # Translators:
 # OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
@@ -12,10 +12,10 @@ msgstr ""
 "PO-Revision-Date: 2017-04-25 02:39+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: pos_margin
@@ -29,8 +29,8 @@ msgid ""
 "It gives profitability by calculating the difference between the Unit Price "
 "and the cost price."
 msgstr ""
-"Il donne la rentabilité en calculant la différence entre le prix unitaire et"
-" le prix de revient."
+"Il donne la rentabilité en calculant la différence entre le prix unitaire et "
+"le prix de revient."
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order_line
