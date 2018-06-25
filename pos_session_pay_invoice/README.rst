@@ -12,7 +12,7 @@ Installation
 ============
 
 * In order to install this module, you will need to install first the
-  module 'account_cash_invoice', available in https://github.com/OCA/account-payment/11.0
+  module 'account_cash_invoice', available in https://github.com/OCA/account-payment/
 
 Configuration
 =============
