@@ -16,7 +16,7 @@ addon | version | summary
 [hw_customer_display](hw_customer_display/) | 8.0.0.1.0 | Adds support for Customer Display in the Point of Sale
 [hw_telium_payment_terminal](hw_telium_payment_terminal/) | 8.0.0.1.1 | Adds support for Payment Terminals using Telium protocol
 [pos_autoreconcile](pos_autoreconcile/) | 8.0.0.1.0 | POS Autoreconcile
-[pos_cash_move_reason](pos_cash_move_reason/) | 8.0.1.0.0 | POS cash in-out reason
+[pos_cash_move_reason](pos_cash_move_reason/) | 8.0.2.0.0 | POS cash in-out reason
 [pos_customer_display](pos_customer_display/) | 8.0.0.1.0 | Manage Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 8.0.1.0.1 | Point of Sale Require Customer
 [pos_default_empty_image](pos_default_empty_image/) | 8.0.0.1.1 | Optimise load time for products with no image
