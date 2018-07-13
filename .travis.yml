@@ -19,7 +19,7 @@ env:
   - secure: jX9I8iBSTGMGYNzj5zJkh/bvmXmemjqlKpVezZ2QMqaoXHgPPUlktxBwTMlmNeuJ5L9DlDiCqOiXpF41LDmKmjX/e99G15cvNSfQc/jG+exIfo9KSbc6aQSu8cqP+yu1MGTsuuq67Wm8N45+fFJGGsySUbGWFPXnF4MVIiZpqx0=
 
   matrix:
-  - LINT_CHECK="1"
+  - LINT_CHECK="1" EXCLUDE="barcodes"
   - TRANSIFEX="1"
   - TESTS="1" ODOO_REPO="odoo/odoo"
   - TESTS="1" ODOO_REPO="OCA/OCB"
