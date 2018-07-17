@@ -21,6 +21,7 @@ addon | version | summary
 [pos_quick_logout](pos_quick_logout/) | 9.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_return_order](pos_return_order/) | 9.0.1.0.0 | Point of Sale Return Order
 [pos_session_summary](pos_session_summary/) | 9.0.1.0.0 | Point of Sale - Total of transactions and Orders Quantity
+[pos_transfer_account](pos_transfer_account/) | 9.0.1.0.0 | Point of Sale - Transfer Account
 
 
 Unported addons
