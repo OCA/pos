@@ -79,6 +79,11 @@ msgid "Load Pickings"
 msgstr ""
 
 #. module: pos_picking_load
+#: field:pos.config,iface_load_picking_max_qty:0
+msgid "Max Picking Quantity To Load"
+msgstr ""
+
+#. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:49
 #, python-format
