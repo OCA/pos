@@ -101,12 +101,12 @@
             <div class="variant-header">
                 <t t-if="!variant.to_weight">
                     <span class="price-tag">
-                        <t t-esc="widget.format_currency(variant.price,'Product Price')"/>
+                        <t t-esc="widget.format_currency(variant.get_price(pricelist, 1), 'Product Price')"/>
                     </span>
                 </t>
                 <t t-if="variant.to_weight">
                     <span class="price-tag">
-                        <t t-esc="widget.format_currency(variant.price,'Product Price')+'/Kg'"/>
+                        <t t-esc="widget.format_currency(variant.get_price(pricelist, 1), 'Product Price')+'/Kg'"/>
                     </span>
                 </t>
             </div>
