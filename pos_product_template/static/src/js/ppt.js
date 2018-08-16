@@ -1,4 +1,4 @@
-/* Copyright (C) 2014-Today Akretion (https://www.akretion.com) 
+/* Copyright (C) 2014-Today Akretion (https://www.akretion.com)
     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
     @author Navarromiguel (https://github.com/navarromiguel)
     @author Raphaël Reverdy (https://www.akretion.com)
@@ -7,7 +7,7 @@
 
 odoo.define("pos_product_template.pos_product_template", function(require){
     "use strict";
-    
+
     var screens = require("point_of_sale.screens");
     var popups = require("point_of_sale.popups");
     var models = require('point_of_sale.models');
@@ -21,10 +21,10 @@ odoo.define("pos_product_template.pos_product_template", function(require){
 
     var QWeb = core.qweb;
     var _t = core._t;
-    
+
     /* ********************************************************
     Overload: point_of_sale.ProductListWidget
-    
+
     - The overload will:
         - display only product template;
         - Add an extra behaviour on click on a template, if template has many
@@ -56,11 +56,11 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             });
             this._super(list);
         },
-        
+
         render_product: function(product){
             var self = this;
-    
-            if (product.product_variant_count == 1){
+
+            if (product.product_variant_count === 1){
                 // Normal Display
                 return this._super(product);
             }
@@ -92,10 +92,10 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             return cached;
         },
     });
-    
+
     /* ********************************************************
     Overload: point_of_sale.PosWidget
-    
+
     - Add a new PopUp 'SelectVariantPopupWidget';
     ************************************************************/
     chrome.Chrome.include({
@@ -104,16 +104,16 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             this._super();
             this.select_variant_popup = new SelectVariantPopupWidget(this, {});
             this.select_variant_popup.appendTo($(this.$el));
-        
+
             // Hide the popup because all pop up are displayed at the
             // beginning by default
             this.select_variant_popup.hide();
         },
     });
-    
+
     /* ********************************************************
     Define : pos_product_template.SelectVariantPopupWidget
-        
+
     - This widget that display a pop up to select a variant of a Template;
     ***********************************************************/
     var SelectVariantPopupWidget = popups.extend({
@@ -156,7 +156,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 return this.pos.db.get_product_attribute_by_id(attribute);
             }, this);
             this.attribute_list_widget.set_attribute_list(attribute_list, template);
-            
+
             if(this.$el){
                 this.$el.removeClass('oe_hidden');
             }
@@ -166,7 +166,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
 
     /* ********************************************************
     Define: pos_product_template.VariantListWidget
-    
+
     - This widget will display a list of Variants;
     - This widget has some part of code that come from point_of_sale.ProductListWidget;
     ***********************************************************/
@@ -219,13 +219,24 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 var variant = this.variant_list[index];
                 var found = true;
                 for (var i = 0; i < value_list.length; i++){
-                    found = found && (variant.attribute_value_ids.indexOf(value_list[i]) != -1);
+                    found = found && (variant.attribute_value_ids.indexOf(value_list[i]) !== -1);
                 }
                 if (found){
                     this.filter_variant_list.push(variant);
                 }
             }
             this.renderElement();
+        },
+
+        _get_active_pricelist: function(){
+            var current_order = this.pos.get_order();
+            var current_pricelist = this.pos.default_pricelist;
+
+            if (current_order) {
+                current_pricelist = current_order.pricelist;
+            }
+
+            return current_pricelist;
         },
 
         set_variant_list: function(variant_list){
@@ -235,7 +246,9 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
 
         render_variant: function(variant){
+            var current_pricelist = this._get_active_pricelist();
             var variant_html = QWeb.render('VariantWidget', {
+                    pricelist: current_pricelist,
                     widget:  this,
                     variant: variant,
                 });
@@ -247,7 +260,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
 
         renderElement: function() {
             var self = this;
-            var el_html  = openerp.qweb.render(this.template, {widget: this});
+            var el_html  = core.qweb.render(this.template, {widget: this});
             var el_node = document.createElement('div');
             el_node.innerHTML = el_html;
             el_node = el_node.childNodes[1];
@@ -264,13 +277,13 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
 
     });
-    
-    
+
+
     /* ********************************************************
     Define: pos_product_template.AttributeListWidget
-    
+
         - This widget will display a list of Attribute;
-    ***********************************************************/ 
+    ***********************************************************/
     var AttributeListWidget = PosBaseWidget.extend({
         template:'AttributeListWidget',
 
@@ -279,7 +292,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             this.attribute_list = [];
             this.product_template = null;
             this.click_set_attribute_handler = function(event){
-                //TODO: Refactor this function with elegant DOM manipulation 
+                //TODO: Refactor this function with elegant DOM manipulation
                 // remove selected item
                 parent = this.parentElement.parentElement.parentElement;
                 parent.children[0].classList.remove('selected');
@@ -292,7 +305,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 self.__parentedParent.variant_list_widget.set_filter(this.dataset['attributeId'], this.dataset['attributeValueId']);
             };
             this.click_reset_attribute_handler = function(event){
-                //TODO: Refactor this function with elegant DOM manipulation 
+                //TODO: Refactor this function with elegant DOM manipulation
                 // remove selected item
                 parent = this.parentElement;
                 parent.children[0].classList.remove('selected');
@@ -327,7 +340,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             var attribute_node = document.createElement('div');
             attribute_node.innerHTML = attribute_html;
             attribute_node = attribute_node.childNodes[1];
-            
+
             var list_container = attribute_node.querySelector('.value-list');
             for(var i = 0, len = attribute.value_ids.length; i < len; i++){
                 var value = this.pos.db.get_product_attribute_value_by_id(attribute.value_ids[i]);
@@ -335,7 +348,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 var subproduct_list = this.pos.db.get_product_by_value_and_products(value.id, product_list);
                 var variant_qty = subproduct_list.length;
                 // Hide product attribute value if there is no product associated to it
-                if (variant_qty != 0) {
+                if (variant_qty !== 0) {
                     var value_node = this.render_value(value, variant_qty);
                     value_node.addEventListener('click', this.click_set_attribute_handler);
                     list_container.appendChild(value_node);
@@ -355,10 +368,10 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             value_node = value_node.childNodes[1];
             return value_node;
         },
-        
+
         renderElement: function() {
             var self = this;
-            var el_html  = openerp.qweb.render(this.template, {widget: this});
+            var el_html  = core.qweb.render(this.template, {widget: this});
             var el_node = document.createElement('div');
             el_node.innerHTML = el_html;
             el_node = el_node.childNodes[1];
@@ -376,10 +389,10 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         },
 
     });
-    
+
     /* ********************************************************
     Overload: point_of_sale.PosDB
-    
+
     - Add to local storage Product Templates Data.
     - Link Product Variants to Product Templates.
     - Add an extra field 'is_primary_variant' on product object. the product
@@ -387,7 +400,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         Otherwise, the product will be displayed only on Template Screen.
     - Add an extra field 'product_variant_count' on product object that
         indicates the number of variant of the template of the product.
-    ********************************************************** */ 
+    ********************************************************** */
     PosDB.include({
         init: function(options){
             this.template_by_id = {};
@@ -399,7 +412,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         get_product_by_value_and_products: function(value_id, products){
             var list = [];
             for (var i = 0, len = products.length; i < len; i++) {
-                if (products[i].attribute_value_ids.indexOf(value_id) != -1){
+                if (products[i].attribute_value_ids.indexOf(value_id) !== -1){
                     list.push(products[i]);
                 }
             }
@@ -432,7 +445,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             var attribute_ids = [];
             for (var i = 0; i < value_ids.length; i++){
                 var value = this.product_attribute_value_by_id[value_ids[i]];
-                if (attribute_ids.indexOf(value.attribute_id[0])==-1){
+                if (attribute_ids.indexOf(value.attribute_id[0])===-1){
                     attribute_ids.push(value.attribute_id[0]);
                 }
             }
@@ -449,12 +462,12 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 for (var j = 0; j <templates[i].product_variant_ids.length; j++){
                     var product = this.product_by_id[templates[i].product_variant_ids[j]]
                     for (var k = 0; k < product.attribute_value_ids.length; k++){
-                        if (attribute_value_ids.indexOf(product.attribute_value_ids[k])==-1){
+                        if (attribute_value_ids.indexOf(product.attribute_value_ids[k])===-1){
                             attribute_value_ids.push(product.attribute_value_ids[k]);
                         }
                     }
                     product.product_variant_count = templates[i].product_variant_count;
-                    product.is_primary_variant = (j==0);
+                    product.is_primary_variant = (j===0);
                 }
                 this.template_by_id[templates[i].id].attribute_value_ids = attribute_value_ids;
             }
@@ -490,7 +503,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         // add name and attribute_value_ids to list of fields
         // to fetch for product.product
         ['name', 'attribute_value_ids'].forEach(function (field) {
-            if (model.fields.indexOf(field) == -1) {
+            if (model.fields.indexOf(field) === -1) {
                 model.fields.push(field);
             }
         });
@@ -498,7 +511,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
     });
 
     //Add our new models
-    models.PosModel.prototype.models.push({
+    models.load_models([{
         model: 'product.template',
         fields: [
             'name',
@@ -513,7 +526,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             ];},
         context: function(self){
             return {
-                pricelist: self.pricelist.id,
+                pricelist: self.pricelists[0].id,
                 display_default_code: false,
             };},
         loaded: function(self, templates){
@@ -539,7 +552,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         loaded: function(self, values){
              self.db.add_product_attribute_values(values);
         },
-    });
+    }]);
     return {
         'SelectVariantPopupWidget': SelectVariantPopupWidget,
         'VariantListWidget': VariantListWidget,
