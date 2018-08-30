@@ -53,7 +53,7 @@ odoo.define("pos_lot_selection.chrome", function (require) {
                         }
                     }
                 }
-            }
+            };
             this.gui.popup_instances.packlotline = packlotline;
             return res;
         },
