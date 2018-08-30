@@ -34,7 +34,7 @@ Usage
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/184/10.0
+   :target: https://runbot.odoo-community.org/runbot/184/11.0
 
 Known issues / Roadmap
 ======================
@@ -63,6 +63,7 @@ Contributors
 
 * David <david.vidal@tecnativa.com>
   * (https://www.tecnativa.com)
+* Ignacio Ales <ignacio.ales@guadaltech.es>
 
 Do not contact contributors directly about support or help with technical issues.
 
