@@ -11,7 +11,7 @@
                 <group string="Lines to Return">
                     <field name="line_ids" nolabel="1">
                         <tree editable="bottom">
-                            <field name="pos_order_line_id"/>
+                            <field name="pos_order_line_id" force_save="1"/>
                             <field name="initial_qty"/>
                             <field name="max_returnable_qty"/>
                             <field name="qty"/>
