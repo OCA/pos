@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016-2018 Sylvain LE GAL (https://twitter.com/legalsylvain)
 # Copyright 2018 David Vidal <david.vidal@tecnativa.com>
+# Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
@@ -56,15 +56,6 @@ class PosOrder(models.Model):
             'refund_invoice_id': self.returned_order_id.invoice_id.id,
         })
         return res
-
-    def _action_create_invoice_line(self, line=False, invoice_id=False):
-        line = super(PosOrder, self
-                     )._action_create_invoice_line(line, invoice_id)
-        if not self.returned_order_id:
-            return line
-        # Goes to refund invoice thus it should be positive
-        line.quantity = -line.quantity
-        return line
 
     def _action_pos_order_invoice(self):
         """Wrap common process"""
@@ -181,7 +172,7 @@ class PosOrderLine(models.Model):
                     line.returned_line_id.max_returnable_qty([line.id])):
                 raise ValidationError(_(
                     "You can not return %d %s of %s because some refunds"
-                    " has been yet done.\n Maximum quantity allowed :"
+                    " have already been done.\n Maximum quantity allowed :"
                     " %d %s."
                 ) % (-line.qty, line.product_id.uom_id.name,
                      line.product_id.name,
