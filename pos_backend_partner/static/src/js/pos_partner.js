@@ -12,7 +12,7 @@ odoo.define('pos_backend_partner.partner_pos', function (require) {
     function set_client(message)  {
         var data = message.data;
         var partner_info = {
-            'id': parseInt(data.id, 10),
+            'id': parseInt(data.partner_id, 10),
             'name': data.name
         };
         pos_instance.get('selectedOrder').set_client(partner_info);
