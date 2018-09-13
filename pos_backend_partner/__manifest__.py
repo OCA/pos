@@ -6,7 +6,7 @@
 {
     "name": "POS Backend Customer",
     "summary": "Choose point of sale customers in backend",
-    "version": "10.0.1.0.0",
+    "version": "10.0.1.0.1",
     "category": "Point of sale",
     "website": "http://www.akretion.com",
     'author': "Akretion,Odoo Community Association (OCA)",
