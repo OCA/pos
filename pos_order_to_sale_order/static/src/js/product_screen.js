@@ -53,7 +53,23 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
                     self.$el.find('.message').hide();
                 }
             });
+            stateMachine.listeners.push(function (next, prev) {
+                //hide/show invoice button if order is (not) invoicable
+                var order = self.pos.get_order();
+                if (['confirmed', 'delivered', 'poso', 'invoiced'].indexOf(stateMachine.current.name) != -1) {
+                    if (order.to_invoice) {
+                        self.$('.js_invoice').addClass('highlight');
+                    }
+                    self.$('.js_invoice').removeClass('disabled');
+                } else {
+                    // hide
+                    order.to_invoice = false;
+                    self.$('.js_invoice').removeClass('highlight')
+                    self.$('.js_invoice').addClass('disabled');
+                }
+            });
         },
+
         init_config: function () {
             var allowedStates = stateMachine.allowedStates;
             if (this.pos.config.iface_allow_draft_order) {
@@ -64,6 +80,9 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
             }
             if (this.pos.config.iface_allow_delivered_order) {
                 allowedStates.push('delivered');
+            }
+            if (this.pos.config.iface_invoicing) {
+                allowedStates.push('invoiced');
             }
             if (this.pos.config.iface_allow_pos_order) {
                 allowedStates.push('poso');
@@ -129,8 +148,8 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
             if (stateMachine.current.isPosOrder) {
                 return this._super(force_validation);
             }
-            //client is mandatory for SO
-            if(!this.pos.get_order().get_client()){
+            //client is mandatory for Invoice Only
+            if(!this.pos.get_order().get_client() & stateMachine.current.isInvoicable){
                 this.gui.show_popup('confirm', {
                     'title': _t('Please select the Customer'),
                     'body': _t('You need to select the customer before you can invoice an order.'),
@@ -152,6 +171,15 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
                 'create_order_from_pos',
                 [self.prepare_create_sale_order(current_order)]
             ).then(function (result) {
+                if (current_order.is_to_invoice()){
+                    // generate the pdf and download it
+                    self.chrome.do_action(
+                        'pos_order_to_sale_order.pos_sale_order_invoice_report',
+                        { additional_context:{ active_ids: [result['sale_order_id']] }}
+                    );
+                }
+                return result;
+            }).then(function (result) {
                 return self.hook_create_sale_order_success(result);
             }).fail(function (error){
                 return self.hook_create_sale_order_error(error);
@@ -161,6 +189,7 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
         prepare_create_sale_order: function(order) {
             var res = order.export_as_JSON();
             res.sale_order_state = stateMachine.current.name;
+            res.to_invoice = order.to_invoice;
             return res;
         },
         // Overload this function to make custom action after Sale order
@@ -185,5 +214,22 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
                 });
             }
         },
+        click_invoice: function(){
+            /* this is not a widget because invoice button is defined in
+            point_of_sale/.../screens.js
+            */
+            var order = this.pos.get_order();
+            if (['confirmed', 'delivered', 'poso', 'invoiced'].indexOf(stateMachine.current.name) != -1) {
+                this._super();
+                if (order.to_invoice && stateMachine.current.name != 'draft') {
+                    // stateMachine.enter('delivered');
+                    stateMachine.enter('invoiced');
+                }
+                if (!order.to_invoice){
+                    stateMachine.toggle('invoiced');
+                }
+            }
+        },
+
     });
 });

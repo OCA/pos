@@ -3,11 +3,11 @@
 
     <t t-name="DeliveryButtonWidget">
         <t t-set="isPicking" t-value="widget.isPicking()" />
-        <div t-attf-class='button #{ isPicking ? "highlight": ""}'>
+        <t t-set="isDisabled" t-value="widget.isDisabled()" />
+        <div t-attf-class='button #{ isPicking ? "highlight": ""}
+            #{ isDisabled ? "disabled" : ""}'>
             <i t-attf-class='fa #{ isPicking ? "fa-arrow-circle-down": "fa-forward"}' />
-            Delivery 
-            <t t-if="!isPicking"> Later</t>
-            <t t-if="isPicking"> Now</t>
+            Delivery Now
         </div>
     </t>
 

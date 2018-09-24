@@ -60,18 +60,22 @@ odoo.define('pos_order_to_sale_order.ui_widgets', function (require) {
             });
         },
         renderElement: function() {
+            var self = this;
             this._super();
             this.$el.click(function(evt){
-                if (stateMachine.current.name == 'poso') {
-                    stateMachine.exit('delivered');
-                } else { 
-                    stateMachine.toggle('delivered');
-                } 
+                if (self.isDisabled()) {
+                    return;
+                }
+                stateMachine.toggle('delivered');
             });
         },
         isPicking: function() {
             return stateMachine.current.isPicking;
         },
+        isDisabled: function() {
+            var state = stateMachine.current.name;
+            return state == 'draft' || state == 'poso';
+        }
     });
     return {
         PayLaterButtonWidget: PayLaterButtonWidget,

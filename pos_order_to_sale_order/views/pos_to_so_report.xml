@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- used from SO UI, no need to be in print menu -->
+    <record id="pos_sale_order_invoice_report" model="ir.actions.report.xml">
+        <field name="name">Invoice</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pos_order_to_sale_order.report_so_invoice</field>
+    </record>
+
+</odoo>

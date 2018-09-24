@@ -3,11 +3,22 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models, api, _
+from odoo import api, fields, models, _
 
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
+
+    _sql_constraints = [('pos_reference_uniq',
+                         'unique (pos_reference, session_id)',
+                         'The pos_reference must be uniq per session')]
+
+    pos_reference = fields.Char(
+        string='Receipt Ref', readonly=True, copy=False, default='')
+    session_id = fields.Many2one(
+        'pos.session', string='Session',
+        index=1, domain="[('state', '=', 'opened')]",
+        states={'draft': [('readonly', False)]}, readonly=True)
 
     @api.model
     def _prepare_order_from_pos(self, order_data):
@@ -15,13 +26,16 @@ class SaleOrder(models.Model):
         session = session_obj.browse(order_data['pos_session_id'])
         partner_id = self.env['res.partner'].browse(order_data['partner_id'])
         pricelist_id = partner_id.property_product_pricelist
+        if not pricelist_id:
+            pricelist_id = session.config_id.pricelist_id
         res = {
             'partner_id': partner_id.id,
             'origin': _("Point of Sale %s") % (session.name),
-            'client_order_ref': order_data['name'],
             'user_id': order_data['user_id'] or False,
             'order_line': [],
-            'pricelist_id': pricelist_id.id or False
+            'pricelist_id': pricelist_id.id,
+            'session_id': session.id,
+            'pos_reference': order_data['name'],
         }
         return res
 
@@ -52,14 +66,46 @@ class SaleOrder(models.Model):
             self.env['sale.order.line'].create(line_vals)
 
         # Confirm Sale Order
-        if order_data['sale_order_state'] in ['confirmed', 'delivered']:
+        if order_data['sale_order_state'] in\
+                ['confirmed', 'delivered', 'invoiced']:
             sale_order.action_confirm()
 
         # mark picking as delivered
-        if order_data['sale_order_state'] == 'delivered':
+        if order_data['sale_order_state'] in ['delivered', 'invoiced']:
             sale_order.picking_ids.force_assign()
             sale_order.picking_ids.do_transfer()
 
+        # generate invoice
+        if order_data.get('to_invoice', False):
+            invoice = sale_order.pos_invoice_create(
+                pos_order_state=order_data['sale_order_state'])
+            if invoice:
+                invoice.action_invoice_open()
+                invoice.write({
+                    'session_id': sale_order.session_id.id
+                })
         return {
             'sale_order_id': sale_order.id,
         }
+
+    @api.multi
+    def pos_invoice_create(self, pos_order_state=False):
+        self.ensure_one()
+        # generate invoice if order is delivred
+        # Indeed if product are configured as
+        # "invoice deliverd quantities ", and order is not delivered,
+        # the invoice genrated will be with amount 0.
+        if self.pos_order_is_invoiceble(pos_order_state=pos_order_state):
+            inv_obj = self.env['account.invoice']
+            inv_id = self.action_invoice_create()
+            inv = inv_obj.browse(inv_id)
+            inv.action_invoice_open()
+
+    @api.model
+    def pos_order_is_invoiceble(self, pos_order_state=False):
+        """
+        You can henerit this method to change invoicable condition
+        """
+        if pos_order_state == 'invoiced':
+            return True
+        return False
