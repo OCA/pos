@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Copyright 2018 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).-->
+
+<odoo>
+
+    <data noupdate="1">
+        <record forcecreate="True" id="cron_create_delayed_pos_picking" model="ir.cron">
+            <field name="name">Create Delayed PoS Picking</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model">pos.order</field>
+            <field name="function">create_delayed_picking</field>
+            <field name="args">()</field>
+        </record>
+    </data>
+</odoo>
