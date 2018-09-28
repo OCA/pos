@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2004-2010 OpenERP SA
 # Copyright 2017 RGB Consulting S.L. (https://www.rgbconsulting.com)
+# Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
@@ -26,6 +26,7 @@ class LoyaltyRule(models.Model):
                                          help='The Loyalty Program this rule '
                                               'belongs to')
     product_id = fields.Many2one(comodel_name='product.product',
+                                 domain=[('available_in_pos', '=', True)],
                                  string='Target Product',
                                  help='The product affected by this rule')
     category_id = fields.Many2one(comodel_name='pos.category',

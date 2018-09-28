@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2004-2010 OpenERP SA
 # Copyright 2017 RGB Consulting S.L. (https://www.rgbconsulting.com)
+# Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models, api, _
@@ -32,13 +32,18 @@ class LoyaltyReward(models.Model):
                                          help='The Loyalty Program this reward'
                                               ' belongs to')
     gift_product_id = fields.Many2one(comodel_name='product.product',
+                                      domain=[('available_in_pos', '=', True)],
                                       string='Gift Product',
                                       help='The product given as a reward')
     discount_product_id = fields.Many2one(comodel_name='product.product',
+                                          domain=[
+                                              ('available_in_pos', '=', True)],
                                           string='Discount Product',
                                           help='The product used to apply '
                                                'discounts')
     point_product_id = fields.Many2one(comodel_name='product.product',
+                                       domain=[
+                                           ('available_in_pos', '=', True)],
                                        string='Point Product',
                                        help='Product that represents a point '
                                             'that is sold by the customer')
