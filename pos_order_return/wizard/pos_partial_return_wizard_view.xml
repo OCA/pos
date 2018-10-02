@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Copyright 2016-2018 Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).-->
+
+<odoo>
+
+    <record id="view_partial_return_wizard_form" model="ir.ui.view">
+        <field name="model">pos.partial.return.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Partial Return">
+                <group string="Lines to Return">
+                    <field name="line_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="pos_order_line_id" force_save="1"/>
+                            <field name="initial_qty"/>
+                            <field name="max_returnable_qty"/>
+                            <field name="qty"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Confirm" name="confirm" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>
