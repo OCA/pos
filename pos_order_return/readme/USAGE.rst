@@ -7,8 +7,7 @@ products and quantities to return:
 Register the refund payment to finish the return. If the original order was
 invoiced, a refund invoice will be made.
 
-Implemented Constraints
------------------------
+**Implemented Constraints**
 
 * User can not return more products than the initial quantity:
 
