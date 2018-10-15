@@ -4,6 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class SaleOrder(models.Model):
@@ -23,8 +24,16 @@ class SaleOrder(models.Model):
     @api.model
     def _prepare_order_from_pos(self, order_data):
         session_obj = self.env['pos.session']
-        session = session_obj.browse(order_data['pos_session_id'])
         partner_id = self.env['res.partner'].browse(order_data['partner_id'])
+        session = session_obj.browse(order_data['pos_session_id'])
+        if not partner_id:
+            if session.config_id.anonymous_partner_id:
+                partner_id = session.config_id.anonymous_partner_id
+            else:
+                raise UserError(
+                    _("Partner is required for sale order."
+                      " You must configure an anonymous partner "
+                      "on pos config"))
         pricelist_id = partner_id.property_product_pricelist
         if not pricelist_id:
             pricelist_id = session.config_id.pricelist_id
@@ -58,7 +67,7 @@ class SaleOrder(models.Model):
         # Create Draft Sale order
         vals = self._prepare_order_from_pos(order_data)
         temp = self.new(vals)
-        vals = temp.play_onchanges(vals, ['partner_id'])
+        vals = temp.play_onchanges(vals, 'partner_id')
         sale_order = self.create(vals)
         for line_data in order_data['lines']:
             line_vals = self._prepare_order_line_from_pos(

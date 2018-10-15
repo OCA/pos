@@ -10,6 +10,7 @@
                 <field name="iface_allow_draft_order" />
                 <field name="iface_allow_confirmed_order" />
                 <field name="iface_allow_delivered_order" />
+                <field name="anonymous_partner_id" />
             </field>
         </field>
     </record>

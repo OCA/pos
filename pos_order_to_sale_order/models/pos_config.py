@@ -35,3 +35,7 @@ class PosConfig(models.Model):
         # require an additional module to link payment to sale orders
         string='Allow Sale Order Payments', default=False,
         help="Accept payments for confirmed and delivered orders.")
+
+    anonymous_partner_id = fields.Many2one(
+        'res.partner',
+        string='Anonymous Partner')
