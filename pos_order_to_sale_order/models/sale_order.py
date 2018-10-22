@@ -58,16 +58,14 @@ class SaleOrder(models.Model):
             'price_unit': line_data['price_unit'],
             'order_id': sale_order.id,
         }
-        temp = line_obj.new(vals)
-        vals = temp.play_onchanges(vals, ['product_id'])
+        vals = line_obj.play_onchanges(vals, ['product_id'])
         return vals
 
     @api.model
     def create_order_from_pos(self, order_data):
         # Create Draft Sale order
         vals = self._prepare_order_from_pos(order_data)
-        temp = self.new(vals)
-        vals = temp.play_onchanges(vals, 'partner_id')
+        vals = self.play_onchanges(vals, 'partner_id')
         sale_order = self.create(vals)
         for line_data in order_data['lines']:
             line_vals = self._prepare_order_line_from_pos(
