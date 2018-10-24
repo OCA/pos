@@ -20,6 +20,7 @@
         'views/view_pos_config.xml',
         'views/pos_order_to_sale_order.xml',
         'views/pos_to_so_report.xml',
+        'data/res_partner_data.xml',
     ],
     'demo': [
         'demo/res_groups.xml',
