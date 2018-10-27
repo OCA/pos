@@ -5,7 +5,7 @@
 
 {
     'name': 'POS Payment Terminal',
-    'version': '10.0.0.1.1',
+    'version': '11.0.0.1.1',
     'category': 'Point Of Sale',
     'summary': 'Manage Payment Terminal device from POS front end',
     'author': "Aurélien DUMAINE,Akretion,Odoo Community Association (OCA)",
