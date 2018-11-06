@@ -4,7 +4,7 @@
 
 {
     'name': 'POS Pricelist',
-    'version': '10.0.1.0.2',
+    'version': '9.0.1.0.0',
     'category': 'Point Of Sale',
     'author': "Tecnativa, "
               "Odoo SA, "
@@ -17,7 +17,7 @@
     ],
     "external_dependencies": {
         "python": [
-            "oca.decorators",
+            "oca-decorators",
         ],
     },
     'data': [

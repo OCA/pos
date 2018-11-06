@@ -63,6 +63,7 @@ Contributors
 * Adil Houmadi <ah@taktik.be>
 * Pablo Cayuela <pablo.cayuela@aserti.es>
 * Antonio Espinosa <antonioea@antiun.com>
+* Sunflower IT <info@sunflowerweb.n>
 * Odoo S.A.
 * `Tecnativa <https://www.tecnativa.com>`_:
   * Jairo Llopis <jairo.llopis@tecnativa.com>

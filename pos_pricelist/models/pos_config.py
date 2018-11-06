@@ -2,8 +2,8 @@
 # Copyright 2018 Tecnativa - Jairo Llopis
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 
-from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError
+from openerp import _, api, fields, models
+from openerp.exceptions import ValidationError
 from oca.decorators import foreach  # pylint: disable=W7935
 import logging
 
@@ -47,7 +47,7 @@ class PosConfig(models.Model):
     )
 
     @api.constrains('pricelist_id', 'available_pricelist_ids', 'journal_id',
-                    'invoice_journal_id', 'journal_ids')
+                    'journal_ids')
     @foreach()
     def _check_currencies(self):
         if self.pricelist_id not in self.available_pricelist_ids:
@@ -60,11 +60,6 @@ class PosConfig(models.Model):
                 "All available pricelists must be in the same currency "
                 "as the company or as the Sales Journal set on this "
                 "point of sale if you use the Accounting application."))
-        if (self.invoice_journal_id.currency_id and
-                self.invoice_journal_id.currency_id != self.currency_id):
-            raise ValidationError(_(
-                "The invoice journal must be in the same currency as the "
-                "Sales Journal or the company currency if that is not set."))
         if self.journal_ids.filtered(
                 lambda journal: (journal.currency_id and
                                  journal.currency_id != self.currency_id)):
@@ -101,8 +96,10 @@ class PosConfig(models.Model):
                     hasattr(field, 'implied_group')):
                 field_group_xmlids = getattr(
                     field, 'group', 'base.group_user').split(',')
-                field_groups = self.env['res.groups'].concat(
-                    *(self.env.ref(it) for it in field_group_xmlids))
+                field_groups = sum(
+                    (self.env.ref(it) for it in field_group_xmlids),
+                    self.env['res.groups']
+                )
                 field_groups.write({
                     'implied_ids': [(4, self.env.ref(field.implied_group).id)],
                 })
@@ -113,6 +110,7 @@ class PosConfig(models.Model):
         result.sudo()._check_groups_implied()
         return result
 
+    @api.multi
     def write(self, vals):
         result = super(PosConfig, self).write(vals)
         self.sudo()._check_groups_implied()
