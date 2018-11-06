@@ -17,7 +17,7 @@
     ],
     "external_dependencies": {
         "python": [
-            "oca-decorators",
+            "oca.decorators",
         ],
     },
     'data': [
