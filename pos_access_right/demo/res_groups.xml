@@ -26,4 +26,28 @@
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 
+    <record id="group_payment_order" model="res.groups">
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin')), (4, ref('base.user_demo'))]"/>
+    </record>
+
+    <record id="group_change_qty" model="res.groups">
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_delete_order_line" model="res.groups">
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_create_order_line" model="res.groups">
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin')), (4, ref('base.user_demo'))]"/>
+    </record>
+
+    <record id="group_change_cashier" model="res.groups">
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="group_change_customer" model="res.groups">
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
 </odoo>

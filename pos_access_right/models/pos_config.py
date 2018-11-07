@@ -32,8 +32,8 @@ class PosConfig(models.Model):
     group_multi_order_id = fields.Many2one(
         comodel_name='res.groups',
         compute='_compute_group_multi_order_id',
-        string='Point of Sale - Many Orders',
-        help="This field is there to pass the id of the 'PoS - Many Orders"
+        string='Point of Sale - Create Orders',
+        help="This field is there to pass the id of the 'PoS - Create Orders"
         " Group to the Point of Sale Frontend.")
 
     group_delete_order_id = fields.Many2one(
@@ -42,6 +42,48 @@ class PosConfig(models.Model):
         string='Point of Sale - Delete Order',
         help="This field is there to pass the id of the 'PoS - Delete Order'"
         " Group to the Point of Sale Frontend.")
+
+    group_payment_order_id = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_payment_order_id',
+        string='Point of Sale - Payment Order',
+        help="This field is there to pass the id of the 'PoS - Payment"
+        " Quantity' Group to the Point of Sale Frontend.")
+
+    group_change_qty_id = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_change_qty_id',
+        string='Point of Sale - Change Quantity',
+        help="This field is there to pass the id of the 'PoS - Change"
+        " Quantity' Group to the Point of Sale Frontend.")
+
+    group_delete_order_line_id = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_delete_order_line_id',
+        string='Point of Sale - Delete Order Line',
+        help="This field is there to pass the id of the 'PoS - Delete"
+        " Order Line' Group to the Point of Sale Frontend.")
+
+    group_create_order_line_id = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_create_order_line_id',
+        string='Point of Sale - Create Order Line',
+        help="This field is there to pass the id of the 'PoS - Create"
+        " Order Line' Group to the Point of Sale Frontend.")
+
+    group_change_cashier_id = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_change_cashier_id',
+        string='Point of Sale - Change Cashier',
+        help="This field is there to pass the id of the 'PoS - Change"
+        " Cashier' Group to the Point of Sale Frontend.")
+
+    group_change_customer_id = fields.Many2one(
+        comodel_name='res.groups',
+        compute='_compute_group_change_customer_id',
+        string='Point of Sale - Change Customer',
+        help="This field is there to pass the id of the 'PoS - Change"
+        " Customer' Group to the Point of Sale Frontend.")
 
     @api.multi
     def _compute_group_negative_qty_id(self):
@@ -72,3 +114,39 @@ class PosConfig(models.Model):
         for config in self:
             self.group_delete_order_id = \
                 self.env.ref('pos_access_right.group_delete_order')
+
+    @api.multi
+    def _compute_group_payment_order_id(self):
+        for config in self:
+            self.group_payment_order_id = \
+                self.env.ref('pos_access_right.group_payment_order')
+
+    @api.multi
+    def _compute_group_change_qty_id(self):
+        for config in self:
+            self.group_change_qty_id = \
+                self.env.ref('pos_access_right.group_change_qty')
+
+    @api.multi
+    def _compute_group_delete_order_line_id(self):
+        for config in self:
+            self.group_delete_order_line_id = \
+                self.env.ref('pos_access_right.group_delete_order_line')
+
+    @api.multi
+    def _compute_group_create_order_line_id(self):
+        for config in self:
+            self.group_create_order_line_id = \
+                self.env.ref('pos_access_right.group_create_order_line')
+
+    @api.multi
+    def _compute_group_change_cashier_id(self):
+        for config in self:
+            self.group_change_cashier_id = \
+                self.env.ref('pos_access_right.group_change_cashier')
+
+    @api.multi
+    def _compute_group_change_customer_id(self):
+        for config in self:
+            self.group_change_customer_id = \
+                self.env.ref('pos_access_right.group_change_customer')

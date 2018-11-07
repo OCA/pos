@@ -41,7 +41,7 @@ msgstr "Remise - Fonctionnalité non autorisée"
 #. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:72
 #, python-format
-msgid "Many Orders - Unauthorized function"
+msgid "Create Orders - Unauthorized function"
 msgstr "Plusieurs Commandes simultanées - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
@@ -91,7 +91,7 @@ msgstr "Point de Vente - Remise"
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_multi_order_id
 #: model:res.groups,name:pos_access_right.group_multi_order
-msgid "Point of Sale - Many Orders"
+msgid "Point of Sale - Create Orders"
 msgstr "Point de Vente - Plusieurs commandes simultanées"
 
 #. module: pos_access_right
@@ -143,7 +143,7 @@ msgstr ""
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config_group_multi_order_id
 msgid ""
-"This field is there to pass the id of the 'PoS - Many Orders Group to the "
+"This field is there to pass the id of the 'PoS - Create Orders Group to the "
 "Point of Sale Frontend."
 msgstr ""
 "Ce champs existe pour passer l'ID du groupe 'PdV - Plusieurs commandes' au "

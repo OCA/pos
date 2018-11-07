@@ -22,12 +22,42 @@
     </record>
 
     <record id="group_multi_order" model="res.groups">
-        <field name="name">Point of Sale - Many Orders</field>
+        <field name="name">Point of Sale - Create Orders</field>
         <field name="category_id" ref="base.module_category_usability"/>
     </record>
 
     <record id="group_delete_order" model="res.groups">
         <field name="name">Point of Sale - Delete Order</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="group_payment_order" model="res.groups">
+        <field name="name">Point of Sale - Payment Order</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="group_change_qty" model="res.groups">
+        <field name="name">Point of Sale - Change Quantity</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="group_delete_order_line" model="res.groups">
+        <field name="name">Point of Sale - Delete Order Line</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="group_create_order_line" model="res.groups">
+        <field name="name">Point of Sale - Create Order Line</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="group_change_cashier" model="res.groups">
+        <field name="name">Point of Sale - Change Cashier</field>
+        <field name="category_id" ref="base.module_category_usability"/>
+    </record>
+
+    <record id="group_change_customer" model="res.groups">
+        <field name="name">Point of Sale - Change Customer</field>
         <field name="category_id" ref="base.module_category_usability"/>
     </record>
 
