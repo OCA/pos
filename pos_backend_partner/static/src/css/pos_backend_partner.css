@@ -1,7 +1,11 @@
-td[data-field="select_in_pos_current_order"] {
+th[data-id="select_in_pos_current_order"] {
+  width: 0;
+  margin: 0;
+}
+td[data-field="select_in_pos_current_order"] > button {
   display:none;
 }
 
-.pos_backend_communication td[data-field="select_in_pos_current_order"] {
+.pos_backend_communication td[data-field="select_in_pos_current_order"] > button {
   display:block;
 }
