@@ -337,9 +337,9 @@ function pos_pricelist_models(instance, module) {
             for (var i = 0, len = pricelist.version_id.length; i < len; i++) {
                 var v = db.pricelist_version_by_id[pricelist.version_id[i]];
                 if (((v.date_start == false)
-                    || (new Date(v.date_start) <= date)) &&
+                    || (new Date(v.date_start.split('-')) <= date)) &&
                     ((v.date_end == false)
-                    || (new Date(v.date_end) >= date))) {
+                    || (new Date(v.date_end.split('-')) >= date))) {
                     version = v;
                     break;
                 }
