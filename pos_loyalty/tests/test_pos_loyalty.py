@@ -54,7 +54,7 @@ class TestPOSLoyalty(HttpCase):
         # add 20 loyalty points
         self.phantom_js("/pos/web",
                         "odoo.__DEBUG__.services['web_tour.tour'].run("
-                        "'test_pos_loyalty_acquire_points')",
+                        "'test_pos_loyalty_acquire_points', 200)",
                         "odoo.__DEBUG__.services['web_tour.tour'].tours"
                         ".test_pos_loyalty_acquire_points.ready",
                         login="admin")
@@ -64,7 +64,7 @@ class TestPOSLoyalty(HttpCase):
         # Spend 20 loyalty points on "Free Peaches" reward
         self.phantom_js("/pos/web",
                         "odoo.__DEBUG__.services['web_tour.tour'].run("
-                        "'test_pos_loyalty_spend_points')",
+                        "'test_pos_loyalty_spend_points', 200)",
                         "odoo.__DEBUG__.services['web_tour.tour'].tours"
                         ".test_pos_loyalty_spend_points.ready",
                         login="admin")
