@@ -3,11 +3,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo.api import Environment
-from odoo.tests import HttpCase
+from odoo.tests import common
 
 
-class TestPOSLoyalty(HttpCase):
+class TestPOSLoyalty(common.HttpCase):
 
+    @common.at_install(False)
+    @common.post_install(True)
     def test_pos_loyalty(self):
         cr = self.registry.cursor()
         assert cr == self.registry.test_cr
