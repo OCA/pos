@@ -746,7 +746,7 @@ function pos_pricelist_models(instance, module) {
                         'pricelist_id',
                         'date_start',
                         'date_end',
-                        'items'],
+                        ],
                     domain: function (self) {
                         var pricelist_ids = _.map(_.keys(self.db.pricelist_by_id), function(el){return parseInt(el)});
                         return [
