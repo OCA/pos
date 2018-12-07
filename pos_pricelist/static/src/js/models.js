@@ -578,7 +578,7 @@ function pos_pricelist_models(instance, module) {
                         if (k == 0) {
                             if (product.to_weight) {
                                 $(product_ui).find('.price-tag').html(price
-                                  + this.pos_widget.pos.units_by_id[product.uom_id[0]].name);
+                                  + ' / ' + this.pos_widget.pos.units_by_id[product.uom_id[0]].name);
                             } else {
                                 $(product_ui).find('.price-tag').html(price);
                             }
