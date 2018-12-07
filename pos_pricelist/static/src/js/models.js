@@ -577,7 +577,8 @@ function pos_pricelist_models(instance, module) {
                         price = this.pos_widget.format_currency(price);
                         if (k == 0) {
                             if (product.to_weight) {
-                                $(product_ui).find('.price-tag').html(price + '/Kg');
+                                $(product_ui).find('.price-tag').html(price
+                                  + this.pos_widget.pos.units_by_id[product.uom_id[0]].name);
                             } else {
                                 $(product_ui).find('.price-tag').html(price);
                             }
