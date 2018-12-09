@@ -17,7 +17,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/pos_box.py:36
 #: code:addons/pos_cash_move_reason/wizard/pos_box.py:39
 #, python-format
 msgid "Description"
@@ -34,8 +33,7 @@ msgid "Miscellaneous income"
 msgstr "Revenu divers"
 
 #. module: pos_cash_move_reason
-#: field:cash.box.in,product_id:0
-#: field:cash.box.out,product_id:0
+#: field:cash.box.in,product_id:0 field:cash.box.out,product_id:0
 msgid "Reason"
 msgstr "Motif"
 
