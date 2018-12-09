@@ -57,6 +57,11 @@ msgid "Click create to define a Loyalty Program."
 msgstr ""
 
 #. module: pos_loyalty
+#: model:ir.model,name:pos_loyalty.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_reward_point_cost
 msgid "Cost of the reward per monetary unit discounted"
 msgstr ""
@@ -97,7 +102,7 @@ msgid "Discount limit"
 msgstr ""
 
 #. module: pos_loyalty
-#: code:addons/pos_loyalty/models/loyalty_reward.py:59
+#: code:addons/pos_loyalty/models/loyalty_reward.py:64
 #, python-format
 msgid "Discount product field is mandatory for discount rewards"
 msgstr ""
@@ -120,7 +125,7 @@ msgid "Gift Product"
 msgstr ""
 
 #. module: pos_loyalty
-#: code:addons/pos_loyalty/models/loyalty_reward.py:52
+#: code:addons/pos_loyalty/models/loyalty_reward.py:57
 #, python-format
 msgid "Gift product field is mandatory for gift rewards"
 msgstr ""
@@ -154,6 +159,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: pos_loyalty
+#: model:ir.model,name:pos_loyalty.model_pos_order_line
+msgid "Lines of Point of Sale Orders"
+msgstr ""
+
+#. module: pos_loyalty
 #: model:ir.model.fields,field_description:pos_loyalty.field_pos_order_loyalty_points
 #: model:ir.model.fields,field_description:pos_loyalty.field_res_partner_loyalty_points
 #: model:ir.model.fields,field_description:pos_loyalty.field_res_users_loyalty_points
@@ -165,8 +175,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_loyalty.field_loyalty_rule_loyalty_program_id
 #: model:ir.model.fields,field_description:pos_loyalty.field_pos_config_loyalty_id
 #: model:ir.ui.view,arch_db:pos_loyalty.loyalty_program_form_view
-#: model:ir.ui.view,arch_db:pos_loyalty.pos_config_form_view
 msgid "Loyalty Program"
+msgstr ""
+
+#. module: pos_loyalty
+#: model:ir.ui.view,arch_db:pos_loyalty.pos_config_view_form
+msgid "Loyalty Program (OCA)"
 msgstr ""
 
 #. module: pos_loyalty
@@ -206,6 +220,11 @@ msgid "Loyalty point amounts will be rounded to multiples of this value"
 msgstr ""
 
 #. module: pos_loyalty
+#: model:ir.ui.view,arch_db:pos_loyalty.pos_config_view_form
+msgid "Loyalty program that will be available in this PoS"
+msgstr ""
+
+#. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_reward_discount_max
 msgid "Maximum discounted amount allowed forthis discount reward"
 msgstr ""
@@ -226,11 +245,6 @@ msgstr ""
 #: code:addons/pos_loyalty/static/src/js/pos.js:379
 #, python-format
 msgid "No Rewards Available"
-msgstr ""
-
-#. module: pos_loyalty
-#: model:ir.model,name:pos_loyalty.model_res_partner
-msgid "Partner"
 msgstr ""
 
 #. module: pos_loyalty
@@ -256,7 +270,7 @@ msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_loyalty
-#: code:addons/pos_loyalty/models/loyalty_reward.py:67
+#: code:addons/pos_loyalty/models/loyalty_reward.py:72
 #, python-format
 msgid "Point product field is mandatory for point resale rewards"
 msgstr ""
@@ -456,6 +470,11 @@ msgstr ""
 #. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_reward_type
 msgid "Type of the reward"
+msgstr ""
+
+#. module: pos_loyalty
+#: model:ir.ui.view,arch_db:pos_loyalty.pos_config_view_form
+msgid "abc"
 msgstr ""
 
 #. module: pos_loyalty
