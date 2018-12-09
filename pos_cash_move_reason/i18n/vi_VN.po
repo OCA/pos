@@ -20,10 +20,20 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/pos_box.py:36
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:39
 #, python-format
 msgid "Description"
 msgstr "Mô tả"
+
+#. module: pos_cash_move_reason
+#: model:product.template,name:pos_cash_move_reason.expense_reason
+msgid "Miscellaneous expense"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: model:product.template,name:pos_cash_move_reason.income_reason
+msgid "Miscellaneous income"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: field:cash.box.in,product_id:0 field:cash.box.out,product_id:0
@@ -31,17 +41,13 @@ msgid "Reason"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/pos_box.py:84
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:62
 #, python-format
-msgid ""
-"You have to define an\n"
-"                    expense account on the related product"
+msgid "You have to define an expense account on the related product %s"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/pos_box.py:60
+#: code:addons/pos_cash_move_reason/wizard/pos_box.py:55
 #, python-format
-msgid ""
-"You have to define an\n"
-"                    income account on the related product"
+msgid "You have to define an income account on the related product %s"
 msgstr ""
