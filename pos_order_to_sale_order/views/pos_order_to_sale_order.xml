@@ -2,9 +2,12 @@
 
 <openerp><data>
 
-    <template id="assets_backend" name="pos_order_to_sale_order assets" inherit_id="web.assets_backend">
+    <template id="assets_backend" name="pos_order_to_sale_order assets" inherit_id="point_of_sale.index">
         <xpath expr="." position="inside">
             <script type="text/javascript" src="/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js"></script>
+        </xpath>
+        <xpath expr="//link[@id='pos-stylesheet']" position="after">
+            <link rel="stylesheet" href="/pos_order_to_sale_order/static/src/css/pos_order_to_sale_order.css"/>
         </xpath>
     </template>
 
