@@ -1,0 +1,12 @@
+/*
+    Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+*/
+
+/*Redefine here, the style defined in web module (base.css), because this file
+is not loaded in the point of sale.*/
+.blockUI.blockOverlay {
+  background-color: black;
+  opacity: 0.6;
+}
