@@ -1,7 +1,0 @@
-<openerp><data>
-
-    <record id="stock.picking_type_out" model="stock.picking.type">
-        <field name="available_in_pos" eval="True" />
-    </record>
-
-</data></openerp>
