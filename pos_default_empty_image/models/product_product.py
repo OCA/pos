@@ -8,7 +8,7 @@ class ProductProduct(models.Model):
     _inherit = ['product.product']
 
     @api.multi
-    @api.depends('image')
+    @api.depends('image', 'image_medium')
     def _compute_has_image(self):
         for record in self:
             record.has_image = bool(record.image)
