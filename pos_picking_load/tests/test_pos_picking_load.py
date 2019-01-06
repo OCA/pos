@@ -2,12 +2,14 @@
 # Copyright (C) 2017: Opener B.V. (https://opener.amsterdam)
 # @author: Stefan Rijnhart <stefan@opener.am>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp.tests.common import TransactionCase
+from odoo import fields
+from odoo.tests.common import TransactionCase
 
 
 class TestPosPickingLoad(TransactionCase):
     def test_pos_picking_load(self):
         product = self.env.ref('product.product_product_24')
+        # Create a Sale order and confirm it to generate a picking to load
         sale_order = self.env['sale.order'].create({
             'partner_id': self.env.ref('base.res_partner_1').id,
             'order_line': [(0, 0, {
@@ -15,24 +17,31 @@ class TestPosPickingLoad(TransactionCase):
                 'price_unit': 6,
                 'product_uom_qty': 2,
             })],
-            'order_policy': 'picking',
         })
-        sale_order.action_button_confirm()
+        sale_order.action_confirm()
         self.assertTrue(sale_order.picking_ids)
         sale_order.picking_ids.picking_type_id.write({
             'available_in_pos': True})
 
+        # Configure Point of sale
         config = self.env.ref('point_of_sale.pos_config_main').copy()
         config.write({
             'picking_type_id': sale_order.picking_ids.picking_type_id.id})
+
+        # Open a new session
         session = self.env['pos.session'].create({
             'user_id': self.env.user.id,
             'config_id': config.id})
         session.signal_workflow('open')
+        date_now = fields.Datetime.now()
+
+        # Create a pos order
         self.env['pos.order'].create_from_ui([{
             'to_invoice': False,
             'data': {
                 'user_id': self.env.user.id,
+                'creation_date': date_now,
+                'fiscal_position_id': False,
                 'name': 'Order 00017-002-0003',
                 'partner_id': sale_order.partner_id.id,
                 'amount_paid': 12,
@@ -48,7 +57,7 @@ class TestPosPickingLoad(TransactionCase):
                 'statement_ids': [[0, 0, {
                     'journal_id': False,
                     'amount': 12,
-                    'name': '2017-07-20 13:08:37',
+                    'name': date_now,
                     'account_id': config.journal_ids[
                         0].default_debit_account_id.id,
                     'statement_id': session.statement_ids[0].id,
