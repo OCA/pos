@@ -1,5 +1,7 @@
 <openerp><data>
 
+    <!-- for demo pickings created by this module -->
+
     <record id="product.product_product_4_product_template" model="product.template">
         <field name="available_in_pos" eval="True"/>
     </record>
@@ -13,6 +15,16 @@
     </record>
 
     <record id="product.product_product_24_product_template" model="product.template">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+
+    <!-- For demo pickings created before the installation of this module -->
+
+    <record id="product.product_product_27_product_template" model="product.template">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+
+    <record id="product.product_product_6_product_template" model="product.template">
         <field name="available_in_pos" eval="True"/>
     </record>
 
