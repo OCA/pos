@@ -30,6 +30,7 @@ addon | version | summary
 [pos_product_template](pos_product_template/) | 10.0.2.0.1 | Manage Product Template in Front End Point Of Sale
 [pos_quick_logout](pos_quick_logout/) | 10.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_remove_pos_category](pos_remove_pos_category/) | 10.0.2.0.0 | POS Remove POS Category
+[pos_report_session_summary](pos_report_session_summary/) | 10.0.1.0.0 | Adds a Session Summary PDF report on the POS session
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 10.0.1.0.0 | Pay and receive invoices from PoS Session
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 10.0.1.0.0 | POS Stock Picking Invoice Link
 [pos_timeout](pos_timeout/) | 10.0.1.0.0 | Set the timeout of the point of sale
