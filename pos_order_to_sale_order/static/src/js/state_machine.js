@@ -61,7 +61,6 @@ odoo.define('pos_order_to_sale_order.state_machine', function (require) {
         exit: function(target) {
             var fallback = 'confirmed';
             var possibles = [];
-            var map = {};
             if (this.allowedStates.indexOf('confirmed') == -1) {
                 //confirmed is not allowed, fallback to something else.
                 possibles = this.allowedStates.filter(function (state) {
@@ -69,14 +68,7 @@ odoo.define('pos_order_to_sale_order.state_machine', function (require) {
                 }); //possibles = allowedStates - target - confirmed
                 fallback = possibles.shift(); //take first
             }
-            map = {
-                'poso': fallback,
-                'confirmed': 'poso',
-                'draft': fallback,
-                'delivered': fallback,
-                'invoiced': fallback
-            };
-            this.enter(map[target]);
+            this.enter(fallback);
         },
         toggle: function(target) {
             if (this.current.name == target){

@@ -72,11 +72,15 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
 
         init_config: function () {
             var allowedStates = stateMachine.allowedStates;
-            if (this.pos.config.iface_allow_draft_order) {
-                allowedStates.push('draft');
+            //poso & confirmed should be on top
+            if (this.pos.config.iface_allow_pos_order) {
+                allowedStates.push('poso');
             }
             if (this.pos.config.iface_allow_confirmed_order) {
                 allowedStates.push('confirmed');
+            }
+            if (this.pos.config.iface_allow_draft_order) {
+                allowedStates.push('draft');
             }
             if (this.pos.config.iface_allow_delivered_order) {
                 allowedStates.push('delivered');
@@ -84,10 +88,7 @@ odoo.define('pos_order_to_sale_order.product_screen', function (require) {
             if (this.pos.config.iface_invoicing) {
                 allowedStates.push('invoiced');
             }
-            if (this.pos.config.iface_allow_pos_order) {
-                allowedStates.push('poso');
-            }
-            if (this.pos.config.iface_allow_payment) {
+            if (this.pos.config.iface_allow_order_payment) {
                 stateMachine.allowPayment = true;
             }
         },
