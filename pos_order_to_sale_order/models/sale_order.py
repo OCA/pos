@@ -96,6 +96,16 @@ class SaleOrder(models.Model):
         }
 
     @api.multi
+    def _prepare_invoice(self):
+        self.ensure_one()
+        res = super(SaleOrder, self)._prepare_invoice()
+        res['session_id'] = self.session_id.id
+        if self.session_id and self.partner_id == self.env.ref(
+                'pos_order_to_sale_order.res_partner_anonymous'):
+            res['pos_anonyme_invoice'] = True
+        return res
+
+    @api.multi
     def pos_invoice_create(self, pos_order_state=False):
         self.ensure_one()
         # generate invoice if order is delivred
