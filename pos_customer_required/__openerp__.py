@@ -7,10 +7,10 @@
 
 {
     'name': 'Point of Sale Require Customer',
-    'version': '9.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Point of Sale Require Customer',
-    'author': 'Apertoso NV, La Louve, Odoo Community Association (OCA)',
+    'author': 'Eynes/E-Mips, Apertoso NV, La Louve, Odoo Community Association (OCA)',
     'website': 'http://www.apertoso.be',
     'depends': [
         'point_of_sale',
