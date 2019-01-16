@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo11-addon-pos_config_show_accounting',
         'odoo11-addon-pos_lot_selection',
         'odoo11-addon-pos_loyalty',
+        'odoo11-addon-pos_margin',
         'odoo11-addon-pos_order_return',
         'odoo11-addon-pos_session_pay_invoice',
     ],
