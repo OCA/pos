@@ -6,10 +6,10 @@
         <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
         <field name="arch" type="xml">
             <field name="iface_invoicing" position="after">
-                <field name="iface_allow_pos_order" />
                 <field name="iface_allow_draft_order" />
                 <field name="iface_allow_confirmed_order" />
                 <field name="iface_allow_delivered_order" />
+                <field name="iface_allow_order_payment" />
                 <field name="anonymous_partner_id" />
             </field>
         </field>

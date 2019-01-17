@@ -15,7 +15,11 @@ class AccountInvoice(models.Model):
         domain="[('state', '=', 'opened')]",
         states={'draft': [('readonly', False)]},
     )
-
+    statement_ids = fields.One2many(
+        'account.bank.statement.line',
+        'pos_so_statement_id', string='Pos Payments',
+        states={'draft': [('readonly', False)]}, readonly=True)
+        
     @api.multi
     def invoice_validate(self):
         # Update invoice partner on sale order and update partner on
@@ -36,3 +40,24 @@ class AccountInvoice(models.Model):
                     sale.statement_ids.write(
                         {'partner_id': invoice.partner_id.id})
         return super(AccountInvoice, self).invoice_validate()
+
+    @api.multi
+    def reconcile_with_pos_payment(
+            self):
+        for invoice in self:
+            if invoice.session_id:
+                if invoice.state == 'open':
+                    invoice.session_id._reconcile_invoice_with_pos_payment(
+                        invoice)
+                elif invoice.state == 'paid':
+                    raise UserError(
+                        _("Invoice is yet paid"))
+                else:
+                    raise UserError(
+                        _("You must validate invoice before reconcile it with"
+                          " pos payments"))
+            else:
+                raise UserError(
+                    _("No pos session linked to the invoice %s") %
+                    (invoice.number,))
+        return True

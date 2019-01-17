@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page//group[@name='sale_pay']" position="inside">
+                <group name="pos">
+                    <field name="session_id"/>
+                    <field name="pos_reference"/>
+                    <field name="statement_ids"
+                        colspan="4" readonly="True">
+                        <tree>
+                            <field name="journal_id"/>
+                            <field name="statement_id"/>
+                            <field name="amount"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+         </field>
+    </record>
+
+    <record id="view_sales_order_filter" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <filter name="pos" string="POS" domain="[('pos_reference', '!=', '')]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
