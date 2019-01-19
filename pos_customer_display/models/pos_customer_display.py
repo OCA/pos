@@ -11,14 +11,20 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     iface_customer_display = fields.Boolean(
-        string='Customer Display', help="Display data on the customer display")
+        string='Customer Display',
+        help="Display data on the customer display"
+    )
     customer_display_line_length = fields.Integer(
-        string='Line Length of the Customer Display', default=20,
-        help="Length of the LEDs lines of the customer display")
+        string='Line Length of the Customer Display',
+        default=20,
+        help="Length of the LEDs lines of the customer display"
+    )
     customer_display_msg_next_l1 = fields.Char(
-        string="Next Customer (top line)", default="Welcome!",
+        string="Next Customer (top line)",
+        default="Welcome!",
         help="Top line of the message on the customer display which is "
-        "displayed after starting POS and also after validation of an order")
+        "displayed after starting POS and also after validation of an order"
+    )
     customer_display_msg_next_l2 = fields.Char(
         string="Next Customer (bottom line)", default="Point of Sale Open",
         help="Bottom line of the message on the customer display which is "
