@@ -206,13 +206,8 @@ odoo.define("pos_pricelist.models", function (require) {
     models.Orderline.prototype.initialize = function (attr, options) {
         _Orderline_initialize.apply(this, arguments);
         if (options.product) {
-            this.set_unit_price(
-                options.product.price ||
-                this.product.get_price(
-                    this.order.pricelist,
-                    this.get_quantity()
-                )
-            );
+            var unit_price = this.order.pricelist ? this.product.get_price(this.order.pricelist,this.get_quantity()) : options.product.price;
+            this.set_unit_price(unit_price);
         }
     };
     models.Orderline.prototype.init_from_JSON = function () {
