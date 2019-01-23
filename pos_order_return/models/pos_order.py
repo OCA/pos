@@ -48,11 +48,12 @@ class PosOrder(models.Model):
 
     def _prepare_invoice(self):
         res = super(PosOrder, self)._prepare_invoice()
-        if not self.returned_order_id:
+        if not self.returned_order_id.invoice_id:
             return res
         res.update({
-            'origin': self.name,
-            'type': 'out_refund',
+            'origin': self.returned_order_id.invoice_id.number,
+            'name': _(
+                'Return of %s' % self.returned_order_id.invoice_id.number),
             'refund_invoice_id': self.returned_order_id.invoice_id.id,
         })
         return res
@@ -95,9 +96,10 @@ class PosOrder(models.Model):
         return res
 
     def action_pos_order_paid(self):
+        res = super(PosOrder, self).action_pos_order_paid()
         if self.returned_order_id and self.returned_order_id.invoice_id:
             self._action_pos_order_invoice()
-        return super(PosOrder, self).action_pos_order_paid()
+        return res
 
     def _create_picking_return(self):
         self.ensure_one()
@@ -129,6 +131,7 @@ class PosOrder(models.Model):
             wizard = order._create_picking_return()
             res = wizard.create_returns()
             order.write({'picking_id': res['res_id']})
+            order._force_picking_done(order.picking_id)
         return res
 
 
