@@ -78,6 +78,7 @@ class TestPOSOrderReturn(common.HttpCase):
         # Partner balance is 0
         self.assertEqual(sum(
             self.partner.mapped('invoice_ids.amount_total_signed')), 0)
+        self.assertEqual(self.pos_order.picking_id.state, 'done')
 
     def test_pos_order_partial_refund(self):
         partial_refund = self.env['pos.partial.return.wizard'].with_context({
@@ -100,3 +101,4 @@ class TestPOSOrderReturn(common.HttpCase):
         # Partner balance is 1350
         self.assertEqual(sum(
             self.partner.mapped('invoice_ids.amount_total_signed')), 1350)
+        self.assertEqual(self.pos_order.picking_id.state, 'done')
