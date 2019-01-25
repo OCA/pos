@@ -11,6 +11,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
     var screens = require('point_of_sale.screens');
     var chrome = require('point_of_sale.chrome');
     var models = require('point_of_sale.models');
+    var Model = require('web.DataModel');
     var gui = require('point_of_sale.gui');
     var core = require('web.core');
     var _t = core._t;
@@ -21,24 +22,37 @@ point_of_sale.gui
 
     // New function 'display_access_right' to display disabled functions
     gui.Gui.prototype.display_access_right = function(user){
-        if (user.groups_id.indexOf(this.pos.config.group_negative_qty_id[0]) != -1){
-            $('.numpad-minus').removeClass('pos-disabled-mode');
+        var records = new Model('res.users')
+                            .query(['groups_id'])
+                            .filter([['id', '=', user['id']]])
+                            .all()
+        var groups_id = [];
+        var group_negative_qty_id = this.pos.config.group_negative_qty_id[0];
+        var group_discount_id = this.pos.config.group_discount_id[0];
+        var group_change_unit_price_id = this.pos.config.group_change_unit_price_id[0];
+        records.then(function(result){
+            groups_id = result[0]['groups_id'];
+            if (groups_id.indexOf(group_negative_qty_id) != -1){
+                $('.numpad-minus').removeClass('pos-disabled-mode');
+            }
+            else{
+                $('.numpad-minus').addClass('pos-disabled-mode');
+            }
+            if (groups_id.indexOf(group_discount_id) != -1){
+                $(".mode-button[data-mode='discount']").removeClass('pos-disabled-mode');
+            }
+            else{
+                $(".mode-button[data-mode='discount']").addClass('pos-disabled-mode');
+            }
+            if (groups_id.indexOf(group_change_unit_price_id) != -1){
+                $(".mode-button[data-mode='price']").removeClass('pos-disabled-mode');
+            }
+            else{
+                $(".mode-button[data-mode='price']").addClass('pos-disabled-mode');
+            }
         }
-        else{
-            $('.numpad-minus').addClass('pos-disabled-mode');
-        }
-        if (user.groups_id.indexOf(this.pos.config.group_discount_id[0]) != -1){
-            $(".mode-button[data-mode='discount']").removeClass('pos-disabled-mode');
-        }
-        else{
-            $(".mode-button[data-mode='discount']").addClass('pos-disabled-mode');
-        }
-        if (user.groups_id.indexOf(this.pos.config.group_change_unit_price_id[0]) != -1){
-            $(".mode-button[data-mode='price']").removeClass('pos-disabled-mode');
-        }
-        else{
-            $(".mode-button[data-mode='price']").addClass('pos-disabled-mode');
-        }
+        );
+
     };
 
 
@@ -67,26 +81,46 @@ chrome.OrderSelectorWidget
     chrome.OrderSelectorWidget.include({
 
         neworder_click_handler: function(event, $el) {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_multi_order_id[0]) == -1) {
-                this.gui.show_popup('error',{
-                    'title': _t('Many Orders - Unauthorized function'),
-                    'body':  _t('Please ask your manager to do it.'),
-                });
+            var user = this.pos.get_cashier()
+            var records = new Model('res.users')
+                            .query(['groups_id'])
+                            .filter([['id', '=', user['id']]])
+                            .all()
+            var groups_id = [];
+            var group_multi_order_id = this.pos.config.group_multi_order_id[0];
+            var gui = this.gui;
+            records.then(function(result){
+                groups_id = result[0]['groups_id'];
+                if (groups_id.indexOf(group_multi_order_id) == -1) {
+                    gui.show_popup('error',{
+                        'title': _t('Many Orders - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                }
             }
-            else {
-                return this._super();
-            }
+            );
+            return this._super();
         },
         deleteorder_click_handler: function(event, $el) {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_delete_order_id[0]) == -1) {
-                this.gui.show_popup('error',{
-                    'title': _t('Delete Order - Unauthorized function'),
-                    'body':  _t('Please ask your manager to do it.'),
-                });
+            var user = this.pos.get_cashier()
+            var records = new Model('res.users')
+                            .query(['groups_id'])
+                            .filter([['id', '=', user['id']]])
+                            .all()
+            var groups_id = [];
+            var group_delete_order_id = this.pos.config.group_delete_order_id[0];
+            var gui = this.gui;
+            records.then(function(result){
+                groups_id = result[0]['groups_id'];
+                if (groups_id.indexOf(group_delete_order_id) == -1) {
+                    gui.show_popup('error',{
+                        'title': _t('Delete Order - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                }
             }
-            else {
-                return this._super();
-            }
+            );
+            return this._super();
         },
     });
 
@@ -105,36 +139,58 @@ screens.NumpadWidget
 
         // block '+/-' button if user doesn't belong to the correct group
         clickSwitchSign: function() {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_negative_qty_id[0]) == -1) {
-                this.gui.show_popup('error',{
-                    'title': _t('Negative Quantity - Unauthorized function'),
-                    'body':  _t('Please ask your manager to do it.'),
-                });
+            var user = this.pos.get_cashier()
+            var records = new Model('res.users')
+                            .query(['groups_id'])
+                            .filter([['id', '=', user['id']]])
+                            .all()
+            var groups_id = [];
+            var group_negative_qty_id = this.pos.config.group_negative_qty_id[0];
+            var gui = this.gui;
+            records.then(function(result){
+                groups_id = result[0]['groups_id'];
+                if (groups_id.indexOf(group_negative_qty_id) == -1) {
+                    gui.show_popup('error',{
+                        'title': _t('Negative Quantity - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                }
             }
-            else {
-                return this._super();
-            }
+            );
+            return this._super();
         },
 
         // block 'discount' or 'price' button if user doesn't belong to the correct group
         clickChangeMode: function(event) {
-            if (event.currentTarget.attributes['data-mode'].nodeValue == 'discount' &&
-                    this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_discount_id[0]) == -1) {
-                this.gui.show_popup('error',{
-                    'title': _t('Discount - Unauthorized function'),
-                    'body':  _t('Please ask your manager to do it.'),
-                });
+            var user = this.pos.get_cashier()
+            var records = new Model('res.users')
+                            .query(['groups_id'])
+                            .filter([['id', '=', user['id']]])
+                            .all()
+            var groups_id = [];
+            var group_discount_id = this.pos.config.group_discount_id[0];
+            var group_change_unit_price_id = this.pos.config.group_change_unit_price_id[0];
+            var gui = this.gui;
+            records.then(function(result){
+                groups_id = result[0]['groups_id'];
+                if (event.currentTarget.attributes['data-mode'].nodeValue == 'discount' &&
+                        groups_id.indexOf(group_discount_id) == -1) {
+                    gui.show_popup('error',{
+                        'title': _t('Discount - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                }
+                else if (event.currentTarget.attributes['data-mode'].nodeValue == 'price' &&
+                        groups_id.indexOf(group_change_unit_price_id) == -1) {
+                    gui.show_popup('error',{
+                        'title': _t('Change Unit Price - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                }
             }
-            else if (event.currentTarget.attributes['data-mode'].nodeValue == 'price' &&
-                    this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_change_unit_price_id[0]) == -1) {
-                this.gui.show_popup('error',{
-                    'title': _t('Change Unit Price - Unauthorized function'),
-                    'body':  _t('Please ask your manager to do it.'),
-                });
-            }
-            else {
-                return this._super(event);
-            }
+            );
+            return this._super(event);
+
         },
     });
 });
