@@ -96,7 +96,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                 }
             }
             );
-            return this._super();
+            return this._super(event, $el);
         },
         deleteorder_click_handler: function (event, $el) {
             var user = this.pos.get_cashier();
@@ -117,7 +117,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                 }
             }
             );
-            return this._super();
+            return this._super(event, $el);
         },
     });
 
