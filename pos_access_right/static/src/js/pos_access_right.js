@@ -85,11 +85,11 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                 .all();
             var groups_id = [];
             var group_multi_order_id = this.pos.config.group_multi_order_id[0];
-            var gui = this.gui;
+            var v_gui = this.gui;
             records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (groups_id.indexOf(group_multi_order_id) === -1) {
-                    gui.show_popup('error', {
+                    v_gui.show_popup('error', {
                         'title': _t('Many Orders - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
                     });
@@ -106,11 +106,11 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                 .all();
             var groups_id = [];
             var group_del_order_id = this.pos.config.group_delete_order_id[0];
-            var gui = this.gui;
+            var v_gui = this.gui;
             records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (groups_id.indexOf(group_del_order_id) === -1) {
-                    gui.show_popup('error', {
+                    v_gui.show_popup('error', {
                         'title': _t('Delete Order - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
                     });
@@ -143,11 +143,11 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                 .all();
             var groups_id = [];
             var group_neg_qty_id = this.pos.config.group_negative_qty_id[0];
-            var gui = this.gui;
+            var v_gui = this.gui;
             records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (groups_id.indexOf(group_neg_qty_id) === -1) {
-                    gui.show_popup('error', {
+                    v_gui.show_popup('error', {
                         'title':
                             _t('Negative Quantity - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
@@ -169,19 +169,19 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             var groups_id = [];
             var group_discount_id = this.pos.config.group_discount_id[0];
             var group_price_id = this.pos.config.group_change_unit_price_id[0];
-            var gui = this.gui;
+            var v_gui = this.gui;
             records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (event.currentTarget.attributes['data-mode'].nodeValue ===
                         'discount' &&
                         groups_id.indexOf(group_discount_id) === -1) {
-                    gui.show_popup('error', {
+                    v_gui.show_popup('error', {
                         'title': _t('Discount - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
                     });
                 } else if (event.currentTarget.attributes['data-mode'].nodeValue === 'price' &&
                         groups_id.indexOf(group_price_id) === -1) {
-                    gui.show_popup('error', {
+                    v_gui.show_popup('error', {
                         'title':
                              _t('Change Unit Price - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
