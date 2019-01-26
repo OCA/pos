@@ -30,7 +30,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
         var group_negative_qty_id = this.pos.config.group_negative_qty_id[0];
         var group_discount_id = this.pos.config.group_discount_id[0];
         var group_price_id = this.pos.config.group_change_unit_price_id[0];
-        records.then (function(result) {
+        records.then(function (result) {
             groups_id = result[0].groups_id;
             if (groups_id.indexOf(group_negative_qty_id) === -1) {
                 $('.numpad-minus').addClass('pos-disabled-mode');
@@ -38,18 +38,14 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                 $('.numpad-minus').removeClass('pos-disabled-mode');
             }
             if (groups_id.indexOf(group_discount_id) === -1) {
-                $(".mode-button[data-mode='discount']").
-                    addClass('pos-disabled-mode');
+                $(".mode-button[data-mode='discount']").addClass('pos-disabled-mode');
             } else {
-                $(".mode-button[data-mode='discount']").
-                    removeClass('pos-disabled-mode');
+                $(".mode-button[data-mode='discount']").removeClass('pos-disabled-mode');
             }
             if (groups_id.indexOf(group_price_id) === -1) {
-                $(".mode-button[data-mode='price']").
-                    addClass('pos-disabled-mode');
+                $(".mode-button[data-mode='price']").addClass('pos-disabled-mode');
             } else {
-                $(".mode-button[data-mode='price']").
-                    removeClass('pos-disabled-mode');
+                $(".mode-button[data-mode='price']").removeClass('pos-disabled-mode');
             }
         }
         );
@@ -90,7 +86,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             var groups_id = [];
             var group_multi_order_id = this.pos.config.group_multi_order_id[0];
             var gui = this.gui;
-            records.then (function(result) {
+            records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (groups_id.indexOf(group_multi_order_id) === -1) {
                     gui.show_popup('error', {
@@ -111,7 +107,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             var groups_id = [];
             var group_del_order_id = this.pos.config.group_delete_order_id[0];
             var gui = this.gui;
-            records.then (function(result) {
+            records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (groups_id.indexOf(group_del_order_id) === -1) {
                     gui.show_popup('error', {
@@ -148,12 +144,12 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             var groups_id = [];
             var group_neg_qty_id = this.pos.config.group_negative_qty_id[0];
             var gui = this.gui;
-            records.then (function(result) {
+            records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (groups_id.indexOf(group_neg_qty_id) === -1) {
                     gui.show_popup('error', {
                         'title':
-                            _t('Negative Quantity - \Unauthorized function'),
+                            _t('Negative Quantity - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
                     });
                 }
@@ -163,7 +159,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
         },
 
         // Block 'discount' or 'price' button if user doesn't belong to the
-        //correct group
+        // Correct group
         clickChangeMode: function (event) {
             var user = this.pos.get_cashier();
             var records = new Model('res.users')
@@ -174,7 +170,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             var group_discount_id = this.pos.config.group_discount_id[0];
             var group_price_id = this.pos.config.group_change_unit_price_id[0];
             var gui = this.gui;
-            records.then (function(result) {
+            records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (event.currentTarget.attributes['data-mode'].nodeValue ===
                         'discount' &&
@@ -183,8 +179,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                         'title': _t('Discount - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
                     });
-                } else if (event.currentTarget.attributes['data-mode'].nodeValue
-                        === 'price' &&
+                } else if (event.currentTarget.attributes['data-mode'].nodeValue === 'price' &&
                         groups_id.indexOf(group_price_id) === -1) {
                     gui.show_popup('error', {
                         'title':
