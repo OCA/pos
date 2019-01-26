@@ -171,7 +171,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             var group_discount_id = this.pos.config.group_discount_id[0];
             var group_price_id = this.pos.config.group_change_unit_price_id[0];
             var v_gui = this.gui;
-            var data_mode= event.currentTarget.attributes['data-mode']
+            var data_mode= event.currentTarget.attributes['data-mode'];
             records.then(function (result) {
                 groups_id = result[0].groups_id;
                 if (event.currentTarget.attributes['data-mode'].nodeValue ===
