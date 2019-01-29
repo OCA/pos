@@ -8,7 +8,7 @@ odoo.define('pos_order_to_sale_order.state_machine', function (require) {
 
     var stateMachine = { //State Machine
         listeners: [],
-        allowPayment: true,
+        allowPayment: false,
         allowedStates: [],
         // possible states : poso, draft, confirmed, delivered, invoiced
         current: {

@@ -62,8 +62,10 @@ class PosSession(models.Model):
             domains, partner_id, anonym_order=anonym_order)
         invoices = self.env['account.invoice'].browse(False)
         for order in self.env['sale.order'].search(domains):
-            if order.invoice_ids:
-                invoices |= order.invoice_ids
+            not_cancel_inv = order.invoice_ids.filtered(
+                        lambda inv: inv.state not in ['cancel',])
+            if not_cancel_inv:
+                invoices |= not_cancel_inv
         return invoices
 
     @api.multi
@@ -126,5 +128,7 @@ class PosSession(models.Model):
                 pay_reconciable_ids = sale_ids.mapped(
                     'statement_ids.journal_entry_ids.line_ids').filtered(
                     lambda r: r.account_id == invoice.account_id)
-                invoice.register_payment(pay_reconciable_ids)
+                # sort by debit to take into account return cash
+                invoice.register_payment(pay_reconciable_ids.sorted(
+                    key=lambda r: r.debit))
         return True

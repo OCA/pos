@@ -18,8 +18,10 @@
     'website': 'https://odoo-community.org/',
     'data': [
         'views/view_pos_config.xml',
+        'views/template.xml',
         'views/pos_to_so_report.xml',
         'views/sale_order_view.xml',
+        'views/invoice_view.xml',
         'data/res_partner_data.xml',
     ],
     'demo': [
