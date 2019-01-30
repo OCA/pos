@@ -125,10 +125,13 @@ class PosSession(models.Model):
                 sale_ids = invoice.invoice_line_ids.mapped(
                     'sale_line_ids').mapped('order_id').filtered(
                         lambda r: r.state not in ['draft', 'sent'])
-                pay_reconciable_ids = sale_ids.mapped(
+                pay_reconcilable_ids = sale_ids.mapped(
                     'statement_ids.journal_entry_ids.line_ids').filtered(
                     lambda r: r.account_id == invoice.account_id)
+                # exclude reconciled line
+                pay_reconcilable_ids = pay_reconcilable_ids.filtered(
+                    lambda r: not r.reconciled)
                 # sort by debit to take into account return cash
-                invoice.register_payment(pay_reconciable_ids.sorted(
+                invoice.register_payment(pay_reconcilable_ids.sorted(
                     key=lambda r: r.debit))
         return True
