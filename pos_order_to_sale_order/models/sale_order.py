@@ -76,7 +76,7 @@ class SaleOrder(models.Model):
         session = self.env['pos.session'].browse(
             order_data['pos_session_id'])
         if not session: 
-            raise UserError("Aucune session n'a été envoyé par le Pdv")
+            raise UserError(_("Aucune session n'a été envoyé par le Pdv"))
 
         if session.state == 'closing_control' or session.state == 'closed':
             raise UserError(
@@ -247,7 +247,7 @@ class SaleOrder(models.Model):
         statement_id = payment_data.get('statement_id', False)
         if not(journal_id or statement_id):
             raise UserError(
-                "No statement_id or journal_id passed to the method!")
+                _("No statement_id or journal_id passed to the method!"))
 
         for statement in order.statement_ids:
             if statement.id == statement_id:
@@ -258,8 +258,7 @@ class SaleOrder(models.Model):
                 break
 
         if not statement_id:
-            raise UserError(_('Error!'),
-                            _('You have to open at least one cashbox.'))
+            raise UserError(_('You have to open at least one cashbox.'))
 
         statement_vals.update({
             'statement_id': statement_id,

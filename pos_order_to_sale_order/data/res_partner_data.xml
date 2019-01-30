@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
-<odoo>
-    <data noupdate="0">
-        <record model="res.partner" id="res_partner_anonymous">
-            <field name="name">Unknown Customer</field>
-        </record>
-    </data>
+<odoo noupdate="0">
+    <record model="res.partner" id="res_partner_anonymous">
+        <field name="name">Unknown Customer</field>
+    </record>
 </odoo>
