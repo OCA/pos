@@ -15,24 +15,45 @@ class AccountInvoice(models.Model):
         domain="[('state', '=', 'opened')]",
         states={'draft': [('readonly', False)]},
     )
-
+    
     @api.multi
     def invoice_validate(self):
         # Update invoice partner on sale order and update partner on
         # sale order statement if different on the invoice.
         # In order not to have inconsistency on the partners when the reconcile
-        for invoice in self:
-            sales = []
-            for invoice_line in invoice.invoice_line_ids:
-                for sale_line in invoice_line.sale_line_ids:
-                    if sale_line.order_id not in sales:
-                        sales += sale_line.order_id
+        for invoice in self.filtered(lambda r: r.pos_anonyme_invoice):
+            sales = invoice.filtered(
+                lambda r: r.type in ['out_invoice', 'out_refund']
+            ).invoice_line_ids.mapped('sale_line_ids').mapped(
+                'order_id')            
             for sale in sales:
-                if (invoice.pos_anonyme_invoice and
-                    invoice.session_id == sale.session_id and
+                if (invoice.session_id == sale.session_id and
                         sale.partner_invoice_id != invoice.partner_id):
                     sale.write({'partner_id': invoice.partner_id.id,
                                 'partner_invoice_id': invoice.partner_id.id})
                     sale.statement_ids.write(
                         {'partner_id': invoice.partner_id.id})
+            if invoice.partner_id != invoice.session_id.config_id.\
+                    anonymous_partner_id:
+                invoice.pos_anonyme_invoice = False
         return super(AccountInvoice, self).invoice_validate()
+
+    @api.multi
+    def reconcile_with_pos_payment(self):
+        for invoice in self:
+            if invoice.session_id:
+                if invoice.state == 'open':
+                    invoice.session_id._reconcile_invoice_with_pos_payment(
+                        invoice)
+                elif invoice.state == 'paid':
+                    raise UserError(
+                        _("Invoice is yet paid"))
+                else:
+                    raise UserError(
+                        _("You must validate invoice before reconcile it with"
+                          " pos payments"))
+            else:
+                raise UserError(
+                    _("No pos session linked to the invoice %s") %
+                    (invoice.number,))
+        return True

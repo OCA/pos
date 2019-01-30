@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="invoice_form" model="ir.ui.view">
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_invoice_cancel']" position="after">
+                <button type="object" name="reconcile_with_pos_payment" states="open" string="Reconciale with pos payments"/>
+            </xpath>
+            <field name="move_id" position="after">
+                <field name="session_id"/>
+                <field name="id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
