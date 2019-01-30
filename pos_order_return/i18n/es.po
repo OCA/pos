@@ -179,12 +179,6 @@ msgid "Returnable Quantity"
 msgstr "Cantidad retornable"
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:55
-#, python-format
-msgid "Return of %s"
-msgstr "Devolución de %s"
-
-#. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line_returned_line_id
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order_returned_order_id
 msgid "Returned Order"
@@ -228,3 +222,6 @@ msgstr "pos.partial.return.wizard"
 #: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
 msgid "pos.partial.return.wizard.line"
 msgstr "pos.partial.return.wizard.line"
+
+#~ msgid "Return of %s"
+#~ msgstr "Devolución de %s"
