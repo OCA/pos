@@ -60,7 +60,7 @@ msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:184
+#: code:addons/pos_order_return/models/pos_order.py:187
 #, python-format
 msgid ""
 "For legal and traceability reasons, you can not set a negative quantity (%d "
@@ -167,6 +167,12 @@ msgid "Refund Orders Quantity"
 msgstr "Nombre de ventes retournées"
 
 #. module: pos_order_return
+#: code:addons/pos_order_return/models/pos_order.py:55
+#, python-format
+msgid "Return of %s"
+msgstr ""
+
+#. module: pos_order_return
 #: model:product.product,name:pos_order_return.product_product_returnable_bottle
 #: model:product.template,name:pos_order_return.product_product_returnable_bottle_product_template
 msgid "Returnable Bottle"
@@ -194,7 +200,7 @@ msgid "Wizard"
 msgstr "Assistant"
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:173
+#: code:addons/pos_order_return/models/pos_order.py:176
 #, python-format
 msgid ""
 "You can not return %d %s of %s because some refunds have already been done.\n"
@@ -202,7 +208,7 @@ msgid ""
 msgstr ""
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:164
+#: code:addons/pos_order_return/models/pos_order.py:167
 #, python-format
 msgid ""
 "You can not return %d %s of %s because the original Order line only mentions "
