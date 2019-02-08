@@ -24,6 +24,7 @@ addon | version | summary
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
 [pos_margin](pos_margin/) | 10.0.1.0.0 | Margin on PoS Order
 [pos_order_return](pos_order_return/) | 10.0.1.0.0 | Point of Sale Order Return
+[pos_payment_entries_globalization](pos_payment_entries_globalization/) | 10.0.1.0.0 | Globalize POS Payment
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.1 | Manage Payment Terminal device from POS front end
 [pos_price_to_weight](pos_price_to_weight/) | 10.0.1.0.0 | Compute weight based on barcodes with prices
 [pos_pricelist](pos_pricelist/) | 10.0.1.0.2 | Pricelist for Point of sale
