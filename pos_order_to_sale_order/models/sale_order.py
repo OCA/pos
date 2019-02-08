@@ -10,6 +10,7 @@ import time
 from odoo import fields, models, api, _
 from odoo.exceptions import Warning as UserError
 from odoo.tools import float_is_zero
+import odoo.addons.decimal_precision as dp
 
 
 class SaleOrder(models.Model):
@@ -29,6 +30,28 @@ class SaleOrder(models.Model):
         'account.bank.statement.line',
         'pos_so_statement_id', string='Pos Payments',
         states={'draft': [('readonly', False)]}, readonly=True)
+    residual = fields.Float(
+        compute='_get_residual',
+        digits_compute=dp.get_precision('Account'))
+    amount_paid = fields.Float(
+        compute='_get_residual',
+        digits_compute=dp.get_precision('Account'))
+    amount_return = fields.Float(
+        compute='_get_residual',
+        digits_compute=dp.get_precision('Account'))
+
+    @api.depends('statement_ids.amount', 'amount_total')
+    def _get_residual(self):
+        for order in self:
+            amount_paid = 0.0
+            amount_return = 0.0
+            for statement in order.statement_ids:
+                amount_paid += statement.amount
+                if statement.amount < 0:
+                    amount_return += abs(statement.amount)
+            order.amount_paid = amount_paid
+            order.amount_return = amount_return
+            order.residual = order.amount_total - amount_paid
 
     @api.model
     def _prepare_order_from_pos(self, order_data):

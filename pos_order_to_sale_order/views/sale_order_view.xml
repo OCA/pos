@@ -9,6 +9,8 @@
                 <group name="pos">
                     <field name="session_id"/>
                     <field name="pos_reference"/>
+                    <field name="amount_paid"/>
+                    <field name="residual"/>
                     <field name="statement_ids"
                         colspan="4" readonly="True">
                         <tree>
