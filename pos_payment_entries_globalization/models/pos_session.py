@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -75,7 +74,7 @@ class PosSession(models.Model):
         self.ensure_one()
         grouped_move_lines = self._get_move_lines_for_globalization()
         to_reconcile = []
-        for key, lines in grouped_move_lines.iteritems():
+        for key, lines in grouped_move_lines.items():
             global_account_id, global_journal_id = key
             move = self._prepare_globalization_move(global_journal_id)
             counterpart_debit = 0.0
@@ -92,12 +91,13 @@ class PosSession(models.Model):
             if counterpart_credit:
                 self._prepare_globalization_counterpart_line(
                     0.0, counterpart_credit, global_account_id, move)
+            move.post()
         for lines in to_reconcile:
             lines.reconcile()
 
     @api.multi
-    def action_pos_session_closing_control(self):
-        super(PosSession, self).action_pos_session_closing_control()
+    def action_pos_session_close(self):
+        super(PosSession, self).action_pos_session_close()
         for record in self:
             # Call the method to generate globalization entries
             record._generate_globalization_entries()
