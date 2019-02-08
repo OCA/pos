@@ -125,7 +125,9 @@ class SaleOrder(models.Model):
         # mark picking as delivered
         if order_data['sale_order_state'] in ['delivered', 'invoiced']:
             sale_order.picking_ids.force_assign()
-            sale_order.picking_ids.do_transfer()
+            # in delevry module do_transfer has a ensure_one constraint use batch if this changed.
+            for picking in sale_order.picking_ids:
+                picking.do_transfer()
 
         # generate invoice
         if order_data.get('to_invoice', False):
