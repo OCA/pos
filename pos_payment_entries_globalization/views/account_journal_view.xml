@@ -8,7 +8,7 @@
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[field[@name='journal_user']]" position="after">
+                <xpath expr="//group[@name='amount_authorized']" position="after">
                     <group string="Payment Globalization" name="globalization">
                         <field name="pos_payment_globalization" />
                         <field name="pos_payment_globalization_account" attrs="{'required': [('pos_payment_globalization', '=', True)], 'invisible': [('pos_payment_globalization', '=', False)]}"/>
