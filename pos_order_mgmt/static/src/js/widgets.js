@@ -37,6 +37,13 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 return this._super();
             }
             this.pos.from_loaded_order = false;
+            // When reprinting a loaded order we temporarily set it as the
+            // active one. When we get out from the printing screen, we set
+            // it back to the one that was active
+            if (this.pos.current_order) {
+                this.pos.set_order(this.pos.current_order);
+                this.pos.current_order = false;
+            }
             return this.gui.show_screen(this.gui.startup_screen);
         },
     });
@@ -145,6 +152,10 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
         action_print: function (order) {
             var receipt = order.export_for_printing();
+            // We store temporarily the current order so we can safely compute
+            // taxes based on fiscal position
+            this.pos.current_order = this.pos.get_order()
+            this.pos.set_order(order);
             if (this.pos.config.iface_print_via_proxy) {
                 this.pos.proxy.print_receipt(QWeb.render(
                     'XmlReceipt', {
@@ -155,6 +166,8 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                         orderlines: order.get_orderlines(),
                         paymentlines: order.get_paymentlines(),
                     }));
+                this.pos.set_order(this.pos.current_order);
+                this.pos.current_order = false;
             } else {
                 this.pos.reloaded_order = order;
                 this.gui.show_screen('receipt');
@@ -182,6 +195,14 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 order_data.partner_id = order_data.partner_id[0];
             }
             order.set_client(this.pos.db.get_partner_by_id(order_data.partner_id));
+            // Set fiscal position
+            if (order_data.fiscal_position && this.pos.fiscal_positions) {
+                var fiscal_positions = this.pos.fiscal_positions;
+                order.fiscal_position = fiscal_positions.filter(function (p) {
+                    return p.id === order_data.fiscal_position;
+                })[0];
+                order.trigger('change');
+            }
             // Set order lines
             var orderLines = order_data.line_ids || order_data.lines || [];
             _.each(orderLines, function (orderLine) {
@@ -204,17 +225,6 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                     });
                 }
             });
-            // Set fiscal position
-            if (order_data.fiscal_position && this.pos.fiscal_positions) {
-                var fiscal_positions = this.pos.fiscal_positions;
-                order.fiscal_position = fiscal_positions.filter(function (p) {
-                    return p.id === order_data.fiscal_position;
-                })[0];
-                _.each(order.orderlines.models, function (line) {
-                    line.set_quantity(line.quantity);
-                });
-                order.trigger('change');
-            }
             if (order_data.return) {
                 order.return = true;
                 // A credit note should be emited if there was an invoice

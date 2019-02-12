@@ -12,7 +12,7 @@ odoo.define('pos_order_mgmt.models', function (require) {
         if (arguments.length && arguments[0] && arguments[0].uid) {
             var order = this.db.get_order(arguments[0].uid);
             if (order && order.data) {
-                var data = Object.assign({}, order.data);
+                var data = _.extend({}, order.data);
                 var partner = this.db.get_partner_by_id(data.partner_id);
                 if (partner && partner.id && partner.name) {
                     data.partner_id = [partner.id, partner.name];
