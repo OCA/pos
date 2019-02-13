@@ -62,6 +62,7 @@ Contributors
 * David <david.vidal@tecnativa.com>
   * (https://www.tecnativa.com)
 * Ignacio Ales <ignacio.ales@guadaltech.es>
+* Kiril Vangelovski <kiril@lambda-is.com>
 
 Do not contact contributors directly about support or help with technical issues.
 

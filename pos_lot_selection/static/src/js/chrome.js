@@ -1,4 +1,5 @@
 /* Copyright 2018 Tecnativa - David Vidal
+   Copyright 2019 Lambda IS DOOEL <https://www.lambda-is.com>
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
 odoo.define("pos_lot_selection.chrome", function (require) {
@@ -14,7 +15,7 @@ odoo.define("pos_lot_selection.chrome", function (require) {
             var events = {
                 "change .packlot-line-select": "lot_to_input",
             };
-            packlotline.events = Object.assign(
+            packlotline.events = _.extend(
                 packlotline.events, events
             );
             // Add methods over instanced popup
