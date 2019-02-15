@@ -39,16 +39,16 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:293
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:321
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:303
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:331
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:292
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:320
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:302
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:330
 #, python-format
 msgid "Connection error"
 msgstr ""
@@ -128,7 +128,7 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:270
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:280
 #, python-format
 msgid "Unable to load some order lines because the products are not available in the POS cache.\n"
 "\n"
@@ -139,7 +139,7 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:269
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:279
 #, python-format
 msgid "Unknown Products"
 msgstr ""
