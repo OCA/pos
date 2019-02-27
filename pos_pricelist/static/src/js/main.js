@@ -16,9 +16,9 @@
 *
 ******************************************************************************/
 openerp.pos_pricelist = function (instance) {
-    var module = instance.point_of_sale;
-    pos_pricelist_db(instance, module);
-    pos_pricelist_models(instance, module);
-    pos_pricelist_screens(instance, module);
-    pos_pricelist_widgets(instance, module);
-};
+  var module = instance.point_of_sale
+  pos_pricelist_db(instance, module)
+  pos_pricelist_models(instance, module)
+  pos_pricelist_screens(instance, module)
+  pos_pricelist_widgets(instance, module)
+}
