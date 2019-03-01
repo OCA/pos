@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2017\n"
+"PO-Revision-Date: 2019-03-01 15:53+0000\n"
+"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.4\n"
 
 #. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_program_pp_order
@@ -56,7 +57,7 @@ msgstr "Categoría"
 #. module: pos_loyalty
 #: model:ir.actions.act_window,help:pos_loyalty.loyalty_program_action
 msgid "Click create to define a Loyalty Program."
-msgstr "Haga clic en crear para definir un Programa de Fidelización"
+msgstr "Haga clic en crear para definir un Programa de Fidelización."
 
 #. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_reward_point_cost
@@ -104,7 +105,7 @@ msgstr "Límite de descuento"
 msgid "Discount product field is mandatory for discount rewards"
 msgstr ""
 "El campo Producto de descuento es obligatorio para las recompensas de tipo "
-"descuento."
+"descuento"
 
 #. module: pos_loyalty
 #: model:ir.model.fields,field_description:pos_loyalty.field_loyalty_program_display_name
@@ -216,7 +217,7 @@ msgstr "Los puntos de fidelidad se redondearán a múltiplos de este valor"
 #. module: pos_loyalty
 #: model:ir.model.fields,help:pos_loyalty.field_loyalty_reward_discount_max
 msgid "Maximum discounted amount allowed forthis discount reward"
-msgstr ""
+msgstr "Máximo descuento permitido para esta regla de descuento"
 
 #. module: pos_loyalty
 #: model:ir.model.fields,field_description:pos_loyalty.field_loyalty_reward_minimum_points
