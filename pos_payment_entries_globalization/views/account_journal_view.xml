@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2015-2017 ACSONE SA/NV (<http://acsone.eu>)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_account_journal_pos_user_form">
+            <field name="name">POS Journal (pos_payment_entries_globalization)</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='amount_authorized']" position="after">
+                    <group string="Payment Globalization" name="globalization">
+                        <field name="pos_payment_globalization" />
+                        <field name="pos_payment_globalization_account" attrs="{'required': [('pos_payment_globalization', '=', True)], 'invisible': [('pos_payment_globalization', '=', False)]}"/>
+                        <field name="pos_payment_globalization_journal" attrs="{'required': [('pos_payment_globalization', '=', True)], 'invisible': [('pos_payment_globalization', '=', False)]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
