@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo11-addon-pos_margin',
         'odoo11-addon-pos_order_mgmt',
         'odoo11-addon-pos_order_return',
+        'odoo11-addon-pos_payment_entries_globalization',
         'odoo11-addon-pos_session_pay_invoice',
         'odoo11-addon-pos_ticket_logo',
     ],
