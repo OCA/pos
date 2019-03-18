@@ -247,7 +247,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
 
         renderElement: function() {
             var self = this;
-            var el_html  = openerp.qweb.render(this.template, {widget: this});
+            var el_html  = QWeb.render(this.template, {widget: this});
             var el_node = document.createElement('div');
             el_node.innerHTML = el_html;
             el_node = el_node.childNodes[1];
@@ -358,7 +358,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         
         renderElement: function() {
             var self = this;
-            var el_html  = openerp.qweb.render(this.template, {widget: this});
+            var el_html  = QWeb.render(this.template, {widget: this});
             var el_node = document.createElement('div');
             el_node.innerHTML = el_html;
             el_node = el_node.childNodes[1];
@@ -513,7 +513,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             ];},
         context: function(self){
             return {
-                pricelist: self.pricelist.id,
+                pricelist: self.pricelists[0].id,
                 display_default_code: false,
             };},
         loaded: function(self, templates){

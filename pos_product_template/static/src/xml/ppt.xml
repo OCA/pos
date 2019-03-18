@@ -74,7 +74,7 @@
             <div class="button">
                 <div class="attribute-value-header">
                     <span class="variant-quantity">
-                        <t t-esc="variant_qty"/> Variants
+                        <t t-esc="value.lst_price"/> Variants
                     </span>
                 </div>
                 <div class="attribute-value-name">
@@ -101,12 +101,12 @@
             <div class="variant-header">
                 <t t-if="!variant.to_weight">
                     <span class="price-tag">
-                        <t t-esc="widget.format_currency(variant.price,'Product Price')"/>
+                        <t t-esc="widget.format_currency(variant.lst_price,'Product Price')"/>
                     </span>
                 </t>
                 <t t-if="variant.to_weight">
                     <span class="price-tag">
-                        <t t-esc="widget.format_currency(variant.price,'Product Price')+'/Kg'"/>
+                        <t t-esc="widget.format_currency(variant.lst_price,'Product Price')+'/Kg'"/>
                     </span>
                 </t>
             </div>
