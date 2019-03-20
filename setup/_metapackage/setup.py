@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-pos_access_right',
+        'odoo12-addon-pos_ticket_logo',
     ],
     classifiers=[
         'Programming Language :: Python',
