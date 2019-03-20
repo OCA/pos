@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="PosTicket">
+        <t t-jquery="div[class='pos-sale-ticket']" t-operation="prepend">
+            <div class="pos-center-align">
+                <img t-att-src="widget.pos.company_logo_base64"/><br />
+            </div>
+        </t>
+    </t>
+
+</templates>
