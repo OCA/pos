@@ -2,11 +2,27 @@
 # Copyright 2018 Tecnativa S.L. - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models
+from odoo import api, models, fields
 
 
 class PosOrder(models.Model):
     _inherit = 'pos.order'
+
+    returned_order_id = fields.Many2one(
+        comodel_name='pos.order',
+        string='Returned Order',
+        readonly=True,
+    )
+    refund_order_ids = fields.One2many(
+        comodel_name='pos.order',
+        inverse_name='returned_order_id',
+        string='Refund Orders',
+        readonly=True,
+    )
+    refund_order_qty = fields.Integer(
+        compute='_compute_refund_order_qty',
+        string='Refund Orders Quantity',
+    )
 
     @api.model
     def _prepare_filter_for_pos(self, pos_session_id):
@@ -26,7 +42,7 @@ class PosOrder(models.Model):
     def _prepare_fields_for_pos_list(self):
         return [
             'name', 'pos_reference', 'partner_id', 'date_order',
-            'amount_total',  'amount_paid', 'amount_return', 'session_id',
+            'amount_total', 'amount_paid', 'amount_return', 'session_id',
             'amount_tax', 'statement_ids', 'lines', 'invoice_id',
             'returned_order_id', 'fiscal_position_id'
         ]
@@ -43,9 +59,9 @@ class PosOrder(models.Model):
             # Search globally by criteria
             condition += self._prepare_filter_query_for_pos(pos_session_id,
                                                             query)
-        fields = self._prepare_fields_for_pos_list()
+        field_names = self._prepare_fields_for_pos_list()
         return self.search_read(
-            condition, fields, limit=config.iface_load_done_order_max_qty)
+            condition, field_names, limit=config.iface_load_done_order_max_qty)
 
     @api.multi
     def _prepare_done_order_for_pos(self):
@@ -102,9 +118,7 @@ class PosOrder(models.Model):
         if (not pos_order.get('return') or
                 not pos_order.get('returned_order_id')):
             return super()._process_order(pos_order)
-        order = super(PosOrder,
-                      self.with_context(do_not_check_negative_qty=True)
-                      )._process_order(pos_order)
+        order = super(PosOrder, self)._process_order(pos_order)
         returned_order_id = pos_order.get('returned_order_id')
         if isinstance(returned_order_id, int):
             order.returned_order_id = self.browse(returned_order_id)
