@@ -5,7 +5,7 @@
 {
     'name': 'POS Frontend Orders Management',
     'summary': 'Manage old POS Orders from the frontend',
-    'version': '11.0.1.0.1',
+    'version': '12.0.1.0.1',
     'category': 'Point of Sale',
     'author': 'GRAP, '
               'Tecnativa, '
@@ -13,7 +13,7 @@
     'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
-        'pos_order_return',
+        'point_of_sale',
     ],
     'data': [
         'views/assets.xml',
