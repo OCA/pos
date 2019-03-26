@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="ListOrderButtonWidget">
-        <t t-if="widget.pos.config.iface_load_done_order">
+        <t t-if="widget.pos.config.iface_load_done_order_max_qty">
             <div class="header-button order-list-button">
                 <i class='fa fa-fw fa-shopping-cart'/>
             </div>
@@ -55,10 +55,10 @@
             <td name="td_ol_date"><t t-esc='order.date_order' /></td>
             <td name="td_ol_amount_total"><t t-esc='widget.format_currency(order.amount_total)' /></td>
             <td name="td_ol_reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
-                <span class="button order-list-reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
+                <span t-if="widget.pos.config.iface_reprint_done_order" class="button order-list-reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
                     <i class='fa fa-fw fa-print'/>
                 </span>
-                <span t-if="order.amount_total >= 0" class="button order-list-return" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
+                <span t-if="widget.pos.config.iface_return_done_order and order.amount_total >= 0" class="button order-list-return" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
                     <i class='fa fa-fw fa-undo'/>
                 </span>
             </td>
