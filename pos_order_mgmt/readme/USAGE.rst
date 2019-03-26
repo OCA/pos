@@ -1,13 +1,13 @@
 Once the PoS is loaded, you'll find a shopping trolley icon (🛒) in the top
 bar that grants access to the order list screen.
 
-.. image:: /pos_order_mgmt/static/description/order-mgmt-icon.png
+.. image:: ../static/description/order-mgmt-icon.png
 
 There you can find the number of past orders loaded according to your
 configuration (see Configuration) as well as the orders you checked out in
 the current session:
 
-.. image:: /pos_order_mgmt/static/description/order-mgmt-list.png
+.. image:: ../static/description/order-mgmt-list.png
 
 #. You can see their totals as well as their custumers if registered.
 #. You can reprint their tickets clicking on the printer icon (⎙).
