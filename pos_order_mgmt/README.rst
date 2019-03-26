@@ -14,13 +14,13 @@ POS Frontend Orders Management
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/11.0/pos_order_mgmt
+    :target: https://github.com/OCA/pos/tree/12.0/pos_order_mgmt
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-11-0/pos-11-0-pos_order_mgmt
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_order_mgmt
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/11.0
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -41,12 +41,14 @@ To configure this module, you need to:
 
 #. Go to *Point of Sale > Configuration > Point of Sale* and select one of
    them.
-#. Set *Load Done Orders* on if you want to be able to load past orders in that
-   PoS.
 #. Change *Max Done Orders Quantity To Load* to your desired amount (10 by
    default). Please note that the more you load, the more it will take to load
    them in the session opening. You can also set it to 0 and you'll just be
    able to load them from the order list screen.
+#. Set *Reprint Done Orders* on if you want to be able to reprint past orders
+   in that PoS.
+#. Set *Return Done Orders* on if you want to be able to return past orders
+   in that PoS.
 
 Usage
 =====
@@ -54,13 +56,13 @@ Usage
 Once the PoS is loaded, you'll find a shopping trolley icon (🛒) in the top
 bar that grants access to the order list screen.
 
-.. image:: https://raw.githubusercontent.com/pos_order_mgmt/static/description/order-mgmt-icon.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_mgmt/static/description/order-mgmt-icon.png
 
 There you can find the number of past orders loaded according to your
 configuration (see Configuration) as well as the orders you checked out in
 the current session:
 
-.. image:: https://raw.githubusercontent.com/pos_order_mgmt/static/description/order-mgmt-list.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_mgmt/static/description/order-mgmt-list.png
 
 #. You can see their totals as well as their custumers if registered.
 #. You can reprint their tickets clicking on the printer icon (⎙).
@@ -86,7 +88,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_mgmt%0Aversion:%2011.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_mgmt%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -104,6 +106,7 @@ Contributors
 
 * David Vidal <david.vidal@tecnativa.com>
 * Sylvain LE GAL (https://twitter.com/legalsylvain)
+* Pierrick Brun <pierrick.brun@akretion.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -118,6 +121,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/11.0/pos_order_mgmt>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_order_mgmt>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
