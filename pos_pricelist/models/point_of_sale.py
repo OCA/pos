@@ -94,7 +94,7 @@ class PosOrder(models.Model):
     @api.model
     def _order_fields(self, ui_order):
         res = super(PosOrder, self)._order_fields(ui_order)
-        res.update({'pricelist_id': ui_order['pricelist_id']})
+        res.update({'pricelist_id': ui_order.get('pricelist_id', False)})
         return res
 
     @api.model
