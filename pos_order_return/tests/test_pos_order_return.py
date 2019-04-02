@@ -10,8 +10,17 @@ from odoo.tests import common
 class TestPOSOrderReturn(common.HttpCase):
     def setUp(self):
         super(TestPOSOrderReturn, self).setUp()
+        self.pricelist = self.env['product.pricelist'].create({
+            'name': 'Test pricelist',
+            'item_ids': [(0, 0, {
+                'applied_on': '3_global',
+                'compute_price': 'formula',
+                'base': 'list_price',
+            })]
+        })
         self.partner = self.env['res.partner'].create({
             'name': 'Mr. Odoo',
+            'property_product_pricelist': self.pricelist.id,
         })
         self.product_1 = self.env['product.product'].create({
             'name': 'Test product 1',
@@ -29,6 +38,10 @@ class TestPOSOrderReturn(common.HttpCase):
         })
         self.PosOrder = self.env['pos.order']
         self.pos_config = self.env.ref('point_of_sale.pos_config_main')
+        self.pos_config.write({
+            'available_pricelist_ids': [(6, 0, self.pricelist.ids)],
+            'pricelist_id': self.pricelist.id,
+        })
         self.pos_config.open_session_cb()
         self.pos_order = self.PosOrder.create({
             'session_id': self.pos_config.current_session_id.id,
