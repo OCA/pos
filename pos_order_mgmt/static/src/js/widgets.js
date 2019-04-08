@@ -75,7 +75,11 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             this.renderElement();
             this.old_order = this.pos.get_order();
             this.$('.back').click(function () {
+              if (self.old_order !== null) {
+                self.gui.back();
+              } else {
                 return self.gui.show_screen(self.gui.startup_screen);
+              }
             });
             if (self.orders.length === 0) {
                 this.search_done_orders();
@@ -270,7 +274,9 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 method: 'load_done_order_for_pos',
                 args: [order_id],
             }).then(function (order_data) {
-                self.gui.show_screen('orderlist');
+                if (self.old_order !== null) {
+                  self.gui.back();
+                }
                 var correct_order_print = true;
                 if (action === 'return') {
                     order_data.return = true;
