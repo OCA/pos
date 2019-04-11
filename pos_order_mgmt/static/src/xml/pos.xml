@@ -80,6 +80,22 @@
                     <span name="order-origin-name">Rectifies: </span><t t-esc="order.origin_name"/>
             </t>
         </t>
+        <t t-jquery=".receipt-user" t-operation="after">
+            <t t-if="pos.reloaded_order">
+                <br/>
+                <div style='text-align:center'>DUPLICATE</div>
+                <br/>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery=".orderlines" t-operation="before">
+            <t t-if="pos.current_order">
+                <div>DUPLICATE</div>
+                <br/>
+            </t>
+        </t>
     </t>
 
 </templates>
