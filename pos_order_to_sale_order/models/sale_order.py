@@ -81,8 +81,7 @@ class SaleOrder(models.Model):
         return res
 
     @api.model
-    def _prepare_order_line_from_pos(self, line_data, sale_order):
-        line_obj = self.env['sale.order.line']
+    def _get_order_line_vals_from_pos_data(self, line_data, sale_order):
         vals = {
             'product_id': line_data['product_id'],
             'product_uom_qty': line_data['qty'],
@@ -90,6 +89,12 @@ class SaleOrder(models.Model):
             'price_unit': line_data['price_unit'],
             'order_id': sale_order.id,
         }
+        return vals
+
+    @api.model
+    def _prepare_order_line_from_pos(self, line_data, sale_order):
+        line_obj = self.env['sale.order.line']
+        vals = self._get_order_line_vals_from_pos_data(line_data, sale_order)
         vals = line_obj.play_onchanges(vals, ['product_id'])
         return vals
 
