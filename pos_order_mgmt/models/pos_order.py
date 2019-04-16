@@ -104,7 +104,7 @@ class PosOrder(models.Model):
     def _prepare_done_order_payment_for_pos(self, payment_line):
         self.ensure_one()
         return {
-            'statement_id': payment_line.statement_id.id,
+            'journal_id': payment_line.journal_id.id,
             'amount': payment_line.amount,
         }
 
