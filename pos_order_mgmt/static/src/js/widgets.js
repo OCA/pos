@@ -208,8 +208,44 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             }
             // Set order lines
             var orderLines = order_data.line_ids || order_data.lines || [];
-            _.each(orderLines, function (orderLine) {
-                var line = orderLine;
+            self._prepare_orderlines_from_order_data(order, order_data, orderLines);
+            if (order_data.return) {
+                order.return = true;
+                // A credit note should be emited if there was an invoice
+                order.set_to_invoice(order_data.origin_invoice_id);
+                // We'll refunded orders once they are synced
+                order.returned_order_id = order_data.id || order_data.name;
+                order.origin_name = order_data.pos_reference || order.returned_order_id;
+                order.trigger('change');
+                return order;
+            }
+            if (order_data.returned_order_id) {
+                order.origin_name = order_data.returned_order_id;
+            }
+            order.formatted_validation_date = moment(order_data.date_order).format('YYYY-MM-DD HH:mm:ss');
+            // Set Payment lines
+            var paymentLines = order_data.statement_ids || [];
+            _.each(paymentLines, function (paymentLine) {
+                var line = paymentLine;
+                // In case of local data
+                if (line.length === 3) {
+                    line = line[2];
+                }
+                _.each(self.pos.cashregisters, function (cashregister) {
+                  if (cashregister.journal.id === line.journal_id) {
+                        if (line.amount > 0) {
+                            // If it is not change
+                            order.add_paymentline(cashregister);
+                            order.selected_paymentline.set_amount(line.amount);
+                        }
+                    }
+                });
+            });
+            return order;
+        },
+        _prepare_orderlines_from_order_data: function(order, order_data, orderLines) {
+            var self = this;
+            _.each(orderLines, function(line) {
                 // In case of local data
                 if (line.length === 3) {
                     line = line[2];
@@ -228,38 +264,6 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                     });
                 }
             });
-            if (order_data.return) {
-                order.return = true;
-                // A credit note should be emited if there was an invoice
-                order.set_to_invoice(order_data.origin_invoice_id);
-                // We'll refunded orders once they are synced
-                order.returned_order_id = order_data.id || order_data.name;
-                order.origin_name = order_data.pos_reference || order.returned_order_id;
-                return order;
-            }
-            if (order_data.returned_order_id) {
-                order.origin_name = order_data.returned_order_id;
-            }
-            order.formatted_validation_date = moment(order_data.date_order).format('YYYY-MM-DD HH:mm:ss');
-            // Set Payment lines
-            var paymentLines = order_data.statement_ids || [];
-            _.each(paymentLines, function (paymentLine) {
-                var line = paymentLine;
-                // In case of local data
-                if (line.length === 3) {
-                    line = line[2];
-                }
-                _.each(self.pos.cashregisters, function (cashregister) {
-                    if (cashregister.id === line.statement_id) {
-                        if (line.amount > 0) {
-                            // If it is not change
-                            order.add_paymentline(cashregister);
-                            order.selected_paymentline.set_amount(line.amount);
-                        }
-                    }
-                });
-            });
-            return order;
         },
 
         load_order: function (order_id, action) {
@@ -270,7 +274,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 method: 'load_done_order_for_pos',
                 args: [order_id],
             }).then(function (order_data) {
-                self.gui.show_screen('orderlist');
+                self.gui.back();
                 var correct_order_print = true;
                 if (action === 'return') {
                     order_data.return = true;
