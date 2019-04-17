@@ -5,13 +5,15 @@
 
 {
     'name': 'PoS Order To Sale Order',
-    'version': '8.0.2.0.0',
+    'version': '8.0.3.0.0',
     'author': 'GRAP,Odoo Community Association (OCA)',
     'category': 'Point Of Sale',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
     ],
+    'maintainers': ['legalsylvain'],
+    'development_status': "Production/Stable",
     'website': 'https://odoo-community.org/',
     'data': [
         'views/view_pos_config.xml',
