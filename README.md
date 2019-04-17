@@ -26,7 +26,7 @@ addon | version | summary
 [pos_order_load](pos_order_load/) | 8.0.1.0.0 | POS Order Load and Save
 [pos_order_picking_link](pos_order_picking_link/) | 8.0.1.1.0 | Adds link between Pos orders and generated pickings
 [pos_order_pricelist_change](pos_order_pricelist_change/) | 8.0.1.0.0 | Improve pricelist changes for POS Order in back office
-[pos_order_to_sale_order](pos_order_to_sale_order/) | 8.0.2.0.0 | PoS Order To Sale Order
+[pos_order_to_sale_order](pos_order_to_sale_order/) | 8.0.3.0.0 | PoS Order To Sale Order
 [pos_payment_entries_globalization](pos_payment_entries_globalization/) | 8.0.1.0.0 | Globalize POS Payment
 [pos_payment_terminal](pos_payment_terminal/) | 8.0.0.1.0 | Manage Payment Terminal device from POS front end
 [pos_picking_load](pos_picking_load/) | 8.0.1.2.0 | POS Picking Load
