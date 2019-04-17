@@ -15,7 +15,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:43
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:56
 #, python-format
 msgid "\n"
 "Note if you have manually changed unit prices for some products, this changes will not been taken into account in the sale order."
@@ -23,21 +23,21 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:114
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:151
 #, python-format
 msgid "Check your internet connection and try again."
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:33
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:36
 #, python-format
 msgid "Create Confirmed Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:34
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:37
 #, python-format
 msgid "Create Confirmed Sale Order and discard the current PoS Order?"
 msgstr ""
@@ -49,14 +49,14 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:38
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:45
 #, python-format
 msgid "Create Delivered Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:39
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:46
 #, python-format
 msgid "Create Delivered Sale Order and discard the current PoS Order?"
 msgstr ""
@@ -87,7 +87,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:55
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:78
 #, python-format
 msgid "Empty Order"
 msgstr ""
@@ -110,7 +110,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:63
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:88
 #, python-format
 msgid "No customer defined"
 msgstr ""
@@ -128,42 +128,42 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:113
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:150
 #, python-format
 msgid "The order could not be sent"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:56
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:79
 #, python-format
 msgid "There must be at least one product in your order to create Sale Order."
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:35
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:40
 #, python-format
 msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines."
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:40
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:49
 #, python-format
 msgid "This operation will permanently discard the current PoS Order and create a confirmed Sale Order, based on the current order lines. The according picking will be marked as delivered."
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:29
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:31
 #, python-format
 msgid "This operation will permanently discard the current PoS Order and create a draft Sale Order, based on the current order lines."
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:64
+#: code:addons/pos_order_to_sale_order/static/src/js/pos_order_to_sale_order.js:89
 #, python-format
 msgid "You should select a customer in order to create a Sale Order. Please select one by clicking the order tab."
 msgstr ""
