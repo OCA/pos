@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo10-addon-pos_order_return',
         'odoo10-addon-pos_payment_entries_globalization',
         'odoo10-addon-pos_payment_terminal',
+        'odoo10-addon-pos_picking_delayed',
         'odoo10-addon-pos_price_to_weight',
         'odoo10-addon-pos_pricelist',
         'odoo10-addon-pos_product_template',
