@@ -18,7 +18,9 @@
         'point_of_sale',
     ],
     'data': [
+        'views/pos_config.xml',
         'views/assets_backend.xml',
         'views/res_partner.xml',
     ],
+    'qweb': ["static/src/xml/*.xml"],
 }
