@@ -409,6 +409,15 @@ odoo.define("pos_product_template.pos_product_template", function(require){
             this._super(options);
         },
 
+        add_products: function(products){
+            this._super(products);
+            // if pos_cache is also installed - then products are not available when product.templates are already loaded
+            // so we have to re add them here
+            if (this.raw_templates) {
+                this.add_templates(this.raw_templates);
+            }
+        },
+
         get_product_by_value_and_products: function(value_id, products){
             var list = [];
             for (var i = 0, len = products.length; i < len; i++) {
@@ -495,7 +504,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
          - Load 'name' field of model product.product;
          - Load product.template model;
     *********************************************************** */
-    // change product.product call
+    // change product.product fields - add name and attribute_value_ids
     models.PosModel.prototype.models.some(function (model) {
         if (model.model !== 'product.product') {
             return false;
@@ -530,7 +539,11 @@ odoo.define("pos_product_template.pos_product_template", function(require){
                 display_default_code: false,
             };},
         loaded: function(self, templates){
-             self.db.add_templates(templates);
+            if (Object.keys(self.db.product_by_id).length > 0) {
+                self.db.add_templates(templates);
+            } else {
+                self.db.raw_templates = templates;
+            }
         },
     },
     {
@@ -553,6 +566,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
              self.db.add_product_attribute_values(values);
         },
     }]);
+
     return {
         'SelectVariantPopupWidget': SelectVariantPopupWidget,
         'VariantListWidget': VariantListWidget,
