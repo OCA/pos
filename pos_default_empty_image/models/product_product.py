@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2017 - Today:
 #   GRAP (http://www.grap.coop)
 #   Akretion (http://www.akretion.com)
@@ -15,7 +14,7 @@ class ProductProduct(models.Model):
     @api.depends('image')
     def _compute_has_image(self):
         for product in self:
-            product.has_image = product.image is not False
+            product.has_image = product.image
 
     has_image = fields.Boolean(
         compute='_compute_has_image', string='Has Image', store=True)

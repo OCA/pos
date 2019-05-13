@@ -1,13 +1,12 @@
-# -*- coding: utf-8 -*-
 # © 2015 Akretion, GRAP, OCA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'POS Default empty image',
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Optimize loading time for products without image',
     'author': "Akretion, GRAP, Odoo Community Association (OCA)",
-    'website': "https://akretion.com",
+    'website': "https://www.github.com/OCA/pos",
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
