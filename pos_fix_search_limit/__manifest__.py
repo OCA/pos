@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Akretion
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Pos Fix Search Limit",
     "summary": "Increase search in the PoS",
-    "version": "10.0.1.0.0",
+    "version": "11.0.1.0.0",
     "category": "Point of Sale",
     "author": "Akretion, Odoo Community Association (OCA)",
     "license": "AGPL-3",
