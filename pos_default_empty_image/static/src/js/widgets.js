@@ -20,16 +20,19 @@ odoo.define('pos_default_empty_image.widgets', function (require) {
                 return this._super(product);
             }
             else {
-                var cached = this.product_cache.get_node(product.id);
+                var current_pricelist = this._get_active_pricelist();
+                var cache_key = this.calculate_cache_key(product, current_pricelist);
+                var cached = this.product_cache.get_node(cache_key);
                 if(!cached){
                     var product_html = QWeb.render('ProductNoImage',{
                         widget:  this,
                         product: product,
+                        pricelist: current_pricelist,
                     });
                     var product_node = document.createElement('div');
                     product_node.innerHTML = product_html;
                     product_node = product_node.childNodes[1];
-                    this.product_cache.cache_node(product.id,product_node);
+                    this.product_cache.cache_node(cache_key,product_node);
                     return product_node;
                 }
                 return cached;
