@@ -15,7 +15,7 @@ class PosSession(models.Model):
         self.ensure_one()
         vals = [('session_id', '=', self.id)]
         if not self.env.context.get('generated_invoice', False):
-            vals.append(('state', '=', 'manual'),)
+            vals.append(('invoice_status', '=', 'to invoice'),)
             if anonym_order:
                 vals.append(('partner_id', '=', anonym_partner_id),)
             else:
@@ -83,7 +83,6 @@ class PosSession(models.Model):
             domains = self._get_so_domains(
                 domains, partner_id, anonym_order=anonym_order)
             orders = sale_obj.search(domains)
-        orders = orders.filtered(lambda so: so.invoice_status == 'to invoice')
         pos_anonym_journal = False
         invoices = self.env['account.invoice'].browse(False)
         if not orders:
@@ -111,7 +110,6 @@ class PosSession(models.Model):
         sale.signal_workflow('manual_invoice')
         invoice.action_invoice_open()
         invoice.write({
-            # 'sale_ids': [(6, 0, sale.ids)],
             'session_id': self.id
         })
         return invoice
