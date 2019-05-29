@@ -19,13 +19,13 @@ actions like set discount, change unit price, ...
 Implemented Features
 --------------------
 
-* By default, the header is unchanged
+* By default, the header is unchanged.
 
 .. image:: /pos_quick_logout/static/description/cashier_user_identical.png
 
 
 * If the cashier changed, and is not the user logged in Odoo, the extra button
-appears
+  appears.
 
 .. image:: /pos_quick_logout/static/description/cashier_user_different.png
 
