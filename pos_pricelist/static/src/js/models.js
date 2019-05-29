@@ -142,7 +142,7 @@ odoo.define("pos_pricelist.models", function (require) {
             }
 
             var pricelist_items = _.filter(pricelist.items, function (item) {
-                return (! item.product_tmpl_id || item.product_tmpl_id[0] === self.product_tmpl_id) &&
+                return (! item.product_tmpl_id || item.product_tmpl_id[0] === self.product_tmpl_id[0]) &&
                         (! item.product_id || item.product_id[0] === self.id) &&
                         (! item.categ_id || _.contains(category_ids, item.categ_id[0])) &&
                         (! item.date_start || moment(item.date_start) <= date) &&
