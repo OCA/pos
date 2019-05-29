@@ -1,11 +1,10 @@
-<?xml version="1.0"?>
 <odoo>
     <record id="partner_property_form_view" model="ir.ui.view">
         <field name="name">partner.property.form</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//group[@name='point_of_sale']" position="after">
+            <xpath expr="//page[@name='sales_purchases']/group">
                 <group name="loyalty" string="Loyalty Programs">
                     <field name="loyalty_points"/>
                 </group>
