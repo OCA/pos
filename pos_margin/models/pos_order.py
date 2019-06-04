@@ -22,3 +22,16 @@ class PosOrder(models.Model):
     def _compute_margin(self):
         for order in self:
             order.margin = sum(order.mapped('lines.margin'))
+
+    @api.multi
+    def recompute_all_margins(self):
+        for line in self.env['pos.order.line'].search([]):
+            line.env.add_todo(line._fields['purchase_price'], line)
+            line.env.add_todo(line._fields['margin'], line)
+            line.recompute()
+
+    @api.multi
+    def recompute_order_margins(self):
+        for order in self.env['pos.order'].search([]):
+            order.env.add_todo(order._fields['margin'], order)
+            order.recompute()

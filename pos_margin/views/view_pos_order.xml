@@ -15,9 +15,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <group name="margin">
                     <field name="margin" widget='monetary'/>
                 </group>
+                <button name="recompute_all_margins" type="object" string="Recompute Line Margins" groups="base.group_no_one"/>
+                <button name="recompute_order_margins" type="object" string="Recompute Order Margin" groups="base.group_no_one"/>
             </xpath>
             <xpath expr="//field[@name='lines']/tree/field[@name='price_unit']" position="after">
                 <field name="purchase_price"/>
+                <field name="margin"/>
             </xpath>
         </field>
     </record>

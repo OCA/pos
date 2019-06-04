@@ -27,6 +27,9 @@ class PosOrderLine(models.Model):
                 line.purchase_price = 0
                 line.margin = 0
             else:
-                line.purchase_price = line.product_id.standard_price
-                line.margin = line.price_subtotal - (
-                    line.product_id.standard_price * line.qty)
+                # if used in combination with module which does add the uom_id to line
+                if hasattr(line, 'uom_id') and line.uom_id.id != line.product_id.uom_po_id.id:
+                    line.purchase_price = line.product_id.uom_po_id._compute_price(line.product_id.standard_price, line.uom_id)
+                else:
+                    line.purchase_price = line.product_id.standard_price
+                line.margin = line.price_unit * line.qty - (line.purchase_price * line.qty)
