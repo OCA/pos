@@ -11,3 +11,15 @@
 .pos-disabled-mode:hover {
     background: #e2e2e2 !important;
 }
+/* Payment button circle */
+.pos-disabled-mode .pay-circle {
+    background: #a7a7a7 !important;
+}
+/* Product list */
+.rightpane.pos-disabled-mode {
+    opacity: 0.4;
+    background: #d3d3d3 !important;
+}
+.rightpane.pos-disabled-mode:hover {
+    background: #d3d3d3 !important;
+}
