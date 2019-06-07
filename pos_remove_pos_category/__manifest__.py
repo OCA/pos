@@ -18,4 +18,5 @@
         'views/pos_category_view.xml',
     ],
     'installable': True,
+    'license': 'AGPL-3',
 }
