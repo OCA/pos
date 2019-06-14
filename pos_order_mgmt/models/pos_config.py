@@ -16,12 +16,20 @@ class PosConfig(models.Model):
         help='Allows to reprint already done orders in the frontend',
         oldname='iface_load_done_order',
     )
+
     iface_return_done_order = fields.Boolean(
         string='Return Done Orders',
         default=True,
         help='Allows to return already done orders in the frontend',
         oldname='iface_load_done_order',
     )
+
+    iface_copy_done_order = fields.Boolean(
+        string='Duplicate Done Orders',
+        default=True,
+        help='Allows to duplicate already done orders in the frontend',
+    )
+
     iface_load_done_order_max_qty = fields.Integer(
         string='Max. Done Orders Quantity To Load',
         default=10,

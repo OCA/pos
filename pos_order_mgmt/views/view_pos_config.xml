@@ -33,6 +33,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-12 col-md-6 o_setting_box" id="copy_done_order">
+                    <div class="o_setting_left_pane">
+                        <field name="iface_copy_done_order"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label string="Duplicate Done Orders" for="iface_copy_done_order"/>
+                        <div class="text-muted">
+                            Allow to duplicate done orders in this POS
+                        </div>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-md-6 o_setting_box" id="load_done_order_max_qty"
                     attrs="{'invisible': [('iface_reprint_done_order', '=', False),
                                           ('iface_return_done_order', '=', False)]}">

@@ -58,6 +58,9 @@
                 <span t-if="widget.pos.config.iface_reprint_done_order" class="button order-list-reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
                     <i class='fa fa-fw fa-print'/>
                 </span>
+                <span t-if="widget.pos.config.iface_copy_done_order" class="button order-list-copy" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
+                    <i class='fa fa-fw fa-copy'/>
+                </span>
                 <span t-if="widget.pos.config.iface_return_done_order and order.amount_total >= 0" class="button order-list-return" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
                     <i class='fa fa-fw fa-undo'/>
                 </span>
