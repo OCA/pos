@@ -33,9 +33,10 @@ class PosOrder(models.Model):
     @api.model
     def _prepare_filter_query_for_pos(self, pos_session_id, query):
         return [
-            '|',
+            '|', '|',
             ('name', 'ilike', query),
             ('pos_reference', 'ilike', query),
+            ('partner_id.display_name', 'ilike', query),
         ]
 
     @api.model
@@ -57,8 +58,8 @@ class PosOrder(models.Model):
             condition += [('config_id', '=', config.id)]
         else:
             # Search globally by criteria
-            condition += self._prepare_filter_query_for_pos(pos_session_id,
-                                                            query)
+            condition += self._prepare_filter_query_for_pos(
+                pos_session_id, query)
         field_names = self._prepare_fields_for_pos_list()
         return self.search_read(
             condition, field_names, limit=config.iface_load_done_order_max_qty)
