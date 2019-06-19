@@ -316,6 +316,13 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 args: [query || '', this.pos.pos_session.id],
             }).then(function (result) {
                 self.orders = result;
+                // Get the date in local time
+                _.each(self.orders, function (order) {
+                    if (order.date_order) {
+                        order.date_order = moment.utc(order.date_order)
+                            .local().format('YYYY-MM-DD HH:mm:ss');
+                    }
+                });
             }).fail(function (error, event) {
                 if (parseInt(error.code, 10) === 200) {
                     // Business Logic Error, not a connection problem
