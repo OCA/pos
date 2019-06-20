@@ -194,6 +194,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 this.gui.show_screen('receipt');
                 this.pos.reloaded_order = false;
             }
+            order.destroy();
         },
 
         action_copy: function (order_data, order) {
