@@ -40,7 +40,7 @@ msgstr ""
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:303
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:331
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:338
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
@@ -48,7 +48,7 @@ msgstr ""
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:302
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:330
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:337
 #, python-format
 msgid "Connection error"
 msgstr ""
