@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_orders_unified_salesman,orders.unified,model_orders_unified,sales_team.group_sale_salesman,1,1,1,0
+access_orders_unified_manager,orders.unified,model_orders_unified,sales_team.group_sale_manager,1,1,1,1
+access_order_lines_unified_salesman,order.lines.unified,model_order_lines_unified,sales_team.group_sale_salesman,1,1,1,0
+access_order_lines_unified_manager,order.lines.unified,model_order_lines_unified,sales_team.group_sale_manager,1,1,1,1
