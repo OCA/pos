@@ -19,4 +19,15 @@
         </field>
     </record>
 
+    <record id="view_order_product_pivot_links" model="ir.ui.view">
+         <field name="name">sale.report.pivot with links</field>
+         <field name="model">sale.report</field>
+        <field name="inherit_id" ref="sale.view_order_product_pivot"/>
+         <field name="arch" type="xml">
+             <pivot position="attributes">
+                 <attribute name="disable_linking"></attribute>
+             </pivot>
+         </field>
+    </record>
+
 </odoo>

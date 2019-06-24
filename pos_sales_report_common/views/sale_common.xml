@@ -3,15 +3,15 @@
 
     <record id="action_product_sale_common_list" model="ir.actions.act_window">
         <field name="name">Sales Lines</field>
-        <field name="res_model">order.lines.unified</field>
+        <field name="res_model">sale.report</field>
         <field name="view_mode">tree</field>
         <field name="context">{'search_default_product_id': [active_id], 'default_product_id': active_id}</field>
-        <field name="domain">[('state', 'in', ['sale', 'done'])]</field>
+        <field name="domain">[('state', 'in', ['sale', 'done', 'paid', 'invoiced'])]</field>
     </record>
 
     <record id="view_order_line_common_tree" model="ir.ui.view">
         <field name="name">sale.order.line.common.tree</field>
-        <field name="model">order.lines.unified</field>
+        <field name="model">sale.report</field>
         <field name="arch" type="xml">
             <tree string="Order Lines" create="false">
                 <field name="product_id" invisible="1"/>

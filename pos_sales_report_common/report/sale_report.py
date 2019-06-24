@@ -1,10 +1,8 @@
 # Copyright 2019 Martronic SA (https://www.martronic.ch)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import logging
 from odoo import tools, _, api, fields, models
 from odoo.exceptions import ValidationError
-_logger = logging.getLogger(__name__)
 
 class OrdersUnified(models.Model):
     _name = "orders.unified"
@@ -235,7 +233,18 @@ FROM (
 class SaleReport(models.Model):
     _inherit = "sale.report"
 
+    @api.model
+    def _get_targets(self):
+        sales = list(map(lambda x: ('sale.order,'+str(x.id), x.name), self.env["sale.order"].search([])))
+        sales += list(map(lambda x: ('pos.order,'+str(x.id), x.name), self.env["pos.order"].search([])))
+        return sales
+
     item_id = fields.Integer('Item Real ID', readonly=True)
+    order_id = fields.Reference(selection='_get_targets', readonly=True, string="Order")
+    salesman_id = fields.Many2one('res.users', readonly=True)
+    order_partner_id = fields.Many2one('res.partner', readonly=True)
+    route_id = fields.Many2one('stock.location.route', string='Route', readonly=True)
+    state = fields.Selection(selection_add=[('paid', 'Paid'), ('invoiced', 'Invoiced')])
     model = fields.Selection([
         ('sale.order',_('Sale Order')),
         ('pos.order', _('POS Order'))], string='Line Model', readonly=True)
@@ -246,6 +255,10 @@ class SaleReport(models.Model):
             'l.date_order as date')
         select_str += """,
         min(l.item_id) as item_id,
+        l.order_id AS order_id,
+        s.user_id AS salesman_id,
+        s.partner_id AS order_partner_id,
+        min(l.route_id) AS route_id,
         l.model"""
         return select_str
 
