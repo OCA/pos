@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Creu Blanca <https://creublanca.es/>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
