@@ -32,6 +32,11 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
         } else {
             $(".mode-button[data-mode='price']").removeClass('pos-disabled-mode');
         }
+        if (user.groups_id.indexOf(this.pos.config.group_payment_id[0]) === -1) {
+            $(".button.pay").addClass('pos-disabled-mode');
+        } else {
+            $(".button.pay").removeClass('pos-disabled-mode');
+        }
     };
 
     // Overload 'set_cashier' function to display correctly
@@ -127,4 +132,28 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             }
         },
     });
+
+    screens.ActionpadWidget.include({
+
+        /**
+         * Block 'Payment' button if user doesn't belong to the correct group
+         */
+        renderElement: function() {
+            var self = this;
+            this._super();
+            this.gui.display_access_right(this.pos.get_cashier());
+            var button_pay_click_handler = $._data(this.$el.find(".button.pay")[0],"events").click[0].handler;
+            this.$('.pay').off('click').click(function(){
+                if (self.pos.get_cashier().groups_id.indexOf(self.pos.config.group_payment_id[0]) === -1) {
+                    self.gui.show_popup('error', {
+                        'title': _t('Payment - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                } else {
+                    button_pay_click_handler();
+                }
+            });
+        }
+    });
+
 });
