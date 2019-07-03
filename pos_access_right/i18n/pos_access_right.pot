@@ -15,46 +15,54 @@ msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:122
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:127
 #, python-format
 msgid "Change Unit Price - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:73
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:78
 #, python-format
 msgid "Delete Order - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:121
 #, python-format
 msgid "Discount - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:57
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:62
 #, python-format
 msgid "Many Orders - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:99
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:104
 #, python-format
 msgid "Negative Quantity - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:58
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:74
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:100
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:117
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:123
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:149
+#, python-format
+msgid "Payment - Unauthorized function"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:63
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:79
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:105
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:122
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:128
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:150
 #, python-format
 msgid "Please ask your manager to do it."
 msgstr ""
@@ -97,6 +105,12 @@ msgid "Point of Sale - Negative Quantity"
 msgstr ""
 
 #. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
+#: model:res.groups,name:pos_access_right.group_payment
+msgid "Point of Sale - Payment"
+msgstr ""
+
+#. module: pos_access_right
 #: model:res.groups,name:pos_access_right.group_change_unit_price
 msgid "Point of Sale - Unit Price Change"
 msgstr ""
@@ -129,5 +143,10 @@ msgstr ""
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_multi_order_id
 msgid "This field is there to pass the id of the 'PoS - Many Orders Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
+msgid "This field is there to pass the id of the 'PoS - Payment' Group to the Point of Sale Frontend."
 msgstr ""
 
