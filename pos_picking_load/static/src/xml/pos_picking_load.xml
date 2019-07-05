@@ -8,13 +8,11 @@
         </span>
     </t>
 
-<!-- t-att-style= -->
-
     <t t-name="LoadPickingLine">
         <tr class="picking-line" t-att-data-picking-id="picking.id">
             <td><t t-esc="picking.name"/></td>
             <td><t t-esc="picking.partner_id[1] || ''"/></td>
-            <td><t t-esc="picking.min_date || ''"/></td>
+            <td><t t-esc="picking.scheduled_date || ''"/></td>
             <td><t t-esc="picking.origin || ''"/></td>
         </tr>
     </t>
@@ -38,7 +36,7 @@
                 <section class="full-content">
                     <div class="window">
                         <section class="subwindow collapsed">
-                            <div class="subwindow-container">
+                            <div class="subwindow-container collapsed">
                                 <div class="subwindow-container-fix">
                                 </div>
                             </div>
@@ -77,12 +75,11 @@
     </t>
 
     <t t-extend="PosTicket">
-        <t t-jquery="[t-esc='widget.pos.shop.name']" t-operation="after">
+        <t t-jquery="[t-esc='widget.pos.get_cashier().name']" t-operation="after">
             <t t-if="order.get('origin_picking_name')">
                 <br /><br />Origin Picking: <t t-esc="order.get('origin_picking_name')"/>
             </t>
         </t>
     </t>
-
 
 </template>

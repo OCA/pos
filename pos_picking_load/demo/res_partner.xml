@@ -1,0 +1,10 @@
+<odoo>
+
+    <!-- Fix Odoo Demo data: 
+    Picking WH/OUT/0008 is associated to a customer 'Wood Corner'
+    that is not flagged as a customer -->
+    <record id="base.res_partner_1" model="res.partner">
+        <field name="customer" eval="True"/>
+    </record>
+
+</odoo>

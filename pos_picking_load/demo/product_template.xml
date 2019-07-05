@@ -1,4 +1,4 @@
-<openerp><data>
+<odoo>
 
     <!-- for demo pickings created by this module -->
 
@@ -28,4 +28,4 @@
         <field name="available_in_pos" eval="True"/>
     </record>
 
-</data></openerp>
+</odoo>

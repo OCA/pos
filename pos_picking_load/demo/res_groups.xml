@@ -1,7 +1,7 @@
-<openerp><data>
+<odoo>
 
     <record id="sale.group_discount_per_so_line" model="res.groups">
-        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
     </record>
 
-</data></openerp>
+</odoo>

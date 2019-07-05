@@ -9,7 +9,7 @@ odoo.define('pos_picking_load.widget', function (require) {
 
     var core = require('web.core');
     var framework = require('web.framework');
-    var Model = require('web.DataModel');
+    var rpc = require('web.rpc');
 
     var gui = require('point_of_sale.gui');
     var screens = require('point_of_sale.screens');
@@ -52,6 +52,20 @@ odoo.define('pos_picking_load.widget', function (require) {
                     self.select_picking(event);
                 });
 
+            // Handle search
+            var search_timeout = null;
+            this.$('.searchbox input').on('keyup', function () {
+                clearTimeout(search_timeout);
+                var query = this.value;
+                search_timeout = setTimeout(function () {
+                    self.perform_search(query);
+                }, 70);
+            });
+
+            this.$('.searchbox .search-clear').click(function () {
+                self.clear_search();
+            });
+
         },
 
         select_picking: function (event) {
@@ -63,8 +77,12 @@ odoo.define('pos_picking_load.widget', function (require) {
             this.$('.picking-list .highlight').removeClass('highlight');
 
             framework.blockUI();
-            new Model('stock.picking').call(
-                'load_picking_for_pos', [origin_picking_id])
+            var params = {
+                model: 'stock.picking',
+                method: 'load_picking_for_pos',
+                args: [origin_picking_id],
+            };
+            rpc.query(params)
                 .then(function (picking_data) {
                     framework.unblockUI();
                     if (self.check_picking(picking_data)) {
@@ -72,9 +90,9 @@ odoo.define('pos_picking_load.widget', function (require) {
                         $(event.target.parentNode).addClass('highlight');
                         self.$('span.button.validate').show();
                     }
-                }).fail(function (error, event) {
+                }).fail(function (error, fail_event) {
                     framework.unblockUI();
-                    self.handle_errors(error, event);
+                    self.handle_errors(error, fail_event);
                 });
         },
 
@@ -158,11 +176,24 @@ odoo.define('pos_picking_load.widget', function (require) {
             return picking_selectable;
         },
 
+        perform_search: function (query) {
+            this.search_pickings(query);
+        },
+
+        clear_search: function () {
+            this.search_pickings();
+            this.$('.searchbox input')[0].value = '';
+            this.$('.searchbox input').focus();
+        },
+
         search_pickings: function (query) {
             var self = this;
-            return new Model('stock.picking').call(
-                'search_pickings_for_pos',
-                [query || '', this.pos.pos_session.id])
+            var params = {
+                model: 'stock.picking',
+                method: 'search_pickings_for_pos',
+                args: [query || '', this.pos.pos_session.id],
+            };
+            rpc.query(params)
                 .then(function (result) {
                     self.render_list(result);
                 }).fail(function (error, event) {

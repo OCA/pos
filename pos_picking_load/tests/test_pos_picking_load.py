@@ -1,4 +1,3 @@
-# coding: utf-8
 # Copyright (C) 2017: Opener B.V. (https://opener.amsterdam)
 # @author: Stefan Rijnhart <stefan@opener.am>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
@@ -7,8 +6,10 @@ from odoo.tests.common import TransactionCase
 
 
 class TestPosPickingLoad(TransactionCase):
+
     def test_pos_picking_load(self):
         product = self.env.ref('product.product_product_24')
+        pricelist = self.env.ref('product.list0')
         # Create a Sale order and confirm it to generate a picking to load
         sale_order = self.env['sale.order'].create({
             'partner_id': self.env.ref('base.res_partner_1').id,
@@ -16,10 +17,10 @@ class TestPosPickingLoad(TransactionCase):
                 'product_id': product.id,
                 'price_unit': 6,
                 'product_uom_qty': 2,
+                'qty_delivered_method': 'stock_move',
             })],
         })
         sale_order.action_confirm()
-        self.assertTrue(sale_order.picking_ids)
         sale_order.picking_ids.picking_type_id.write({
             'available_in_pos': True})
 
@@ -29,16 +30,16 @@ class TestPosPickingLoad(TransactionCase):
             'picking_type_id': sale_order.picking_ids.picking_type_id.id})
 
         # Open a new session
-        session = self.env['pos.session'].create({
-            'user_id': self.env.user.id,
-            'config_id': config.id})
-        session.signal_workflow('open')
+        config.open_session_cb()
+        session = self.env['pos.session'].search([
+            ('config_id', '=', config.id)])[0]
         date_now = fields.Datetime.now()
 
         # Create a pos order
         self.env['pos.order'].create_from_ui([{
             'to_invoice': False,
             'data': {
+                'pricelist_id': pricelist.id,
                 'user_id': self.env.user.id,
                 'creation_date': date_now,
                 'fiscal_position_id': False,
@@ -52,6 +53,8 @@ class TestPosPickingLoad(TransactionCase):
                     'name': product.name,
                     'discount': 0,
                     'qty': 2,
+                    'price_subtotal': 12,
+                    'price_subtotal_incl': 12,
                     'tax_ids': [[6, False, []]],
                 }]],
                 'statement_ids': [[0, 0, {
@@ -75,7 +78,8 @@ class TestPosPickingLoad(TransactionCase):
             [('origin_picking_id', 'in', sale_order.picking_ids.ids)])
         self.assertTrue(pos_order)
         self.assertEqual(pos_order.origin_picking_id.state, 'cancel')
-        self.assertIn(pos_order.picking_id, sale_order.picking_ids)
         self.assertEqual(
             pos_order.picking_id.group_id,
             pos_order.origin_picking_id.group_id)
+        self.assertEqual(
+            sale_order.invoice_status, 'invoiced')

@@ -1,4 +1,3 @@
-# coding: utf-8
 # Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
@@ -37,7 +36,7 @@ class StockPicking(models.Model):
 
     @api.model
     def _prepare_fields_for_pos_list(self):
-        return ['name', 'partner_id', 'min_date', 'origin']
+        return ['name', 'partner_id', 'scheduled_date', 'origin']
 
     @api.model
     def search_pickings_for_pos(self, query, pos_session_id):
@@ -57,8 +56,7 @@ class StockPicking(models.Model):
             'product_id': move.product_id.id,
             'quantity': move.product_uom_qty,
         }
-        sale_order_line =\
-            move.procurement_id and move.procurement_id.sale_line_id
+        sale_order_line = move.sale_line_id
         if sale_order_line:
             # Get price and discount of the order if available
             picking_line_data['price_unit'] = sale_order_line.price_unit
@@ -90,4 +88,4 @@ class StockPicking(models.Model):
         if self.env.context.get('origin_picking_id'):
             self.update_from_origin_picking(
                 self.browse(self.env.context['origin_picking_id']))
-        return super(StockPicking, self).action_confirm()
+        return super().action_confirm()
