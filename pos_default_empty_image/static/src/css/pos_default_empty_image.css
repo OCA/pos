@@ -6,7 +6,7 @@
 */
 
 .product-img-without-image{
-    height:25px !important;
+    height:20px !important;
 }
 
 .product-name-without-image{
@@ -14,7 +14,7 @@
     top:25px !important;
     padding-top:3px !important;
     height:80px !important;
-    font-size: 24px !important;
+    font-size: 20px !important;
     line-height: 20px;
     text-align: center;
     word-wrap: break-word;

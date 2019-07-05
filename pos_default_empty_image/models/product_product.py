@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2017 - Today:
 #   GRAP (http://www.grap.coop)
 #   Akretion (http://www.akretion.com)

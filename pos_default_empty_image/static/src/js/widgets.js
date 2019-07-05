@@ -21,10 +21,12 @@ odoo.define('pos_default_empty_image.widgets', function (require) {
             }
             else {
                 var cached = this.product_cache.get_node(product.id);
+                var current_pricelist = this._get_active_pricelist();
                 if(!cached){
                     var product_html = QWeb.render('ProductNoImage',{
-                        widget:  this,
+                        widget: this,
                         product: product,
+                        pricelist: current_pricelist,
                     });
                     var product_node = document.createElement('div');
                     product_node.innerHTML = product_html;
