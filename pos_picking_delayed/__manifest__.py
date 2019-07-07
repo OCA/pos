@@ -1,4 +1,3 @@
-# coding: utf-8
 # Copyright 2018 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -13,9 +12,9 @@
     'website': 'https://www.github.com/OCA/pos',
     'depends': [
         'point_of_sale',
+        'queue_job',
     ],
     'data': [
-        'data/ir_cron.xml',
         'views/view_pos_config.xml',
         'views/view_pos_order.xml',
     ],
