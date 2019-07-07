@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Grap, OCA   
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="view_uom_uom_form" model="ir.ui.view">
+        <field name="model">uom.uom</field>
+        <field name="inherit_id" ref="uom.product_uom_form_view"/>
+        <field name="arch" type="xml">
+            <field name="active" position="after">
+                <field name="to_weigh" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_uom_uom_tree" model="ir.ui.view">
+        <field name="model">uom.uom</field>
+        <field name="inherit_id" ref="uom.product_uom_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="category_id" position="after">
+                <field name="to_weigh" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

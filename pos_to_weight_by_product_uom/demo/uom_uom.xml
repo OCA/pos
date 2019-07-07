@@ -1,0 +1,11 @@
+<!-- Copyright 2017, Grap
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="uom.uom" id="uom_uom_to_weigh">
+        <field name="name">Demo - New Uom To Weigh</field>
+        <field name="category_id" ref="pos_to_weight_by_product_uom.uom_category_to_weigh"/>
+    </record>
+
+</odoo>
