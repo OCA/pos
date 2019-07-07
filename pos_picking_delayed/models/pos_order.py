@@ -1,12 +1,8 @@
-# coding: utf-8
 # Copyright 2018 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import logging
-
 from odoo import api, fields, models
-
-_logger = logging.getLogger(__name__)
+from odoo.addons.queue_job.job import job
 
 
 class PosOrder(models.Model):
@@ -31,6 +27,8 @@ class PosOrder(models.Model):
     def create_picking(self):
         if self.env.context.get('create_from_ui', False):
             orders = self.filtered(lambda x: not x.has_picking_delayed)
+            delayed_orders = self.filtered(lambda x: x.has_picking_delayed)
+            delayed_orders.with_delay()._create_delayed_picking()
         else:
             orders = self
         res = super(PosOrder, orders).create_picking()
@@ -44,14 +42,8 @@ class PosOrder(models.Model):
         return res
 
     # Custom Section
-    @api.model
-    def create_delayed_picking(self):
-        orders = self.search([
-            ('state', '!=', 'draft'),
-            ('has_picking_delayed', '=', True),
-        ], order='date_order')
-        for order in orders:
-            order.sudo(order.user_id.id).with_context(
-                force_company=order.company_id.id).create_picking()
-        if orders:
-            _logger.info("Pickings handled for %d PoS Orders" % (len(orders)))
+    @api.multi
+    @job
+    def _create_delayed_picking(self):
+        super(PosOrder, self).create_picking()
+        self.write({'has_picking_delayed': False})
