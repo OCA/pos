@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Grap, OCA   
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="view_uom_category_form" model="ir.ui.view">
+        <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.product_uom_categ_form_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="to_weigh" />
+                <button name="action_recompute_to_weigh" string="Set 'to weigh' in each product of this category" type="object"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_uom_category_tree" model="ir.ui.view">
+        <field name="model">uom.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="to_weigh" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>
