@@ -13,58 +13,70 @@ Point Of Sale - Invoicing
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-grap%2Fgrap--odoo--incubator-lightgray.png?logo=github
-    :target: https://github.com/grap/grap-odoo-incubator/tree/8.0/pos_invoicing
-    :alt: grap/grap-odoo-incubator
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
+    :target: https://github.com/OCA/pos/tree/12.0/pos_invoicing
+    :alt: OCA/pos
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_invoicing
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
-When you pay a pos_order, and then create an invoice :
+This module extend the Point of Sale Odoo module, regarding invoicing.
 
-* you mustn't register a payment against the invoice as the payment
-  already exists in POS
-* The POS payment will be reconciled with the invoice when the session
-  is closed
-* You mustn't modify the invoice because the amount could become
-  different from the one registered in POS. Thus we have to
-  automatically validate the created invoice
+This module prevent to make some mistakes in Odoo Point of Sale
+regarding invoices generated via Point of Sale.
 
-Functionality
--------------
-About the invoices created from POS after payment:
+Without this module
+~~~~~~~~~~~~~~~~~~~
 
-* automatically validate them and don't allow modifications
-* Disable the Pay Button
-* Don't display them in the Customer Payment tool
+When an invoice generated from Point of Sale is confirmed
+it is in a 'open' state, until the session is closed, and the entries are
+generated. At this step, invoice will be marked as 'paid' and the related
+accounting moves will be reconcilied.
+So, as long as the session is not closed, any user can:
+
+* cancel the invoice;
+* register a payment;
+* reconcile the invoice with an existing payment;
+
+All that action should be prohibited because the payment exists.
+
+With that module
+~~~~~~~~~~~~~~~~
+
+All those actions will not be possible anymore.
+
+
+Note that the changes only impact the opened invoice coming from point of sale,
+before the session is closed.
 
 Technically
 -----------
 
-add a ``pos_pending_payment`` field on the ``account.invoice`` to mark the
-items that shouldn't be paid.
+* add a ``pos_pending_payment`` field on the ``account.invoice`` to mark the
+  items that shouldn't be paid.
 
-.. figure:: https://raw.githubusercontent.com/grap/grap-odoo-incubator/8.0/pos_invoicing/static/description/account_invoice_form.png
+This field is checked when the invoice is created from point of sale,
+and is unchecked, when the session is closed.
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_invoicing/static/description/account_invoice_form.png
 
 **Table of contents**
 
 .. contents::
    :local:
 
-Known issues / Roadmap
-======================
-
-* This module reconcile invoiced orders only if a customer has one invoice per
-  session.
-
-* It should be great to use the OCA module ``pos_autoreconcile``.
-
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/grap/grap-odoo-incubator/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/grap/grap-odoo-incubator/issues/new?body=module:%20pos_invoicing%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_invoicing%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -85,9 +97,16 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
+This module is maintained by the OCA.
 
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
 
-This module is part of the `grap/grap-odoo-incubator <https://github.com/grap/grap-odoo-incubator/tree/8.0/pos_invoicing>`_ project on GitHub.
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_invoicing>`_ project on GitHub.
 
-You are welcome to contribute.
+You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

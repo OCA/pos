@@ -16,7 +16,7 @@ So, as long as the session is not closed, any user can:
 * register a payment;
 * reconcile the invoice with an existing payment;
 
-All that action should be prohibited.
+All that action should be prohibited because the payment exists.
 
 With that module
 ~~~~~~~~~~~~~~~~
@@ -31,7 +31,8 @@ Technically
 -----------
 
 * add a ``pos_pending_payment`` field on the ``account.invoice`` to mark the
-items that shouldn't be paid.
+  items that shouldn't be paid.
+
 This field is checked when the invoice is created from point of sale,
 and is unchecked, when the session is closed.
 
