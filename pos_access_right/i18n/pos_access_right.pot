@@ -15,54 +15,54 @@ msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:127
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:142
 #, python-format
 msgid "Change Unit Price - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:78
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:87
 #, python-format
 msgid "Delete Order - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:121
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:135
 #, python-format
 msgid "Discount - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:62
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:70
 #, python-format
 msgid "Many Orders - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:104
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
 #, python-format
 msgid "Negative Quantity - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:149
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
 #, python-format
 msgid "Payment - Unauthorized function"
 msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:63
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:79
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:105
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:122
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:128
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:150
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:71
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:88
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:136
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:143
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:167
 #, python-format
 msgid "Please ask your manager to do it."
 msgstr ""
