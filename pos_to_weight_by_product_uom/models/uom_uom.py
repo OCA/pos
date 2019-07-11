@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class UomtUom(models.Model):
+class UomUom(models.Model):
     _inherit = 'uom.uom'
 
     to_weigh = fields.Boolean(
