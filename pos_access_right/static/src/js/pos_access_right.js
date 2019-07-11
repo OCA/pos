@@ -17,22 +17,29 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
 
     // New function 'display_access_right' to display disabled functions
     gui.Gui.prototype.display_access_right = function (user) {
-        if (user.groups_id.indexOf(this.pos.config.group_negative_qty_id[0]) === -1) {
+        if (user.groups_id.indexOf(
+            this.pos.config.group_negative_qty_id[0]) === -1) {
             $('.numpad-minus').addClass('pos-disabled-mode');
         } else {
             $('.numpad-minus').removeClass('pos-disabled-mode');
         }
-        if (user.groups_id.indexOf(this.pos.config.group_discount_id[0]) === -1) {
-            $(".mode-button[data-mode='discount']").addClass('pos-disabled-mode');
+        if (user.groups_id.indexOf(
+            this.pos.config.group_discount_id[0]) === -1) {
+            $(".mode-button[data-mode='discount']").addClass(
+                'pos-disabled-mode');
         } else {
-            $(".mode-button[data-mode='discount']").removeClass('pos-disabled-mode');
+            $(".mode-button[data-mode='discount']").removeClass(
+                'pos-disabled-mode');
         }
-        if (user.groups_id.indexOf(this.pos.config.group_change_unit_price_id[0]) === -1) {
+        if (user.groups_id.indexOf(
+            this.pos.config.group_change_unit_price_id[0]) === -1) {
             $(".mode-button[data-mode='price']").addClass('pos-disabled-mode');
         } else {
-            $(".mode-button[data-mode='price']").removeClass('pos-disabled-mode');
+            $(".mode-button[data-mode='price']").removeClass(
+                'pos-disabled-mode');
         }
-        if (user.groups_id.indexOf(this.pos.config.group_payment_id[0]) === -1) {
+        if (user.groups_id.indexOf(
+            this.pos.config.group_payment_id[0]) === -1) {
             $(".button.pay").addClass('pos-disabled-mode');
         } else {
             $(".button.pay").removeClass('pos-disabled-mode');
@@ -57,7 +64,8 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
          * @param {HTMLElement | jQuery} $el
          */
         neworder_click_handler: function (event, $el) {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_multi_order_id[0]) === -1) {
+            if (this.pos.get_cashier().groups_id.indexOf(
+                this.pos.config.group_multi_order_id[0]) === -1) {
                 this.gui.show_popup('error', {
                     'title': _t('Many Orders - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
@@ -73,7 +81,8 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
          * @param {HTMLElement | jQuery} $el
          */
         deleteorder_click_handler: function (event, $el) {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_delete_order_id[0]) === -1) {
+            if (this.pos.get_cashier().groups_id.indexOf(
+                this.pos.config.group_delete_order_id[0]) === -1) {
                 this.gui.show_popup('error', {
                     'title': _t('Delete Order - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
@@ -87,7 +96,8 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
     screens.NumpadWidget.include({
 
         /**
-         * To display correctly unauthorized function at the beginning of the session, based on current user
+         * To display correctly unauthorized function at the beginning of the
+           session, based on current user
          */
         start: function () {
             this._super();
@@ -99,7 +109,8 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
          * @returns {Object}
          */
         clickSwitchSign: function () {
-            if (this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_negative_qty_id[0]) === -1) {
+            if (this.pos.get_cashier().groups_id.indexOf(
+                this.pos.config.group_negative_qty_id[0]) === -1) {
                 this.gui.show_popup('error', {
                     'title': _t('Negative Quantity - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
@@ -110,19 +121,23 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
         },
 
         /**
-         * Block 'discount' or 'price' button if user doesn't belong to the correct group
+         * Block 'discount' or 'price' button if user doesn't belong to the
+           correct group
          * @param {MouseEvent} event
          * @returns {Object}
          */
         clickChangeMode: function (event) {
-            if (event.currentTarget.attributes['data-mode'].nodeValue === 'discount' &&
-                this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_discount_id[0]) === -1) {
+            var target = event.currentTarget.attributes['data-mode'];
+            if (target.nodeValue === 'discount' &&
+                this.pos.get_cashier().groups_id.indexOf(
+                    this.pos.config.group_discount_id[0]) === -1) {
                 this.gui.show_popup('error', {
                     'title': _t('Discount - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
                 });
-            } else if (event.currentTarget.attributes['data-mode'].nodeValue === 'price' &&
-                this.pos.get_cashier().groups_id.indexOf(this.pos.config.group_change_unit_price_id[0]) === -1) {
+            } else if (target.nodeValue === 'price' &&
+                this.pos.get_cashier().groups_id.indexOf(
+                    this.pos.config.group_change_unit_price_id[0]) === -1) {
                 this.gui.show_popup('error', {
                     'title': _t('Change Unit Price - Unauthorized function'),
                     'body':  _t('Please ask your manager to do it.'),
@@ -138,13 +153,15 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
         /**
          * Block 'Payment' button if user doesn't belong to the correct group
          */
-        renderElement: function() {
+        renderElement: function () {
             var self = this;
             this._super();
             this.gui.display_access_right(this.pos.get_cashier());
-            var button_pay_click_handler = $._data(this.$el.find(".button.pay")[0],"events").click[0].handler;
-            this.$('.pay').off('click').click(function(){
-                if (self.pos.get_cashier().groups_id.indexOf(self.pos.config.group_payment_id[0]) === -1) {
+            var button_pay_click_handler = $._data(
+                this.$el.find(".button.pay")[0], "events").click[0].handler;
+            this.$('.pay').off('click').click(function () {
+                if (self.pos.get_cashier().groups_id.indexOf(
+                    self.pos.config.group_payment_id[0]) === -1) {
                     self.gui.show_popup('error', {
                         'title': _t('Payment - Unauthorized function'),
                         'body':  _t('Please ask your manager to do it.'),
@@ -153,7 +170,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
                     button_pay_click_handler();
                 }
             });
-        }
+        },
     });
 
 });
