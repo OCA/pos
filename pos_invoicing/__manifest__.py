@@ -1,4 +1,3 @@
-# coding: utf-8
 # Copyright (C) 2013 - Today: GRAP (http://www.grap.coop)
 # @author: Julien WESTE
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -6,10 +5,10 @@
 {
     'name': 'Point Of Sale - Invoicing',
     'summary': 'Handle invoicing from Point Of Sale',
-    'version': '8.0.3.0.0',
+    'version': '12.0.3.0.0',
     'category': 'Point of Sale',
-    'author': 'GRAP',
-    'website': 'http://www.grap.coop',
+    'author': 'GRAP, Odoo Community Association (OCA)',
+    'website': 'http://www.github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
@@ -17,11 +16,5 @@
     'data': [
         'views/view_account_invoice.xml',
     ],
-    'demo': [
-        'demo/res_groups.xml',
-    ],
-    'images': [
-        'static/description/account_invoice_form.png',
-    ],
-    'installable': False,
+    'installable': True,
 }

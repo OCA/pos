@@ -1,25 +1,38 @@
-When you pay a pos_order, and then create an invoice :
+This module extend the Point of Sale Odoo module, regarding invoicing.
 
-* you mustn't register a payment against the invoice as the payment
-  already exists in POS
-* The POS payment will be reconciled with the invoice when the session
-  is closed
-* You mustn't modify the invoice because the amount could become
-  different from the one registered in POS. Thus we have to
-  automatically validate the created invoice
+This module prevent to make some mistakes in Odoo Point of Sale
+regarding invoices generated via Point of Sale.
 
-Functionality
--------------
-About the invoices created from POS after payment:
+Without this module
+~~~~~~~~~~~~~~~~~~~
 
-* automatically validate them and don't allow modifications
-* Disable the Pay Button
-* Don't display them in the Customer Payment tool
+When an invoice generated from Point of Sale is confirmed
+it is in a 'open' state, until the session is closed, and the entries are
+generated. At this step, invoice will be marked as 'paid' and the related
+accounting moves will be reconcilied.
+So, as long as the session is not closed, any user can:
+
+* cancel the invoice;
+* register a payment;
+* reconcile the invoice with an existing payment;
+
+All that action should be prohibited.
+
+With that module
+~~~~~~~~~~~~~~~~
+
+All those actions will not be possible anymore.
+
+
+Note that the changes only impact the opened invoice coming from point of sale,
+before the session is closed.
 
 Technically
 -----------
 
-add a ``pos_pending_payment`` field on the ``account.invoice`` to mark the
+* add a ``pos_pending_payment`` field on the ``account.invoice`` to mark the
 items that shouldn't be paid.
+This field is checked when the invoice is created from point of sale,
+and is unchecked, when the session is closed.
 
 .. figure:: ../static/description/account_invoice_form.png
