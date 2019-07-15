@@ -55,13 +55,13 @@
             <td name="td_ol_date"><t t-esc='order.date_order' /></td>
             <td name="td_ol_amount_total"><t t-esc='widget.format_currency(order.amount_total)' /></td>
             <td name="td_ol_reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
-                <span t-if="widget.pos.config.iface_reprint_done_order" class="button order-list-reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
+                <span t-if="widget.pos.config.iface_reprint_done_order" class="button order-list-reprint" t-att-data-order-id="order.id" t-att-data-Uid='order.uid' title="Print a duplicate for this order">
                     <i class='fa fa-fw fa-print'/>
                 </span>
-                <span t-if="widget.pos.config.iface_copy_done_order" class="button order-list-copy" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
+                <span t-if="widget.pos.config.iface_copy_done_order" class="button order-list-copy" t-att-data-order-id="order.id" t-att-data-Uid='order.uid' title="Create a new order based on this one">
                     <i class='fa fa-fw fa-copy'/>
                 </span>
-                <span t-if="widget.pos.config.iface_return_done_order and order.amount_total >= 0" class="button order-list-return" t-att-data-order-id="order.id" t-att-data-Uid='order.uid'>
+                <span t-if="widget.pos.config.iface_return_done_order and order.amount_total >= 0" class="button order-list-return" t-att-data-order-id="order.id" t-att-data-Uid='order.uid' title="Create a refund order of this order">
                     <i class='fa fa-fw fa-undo'/>
                 </span>
             </td>
@@ -69,18 +69,18 @@
     </t>
 
     <t t-extend="OrderWidget">
-        <t t-jquery=".order-scroller.touch-scrollable" t-operation="before">
-            <div class="order-returned-warning" t-if="order.return">
-                <span>Returned order: </span><t name="order-return-uid" t-esc="order.origin_name"></t>
+        <t t-jquery=".summary" t-operation="after">
+            <div class="order-returned-warning" t-if="order.returned_order_id">
+                <span>Returned order: </span><t name="returned-order-reference" t-esc="order.returned_order_reference"></t>
             </div>
         </t>
     </t>
 
     <t t-extend="PosTicket">
         <t t-jquery="t[t-esc='order.name']" t-operation="after">
-            <t t-if="order.origin_name">
+            <t t-if="order.returned_order_id">
                 <br/>
-                    <span name="order-origin-name">Rectifies: </span><t t-esc="order.origin_name"/>
+                    <span name="returned-order-reference">Rectifies: </span><t t-esc="order.returned_order_reference"/>
             </t>
         </t>
         <t t-jquery=".receipt-user" t-operation="after">
