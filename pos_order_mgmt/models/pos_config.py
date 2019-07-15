@@ -14,14 +14,12 @@ class PosConfig(models.Model):
         string='Reprint Done Orders',
         default=True,
         help='Allows to reprint already done orders in the frontend',
-        oldname='iface_load_done_order',
     )
 
     iface_return_done_order = fields.Boolean(
         string='Return Done Orders',
         default=True,
         help='Allows to return already done orders in the frontend',
-        oldname='iface_load_done_order',
     )
 
     iface_copy_done_order = fields.Boolean(
@@ -35,6 +33,6 @@ class PosConfig(models.Model):
         default=10,
         required=True,
         help='Maximum number of orders to load on the PoS at its init. '
-             'Set it to 0 to load none (it\'s still posible to load them by '
+             'Set it to 0 to load none (it\'s still possible to load them by '
              'ticket code).',
     )
