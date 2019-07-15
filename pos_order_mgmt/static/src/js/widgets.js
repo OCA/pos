@@ -65,9 +65,10 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
         show: function () {
             var self = this;
-            var previous_screen;
+            var previous_screen = false;
             if (this.pos.get_order()) {
-                previous_screen = this.pos.get_order().get_screen_data('previous-screen');
+                previous_screen = this.pos.get_order().get_screen_data(
+                    'previous-screen');
             }
             if (previous_screen === 'receipt') {
                 this.gui.screen_instances.receipt.click_next();
@@ -80,12 +81,14 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 return self.gui.show_screen(self.gui.startup_screen);
             });
 
-            if (this.pos.config.iface_vkeyboard && this.chrome.widget.keyboard) {
-                this.chrome.widget.keyboard.connect(this.$('.searchbox input'));
+            if (this.pos.config.iface_vkeyboard &&
+                this.chrome.widget.keyboard) {
+                this.chrome.widget.keyboard.connect(
+                    this.$('.searchbox input'));
             }
 
             var search_timeout = null;
-            this.$('.searchbox input').on('keyup', function (event) {
+            this.$('.searchbox input').on('keyup', function () {
                 self.search_query = this.value;
                 clearTimeout(search_timeout);
                 search_timeout = setTimeout(function () {
@@ -105,9 +108,12 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             var orders = this.orders;
             var contents = this.$el[0].querySelector('.order-list-contents');
             contents.innerHTML = "";
-            for (var i = 0, len = Math.min(orders.length, 1000); i < len; i++) {
+            for (
+                var i = 0, len = Math.min(orders.length, 1000); i < len; i++
+            ) {
                 var order = orders[i];
-                var orderline = this.order_cache.get_node(order.id || order.uid);
+                var orderline = this.order_cache.get_node(
+                    order.id || order.uid);
                 if (!orderline) {
                     var orderline_html = QWeb.render('OrderLine', {
                         widget: this,
@@ -116,7 +122,8 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                     orderline = document.createElement('tbody');
                     orderline.innerHTML = orderline_html;
                     orderline = orderline.childNodes[1];
-                    this.order_cache.cache_node(order.id || order.uid, orderline);
+                    this.order_cache.cache_node(
+                        order.id || order.uid, orderline);
                 }
                 if (order === this.old_order) {
                     orderline.classList.add('highlight');
@@ -130,54 +137,50 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             this.$('.order-list-return').off('click');
             this.$('.order-list-reprint').off('click');
             this.$('.order-list-copy').off('click');
-            this.$('.order-list-return').click(function (event) {
-                self.order_list_actions(event, 'return');
-            });
             this.$('.order-list-reprint').click(function (event) {
                 self.order_list_actions(event, 'print');
             });
-            this.$('.order-list-copy').click(function(event) {
+            this.$('.order-list-copy').click(function (event) {
                 self.order_list_actions(event, 'copy');
+            });
+            this.$('.order-list-return').click(function (event) {
+                self.order_list_actions(event, 'return');
             });
         },
 
         order_list_actions: function (event, action) {
             var self = this;
-            var order_data;
             var dataset = event.target.parentNode.dataset;
-            if (dataset.orderId) {
-                self.load_order_data(parseInt(dataset.orderId, 10))
-                .then(function(order_data) {
+            self.load_order_data(parseInt(dataset.orderId, 10))
+                .then(function (order_data) {
                     self.order_action(order_data, action);
-                })
-            } else {
-                _.each(this.orders, function (order_data) {
-                    if (order.uid === dataset.uid) {
-                        self.order_action(order_data, action);
-                    }
                 });
+        },
+
+        order_action: function (order_data, action) {
+            if (this.old_order !== null) {
+                this.gui.back();
             }
+            var order = this.load_order_from_data(order_data, action);
+            if (!order) {
+                // The load of the order failed. (products not found, ...
+                // We cancel the action
+                return;
+            }
+            this['action_' + action](order_data, order);
         },
 
-        order_action: function(order_data, action) {
-            this.gui.back();
-            this['action_' + action](order_data);
-        },
-
-        action_print: function (order_data) {
-            var order = this.load_order_from_data(order_data, true);
-            if (!order) return false;
-            // Restore the previous name
-            order.name = order_data.pos_reference || order_data.name;
-            var receipt = order.export_for_printing();
+        action_print: function (order_data, order) {
             // We store temporarily the current order so we can safely compute
             // taxes based on fiscal position
-            this.pos.current_order = this.pos.get_order()
+            this.pos.current_order = this.pos.get_order();
+
             this.pos.set_order(order);
+
             if (this.pos.config.iface_print_via_proxy) {
                 this.pos.proxy.print_receipt(QWeb.render(
                     'XmlReceipt', {
-                        receipt: receipt,
+                        receipt: order.export_for_printing(),
                         widget: this,
                         pos: this.pos,
                         order: order,
@@ -193,57 +196,33 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             }
         },
 
-        action_copy: function(order_data) {
-            // Remove payments from original data
-            order_data.statement_ids = false;
-            var order = this.load_order_from_data(order_data, true);
-            if (!order) { return false; }
-            // If previous order was invoiced, we need a refund too
-            order.set_to_invoice(order_data.origin_invoice_id);
-            order.formatted_validation_date = false;
+        action_copy: function (order_data, order) {
             order.trigger('change');
             this.pos.get('orders').add(order);
             this.pos.set('selectedOrder', order);
             return order;
         },
 
-        action_return: function (order_data) {
-            //var order_data = _.cloneDeep(order_data);
-            // Remove payments from original data
-            order_data.statement_ids = false;
-            // Invert line quantities
-            var order_lines = order_data.line_ids || order_data.lines || [];
-            _.each(order_lines, function(line) { line.qty = -1 * line.qty })
-            // Load from new data and change some stuff
-            var order = this.load_order_from_data(order_data);
-            if (!order) { return false; }
-            order.return = true;
-            order.name = _t("Refund ") + order.uid;;
-            order.origin_name = order_data.pos_reference || order.returned_order_id;
-            // If previous order was invoiced, we need a refund too
-            order.set_to_invoice(order_data.origin_invoice_id);
-            order.formatted_validation_date = false;
+        action_return: function (order_data, order) {
             order.trigger('change');
-            // Add to pos
             this.pos.get('orders').add(order);
             this.pos.set('selectedOrder', order);
             return order;
         },
 
-        _prepare_order_from_order_data: function (order_data, temporary) {
+        _prepare_order_from_order_data: function (order_data, action) {
             var self = this;
             var order = new pos.Order({}, {
                 pos: this.pos,
-                temporary: !!temporary,
             });
 
-            if (order_data.partner_id.length) {
-                order_data.partner_id = order_data.partner_id[0];
+            // Get Customer
+            if (order_data.partner_id) {
+                order.set_client(
+                    this.pos.db.get_partner_by_id(order_data.partner_id));
             }
 
-            order.set_client(this.pos.db.get_partner_by_id(order_data.partner_id));
-
-            // Set fiscal position
+            // Get fiscal position
             if (order_data.fiscal_position && this.pos.fiscal_positions) {
                 var fiscal_positions = this.pos.fiscal_positions;
                 order.fiscal_position = fiscal_positions.filter(function (p) {
@@ -252,40 +231,71 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 order.trigger('change');
             }
 
-            // Set order lines
-            var orderLines = order_data.line_ids || order_data.lines || [];
-            self._prepare_orderlines_from_order_data(order, order_data, orderLines);
+            // Get order lines
+            self._prepare_orderlines_from_order_data(
+                order, order_data, action);
 
-            if (order_data.returned_order_id) {
-                order.origin_name = order_data.returned_order_id;
+            // Get Name
+            if (['print'].indexOf(action) !== -1) {
+                order.name = order_data.pos_reference;
+            } else if (['return'].indexOf(action) !== -1) {
+                order.name = _t("Refund ") + order.uid;
             }
 
-            order.formatted_validation_date = moment(order_data.date_order).format('YYYY-MM-DD HH:mm:ss');
+            // Get to invoice
+            if (['return', 'copy'].indexOf(action) !== -1) {
+                // If previous order was invoiced, we need a refund too
+                order.set_to_invoice(order_data.to_invoice);
+            }
 
-            // Set Payment lines
-            var paymentLines = order_data.statement_ids || [];
-            _.each(paymentLines, function (paymentLine) {
-                var line = paymentLine;
-                // In case of local data
-                if (line.length === 3) {
-                    line = line[2];
-                }
-                _.each(self.pos.cashregisters, function (cashregister) {
-                  if (cashregister.journal.id === line.journal_id) {
-                        if (line.amount > 0) {
-                            // If it is not change
-                            order.add_paymentline(cashregister);
-                            order.selected_paymentline.set_amount(line.amount);
-                        }
+            // Get returned Order
+            if (['print'].indexOf(action) !== -1) {
+                // Get the same value as the original
+                order.returned_order_id = order_data.returned_order_id;
+                order.returned_order_reference =
+                order_data.returned_order_reference;
+            } else if (['return'].indexOf(action) !== -1) {
+                order.returned_order_id = order_data.id;
+                order.returned_order_reference = order_data.pos_reference;
+            }
+
+            // Get Date
+            if (['print'].indexOf(action) !== -1) {
+                order.formatted_validation_date =
+                moment(order_data.date_order).format('YYYY-MM-DD HH:mm:ss');
+            }
+
+            // Get Payment lines
+            if (['print'].indexOf(action) !== -1) {
+                var paymentLines = order_data.statement_ids || [];
+                _.each(paymentLines, function (paymentLine) {
+                    var line = paymentLine;
+                    // In case of local data
+                    if (line.length === 3) {
+                        line = line[2];
                     }
+                    _.each(self.pos.cashregisters, function (cashregister) {
+                        if (cashregister.journal.id === line.journal_id) {
+                            if (line.amount > 0) {
+                                // If it is not change
+                                order.add_paymentline(cashregister);
+                                order.selected_paymentline.set_amount(
+                                    line.amount);
+                            }
+                        }
+                    });
                 });
-            });
+            }
             return order;
         },
 
-        _prepare_orderlines_from_order_data: function(order, order_data, orderLines) {
+        _prepare_orderlines_from_order_data: function (
+            order, order_data, action) {
+            var orderLines = order_data.line_ids || order_data.lines || [];
+
             var self = this;
-            _.each(orderLines, function(line) {
+            _.each(orderLines, function (orderLine) {
+                var line = orderLine;
                 // In case of local data
                 if (line.length === 3) {
                     line = line[2];
@@ -295,10 +305,15 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 if (_.isUndefined(product)) {
                     self.unknown_products.push(String(line.product_id));
                 } else {
+                    var qty = line.qty;
+                    if (['return'].indexOf(action) !== -1) {
+                        // Invert line quantities
+                        qty *= -1;
+                    }
                     // Create a new order line
                     order.add_product(product, {
                         price: line.price_unit,
-                        quantity: line.qty,
+                        quantity: qty,
                         discount: line.discount,
                         merge: false,
                     });
@@ -306,13 +321,13 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             });
         },
 
-        load_order_data: function(order_id) {
+        load_order_data: function (order_id) {
             var self = this;
             return this._rpc({
                 model: 'pos.order',
                 method: 'load_done_order_for_pos',
                 args: [order_id],
-            }).fail(function (error, event) {
+            }).fail(function (error) {
                 if (parseInt(error.code, 10) === 200) {
                     // Business Logic Error, not a connection problem
                     self.gui.show_popup(
@@ -323,43 +338,31 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 } else {
                     self.gui.show_popup('error', {
                         'title': _t('Connection error'),
-                        'body': _t('Can not execute this action because the POS is currently offline'),
+                        'body': _t(
+                            'Can not execute this action because the POS' +
+                            ' is currently offline'),
                     });
                 }
             });
         },
 
-        load_order_from_data: function(order_data) {
+        load_order_from_data: function (order_data, action) {
             var self = this;
             this.unknown_products = [];
-            var order = self._prepare_order_from_order_data(order_data);
+            var order = self._prepare_order_from_order_data(
+                order_data, action);
             // Forbid POS Order loading if some products are unknown
             if (self.unknown_products.length > 0) {
                 self.gui.show_popup('error-traceback', {
                     'title': _t('Unknown Products'),
                     'body': _t('Unable to load some order lines because the ' +
                         'products are not available in the POS cache.\n\n' +
-                        'Please check that lines :\n\n  * ') + self.unknown_products.join("; \n  *"),
+                        'Please check that lines :\n\n  * ') +
+                    self.unknown_products.join("; \n  *"),
                 });
                 return false;
             }
             return order;
-        },
-
-        /* deprecated */
-        load_order: function (order_id) {
-            var self = this;
-            var done = new $.Deferred();
-            this.load_order_data(order_id)
-            .then(function(order_data) {
-                self.gui.show_screen('orderlist');
-                var order = self.load_order_from_data(order_data);
-                if (!order) { return done.fail(); }
-                done.resolve(order);
-            }).fail(function() {
-                done.fail();
-            });
-            return done;
         },
 
         // Search Part
@@ -371,6 +374,13 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 args: [query || '', this.pos.pos_session.id],
             }).then(function (result) {
                 self.orders = result;
+                // Get the date in local time
+                _.each(self.orders, function (order) {
+                    if (order.date_order) {
+                        order.date_order = moment.utc(order.date_order)
+                            .local().format('YYYY-MM-DD HH:mm:ss');
+                    }
+                });
             }).fail(function (error, event) {
                 if (parseInt(error.code, 10) === 200) {
                     // Business Logic Error, not a connection problem
@@ -383,17 +393,21 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 } else {
                     self.gui.show_popup('error', {
                         'title': _t('Connection error'),
-                        'body': _t('Can not execute this action because the POS is currently offline'),
+                        'body': _t(
+                            'Can not execute this action because the POS' +
+                            ' is currently offline'),
                     });
                 }
                 event.preventDefault();
             });
         },
 
-        perform_search: function() {
+        perform_search: function () {
             var self = this;
             return this.search_done_orders(self.search_query)
-                .done(function () { self.render_list(); });
+                .done(function () {
+                    self.render_list();
+                });
         },
 
         clear_search: function () {
