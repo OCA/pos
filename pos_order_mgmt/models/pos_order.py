@@ -13,16 +13,55 @@ class PosOrder(models.Model):
         string='Returned Order',
         readonly=True,
     )
+
+    returned_order_reference = fields.Char(
+        related='returned_order_id.pos_reference',
+        string='Reference of the returned Order')
+
     refund_order_ids = fields.One2many(
         comodel_name='pos.order',
         inverse_name='returned_order_id',
         string='Refund Orders',
         readonly=True,
     )
+
     refund_order_qty = fields.Integer(
         compute='_compute_refund_order_qty',
         string='Refund Orders Quantity',
     )
+
+    @api.multi
+    @api.depends('refund_order_ids')
+    def _compute_refund_order_qty(self):
+        for order in self:
+            order.refund_order_qty = len(order.refund_order_ids)
+
+    @api.multi
+    def action_view_refund_orders(self):
+        self.ensure_one()
+
+        action = self.env.ref('point_of_sale.action_pos_pos_form').read()[0]
+
+        if self.refund_order_qty == 1:
+            action['views'] = [
+                (self.env.ref('point_of_sale.view_pos_pos_form').id, 'form')]
+            action['res_id'] = self.refund_order_ids.ids[0]
+        else:
+            action['domain'] = [('id', 'in', self.refund_order_ids.ids)]
+        return action
+
+    @api.multi
+    def refund(self):
+        return super(PosOrder, self.with_context(refund=True)).refund()
+
+    @api.multi
+    @api.returns('self', lambda value: value.id)
+    def copy(self, default=None):
+        self.ensure_one()
+        order = super().copy(default=default)
+        if self.env.context.get('refund', False):
+            order.returned_order_id = self.id
+        return order
 
     @api.model
     def _prepare_filter_for_pos(self, pos_session_id):
@@ -43,9 +82,7 @@ class PosOrder(models.Model):
     def _prepare_fields_for_pos_list(self):
         return [
             'name', 'pos_reference', 'partner_id', 'date_order',
-            'amount_total', 'amount_paid', 'amount_return', 'session_id',
-            'amount_tax', 'statement_ids', 'lines', 'invoice_id',
-            'returned_order_id', 'fiscal_position_id'
+            'amount_total',
         ]
 
     @api.model
@@ -76,7 +113,7 @@ class PosOrder(models.Model):
             payment_line = self._prepare_done_order_payment_for_pos(
                 payment_line)
             payment_lines.append(payment_line)
-        return {
+        res = {
             'id': self.id,
             'date_order': self.date_order,
             'pos_reference': self.pos_reference,
@@ -85,11 +122,11 @@ class PosOrder(models.Model):
             'fiscal_position': self.fiscal_position_id.id,
             'line_ids': order_lines,
             'statement_ids': payment_lines,
-            'origin_invoice_id': bool(self.invoice_id),
-            'returned_order_id': (self.returned_order_id and
-                                  self.returned_order_id.pos_reference or
-                                  False),
+            'to_invoice': bool(self.invoice_id),
+            'returned_order_id': self.returned_order_id.id,
+            'returned_order_reference': self.returned_order_reference,
         }
+        return res
 
     @api.multi
     def _prepare_done_order_line_for_pos(self, order_line):
@@ -115,17 +152,9 @@ class PosOrder(models.Model):
         return self._prepare_done_order_for_pos()
 
     @api.model
-    def _process_order(self, pos_order):
-        if (not pos_order.get('return') or
-                not pos_order.get('returned_order_id')):
-            return super()._process_order(pos_order)
-        order = super(PosOrder, self)._process_order(pos_order)
-        returned_order_id = pos_order.get('returned_order_id')
-        if isinstance(returned_order_id, int):
-            order.returned_order_id = self.browse(returned_order_id)
-        # Only if the order is returned from the browser saved orders.
-        else:
-            order.returned_order_id = self.search([
-                ('pos_reference', '=', returned_order_id)])
-        order.returned_order_id.refund_order_ids |= order
-        return order
+    def _order_fields(self, ui_order):
+        res = super()._order_fields(ui_order)
+        res.update({
+            'returned_order_id': ui_order.get('returned_order_id', False),
+        })
+        return res
