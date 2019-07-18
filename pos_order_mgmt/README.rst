@@ -110,7 +110,6 @@ Contributors
 * Pierrick Brun <pierrick.brun@akretion.com>
 * Iván Todorovich <ivan.todorovich@druidoo.io>
 
-
 Maintainers
 ~~~~~~~~~~~
 
