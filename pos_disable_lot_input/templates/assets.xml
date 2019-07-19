@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 Tecnativa - David Vidal
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr=".">
+            <script type="text/javascript" src="/pos_disable_lot_input/static/src/js/models.js"/>
+            <script type="text/javascript" src="/pos_disable_lot_input/static/src/js/screens.js"/>
+        </xpath>
+    </template>
+
+</odoo>
