@@ -20,46 +20,55 @@ msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:122
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:142
 #, python-format
 msgid "Change Unit Price - Unauthorized function"
 msgstr "Canviar preu unitari - Funció no autoritzada "
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:73
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:87
 #, python-format
 msgid "Delete Order - Unauthorized function"
 msgstr "Esborrar comanda - Funció no autoritzada "
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:135
 #, python-format
 msgid "Discount - Unauthorized function"
 msgstr "Descomptes - Funció no autoritzada "
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:57
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:70
 #, python-format
 msgid "Many Orders - Unauthorized function"
 msgstr "Múltiples Comandes - Funció no autoritzada"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:99
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
 #, python-format
 msgid "Negative Quantity - Unauthorized function"
 msgstr "Quantitat Negativa - Funció no autoritzada "
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:58
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:74
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:100
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:117
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:123
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
+#, fuzzy, python-format
+#| msgid "Discount - Unauthorized function"
+msgid "Payment - Unauthorized function"
+msgstr "Descomptes - Funció no autoritzada "
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:71
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:88
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:136
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:143
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:167
 #, python-format
 msgid "Please ask your manager to do it."
 msgstr "Si us plau, pregunti al seu administrador per fer-ho."
@@ -100,6 +109,14 @@ msgstr "Punt de Venda - Múltiples Comandes "
 #: model:res.groups,name:pos_access_right.group_negative_qty
 msgid "Point of Sale - Negative Quantity"
 msgstr "Punt de Venda - Quantitats negatives "
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
+#: model:res.groups,name:pos_access_right.group_payment
+#, fuzzy
+#| msgid "Point of Sale - Discount"
+msgid "Point of Sale - Payment"
+msgstr "Punt de Venda - Descomptes "
 
 #. module: pos_access_right
 #: model:res.groups,name:pos_access_right.group_change_unit_price
@@ -153,6 +170,19 @@ msgstr ""
 msgid ""
 "This field is there to pass the id of the 'PoS - Many Orders Group to the "
 "Point of Sale Frontend."
+msgstr ""
+"Aquest camp està aquí per passar el ID del grup 'TPV - Múltiples Comandes' "
+"cap a la pantalla del Punt de Venda."
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
+#, fuzzy
+#| msgid ""
+#| "This field is there to pass the id of the 'PoS - Many Orders Group to the "
+#| "Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Payment' Group to the Point "
+"of Sale Frontend."
 msgstr ""
 "Aquest camp està aquí per passar el ID del grup 'TPV - Múltiples Comandes' "
 "cap a la pantalla del Punt de Venda."
