@@ -43,7 +43,7 @@ class PosOrder(models.Model):
 
     # Custom Section
     @api.multi
-    @job
+    @job(default_channel='root.pos_picking_delayed')
     def _create_delayed_picking(self):
         super(PosOrder, self).create_picking()
         self.write({'has_picking_delayed': False})
