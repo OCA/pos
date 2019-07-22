@@ -554,6 +554,9 @@ function pos_pricelist_models(instance, module) {
                 var quantities = [];
                 quantities.push(1);
                 for (var j = 0; j < rules.length; j++) {
+                    if (rules[j].min_quantity == 0.0 )
+                        continue;
+
                     if ($.inArray(rules[j].min_quantity, quantities) === -1) {
                         quantities.push(rules[j].min_quantity);
                     }
