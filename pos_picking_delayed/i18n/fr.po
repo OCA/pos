@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_picking_delayed
-#: model:ir.model.fields,help:pos_picking_delayed.field_pos_config_picking_creation_delayed
+#: model:ir.model.fields,help:pos_picking_delayed.field_pos_config__picking_creation_delayed
 msgid ""
 "Check this box if you want to delay the creation of the picking created by "
 "the PoS orders. If checked, the pickings will be created later, by a cron "
@@ -28,14 +28,24 @@ msgstr ""
 "seront créés ultérieurement, par une tâche de fond."
 
 #. module: pos_picking_delayed
-#: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_order_has_picking_delayed
-msgid "Has picking delayed"
+#: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_order__has_picking_delayed
+#, fuzzy
+#| msgid "Has picking delayed"
+msgid "Has Picking Delayed"
 msgstr "A un transfert de stock retardé"
 
 #. module: pos_picking_delayed
-#: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_config_picking_creation_delayed
+#: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_config__picking_creation_delayed
+#: model_terms:ir.ui.view,arch_db:pos_picking_delayed.view_pos_config_form
 msgid "Picking Creation Delayed"
 msgstr "Retarder la création des transferts de stock"
+
+#. module: pos_picking_delayed
+#: model:ir.model,name:pos_picking_delayed.model_pos_config
+#, fuzzy
+#| msgid "Point of Sale Orders"
+msgid "Point of Sale Configuration"
+msgstr "Commandes du point de vente"
 
 #. module: pos_picking_delayed
 #: model:ir.model,name:pos_picking_delayed.model_pos_order
@@ -43,7 +53,7 @@ msgid "Point of Sale Orders"
 msgstr "Commandes du point de vente"
 
 #. module: pos_picking_delayed
-#: model:ir.model.fields,help:pos_picking_delayed.field_pos_order_has_picking_delayed
+#: model:ir.model.fields,help:pos_picking_delayed.field_pos_order__has_picking_delayed
 msgid ""
 "This checkbox is checked if the generation of the picking has been delayed. "
 "The picking will be created by cron."
@@ -51,7 +61,5 @@ msgstr ""
 "Cette case est cochée si la génération du transfert de stock a été retardée. "
 "Celui ci sera créé par une tâche de fond."
 
-#. module: pos_picking_delayed
-#: model:ir.model,name:pos_picking_delayed.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
