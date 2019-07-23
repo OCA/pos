@@ -171,6 +171,13 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
         },
 
         action_print: function (order_data, order) {
+            // If it's invoiced, we just print the invoice
+            if (order_data.to_invoice) {
+                return this.pos.chrome.do_action('point_of_sale.pos_invoice_report', {
+                    additional_context: { active_ids: [order_data.id] }
+                })
+            }
+            // Otherwise, we load the order to generate the ticket
             // We store temporarily the current order so we can safely compute
             // taxes based on fiscal position
             this.pos.current_order = this.pos.get_order();
