@@ -14,13 +14,13 @@ Point of Sale - Picking Creation Delayed
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/10.0/pos_picking_delayed
+    :target: https://github.com/OCA/pos/tree/12.0/pos_picking_delayed
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-10-0/pos-10-0-pos_picking_delayed
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_picking_delayed
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/10.0
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -29,16 +29,7 @@ This module extends the functionality of odoo Point Of Sale to reduce creation
 time of the PoS orders, via the front UI.
 
 For that purpose, it delays the creation of the picking associated, that will
-be created later, by cron. (set by default to run each minute).
-
-Technical information
----------------------
-
-A log will be generated to mention the creation of the pickings by cron.
-
-``2018-09-28 07:47:18,300 163 INFO db odoo.addons.base.ir.ir_cron: Starting job `Create Delayed PoS Picking.``
-
-``2018-09-28 07:47:19,168 163 INFO db odoo.addons.pos_picking_delayed.models.pos_order: Pickings created for 3 PoS Orders``
+be created later by queue job.
 
 This module is interesting specially in a context of Synchroneous Point Of
 Sale that is introduced by certification modules like 'l10n_fr_pos_cert' because
@@ -63,22 +54,17 @@ Configuration
 
 .. image:: https://raw.githubusercontent.com/pos_picking_delayed/static/description/pos_config_form.png
 
+* This module depends on ``queue_job`` module that requires specific
+  configuration to works properly. Make sure your config file is correctly set.
+  See https://github.com/OCA/queue/tree/12.0/queue_job
+
 Usage
 =====
 
-* Use your Point of Sale as usual. when validating an order, the order will
-  be in a different color until the cron is executed
+* Use your Point of Sale as usual. When validating an order, the order will
+  be in a different color until the job is executed
 
 .. image:: https://raw.githubusercontent.com/pos_picking_delayed/static/description/pos_order_tree.png
-
-Known issues / Roadmap
-======================
-
-* Make this module depend on the module OCA `queue_job` job module.
-
-* In the cron job (or the future queue job), improvment can be done, limiting
-  the quantity of environments, grouping orders by company, and changing
-  context once.
 
 Bug Tracker
 ===========
@@ -86,7 +72,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_picking_delayed%0Aversion:%2010.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_picking_delayed%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -124,6 +110,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/10.0/pos_picking_delayed>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_picking_delayed>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
