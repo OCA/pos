@@ -194,6 +194,17 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 this.gui.show_screen('receipt');
                 this.pos.reloaded_order = false;
             }
+
+            // If it's invoiced, we also print the invoice
+            if (order_data.to_invoice) {
+                this.pos.chrome.do_action('point_of_sale.pos_invoice_report', {
+                    additional_context: { active_ids: [order_data.id] }
+                })
+            }
+
+            // Destroy the order so it's removed from localStorage
+            // Otherwise it will stay there and reappear on browser refresh
+            order.destroy();
         },
 
         action_copy: function (order_data, order) {
