@@ -37,17 +37,23 @@ reprint past tickets or return them.
 Configuration
 =============
 
-To configure this module, you need to:
+To configure this module, you need to go to *Point of Sale > Configuration >
+Point of Sale* and enable *Order Management*
 
-#. Go to *Point of Sale > Configuration > Point of Sale* and select one of
-   them.
-#. Change *Max Done Orders Quantity To Load* to your desired amount (10 by
-   default). Please note that the more you load, the more it will take to load
+.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_mgmt/static/description/order-mgmt-config.png
+
+#. Change *Maximum orders to load* to your desired amount (10 by default).
+   Please note that the more you load, the more it will take to load
    them in the session opening. You can also set it to 0 and you'll just be
    able to load them from the order list screen.
-#. Set *Reprint Done Orders* on if you want to be able to reprint past orders
+
+#. Enable *Reprint orders* on if you want to be able to reprint past orders
    in that PoS.
-#. Set *Return Done Orders* on if you want to be able to return past orders
+
+#. Enable *Return orders* on if you want to be able to return past orders
+   in that PoS.
+
+#. Enable *Duplicate orders* on if you want to be able to return past orders
    in that PoS.
 
 Usage
