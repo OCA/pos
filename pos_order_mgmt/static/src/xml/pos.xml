@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="ListOrderButtonWidget">
-        <t t-if="widget.pos.config.iface_load_done_order_max_qty">
+        <t t-if="widget.pos.config.iface_order_mgmt">
             <div class="header-button order-list-button">
                 <i class='fa fa-fw fa-shopping-cart'/>
             </div>
