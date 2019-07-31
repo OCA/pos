@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="group_pos_place_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_pos_place"/>
+    </record>
+
+    <record id="group_pos_place_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_pos_place"/>
+        <field name="implied_ids" eval="[(4, ref('group_pos_place_user'))]"/>
+    </record>
+
+</odoo>
+

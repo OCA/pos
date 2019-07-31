@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2014 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="pos_place_MUL" model="pos.place">
+        <field name="code">MUL</field>
+        <field name="name">La Mulatière (69350 - France)</field>
+    </record>
+
+    <record id="pos_place_OBS" model="pos.place">
+        <field name="code">OBS</field>
+        <field name="name">Montée de L'observance (69009 - France)</field>
+    </record>
+
+    <record id="pos_place_GAR" model="pos.place">
+        <field name="code">GAR</field>
+        <field name="name">Gare de Francheville (69340 - France)</field>
+    </record>
+
+</odoo>
+
