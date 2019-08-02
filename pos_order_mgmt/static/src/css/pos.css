@@ -34,3 +34,12 @@
     color: white;
     text-align: center;
 }
+
+.orderlist-screen table td[name='td_ol_amount_total'] {
+    text-align: right;
+}
+
+/* Keep the table from breaking when the customer name is too long */
+.orderlist-screen table td:not([name='td_ol_customer']) {
+    white-space: nowrap;
+}

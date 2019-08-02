@@ -33,7 +33,7 @@
                                             <th name="th_ol_ref">Ref.</th>
                                             <th name="th_ol_customer">Customer</th>
                                             <th name="th_ol_date">Date</th>
-                                            <th name="th_ol_amount_total">Amount Total</th>
+                                            <th name="th_ol_amount_total">Amount</th>
                                             <th name="th_ol_reprint"/>
                                         </thead>
                                         <tbody class="order-list-contents">
