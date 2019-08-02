@@ -2,6 +2,7 @@
    Copyright 2018 Tecnativa - David Vidal
    Copyright 2019 Druidoo - Ivan Todorovich
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
+
 odoo.define('pos_order_mgmt.widgets', function (require) {
     "use strict";
 

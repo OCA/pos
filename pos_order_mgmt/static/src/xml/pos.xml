@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="ListOrderButtonWidget">
-        <t t-if="widget.pos.config.iface_load_done_order_max_qty">
+        <t t-if="widget.pos.config.iface_order_mgmt">
             <div class="header-button order-list-button">
                 <i class='fa fa-fw fa-shopping-cart'/>
             </div>
@@ -10,7 +10,7 @@
     </t>
 
     <t t-name="OrderListScreenWidget">
-        <div class="clientlist-screen screen">
+        <div class="orderlist-screen clientlist-screen screen">
             <div class="screen-content">
                 <section class="top-content">
                     <span class='button back'>
@@ -33,7 +33,7 @@
                                             <th name="th_ol_ref">Ref.</th>
                                             <th name="th_ol_customer">Customer</th>
                                             <th name="th_ol_date">Date</th>
-                                            <th name="th_ol_amount_total">Amount Total</th>
+                                            <th name="th_ol_amount_total">Amount</th>
                                             <th name="th_ol_reprint"/>
                                         </thead>
                                         <tbody class="order-list-contents">
