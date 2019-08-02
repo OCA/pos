@@ -10,7 +10,7 @@
     </t>
 
     <t t-name="OrderListScreenWidget">
-        <div class="clientlist-screen screen">
+        <div class="orderlist-screen clientlist-screen screen">
             <div class="screen-content">
                 <section class="top-content">
                     <span class='button back'>
