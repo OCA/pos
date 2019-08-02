@@ -1,4 +1,5 @@
 /* Copyright 2018 Tecnativa - David Vidal
+   Copyright 2019 Druidoo - Iv??n Todorovich
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 */
 
@@ -6,7 +7,7 @@
     font-size: 20px;
 }
 
-.order-line .button {
+.orderlist-screen .order-line .button {
     cursor: pointer;
     top: 0px;
     line-height: 32px;
@@ -19,13 +20,13 @@
     transition: all 150ms linear;
 }
 
-.order-line .button:active {
+.orderlist-screen .order-line .button:active {
     background: black;
     border-color: black;
     color: white;
 }
 
-.order-returned-warning {
+.orderlist-screen .order-returned-warning {
     font-size: 16px;
     font-style: italic;
     padding: 8px 0;
