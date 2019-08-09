@@ -3,8 +3,9 @@
 # License: AGPL-3
 # flake8: noqa
 # pylint: skip-file
-from openerp.tools.translate import _
-from openerp import api
+
+from openerp import _, api
+from openerp.exceptions import Warning as UserError
 
 
 @api.cr_uid_ids_context
@@ -25,7 +26,7 @@ def _create_account_move_line(self, cr, uid, ids, session=None, move_id=None, co
         #session_ids = set(order.session_id for order in self.browse(cr, uid, ids, context=context))
 
         if session and not all(session.id == order.session_id.id for order in self.browse(cr, uid, ids, context=context)):
-            raise osv.except_osv(_('Error!'), _('Selected orders do not have the same session!'))
+            raise UserError(_('Selected orders do not have the same session!'))
 
         grouped_data = {}
         have_to_group_by = session and session.config_id.group_by or False
@@ -112,8 +113,8 @@ def _create_account_move_line(self, cr, uid, ids, session=None, move_id=None, co
                 else:
                     grouped_data[key].append(values)
 
-            #because of the weird way the pos order is written, we need to make sure there is at least one line, 
-            #because just after the 'for' loop there are references to 'line' and 'income_account' variables (that 
+            #because of the weird way the pos order is written, we need to make sure there is at least one line,
+            #because just after the 'for' loop there are references to 'line' and 'income_account' variables (that
             #are set inside the for loop)
             #TOFIX: a deep refactoring of this method (and class!) is needed in order to get rid of this stupid hack
             assert order.lines, _('The POS order must have lines when calling this method')
@@ -151,7 +152,7 @@ def _create_account_move_line(self, cr, uid, ids, session=None, move_id=None, co
                 elif line.product_id.categ_id.property_account_income_categ.id:
                     income_account = line.product_id.categ_id.property_account_income_categ.id
                 else:
-                    raise osv.except_osv(_('Error!'), _('Please define income '\
+                    raise UserError(_('Please define income '\
                         'account for this product: "%s" (id:%d).') \
                         % (line.product_id.name, line.product_id.id, ))
 
