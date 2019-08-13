@@ -7,6 +7,7 @@
     "version": "12.0.1.0.0",
     "website": "https://github.com/OCA/pos",
     "author": "GRAP, Odoo Community Association (OCA)",
+    "development_status": "Beta",
     "license": "AGPL-3",
     "installable": True,
     "depends": [
