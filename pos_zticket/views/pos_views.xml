@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_report_zticket" model="ir.actions.server">
+        <field name="name">Export Ticket Z</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="point_of_sale.model_pos_session" />
+        <field name="binding_model_id" ref="point_of_sale.model_pos_session" />
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+                'type': 'ir.actions.report',
+                'report_type': 'xlsx',
+                'report_name': "pos_zticket.zticket_export_xlsx",
+                'context': dict(active_model='pos.session', active_id=record.id, active_ids=records.ids, report_file='session'),
+                'data': {'dynamic_report': True},
+            }
+        </field>
+    </record>
+
+</odoo>
