@@ -3,16 +3,17 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'POS Margin',
-    'version': '11.0.1.0.0',
+    'name': 'PoS Order Margin',
+    'summary': 'Margin on PoS Order',
+    'version': '12.0.1.0.0',
     'category': 'Point Of Sale',
-    'sequence': 1,
     'author': "GRAP,"
               "Odoo Community Association (OCA)",
-    'summary': 'Margin on PoS Order',
+    'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
+        'sale_margin',
     ],
     'data': [
         'views/view_pos_order.xml',
