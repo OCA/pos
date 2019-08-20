@@ -11,9 +11,19 @@ class TestModule(TransactionCase):
         super(TestModule, self).setUp()
         self.PosOrder = self.env['pos.order']
         self.QueueJob = self.env['queue.job']
-        self.pos_product = self.env.ref('point_of_sale.whiteboard_pen')
-        self.pricelist = self.env.ref('product.list0')
-
+        self.pos_product = self.env['product.product'].create({
+            'name': 'Test POS product',
+            'type': 'product',
+            'available_in_pos': True,
+        })
+        self.pricelist = self.env['product.pricelist'].create({
+            'name': 'Test pricelist',
+            'item_ids': [(0, 0, {
+                'applied_on': '3_global',
+                'compute_price': 'formula',
+                'base': 'list_price',
+            })]
+        })
         # Create a new pos config and open it
         self.pos_config = self.env.ref('point_of_sale.pos_config_main').copy()
         self.pos_config.open_session_cb()
