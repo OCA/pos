@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_check_session_state
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-03 12:10+0000\n"
+"PO-Revision-Date: 2019-07-03 12:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_check_session_state
+#: model_terms:ir.ui.view,arch_db:pos_check_session_state.view_pos_config_form
+msgid "Check Session State"
+msgstr "Vérifier l'état de la session"
+
+#. module: pos_check_session_state
+#: model:ir.model.fields,field_description:pos_check_session_state.field_pos_config__check_session_state_frequency
+msgid "Frequency of Checking the State of the Session"
+msgstr "Fréquence de vérification de l'état de la session"
+
+#. module: pos_check_session_state
+#. openerp-web
+#: code:addons/pos_check_session_state/static/src/xml/pos_check_session_state.xml:24
+#, python-format
+msgid "Please close the current Point Of Sale Window and open it again to use a correct session."
+msgstr "Veuillez fermer la fenêtre courante du point de vente et en ouvrir une autre, afin d'utiliser une session correcte."
+
+#. module: pos_check_session_state
+#: model:ir.model,name:pos_check_session_state.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_check_session_state
+#. openerp-web
+#: code:addons/pos_check_session_state/static/src/xml/pos_check_session_state.xml:19
+#, python-format
+msgid "The session you're working on is closed."
+msgstr "La sessions sur laquelle vous travaillez est close."
+
+#. module: pos_check_session_state
+#. openerp-web
+#: code:addons/pos_check_session_state/static/src/xml/pos_check_session_state.xml:14
+#, python-format
+msgid "The session you're working on is in closing control."
+msgstr "La sessions sur laquelle vous travaillez est en contrôle de fermeture."
+
+#. module: pos_check_session_state
+#: model:ir.model.fields,help:pos_check_session_state.field_pos_config__check_session_state_frequency
+msgid "The value is set in seconds."
+msgstr "La valeur est définie en seconde."
+
