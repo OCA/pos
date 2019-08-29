@@ -255,7 +255,7 @@ class TeliumPaymentTerminalDriver(Thread):
                         if self.get_one_byte_answer('EOT'):
                             logger.info("Answer received from Terminal")
 
-        except Exception, e:
+        except Exception as e:
             logger.error('Exception in serial connection: %s' % str(e))
         finally:
             if self.serial:
