@@ -20,9 +20,43 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
     models.load_fields('account.journal', ['payment_mode']);
 
     devices.ProxyDevice.include({
+        init: function(parents, options) {
+            var self = this;
+            self._super(parents, options);
+            self.on('change:status', this, function(eh, status) {
+                if(!self.pos.chrome.screens) {
+                    return;
+                }
+                var paymentwidget = self.pos.chrome.screens.payment;
+                var drivers = status.newValue.drivers;
+                var order = self.pos.get_order();
+                var in_transaction = false;
+                Object.keys(drivers).forEach(function(driver_name) {
+                    if (drivers[driver_name].hasOwnProperty("in_transaction")) {
+                        in_transaction = in_transaction || drivers[driver_name].in_transaction;
+                    }
+
+                    var transactions = drivers[driver_name].latest_transactions;
+                    if(!!transactions && transactions.hasOwnProperty(order.uid)) {
+                        var previous_transactions = order.transactions;
+                        order.transactions = transactions[order.uid];
+                        var has_new_transactions = (
+                            !previous_transactions ||
+                            previous_transactions.length < order.transactions.length
+                        );
+                        if(has_new_transactions && order.is_paid()) {
+                            paymentwidget.validate_order();
+                        }
+                    }
+                });
+                order.in_transaction = in_transaction;
+                paymentwidget.order_changes();
+            });
+        },
         payment_terminal_transaction_start: function(line_cid, currency_iso, currency_decimals){
             var line;
-            var lines = this.pos.get_order().get_paymentlines();
+            var order = this.pos.get_order();
+            var lines = order.get_paymentlines();
             for ( var i = 0; i < lines.length; i++ ) {
                 if (lines[i].cid === line_cid) {
                     line = lines[i];
@@ -32,7 +66,8 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
             var data = {'amount' : line.get_amount(),
                         'currency_iso' : currency_iso,
                         'currency_decimals' : currency_decimals,
-                        'payment_mode' : line.cashregister.journal.payment_mode};
+                        'payment_mode' : line.cashregister.journal.payment_mode,
+                        'order_id': order.uid};
             //console.log(JSON.stringify(data));
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
@@ -41,13 +76,40 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
 
     screens.PaymentScreenWidget.include({
         render_paymentlines : function(){
-        this._super.apply(this, arguments);
+            this._super.apply(this, arguments);
             var self  = this;
             this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
             // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
             //console.log(event.target);
+            self.pos.get_order().in_transaction = true;
+            self.order_changes();
             self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name, self.pos.currency.decimals);
             });
         },
+        order_changes: function(){
+            this._super.apply(this, arguments);
+            var order = this.pos.get_order();
+            if (!order) {
+                return;
+            } else if (order.in_transaction) {
+                self.$('.next').html('<img src="/web/static/src/img/spin.png" style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle;">');
+            } else {
+                self.$('.next').html('Validate <i class="fa fa-angle-double-right"></i>');
+            }
+        }
     });
+
+    var _orderproto = models.Order.prototype;
+    models.Order = models.Order.extend({
+        initialize: function(){
+            _orderproto.initialize.apply(this, arguments);
+            this.in_transaction = false;
+        },
+        export_as_JSON: function() {
+            var vals = _orderproto.export_as_JSON.apply(this, arguments);
+            vals['transactions'] = this.transactions || {};
+            return vals;
+        }
+    });
+
 });
