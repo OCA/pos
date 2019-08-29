@@ -40,6 +40,11 @@ msgid "Payment Mode"
 msgstr "Moyen de paiement"
 
 #. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_payment_terminal
 #: model:ir.model.fields,help:pos_payment_terminal.field_account_journal_payment_mode
 msgid "Select the payment mode sent to the payment terminal"
 msgstr "Sélectionner le mode de paiement envoyé au terminal de paiement"
