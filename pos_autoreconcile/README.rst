@@ -12,19 +12,19 @@ related Customer.
 Example of "Trade Receivable" reconciliation:
 
 * Product costs 8EUR but customer pays 10EUR by cash getting 2EUR in return.
-In accounting it looks like this:
+  In accounting it looks like this:
 
-1) D: cash: 10
-2) C: account_receivable: 10
+  1 D: cash: 10
+  2 C: account_receivable: 10
 
-3) D: account_receivable: 2
-4) C: cash: 2
+  3 D: account_receivable: 2
+  4 C: cash: 2
 
 * When closing & validating a session system would create "Trade Receivable"
-counterpart like this:
+  counterpart like this:
 
-5) D: account_receivable: 8
-6) C: income_account: 8
+  5 D: account_receivable: 8
+  6 C: income_account: 8
 
 When this module is installed 2), 3) and 5) items would be reconciled when
 closing a session.
