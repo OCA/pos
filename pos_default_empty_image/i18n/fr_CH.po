@@ -20,66 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: pos_default_empty_image
-#: field:product.product,available_in_pos:0
-msgid "Available in the Point of Sale"
-msgstr ""
-
-#. module: pos_default_empty_image
-#: help:product.product,to_weight:0
-msgid ""
-"Check if the product should be weighted using the hardware scale integration"
-msgstr ""
-
-#. module: pos_default_empty_image
-#: help:product.product,available_in_pos:0
-msgid "Check if you want this product to appear in the Point of Sale"
-msgstr ""
-
-#. module: pos_default_empty_image
-#: help:product.product,income_pdt:0
-msgid ""
-"Check if, this is a product you can use to put cash into a statement for the "
-"point of sale backend."
-msgstr ""
-
-#. module: pos_default_empty_image
-#: help:product.product,expense_pdt:0
-msgid ""
-"Check if, this is a product you can use to take cash from a statement for "
-"the point of sale backend, example: money lost, transfer to bank, etc."
-msgstr ""
-
-#. module: pos_default_empty_image
 #: field:product.product,has_image:0
 msgid "Has image"
-msgstr ""
-
-#. module: pos_default_empty_image
-#: field:product.product,income_pdt:0
-msgid "Point of Sale Cash In"
-msgstr ""
-
-#. module: pos_default_empty_image
-#: field:product.product,expense_pdt:0
-msgid "Point of Sale Cash Out"
-msgstr ""
-
-#. module: pos_default_empty_image
-#: field:product.product,pos_categ_id:0
-msgid "Point of Sale Category"
 msgstr ""
 
 #. module: pos_default_empty_image
 #: model:ir.model,name:pos_default_empty_image.model_product_product
 msgid "Product"
 msgstr "Produit"
-
-#. module: pos_default_empty_image
-#: help:product.product,pos_categ_id:0
-msgid "Those categories are used to group similar products for point of sale."
-msgstr ""
-
-#. module: pos_default_empty_image
-#: field:product.product,to_weight:0
-msgid "To Weigh With Scale"
-msgstr ""

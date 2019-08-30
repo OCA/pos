@@ -21,72 +21,55 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: pos_default_empty_image
-#: field:product.product,available_in_pos:0
-msgid "Available in the Point of Sale"
-msgstr "Razpoložljivo v prodajni točki"
-
-#. module: pos_default_empty_image
-#: help:product.product,to_weight:0
-msgid ""
-"Check if the product should be weighted using the hardware scale integration"
-msgstr "Označite, če naj se proizvod tehta preko integrirane strojne tehtnice."
-
-#. module: pos_default_empty_image
-#: help:product.product,available_in_pos:0
-msgid "Check if you want this product to appear in the Point of Sale"
-msgstr "Označite, če naj se proizvod pojavi v prodajni točki"
-
-#. module: pos_default_empty_image
-#: help:product.product,income_pdt:0
-msgid ""
-"Check if, this is a product you can use to put cash into a statement for the "
-"point of sale backend."
-msgstr ""
-"Označite, če se ta proizvod lahko uporabi za polog gotovine v izpisek za "
-"ozadje prodajne točke."
-
-#. module: pos_default_empty_image
-#: help:product.product,expense_pdt:0
-msgid ""
-"Check if, this is a product you can use to take cash from a statement for "
-"the point of sale backend, example: money lost, transfer to bank, etc."
-msgstr ""
-"Označite, če se ta proizvod lahko uporabi za iznos gotovine iz izpiska za "
-"ozadje prodajne točke; npr. izgubljeni denar, prenos na banko, itd."
-
-#. module: pos_default_empty_image
 #: field:product.product,has_image:0
 msgid "Has image"
 msgstr "Vsebuje sliko"
-
-#. module: pos_default_empty_image
-#: field:product.product,income_pdt:0
-msgid "Point of Sale Cash In"
-msgstr "Vnos v prodajno točko"
-
-#. module: pos_default_empty_image
-#: field:product.product,expense_pdt:0
-msgid "Point of Sale Cash Out"
-msgstr "Iznos iz prodajne točke"
-
-#. module: pos_default_empty_image
-#: field:product.product,pos_categ_id:0
-msgid "Point of Sale Category"
-msgstr "Kategorija prodajne točke"
 
 #. module: pos_default_empty_image
 #: model:ir.model,name:pos_default_empty_image.model_product_product
 msgid "Product"
 msgstr "Proizvod"
 
-#. module: pos_default_empty_image
-#: help:product.product,pos_categ_id:0
-msgid "Those categories are used to group similar products for point of sale."
-msgstr ""
-"Te kategorije se uporabljajo za združevanje podobnih proizvodov na prodajni "
-"točki."
+#~ msgid "Available in the Point of Sale"
+#~ msgstr "Razpoložljivo v prodajni točki"
 
-#. module: pos_default_empty_image
-#: field:product.product,to_weight:0
-msgid "To Weigh With Scale"
-msgstr "Stehtajte s tehtnico"
+#~ msgid ""
+#~ "Check if the product should be weighted using the hardware scale "
+#~ "integration"
+#~ msgstr ""
+#~ "Označite, če naj se proizvod tehta preko integrirane strojne tehtnice."
+
+#~ msgid "Check if you want this product to appear in the Point of Sale"
+#~ msgstr "Označite, če naj se proizvod pojavi v prodajni točki"
+
+#~ msgid ""
+#~ "Check if, this is a product you can use to put cash into a statement for "
+#~ "the point of sale backend."
+#~ msgstr ""
+#~ "Označite, če se ta proizvod lahko uporabi za polog gotovine v izpisek za "
+#~ "ozadje prodajne točke."
+
+#~ msgid ""
+#~ "Check if, this is a product you can use to take cash from a statement for "
+#~ "the point of sale backend, example: money lost, transfer to bank, etc."
+#~ msgstr ""
+#~ "Označite, če se ta proizvod lahko uporabi za iznos gotovine iz izpiska za "
+#~ "ozadje prodajne točke; npr. izgubljeni denar, prenos na banko, itd."
+
+#~ msgid "Point of Sale Cash In"
+#~ msgstr "Vnos v prodajno točko"
+
+#~ msgid "Point of Sale Cash Out"
+#~ msgstr "Iznos iz prodajne točke"
+
+#~ msgid "Point of Sale Category"
+#~ msgstr "Kategorija prodajne točke"
+
+#~ msgid ""
+#~ "Those categories are used to group similar products for point of sale."
+#~ msgstr ""
+#~ "Te kategorije se uporabljajo za združevanje podobnih proizvodov na "
+#~ "prodajni točki."
+
+#~ msgid "To Weigh With Scale"
+#~ msgstr "Stehtajte s tehtnico"
