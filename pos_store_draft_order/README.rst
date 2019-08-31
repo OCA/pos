@@ -37,13 +37,16 @@ Feature
 **Workflow**
 
 * The PoS order 'Main/0004' is in draft state, before closing the session
-.. image:: ./static/description/1_before_closing.png
+
+  .. image:: ./static/description/1_before_closing.png
 
 * The PoS order is unassociated of the closed session 'POS/2015/09/05/01'
-.. image:: ./static/description/2_after_closing.png
+
+  .. image:: ./static/description/2_after_closing.png
 
 * The PoS order is associated to the new opened session 'POS/2015/09/05/02'
-.. image:: ./static/description/3_after_opening.png
+
+  .. image:: ./static/description/3_after_opening.png
 
 Installation
 ============
@@ -80,8 +83,8 @@ Bug Tracker
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
-If you spotted it first, help us smashing it by providing a detailed and welcomed feedback
-`here <https://github.com/OCA/pos/issues/new?body=module:%20pos_store_draft_order%0Aversion:%208.0.1.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+If you spotted it first, help us smashing it by providing a detailed and
+welcomed feedback `here <https://github.com/OCA/pos/issues/new?body=module:%20pos_store_draft_order%0Aversion:%208.0.1.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 
 Credits

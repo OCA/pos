@@ -29,10 +29,8 @@ No configuration needed.
 Known issues / Roadmap
 ======================
 
-Missing features
-----------------
 * Not tested with a **PosBox setting** so surely will not work if *'print by
-proxy'* is enabled.
+  proxy'* is enabled.
 
 
 Credits

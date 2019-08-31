@@ -113,9 +113,11 @@ Technical Notes
 ===============
 
 * By default, the following filters are applied on the pickings displayed:
-    * 'State' should be 'Waiting Availability', 'Partially Available' or
-      'Ready to Transfer'.
-    * 'Invoice Control' should be 'To be invoiced'.
+
+  * 'State' should be 'Waiting Availability', 'Partially Available' or
+    'Ready to Transfer'.
+  * 'Invoice Control' should be 'To be invoiced'.
+
   You can change this filter by overloading the ```_prepare_filter_for_pos```
   function of the model ```stock.picking```
 
