@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
@@ -26,6 +26,7 @@ from openerp import models
 class POSOrder(models.Model):
     _inherit = "pos.order"
 
+    # pylint: disable=R8110
     def _create_account_move_line(self, cr, uid, ids, session=None,
                                   move_id=None, context=None):
         to_ret = super(POSOrder, self)._create_account_move_line(
