@@ -16,7 +16,7 @@ This module can be usefull to let Orders in draft 'state' for some customers.
 Feature
 -------
 
-1. New computed field 'is_partial_paid' on PoS Order
+New computed field 'is_partial_paid' on PoS Order
 
 * This field is True, if the PoS order is in a draft state with some
   payments;
@@ -27,7 +27,7 @@ Feature
 .. image:: ./static/description/pos_order_states.png
     :alt: Blue, red and black orders depending of payments.
 
-2. Possibility to close session
+Possibility to close session
 
 * if a PoS order is in a 'draft' state (without any payment), the PoS Order
   will be unassociated to the current session, when closing the session;
