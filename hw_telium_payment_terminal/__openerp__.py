@@ -23,7 +23,7 @@
 
 {
     'name': 'Hardware Telium Payment Terminal',
-    'version': '8.0.0.1.1',
+    'version': '8.0.0.1.2',
     'category': 'Hardware Drivers',
     'license': 'AGPL-3',
     'summary': 'Adds support for Payment Terminals using Telium protocol',

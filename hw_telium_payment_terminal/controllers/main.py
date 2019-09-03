@@ -239,6 +239,15 @@ class TeliumPaymentTerminalDriver(Thread):
                 self.device_name, self.device_rate,
                 timeout=3)
             logger.debug('serial.is_open = %s' % self.serial.isOpen())
+
+            if self.serial.isOpen():
+                self.set_status("connected",
+                                "Connected to {}".format(self.device_name))
+            else:
+                self.set_status("disconnected",
+                                "Could not connect to {}"
+                                .format(self.device_name))
+
             if self.initialize_msg():
                 data = self.prepare_data_to_send(payment_info_dict)
                 if not data:
@@ -257,6 +266,9 @@ class TeliumPaymentTerminalDriver(Thread):
 
         except Exception, e:
             logger.error('Exception in serial connection: %s' % str(e))
+            self.set_status("error",
+                            "Exception in serial connection to {}"
+                            .format(self.device_name))
         finally:
             if self.serial:
                 logger.debug('Closing serial port for payment terminal')
