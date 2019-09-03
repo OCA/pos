@@ -15,6 +15,7 @@ class TestModule(TransactionCase):
             'name': 'Test POS product',
             'type': 'product',
             'available_in_pos': True,
+            'taxes_id': False,
         })
         self.pricelist = self.env['product.pricelist'].create({
             'name': 'Test pricelist',
@@ -24,21 +25,21 @@ class TestModule(TransactionCase):
                 'base': 'list_price',
             })]
         })
-        # Create a new pos config and open it
         self.pos_config = self.env.ref('point_of_sale.pos_config_main').copy()
+        self.pos_config.write({
+            'available_pricelist_ids': [(6, 0, self.pricelist.ids)],
+            'pricelist_id': self.pricelist.id,
+        })
         self.pos_config.open_session_cb()
 
     def test_01_picking_delayed_enabled(self):
         # Enable feature
         self.pos_config.picking_creation_delayed = True
-
         order = self._create_order()
-
         self.assertEqual(
             order.picking_id.id, False,
             "Creating order via UI should not generate a picking if"
             " feature is enabled")
-
         # Test if a Queue Job has been generated
         func_string = 'pos.order(%d,)._create_delayed_picking()' % (order.id)
         queues = self.QueueJob.search([
@@ -48,15 +49,12 @@ class TestModule(TransactionCase):
     def test_02_picking_delayed_disabled(self):
         # Disable feature
         self.pos_config.picking_creation_delayed = False
-
         order = self._create_order()
-
         picking_id = order.picking_id.id
         self.assertNotEqual(
             picking_id, False,
             "Creating order via UI should generate a picking if"
             " feature is disabled")
-
         # Test if a Queue Job has not been generated
         func_string = 'pos.order(%d,)._create_delayed_picking()' % (order.id)
         queues = self.QueueJob.search([
@@ -66,7 +64,7 @@ class TestModule(TransactionCase):
     def _create_order(self):
         # Create order
         order_data = {
-            'id': u'0006-001-0010',
+            'id': '0006-001-0010',
             'to_invoice': False,
             'data': {
                 'pricelist_id': self.pricelist.id,
@@ -91,15 +89,14 @@ class TestModule(TransactionCase):
                     'statement_id':
                     self.pos_config.current_session_id.statement_ids[0].id,
                 }]],
-                'creation_date': u'2018-09-27 15:51:03',
+                'creation_date': '2018-09-27 15:51:03',
                 'amount_tax': 0,
                 'fiscal_position_id': False,
-                'uid': u'00001-001-0001',
+                'uid': '00001-001-0001',
                 'amount_return': 0,
                 'sequence_number': 1,
                 'amount_total': 0.9,
             }}
-
         result = self.PosOrder.create_from_ui([order_data])
         order = self.PosOrder.browse(result[0])
         return order
