@@ -80,7 +80,7 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
     screens.PaymentScreenWidget.include({
         render_paymentlines : function(){
             this._super.apply(this, arguments);
-            var self  = this;
+            var self = this;
             this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
             // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
             //console.log(event.target);
@@ -91,11 +91,12 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
         },
         order_changes: function(){
             this._super.apply(this, arguments);
+            var self = this;
             var order = this.pos.get_order();
             if (!order) {
                 return;
             } else if (order.in_transaction) {
-                self.$('.next').html('<img src="/web/static/src/img/spin.png" style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle;">');
+                self.$('.next').html('<img src="/web/static/src/img/throbber.gif" style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle;">');
             } else {
                 self.$('.next').html('Validate <i class="fa fa-angle-double-right"></i>');
             }

@@ -4,7 +4,7 @@
 from collections import defaultdict
 import logging
 
-from odoo import models, api
+from openerp import models, api
 
 _logger = logging.getLogger(__name__)
 
@@ -40,6 +40,7 @@ class PosOrder(models.Model):
             _logger.error("Error matching transactions to payments: %s",
                           e.args[0])
 
+    @api.model
     def _process_order(self, pos_order):
         if pos_order.get('transactions'):
             self._match_transactions_to_payments(pos_order)
