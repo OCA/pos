@@ -53,6 +53,10 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
                 paymentwidget.order_changes();
             });
         },
+        update_transaction_data: function(line, data){
+            data.amount = line.get_amount();
+            data.payment_mode = line.cashregister.journal.payment_mode;
+        },
         payment_terminal_transaction_start: function(line_cid, currency_iso, currency_decimals){
             var line;
             var order = this.pos.get_order();
@@ -62,13 +66,12 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
                     line = lines[i];
                 }
             }
-
-            var data = {'amount' : line.get_amount(),
-                        'currency_iso' : currency_iso,
-                        'currency_decimals' : currency_decimals,
-                        'payment_mode' : line.cashregister.journal.payment_mode,
-                        'order_id': order.uid};
-            //console.log(JSON.stringify(data));
+            var data = {
+                 'currency_iso' : currency_iso,
+                 'currency_decimals' : currency_decimals,
+                 'order_id': order.uid
+            }
+            this.update_transaction_data(line, data)
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
     });
