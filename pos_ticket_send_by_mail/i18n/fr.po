@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_ticket_send_by_mail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-17 09:04+0000\n"
+"PO-Revision-Date: 2018-08-17 09:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_ticket_send_by_mail
+#: selection:pos.order,email_status:0
+msgid "Do not Send"
+msgstr "Do not Send"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_res_partner
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_pos_order
+msgid "Point of Sale"
+msgstr "Point de vente"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_pos_config_is_print_receipt
+msgid "Print receipt when not sent email"
+msgstr "Ne pas imprimer de ticket s’il est envoyé par par email"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_pos_order_email_status
+msgid "Send Status"
+msgstr "Send Status"
+
+#. module: pos_ticket_send_by_mail
+#: selection:pos.order,email_status:0
+msgid "Sent"
+msgstr "Sent"
+
+#. module: pos_ticket_send_by_mail
+#: model:mail.template,report_name:pos_ticket_send_by_mail.email_send_pos_receipt
+msgid "Ticket ${object.pos_reference}"
+msgstr "Billet ${object.pos_reference}"
+
+#. module: pos_ticket_send_by_mail
+#: selection:pos.order,email_status:0
+msgid "To send"
+msgstr "To send"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_pos_config
+msgid "pos.config"
+msgstr "pos.config"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_pos_config_is_print_receipt
+msgid "Print receipt when not sent email"
+msgstr "Ne pas imprimer de ticket s’il est envoyé par par email"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_pos_config_settings_receipt_options
+msgid "Receipt"
+msgstr "Reçu"
+
+#. module: pos_ticket_send_by_mail
+#: selection:pos.config.settings,receipt_options:0
+msgid "Do not send receipt via email"
+msgstr "Ne pas envoyer le reçu par email"
+
+#. module: pos_ticket_send_by_mail
+#: selection:pos.config.settings,receipt_options:0
+msgid "Email receipt and print it"
+msgstr "Envoyer le reçu par email et l'imprimer"
+
+#. module: pos_ticket_send_by_mail
+#: selection:pos.config.settings,receipt_options:0
+msgid "Email receipt and print it unless configured on user that he only receives electronically"
+msgstr "Envoyer le reçu par email et l'imprimer sauf si ce partenaire est configuré pour recevoir uniquement le reçu électronique"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_partner_pos_ticket_send_by_mail
+msgid "If you tick this box and option 3 is selected for 'Receipt' in point of sale settings, the user will only receive e-receipt"
+msgstr "Si vous cochez cette case et que l'option 3 est sélectionnée dans la configuration générale du point de vente, ce partenaire recevra uniquement le reçu électronique"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_partner_pos_ticket_send_by_mail
+msgid "E-receipt"
+msgstr "Reçu électronique"

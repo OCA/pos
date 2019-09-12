@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                src="/pos_ticket_send_by_mail/static/src/js/pos_model.js" />
+            <script type="text/javascript"
+                src="/pos_ticket_send_by_mail/static/src/js/receipt_screen_widget.js" />
+        </xpath>
+    </template>
+
+</odoo>
