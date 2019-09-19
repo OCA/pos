@@ -176,6 +176,22 @@ odoo.define('pos_restricted_customer_list.point_of_sale.screens', function (requ
                 this.toggle_save_button();
             }
         },
+        // OVERWRITE OF STANDARD ODOO TO RETURN DEFERRED
+        saved_client_details: function(partner_id){
+            var self = this;
+            return this.reload_partners().then(function(){
+                var partner = self.pos.db.get_partner_by_id(partner_id);
+                if (partner) {
+                    self.new_client = partner;
+                    self.toggle_save_button();
+                    self.display_client_details('show',partner);
+                } else {
+                    // should never happen, because create_from_ui must return the id of the partner it
+                    // has created, and reload_partner() must have loaded the newly created partner.
+                    self.display_client_details('hide');
+                }
+            });
+        },
         save_client_details: function (partner) {
             var self = this;
 
@@ -196,11 +212,19 @@ odoo.define('pos_restricted_customer_list.point_of_sale.screens', function (requ
             fields.id = partner.id || false;
             fields.country_id = fields.country_id || false;
             fields.barcode = fields.barcode || '';
-            fields.category_id = [[6, 0, [parseInt(fields.category_id)]]] || false;
+            if (fields.category_id) {
+                fields.category_id = [[6, 0, [parseInt(fields.category_id)]]];
+            } else {
+                fields.category_id = false;
+            }
 
+            self.gui.chrome.loading_show();
             new Model('res.partner').call('create_from_ui', [fields]).then(function (partner_id) {
-                self.saved_client_details(partner_id);
+                self.saved_client_details(partner_id).then(function () {
+                    self.gui.chrome.loading_hide();
+                });
             }, function (err, event) {
+                self.gui.chrome.loading_hide();
                 event.preventDefault();
                 var error_body = _t('Your Internet connection is probably down.');
                 if (err.data) {
