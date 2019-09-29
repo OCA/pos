@@ -8,7 +8,6 @@
     'license': 'AGPL-3',
     'summary': 'Require for cashier to sign in before each sale',
     'version': '11.0.0.1.0',
-    'description': '',
     'depends': [
         'point_of_sale',
     ],
