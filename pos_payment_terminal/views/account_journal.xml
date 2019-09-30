@@ -6,9 +6,10 @@
         <field name="model">account.journal</field>
         <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
         <field name="arch" type="xml">
-            <field name="amount_authorized_diff" position="after">
+            <group name="amount_authorized" position="after">
+				<label string="Payment mode" for="payment_mode" class="col-lg-3 o_light_label"/>
                 <field name="payment_mode"/>
-            </field>
+            </group>
         </field>
     </record>
 
