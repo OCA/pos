@@ -7,8 +7,8 @@ from odoo import models, fields
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     iface_payment_terminal = fields.Boolean(
-        'Payment Terminal',
-        help="A payment terminal is available on the Proxy")
+        "Payment Terminal", help="A payment terminal is available on the Proxy"
+    )

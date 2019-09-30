@@ -7,8 +7,10 @@ from odoo import models, fields
 
 
 class AccountJournal(models.Model):
-    _inherit = 'account.journal'
+    _inherit = "account.journal"
 
     payment_mode = fields.Selection(
-        [('card', 'Card'), ('check', 'Check')], 'Payment Mode',
-        help="Select the payment mode sent to the payment terminal")
+        [("card", "Card"), ("check", "Check")],
+        "Payment Mode",
+        help="Select the payment mode sent to the payment terminal",
+    )
