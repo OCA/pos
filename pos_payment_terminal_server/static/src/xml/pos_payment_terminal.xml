@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="PaymentScreen-Paymentlines" >
+        <t t-jquery="td.delete-button" t-operation="before">
+            <t t-if="line.cashregister.journal.payment_mode and widget.pos.config.iface_payment_terminal_server">
+                <td>
+                   <button class="payment-terminal-transaction-start" t-att-data-cid='line.cid'>Start transaction</button>
+                </td>
+            </t>
+        </t>
+    </t>
+    <t t-name="ProxyMultiStatusWidget">
+        <div class="oe_status js_proxy">
+            <span class='js_msg oe_orange oe_hidden'></span>
+            <div class="js_connected oe_icon oe_green">
+                <i class='fa fa-fw fa-sitemap'></i>
+            </div>
+            <div class="js_connecting oe_icon oe_hidden">
+                <i class='fa fa-fw fa-spin fa-spinner'></i>
+            </div>
+            <div class="js_warning oe_icon oe_orange oe_hidden">
+                <i class='fa fa-fw fa-sitemap'></i>
+            </div>
+            <div class="js_disconnected oe_icon oe_red oe_hidden">
+                <i class='fa fa-fw fa-sitemap'></i>
+            </div>
+        </div>
+    </t>
+</templates>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2019 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_form_view">
+        <field name="name">pos.config.form (in pos_payment_multi_terminal)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="arch" type="xml">
+            <field name="iface_cashdrawer" position="after">
+                <field name="use_payment_terminal_server"/>
+                <field name="iface_payment_terminal_server"
+                       placeholder="http://localhost:8070"
+                       attrs="{'required': [('use_payment_terminal_server', '!=', False)], 'invisible': [('use_payment_terminal_server', '=', False)]}"/>
+                <field name="iface_payment_terminal_id"
+                       attrs="{'required': [('use_payment_terminal_server', '!=', False)], 'invisible': [('use_payment_terminal_server', '=', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
