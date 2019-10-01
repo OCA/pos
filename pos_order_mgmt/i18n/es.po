@@ -18,31 +18,24 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
-msgid "Allow to duplicate done orders in this POS"
-msgstr "Permitir cargar pedidos en este PdV"
-
-#. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
-msgid "Allow to reprint done orders in this POS"
-msgstr "Permitir cargar pedidos en este PdV"
-
-#. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
-msgid "Allow to return done orders in this POS"
-msgstr "Permitir cargar pedidos en este PdV"
-
-#. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
 #, fuzzy
 #| msgid "Allow to load done orders in this POS"
 msgid "Allows to duplicate already done orders in the frontend"
+msgstr "Permitir cargar pedidos en este PdV"
+
+#. module: pos_order_mgmt
+#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
+#, fuzzy
+#| msgid "Allow to load done orders in this POS"
+msgid "Allows to manage already done orders in the frontend."
+msgstr "Permitir cargar pedidos en este PdV"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
+#, fuzzy
+#| msgid "Allow to load done orders in this POS"
+msgid "Allows to manage orders in the frontend"
 msgstr "Permitir cargar pedidos en este PdV"
 
 #. module: pos_order_mgmt
@@ -62,8 +55,9 @@ msgstr "Permitir cargar pedidos en este PdV"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
-#, python-format
-msgid "Amount Total"
+#, fuzzy, python-format
+#| msgid "Amount Total"
+msgid "Amount"
 msgstr "Importe Total"
 
 #. module: pos_order_mgmt
@@ -75,8 +69,8 @@ msgstr "Volver"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:352
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:407
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:353
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:408
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
@@ -84,8 +78,8 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:351
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:406
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:352
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:407
 #, python-format
 msgid "Connection error"
 msgstr "Error de conexión"
@@ -128,21 +122,17 @@ msgstr "Fecha"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 #, fuzzy
 #| msgid "Load Done Orders"
-msgid "Duplicate Done Orders"
+msgid "Duplicate Orders"
 msgstr "Cargar Ventas Realizadas"
 
 #. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-msgid "Load Done Order Max Qty."
-msgstr "Nº Máximo de Ventas a Cargar."
-
-#. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-msgid "Max. Done Orders Quantity To Load"
-msgstr "Nº Máximo de Ventas Realizadas a Cargar"
+#, fuzzy
+#| msgid "Maximum number orders to load"
+msgid "Maximum Orders to load"
+msgstr "Ventas máximas a cargar"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
@@ -159,9 +149,9 @@ msgstr ""
 "del ticket)."
 
 #. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-msgid "Maximum number orders to load"
-msgstr "Ventas máximas a cargar"
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
+msgid "Order Management"
+msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
@@ -203,7 +193,7 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:253
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:254
 #, python-format
 msgid "Refund "
 msgstr ""
@@ -229,18 +219,16 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 #, fuzzy
 #| msgid "Load Done Orders"
-msgid "Reprint Done Orders"
+msgid "Reprint Orders"
 msgstr "Cargar Ventas Realizadas"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 #, fuzzy
 #| msgid "Returned order:"
-msgid "Return Done Orders"
+msgid "Return Orders"
 msgstr "Devolución de venta:"
 
 #. module: pos_order_mgmt
@@ -266,7 +254,7 @@ msgstr "Buscar Venta"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:369
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:370
 #, python-format
 msgid ""
 "Unable to load some order lines because the products are not available in "
@@ -285,10 +273,36 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:368
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:369
 #, python-format
 msgid "Unknown Products"
 msgstr "Productos desconocidos"
+
+#, fuzzy
+#~| msgid "Allow to load done orders in this POS"
+#~ msgid "Allow to duplicate done orders in this POS"
+#~ msgstr "Permitir cargar pedidos en este PdV"
+
+#, fuzzy
+#~| msgid "Allow to load done orders in this POS"
+#~ msgid "Allow to reprint done orders in this POS"
+#~ msgstr "Permitir cargar pedidos en este PdV"
+
+#, fuzzy
+#~| msgid "Allow to load done orders in this POS"
+#~ msgid "Allow to return done orders in this POS"
+#~ msgstr "Permitir cargar pedidos en este PdV"
+
+#~ msgid "Load Done Order Max Qty."
+#~ msgstr "Nº Máximo de Ventas a Cargar."
+
+#~ msgid "Max. Done Orders Quantity To Load"
+#~ msgstr "Nº Máximo de Ventas Realizadas a Cargar"
+
+#, fuzzy
+#~| msgid "Returned order:"
+#~ msgid "Return Done Orders"
+#~ msgstr "Devolución de venta:"
 
 #~ msgid ""
 #~ "Allows to load already done orders in the frontend to operate over them, "
