@@ -22,7 +22,7 @@ class PosOrderLine(models.Model):
     @api.multi
     @api.depends('product_id', 'qty', 'price_subtotal')
     def _compute_multi_margin(self):
-        for line in self.filtered(lambda x: x.product_id):
+        for line in self.filtered('product_id'):
             purchase_price = self._get_purchase_price(line)
             line.purchase_price = purchase_price
             line.margin = line.price_subtotal - (purchase_price * line.qty)
