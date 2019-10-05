@@ -73,6 +73,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
+* Ammar Officewla <https://twitter.com/AmmarOfficewala>
 
 Maintainers
 ~~~~~~~~~~~
