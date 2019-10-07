@@ -30,8 +30,8 @@ class TestModule(TransactionCase):
         orders_data = self.PosOrder.search_done_orders_for_pos(
             [], self.pos_config.current_session_id.id)
         self.assertEqual(len(orders_data), 1)
-        self.assertEqual(
-            orders_data[0]['id'], order.id)
+        self.assertEqual(order.id,
+            orders_data[0]['id'])
 
         detail_data = order.load_done_order_for_pos()
         self.assertEqual(
@@ -58,13 +58,11 @@ class TestModule(TransactionCase):
                     'price_subtotal_incl': 0.9,
                 }]],
                 'statement_ids': [[0, 0, {
-                    'journal_id': self.pos_config.journal_ids[0].id,
+                    'payment_method_id': self.pos_config.payment_method_ids[0].id,
                     'amount': 0.9,
                     'name': fields.Datetime.now(),
-                    'account_id':
-                    self.env.user.partner_id.property_account_receivable_id.id,
-                    'statement_id':
-                    self.pos_config.current_session_id.statement_ids[0].id,
+                    'payment_date' : fields.Datetime.now(),
+                   'session_id' : self.pos_config.current_session_id.id,
                 }]],
                 'creation_date': u'2018-09-27 15:51:03',
                 'amount_tax': 0,
@@ -76,5 +74,5 @@ class TestModule(TransactionCase):
             }}
 
         result = self.PosOrder.create_from_ui([order_data])
-        order = self.PosOrder.browse(result[0])
+        order = self.PosOrder.browse(result[0].get('id'))
         return order

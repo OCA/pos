@@ -3,7 +3,7 @@
    Copyright 2019 Druidoo - Ivan Todorovich
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('pos_order_mgmt.widgets', function (require) {
+odoo.define('pos_order_mgmt.widgets', function(require) {
     "use strict";
 
     var core = require('web.core');
@@ -19,12 +19,12 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
     var DomCache = screens.DomCache;
 
     screens.ReceiptScreenWidget.include({
-        render_receipt: function () {
+        render_receipt: function() {
             if (!this.pos.reloaded_order) {
                 return this._super();
             }
             var order = this.pos.reloaded_order;
-            this.$('.pos-receipt-container').html(QWeb.render('PosTicket', {
+            this.$('.pos-receipt-container').html(QWeb.render('OrderReceipt', {
                 widget: this,
                 pos: this.pos,
                 order: order,
@@ -34,7 +34,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             }));
             this.pos.from_loaded_order = true;
         },
-        click_next: function () {
+        click_next: function() {
             if (!this.pos.from_loaded_order) {
                 return this._super();
             }
@@ -53,7 +53,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
     var OrderListScreenWidget = ScreenWidget.extend({
         template: 'OrderListScreenWidget',
 
-        init: function (parent, options) {
+        init: function(parent, options) {
             this._super(parent, options);
             this.order_cache = new DomCache();
             this.orders = [];
@@ -64,7 +64,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
         auto_back: true,
 
-        show: function () {
+        show: function() {
             var self = this;
             var previous_screen = false;
             if (this.pos.get_order()) {
@@ -78,7 +78,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             this._super();
             this.renderElement();
             this.old_order = this.pos.get_order();
-            this.$('.back').click(function () {
+            this.$('.back').click(function() {
                 return self.gui.show_screen(self.gui.startup_screen);
             });
 
@@ -89,22 +89,22 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             }
 
             var search_timeout = null;
-            this.$('.searchbox input').on('keyup', function () {
+            this.$('.searchbox input').on('keyup', function() {
                 self.search_query = this.value;
                 clearTimeout(search_timeout);
-                search_timeout = setTimeout(function () {
+                search_timeout = setTimeout(function() {
                     self.perform_search();
                 }, 70);
             });
 
-            this.$('.searchbox .search-clear').click(function () {
+            this.$('.searchbox .search-clear').click(function() {
                 self.clear_search();
             });
 
             this.perform_search();
         },
 
-        render_list: function () {
+        render_list: function() {
             var self = this;
             var orders = this.orders;
             var contents = this.$el[0].querySelector('.order-list-contents');
@@ -138,27 +138,27 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             this.$('.order-list-return').off('click');
             this.$('.order-list-reprint').off('click');
             this.$('.order-list-copy').off('click');
-            this.$('.order-list-reprint').click(function (event) {
+            this.$('.order-list-reprint').click(function(event) {
                 self.order_list_actions(event, 'print');
             });
-            this.$('.order-list-copy').click(function (event) {
+            this.$('.order-list-copy').click(function(event) {
                 self.order_list_actions(event, 'copy');
             });
-            this.$('.order-list-return').click(function (event) {
+            this.$('.order-list-return').click(function(event) {
                 self.order_list_actions(event, 'return');
             });
         },
 
-        order_list_actions: function (event, action) {
+        order_list_actions: function(event, action) {
             var self = this;
             var dataset = event.target.parentNode.dataset;
             self.load_order_data(parseInt(dataset.orderId, 10))
-                .then(function (order_data) {
+                .then(function(order_data) {
                     self.order_action(order_data, action);
                 });
         },
 
-        order_action: function (order_data, action) {
+        order_action: function(order_data, action) {
             if (this.old_order !== null) {
                 this.gui.back();
             }
@@ -171,7 +171,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             this['action_' + action](order_data, order);
         },
 
-        action_print: function (order_data, order) {
+        action_print: function(order_data, order) {
             // We store temporarily the current order so we can safely compute
             // taxes based on fiscal position
             this.pos.current_order = this.pos.get_order();
@@ -180,13 +180,13 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
             if (this.pos.config.iface_print_via_proxy) {
                 this.pos.proxy.print_receipt(QWeb.render(
-                    'XmlReceipt', {
-                        receipt: order.export_for_printing(),
+                    'OrderReceipt', {
                         widget: this,
                         pos: this.pos,
                         order: order,
+                        receipt: order.export_for_printing(),
                         orderlines: order.get_orderlines(),
-                        paymentlines: order.get_paymentlines(),
+                        paymentlinesf: order.get_paymentlines(),
                     }));
                 this.pos.set_order(this.pos.current_order);
                 this.pos.current_order = false;
@@ -199,7 +199,9 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             // If it's invoiced, we also print the invoice
             if (order_data.to_invoice) {
                 this.pos.chrome.do_action('point_of_sale.pos_invoice_report', {
-                    additional_context: { active_ids: [order_data.id] }
+                    additional_context: {
+                        active_ids: [order_data.id]
+                    }
                 })
             }
 
@@ -208,21 +210,21 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             order.destroy();
         },
 
-        action_copy: function (order_data, order) {
+        action_copy: function(order_data, order) {
             order.trigger('change');
             this.pos.get('orders').add(order);
             this.pos.set('selectedOrder', order);
             return order;
         },
 
-        action_return: function (order_data, order) {
+        action_return: function(order_data, order) {
             order.trigger('change');
             this.pos.get('orders').add(order);
             this.pos.set('selectedOrder', order);
             return order;
         },
 
-        _prepare_order_from_order_data: function (order_data, action) {
+        _prepare_order_from_order_data: function(order_data, action) {
             var self = this;
             var order = new pos.Order({}, {
                 pos: this.pos,
@@ -237,7 +239,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             // Get fiscal position
             if (order_data.fiscal_position && this.pos.fiscal_positions) {
                 var fiscal_positions = this.pos.fiscal_positions;
-                order.fiscal_position = fiscal_positions.filter(function (p) {
+                order.fiscal_position = fiscal_positions.filter(function(p) {
                     return p.id === order_data.fiscal_position;
                 })[0];
                 order.trigger('change');
@@ -265,7 +267,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 // Get the same value as the original
                 order.returned_order_id = order_data.returned_order_id;
                 order.returned_order_reference =
-                order_data.returned_order_reference;
+                    order_data.returned_order_reference;
             } else if (['return'].indexOf(action) !== -1) {
                 order.returned_order_id = order_data.id;
                 order.returned_order_reference = order_data.pos_reference;
@@ -274,23 +276,23 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             // Get Date
             if (['print'].indexOf(action) !== -1) {
                 order.formatted_validation_date =
-                moment(order_data.date_order).format('YYYY-MM-DD HH:mm:ss');
+                    moment(order_data.date_order).format('YYYY-MM-DD HH:mm:ss');
             }
 
             // Get Payment lines
             if (['print'].indexOf(action) !== -1) {
-                var paymentLines = order_data.statement_ids || [];
-                _.each(paymentLines, function (paymentLine) {
+                var paymentLines = order_data.payment_lines || [];
+                _.each(paymentLines, function(paymentLine) {
                     var line = paymentLine;
                     // In case of local data
                     if (line.length === 3) {
                         line = line[2];
                     }
-                    _.each(self.pos.cashregisters, function (cashregister) {
-                        if (cashregister.journal.id === line.journal_id) {
+                    _.each(self.pos.payment_methods, function(payment_method) {
+                        if (payment_method.id === line.payment_method_id) {
                             if (line.amount > 0) {
                                 // If it is not change
-                                order.add_paymentline(cashregister);
+                                order.add_paymentline(payment_method);
                                 order.selected_paymentline.set_amount(
                                     line.amount);
                             }
@@ -301,12 +303,12 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             return order;
         },
 
-        _prepare_orderlines_from_order_data: function (
+        _prepare_orderlines_from_order_data: function(
             order, order_data, action) {
             var orderLines = order_data.line_ids || order_data.lines || [];
 
             var self = this;
-            _.each(orderLines, function (orderLine) {
+            _.each(orderLines, function(orderLine) {
                 var line = orderLine;
                 // In case of local data
                 if (line.length === 3) {
@@ -333,68 +335,14 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             });
         },
 
-        load_order_data: function (order_id) {
+        load_order_data: function(order_id) {
             var self = this;
             return this._rpc({
                 model: 'pos.order',
                 method: 'load_done_order_for_pos',
                 args: [order_id],
-            }).fail(function (error) {
-                if (parseInt(error.code, 10) === 200) {
-                    // Business Logic Error, not a connection problem
-                    self.gui.show_popup(
-                        'error-traceback', {
-                            'title': error.data.message,
-                            'body': error.data.debug,
-                        });
-                } else {
-                    self.gui.show_popup('error', {
-                        'title': _t('Connection error'),
-                        'body': _t(
-                            'Can not execute this action because the POS' +
-                            ' is currently offline'),
-                    });
-                }
-            });
-        },
-
-        load_order_from_data: function (order_data, action) {
-            var self = this;
-            this.unknown_products = [];
-            var order = self._prepare_order_from_order_data(
-                order_data, action);
-            // Forbid POS Order loading if some products are unknown
-            if (self.unknown_products.length > 0) {
-                self.gui.show_popup('error-traceback', {
-                    'title': _t('Unknown Products'),
-                    'body': _t('Unable to load some order lines because the ' +
-                        'products are not available in the POS cache.\n\n' +
-                        'Please check that lines :\n\n  * ') +
-                    self.unknown_products.join("; \n  *"),
-                });
-                return false;
-            }
-            return order;
-        },
-
-        // Search Part
-        search_done_orders: function (query) {
-            var self = this;
-            return this._rpc({
-                model: 'pos.order',
-                method: 'search_done_orders_for_pos',
-                args: [query || '', this.pos.pos_session.id],
-            }).then(function (result) {
-                self.orders = result;
-                // Get the date in local time
-                _.each(self.orders, function (order) {
-                    if (order.date_order) {
-                        order.date_order = moment.utc(order.date_order)
-                            .local().format('YYYY-MM-DD HH:mm:ss');
-                    }
-                });
-            }).fail(function (error, event) {
-                if (parseInt(error.code, 10) === 200) {
+            }).guardedCatch(function(reason) {
+                if (parseInt(reason.message.code, 10) === 200) {
                     // Business Logic Error, not a connection problem
                     self.gui.show_popup(
                         'error-traceback', {
@@ -410,19 +358,74 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                             ' is currently offline'),
                     });
                 }
-                event.preventDefault();
             });
         },
 
-        perform_search: function () {
+        load_order_from_data: function(order_data, action) {
+            var self = this;
+            this.unknown_products = [];
+            var order = self._prepare_order_from_order_data(
+                order_data, action);
+            // Forbid POS Order loading if some products are unknown
+            if (self.unknown_products.length > 0) {
+                self.gui.show_popup('error-traceback', {
+                    'title': _t('Unknown Products'),
+                    'body': _t('Unable to load some order lines because the ' +
+                            'products are not available in the POS cache.\n\n' +
+                            'Please check that lines :\n\n  * ') +
+                        self.unknown_products.join("; \n  *"),
+                });
+                return false;
+            }
+            return order;
+        },
+
+        // Search Part
+        search_done_orders: function(query) {
+            var self = this;
+            return this._rpc({
+                model: 'pos.order',
+                method: 'search_done_orders_for_pos',
+                args: [query || '', this.pos.pos_session.id],
+            }).then(function(result) {
+                self.orders = result;
+                // Get the date in local time
+                _.each(self.orders, function(order) {
+                    if (order.date_order) {
+                        order.date_order = moment.utc(order.date_order)
+                            .local().format('YYYY-MM-DD HH:mm:ss');
+                    }
+                });
+            }).guardedCatch(function(reason) {
+                if (parseInt(reason.message.code, 10) === 200) {
+                    // Business Logic Error, not a connection problem
+                    self.gui.show_popup(
+                        'error-traceback', {
+                            'title': error.data.message,
+                            'body': error.data.debug,
+                        }
+                    );
+                } else {
+                    self.gui.show_popup('error', {
+                        'title': _t('Connection error'),
+                        'body': _t(
+                            'Can not execute this action because the POS' +
+                            ' is currently offline'),
+                    });
+                }
+                reason.event.preventDefault();
+            });
+        },
+
+        perform_search: function() {
             var self = this;
             return this.search_done_orders(self.search_query)
-                .done(function () {
+                .then(function() {
                     self.render_list();
                 });
         },
 
-        clear_search: function () {
+        clear_search: function() {
             var self = this;
             self.$('.searchbox input')[0].value = '';
             self.$('.searchbox input').focus();
@@ -438,21 +441,21 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
     var ListOrderButtonWidget = PosBaseWidget.extend({
         template: 'ListOrderButtonWidget',
-        init: function (parent, options) {
+        init: function(parent, options) {
             var opts = options || {};
             this._super(parent, opts);
             this.action = opts.action;
             this.label = opts.label;
         },
 
-        button_click: function () {
+        button_click: function() {
             this.gui.show_screen('orderlist');
         },
 
-        renderElement: function () {
+        renderElement: function() {
             var self = this;
             this._super();
-            this.$el.click(function () {
+            this.$el.click(function() {
                 self.button_click();
             });
         },

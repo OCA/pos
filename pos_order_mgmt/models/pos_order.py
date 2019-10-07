@@ -30,13 +30,11 @@ class PosOrder(models.Model):
         string='Refund Orders Quantity',
     )
 
-    @api.multi
     @api.depends('refund_order_ids')
     def _compute_refund_order_qty(self):
         for order in self:
             order.refund_order_qty = len(order.refund_order_ids)
 
-    @api.multi
     def action_view_refund_orders(self):
         self.ensure_one()
 
@@ -50,12 +48,9 @@ class PosOrder(models.Model):
             action['domain'] = [('id', 'in', self.refund_order_ids.ids)]
         return action
 
-    @api.multi
     def refund(self):
         return super(PosOrder, self.with_context(refund=True)).refund()
 
-    @api.multi
-    @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
         self.ensure_one()
         order = super().copy(default=default)
@@ -101,7 +96,6 @@ class PosOrder(models.Model):
         return self.search_read(
             condition, field_names, limit=config.iface_load_done_order_max_qty)
 
-    @api.multi
     def _prepare_done_order_for_pos(self):
         self.ensure_one()
         order_lines = []
@@ -109,7 +103,7 @@ class PosOrder(models.Model):
         for order_line in self.lines:
             order_line = self._prepare_done_order_line_for_pos(order_line)
             order_lines.append(order_line)
-        for payment_line in self.statement_ids:
+        for payment_line in self.payment_ids:
             payment_line = self._prepare_done_order_payment_for_pos(
                 payment_line)
             payment_lines.append(payment_line)
@@ -121,14 +115,13 @@ class PosOrder(models.Model):
             'partner_id': self.partner_id.id,
             'fiscal_position': self.fiscal_position_id.id,
             'line_ids': order_lines,
-            'statement_ids': payment_lines,
-            'to_invoice': bool(self.invoice_id),
+            'payment_lines': payment_lines,
+            'to_invoice': bool(self.account_move),
             'returned_order_id': self.returned_order_id.id,
             'returned_order_reference': self.returned_order_reference,
         }
         return res
 
-    @api.multi
     def _prepare_done_order_line_for_pos(self, order_line):
         self.ensure_one()
         return {
@@ -138,20 +131,17 @@ class PosOrder(models.Model):
             'discount': order_line.discount,
         }
 
-    @api.multi
     def _prepare_done_order_payment_for_pos(self, payment_line):
         self.ensure_one()
         return {
-            'journal_id': payment_line.journal_id.id,
+            'payment_method_id': payment_line.payment_method_id.id,
             'amount': payment_line.amount,
         }
 
-    @api.multi
     def load_done_order_for_pos(self):
         self.ensure_one()
         return self._prepare_done_order_for_pos()
 
-    @api.model
     def _order_fields(self, ui_order):
         res = super()._order_fields(ui_order)
         res.update({
