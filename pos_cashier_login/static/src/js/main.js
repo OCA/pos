@@ -21,8 +21,10 @@ odoo.define('pos_cashier_login.main', function (require) {
     chrome.Chrome.include({
         build_widgets: function() {
             this._super();
-            this.gui.set_startup_screen('cashier-login');
-            this.gui.set_default_screen('cashier-login');
+            if (this.pos.config.require_cashier_login) {
+                this.gui.set_startup_screen('cashier-login');
+                this.gui.set_default_screen('cashier-login');
+            }
         },
     });
 
