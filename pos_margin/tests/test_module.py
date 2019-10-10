@@ -46,13 +46,13 @@ class TestModule(TransactionCase):
                     'price_subtotal_incl': 18.0,
                 }]],
                 'statement_ids': [[0, 0, {
-                    'journal_id': self.pos_config.journal_ids[0].id,
+                    'payment_method_id':
+                    self.pos_config.payment_method_ids[0].id,
                     'amount': 18.0,
                     'name': fields.Datetime.now(),
                     'account_id':
                     self.env.user.partner_id.property_account_receivable_id.id,
-                    'statement_id':
-                    self.pos_config.current_session_id.statement_ids[0].id,
+                    'session_id' : self.pos_config.current_session_id.id,
                 }]],
                 'creation_date': u'2018-09-27 15:51:03',
                 'amount_tax': 0,
@@ -62,7 +62,6 @@ class TestModule(TransactionCase):
                 'sequence_number': 1,
                 'amount_total': 18.0,
             }}
-
         result = self.PosOrder.create_from_ui([order_data])
-        order = self.PosOrder.browse(result[0])
+        order = self.PosOrder.browse(result[0].get('id'))
         return order

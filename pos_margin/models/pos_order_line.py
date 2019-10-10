@@ -19,7 +19,6 @@ class PosOrderLine(models.Model):
         multi='multi_margin', digits=dp.get_precision('Product Price'))
 
     # Compute Section
-    @api.multi
     @api.depends('product_id', 'qty', 'price_subtotal')
     def _compute_multi_margin(self):
         for line in self.filtered('product_id'):
