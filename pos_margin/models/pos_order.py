@@ -17,7 +17,6 @@ class PosOrder(models.Model):
         " the Unit Price and the cost price.")
 
     # Compute Section
-    @api.multi
     @api.depends('lines.margin')
     def _compute_margin(self):
         for order in self:
