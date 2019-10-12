@@ -6,5 +6,3 @@ pos
 ===
 
 Point of sale
-
-
