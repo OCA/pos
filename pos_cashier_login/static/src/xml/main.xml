@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CashierLoginScreenWidget">
+        <div class="screen cashier-login-screen">
+            <div class="screen-content">
+                <div class="centered-content">
+                    <h1>Please scan your cashier barcode to start a new order.</h1>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

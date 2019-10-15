@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 by Lambda IS <https://www.lambda-is.com> -->
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/pos_cashier_login/static/src/css/main.css"/>
+            <script type="text/javascript" src="/pos_cashier_login/static/src/js/main.js"></script>
+        </xpath>
+    </template>
+
+</odoo>
