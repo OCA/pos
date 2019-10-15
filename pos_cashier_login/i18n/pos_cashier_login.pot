@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_cashier_login
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_cashier_login
+#: model:ir.model.fields,field_description:pos_cashier_login.field_pos_config_require_cashier_login
+#: model:ir.ui.view,arch_db:pos_cashier_login.view_pos_config_form
+msgid "Cashier Login"
+msgstr ""
+
+#. module: pos_cashier_login
+#. openerp-web
+#: code:addons/pos_cashier_login/static/src/xml/main.xml:8
+#, python-format
+msgid "Please scan your cashier barcode to start a new order."
+msgstr ""
+
+#. module: pos_cashier_login
+#: model:ir.model.fields,help:pos_cashier_login.field_pos_config_require_cashier_login
+msgid "Require for cashier to be selected before each new sale"
+msgstr ""
+
+#. module: pos_cashier_login
+#: model:ir.ui.view,arch_db:pos_cashier_login.view_pos_config_form
+msgid "Require that the cashier is set (or scanned) before each new order."
+msgstr ""
+
+#. module: pos_cashier_login
+#: model:ir.model,name:pos_cashier_login.model_pos_config
+msgid "pos.config"
+msgstr ""
+
