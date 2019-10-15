@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-pos Odoo addons",
     version=version,
     install_requires=[
+        'odoo11-addon-pos_cashier_login',
         'odoo11-addon-pos_config_show_accounting',
         'odoo11-addon-pos_fix_search_limit',
         'odoo11-addon-pos_lot_selection',
