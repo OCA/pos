@@ -5,14 +5,14 @@
 
 {
     'name': 'POS report Session Summary',
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
     'category': 'Point Of Sale',
     'summary': 'Adds a Session Summary PDF report on the POS session',
     'author': 'Akretion, Odoo SA, Odoo Community Association (OCA)',
     'license': 'LGPL-3',
     'depends': ['point_of_sale'],
     'data': [
-        'session_summary_report.xml',
+        'views/session_summary_report.xml',
         'views/report_session_summary.xml',
     ],
     'installable': True,

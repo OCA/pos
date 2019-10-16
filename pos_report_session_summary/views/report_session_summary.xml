@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 <template id="report_session_summary">
-    <t t-call="report.html_container">
+    <t t-call="web.html_container">
         <t t-foreach="docs" t-as="o">
-            <t t-call="report.internal_layout">
+            <t t-call="web.external_layout">
                 <div class="page">
                     <h2>Session Summary: <span t-field="o.name"/></h2>
 
                     <div class="row mt32 mb32">
-                        <div class="col-xs-3">
+                        <div class="col-auto mw-100 mb-3">
                             <strong>Responsible</strong>:<br/>
                             <span t-field="o.user_id"/>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-auto mw-100 mb-3">
                             <strong>Point of Sale</strong>:<br/>
                             <span t-field="o.config_id"/>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-auto mw-100 mb-3">
                             <strong>Opening Date</strong>:<br/>
                             <span t-field="o.start_at"/>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-auto mw-100 mb-3">
                             <strong>Closing Date</strong>:<br/>
                             <span t-field="o.stop_at"/>
                         </div>
@@ -28,7 +28,7 @@
 
                     <h4>Statement Summary</h4>
 
-                    <table class="table table-condensed mb32">
+                    <table class="table table-sm o_main_table">
                         <thead>
                             <tr>
                                 <th>
@@ -88,7 +88,7 @@
                     <t t-foreach="o.statement_ids" t-as="statement">
                         <h4 t-if="statement.line_ids">Statement Details: <span t-esc="statement.name"/></h4>
 
-                        <table class="table table-condensed" t-if="statement.line_ids">
+                        <table class="table table-sm o_main_table" t-if="statement.line_ids">
                             <thead>
                                 <tr>
                                     <th>Date</th>
