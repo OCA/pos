@@ -178,23 +178,14 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
             this.pos.set_order(order);
 
-            if (this.pos.config.iface_print_via_proxy) {
-                this.pos.proxy.print_receipt(QWeb.render(
-                    'XmlReceipt', {
-                        receipt: order.export_for_printing(),
-                        widget: this,
-                        pos: this.pos,
-                        order: order,
-                        orderlines: order.get_orderlines(),
-                        paymentlines: order.get_paymentlines(),
-                    }));
-                this.pos.set_order(this.pos.current_order);
-                this.pos.current_order = false;
-            } else {
-                this.pos.reloaded_order = order;
-                this.gui.show_screen('receipt');
-                this.pos.reloaded_order = false;
-            }
+            this.pos.reloaded_order = order;
+            var skip_screen_state = this.pos.config.iface_print_skip_screen;
+            // Disable temporarily skip screen if set
+            this.pos.config.iface_print_skip_screen = false;
+            this.gui.show_screen('receipt');
+            this.pos.reloaded_order = false;
+            // Set skip screen to whatever previous state
+            this.pos.config.iface_print_skip_screen = skip_screen_state;
 
             // If it's invoiced, we also print the invoice
             if (order_data.to_invoice) {
