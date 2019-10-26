@@ -20,12 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_margin
-#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line_purchase_price
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__purchase_price
 msgid "Cost Price"
 msgstr "Precio de coste"
 
 #. module: pos_margin
-#: model:ir.model.fields,help:pos_margin.field_pos_order_margin
+#: model:ir.model.fields,help:pos_margin.field_pos_order__margin
 msgid ""
 "It gives profitability by calculating the difference between the Unit Price "
 "and the cost price."
@@ -34,28 +34,30 @@ msgstr ""
 "precio de coste."
 
 #. module: pos_margin
-#: model:ir.model,name:pos_margin.model_pos_order_line
-#, fuzzy
-msgid "Lines of Point of Sale Orders"
-msgstr "Líneas del punto de venta"
-
-#. module: pos_margin
-#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line_margin
-#: model:ir.model.fields,field_description:pos_margin.field_pos_order_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__margin
 msgid "Margin"
 msgstr "Margen"
 
 #. module: pos_margin
-#: model:ir.model.fields,field_description:pos_margin.field_report_pos_order_margin_rate
+#: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_rate
 #, fuzzy
 msgid "Margin Rate"
 msgstr "Margen"
 
 #. module: pos_margin
-#: model:ir.model.fields,field_description:pos_margin.field_report_pos_order_margin_total
+#: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_total
+#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
 #, fuzzy
 msgid "Margin Total"
 msgstr "Margen"
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_order_line
+#, fuzzy
+#| msgid "Point of Sale Orders"
+msgid "Point of Sale Order Lines"
+msgstr "Pedidos del TPV"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order
@@ -65,5 +67,14 @@ msgstr "Pedidos del TPV"
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_report_pos_order
 #, fuzzy
-msgid "Point of Sale Orders Statistics"
+#| msgid "Point of Sale Orders"
+msgid "Point of Sale Orders Report"
 msgstr "Pedidos del TPV"
+
+#, fuzzy
+#~ msgid "Lines of Point of Sale Orders"
+#~ msgstr "Líneas del punto de venta"
+
+#, fuzzy
+#~ msgid "Point of Sale Orders Statistics"
+#~ msgstr "Pedidos del TPV"
