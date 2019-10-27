@@ -19,4 +19,7 @@
         'static/src/xml/main.xml',
     ],
     'installable': True,
+    'maintainers': [
+        'kirca',
+    ]
 }
