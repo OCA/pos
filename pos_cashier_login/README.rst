@@ -82,6 +82,14 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
+.. |maintainer-kirca| image:: https://github.com/kirca.png?size=40px
+    :target: https://github.com/kirca
+    :alt: kirca
+
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-kirca| 
+
 This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/11.0/pos_cashier_login>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
