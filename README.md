@@ -17,6 +17,7 @@ addon | version | summary
 [pos_customer_display](pos_customer_display/) | 9.0.0.1.0 | Manage Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 9.0.1.0.0 | Point of Sale Require Customer
 [pos_empty_home](pos_empty_home/) | 9.0.1.0.0 | Hide products at the start of the Point of Sale
+[pos_payment_terminal](pos_payment_terminal/) | 9.0.1.0.1 | Manage Payment Terminal device from POS front end
 [pos_price_to_weight](pos_price_to_weight/) | 9.0.1.0.0 | Compute weight based on barcodes with prices
 [pos_quick_logout](pos_quick_logout/) | 9.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_restricted_customer_list](pos_restricted_customer_list/) | 9.0.1.0.0 | This module will limit the download of customer data to only those customers where this has been specifically requested.
@@ -30,7 +31,6 @@ Unported addons
 addon | version | summary
 --- | --- | ---
 [pos_gift_ticket](pos_gift_ticket/) | 8.0.0.1.0 (unported) | Gift Ticket
-[pos_payment_terminal](pos_payment_terminal/) | 8.0.0.1.0 (unported) | Manage Payment Terminal device from POS front end
 [pos_pricelist](pos_pricelist/) | 8.0.1.2.0 (unported) | Pricelist for Point of sale
 [pos_product_template](pos_product_template/) | 8.0.0.2.0 (unported) | Manage Product Template in Front End Point Of Sale
 
