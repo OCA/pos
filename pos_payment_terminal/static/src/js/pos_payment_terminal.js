@@ -1,34 +1,119 @@
 /*
     POS Payment Terminal module for Odoo
-    Copyright (C) 2014 Aurélien DUMAINE
-    Copyright (C) 2014-2015 Akretion (www.akretion.com)
+    Copyright (C) 2014-2016 Aurélien DUMAINE
+    Copyright (C) 2014-2016 Akretion (www.akretion.com)
     @author: Aurélien DUMAINE
     @author: Alexis de Lattre <alexis.delattre@akretion.com>
-    The licence is in the file __openerp__.py
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-openerp.pos_payment_terminal = function(instance){
-    module = instance.point_of_sale;
+odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
+    "use strict";
 
-    module.ProxyDevice = module.ProxyDevice.extend({
-        payment_terminal_transaction_start: function(line, currency_iso){
-            var data = {'amount' : line.get_amount(),
-                        'currency_iso' : currency_iso,
-                        'payment_mode' : line.cashregister.journal.payment_mode};
+    var screens = require('point_of_sale.screens');
+    var devices = require('point_of_sale.devices');
+    var models = require('point_of_sale.models');
+    var core = require('web.core');
+    var _t = core._t;
+    var QWeb = core.qweb;
+
+    models.load_fields('account.journal', ['payment_mode']);
+
+    devices.ProxyDevice.include({
+        init: function(parents, options) {
+            var self = this;
+            self._super(parents, options);
+            self.on('change:status', this, function(eh, status) {
+                if(!self.pos.chrome.screens) {
+                    return;
+                }
+                var paymentwidget = self.pos.chrome.screens.payment;
+                var drivers = status.newValue.drivers;
+                var order = self.pos.get_order();
+                var in_transaction = false;
+                Object.keys(drivers).forEach(function(driver_name) {
+                    if (drivers[driver_name].hasOwnProperty("in_transaction")) {
+                        in_transaction = in_transaction || drivers[driver_name].in_transaction;
+                    }
+
+                    var transactions = drivers[driver_name].latest_transactions;
+                    if(!!transactions && transactions.hasOwnProperty(order.uid)) {
+                        var previous_transactions = order.transactions;
+                        order.transactions = transactions[order.uid];
+                        var has_new_transactions = (
+                            !previous_transactions ||
+                            previous_transactions.length < order.transactions.length
+                        );
+                        if(has_new_transactions && order.is_paid()) {
+                            paymentwidget.validate_order();
+                        }
+                    }
+                });
+                order.in_transaction = in_transaction;
+                paymentwidget.order_changes();
+            });
+        },
+        update_transaction_data: function(line, data){
+            data.amount = line.get_amount();
+            data.payment_mode = line.cashregister.journal.payment_mode;
+        },
+        payment_terminal_transaction_start: function(line_cid, currency_iso, currency_decimals){
+            var line;
+            var order = this.pos.get_order();
+            var lines = order.get_paymentlines();
+            for ( var i = 0; i < lines.length; i++ ) {
+                if (lines[i].cid === line_cid) {
+                    line = lines[i];
+                }
+            }
+            var data = {
+                 'currency_iso' : currency_iso,
+                 'currency_decimals' : currency_decimals,
+                 'order_id': order.uid
+            }
+            this.update_transaction_data(line, data)
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
     });
 
-    module.PaymentScreenWidget.include({
-        render_paymentline: function(line){
-            el_node = this._super(line);
+
+    screens.PaymentScreenWidget.include({
+        render_paymentlines : function(){
+            this._super.apply(this, arguments);
             var self = this;
-            if (line.cashregister.journal.payment_mode && this.pos.config.iface_payment_terminal){
-                el_node.querySelector('.payment-terminal-transaction-start')
-                    .addEventListener('click', function(){self.pos.proxy.payment_terminal_transaction_start(line, self.pos.currency.name)});
-                }
-            return el_node;
+            this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
+            // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
+            //console.log(event.target);
+            self.pos.get_order().in_transaction = true;
+            self.order_changes();
+            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name, self.pos.currency.decimals);
+            });
         },
+        order_changes: function(){
+            this._super.apply(this, arguments);
+            var self = this;
+            var order = this.pos.get_order();
+            if (!order) {
+                return;
+            } else if (order.in_transaction) {
+                self.$('.next').html('<img src="/web/static/src/img/throbber.gif" style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle;">');
+            } else {
+                self.$('.next').html('Validate <i class="fa fa-angle-double-right"></i>');
+            }
+        }
     });
 
-};
+    var _orderproto = models.Order.prototype;
+    models.Order = models.Order.extend({
+        initialize: function(){
+            _orderproto.initialize.apply(this, arguments);
+            this.in_transaction = false;
+        },
+        export_as_JSON: function() {
+            var vals = _orderproto.export_as_JSON.apply(this, arguments);
+            vals['transactions'] = this.transactions || {};
+            return vals;
+        }
+    });
+
+});

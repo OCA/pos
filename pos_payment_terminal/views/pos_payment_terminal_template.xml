@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets" name="pos_payment_terminal assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_payment_terminal/static/src/js/pos_payment_terminal.js"></script>
+            <link rel="stylesheet" href="/pos_payment_terminal/static/src/css/pos_payment_terminal.css" />
+      </xpath>
+    </template>
+
+</odoo>

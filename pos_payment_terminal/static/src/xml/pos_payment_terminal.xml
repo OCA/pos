@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    <t t-extend="Paymentline" >
-        <t t-jquery=".paymentline-input" t-operation="append">
-            <t t-if="line.cashregister.journal.payment_mode">
-                <span class="payment-terminal-transaction-start">
-                    <button>Start transaction</button>
-                </span>
+    <t t-extend="PaymentScreen-Paymentlines" >
+        <t t-jquery="th:last" t-operation="before">
+            <th name="terminal-transaction"></th>
+        </t>
+        <t t-jquery="td.delete-button" t-operation="before">
+            <t t-if="line.cashregister.journal.payment_mode and widget.pos.config.iface_payment_terminal">
+                <td>
+                   <button class="payment-terminal-transaction-start"  t-att-data-cid='line.cid'>Start transaction</button>
+                </td>
             </t>
         </t>
     </t>
