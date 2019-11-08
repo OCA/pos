@@ -22,8 +22,20 @@ class TestPointOfSaleStockPickingInvoiceLink(common.HttpCase):
             'standard_price': 1.0,
             'type': 'product',
         })
+        self.pricelist = self.env['product.pricelist'].create({
+            'name': 'Test pricelist',
+            'item_ids': [(0, 0, {
+                'applied_on': '3_global',
+                'compute_price': 'formula',
+                'base': 'list_price',
+            })]
+        })
         self.PosOrder = self.env['pos.order']
         self.pos_config = self.env.ref('point_of_sale.pos_config_main')
+        self.pos_config.write({
+            'available_pricelist_ids': [(6, 0, self.pricelist.ids)],
+            'pricelist_id': self.pricelist.id,
+        })
 
     def test_stock_picking_invoice_link(self):
         """The picking is created and the lines are related to their moves"""
