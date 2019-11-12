@@ -1,0 +1,38 @@
+
+/*Paypad CSS*/
+.paypad-button {
+    text-align: left;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.paypad-button .cashregister-img{
+    padding-right: 5px;
+    float: left;
+}
+
+.paypad-button .cashregister-img img{
+    max-width:  25px;
+    max-height: 25px;
+}
+
+/*Payment Screen CSS*/
+
+.pos .pos-payment-container{
+    width: 500px;
+}
+
+.paymentline .paymentline-name{
+    font-size: 25px;
+    line-height: 40px;
+}
+
+.paymentline .paymentline-img{
+    float: left;
+    padding-right: 10px;
+}
+
+.paymentline .paymentline-img img{
+    max-width:  50px;
+    max-height: 50px;
+}

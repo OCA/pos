@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2019 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<openerp><data>
+
+    <record id="account.cash_journal" model="account.journal">
+        <field name="pos_image" type="base64" file="pos_journal_image/static/img/cash_journal-pos_image.png"/>
+    </record>
+
+    <record id="account.check_journal" model="account.journal">
+        <field name="pos_image" type="base64" file="pos_journal_image/static/img/check_journal-pos_image.png"/>
+    </record>
+
+</data></openerp>
