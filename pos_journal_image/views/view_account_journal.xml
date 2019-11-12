@@ -4,16 +4,18 @@ Copyright (C) 2019 - Today: GRAP (http://www.grap.coop)
 @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-<openerp><data>
+<odoo>
 
     <record id="view_account_journal_form" model="ir.ui.view">
         <field name="model">account.journal</field>
         <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
         <field name="arch" type="xml">
-            <field name="amount_authorized_diff" position="after">
-                <field name="pos_image" widget="image"/>
-            </field>
+            <xpath expr="//group[@name='amount_authorized']" position="after">
+                <group>
+                    <field name="pos_image" widget="image" class="oe_avatar"/>
+                </group>
+            </xpath>
         </field>
     </record>
 
-</data></openerp>
+</odoo>
