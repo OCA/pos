@@ -1,6 +1,6 @@
 To configure this module, you need to:
 
-* Go to 'Invoicing' / 'Configuration' / 'Journals' / 'Journals'
+* Go to 'Point Of Sale' / 'Configuration' / 'Payment Methods'
 
 * Select journals available in the PoS
 
