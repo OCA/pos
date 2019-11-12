@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2019-Today GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="PaypadButtonWidget">
+        <t t-jquery="[t-esc='widget.cashregister.journal.name']" t-operation="before">
+            <t t-if="widget.cashregister.journal.pos_image">
+                <div class="cashregister-img">
+                    <img t-att-src="widget.journal_icon_url(widget.cashregister.journal.id)"/>
+                </div>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="Paymentline">
+        <t t-jquery="[class='paymentline-name']" t-operation="before">
+            <div class="paymentline-img">
+                <img t-att-src="widget.journal_icon_url(line.cashregister.journal.id)"/>
+
+            </div>
+        </t>
+    </t>
+
+</templates>
+
+
