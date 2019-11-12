@@ -6,7 +6,7 @@ from openerp import fields, models
 
 
 class AccountJournal(models.Model):
-    _inherit = 'account.journal'
+    _inherit = "account.journal"
 
     # Columns section
-    pos_image = fields.Binary(string='PoS Image')
+    pos_image = fields.Binary(string="PoS Image")
