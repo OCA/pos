@@ -4,15 +4,15 @@ Copyright (C) 2019-Today GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
 
-"use strict";
+odoo.define('pos_journal_image.pos_journal_image', function (require) {
+    "use strict";
 
-openerp.pos_journal_image = function(instance){
-    var module = instance.point_of_sale;
+    var PosBaseWidget = require('point_of_sale.BaseWidget');
 
-    module.PosBaseWidget.include({
+    PosBaseWidget.include({
         journal_icon_url: function(id){
             return '/web/binary/image?model=account.journal&id=' + id + '&field=pos_image';
         },
     });
 
-};
+});
