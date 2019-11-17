@@ -18,46 +18,46 @@ msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:131
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:188
 #, python-format
 msgid "Change Unit Price - Unauthorized function"
 msgstr "Changer le prix unitaire - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:83
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
 #, python-format
 msgid "Delete Order - Unauthorized function"
 msgstr "Supprimer une commande de vente - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:124
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:181
 #, python-format
 msgid "Discount - Unauthorized function"
 msgstr "Remise - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:72
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:94
 #, python-format
 msgid "Many Orders - Unauthorized function"
 msgstr "Plusieurs Commandes simultanées - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:110
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:153
 #, python-format
 msgid "Negative Quantity - Unauthorized function"
 msgstr "Quantité négative - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:73
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:84
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:111
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:125
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:132
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:95
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:154
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:182
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:189
 #, python-format
 msgid "Please ask your manager to do it."
 msgstr "Veuillez vous rapprocher d'un responsable"
