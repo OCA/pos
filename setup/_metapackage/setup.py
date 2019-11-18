@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-pos_picking_delayed',
         'odoo12-addon-pos_report_session_summary',
         'odoo12-addon-pos_ticket_logo',
+        'odoo12-addon-pos_to_weight_by_product_uom',
     ],
     classifiers=[
         'Programming Language :: Python',
