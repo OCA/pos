@@ -1,4 +1,5 @@
-# -*- encoding: utf-8 -*-
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 ##############################################################################
 #
 #    Point Of Sale - Product Template module for Odoo
@@ -19,7 +20,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+-->
+<odoo>
 
-- !record {model: product.attribute.value, id: attribute_wifi_extra}:
-    attribute_id: product.product_attribute_3
-    name: 2.399GHz
+    <record id="attribute_wifi_extra" model="product.attribute.value">
+        <field name="attribute_id"  eval="ref('product.product_attribute_3')"/>
+        <field name="name">2.399GHz</field>
+    </record>
+
+</odoo>
