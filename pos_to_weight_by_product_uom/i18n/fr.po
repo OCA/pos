@@ -17,12 +17,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_to_weight_by_product_uom
-#: model:product.uom.categ,name:pos_to_weight_by_product_uom.product_uom_categ_to_weigh
+#: model:uom.category,name:pos_to_weight_by_product_uom.uom_category_to_weigh
 msgid "Demo - New Category To Weigh"
 msgstr "Demo - Nouvelle Catégorie à peser"
 
 #. module: pos_to_weight_by_product_uom
-#: model:product.uom,name:pos_to_weight_by_product_uom.product_uom_to_weigh
+#: model:uom.uom,name:pos_to_weight_by_product_uom.uom_uom_to_weigh
 msgid "Demo - New Uom To Weigh"
 msgstr "Demo - Nouvelle UdM à peser"
 
@@ -38,21 +38,24 @@ msgid "Product Template"
 msgstr "Modèle d'article"
 
 #. module: pos_to_weight_by_product_uom
-#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_uom
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_uom
 msgid "Product Unit of Measure"
 msgstr "Unité de mesure d'article"
 
 #. module: pos_to_weight_by_product_uom
-#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_uom_categ
-msgid "Product uom categ"
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_category
+#, fuzzy
+#| msgid "Product uom categ"
+msgid "Product UoM Categories"
 msgstr "Catégorie d'UdM d'article"
 
 #. module: pos_to_weight_by_product_uom
-#: view:product.uom.categ:pos_to_weight_by_product_uom.product_uom_categ_form_view_inherit_pos_to_weight_by_product_uom
+#: model_terms:ir.ui.view,arch_db:pos_to_weight_by_product_uom.view_uom_category_form
 msgid "Set 'to weigh' in each product of this category"
 msgstr ""
 
 #. module: pos_to_weight_by_product_uom
-#: field:product.uom,to_weigh:0 field:product.uom.categ,to_weigh:0
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_category__to_weigh
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_uom__to_weigh
 msgid "To weigh"
 msgstr "À peser"
