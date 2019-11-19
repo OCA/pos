@@ -1,4 +1,5 @@
-# -*- encoding: utf-8 -*-
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 ##############################################################################
 #
 #    Point Of Sale - Product Template module for Odoo
@@ -19,7 +20,26 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+-->
+<odoo>
 
-- !record {model: res.groups, id: base.group_no_one}:
-    users:
-      - base.user_root
+    <record id="product.product_product_4" model="product.product">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+
+    <record id="product.product_product_4b" model="product.product">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+
+    <record id="product.product_product_4c" model="product.product">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+
+    <record id="product.product_product_11" model="product.product">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+
+    <record id="product.product_product_11b" model="product.product">
+        <field name="available_in_pos" eval="True"/>
+    </record>
+</odoo>

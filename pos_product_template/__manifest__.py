@@ -19,7 +19,6 @@
     "demo": [
         "demo/product_attribute_value.yml",
         "demo/product_product.yml",
-        "demo/res_groups.yml",
     ],
     "images": [
         "static/src/img/screenshots/pos_product_template.png",
