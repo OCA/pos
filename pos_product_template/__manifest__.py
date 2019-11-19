@@ -16,9 +16,8 @@
         'static/src/xml/ppt.xml',
     ],
     'demo': [
-        'demo/product_attribute_value.yml',
-        'demo/product_product.yml',
-        'demo/res_groups.yml',
+        'demo/product_attribute_value.xml',
+        'demo/product_product.xml',
     ],
     'images': [
         'static/src/img/screenshots/pos_product_template.png',
