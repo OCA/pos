@@ -8,6 +8,7 @@
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
+        'pos_fix_search_limit',
     ],
     'data': [
         'view/view.xml',

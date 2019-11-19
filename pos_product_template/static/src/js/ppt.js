@@ -212,7 +212,7 @@ odoo.define("pos_product_template.pos_product_template", function(require){
         filter_variant: function(){
             var value_list = [];
             for (var item in this.filters){
-                value_list.push(parseInt(this.filters[item]));
+                value_list.push(parseInt(this.filters[item], 10));
             }
             this.filter_variant_list = [];
             for (var index in this.variant_list){
