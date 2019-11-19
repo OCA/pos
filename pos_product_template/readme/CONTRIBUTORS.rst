@@ -1,0 +1,6 @@
+* Sylvain LE GAL (https://twitter.com/legalsylvain)
+* Navarromiguel (https://github.com/navarromiguel)
+* Damendieta (https://github.com/damendieta)
+* Raphaël Reverdy (https://akretion.com)
+* Hugo Santos (https://factorlibre.com)
+* Wolfgang Pichler (https://www.callino.at)
