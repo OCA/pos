@@ -25,11 +25,13 @@ class TestModule(TransactionCase):
                 'base': 'list_price',
             })]
         })
-        self.pos_config = self.env.ref('point_of_sale.pos_config_main').copy()
-        self.pos_config.write({
+        pos_config_main = self.env.ref('point_of_sale.pos_config_main')
+        # Ensure tests correctness despite default currency
+        pos_config_main.write({
             'available_pricelist_ids': [(6, 0, self.pricelist.ids)],
             'pricelist_id': self.pricelist.id,
         })
+        self.pos_config = pos_config_main.copy()
         self.pos_config.open_session_cb()
 
     def test_01_picking_delayed_enabled(self):
