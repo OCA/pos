@@ -2,19 +2,16 @@
 # Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.api import Environment
-from odoo.tests import HttpCase
+import odoo.tests
 
 
-class TestPOSLoyalty(HttpCase):
-
+class TestPOSLoyalty(odoo.tests.HttpCase):
     def test_pos_loyalty(self):
-        cr = self.registry.cursor()
-        assert cr == self.registry.test_cr
-        env = Environment(cr, self.uid, {})
+        env = self.env(user=self.env.ref('base.user_admin'))
+
         main_pos_config = env.ref('point_of_sale.pos_config_main')
-        target_product = env.ref('point_of_sale.peche')
-        free_product = env.ref('point_of_sale.Onions')
+        target_product = env.ref('point_of_sale.letter_tray')
+        free_product = env.ref('point_of_sale.desk_organizer')
         customer = env.ref('base.res_partner_2')
         loyalty_program = env['loyalty.program'].create({
             'name': 'foo',
@@ -25,20 +22,23 @@ class TestPOSLoyalty(HttpCase):
                 'pp_product': 10,
             })],
             'reward_ids': [(0, 0, {
-                'name': 'Free Peaches',
+                'name': 'Free Letter Tray',
                 'type': 'gift',
                 'gift_product_id': target_product.id,
                 'point_cost': 20,
                 'minimum_points': 20,
             }), (0, 0, {
-                'name': 'Free Onions',
+                'name': 'Free Desk Organizer',
                 'type': 'gift',
                 'gift_product_id': free_product.id,
                 'point_cost': 20,
                 'minimum_points': 20,
             })]
         })
-        main_pos_config.write({'loyalty_id': loyalty_program.id})
+        main_pos_config.write({
+            'loyalty_id': loyalty_program.id,
+            'proxy_ip': None,
+        })
         main_pos_config.open_session_cb()
 
         # needed because tests are run before the module is marked as
@@ -48,15 +48,13 @@ class TestPOSLoyalty(HttpCase):
         env['ir.module.module'].search(
             [('name', '=', 'pos_loyalty')], limit=1).state = 'installed'
 
-        cr.release()
-
         # Process an order with 2kg of Peaches which should
         # add 20 loyalty points
         self.phantom_js("/pos/web",
-                        "odoo.__DEBUG__.services['web_tour.tour'].run("
-                        "'test_pos_loyalty_acquire_points')",
-                        "odoo.__DEBUG__.services['web_tour.tour'].tours"
-                        ".test_pos_loyalty_acquire_points.ready",
+                        "odoo.__DEBUG__.services['web_tour.tour']."
+                        "run('test_pos_loyalty_acquire_points')",
+                        "odoo.__DEBUG__.services['web_tour.tour']."
+                        "tours.test_pos_loyalty_acquire_points.ready",
                         login="admin")
 
         self.assertEqual(customer.loyalty_points, 20)

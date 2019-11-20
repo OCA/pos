@@ -23,7 +23,7 @@ Loyalty Program
     :target: https://runbot.odoo-community.org/runbot/184/11.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 This module allows you to define a loyalty program in the point of sale,
 where the customers earn loyalty points and get rewards.
@@ -86,6 +86,7 @@ Contributors
 * RGB Consulting SL (http://www.rgbconsulting.com)
 * Forward-port from Odoo SA saas-6 branch
 * Kiril Vangelovski <kiril@lambda-is.com>
+* Wolfgang Pichler <wpichler@callino.at>
 
 Maintainers
 ~~~~~~~~~~~

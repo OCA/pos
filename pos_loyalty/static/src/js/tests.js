@@ -120,18 +120,18 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function(require) {
         run: function() {}, // it's a check
     }];
 
-    steps = steps.concat(add_customer('Agrolait'));
-    steps = steps.concat(add_product_to_order('Peaches'));
-    steps = steps.concat(verify_order_total('5.10'));
+    steps = steps.concat(add_customer('Deco Addict'));
+    steps = steps.concat(add_product_to_order('Letter Tray'));
+    steps = steps.concat(verify_order_total('4.8'));
 
-    steps = steps.concat(add_product_to_order('Peaches')); // buy another kg of peaches
-    steps = steps.concat(verify_order_total('10.20'));
+    steps = steps.concat(add_product_to_order('Letter Tray')); // buy another kg of peaches
+    steps = steps.concat(verify_order_total('9.6'));
     steps = steps.concat(goto_payment_screen_and_select_payment_method());
-    steps = steps.concat(generate_payment_screen_keypad_steps("12.20"));
+    steps = steps.concat(generate_payment_screen_keypad_steps("11.6"));
 
     steps = steps.concat([{
         content: "verify tendered",
-        trigger: '.col-tendered:contains("12.20")',
+        trigger: '.col-tendered:contains("11.60")',
         run: function() {}, // it's a check
     }, {
         content: "verify change",
@@ -151,9 +151,9 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function(require) {
         trigger: '.o_main_content:has(.loader:hidden)',
         run: function() {}, // it's a check
     }];
-    steps = steps.concat(add_customer('Agrolait'));
-    steps = steps.concat(add_reward('Free Peaches'));
-    steps = steps.concat(verify_order_product('Peaches'));
+    steps = steps.concat(add_customer('Deco Addict'));
+    steps = steps.concat(add_reward('Free Letter Tray'));
+    steps = steps.concat(verify_order_product('Letter Tray'));
     steps = steps.concat(verify_order_total('0.00'));
     steps = steps.concat(goto_payment_screen_and_select_payment_method());
     steps = steps.concat([{
