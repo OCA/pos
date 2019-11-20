@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2019-07-11 16:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -17,9 +18,13 @@ msgstr ""
 
 #. module: pos_invoicing
 #: model:ir.model.fields,help:pos_invoicing.field_account_invoice__pos_pending_payment
-msgid "Indicates an invoice for which there are pending payments in the Point of Sale. \n"
+msgid ""
+"Indicates an invoice for which there are pending payments in the Point of "
+"Sale. \n"
 "The invoice will be marked as paid when the session will be closed."
-msgstr "La case est cochée si il y a des paiements en cours dans le point de vente. \n"
+msgstr ""
+"La case est cochée si il y a des paiements en cours dans le point de "
+"vente. \n"
 "La facture sera marquée comme payée quand la session sera fermée."
 
 #. module: pos_invoicing
@@ -38,19 +43,33 @@ msgid "PoS - Pending Payment"
 msgstr "PdV - Paiement en cours"
 
 #. module: pos_invoicing
+#: model:ir.model,name:pos_invoicing.model_pos_order
+#, fuzzy
+#| msgid "Point of Sale Session"
+msgid "Point of Sale Orders"
+msgstr "Session du point de vente"
+
+#. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_pos_session
 msgid "Point of Sale Session"
 msgstr "Session du point de vente"
 
 #. module: pos_invoicing
-#: code:addons/pos_invoicing/models/account_invoice.py:36
 #: code:addons/pos_invoicing/models/account_invoice.py:38
 #, python-format
-msgid "You can not realize this action on the invoice(s) %s because there are pending payments in the Point of Sale."
-msgstr "Vous ne pouvez pas réaliser cette action sur la / les facture(s) %s car il y a des paiements en cours dans le point de vente."
+msgid ""
+"You can not realize this action on the invoice(s) %s because there are "
+"pending payments in the Point of Sale."
+msgstr ""
+"Vous ne pouvez pas réaliser cette action sur la / les facture(s) %s car il y "
+"a des paiements en cours dans le point de vente."
 
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/account_payment.py:17
 #, python-format
-msgid "You can not realize this action on the payments(s) %s because there are pending payments in the Point of Sale."
-msgstr "Vous ne pouvez pas réaliser cette action sur la / les paiement(s) %s car il y a des paiements en cours dans le point de vente."
+msgid ""
+"You can not realize this action on the payments(s) %s because there are "
+"pending payments in the Point of Sale."
+msgstr ""
+"Vous ne pouvez pas réaliser cette action sur la / les paiement(s) %s car il "
+"y a des paiements en cours dans le point de vente."
