@@ -2,21 +2,17 @@
 # Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.api import Environment
 from odoo.tests import HttpCase
 
 
 class TestPOSLoyalty(HttpCase):
 
     def test_pos_loyalty(self):
-        cr = self.registry.cursor()
-        assert cr == self.registry.test_cr
-        env = Environment(cr, self.uid, {})
-        main_pos_config = env.ref('point_of_sale.pos_config_main')
-        target_product = env.ref('point_of_sale.peche')
-        free_product = env.ref('point_of_sale.Onions')
-        customer = env.ref('base.res_partner_2')
-        loyalty_program = env['loyalty.program'].create({
+        main_pos_config = self.env.ref('point_of_sale.pos_config_main')
+        target_product = self.env.ref('point_of_sale.letter_tray')
+        free_product = self.env.ref('point_of_sale.desk_organizer')
+        customer = self.env.ref('base.res_partner_2')
+        loyalty_program = self.env['loyalty.program'].create({
             'name': 'foo',
             'rule_ids': [(0, 0, {
                 'name': 'Peaches',
@@ -45,10 +41,8 @@ class TestPOSLoyalty(HttpCase):
         # installed. In js web will only load qweb coming from modules
         # that are returned by the backend in module_boot. Without
         # this you end up with js, css but no qweb.
-        env['ir.module.module'].search(
+        self.env['ir.module.module'].search(
             [('name', '=', 'pos_loyalty')], limit=1).state = 'installed'
-
-        cr.release()
 
         # Process an order with 2kg of Peaches which should
         # add 20 loyalty points
