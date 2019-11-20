@@ -1,13 +1,11 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * pos_invoicing
+#	* pos_invoicing
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-11 16:17+0000\n"
-"PO-Revision-Date: 2019-07-11 16:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,12 +35,16 @@ msgid "PoS - Pending Payment"
 msgstr ""
 
 #. module: pos_invoicing
+#: model:ir.model,name:pos_invoicing.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_pos_session
 msgid "Point of Sale Session"
 msgstr ""
 
 #. module: pos_invoicing
-#: code:addons/pos_invoicing/models/account_invoice.py:36
 #: code:addons/pos_invoicing/models/account_invoice.py:38
 #, python-format
 msgid "You can not realize this action on the invoice(s) %s because there are pending payments in the Point of Sale."
