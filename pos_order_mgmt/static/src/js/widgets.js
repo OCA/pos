@@ -13,6 +13,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
     var gui = require('point_of_sale.gui');
     var chrome = require('point_of_sale.chrome');
     var pos = require('point_of_sale.models');
+    var Model = require('web.Model');
 
     var QWeb = core.qweb;
     var ScreenWidget = screens.ScreenWidget;
@@ -21,7 +22,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
     screens.ReceiptScreenWidget.include({
         render_receipt: function () {
             if (!this.pos.reloaded_order) {
-                return this._super();
+                return this._super.apply(this, arguments);
             }
             var order = this.pos.reloaded_order;
             this.$('.pos-receipt-container').html(QWeb.render('PosTicket', {
@@ -36,7 +37,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
         },
         click_next: function () {
             if (!this.pos.from_loaded_order) {
-                return this._super();
+                return this._super.apply(this, arguments);
             }
             this.pos.from_loaded_order = false;
             // When reprinting a loaded order we temporarily set it as the
@@ -75,7 +76,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 this.gui.screen_instances.receipt.click_next();
                 this.gui.show_screen('orderlist');
             }
-            this._super();
+            this._super.apply(this, arguments);
             this.renderElement();
             this.old_order = this.pos.get_order();
             this.$('.back').click(function () {
@@ -178,23 +179,14 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
             this.pos.set_order(order);
 
-            if (this.pos.config.iface_print_via_proxy) {
-                this.pos.proxy.print_receipt(QWeb.render(
-                    'XmlReceipt', {
-                        receipt: order.export_for_printing(),
-                        widget: this,
-                        pos: this.pos,
-                        order: order,
-                        orderlines: order.get_orderlines(),
-                        paymentlines: order.get_paymentlines(),
-                    }));
-                this.pos.set_order(this.pos.current_order);
-                this.pos.current_order = false;
-            } else {
-                this.pos.reloaded_order = order;
-                this.gui.show_screen('receipt');
-                this.pos.reloaded_order = false;
-            }
+            this.pos.reloaded_order = order;
+            var skip_screen_state = this.pos.config.iface_print_skip_screen;
+            // Disable temporarily skip screen if set
+            this.pos.config.iface_print_skip_screen = false;
+            this.gui.show_screen('receipt');
+            this.pos.reloaded_order = false;
+            // Set skip screen to whatever previous state
+            this.pos.config.iface_print_skip_screen = skip_screen_state;
 
             // If it's invoiced, we also print the invoice
             if (order_data.to_invoice) {
@@ -335,27 +327,25 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
         load_order_data: function (order_id) {
             var self = this;
-            return this._rpc({
-                model: 'pos.order',
-                method: 'load_done_order_for_pos',
-                args: [order_id],
-            }).fail(function (error) {
-                if (parseInt(error.code, 10) === 200) {
-                    // Business Logic Error, not a connection problem
-                    self.gui.show_popup(
-                        'error-traceback', {
-                            'title': error.data.message,
-                            'body': error.data.debug,
+            return new Model('pos.order')
+                .call('load_done_order_for_pos', [order_id])
+                .fail(function (error) {
+                    if (parseInt(error.code, 10) === 200) {
+                        // Business Logic Error, not a connection problem
+                        self.gui.show_popup(
+                            'error-traceback', {
+                                'title': error.data.message,
+                                'body': error.data.debug,
+                            });
+                    } else {
+                        self.gui.show_popup('error', {
+                            'title': _t('Connection error'),
+                            'body': _t(
+                                'Can not execute this action because the POS' +
+                                    ' is currently offline'),
                         });
-                } else {
-                    self.gui.show_popup('error', {
-                        'title': _t('Connection error'),
-                        'body': _t(
-                            'Can not execute this action because the POS' +
-                            ' is currently offline'),
-                    });
-                }
-            });
+                    }
+                });
         },
 
         load_order_from_data: function (order_data, action) {
@@ -380,38 +370,36 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
         // Search Part
         search_done_orders: function (query) {
             var self = this;
-            return this._rpc({
-                model: 'pos.order',
-                method: 'search_done_orders_for_pos',
-                args: [query || '', this.pos.pos_session.id],
-            }).then(function (result) {
-                self.orders = result;
-                // Get the date in local time
-                _.each(self.orders, function (order) {
-                    if (order.date_order) {
-                        order.date_order = moment.utc(order.date_order)
-                            .local().format('YYYY-MM-DD HH:mm:ss');
-                    }
-                });
-            }).fail(function (error, event) {
-                if (parseInt(error.code, 10) === 200) {
-                    // Business Logic Error, not a connection problem
-                    self.gui.show_popup(
-                        'error-traceback', {
-                            'title': error.data.message,
-                            'body': error.data.debug,
+            return new Model('pos.order')
+                .call('search_done_orders_for_pos', [query || '', this.pos.pos_session.id])
+                .then(function (result) {
+                    self.orders = result;
+                    // Get the date in local time
+                    _.each(self.orders, function (order) {
+                        if (order.date_order) {
+                            order.date_order = moment.utc(order.date_order)
+                                .local().format('YYYY-MM-DD HH:mm:ss');
                         }
-                    );
-                } else {
-                    self.gui.show_popup('error', {
-                        'title': _t('Connection error'),
-                        'body': _t(
-                            'Can not execute this action because the POS' +
-                            ' is currently offline'),
                     });
-                }
-                event.preventDefault();
-            });
+                }).fail(function (error, event) {
+                    if (parseInt(error.code, 10) === 200) {
+                        // Business Logic Error, not a connection problem
+                        self.gui.show_popup(
+                            'error-traceback', {
+                                'title': error.data.message,
+                                'body': error.data.debug,
+                            }
+                        );
+                    } else {
+                        self.gui.show_popup('error', {
+                            'title': _t('Connection error'),
+                            'body': _t(
+                                'Can not execute this action because the POS' +
+                                    ' is currently offline'),
+                        });
+                    }
+                    event.preventDefault();
+                });
         },
 
         perform_search: function () {
@@ -451,7 +439,7 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
 
         renderElement: function () {
             var self = this;
-            this._super();
+            this._super.apply(this, arguments);
             this.$el.click(function () {
                 self.button_click();
             });

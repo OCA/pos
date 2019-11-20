@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2018 GRAP - Sylvain LE GAL
 # Copyright 2018 Tecnativa S.L. - David Vidal
 # Copyright 2019 Coop IT Easy SCRLfs

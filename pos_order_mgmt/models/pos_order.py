@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright 2018 GRAP - Sylvain LE GAL
 # Copyright 2018 Tecnativa S.L. - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
@@ -58,7 +59,7 @@ class PosOrder(models.Model):
     @api.returns('self', lambda value: value.id)
     def copy(self, default=None):
         self.ensure_one()
-        order = super().copy(default=default)
+        order = super(PosOrder, self).copy(default=default)
         if self.env.context.get('refund', False):
             order.returned_order_id = self.id
         return order
@@ -153,7 +154,7 @@ class PosOrder(models.Model):
 
     @api.model
     def _order_fields(self, ui_order):
-        res = super()._order_fields(ui_order)
+        res = super(PosOrder, self)._order_fields(ui_order)
         res.update({
             'returned_order_id': ui_order.get('returned_order_id', False),
         })

@@ -84,7 +84,7 @@
             </t>
         </t>
         <t t-jquery=".receipt-user" t-operation="after">
-            <t t-if="pos.reloaded_order">
+            <t t-if="pos and pos.reloaded_order">
                 <br/>
                 <div style='text-align:center'>DUPLICATE</div>
                 <br/>

@@ -16,7 +16,7 @@ class TestModule(TransactionCase):
         self.AccountPayment = self.env['account.payment']
 
         # Get Object
-        self.pos_product = self.env.ref('point_of_sale.whiteboard_pen')
+        self.pos_product = self.env.ref('point_of_sale.limon')
         self.pricelist = self.env.ref('product.list0')
         self.partner = self.env.ref('base.res_partner_12')
 
