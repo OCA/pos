@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_order_mgmt
+# 	* pos_order_mgmt
 #
 msgid ""
 msgstr ""
@@ -57,16 +57,16 @@ msgstr "Indietro"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:353
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:408
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:344
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:399
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr "Impossibile eseguire questa azione perchè il POS è attualmente offline"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:352
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:407
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:343
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:398
 #, python-format
 msgid "Connection error"
 msgstr "Errore di connessione"
@@ -119,7 +119,9 @@ msgstr "Numero massimo di ordini da caricare"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-msgid "Maximum number of orders to load on the PoS at its init. Set it to 0 to load none (it's still possible to load them by ticket code)."
+msgid ""
+"Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
+"none (it's still possible to load them by ticket code)."
 msgstr ""
 "Massimo numero di ordini da caricare nel PoS al suo avvio. Impostarlo a 0 "
 "per non caricarne nessuno (è sempre possibile caricarli tramite codice "
@@ -168,7 +170,7 @@ msgstr "Riferimento del reso"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:254
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:245
 #, python-format
 msgid "Refund "
 msgstr "Reso "
@@ -219,9 +221,11 @@ msgstr "Ricerca ordine"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:370
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:361
 #, python-format
-msgid "Unable to load some order lines because the products are not available in the POS cache.\n"
+msgid ""
+"Unable to load some order lines because the products are not available in "
+"the POS cache.\n"
 "\n"
 "Please check that lines :\n"
 "\n"
@@ -236,7 +240,7 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:369
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:360
 #, python-format
 msgid "Unknown Products"
 msgstr "Prodotti sconosciuti"
