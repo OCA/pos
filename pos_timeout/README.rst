@@ -28,14 +28,14 @@ To configure this module, you need to:
    :alt: PoS Configuration
    :width: 800 px
 
-If not set, the default Odoo timeout will be used. (7.5 seconds in V10.0)
+If not set, the default Odoo timeout will be used. (7.5 seconds in V9.0)
 
 Usage
 =====
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
-   :target: https://runbot.odoo-community.org/runbot/121/10.0
+   :target: https://runbot.odoo-community.org/runbot/121/9.0
 
 Bug Tracker
 ===========
@@ -52,6 +52,7 @@ Contributors
 ------------
 
 * Sylvain LE GAL (https://twitter.com/legalsylvain)
+* Arnaud Pineux (ACSONE)
 
 Funders
 -------
