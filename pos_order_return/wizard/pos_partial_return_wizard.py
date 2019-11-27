@@ -7,6 +7,7 @@ from odoo import api, fields, models
 
 class PosPartialReturnWizard(models.TransientModel):
     _name = 'pos.partial.return.wizard'
+    _description = 'Partial Return Wizard'
 
     order_id = fields.Many2one(
         comodel_name='pos.order',
@@ -43,6 +44,7 @@ class PosPartialReturnWizard(models.TransientModel):
 
 class PosPartialReturnWizardLine(models.TransientModel):
     _name = 'pos.partial.return.wizard.line'
+    _description = 'Partial Return Wizard Line'
 
     wizard_id = fields.Many2one(
         comodel_name='pos.partial.return.wizard',
