@@ -10,4 +10,5 @@ class ProductTemplate(models.Model):
 
     pos_allow_negative_qty = fields.Boolean(
         string='Allow Negative Quantity on PoS',
+        default=True,
     )
