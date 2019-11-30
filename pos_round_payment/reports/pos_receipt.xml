@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <template id="report_pos_receipt" inherit_id="point_of_sale.report_receipt">
+        <xpath expr="//strong[@t-esc='formatLang(o.amount_total, currency_obj=res_company.currency_id)']" position="after">
+            <t t-if="abs(o.amount_total - o.amount_paid) >= 0.009">
+            <tr>
+                <td><strong>Rounded</strong></td>
+                <td class="text-right">
+                    <strong t-esc="formatLang(o.amount_paid, currency_obj=res_company.currency_id)"/>
+                </td>
+            </tr>
+            </t>
+        </xpath>
+    </template>
+</data>
+</openerp>
