@@ -20,7 +20,15 @@
 #
 ##############################################################################
 
-from openerp import models
+from openerp import models, fields
+
+
+class PosConfig(models.Model):
+    _inherit = 'pos.config'
+
+    writeoff_account_id = fields.Many2one(
+        'account.account', 'Write-Off Account',
+        domain=[('type','<>','view'), ('type', '<>', 'closed')])
 
 
 class POSOrder(models.Model):
@@ -68,7 +76,14 @@ class POSOrder(models.Model):
         for key, value in grouped_data.iteritems():
             if not value:
                 continue
-            self.pool.get('account.move.line').reconcile_partial(
-                cr, uid, value)
-
+            if not session.config_id.writeoff_account_id:
+                self.pool.get('account.move.line').reconcile_partial(
+                    cr, uid, value)
+            else:
+                period = self.pool['account.move'].browse(cr,uid,move_id).period_id
+                self.pool.get('account.move.line').reconcile(
+                    cr, uid, value,
+                    writeoff_acc_id=session.config_id.writeoff_account_id.id,
+                    writeoff_period_id=period.id,
+                    writeoff_journal_id=order.sale_journal.id)
         return to_ret
