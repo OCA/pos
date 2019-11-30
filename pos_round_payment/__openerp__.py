@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': "pos_round_payment",
+    'name': "POS Round Payment",
     'version': '1.0',
     'category': 'Point Of Sale',
     'author': "BCIM",
