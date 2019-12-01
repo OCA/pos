@@ -28,7 +28,7 @@ class PosConfig(models.Model):
 
     writeoff_account_id = fields.Many2one(
         'account.account', 'Write-Off Account',
-        domain=[('type','<>','view'), ('type', '<>', 'closed')])
+        domain=[('type', '<>', 'view'), ('type', '<>', 'closed')])
 
 
 class POSOrder(models.Model):
@@ -80,7 +80,8 @@ class POSOrder(models.Model):
                 self.pool.get('account.move.line').reconcile_partial(
                     cr, uid, value)
             else:
-                period = self.pool['account.move'].browse(cr,uid,move_id).period_id
+                period = self.pool['account.move'].browse(
+                    cr, uid, move_id).period_id
                 self.pool.get('account.move.line').reconcile(
                     cr, uid, value,
                     writeoff_acc_id=session.config_id.writeoff_account_id.id,
