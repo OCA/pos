@@ -34,7 +34,8 @@ class PosMakePayment(models.TransientModel):
         if amount != 0.0:
             data = self.read()[0]
             data['journal'] = data['journal_id'][0]
-            self.pool['pos.order'].add_payment(self._cr, self._uid, active_id, data, self._context)
+            self.pool['pos.order'].add_payment(
+                self._cr, self._uid, active_id, data, self._context)
 
         if order.test_paid():
             order.signal_workflow('paid')

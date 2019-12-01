@@ -2,7 +2,7 @@
 # Copyright 2019 Jacques-Etienne Baudoux (BCIM sprl) <je@bcim.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, models, fields
+from openerp import api, models
 
 
 class PosOrder(models.Model):
