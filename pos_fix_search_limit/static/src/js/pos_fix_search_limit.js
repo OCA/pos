@@ -41,6 +41,7 @@ odoo.define('pos_fix_search_limit.product_list', function(require) {
             for(i=0; i < len; i++){
                 product_node = this.render_product(this.product_list[i]);
                 product_node.addEventListener('click',this.click_product_handler);
+                product_node.addEventListener('keypress',this.keypress_product_handler);
                 frag.appendChild(product_node);
             }
             list_container.appendChild(frag);
