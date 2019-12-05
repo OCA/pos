@@ -1,0 +1,117 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_pricelist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:59
+#, python-format
+msgid "All available pricelists must be in the same currency as the company or as the Sales Journal set on this point of sale if you use the Accounting application."
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:71
+#, python-format
+msgid "All payment methods must be in the same currency as the Sales Journal or the company currency if that is not set."
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,help:pos_pricelist.field_pos_config_group_sale_pricelist
+msgid "Allows to manage different prices based on rules per category of customers. Example: 10% for retailers, promotion of 5 EUR on this product, etc."
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_available_pricelist_ids
+msgid "Available Pricelists"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,help:pos_pricelist.field_pos_config_available_pricelist_ids
+msgid "Make several pricelists available in the Point of Sale. You can also apply a pricelist to specific customers from their contact form (in Sales tab). To be valid, this pricelist must be listed here as an available pricelist. Otherwise the default pricelist will apply."
+msgstr ""
+
+#. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:36
+#, python-format
+msgid "N/A"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/js/screens.js:144
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:15
+#: code:addons/pos_pricelist/static/src/xml/pos.xml:31
+#, python-format
+msgid "Pricelist"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.ui.view,arch_db:pos_pricelist.view_pos_config_form
+msgid "Pricelists"
+msgstr ""
+
+#. module: pos_pricelist
+#. openerp-web
+#: code:addons/pos_pricelist/static/src/js/screens.js:131
+#, python-format
+msgid "Select pricelist"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,help:pos_pricelist.field_pos_config_use_pricelist
+msgid "Set shop-specific prices, seasonal discounts, etc."
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_group_pricelist_item
+msgid "Show pricelists to customers"
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:54
+#, python-format
+msgid "The default pricelist must be included in the available pricelists."
+msgstr ""
+
+#. module: pos_pricelist
+#: code:addons/pos_pricelist/models/pos_config.py:65
+#, python-format
+msgid "The invoice journal must be in the same currency as the Sales Journal or the company currency if that is not set."
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_use_pricelist
+msgid "Use pricelists"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_group_sale_pricelist
+msgid "Use pricelists to adapt your price per customers"
+msgstr ""
+
+#. module: pos_pricelist
+#: model:ir.model,name:pos_pricelist.model_pos_config
+msgid "pos.config"
+msgstr ""
