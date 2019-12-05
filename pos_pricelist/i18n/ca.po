@@ -6,57 +6,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2019-12-05 18:04+0000\n"
+"Last-Translator: georginaf <georgina.fornes@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:59
 #, python-format
 msgid "All available pricelists must be in the same currency as the company or as the Sales Journal set on this point of sale if you use the Accounting application."
 msgstr ""
+"Totes les tarifes han de tenir la mateixa moneda que la companyia o bé que "
+"el diari de vendes escollit per aquest TPV, si està utilitzant l'aplicació "
+"de comptabilitat."
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:71
 #, python-format
 msgid "All payment methods must be in the same currency as the Sales Journal or the company currency if that is not set."
 msgstr ""
+"Tots els modes de pagament han de tenir la mateixa moneda que el diari de "
+"vendes o, si no n'hi ha, de la companyia."
 
 #. module: pos_pricelist
 #: model:ir.model.fields,help:pos_pricelist.field_pos_config_group_sale_pricelist
 msgid "Allows to manage different prices based on rules per category of customers. Example: 10% for retailers, promotion of 5 EUR on this product, etc."
 msgstr ""
+"Permet gestionar diferents preus basats en normes segons categoria de "
+"clients. Per exemple: 10% per a minoristes, promoció de 5€ en aquest "
+"producte, etc."
 
 #. module: pos_pricelist
 #: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_available_pricelist_ids
 msgid "Available Pricelists"
-msgstr ""
+msgstr "Llistes de preus disponibles"
 
 #. module: pos_pricelist
 #: model:ir.model.fields,help:pos_pricelist.field_pos_config_available_pricelist_ids
 msgid "Make several pricelists available in the Point of Sale. You can also apply a pricelist to specific customers from their contact form (in Sales tab). To be valid, this pricelist must be listed here as an available pricelist. Otherwise the default pricelist will apply."
 msgstr ""
+"Fer disponibles varies tarifes en aquest TPV. També es pot aplicar una "
+"tarifa a clients específics des del seu formulari de contacte (a la pestanya "
+"de vendes). Per a que sigui vàlids, aquesta tarifa ha d'estar disponible "
+"aquí. En cas contrari, s'aplicarà la tarifa predeterminada."
 
 #. module: pos_pricelist
 #. openerp-web
 #: code:addons/pos_pricelist/static/src/xml/pos.xml:36
 #, python-format
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_res_partner
 msgid "Partner"
-msgstr ""
+msgstr "Empresa"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Punt de Venda"
 
 #. module: pos_pricelist
 #. openerp-web
@@ -65,51 +79,55 @@ msgstr ""
 #: code:addons/pos_pricelist/static/src/xml/pos.xml:31
 #, python-format
 msgid "Pricelist"
-msgstr ""
+msgstr "Llista de preus"
 
 #. module: pos_pricelist
 #: model:ir.ui.view,arch_db:pos_pricelist.view_pos_config_form
 msgid "Pricelists"
-msgstr ""
+msgstr "Llistes de preus"
 
 #. module: pos_pricelist
 #. openerp-web
 #: code:addons/pos_pricelist/static/src/js/screens.js:131
 #, python-format
 msgid "Select pricelist"
-msgstr ""
+msgstr "Escollir llista de preus"
 
 #. module: pos_pricelist
 #: model:ir.model.fields,help:pos_pricelist.field_pos_config_use_pricelist
 msgid "Set shop-specific prices, seasonal discounts, etc."
-msgstr ""
+msgstr "Establir preus específcs de botigues, descomptes de temporada, etc."
 
 #. module: pos_pricelist
 #: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_group_pricelist_item
 msgid "Show pricelists to customers"
-msgstr ""
+msgstr "Mostrar llistes de preus als clients"
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:54
 #, python-format
 msgid "The default pricelist must be included in the available pricelists."
 msgstr ""
+"La llista de preus predeterminada ha d'estar incluida en les llistes de "
+"preus disponibles."
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:65
 #, python-format
 msgid "The invoice journal must be in the same currency as the Sales Journal or the company currency if that is not set."
 msgstr ""
+"El diari de factures ha de tenir la mateixa moneda que el diari de vendes o, "
+"si no està configurat, que la moneda de la companyia."
 
 #. module: pos_pricelist
 #: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_use_pricelist
 msgid "Use pricelists"
-msgstr ""
+msgstr "Utilitzar llistes de preus"
 
 #. module: pos_pricelist
 #: model:ir.model.fields,field_description:pos_pricelist.field_pos_config_group_sale_pricelist
 msgid "Use pricelists to adapt your price per customers"
-msgstr ""
+msgstr "Utilitzar llistes de preus per adaptar els preus per clients."
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_config
