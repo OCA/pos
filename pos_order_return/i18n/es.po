@@ -157,16 +157,6 @@ msgid "Refund Lines"
 msgstr "Líneas de devolución"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_refund_order_ids
-msgid "Refund Orders"
-msgstr "Pedidos de devolución"
-
-#. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_refund_order_qty
-msgid "Refund Orders Quantity"
-msgstr "Cantidad de pedidos de devolución"
-
-#. module: pos_order_return
 #: model:product.product,name:pos_order_return.product_product_returnable_bottle
 #: model:product.template,name:pos_order_return.product_product_returnable_bottle_product_template
 msgid "Returnable Bottle"
@@ -179,7 +169,6 @@ msgstr "Cantidad retornable"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line_returned_line_id
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_returned_order_id
 msgid "Returned Order"
 msgstr "Pedido devuelto"
 
@@ -221,3 +210,9 @@ msgstr "pos.partial.return.wizard"
 #: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
 msgid "pos.partial.return.wizard.line"
 msgstr "pos.partial.return.wizard.line"
+
+#~ msgid "Refund Orders"
+#~ msgstr "Pedidos de devolución"
+
+#~ msgid "Refund Orders Quantity"
+#~ msgstr "Cantidad de pedidos de devolución"
