@@ -23,6 +23,7 @@ addon | version | summary
 [pos_lot_selection](pos_lot_selection/) | 10.0.1.0.0 | POS Lot Selection
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
 [pos_margin](pos_margin/) | 10.0.1.0.0 | Margin on PoS Order
+[pos_order_mgmt](pos_order_mgmt/) | 10.0.1.0.3 | Manage old POS Orders from the frontend
 [pos_order_return](pos_order_return/) | 10.0.1.0.0 | Point of Sale Order Return
 [pos_payment_entries_globalization](pos_payment_entries_globalization/) | 10.0.1.0.0 | Globalize POS Payment
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.1 | Manage Payment Terminal device from POS front end
