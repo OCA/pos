@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 GRAP - Sylvain LE GAL
+     Copyright 2018 Tecnativa - David Vidal
+     Copyright 2019 Druidoo - Iván Todorovich
+     Copyright 2019 Level Prime Srl - Roberto Fichera
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form"/>
+        <field name="arch" type="xml">
+            <group name="receipt" position="inside">
+                <field name="iface_order_mgmt"/>
+            </group>
+            <group name="receipt" position="after">
+                <group string="Order Management" name="order_management"
+                       attrs="{'invisible': [('iface_order_mgmt', '=', False)]}">
+                    <group>
+                        <field name="iface_reprint_done_order"/>
+                        <field name="iface_return_done_order"/>
+                        <field name="iface_copy_done_order"/>
+                        <field name="iface_load_done_order_max_qty"/>
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
