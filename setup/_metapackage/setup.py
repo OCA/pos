@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo10-addon-pos_lot_selection',
         'odoo10-addon-pos_loyalty',
         'odoo10-addon-pos_margin',
+        'odoo10-addon-pos_order_mgmt',
         'odoo10-addon-pos_order_return',
         'odoo10-addon-pos_payment_entries_globalization',
         'odoo10-addon-pos_payment_terminal',
