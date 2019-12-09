@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-pos_access_right',
+        'odoo12-addon-pos_fix_search_limit',
         'odoo12-addon-pos_invoicing',
         'odoo12-addon-pos_margin',
         'odoo12-addon-pos_order_mgmt',
