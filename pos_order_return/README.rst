@@ -42,7 +42,7 @@ A link is created between the returned Order Line and the initial Order Line.
 Configuration
 =============
 
-In some cases, you may want to let the possibility to allow negative quantity
+In some cases, you may want to block the possibility to allow negative quantity
 in a PoS Order, without mentioning initial order. This can happen for special
 products like returnable products, etc.
 
