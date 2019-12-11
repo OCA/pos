@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_product_returnable_bottle" model="product.product">
+        <field name="name">Returnable Bottle</field>
+        <field name="default_code">RET-BOTL</field>
+        <field name="categ_id" ref="product.product_category_all" />
+        <field name="uom_id" ref="uom.product_uom_unit" />
+        <field name="sale_ok" eval="True" />
+        <field name="available_in_pos" eval="True" />
+        <field name="pos_allow_negative_qty" eval="True" />
+        <field name="list_price" eval="0.20" />
+        <field name="image" type="base64" file="pos_order_return/static/img/product_returnable_bottle-image.jpg"/>
+    </record>
+
+</odoo>
