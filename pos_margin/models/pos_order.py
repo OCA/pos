@@ -35,5 +35,5 @@ class PosOrder(models.Model):
             order.update({
                 'margin': tmp_margin,
                 'margin_percent': tmp_price_subtotal and (
-                    tmp_margin / tmp_price_subtotal * 100),
+                    tmp_margin / tmp_price_subtotal * 100) or 0.0,
             })
