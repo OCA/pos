@@ -11,12 +11,25 @@ class PosOrderLine(models.Model):
 
     # Columns Section
     margin = fields.Float(
-        'Margin', compute='_compute_multi_margin', store=True,
-        multi='multi_margin', digits=dp.get_precision('Product Price'))
+        string='Margin',
+        compute='_compute_multi_margin',
+        store=True,
+        digits=dp.get_precision('Product Price'),
+    )
+
+    margin_percent = fields.Float(
+        string='Margin (%)',
+        compute='_compute_multi_margin',
+        store=True,
+        digits=dp.get_precision('Product Price'),
+    )
 
     purchase_price = fields.Float(
-        'Cost Price', compute='_compute_multi_margin', store=True,
-        multi='multi_margin', digits=dp.get_precision('Product Price'))
+        string='Cost Price',
+        compute='_compute_multi_margin',
+        store=True,
+        digits=dp.get_precision('Product Price'),
+    )
 
     # Compute Section
     @api.multi
@@ -24,8 +37,13 @@ class PosOrderLine(models.Model):
     def _compute_multi_margin(self):
         for line in self.filtered('product_id'):
             purchase_price = self._get_purchase_price(line)
-            line.purchase_price = purchase_price
-            line.margin = line.price_subtotal - (purchase_price * line.qty)
+            margin = line.price_subtotal - (purchase_price * line.qty)
+            line.update({
+                'purchase_price': purchase_price,
+                'margin': margin,
+                'margin_percent': line.price_subtotal and (
+                    margin / line.price_subtotal * 100.0),
+            })
 
     @api.model
     def _get_purchase_price(self, line):
