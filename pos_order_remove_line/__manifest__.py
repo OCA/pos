@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2019 LevelPrime
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
@@ -9,7 +8,7 @@
     'website': 'https://www.github.com/OCA/pos',
     'category': 'Point of Sale',
     "maintainers": ["robyf70"],
-    'version': '10.0.1.0.0',
+    'version': '12.0.1.0.0',
     'license': 'LGPL-3',
     'depends': ['point_of_sale'],
     'data': [
