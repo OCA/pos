@@ -21,6 +21,7 @@ setuptools.setup(
         'odoo10-addon-pos_order_mgmt',
         'odoo10-addon-pos_order_remove_line',
         'odoo10-addon-pos_order_return',
+        'odoo10-addon-pos_partner_firstname',
         'odoo10-addon-pos_payment_entries_globalization',
         'odoo10-addon-pos_payment_terminal',
         'odoo10-addon-pos_picking_delayed',
