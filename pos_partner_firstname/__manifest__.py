@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # Copyright 2019 Roberto Fichera
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 {
     "name": "POS Partner Firstname",
     "summary": "POS Support of partner firstname",
-    "version": "10.0.1.0.0",
+    "version": "12.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
