@@ -26,6 +26,7 @@ addon | version | summary
 [pos_order_mgmt](pos_order_mgmt/) | 10.0.1.0.3 | Manage old POS Orders from the frontend
 [pos_order_remove_line](pos_order_remove_line/) | 10.0.1.0.0 | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 10.0.1.0.0 | Point of Sale Order Return
+[pos_partner_firstname](pos_partner_firstname/) | 10.0.1.0.0 | POS Support of partner firstname
 [pos_payment_entries_globalization](pos_payment_entries_globalization/) | 10.0.1.0.0 | Globalize POS Payment
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.1 | Manage Payment Terminal device from POS front end
 [pos_picking_delayed](pos_picking_delayed/) | 10.0.1.0.0 | Delay the creation of the picking when PoS order is created
