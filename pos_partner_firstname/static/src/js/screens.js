@@ -2,7 +2,6 @@ odoo.define('pos_partner_firstname.screens', function (require) {
     "use strict";
 
     var Screens = require('point_of_sale.screens');
-    var Model = require('web.Model');
 
     Screens.ClientListScreenWidget.include({
 
@@ -11,8 +10,11 @@ odoo.define('pos_partner_firstname.screens', function (require) {
         init: function(parent, options){
             var self = this;
             this._super(parent, options);
-            var P = new Model('ir.config_parameter');
-            P.call('get_param', ['partner_names_order']).then(function(partner_names_order) {
+            this._rpc({
+                model: 'ir.config_parameter',
+                method: 'get_param',
+                args: ['partner_names_order'],
+            }).then(function(partner_names_order) {
                 if (partner_names_order != false) {
                     self.partner_names_order = partner_names_order;
                 }
