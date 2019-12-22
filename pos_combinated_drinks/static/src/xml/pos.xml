@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="POSComboProductPopup">
+        <div class="modal-dialog">
+            <div class="popup popup-textinput pos_combo_product_popup">
+                <p class="title">Combined product</p>
+                <div class="combo_product_container">
+                    <t t-if="widget.combo_products_details">
+                        <t t-foreach="widget.combo_products_details" t-as="record">
+                            <div class="product"
+                                t-att-data-categ-id="record.categ_id[0]"
+                                t-att-data-product-id="record.id"
+                                t-att-data-line-id="record.id">
+                                <div class="products_list">
+                                    <t t-set="product" t-value="widget.pos.db.get_product_by_id(record.id)"/>
+                                    <div class="product-img">
+                                        <img t-att-src='widget.pos.gui.screen_instances.products.product_list_widget.get_product_image_url(product)'/>
+                                    </div>
+                                    <span class="price-tag">
+                                        <t t-esc="widget.format_currency(product.combo_price,'Product Price')"/>
+                                    </span>
+                                    <div class="product-name">
+                                        <t t-esc="record.display_name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </div>
+                <div class="footer">
+                    <div class="button cancel">
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-extend="Orderline">
+        <t t-jquery="span.product-name" t-operation="append">
+            <t t-if="line.get_product().is_combo">
+                <t t-foreach="line.get_combo_prod_info()" t-as="prod_info">
+                    <span>&#43;</span>
+                    <t t-esc="prod_info.product.display_name"/>
+                </t>
+            </t>
+        </t>
+    </t>
+
+</templates>
