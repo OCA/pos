@@ -18,18 +18,18 @@ msgstr ""
 "X-Generator: Weblate 3.4\n"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_product_product_pos_allow_negative_qty
-#: model:ir.model.fields,field_description:pos_order_return.field_product_template_pos_allow_negative_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_product_product__pos_allow_negative_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_product_template__pos_allow_negative_qty
 msgid "Allow Negative Quantity on PoS"
 msgstr "Permitir Cantidades Negativas en PoS"
 
 #. module: pos_order_return
-#: model:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: pos_order_return
-#: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line_max_returnable_qty
+#: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line__max_returnable_qty
 msgid ""
 "Compute maximum quantity that can be returned for this line, depending of "
 "the quantity of the line and other possible refunds."
@@ -38,25 +38,25 @@ msgstr ""
 "dependiendo de la cantidad de la línea y otras devoluciones anteriores."
 
 #. module: pos_order_return
-#: model:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
 msgid "Confirm"
 msgstr "Confirmar"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_create_uid
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_create_uid
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__create_uid
 msgid "Created by"
 msgstr "Creado por"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_create_date
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_create_date
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__create_date
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__create_date
 msgid "Created on"
 msgstr "Creado el"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_display_name
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_display_name
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__display_name
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
@@ -71,65 +71,75 @@ msgstr ""
 "negativa (%d %s of %s), sin en el asistente de devoluciones."
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_id
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__id
 msgid "ID"
 msgstr "ID"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_initial_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__initial_qty
 msgid "Initial Quantity"
 msgstr "Cantidad inicial"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard___last_update
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line___last_update
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard____last_update
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_write_uid
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_write_uid
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__write_uid
 msgid "Last Updated by"
 msgstr "Última actualización por"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_write_date
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_write_date
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__write_date
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__write_date
 msgid "Last Updated on"
 msgstr "Última actualización el"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_pos_order_line_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__pos_order_line_id
 msgid "Line To Return"
 msgstr "Línea a devolver"
 
 #. module: pos_order_return
-#: model:ir.model,name:pos_order_return.model_pos_order_line
-msgid "Lines of Point of Sale Orders"
-msgstr "Líneas del Terminal Punto de Venta"
-
-#. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_ids
-#: model:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__line_ids
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
 msgid "Lines to Return"
 msgstr "Líneas a devolver"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_order_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__order_id
 msgid "Order to Return"
 msgstr "Pedido a devolver"
 
 #. module: pos_order_return
-#: model:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
-#: model:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
 msgid "Partial Return"
 msgstr "Devolición parcial"
 
 #. module: pos_order_return
 #: model:ir.actions.act_window,name:pos_order_return.action_pos_partial_return_wizard
+#: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard
 msgid "Partial Return Wizard"
 msgstr "Asistente de devolución parcial"
+
+#. module: pos_order_return
+#: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
+#, fuzzy
+#| msgid "Partial Return Wizard"
+msgid "Partial Return Wizard Line"
+msgstr "Asistente de devolución parcial"
+
+#. module: pos_order_return
+#: model:ir.model,name:pos_order_return.model_pos_order_line
+#, fuzzy
+#| msgid "Point of Sale Orders"
+msgid "Point of Sale Order Lines"
+msgstr "Pedidos del TPV"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_order
@@ -142,28 +152,28 @@ msgid "Product Template"
 msgstr "Plantilla de producto"
 
 #. module: pos_order_return
-#: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line_initial_qty
+#: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line__initial_qty
 msgid "Quantity of Product initially sold"
 msgstr "Cantidad de producto vendida inicialmente"
 
 #. module: pos_order_return
-#: model:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
-#: model:ir.ui.view,arch_db:pos_order_return.view_pos_order_line_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_line_form
 msgid "Refund"
 msgstr "Factura rectificativa"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line_refund_line_ids
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_line_ids
 msgid "Refund Lines"
 msgstr "Líneas de devolución"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_refund_order_ids
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_ids
 msgid "Refund Orders"
 msgstr "Pedidos de devolución"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_refund_order_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_qty
 msgid "Refund Orders Quantity"
 msgstr "Cantidad de pedidos de devolución"
 
@@ -180,23 +190,29 @@ msgid "Returnable Bottle"
 msgstr "Botella retornable"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_max_returnable_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__max_returnable_qty
 msgid "Returnable Quantity"
 msgstr "Cantidad retornable"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line_returned_line_id
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_returned_order_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__returned_order_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__returned_line_id
 msgid "Returned Order"
 msgstr "Pedido devuelto"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__qty
 msgid "Returned Quantity"
 msgstr "Cantidad devuelta"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line_wizard_id
+#: model:product.product,uom_name:pos_order_return.product_product_returnable_bottle
+#: model:product.template,uom_name:pos_order_return.product_product_returnable_bottle_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__wizard_id
 msgid "Wizard"
 msgstr "Asistente"
 
@@ -220,11 +236,16 @@ msgstr ""
 "No puede devolver %d %s de %s porque el pedido original solo menciona %d %s."
 
 #. module: pos_order_return
-#: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard
-msgid "pos.partial.return.wizard"
-msgstr "pos.partial.return.wizard"
+#: model:product.product,weight_uom_name:pos_order_return.product_product_returnable_bottle
+#: model:product.template,weight_uom_name:pos_order_return.product_product_returnable_bottle_product_template
+msgid "kg"
+msgstr ""
 
-#. module: pos_order_return
-#: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
-msgid "pos.partial.return.wizard.line"
-msgstr "pos.partial.return.wizard.line"
+#~ msgid "Lines of Point of Sale Orders"
+#~ msgstr "Líneas del Terminal Punto de Venta"
+
+#~ msgid "pos.partial.return.wizard"
+#~ msgstr "pos.partial.return.wizard"
+
+#~ msgid "pos.partial.return.wizard.line"
+#~ msgstr "pos.partial.return.wizard.line"
