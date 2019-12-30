@@ -38,6 +38,10 @@
     </t>
 
     <t t-extend="Orderline">
+        <t t-jquery="li" t-operation="attributes">
+            <attribute name="t-attf-class">#{ line.invisible ? 'hide' : ( line.selected ? 'orderline selected' : 'orderline' ) }</attribute>
+        </t>
+
         <t t-jquery="span.product-name" t-operation="append">
             <t t-if="line.get_product().is_combo">
                 <t t-foreach="line.get_combo_prod_info()" t-as="prod_info">

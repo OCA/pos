@@ -1,17 +1,18 @@
 odoo.define('pos_combinated_drinks.pos', function (require) {
 "use strict";
 
-	var PopupWidget = require('point_of_sale.popups');
-	var models = require('point_of_sale.models');
-	var gui = require('point_of_sale.gui');
-	var screens = require('point_of_sale.screens');
+	let PopupWidget = require('point_of_sale.popups');
+	let models = require('point_of_sale.models');
+	let gui = require('point_of_sale.gui');
+	let screens = require('point_of_sale.screens');
 
 	models.load_fields("product.product", ['is_combo', 'combo_price', 'product_combo_ids', 'combo_category_ids']);
+	models.load_fields("pos.order.line", ['invisible']);
 
-	var _super_Order = models.Order.prototype;
+	let _super_Order = models.Order.prototype;
 	models.Order = models.Order.extend({
 		add_product: function(product, options){
-        	var self = this;
+        	let self = this;
         	if(product.is_combo && product.combo_category_ids.length > 0){
 
 //        	    if (product['combo_price'] != 0){
@@ -30,26 +31,32 @@ odoo.define('pos_combinated_drinks.pos', function (require) {
 		},
 	});
 
-	var _super_orderline = models.Orderline.prototype;
+	let _super_orderline = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
     	initialize: function(attr,options){
+    	    this.invisible = false;
             this.combo_prod_info = false;
             _super_orderline.initialize.call(this, attr, options);
         },
         init_from_JSON: function(json) {
-        	var self = this;
+        	let self = this;
+			let new_combo_data = [];
+
         	_super_orderline.init_from_JSON.apply(this,arguments);
-			var new_combo_data = [];
+
+            this.invisible = json.invisible;
+
 			if(json.combo_ext_line_info && json.combo_ext_line_info.length > 0){
 				json.combo_ext_line_info.map(function(combo_data){
 					if(combo_data[2].product_id){
-						var product = self.pos.db.get_product_by_id(combo_data[2].product_id);
+						let product = self.pos.db.get_product_by_id(combo_data[2].product_id);
 						if(product){
 							new_combo_data.push({
 								'product':product,
 								'price':combo_data[2].price,
 								'qty':combo_data[2].qty,
 								'id':combo_data[2].id,
+								'invisible':combo_data[2].invisible,
 							});
 						}
 					}
@@ -65,9 +72,10 @@ odoo.define('pos_combinated_drinks.pos', function (require) {
         	return this.combo_prod_info;
         },
         export_as_JSON: function(){
-            var self = this;
-            var json = _super_orderline.export_as_JSON.call(this,arguments);
-            var combo_ext_line_info = [];
+            let self = this;
+            let combo_ext_line_info = [];
+            let json = _super_orderline.export_as_JSON.call(this,arguments);
+
             if(this.product.is_combo && this.combo_prod_info.length > 0){
                 _.each(this.combo_prod_info, function(item){
                 	combo_ext_line_info.push([0, 0, {
@@ -75,40 +83,45 @@ odoo.define('pos_combinated_drinks.pos', function (require) {
                 		'qty':item.qty, 
                 		'price':item.price,
                 		'id':item.id,
+                        'invisible':item.invisible,
                 	}]);
                 });
             }
+            json.invisible = this.invisible;
             json.combo_ext_line_info = this.product.is_combo ? combo_ext_line_info : [];
             return json;
         },
         can_be_merged_with: function(orderline){
-        	var result = _super_orderline.can_be_merged_with.call(this,orderline);
+        	let result = _super_orderline.can_be_merged_with.call(this,orderline);
         	if(orderline.product.id == this.product.id && this.get_combo_prod_info()){
         		return false;
         	}
         	return result;
         },
         export_for_printing: function(){
-            var lines = _super_orderline.export_for_printing.call(this);
+            let lines = _super_orderline.export_for_printing.call(this);
             lines.combo_prod_info = this.get_combo_prod_info();
             return lines;
         },
         get_display_price: function(){
-            var price = this.pos.config.iface_tax_included === 'total' ? this.get_price_with_tax() : this.get_base_price();
+            let price = this.pos.config.iface_tax_included === 'total' ? this.get_price_with_tax() : this.get_base_price();
             if (this.get_combo_prod_info()){
                 this.get_combo_prod_info().forEach(combo => price += combo['price']);
             };
             return price;
         },
+        is_invisible: function(){
+        	return this.invisible;
+        }
     });
 
-	var POSComboProductPopup = PopupWidget.extend({
+	let POSComboProductPopup = PopupWidget.extend({
         template: 'POSComboProductPopup',
         events: _.extend({}, PopupWidget.prototype.events, {
     		'click .product': 'select_product',
     	}),
         show: function(options){
-        	var self = this;
+        	let self = this;
             self._super(options);
             self.product = options.product || false;
             self.combo_product_info = options.combo_product_info || false;
@@ -117,7 +130,7 @@ odoo.define('pos_combinated_drinks.pos', function (require) {
             self.scroll_position = 0;
 
             self.product.combo_category_ids.map(function(id){
-                var products = self.pos.db.get_product_by_category(id);
+                let products = self.pos.db.get_product_by_category(id);
                 products.map(function(product){
                     self.combo_products_details.push(product);
                 })
@@ -125,18 +138,18 @@ odoo.define('pos_combinated_drinks.pos', function (require) {
             this.renderElement();
         },
         select_product: function(event){
-        	var self = this;
-        	var products_info = [];
-        	var $el = $(event.currentTarget);
-        	var product_id = Number($el.data('product-id'));
-        	var line_id = Number($el.data('line-id'));
-        	var order = self.pos.get_order();
-            var selected_line = order.get_selected_orderline();
-            var price_list = self.pos.gui.screen_instances.products.product_list_widget._get_active_pricelist();
+        	let self = this;
+        	let products_info = [];
+        	let $el = $(event.currentTarget);
+        	let product_id = Number($el.data('product-id'));
+        	let line_id = Number($el.data('line-id'));
+        	let order = self.pos.get_order();
+            let selected_line = order.get_selected_orderline();
+            let price_list = self.pos.gui.screen_instances.products.product_list_widget._get_active_pricelist();
 
             if(selected_line){
-                var product = self.pos.db.get_product_by_id(product_id);
-                var price = 0;
+                let product = self.pos.db.get_product_by_id(product_id);
+                let price = 0;
                 if(product){
                     price = product['combo_price'] != 0 ? product['combo_price'] : product.get_price(price_list, 1);
                     products_info.push({
@@ -144,6 +157,7 @@ odoo.define('pos_combinated_drinks.pos', function (require) {
                         'id':product_id,
                         'qty':1,
                         'price':price,
+                        'invisible':true,
                     });
                     self.pos.get_order().add_product(product, {'price': price, 'extras': {'invisible': true} });
                 }

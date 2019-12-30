@@ -128,3 +128,6 @@
 	overflow-x: auto !important;
 	margin-left: 5px;
 }
+.hide{
+  display:none;
+}
