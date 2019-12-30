@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_partner_firstname
+# 	* pos_partner_firstname
 #
 msgid ""
 msgstr ""
@@ -33,14 +33,18 @@ msgstr "Contacte"
 #. openerp-web
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:19
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:51
-#, python-format
-msgid "First Name"
-msgstr "Nom"
+#, fuzzy, python-format
+#| msgid "Last Name"
+msgid "Name"
+msgstr "Cognom"
 
 #. module: pos_partner_firstname
 #. openerp-web
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:29
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:59
 #, python-format
-msgid "Last Name"
-msgstr "Cognom"
+msgid "Surname"
+msgstr ""
+
+#~ msgid "First Name"
+#~ msgstr "Nom"
