@@ -31,7 +31,7 @@ msgstr ""
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:19
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:51
 #, python-format
-msgid "First Name"
+msgid "Name"
 msgstr ""
 
 #. module: pos_partner_firstname
@@ -39,6 +39,6 @@ msgstr ""
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:29
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:59
 #, python-format
-msgid "Last Name"
+msgid "Surname"
 msgstr ""
 
