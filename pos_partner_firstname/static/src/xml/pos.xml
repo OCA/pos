@@ -16,7 +16,7 @@
             <t t-if="partner.is_company == false">
                 <div t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
                     <div class="client-detail">
-                        <span class='label'>First Name</span>
+                        <span class='label'>Name</span>
                         <span class='detail firstname'><t t-esc='partner.firstname or ""'/></span>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
             <t t-if="partner.is_company == false">
                 <div t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
                     <div class="client-detail">
-                        <span class='label'>Last Name</span>
+                        <span class='label'>Surname</span>
                         <span class='detail lastname'><t t-esc='partner.lastname or ""'/></span>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
         <t t-jquery=".client-details-left" t-operation="prepend">
             <div class="is_person" t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
                 <div class='client-detail'>
-                    <span class='label'>First Name</span>
+                    <span class='label'>Name</span>
                     <input class='detail firstname person' name="firstname" t-att-value='partner.firstname or ""'/>
                 </div>
             </div>
@@ -56,7 +56,7 @@
         <t t-jquery=".client-details-right" t-operation="prepend">
             <div class="is_person" t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
                 <div class='client-detail'>
-                    <span class='label'>Last Name</span>
+                    <span class='label'>Surname</span>
                     <input class='detail lastname person' name="lastname" t-att-value='partner.lastname or ""'/>
                 </div>
             </div>
