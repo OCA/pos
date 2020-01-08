@@ -6,40 +6,19 @@ Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-name="TareScreenWidget">
-        <div class="scale-screen screen">
-            <div class="screen-content">
-                <div class="top-content">
-                    <h1 id="product-name" />
-                </div>
-                <div class="centered-content pos-tare-container">
-                    <div>
-                        <span class="left-block">Unit Price</span>
-                        <span id="unit-price" class="right-block-readonly"/>
-                    </div>
-                    <div>
-                        <span class="left-block">Gross Weight</span>
-                        <input id="gross-weight" class="right-block" pattern="[0-9]+([\.][0-9]+)?"/>
-                    </div>
-                    <div>
-                        <span class="left-block">Tare</span>
-                        <input id="tare-weight" class="right-block" pattern="[0-9]+([\.][0-9]+)?"/>
-                    </div>
-                    <br />
-                    <br />
-                    <div>
-                        <span class="left-block">Net Weight</span>
-                        <span id="net-weight" class="right-block-readonly"/>
-                    </div>
-                    <br />
-                    <div>
-                        <span class="left-block">Total Price</span>
-                        <span id="total-price" class="right-block-readonly"/>
-                    </div>
-
-                </div>
+    <t t-extend="ScaleScreenWidget">
+        <t t-jquery=".js-weight" t-operation="before">
+            <div class="weight-label">
+                Gross Weight
             </div>
-        </div>
+            <div class="weight-value weight-value-gross-weight" />
+            <div class="weight-label">
+                Tare
+            </div>
+            <div class="weight-value weight-value-tare">
+                <input type="text" class="input-weight-tare" id="weight_tare" name="weight_tare" placeholder="0.000"/> Kg
+            </div>
+        </t>
     </t>
 
 </templates>
