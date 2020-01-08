@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015-Today GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<openerp><data>
+<!-- JS Files -->
+    <template id="assets_backend" name="point_of_sale assets2" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_tare/static/src/js/pos_tare.js"></script>
+        </xpath>
+    </template>
+
+<!-- CSS Files -->
+    <template id="index" name="pos_tare index" inherit_id="point_of_sale.index">
+        <xpath expr="//link[@id='pos-stylesheet']" position="after">
+            <link rel="stylesheet" href="/pos_tare/static/src/css/pos_tare.css" id="pos_tare-stylesheet"/>
+        </xpath>
+    </template>
+
+</data></openerp>
