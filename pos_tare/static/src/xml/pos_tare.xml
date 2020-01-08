@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2015-Today GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="TareScreenWidget">
+        <div class="scale-screen screen">
+            <div class="screen-content">
+                <div class="top-content">
+                    <h1 id="product-name" />
+                </div>
+                <div class="centered-content pos-tare-container">
+                    <div>
+                        <span class="left-block">Unit Price</span>
+                        <span id="unit-price" class="right-block-readonly"/>
+                    </div>
+                    <div>
+                        <span class="left-block">Gross Weight</span>
+                        <input id="gross-weight" class="right-block" pattern="[0-9]+([\.][0-9]+)?"/>
+                    </div>
+                    <div>
+                        <span class="left-block">Tare</span>
+                        <input id="tare-weight" class="right-block" pattern="[0-9]+([\.][0-9]+)?"/>
+                    </div>
+                    <br />
+                    <br />
+                    <div>
+                        <span class="left-block">Net Weight</span>
+                        <span id="net-weight" class="right-block-readonly"/>
+                    </div>
+                    <br />
+                    <div>
+                        <span class="left-block">Total Price</span>
+                        <span id="total-price" class="right-block-readonly"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>
