@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_config_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="priority" eval="30"/>
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@name='order']/following-sibling::*[position()=1]" position="inside">
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
+                    <div class="o_setting_right_pane">
+                        <label for="iface_tare_method" string="Tare Input Method"/>
+                        <div class="text-muted">
+             Configure how to tare products to weight with a scale.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="iface_tare_method" class="o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
+                    <div class="o_setting_right_pane">
+                        <label for="iface_tare_uom_id" string="Tare UoM"/>
+                        <div class="text-muted">
+             Unit of Measure of the tares.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="iface_tare_uom_id" class="o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_gross_weight_method">
+                    <div class="o_setting_right_pane">
+                        <label for="iface_gross_weight_method" string="Gross Weight Input Method"/>
+                        <div class="text-muted">
+             Configure how to input Gross Weight.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="iface_gross_weight_method" class="o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
