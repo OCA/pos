@@ -24,9 +24,8 @@ odoo.define('pos_tare.screens', function (require) {
         show: function(){
             this._super();
             this.tare = 0.0;
-            this.correct_value = true;
             var self = this;
-            this.$('#weight_tare').keyup(function(event){
+            this.$('#input_weight_tare').keyup(function(event){
                 self.onchange_tare(event);
             });
         },
@@ -38,7 +37,7 @@ odoo.define('pos_tare.screens', function (require) {
         set_weight: function(gross_weight){
             this.gross_weight = gross_weight;
             var net_weight = gross_weight - (this.tare || 0);
-            this.$('.weight-value-gross-weight').text(this.get_product_gross_weight_string());
+            this.$('#container_weight_gross').text(this.get_product_gross_weight_string());
             this._super(net_weight);
         },
 
@@ -76,7 +75,7 @@ odoo.define('pos_tare.screens', function (require) {
         },
 
         onchange_tare: function(event){
-            this.tare = this.check_sanitize_value('#weight_tare');;
+            this.tare = this.check_sanitize_value('#input_weight_tare');;
             this.set_weight(this.gross_weight);
         },
 
@@ -88,7 +87,7 @@ odoo.define('pos_tare.screens', function (require) {
             }
             else{
                 this.$(input_name).css("background-color", "#FFF");
-                return res;
+                return parseFloat(res, 10);
             }
         },
 
