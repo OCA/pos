@@ -10,10 +10,11 @@
     "author": "GRAP, "
               "Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
-    "website": "https://www.github.com/pos",
+    "website": "https://www.github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
     "data": ["views/assets.xml"],
     "qweb": ["static/src/xml/pos_tare.xml"],
     "installable": True,
+    "images": ["static/description/pos_tare.png"],
 }

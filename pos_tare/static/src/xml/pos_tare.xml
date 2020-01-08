@@ -11,12 +11,12 @@ Copyright (C) 2015-Today GRAP (http://www.grap.coop)
             <div class="weight-label">
                 Gross Weight
             </div>
-            <div class="weight-value weight-value-gross-weight" />
+            <div class="weight-value weight-value-fixed" id="container_weight_gross"/>
             <div class="weight-label">
                 Tare
             </div>
-            <div class="weight-value weight-value-tare">
-                <input type="text" class="input-weight-tare" id="weight_tare" name="weight_tare" placeholder="0.000"/> Kg
+            <div class="weight-value weight-value-alterable">
+                <input type="text" class="input-weight" id="input_weight_tare" placeholder="0.000"/> Kg
             </div>
         </t>
     </t>
