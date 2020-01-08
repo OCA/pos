@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<odoo noupdate="1">
+    <record id="barcode_rule_tare" model="barcode.rule">
+        <field name="name">Tare</field>
+        <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        <field name="sequence">81</field>
+        <field name="type">tare</field>
+        <field name="encoding">ean13</field>
+        <field name="pattern">0700000{NNDDD}</field>
+    </record>
+</odoo>

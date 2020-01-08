@@ -13,38 +13,56 @@ Point Of Sale - Tare
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-grap%2Fgrap--odoo--business-lightgray.png?logo=github
-    :target: https://github.com/grap/grap-odoo-business/tree/8.0/pos_tare
-    :alt: grap/grap-odoo-business
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
+    :target: https://github.com/OCA/pos/tree/12.0/pos_tare
+    :alt: OCA/pos
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_tare
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
-Give the possibility to the user to provide Gross weight and Tare weight.
+Give the possibility to the user to enter a Tare weight, when weighting
+products in the Point of Sale.
 This will compute automatically net weight and set it to the current
 selected order
 
-.. figure:: https://raw.githubusercontent.com/grap/grap-odoo-business/8.0/pos_tare/static/description/pos_tare.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_tare/static/description/pos_tare.png
 
-The screen will be displayed only for 'to_weight' products and if scale is
-enabled in PoS Configuration.
+The net weight is displayed in the order with the tare value below.
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_tare/static/description/order.png
 
 **Table of contents**
 
 .. contents::
    :local:
 
+Usage
+=====
+
+Install this add-on and configure your point of sale. To enable this addon, go to your point of sale configuration page. There, enable the electronic scale and barcode reader in the "IoT Box" section. In the same page, look up for the "Tare input method" field, and choose a tare method. There are three tare methods:
+- "manual", you'll set the tare value when you weight the product;
+- "barcode", you'll scan the tare value from a barcode;
+- "both", you can both of the above.
+
+To generate a tare barcode you need to use the default barcode nomenclature. The default barcode pattern is `0700000{NNDDD}`. Using that pattern, the barcode for a tare of 0.1kg is `0700000001006`. The `pos_tare_barcode_generator` allows you to create tare labels right from the POS.
+
 Known issues / Roadmap
 ======================
 
-For the time being, this module disable Scale functionnality.
+- Print tare value on customer receipt.
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/grap/grap-odoo-business/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/grap/grap-odoo-business/issues/new?body=module:%20pos_tare%0Aversion:%208.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_tare%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -55,18 +73,37 @@ Authors
 ~~~~~~~
 
 * GRAP
+* Le Nid
 
 Contributors
 ~~~~~~~~~~~~
 
-* Sylvain LE GAL (https://www.twitter.com/legalsylvain)
+- Sylvain LE GAL (https://www.twitter.com/legalsylvain)
+- Le Nid
+- CoopITEasy
+  
 
 Maintainers
 ~~~~~~~~~~~
 
+This module is maintained by the OCA.
 
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
 
-This module is part of the `grap/grap-odoo-business <https://github.com/grap/grap-odoo-business/tree/8.0/pos_tare>`_ project on GitHub.
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
 
+.. |maintainer-fkawala| image:: https://github.com/fkawala.png?size=40px
+    :target: https://github.com/fkawala
+    :alt: fkawala
 
-You are welcome to contribute.
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+
+|maintainer-fkawala| 
+
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_tare>`_ project on GitHub.
+
+You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
