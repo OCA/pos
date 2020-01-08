@@ -28,6 +28,7 @@ odoo.define('pos_tare.screens', function (require) {
             this.$('#input_weight_tare').keyup(function(event){
                 self.onchange_tare(event);
             });
+            this.$('#input_weight_tare').focus()
         },
 
         // Overload set_weight function
