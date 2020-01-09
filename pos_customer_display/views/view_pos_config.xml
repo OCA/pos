@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_cashdrawer']/.." position="after">
+                <div class="row">
+                    <label string="LED Customer Display" for="iface_customer_display" class="col-lg-3 o_light_label"/>
+                    <field name="iface_customer_display"/>
+                </div>
+
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="Customer Display Format" for="customer_display_format" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_format"/>
+                </div>
+
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="Line Length" for="customer_display_line_length" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_line_length"/>
+                </div>
+
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="Next Customer (Line 1)" for="customer_display_msg_next_l1" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_msg_next_l1"/>
+                </div>
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="Next Customer (Line 2)" for="customer_display_msg_next_l2" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_msg_next_l2"/>
+                </div>
+
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="PoS Closed (Line 1)" for="customer_display_msg_closed_l1" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_msg_closed_l1"/>
+                </div>
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="PoS Closed (Line 2)" for="customer_display_msg_closed_l2" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_msg_closed_l2"/>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
