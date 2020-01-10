@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='point_of_sale']" position="inside">
+                <h2>POS customer</h2>
+                <div class="row mt16 o_settings_container" id="default_customer">
+                    <div class="col-xs-12 col-md-12 o_setting_box">
+                        <div>
+                            <label for="pos_default_partner_id"/>
+                            <div class="content-group mt16">
+                                <field name="pos_default_partner_id" class="o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
