@@ -3,10 +3,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Point of Sale - LCD Customer Display",
+    "name": "Point of Sale - LED Customer Display",
     "version": "12.0.1.0.0",
     "category": "Point Of Sale",
-    "summary": "Manage LCD Customer Display device from POS front end",
+    "summary": "Manage LED Customer Display device from POS front end",
     "author": "Aurélien DUMAINE,GRAP,Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
