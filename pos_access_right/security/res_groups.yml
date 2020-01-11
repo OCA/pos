@@ -23,3 +23,7 @@
 - !record {model: res.groups, id: group_delete_order}:
     name: Point of Sale - Delete Order
     category_id: base.module_category_usability
+
+- !record {model: res.groups, id: group_payment}:
+    name: Point of Sale - Pay
+    category_id: base.module_category_usability

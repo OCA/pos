@@ -30,6 +30,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
         var group_negative_qty_id = this.pos.config.group_negative_qty_id[0];
         var group_discount_id = this.pos.config.group_discount_id[0];
         var group_price_id = this.pos.config.group_change_unit_price_id[0];
+        var group_payment_id = this.pos.config.group_payment_id[0];
         var dis_mode = 'pos-disabled-mode';
         records.then(function (result) {
             groups_id = result[0].groups_id;
@@ -48,6 +49,13 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             } else {
                 $(".mode-button[data-mode='price']").removeClass(dis_mode);
             }
+            if (groups_id.indexOf(group_payment_id) === -1) {
+                $(".button.pay").addClass(dis_mode);
+                $(".pay-circle").addClass(dis_mode);
+            } else {
+                $(".button.pay").removeClass(dis_mode);
+                $(".pay-circle").removeClass(dis_mode);
+            }
         }
         );
 
@@ -64,6 +72,7 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
     models.load_fields("pos.config", "group_change_unit_price_id");
     models.load_fields("pos.config", "group_multi_order_id");
     models.load_fields("pos.config", "group_delete_order_id");
+    models.load_fields("pos.config", "group_payment_id");
 
     // Overload 'set_cashier' function to display correctly
     // unauthorized function after cashier changed
@@ -193,6 +202,41 @@ odoo.define('pos_access_right.pos_access_right', function (require) {
             );
             return this._super(event);
 
+        },
+    });
+
+    screens.ActionpadWidget.include({
+
+        /**
+         * Block 'Payment' button if user doesn't belong to the correct group
+         */
+        renderElement: function () {
+            var self = this;
+            this._super();
+
+            var user = this.pos.get_cashier();
+            var records = new Model('res.users')
+                .query(['groups_id'])
+                .filter([['id', '=', user.id]])
+                .all();
+            var groups_id = [];
+            var group_payment_id = this.pos.config.group_payment_id[0];
+
+            var button_pay_click_handler = $._data(
+                this.$el.find(".button.pay")[0], "events").click[0].handler;
+
+            this.$('.pay').off('click').click(function () {
+            records.then(function (result) {
+                groups_id = result[0].groups_id;
+                if (groups_id.indexOf(group_payment_id) === -1) {
+                    self.gui.show_popup('error', {
+                        'title': _t('Payment - Unauthorized function'),
+                        'body':  _t('Please ask your manager to do it.'),
+                    });
+                } else {
+                    button_pay_click_handler();
+                }
+            })});
         },
     });
 });

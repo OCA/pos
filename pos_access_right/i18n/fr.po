@@ -25,7 +25,7 @@ msgstr "Changer le prix unitaire - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:122
 #, python-format
 msgid "Delete Order - Unauthorized function"
 msgstr "Supprimer une commande de vente - Fonctionnalité non autorisée"
@@ -39,25 +39,34 @@ msgstr "Remise - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:94
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:101
 #, python-format
 msgid "Many Orders - Unauthorized function"
 msgstr "Plusieurs Commandes simultanées - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:153
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:160
 #, python-format
 msgid "Negative Quantity - Unauthorized function"
 msgstr "Quantité négative - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:95
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:154
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:221
+#, python-format
+msgid "Payment - Unauthorized function"
+msgstr "Paiement - Fonctionnalité non autorisée"
+
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:102
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:123
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:161
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:182
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:189
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:222
 #, python-format
 msgid "Please ask your manager to do it."
 msgstr "Veuillez vous rapprocher d'un responsable"
@@ -105,6 +114,11 @@ msgid "Point of Sale - Unit Price Change"
 msgstr "Point de Vente - Changer de prix"
 
 #. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_payment
+msgid "Point of Sale - Payment"
+msgstr "Point de Vente - Paiement"
+
+#. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config_group_discount_id
 msgid ""
 "This field is there to pass the id of the 'PoS - Allow Discount' Group to "
@@ -147,6 +161,15 @@ msgid ""
 "Point of Sale Frontend."
 msgstr ""
 "Ce champs existe pour passer l'ID du groupe 'PdV - Plusieurs commandes' au "
+"sein du point de vente tactile."
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config_group_payment_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Payment Group to the "
+"Point of Sale Frontend."
+msgstr ""
+    "Ce champs existe pour passer l'ID du groupe 'Paiement' au "
 "sein du point de vente tactile."
 
 #. module: pos_access_right

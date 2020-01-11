@@ -24,3 +24,7 @@
 - !record {model: res.groups, id: group_delete_order}:
     users:
         - base.user_root
+
+- !record {model: res.groups, id: group_payment}:
+    users:
+        - base.user_root
