@@ -12,6 +12,11 @@
                 </div>
 
                 <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
+                    <label string="Customer Display Format" for="customer_display_format" class="col-lg-3 o_light_label"/>
+                    <field name="customer_display_format"/>
+                </div>
+
+                <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
                     <label string="Line Length" for="customer_display_line_length" class="col-lg-3 o_light_label"/>
                     <field name="customer_display_line_length"/>
                 </div>
@@ -30,7 +35,7 @@
                     <field name="customer_display_msg_closed_l1"/>
                 </div>
                 <div class="row" attrs="{'invisible': [('iface_customer_display', '=', False)]}">
-                    <label string="Pos Closed (Line 2)" for="customer_display_msg_closed_l2" class="col-lg-3 o_light_label"/>
+                    <label string="PoS Closed (Line 2)" for="customer_display_msg_closed_l2" class="col-lg-3 o_light_label"/>
                     <field name="customer_display_msg_closed_l2"/>
                 </div>
 

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-11 13:43+0000\n"
-"PO-Revision-Date: 2020-01-11 13:43+0000\n"
+"POT-Creation-Date: 2020-01-11 23:37+0000\n"
+"PO-Revision-Date: 2020-01-11 23:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,19 +22,19 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:93
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:94
 #, python-format
 msgid "Customer Account"
 msgstr ""
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_format
-msgid "Customer Display Size"
+msgid "Customer Display Format"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:60
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:61
 #, python-format
 msgid "Deleting Line ..."
 msgstr ""
@@ -85,7 +85,7 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:98
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:99
 #, python-format
 msgid "No Customer Account"
 msgstr ""
@@ -125,7 +125,7 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:80
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:81
 #, python-format
 msgid "Returned: "
 msgstr ""
@@ -154,14 +154,14 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:78
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:79
 #, python-format
 msgid "To Pay: "
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:85
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:86
 #, python-format
 msgid "Total"
 msgstr ""

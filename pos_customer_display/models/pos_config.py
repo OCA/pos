@@ -25,7 +25,7 @@ class PosConfig(models.Model):
 
     customer_display_line_length = fields.Integer(
         string="Line Length",
-        compute="_customer_display_line_length",
+        compute="_compute_customer_display_line_length",
         store=True,
         help="Length of the LEDs lines of the customer display",
     )
