@@ -24,7 +24,6 @@ odoo.define('pos_customer_display.devices', function (require) {
         },
 
         load_customer_display_format_file: function(){
-            // console.log(this.config.customer_display_format);
             if (this.pos.config.customer_display_format == "2_20") {
                 this.customer_display_proxy = new customer_display_2_20.CustomerDisplay_2_20(this);
             } else {
@@ -33,7 +32,6 @@ odoo.define('pos_customer_display.devices', function (require) {
         },
 
         send_text_customer_display: function(data){
-            console.log(data);
             if (this.customer_display_proxy) {
                 return this.message(
                     'send_text_customer_display',
