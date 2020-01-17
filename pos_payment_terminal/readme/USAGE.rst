@@ -1,0 +1,1 @@
+In the frontend of the POS, when you select a payment method that has a payment mode *card* or *check*, you will have a *Start Transaction* button : if you click on that button, the amount, the currency and the payment mode will be sent to the POSbox.
