@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2018-TODAY ACSONE SA/NV (<https://www.acsone.eu>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
