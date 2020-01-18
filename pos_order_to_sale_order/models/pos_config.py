@@ -7,21 +7,27 @@ from openerp import models, fields
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     iface_create_draft_sale_order = fields.Boolean(
-        string='Create Draft Sale Orders', default=True,
+        string="Create Draft Sale Orders",
+        default=True,
         help="If checked, the cashier will have the possibility to create"
-        " a draft Sale Order, based on the current draft PoS Order.")
+        " a draft Sale Order, based on the current draft PoS Order.",
+    )
 
     iface_create_confirmed_sale_order = fields.Boolean(
-        string='Create Confirmed Sale Orders', default=True,
+        string="Create Confirmed Sale Orders",
+        default=True,
         help="If checked, the cashier will have the possibility to create"
-        " a confirmed Sale Order, based on the current draft PoS Order.")
+        " a confirmed Sale Order, based on the current draft PoS Order.",
+    )
 
     iface_create_delivered_sale_order = fields.Boolean(
-        string='Create Delivered Sale Orders', default=True,
+        string="Create Delivered Sale Orders",
+        default=True,
         help="If checked, the cashier will have the possibility to create"
         " a confirmed sale Order, based on the current draft PoS Order.\n"
         " the according picking will be marked as delivered. Only invoices"
-        " process will be possible.")
+        " process will be possible.",
+    )
