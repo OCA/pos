@@ -7,19 +7,13 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
+odoo.define('pos_payment_terminal.devices', function (require) {
     "use strict";
 
-    var screens = require('point_of_sale.screens');
     var devices = require('point_of_sale.devices');
-    var models = require('point_of_sale.models');
-    var core = require('web.core');
-    var _t = core._t;
-    var QWeb = core.qweb;
-
-    models.load_fields('account.journal', ['payment_mode']);
 
     devices.ProxyDevice.include({
+
         init: function(parents, options) {
             var self = this;
             self._super(parents, options);
@@ -71,45 +65,6 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
             //console.log(JSON.stringify(data));
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
-    });
-
-
-    screens.PaymentScreenWidget.include({
-        render_paymentlines : function(){
-            this._super.apply(this, arguments);
-            var self  = this;
-            this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
-            // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
-            //console.log(event.target);
-            self.pos.get_order().in_transaction = true;
-            self.order_changes();
-            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name, self.pos.currency.decimals);
-            });
-        },
-        order_changes: function(){
-            this._super.apply(this, arguments);
-            var order = this.pos.get_order();
-            if (!order) {
-                return;
-            } else if (order.in_transaction) {
-                self.$('.next').html('<img src="/web/static/src/img/spin.png" style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle;">');
-            } else {
-                self.$('.next').html('Validate <i class="fa fa-angle-double-right"></i>');
-            }
-        }
-    });
-
-    var _orderproto = models.Order.prototype;
-    models.Order = models.Order.extend({
-        initialize: function(){
-            _orderproto.initialize.apply(this, arguments);
-            this.in_transaction = false;
-        },
-        export_as_JSON: function() {
-            var vals = _orderproto.export_as_JSON.apply(this, arguments);
-            vals['transactions'] = this.transactions || {};
-            return vals;
-        }
     });
 
 });
