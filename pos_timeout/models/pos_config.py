@@ -10,7 +10,13 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     pos_order_timeout = fields.Integer(
-        string='PoS Order Timeout', help="Define the timeout for"
-        " the creation of PoS Order in the Front Office UI.\n"
-        " The value is expressed in seconds.\n"
-        " If not defined, the default Odoo value will be used (7.5 seconds).")
+        string='PoS Order(s) Timeout', help="Defines the value of the"
+        " client-side timeout for the creation of PoS Order(s)"
+        " from the POS UI.\n"
+        " The value is expressed in seconds, for a single order.\n"
+        " If not defined, the default Odoo value will be used: 7.5 seconds.\n"
+        " If the call contains more than one order"
+        " (after a long disconnection period for example, or if the previous"
+        " call raised the timeout),\n the effective timeout value applied will"
+        " be equal to the defined timeout value multiplied by the number of"
+        " orders.\n")
