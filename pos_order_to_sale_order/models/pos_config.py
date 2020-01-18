@@ -1,13 +1,17 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import models, fields
+from odoo import api, fields, models
 
 
 class PosConfig(models.Model):
     _inherit = "pos.config"
+
+    iface_create_sale_order = fields.Boolean(
+        string="Create Sale Orders",
+        compute="_compute_iface_create_sale_order",
+        store=True)
 
     iface_create_draft_sale_order = fields.Boolean(
         string="Create Draft Sale Orders",
@@ -31,3 +35,16 @@ class PosConfig(models.Model):
         " the according picking will be marked as delivered. Only invoices"
         " process will be possible.",
     )
+
+    @api.depends(
+        "iface_create_draft_sale_order",
+        "iface_create_confirmed_sale_order",
+        "iface_create_delivered_sale_order",
+    )
+    def _compute_iface_create_sale_order(self):
+        for config in self:
+            config.iface_create_sale_order = any([
+                config.iface_create_draft_sale_order,
+                config.iface_create_confirmed_sale_order,
+                config.iface_create_delivered_sale_order,
+            ])

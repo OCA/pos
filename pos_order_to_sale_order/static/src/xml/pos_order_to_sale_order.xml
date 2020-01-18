@@ -2,12 +2,38 @@
 <template>
 
     <t t-name="CreateSaleOrderButtonWidget">
-        <br />
-        <div style="text-align: center">
-            <button class="input-button">
-                <t t-esc="widget.display_text"/>
-            </button>
-        </div>
+        <span class="control-button order-split" t-att-style='widget.is_visible() ? "display: block;" : "display: none;"'>
+            <i class="fa fa-download"></i>Create Sale Order
+        </span>
     </t>
+
+     <t t-name="CreateSaleOrderScreenWidget">
+        <div class="screen">
+            <div class="screen-content">
+                <div class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1>Create Sale Order</h1>
+                </div>
+                <div class="centered-content">
+                    <div class="paymentmethods">
+                        <div class="button paymentmethod"
+                                id="button-create-draft-order" action="draft">
+                            Create Draft Sale Order
+                        </div><div class="button paymentmethod"
+                                id="button-create-confirmed-order" action="confirmed">
+                            Create Confirmed Sale Order
+                        </div><div class="button paymentmethod"
+                                id="button-create-delivered-order" action="delivered">
+                            Create Delivered Sale Order
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </t>
+<!-- t-att-data-action="'confirmed'" -->
 
 </template>
