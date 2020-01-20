@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TareScreenWidget">
+        <div class='tare-screen screen'>
+            <div class='screen-content'>
+                <div class='top-content'>
+                     <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1>Création d'une étiquette de tare</h1>
+                </div>
+                <div class="centered-content">
+                    <div class="pos-tare-label-container"></div>
+                    <div class="pos-directions-for-user">
+                        Appuyez sur la touche <span>print</span> puis vérifiez le poids ci-dessus.
+                    </div>
+                    <div class='print-label'>
+                        Imprimer
+                        <i class='fa fa-angle-double-right'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PosTareLabel">
+        <div class="pos-center-align">
+            <div class="pos-tare-paper">
+                <div class="pos-tare-label">
+                    <img t-att-src="'/report/barcode/EAN13/' + widget.get_barcode_data()" />
+                    <br />
+                    tare = <t t-esc="widget.get_weight()" />kg
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
