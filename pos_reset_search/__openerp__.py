@@ -6,16 +6,17 @@
         Reset search after click on product.""",
 
     'description': """
-        The POS search workflow is to type-in product name until there is only on product left
-        to be selected. Then the user will select the product by typing on enter. To select a 
-        product clears the search. This workflow is very efficient but it requires training.
+        The POS search workflow is to type-in the product name until there is only one
+        product left to be selected. Then the user will select the product by typing on 
+        the "enter" key. To select a clears the search. This workflow is very efficient 
+        but it requires training.
+    
+        This add-on complete the POS search workflow for beginners. This add-on enables
+        users to search and narrow down the product selection to a handful of products.
+        The user can then use the mouse and click on the product to select. To click on 
+        product clears search. The default workflow is still usable for trained users. 
         
-        This add-on complete the POS search workflow for beginers. This add-on enables users
-        to search and narrow down the product selection to a handfull of products. The user 
-        can then use the mouse and click on the product to select. To click on product clears
-        the search. The default workflow remains usable for trained users. This new workflow 
-        is deemed less efficient but has proven to help beginers. 
-    """,
+        This new workflow is deemed less efficient but has proven to help beginners.""",
 
     'author': 'Cooperative le Nid',
     'website': "http://www.lenid.ch",
