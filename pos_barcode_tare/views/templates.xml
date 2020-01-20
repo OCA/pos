@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+		<template id="assets_backend" name="pos_barcode_tare" inherit_id="point_of_sale.assets">
+				<xpath expr="." position="inside">
+			 	<link rel="stylesheet" href="/pos_barcode_tare/static/src/css/tare_screen.css"/>
+				<script type="text/javascript" src="/pos_barcode_tare/static/src/js/tare_screen.js"></script>
+				<script type="text/javascript" src="/pos_barcode_tare/static/src/js/open_tare_screen_button.js"></script>
+				<script type="text/javascript" src="/pos_barcode_tare/static/src/js/barcode.js"></script>
+				</xpath>
+		</template>
+    </data>
+</odoo>
