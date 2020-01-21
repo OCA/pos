@@ -11,9 +11,9 @@ odoo.define('pos_partner_firstname.screens', function (require) {
             var self = this;
             this._super(parent, options);
             this._rpc({
-                model: 'ir.config_parameter',
-                method: 'get_param',
-                args: ['partner_names_order'],
+                model: 'res.partner',
+                method: 'get_names_order',
+                args: [],
             }).then(function(partner_names_order) {
                 if (partner_names_order != false) {
                     self.partner_names_order = partner_names_order;
