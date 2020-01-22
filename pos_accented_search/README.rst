@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-======================================================
-Point of Sale - 
-======================================================
+====================================================
+Point of Sale - Product search for accented products
+====================================================
 
-This add-on make pos product search insensitive to accented characters in the product
+This add-on makes pos product search insensitive to accented characters in the product
 name. For instance, café will match both cafe and café. 
 
 Installation
