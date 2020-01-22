@@ -1,22 +1,19 @@
 # -*- coding: utf-8 -*-
+# @author: François Kawala
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    'name': "pos_accented_search",
-
-    'summary': """
-        Better product search in POS. Accented characters like é are normalized.""",
-
-    'description': """
-        This add-on make pos product search insensitive to accented characters in the product
-        name. For instance, café will match both cafe and café.  
-    """,
-
-    'author': "Le Nid",
+    'name': "Point of Sale - Accented Product Search",
+    'version': '9.0.0.0.1',
+    'category': 'Point of Sale',
+    'summary': 'Point of Sale - Product search works regardless of accented characters',
+    'author': "Le Nid, Odoo Community Association (OCA)",
     'website': "http://www.lenid.ch",
     'license': 'AGPL-3',
-    'category': 'Point of Sale',
-    'version': '0.1',
-    'depends': ['point_of_sale'],
+    'depends': [
+        'point_of_sale',
+    ],
     'data': [
         'views/templates.xml',
     ],
+    'installable': True,
 }
