@@ -7,7 +7,7 @@
     'category': 'Point of Sale',
     'summary': 'Point of Sale - Clear product search when user clicks on a product.',
     'author': "Le Nid, Odoo Community Association (OCA)",
-    'website': "http://www.lenid.ch",
+    'website': "https://github.com/OCA/pos",
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
