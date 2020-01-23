@@ -1,0 +1,3 @@
+The POS search workflow is to type the product name until there is only one product left to be selected. Then the user will select the product by typing on the "enter" key. To select a product clears the search. This workflow is very efficient but it requires training.
+
+This add-on completes the POS search workflow for beginners. This add-on enables users to search and narrow down the product selection to a handful of products. The user can then use the mouse and click on the product to select. To click on the product clears the search. The default workflow is still usable for trained users. This new workflow is deemed less efficient but has proven to help beginners.
