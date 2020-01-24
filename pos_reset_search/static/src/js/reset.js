@@ -5,7 +5,7 @@ odoo.define('product_click_search_reset', function (require) {
     screens.ProductScreenWidget.include({
         click_product: function (product) {
             var self = this;
-            self.super(product);
+            self._super(product);
             self.product_categories_widget.clear_search();
         },
     });
