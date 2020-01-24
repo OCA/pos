@@ -11,7 +11,7 @@ class TestTransactions(TestPointOfSaleCommon):
             'name': 'Card Journal',
             'code': 'CARD',
             'type': 'bank',
-            'payment_mode': 'card',
+            'pos_terminal_payment_mode': 'card',
         }).id
         cash_journal_id = 0
         pos_order = {
