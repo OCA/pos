@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="PaymentScreen-Paymentlines" >
+        <t t-jquery=".col-name" t-operation="append">
+            <t t-if="line.cashregister.journal.pos_terminal_payment_mode and widget.pos.config.iface_payment_terminal">
+                   <button class="payment-terminal-transaction-start"  t-att-data-cid='line.cid'>Start transaction</button>
+            </t>
+        </t>
+    </t>
+</templates>

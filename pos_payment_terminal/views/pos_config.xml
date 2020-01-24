@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_cashdrawer']/.." position="after">
+                <div class="row">
+                    <label string="Payment Terminal" for="iface_payment_terminal" class="col-lg-3 o_light_label"/>
+                    <field name="iface_payment_terminal"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
