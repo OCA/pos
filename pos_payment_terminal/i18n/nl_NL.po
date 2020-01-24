@@ -20,12 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_payment_terminal
-#: selection:account.journal,payment_mode:0
+#: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Card"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: selection:account.journal,payment_mode:0
+#: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Check"
 msgstr ""
 
@@ -35,7 +35,7 @@ msgid "Journal"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal_payment_mode
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 msgid "Payment Mode"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,help:pos_payment_terminal.field_account_journal_payment_mode
+#: model:ir.model.fields,help:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 msgid "Select the payment mode sent to the payment terminal"
 msgstr ""
 
