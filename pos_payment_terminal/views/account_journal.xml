@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <group name="amount_authorized" position="after">
                 <group name="payment_mode_group" attrs="{'invisible': [('type', '!=', 'bank')]}">
-                    <field name="payment_mode"/>
+                    <field name="pos_terminal_payment_mode"/>
                 </group>
             </group>
         </field>

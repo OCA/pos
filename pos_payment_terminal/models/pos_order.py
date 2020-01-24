@@ -21,7 +21,7 @@ class PosOrder(models.Model):
         currency_digits = pos_session.currency_id.decimal_places
         card_journals = self.env['account.journal'].search([
             ('id', 'in', [p[2]['journal_id'] for p in payments]),
-            ('payment_mode', '!=', False),
+            ('pos_terminal_payment_mode', '!=', False),
         ])
         card_payments = [record[2] for record in payments
                          if record[2]['journal_id'] in card_journals.ids]

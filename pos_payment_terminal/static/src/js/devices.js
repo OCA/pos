@@ -60,7 +60,7 @@ odoo.define('pos_payment_terminal.devices', function (require) {
             var data = {'amount' : line.get_amount(),
                         'currency_iso' : currency_iso,
                         'currency_decimals' : currency_decimals,
-                        'payment_mode' : line.cashregister.journal.payment_mode,
+                        'payment_mode' : line.cashregister.journal.pos_terminal_payment_mode,
                         'order_id': order.uid};
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },

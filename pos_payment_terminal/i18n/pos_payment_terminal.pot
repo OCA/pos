@@ -21,12 +21,12 @@ msgid "A payment terminal is available on the Proxy"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: selection:account.journal,payment_mode:0
+#: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Card"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: selection:account.journal,payment_mode:0
+#: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Check"
 msgstr ""
 

@@ -13,7 +13,7 @@ odoo.define('pos_payment_terminal.models', function (require) {
     var models = require('point_of_sale.models');
     var _orderproto = models.Order.prototype;
 
-    models.load_fields('account.journal', ['payment_mode']);
+    models.load_fields('account.journal', ['pos_terminal_payment_mode']);
 
     models.Order = models.Order.extend({
         initialize: function(){
