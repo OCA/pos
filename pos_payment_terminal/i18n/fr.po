@@ -21,12 +21,12 @@ msgid "A payment terminal is available on the Proxy"
 msgstr "Un terminal de paiment est disponible sur le proxy"
 
 #. module: pos_payment_terminal
-#: selection:account.journal,payment_mode:0
+#: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Card"
 msgstr "Carte"
 
 #. module: pos_payment_terminal
-#: selection:account.journal,payment_mode:0
+#: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Check"
 msgstr "Chèque"
 
@@ -36,7 +36,7 @@ msgid "Journal"
 msgstr "Journal"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__payment_mode
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 msgid "Payment Mode"
 msgstr "Moyen de paiement"
 
@@ -57,7 +57,7 @@ msgid "Point of Sale Orders"
 msgstr "Commandes du point de vente"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,help:pos_payment_terminal.field_account_journal__payment_mode
+#: model:ir.model.fields,help:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 msgid "Select the payment mode sent to the payment terminal"
 msgstr "Sélectionner le mode de paiement envoyé au terminal de paiement"
 
