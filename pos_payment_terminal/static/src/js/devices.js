@@ -62,7 +62,6 @@ odoo.define('pos_payment_terminal.devices', function (require) {
                         'currency_decimals' : currency_decimals,
                         'payment_mode' : line.cashregister.journal.payment_mode,
                         'order_id': order.uid};
-            //console.log(JSON.stringify(data));
             this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
         },
     });
