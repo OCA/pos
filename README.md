@@ -13,7 +13,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[pos_accented_search](pos_accented_search/) | 9.0.0.0.1 | Point of Sale - Product search works regardless of accented characters
+[pos_accented_search](pos_accented_search/) | 9.0.0.0.2 | Point of Sale - Product search works regardless of accented characters
 [pos_access_right](pos_access_right/) | 9.0.1.0.0 | Point of Sale - Extra Access Right for certain actions
 [pos_customer_display](pos_customer_display/) | 9.0.0.1.0 | Manage Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 9.0.1.0.0 | Point of Sale Require Customer
