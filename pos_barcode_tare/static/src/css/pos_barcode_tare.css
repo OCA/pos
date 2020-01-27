@@ -20,6 +20,10 @@
     overflow: hidden;
 }
 
+.pos .pos-tare-label .caption {
+    display: block;
+}
+
 .pos .tare-screen .pos-directions-for-user {
     font-size: 25px;
     margin: 8px;
@@ -45,8 +49,8 @@
 }
 
 .pos .pos-tare-label img {
-        width: 50mm;
-        height: 45mm;
+    width: 50mm;
+    height: 45mm;
 }
 
 .pos .tare-screen .print-label {
@@ -73,13 +77,16 @@
         border: none;
     }
 
+    .pos .pos-tare-label .caption {
+        display: block;
+    }
+
     .pos .pos-tare-paper {
         margin: 0;
         margin-left: 0 !important;
         margin-right: 0 !important;
-        width: 42mm !important;
-        height: 29mm !important;
-        background: white;
+        width: 99% !important;
+        height: 99% !important;
         display: block;
         position: fixed;
         display: flex !important;
@@ -87,10 +94,10 @@
         align-items: center !important;
     }
 
-
     .pos-tare-label img {
-        width: 30mm !important;
-        height: 25mm !important;
+        width: 27mm !important;
+        height: 21mm !important;
+        display: run-in;
     }
 
     .pos .pos-tare-label {
@@ -100,6 +107,5 @@
         position: fixed !important;
         border: none !important;
         font-size: 10px !important;
-
     }
 }
