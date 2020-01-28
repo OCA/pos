@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="pos_update_bank_statement_closing_balance_form" model="ir.ui.view">
+        <field name="name">pos.update.bank.statement.closing.balance.form</field>
+        <field name="model">pos.update.bank.statement.closing.balance</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Update Ending Balance">
+                <field name="item_ids" nolabel="1">
+                    <tree string="Statements" create="0" editable="top">
+                        <field name="name"/>
+                        <field name="journal_id"/>
+                        <field name="balance_start"/>
+                        <field name="total_entry_encoding"/>
+                        <field name="balance_end_real"/>
+                        <field name="currency_id" groups="base.group_multi_currency"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_confirm" string="Confirm" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-default"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_pos_update_bank_statement_closing_balance">
+        <field name="name">Update Ending Balances</field>
+        <field name="res_model">pos.update.bank.statement.closing.balance</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pos_session_form" model="ir.ui.view">
+        <field name="name">pos.session.form.view</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form"/>
+        <field name="arch" type="xml">
+            <button name="open_cashbox" position="after">
+                <button name="button_update_statement_ending_balance"
+                    class="oe_stat_button"
+                    attrs="{'invisible':[('state', '=', 'closed')]}"
+                    icon="fa-money"
+                    type="object" context="{'balance': 'end'}">
+                    <span class="o_stat_text">Update Ending Balances</span>
+                </button>
+            </button>
+        </field>
+    </record>
+</odoo>
