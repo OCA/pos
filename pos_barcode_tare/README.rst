@@ -25,8 +25,7 @@ Point of Sale - Tare barecode labels for loose goods
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
-This add-on enable POS to read and print tare barcodes. A tare barcode is used to sell loose goods in a bring your own
-container (BYOC) scheme.
+This add-on enable POS to read and print tare barcodes. A tare barcode is used to sell loose goods in a bring your own container (BYOC) scheme.
 
 The BYOC scheme has four steps:
     1. The cashier weights the container and sticks the tare bar code onto the customer's container.
@@ -47,10 +46,7 @@ change.
 Usage
 =====
 
-Install this add-on and configure the point of sale where you want to be able to use the tare barecode.
-You can also select the label format in the point of sale configuration. The label printing is done using
-web print. To streamline the label printing it is advised to use the silent printing mode (firefox) or
-the kiosk printing (chrome).
+Install this add-on and configure the point of sale where you want to be able to use the tare barecode. The label printing is done using web print. To streamline the label printing it is advised to use the silent printing mode (firefox) or the kiosk printing (chrome).
 
 Bug Tracker
 ===========
