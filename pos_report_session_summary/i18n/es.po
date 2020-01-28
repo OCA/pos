@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-12-20 12:05+0000\n"
-"Last-Translator: mtbochaca <mtbochaca@gmail.com>\n"
+"PO-Revision-Date: 2020-01-28 14:13+0000\n"
+"Last-Translator: lromero-solvos <luis.romero@solvos.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
@@ -44,7 +44,7 @@ msgstr "<strong>Diario</strong>"
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
 msgid "<strong>Opening Date</strong>:<br/>"
-msgstr "<strong>Fecha de obertura</strong>:<br/>"
+msgstr "<strong>Fecha de apertura</strong>:<br/>"
 
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
@@ -104,7 +104,7 @@ msgstr "Cliente"
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
 msgid "Reference"
-msgstr "Referència"
+msgstr "Referencia"
 
 #. module: pos_report_session_summary
 #: model:ir.actions.report,name:pos_report_session_summary.action_report_pos_session_summary
