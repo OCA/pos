@@ -5,7 +5,8 @@
     'name': "Point of Sale - Tare barecode labels for loose goods",
     'version': '9.0.0.0.1',
     'category': 'Point of Sale',
-    'summary': 'Point of Sale - Print and scan tare barecodes labels to sell loose goods.',
+    'summary': """Point of Sale - Print and scan tare \
+                  barecodes labels to sell loose goods.""",
     'author': "Le Nid, Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/pos",
     'license': 'AGPL-3',
