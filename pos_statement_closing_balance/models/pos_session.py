@@ -7,20 +7,6 @@ from odoo.exceptions import ValidationError
 class PosSession(models.Model):
     _inherit = "pos.session"
 
-    ending_balances_to_update = fields.Boolean(
-        compute='_compute_ending_balances_to_update')
-
-    @api.multi
-    def _compute_ending_balances_to_update(self):
-        for rec in self:
-            rec.ending_balances_to_update = False
-            for statement in rec.statement_ids:
-                journal = statement.journal_id
-                if journal.pos_control_ending_balance and \
-                    journal.type != 'cash' or (journal.type == 'cash' and
-                                               not rec.cash_control):
-                    rec.ending_balances_to_update = True
-
     @api.multi
     def button_update_statement_ending_balance(self):
         self.ensure_one()

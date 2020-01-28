@@ -3,3 +3,4 @@ queue
 partner-contact
 stock-logistics-barcode
 stock-logistics-workflow
+pos https://github.com/ForgeFlow/pos.git 12.0-pos_bank_closing_balance

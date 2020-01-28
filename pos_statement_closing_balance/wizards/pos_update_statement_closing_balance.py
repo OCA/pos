@@ -45,11 +45,9 @@ class POSBankStatementUpdateClosingBalance(models.TransientModel):
             raise UserError(_('You cannot start the closing '
                               'balance for multiple POS sessions'))
         session = session_obj.browse(active_ids[0])
-        for statement in session.statement_ids:
-            if statement.journal_id.type != 'cash' or \
-                (statement.journal_id.type == 'cash' and
-                 not session.cash_control):
-                items.append([0, 0, self._prepare_item(session, statement)])
+        for statement in session.statement_ids.filtered(
+                lambda s: s.journal_id.pos_control_ending_balance):
+            items.append([0, 0, self._prepare_item(session, statement)])
         res["session_id"] = session.id
         res["item_ids"] = items
         return res
@@ -79,7 +77,7 @@ class POSBankStatementUpdateClosingBalance(models.TransientModel):
                     ).create(self._prepare_cash_box_journal(item))
                 )
                 wizard.run()
-                item.statement_id.balance_end_real = item.balance_end_real
+            item.statement_id.balance_end_real = item.balance_end_real
         return True
 
 
