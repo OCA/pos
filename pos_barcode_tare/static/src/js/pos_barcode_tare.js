@@ -1,4 +1,5 @@
 odoo.define('pos_barcode_tare.screens', function (require) {
+
     "use strict";
     var chrome = require('point_of_sale.chrome');
     var core = require('web.core');
@@ -7,6 +8,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
     var QWeb = core.qweb;
+    var _t = core._t;
 
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
@@ -53,7 +55,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
         button_click: function () {
             var self = this;
-            this.gui.show_screen('tare');
+            self.gui.show_screen('tare');
         },
     });
 
