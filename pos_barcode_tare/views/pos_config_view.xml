@@ -8,7 +8,7 @@
             <xpath expr="/form/sheet/group[@name='features']" position="inside">
                 <separator string="Loose good options" colspan="4"/>
                 <group>
-                    <field name="tare_label_button" />
+                    <field name="iface_tare_label" />
                 </group>
             </xpath>
         </field>
