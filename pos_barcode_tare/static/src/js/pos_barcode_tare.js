@@ -1,4 +1,4 @@
-odoo.define('barcode_tare', function (require) {
+odoo.define('pos_barcode_tare.screens', function (require) {
     "use strict";
     var screens = require('point_of_sale.screens');
     var gui = require('point_of_sale.gui');
@@ -127,7 +127,6 @@ odoo.define('tare-screen.screen', function (require) {
             var checksum = this.ean13_checksum(barcode_data);
             var barcode = barcode_data.concat(checksum);
 
-            console.log(barcode);
             return barcode;
         },
         get_barcode_data: function () {
