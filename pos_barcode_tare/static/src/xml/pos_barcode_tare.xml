@@ -36,7 +36,7 @@
     </t>
 
     <t t-name="TareScreenButton">
-        <t t-if="widget.pos.config.tare_label_button">
+        <t t-if="widget.pos.config.iface_tare_label">
             <span class="control-button">
             <i class="fa fa-print"></i>
             Print a tare label
