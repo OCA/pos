@@ -1,0 +1,2 @@
+- Use barcode nomenclature instead of hardcoded barcode prefix 21.
+- Add french translation.
