@@ -9,6 +9,7 @@
                 <separator string="Loose good options" colspan="4"/>
                 <group>
                     <field name="iface_tare_label" />
+                    <field name="iface_tare_barcode_sequence_id" />
                 </group>
             </xpath>
         </field>
