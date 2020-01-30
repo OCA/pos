@@ -74,10 +74,15 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         next_screen: 'products',
         previous_screen: 'products',
         default_tare_value_kg: 0.0,
+        weight_barcode_prefix: null,
 
         show: function () {
             this._super();
             var self = this;
+            // Fetch the barcode prefix from POS barcode parser rules.
+            this.weight_barcode_prefix = this.get_barcode_prefix(
+                this.pos.config.iface_tare_barcode_sequence_id);
+            // Setup the proxy
             var queue = this.pos.proxy_queue;
             // The pooling of the scale starts here.
             queue.schedule(function () {
@@ -89,6 +94,24 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // for UI/UX reasons.
             this.render_receipt();
             this.lock_screen(true);
+        },
+        get_barcode_prefix: function (barcode_sequence_id) {
+            var self = this;
+            var barcode_pattern = self.get_barcode_pattern(barcode_sequence_id);
+            return barcode_pattern.substr(0, 2);
+        },
+        get_barcode_pattern: function (barcode_sequence_id) {
+            var self = this;
+            var rules = self.get_barcode_rules();
+            var rule = rules.filter(
+                function (r) {
+                    return r.sequence === barcode_sequence_id;
+                })[0];
+            return rule.pattern;
+        },
+        get_barcode_rules: function () {
+            var self = this;
+            return self.pos.barcode_reader.barcode_parser.nomenclature.rules;
         },
         set_weight: function (weight) {
             if (weight > 0) {
@@ -124,7 +147,6 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // grams. Here the weight is 12.345kg. The last digit of the barcode
             // is a checksum, here symbolized by x.
             var padding_size = 5;
-            var default_weight_prefix_id = "21";
             var void_product_id = '0'.repeat(padding_size);
             var weight_in_gram = weight * 10e2;
             // Weight has to be padded with zeros.
@@ -132,8 +154,8 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             var padded_weight = weight_with_padding.substr(
                 weight_with_padding.length - padding_size);
             // Builds the barcode data (ie. all but the checksum).
-            var barcode_data = default_weight_prefix_id.concat(void_product_id,
-                padded_weight);
+            var barcode_data = this.weight_barcode_prefix
+                .concat(void_product_id, padded_weight);
             // Compute checksum and concat with barcode data to get the actual
             // barcode.
             var checksum = this.ean13_checksum(barcode_data);
