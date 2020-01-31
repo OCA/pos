@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <!-- POS Config: Require Customer(Required before starting the order) -->
+    <record id="point_of_sale.pos_config_main" model="pos.config">
+        <field name="require_customer">order</field>
+    </record>
+</odoo>
