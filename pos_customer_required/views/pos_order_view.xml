@@ -6,12 +6,13 @@
     @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
     @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 
-    The licence is in the file __openerp__.py
+    The licence is in the file __manifest__.py
 -->
 
 <odoo>
 
     <record model="ir.ui.view" id="view_pos_order_form">
+        <field name="name">view.pos.order.form</field>
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
         <field name="arch" type="xml">
