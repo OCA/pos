@@ -11,24 +11,13 @@ from odoo import fields, models, exceptions, api, _
 class PosOrder(models.Model):
     _inherit = 'pos.order'
 
-    @api.multi
-    @api.depends('session_id.config_id.require_customer')
-    def compute_require_customer(self):
-        for order in self:
-            order.require_customer = (
-                order.session_id.config_id.require_customer == 'order')
-
-    require_customer = fields.Boolean(
-        compute='compute_require_customer', string='Require customer',
-        help="True if a customer is required to begin the order.\n"
-        "See the PoS Config to change this setting")
+    require_customer = fields.Selection(
+        related='session_id.config_id.require_customer',
+    )
 
     @api.constrains('partner_id', 'require_customer')
     def _check_partner(self):
         for rec in self:
-            if (
-                rec.session_id.config_id.require_customer == 'order' and
-                not rec.partner_id
-            ):
+            if rec.require_customer != 'no' and not rec.partner_id:
                 raise exceptions.ValidationError(_(
                     'Customer is required for this order and is missing.'))
