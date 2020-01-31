@@ -21,8 +21,5 @@
         'views/pos_config_view.xml',
         'views/pos_order_view.xml',
     ],
-    'demo': [
-        'demo/pos_config.xml',
-    ],
     'installable': True,
 }

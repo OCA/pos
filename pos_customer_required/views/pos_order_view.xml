@@ -20,7 +20,7 @@
                 <field name="require_customer" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="attributes">
-                <attribute name="attrs">{'readonly': [('state','=','invoiced')], 'required': [('require_customer','=',True)]}</attribute>
+                <attribute name="attrs">{'readonly': [('state', '=', 'invoiced')], 'required': [('require_customer', '!=', 'no')]}</attribute>
             </xpath>
         </field>
     </record>
