@@ -6,10 +6,10 @@
     @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
     @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 
-    The licence is in the file __openerp__.py
+    The licence is in the file __manifest__.py
 -->
 
-<openerp>
+<odoo>
     <data>
         <template id="assets_frontend" inherit_id="point_of_sale.assets">
             <xpath expr="." position="inside">
@@ -17,4 +17,4 @@
             </xpath>
         </template>
     </data>
-</openerp>
+</odoo>
