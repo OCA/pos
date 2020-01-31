@@ -6,7 +6,7 @@ from odoo import exceptions
 class TestPosRequireCustomer(common.TransactionCase):
     def setUp(self):
         super(TestPosRequireCustomer, self).setUp()
-        self.pos_config = self.env.ref('point_of_sale.pos_config_main')
+        self.pos_config = self.env.ref('point_of_sale.pos_config_main').copy()
 
     def test_customer_not_required(self):
         self.pos_config.require_customer = 'no'
