@@ -35,7 +35,7 @@ msgid ""
 msgstr ""
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_order.py:33
+#: code:addons/pos_customer_required/models/pos_order.py:22
 #, python-format
 msgid "Customer is required for this order and is missing."
 msgstr ""
@@ -53,8 +53,17 @@ msgid "Please select a customer for this order."
 msgstr ""
 
 #. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_config
+#, fuzzy
+#| msgid "Point of Sale"
+msgid "Point of Sale Configuration"
+msgstr "Kassa"
+
+#. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
-msgid "Point of Sale"
+#, fuzzy
+#| msgid "Point of Sale"
+msgid "Point of Sale Orders"
 msgstr "Kassa"
 
 #. module: pos_customer_required
@@ -63,17 +72,15 @@ msgid "Point of Sale Payment"
 msgstr ""
 
 #. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config_require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__require_customer
+#: model_terms:ir.ui.view,arch_db:pos_customer_required.view_pos_config_form
 msgid "Require Customer"
 msgstr ""
 
 #. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order_require_customer
-msgid "Require customer"
-msgstr "Klant verplichten"
-
-#. module: pos_customer_required
-#: model:ir.model.fields,help:pos_customer_required.field_pos_config_require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_pos_order__require_customer
 msgid ""
 "Require customer for orders in this point of sale:\n"
 "* 'Optional' (customer is optional);\n"
@@ -91,14 +98,5 @@ msgstr ""
 msgid "Required before starting the order"
 msgstr ""
 
-#. module: pos_customer_required
-#: model:ir.model.fields,help:pos_customer_required.field_pos_order_require_customer
-msgid ""
-"True if a customer is required to begin the order.\n"
-"See the PoS Config to change this setting"
-msgstr ""
-
-#. module: pos_customer_required
-#: model:ir.model,name:pos_customer_required.model_pos_config
-msgid "pos.config"
-msgstr ""
+#~ msgid "Require customer"
+#~ msgstr "Klant verplichten"
