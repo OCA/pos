@@ -11,7 +11,7 @@
     'category': 'Point Of Sale',
     'summary': 'Point of Sale Require Customer',
     'author': 'Apertoso NV, La Louve, Odoo Community Association (OCA)',
-    'website': 'http://www.apertoso.be',
+    'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
