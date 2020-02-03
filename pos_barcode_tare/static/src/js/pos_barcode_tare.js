@@ -7,8 +7,47 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     var gui = require('point_of_sale.gui');
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
+    var utils = require('web.utils');
+
     var QWeb = core.qweb;
     var _t = core._t;
+    var round_pr = utils.round_precision;
+
+    // Define functions used to do unit operation.
+    // Get unit search for unit based on unit name.
+    var get_unit = function (pos, unit_name) {
+        return pos.units.filter(
+            function (u) {
+                return u.name === unit_name;
+            })[0];
+    };
+
+    // Convert mass using the reference UOM as pivot unit.
+    var convert_mass = function (mass, from_unit, to_unit) {
+        // There is no conversion from one category to another.
+        if (from_unit.category_id[0] !== to_unit.category_id[0]) {
+            return;
+        }
+        // No need to convert as weights are measured in same unit.
+        if (from_unit.id === to_unit.id) {
+            return mass;
+        }
+        // Converts "from_unit" to reference unit of measure.
+        var result = mass;
+        if (from_unit.uom_type === "bigger") {
+            result /= from_unit.factor;
+        } else {
+            result *= from_unit.factor_inv;
+        }
+        // Converts reference unit of measure to "to_unit".
+        if (to_unit.uom_type === "bigger") {
+            result *= to_unit.factor;
+        } else {
+            result /= to_unit.factor_inv;
+        }
+        // Round the result.
+        return round_pr(result || 0, to_unit.rounding);
+    };
 
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
@@ -22,8 +61,27 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                 var last_order_line = order.get_last_orderline();
                 var total_weight = last_order_line.get_quantity();
                 var tare = code.value;
-                var paid_weight = total_weight - tare;
-                // Throws a warning popup if the price is negative
+                var product_unit = last_order_line.get_unit();
+                // Try to convert tare in KG into product UOM.
+                var kg_unit = get_unit(this.pos, "kg");
+                var tare_in_product_uom =
+                    convert_mass(tare, kg_unit, product_unit);
+                // Alert when mass conversion failed.
+                if (typeof tare_in_product_uom === 'undefined') {
+                    self.gui.show_popup('error',
+                        {'title': _t('Mismatch in units of measure'),
+                            'body':  _t('You scanned a tare barcode. ' +
+                        'The tare (measured in ' + kg_unit.name +
+                        ') should apply to the last product in order. ' +
+                        'We don\'t know how apply the tare to "' +
+                        last_order_line.product.display_name +
+                        '" (measured in ' + product_unit.name +
+                        '). We can not apply the tare to this product.')});
+                    return;
+                }
+                // Computes the paid (net) weight.
+                var paid_weight = total_weight - tare_in_product_uom;
+                // Throws a warning popup if the price is negative.
                 if (paid_weight <= 0) {
                     self.gui.show_popup('confirm',
                         {'title': _t('Negative weight'),
@@ -34,10 +92,10 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                                 last_order_line.set_quantity(paid_weight);
                             }});
                 } else {
+                    // Updates the prices.
                     last_order_line.set_quantity(paid_weight);
                 }
             },
-
             // Setup the callback action for the "weight" barcodes.
             show: function () {
                 var self = this;
@@ -73,12 +131,14 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         template: 'TareScreenWidget',
         next_screen: 'products',
         previous_screen: 'products',
-        default_tare_value_kg: 0.0,
+        default_tare_value: 0.0,
         weight_barcode_prefix: null,
 
         show: function () {
             this._super();
             var self = this;
+            // Fetch the unit of measure used to save the tare
+            this.kg_unit = get_unit(this.pos, "kg");
             // Fetch the barcode prefix from POS barcode parser rules.
             this.weight_barcode_prefix = this.get_barcode_prefix(
                 this.pos.config.iface_tare_barcode_sequence_id);
@@ -87,7 +147,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // The pooling of the scale starts here.
             queue.schedule(function () {
                 return self.pos.proxy.scale_read().then(function (weight) {
-                    self.set_weight(weight.weight);
+                    self.set_weight(weight);
                 });
             }, {duration:150, repeat: true});
             // Shows a barcode whose weight might be zero, but this is preferred
@@ -113,18 +173,21 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             var self = this;
             return self.pos.barcode_reader.barcode_parser.nomenclature.rules;
         },
-        set_weight: function (weight) {
+        set_weight: function (scale_measure) {
+            var self = this;
+            var weight = scale_measure.weight;
+            var unit = get_unit(self.pos, scale_measure.unit);
             if (weight > 0) {
-                this.weight = weight;
-                this.render_receipt();
-                this.lock_screen(false);
+                self.weight_in_kg = convert_mass(weight, unit, self.kg_unit);
+                self.render_receipt();
+                self.lock_screen(false);
             }
         },
         get_weight: function () {
-            if (typeof this.weight === 'undefined') {
-                return this.default_tare_value_kg;
+            if (typeof this.weight_in_kg === 'undefined') {
+                return this.default_tare_value;
             }
-            return this.weight;
+            return this.weight_in_kg;
         },
         ean13_checksum: function (s) {
             var result = 0;
