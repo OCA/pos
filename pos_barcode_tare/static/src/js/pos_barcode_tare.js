@@ -243,7 +243,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             this.close();
             this.gui.show_screen(this.previous_screen);
         },
-        renderElement: function (self) {
+        renderElement: function () {
             this._super();
             var self = this;
             this.$('.back').click(function () {
