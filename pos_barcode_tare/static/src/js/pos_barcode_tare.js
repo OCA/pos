@@ -55,7 +55,6 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     screens.ScreenWidget.include(
         {
             barcode_weight_action: function (code) {
-                var self = this;
                 var order = this.pos.get_order();
                 // Computes the paid weight
                 var last_order_line = order.get_last_orderline();
@@ -68,7 +67,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                     convert_mass(tare, kg_unit, product_unit);
                 // Alert when mass conversion failed.
                 if (typeof tare_in_product_uom === 'undefined') {
-                    self.gui.show_popup('error',
+                    this.gui.show_popup('error',
                         {'title': _t('Mismatch in units of measure'),
                             'body':  _t('You scanned a tare barcode. ' +
                         'The tare is applied to the last product in order. '+
@@ -79,7 +78,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                 var paid_weight = total_weight - tare_in_product_uom;
                 // Throws a warning popup if the price is negative.
                 if (paid_weight <= 0) {
-                    self.gui.show_popup('confirm',
+                    this.gui.show_popup('confirm',
                         {'title': _t('Negative weight'),
                             'body':  _t('The calculated weight is negative. ' +
                         'Did you scan the correct tare label?'),
@@ -94,11 +93,10 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             },
             // Setup the callback action for the "weight" barcodes.
             show: function () {
-                var self = this;
                 this._super();
                 this.pos.barcode_reader.set_action_callback(
                     'weight',
-                    _.bind(self.barcode_weight_action, self));
+                    _.bind(this.barcode_weight_action, this));
             },
         });
 
@@ -108,8 +106,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         template: 'TareScreenButton',
 
         button_click: function () {
-            var self = this;
-            self.gui.show_screen('tare');
+            this.gui.show_screen('tare');
         },
     });
 
@@ -132,7 +129,6 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
         show: function () {
             this._super();
-            var self = this;
             // Fetch the unit of measure used to save the tare
             this.kg_unit = get_unit(this.pos, "kg");
             // Fetch the barcode prefix from POS barcode parser rules.
@@ -141,6 +137,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // Setup the proxy
             var queue = this.pos.proxy_queue;
             // The pooling of the scale starts here.
+            var self = this;
             queue.schedule(function () {
                 return self.pos.proxy.scale_read().then(function (weight) {
                     self.set_weight(weight);
@@ -152,13 +149,11 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             this.lock_screen(true);
         },
         get_barcode_prefix: function (barcode_sequence_id) {
-            var self = this;
-            var barcode_pattern = self.get_barcode_pattern(barcode_sequence_id);
+            var barcode_pattern = this.get_barcode_pattern(barcode_sequence_id);
             return barcode_pattern.substr(0, 2);
         },
         get_barcode_pattern: function (barcode_sequence_id) {
-            var self = this;
-            var rules = self.get_barcode_rules();
+            var rules = this.get_barcode_rules();
             var rule = rules.filter(
                 function (r) {
                     return r.sequence === barcode_sequence_id;
@@ -166,17 +161,15 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             return rule.pattern;
         },
         get_barcode_rules: function () {
-            var self = this;
-            return self.pos.barcode_reader.barcode_parser.nomenclature.rules;
+            return this.pos.barcode_reader.barcode_parser.nomenclature.rules;
         },
         set_weight: function (scale_measure) {
-            var self = this;
             var weight = scale_measure.weight;
-            var unit = get_unit(self.pos, scale_measure.unit);
+            var unit = get_unit(this.pos, scale_measure.unit);
             if (weight > 0) {
-                self.weight_in_kg = convert_mass(weight, unit, self.kg_unit);
-                self.render_receipt();
-                self.lock_screen(false);
+                this.weight_in_kg = convert_mass(weight, unit, this.kg_unit);
+                this.render_receipt();
+                this.lock_screen(false);
             }
         },
         get_weight: function () {
@@ -218,20 +211,10 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // Compute checksum and concat with barcode data to get the actual
             // barcode.
             var checksum = this.ean13_checksum(barcode_data);
-            var barcode = barcode_data.concat(checksum);
-
-            return barcode;
+            return barcode_data.concat(checksum);
         },
         get_barcode_data: function () {
             return this.barcode_data(this.get_weight());
-        },
-        should_auto_print: function () {
-            return this.pos.config.iface_print_auto &&
-            !this.pos.get_order()._printed;
-        },
-        should_close_immediately: function () {
-            return this.pos.config.iface_print_via_proxy &&
-            this.pos.config.iface_print_skip_screen;
         },
         lock_screen: function (locked) {
             this._locked = locked;
@@ -247,11 +230,10 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         },
         print: function () {
             // See comment in print function of ReceiptScreenWidget
-            var self = this;
             this.lock_screen(true);
 
             setTimeout(function () {
-                self.lock_screen(false);
+                this.lock_screen(false);
             }, 1000);
 
             this.print_web();
@@ -261,9 +243,9 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             this.close();
             this.gui.show_screen(this.previous_screen);
         },
-        renderElement: function () {
-            var self = this;
+        renderElement: function (self) {
             this._super();
+            var self = this;
             this.$('.back').click(function () {
                 self.click_back();
             });
