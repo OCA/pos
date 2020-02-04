@@ -71,12 +71,8 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                     self.gui.show_popup('error',
                         {'title': _t('Mismatch in units of measure'),
                             'body':  _t('You scanned a tare barcode. ' +
-                        'The tare (measured in ' + kg_unit.name +
-                        ') should apply to the last product in order. ' +
-                        'We don\'t know how apply the tare to "' +
-                        last_order_line.product.display_name +
-                        '" (measured in ' + product_unit.name +
-                        '). We can not apply the tare to this product.')});
+                        'The tare is applied to the last product in order. '+
+                        'We can not apply the tare to this product.')});
                     return;
                 }
                 // Computes the paid (net) weight.
