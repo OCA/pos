@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_automatic_validation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_automatic_validation
+#: model:ir.model.fields,field_description:pos_automatic_validation.field_account_journal_iface_automatic_validation
+msgid "Automatic Validation"
+msgstr ""
+
+#. module: pos_automatic_validation
+#: model:ir.model.fields,help:pos_automatic_validation.field_account_journal_iface_automatic_validation
+msgid "Check this if this journal validate the sale automatically if payment is completed."
+msgstr ""
+
+#. module: pos_automatic_validation
+#: model:ir.model,name:pos_automatic_validation.model_account_journal
+msgid "Journal"
+msgstr ""
+
