@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="OrderLine">
+        <t t-jquery=".button.order-list-return" t-operation="attributes">
+            <attribute name="t-if">widget.pos.config.iface_return_done_order and order.is_returnable</attribute>
+        </t>
+    </t>
+
+</templates>
