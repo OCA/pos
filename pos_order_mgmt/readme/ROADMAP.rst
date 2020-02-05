@@ -1,5 +1,4 @@
-* It's possible to return the same order over and over. To avoid so, we should
-  load and control if there's a returned line id associated with the original
-  order. That would be a great improvement for future revisions.
-  This feature is implemented in the module ``pos_order_return`` in the back
-  office part, but not in front office part (implemented in this this module).
+* This module contains a *basic return* feature that makes possible returning
+  the same order over and over. If you need a full return feature, you can
+  install ``pos_order_return`` (only back office implementation), or
+  ``pos_order_return_traceability``, which also covers front office support.
