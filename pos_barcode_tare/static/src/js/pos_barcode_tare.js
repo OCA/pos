@@ -12,6 +12,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     var QWeb = core.qweb;
     var _t = core._t;
     var round_pr = utils.round_precision;
+    var tare_barcode_type = "tare";
 
     // Define functions used to do unit operation.
     // Get unit search for unit based on unit name.
@@ -54,7 +55,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     // latest order line.
     screens.ScreenWidget.include(
         {
-            barcode_weight_action: function (code) {
+            barcode_tare_action: function (code) {
                 var order = this.pos.get_order();
                 // Computes the paid weight
                 var last_order_line = order.get_last_orderline();
@@ -95,8 +96,8 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             show: function () {
                 this._super();
                 this.pos.barcode_reader.set_action_callback(
-                    'weight',
-                    _.bind(this.barcode_weight_action, this));
+                    'tare',
+                    _.bind(this.barcode_tare_action, this));
             },
         });
 
@@ -132,8 +133,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // Fetch the unit of measure used to save the tare
             this.kg_unit = get_unit(this.pos, "kg");
             // Fetch the barcode prefix from POS barcode parser rules.
-            this.weight_barcode_prefix = this.get_barcode_prefix(
-                this.pos.config.iface_tare_barcode_sequence_id);
+            this.weight_barcode_prefix = this.get_barcode_prefix();
             // Setup the proxy
             var queue = this.pos.proxy_queue;
             // The pooling of the scale starts here.
@@ -148,15 +148,17 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             this.render_receipt();
             this.lock_screen(true);
         },
-        get_barcode_prefix: function (barcode_sequence_id) {
-            var barcode_pattern = this.get_barcode_pattern(barcode_sequence_id);
+        get_barcode_prefix: function () {
+            var barcode_pattern = this.get_barcode_pattern();
             return barcode_pattern.substr(0, 2);
         },
-        get_barcode_pattern: function (barcode_sequence_id) {
+        get_barcode_pattern: function () {
             var rules = this.get_barcode_rules();
             var rule = rules.filter(
                 function (r) {
-                    return r.sequence === barcode_sequence_id;
+                    // We select the first (smallest sequence ID) barcode rule
+                    // with the expected type.
+                    return r.type === tare_barcode_type;
                 })[0];
             return rule.pattern;
         },
@@ -191,8 +193,8 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             return checksum % 10;
         },
         barcode_data: function (weight) {
-            // We use EAN13 barcode, it looks like 21 00000 12345 x. First there
-            // is the prefix, here 21, that is used to decide which type of
+            // We use EAN13 barcode, it looks like 07 00000 12345 x. First there
+            // is the prefix, here 07, that is used to decide which type of
             // barcode we're dealing with. A weight barcode has then two groups
             // of five digits. The first group encodes the product id. Here the
             // product id is 00000. The second group encodes the weight in
