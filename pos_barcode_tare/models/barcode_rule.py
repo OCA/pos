@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import _, models, fields, api
+from openerp import _, models, api
 
 
 class BarcodeRule(models.Model):
