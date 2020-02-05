@@ -12,8 +12,9 @@
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [
+        'pos_barcode_tare.xml',
         'views/pos_config_view.xml',
-        'views/pos_barcode_tare.xml',
+        'data/barcode_rule.xml',
     ],
     'qweb': [
         'static/src/xml/pos_barcode_tare.xml',
