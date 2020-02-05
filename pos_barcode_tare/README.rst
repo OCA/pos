@@ -64,7 +64,7 @@ Zoom on the action widget:
 Usage
 =====
 
-Install this add-on and configure the point of sale where you want to be able to use the tare barecode. Setup the default barcode sequence ID according to your barcode nomenclature. The barcode pattern should be ``XX.....NNDDD`` where XX is the barcode prefix. In the default barcode nomenclature, the weight barcode pattern sequence id is 36 and its prefix is 21. The label printing is done using web print. To streamline the label printing it is advised to use the silent printing mode (firefox) or the kiosk printing (chrome).
+Install this add-on and configure the point of sale where you want to be able to use the tare barecode. The label printing is done using web print. To streamline the label printing it is advised to use the silent printing mode (firefox) or the kiosk printing (chrome).
 
 The command line to start a chrome base browser in kiosk mode with silent printing looks like:
 
@@ -73,7 +73,7 @@ The command line to start a chrome base browser in kiosk mode with silent printi
 Known issues / Roadmap
 ======================
 
-- Add french translation.
+- Merge with Sylvain LE GAL tare module that allows user to set tare on the scale screen.
 
 Bug Tracker
 ===========
