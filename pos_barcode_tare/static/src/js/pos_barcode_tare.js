@@ -180,18 +180,6 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             }
             return this.weight_in_kg;
         },
-        ean13_checksum: function (s) {
-            var result = 0;
-            for (var counter = s.length-1; counter >=0; counter--) {
-                var counterCheckSum = counter % 2;
-                counterCheckSum *= 2;
-                counterCheckSum += 1;
-                result += parseInt(s.charAt(counter), 10) * counterCheckSum;
-            }
-            var checksum = 10;
-            checksum -= result % 10;
-            return checksum % 10;
-        },
         barcode_data: function (weight) {
             // We use EAN13 barcode, it looks like 07 00000 12345 x. First there
             // is the prefix, here 07, that is used to decide which type of
@@ -207,13 +195,15 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             var weight_with_padding = '0'.repeat(padding_size) + weight_in_gram;
             var padded_weight = weight_with_padding.substr(
                 weight_with_padding.length - padding_size);
-            // Builds the barcode data (ie. all but the checksum).
-            var barcode_data = this.weight_barcode_prefix
-                .concat(void_product_id, padded_weight);
-            // Compute checksum and concat with barcode data to get the actual
-            // barcode.
-            var checksum = this.ean13_checksum(barcode_data);
-            return barcode_data.concat(checksum);
+            // Builds the barcode using a placeholder checksum.
+            var barcode = this.weight_barcode_prefix
+                .concat(void_product_id, padded_weight)
+                .concat(0);
+            // Compute checksum
+            var barcode_parser = this.pos.barcode_reader.barcode_parser;
+            var checksum = barcode_parser.ean_checksum(barcode);
+            // Replace checksum placeholder by the actual checksum.
+            return barcode.substr(0, 12).concat(checksum);
         },
         get_barcode_data: function () {
             return this.barcode_data(this.get_weight());
