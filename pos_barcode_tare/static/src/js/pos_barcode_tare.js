@@ -70,9 +70,16 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                 if (typeof tare_in_product_uom === 'undefined') {
                     this.gui.show_popup('error',
                         {'title': _t('Mismatch in units of measure'),
-                            'body':  _t('You scanned a tare barcode. ' +
-                        'The tare is applied to the last product in order. '+
-                        'We can not apply the tare to this product.')});
+                            'body':
+                            _.str.sprintf(
+                                _t('You scanned a tare barcode. ' +
+                                'The tare should apply to "%s %s of %s". '+
+                                'We do not know how to convert kg to %s. ' +
+                                'We can not apply the tare to this product.'),
+                                total_weight,
+                                product_unit.name,
+                                last_order_line.product.display_name,
+                                product_unit.name)});
                     return;
                 }
                 // Computes the paid (net) weight.
@@ -223,9 +230,9 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         print: function () {
             // See comment in print function of ReceiptScreenWidget
             this.lock_screen(true);
-
+            var self = this;
             setTimeout(function () {
-                this.lock_screen(false);
+                self.lock_screen(false);
             }, 1000);
 
             this.print_web();
