@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 08:11+0000\n"
-"PO-Revision-Date: 2020-02-05 08:11+0000\n"
+"POT-Creation-Date: 2020-02-05 18:22+0000\n"
+"PO-Revision-Date: 2020-02-05 18:22+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,8 +38,8 @@ msgstr ""
 
 #. module: pos_barcode_tare
 #. openerp-web
-#: code:addons/addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:83
-#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:83
+#: code:addons/addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:89
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:89
 #, python-format
 msgid "Negative weight"
 msgstr ""
@@ -89,18 +89,18 @@ msgstr ""
 
 #. module: pos_barcode_tare
 #. openerp-web
-#: code:addons/addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:84
-#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:84
+#: code:addons/addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:90
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:90
 #, python-format
 msgid "The calculated weight is negative. Did you scan the correct tare label?"
 msgstr ""
 
 #. module: pos_barcode_tare
 #. openerp-web
-#: code:addons/addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:73
-#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:73
+#: code:addons/addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:74
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:74
 #, python-format
-msgid "You scanned a tare barcode. The tare is applied to the last product in order. We can not apply the tare to this product."
+msgid "You scanned a tare barcode. The tare should apply to \"%s %s of %s\". We do not know how to convert kg to %s. We can not apply the tare to this product."
 msgstr ""
 
 #. module: pos_barcode_tare
