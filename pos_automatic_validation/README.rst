@@ -1,23 +1,20 @@
-POS Payment Terminal - Automatic validation
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
+
+===========================================
+POS Automatic validation
 ===========================================
 
-This module adds support for automatic validation of payments in the Point of Sale.
-
-
-Installation
-============
-
-This module is designed to be installed on the
-*main Odoo server*. On the *POSbox*, you should install the module
-*hw_x* depending on the protocol implemented in your device.
-`Cashlogy <http://www.cashlogy.com>` are implemented in the
-*hw_cashlogy* module and also in pywebdriver <https://github.com/akretion/pywebdriver>.
+This module adds support for automatic validation of payments in the
+Point of Sale.
 
 Configuration
 =============
 
-The cashlogyConnector adddress and port should be configured on the main Odoo server,
-in the menu *Pointof Sale > Configuration > Payment Methods*,under the *Point of Sale* tab.
+The Automatic Validation should be selected in the journals, in the menu
+*Invoicing > Configuration > Accounting > Journals*, if the selected journal
+validate the sale automatically if payment is completed at Point of Sale.
 
 Credits
 =======
@@ -28,4 +25,3 @@ Contributors
 * Aurelien Dumaine
 * Mathieu Vatel
 * Druidoo <https://www.druidoo.io>
-

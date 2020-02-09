@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="view_aacount_journal_form" model="ir.ui.view">
+    <record id="view_acount_journal_form" model="ir.ui.view">
         <field name="name">account.journal.automatic.validation.form</field>
         <field name="model">account.journal</field>
         <field name="inherit_id" ref="account.view_account_journal_form"/>
@@ -12,5 +11,4 @@
             </field>
         </field>
     </record>
-
 </odoo>

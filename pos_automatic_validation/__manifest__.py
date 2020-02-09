@@ -15,7 +15,7 @@
     'depends': ['point_of_sale'],
     'data': [
         'views/account_journal_view.xml',
-        'static/src/xml/templates.xml',
+        'views/views/assets.xml'
     ],
     'installable': True,
 }
