@@ -6,27 +6,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-02-11 23:13+0000\n"
+"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_ticket_without_price
 #. openerp-web
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:7
 #, python-format
 msgid "Print Ticket Without Price"
-msgstr ""
+msgstr "Imprimir tiquet sense preus"
 
 #. module: pos_ticket_without_price
 #. openerp-web
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:14
 #, python-format
 msgid "TICKET WITHOUT PRICE"
-msgstr ""
+msgstr "TIQUET REGAL"
 
 #. module: pos_ticket_without_price
 #. openerp-web
@@ -36,4 +38,4 @@ msgstr ""
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:29
 #, python-format
 msgid "oe_hidden"
-msgstr ""
+msgstr "oe_hidden"
