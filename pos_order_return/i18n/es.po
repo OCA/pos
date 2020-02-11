@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-05-03 12:50+0000\n"
-"PO-Revision-Date: 2019-03-01 15:53+0000\n"
-"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"PO-Revision-Date: 2020-02-11 19:45+0000\n"
+"Last-Translator: David Alonso (Solvos) <david.alonso@solvos.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_product_product__pos_allow_negative_qty
@@ -129,17 +129,13 @@ msgstr "Asistente de devolución parcial"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
-#, fuzzy
-#| msgid "Partial Return Wizard"
 msgid "Partial Return Wizard Line"
-msgstr "Asistente de devolución parcial"
+msgstr "Línea del asistente de devolución parcial"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_order_line
-#, fuzzy
-#| msgid "Point of Sale Orders"
 msgid "Point of Sale Order Lines"
-msgstr "Pedidos del TPV"
+msgstr "Líneas de pedido del TPV"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_order
@@ -209,7 +205,7 @@ msgstr "Cantidad devuelta"
 #: model:product.product,uom_name:pos_order_return.product_product_returnable_bottle
 #: model:product.template,uom_name:pos_order_return.product_product_returnable_bottle_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "Unidad(es)"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__wizard_id
@@ -239,7 +235,7 @@ msgstr ""
 #: model:product.product,weight_uom_name:pos_order_return.product_product_returnable_bottle
 #: model:product.template,weight_uom_name:pos_order_return.product_product_returnable_bottle_product_template
 msgid "kg"
-msgstr ""
+msgstr "kg"
 
 #~ msgid "Lines of Point of Sale Orders"
 #~ msgstr "Líneas del Terminal Punto de Venta"
