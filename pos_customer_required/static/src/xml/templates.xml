@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
+    Copyright (C) 2016-Today La Louve (<http://www.lalouve.net/>)
+
+    @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+
+    The licence is in the file __manifest__.py
+-->
+
+<odoo>
+    <data>
+        <template id="assets_frontend" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_customer_required/static/src/js/pos_customer_required.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

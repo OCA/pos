@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
+    Copyright (C) 2016-Today La Louve (<http://www.lalouve.net/>)
+
+    @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+
+    The licence is in the file __manifest__.py
+-->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_order_form">
+        <field name="name">view.pos.order.form</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <field name="require_customer" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{'readonly': [('state', '=', 'invoiced')], 'required': [('require_customer', '!=', 'no')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
