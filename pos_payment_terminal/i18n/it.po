@@ -19,6 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_config__iface_payment_terminal
+msgid "A payment terminal is available on the Proxy"
+msgstr ""
+
+#. module: pos_payment_terminal
 #: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Card"
 msgstr ""
@@ -34,8 +39,14 @@ msgid "Journal"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
-msgid "Payment Mode"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_config__iface_payment_terminal
+#: model_terms:ir.ui.view,arch_db:pos_payment_terminal.view_pos_config_form
+msgid "Payment Terminal"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_config
+msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_payment_terminal
@@ -56,6 +67,9 @@ msgid "Start transaction"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model,name:pos_payment_terminal.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
+msgid "Terminal Payment Mode"
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
