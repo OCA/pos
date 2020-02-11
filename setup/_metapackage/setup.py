@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-pos_access_right',
+        'odoo12-addon-pos_customer_required',
         'odoo12-addon-pos_default_empty_image',
         'odoo12-addon-pos_fix_search_limit',
         'odoo12-addon-pos_invoicing',
