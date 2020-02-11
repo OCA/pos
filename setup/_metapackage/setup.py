@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo12-addon-pos_margin',
         'odoo12-addon-pos_order_mgmt',
         'odoo12-addon-pos_order_return',
+        'odoo12-addon-pos_order_return_traceability',
         'odoo12-addon-pos_partner_firstname',
         'odoo12-addon-pos_payment_terminal',
         'odoo12-addon-pos_picking_delayed',
