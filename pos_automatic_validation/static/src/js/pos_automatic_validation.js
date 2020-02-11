@@ -38,7 +38,6 @@ odoo.define('pos_automatic_validation.pos_automatic_validation', function (requi
                     $('.next').show();
                 } else {
                     $('.next').show();
-                    //$('.next').hide();
                 }
             }
         },
@@ -50,18 +49,23 @@ odoo.define('pos_automatic_validation.pos_automatic_validation', function (requi
             var selected_line = order.selected_paymentline;
             if (selected_line) {
                 var auto_validation = selected_line.get_automatic_validation();
-                if (auto_validation == true) {
-                    var rounding = self.pos.currency.rounding;
-                    var to_pay = round_pr(order.get_total_with_tax(), rounding);
-                    var paid = round_pr(order.get_total_paid(), rounding);
-                    //alert(to_pay);
-                    //alert(paid);
-                    //if (order.get_total_with_tax() - order.get_total_paid() == 0) {
-                    //if (Math.abs(order.get_total_with_tax() - order.get_total_paid()) < 0.001) {
-                    if (to_pay - paid == 0) {
-                        self.validate_order();
-                    }
+                if (!auto_validation) { return; }
+                if (this._check_auto_validation_timer) {
+                    clearTimeout(this._check_auto_validation_timer);
                 }
+                this._check_auto_validation_timer = setTimeout(function() {
+                    self.check_auto_validation();
+                }, 1000);
+            }
+        },
+        check_auto_validation: function() {
+            var self = this;
+            var order = this.pos.get_order();
+            // if it's finalized, it means it was validated manually
+            // during the timeout timer. We do this to avoid errors
+            if (order.finalized) { return; }
+            if (order.is_paid()) {
+                self.validate_order();
             }
         },
     });
