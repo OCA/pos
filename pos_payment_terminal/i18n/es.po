@@ -20,6 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_config__iface_payment_terminal
+msgid "A payment terminal is available on the Proxy"
+msgstr ""
+
+#. module: pos_payment_terminal
 #: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Card"
 msgstr "Tarjeta"
@@ -35,9 +40,17 @@ msgid "Journal"
 msgstr "Diario"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
-msgid "Payment Mode"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_config__iface_payment_terminal
+#: model_terms:ir.ui.view,arch_db:pos_payment_terminal.view_pos_config_form
+#, fuzzy
+#| msgid "Payment Mode"
+msgid "Payment Terminal"
 msgstr "Forma de pago"
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
 
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_order
@@ -57,6 +70,11 @@ msgid "Start transaction"
 msgstr "Iniciar transacción"
 
 #. module: pos_payment_terminal
-#: model:ir.model,name:pos_payment_terminal.model_pos_config
-msgid "pos.config"
-msgstr "Configuración del TPV"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
+#, fuzzy
+#| msgid "Payment Mode"
+msgid "Terminal Payment Mode"
+msgstr "Forma de pago"
+
+#~ msgid "pos.config"
+#~ msgstr "Configuración del TPV"
