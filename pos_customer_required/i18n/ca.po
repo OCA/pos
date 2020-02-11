@@ -36,7 +36,7 @@ msgstr ""
 "Si us plau seleccioneu un client per a aquesta comanda. "
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_order.py:33
+#: code:addons/pos_customer_required/models/pos_order.py:22
 #, python-format
 msgid "Customer is required for this order and is missing."
 msgstr "En necessari que hi hagi un client per a aquesta comanda i no hi és. "
@@ -54,8 +54,17 @@ msgid "Please select a customer for this order."
 msgstr "Si us plau seleccioneu un client per a aquesta comanda. "
 
 #. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_config
+#, fuzzy
+#| msgid "Point of Sale Payment"
+msgid "Point of Sale Configuration"
+msgstr "Pagament del Punt de Venda "
+
+#. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
-msgid "Point of Sale"
+#, fuzzy
+#| msgid "Point of Sale"
+msgid "Point of Sale Orders"
 msgstr "Punt de Venda "
 
 #. module: pos_customer_required
@@ -64,17 +73,15 @@ msgid "Point of Sale Payment"
 msgstr "Pagament del Punt de Venda "
 
 #. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config_require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__require_customer
+#: model_terms:ir.ui.view,arch_db:pos_customer_required.view_pos_config_form
 msgid "Require Customer"
 msgstr "Client Requerit "
 
 #. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order_require_customer
-msgid "Require customer"
-msgstr "Client requerit "
-
-#. module: pos_customer_required
-#: model:ir.model.fields,help:pos_customer_required.field_pos_config_require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_pos_order__require_customer
 msgid ""
 "Require customer for orders in this point of sale:\n"
 "* 'Optional' (customer is optional);\n"
@@ -96,16 +103,15 @@ msgstr "Requerit abans de pagar "
 msgid "Required before starting the order"
 msgstr "Requerit abans d'entrar la comanda "
 
-#. module: pos_customer_required
-#: model:ir.model.fields,help:pos_customer_required.field_pos_order_require_customer
-msgid ""
-"True if a customer is required to begin the order.\n"
-"See the PoS Config to change this setting"
-msgstr ""
-"Veritable si un client es demanat per començar la comanda.\n"
-"Mireu la configuració del TPV per canviar aquest paràmetre "
+#~ msgid "Require customer"
+#~ msgstr "Client requerit "
 
-#. module: pos_customer_required
-#: model:ir.model,name:pos_customer_required.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+#~ msgid ""
+#~ "True if a customer is required to begin the order.\n"
+#~ "See the PoS Config to change this setting"
+#~ msgstr ""
+#~ "Veritable si un client es demanat per començar la comanda.\n"
+#~ "Mireu la configuració del TPV per canviar aquest paràmetre "
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
