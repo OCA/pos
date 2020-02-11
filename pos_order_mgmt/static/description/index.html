@@ -426,11 +426,10 @@ ticket.</p>
 <div class="section" id="known-issues-roadmap">
 <h1><a class="toc-backref" href="#id3">Known issues / Roadmap</a></h1>
 <ul class="simple">
-<li>It’s possible to return the same order over and over. To avoid so, we should
-load and control if there’s a returned line id associated with the original
-order. That would be a great improvement for future revisions.
-This feature is implemented in the module <tt class="docutils literal">pos_order_return</tt> in the back
-office part, but not in front office part (implemented in this this module).</li>
+<li>This module contains a <em>basic return</em> feature that makes possible returning
+the same order over and over. If you need a full return feature, you can
+install <tt class="docutils literal">pos_order_return</tt> (only back office implementation), or
+<tt class="docutils literal">pos_order_return_traceability</tt>, which also covers front office support.</li>
 </ul>
 </div>
 <div class="section" id="bug-tracker">
@@ -458,6 +457,7 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 <li>Carlos Martínez &lt;<a class="reference external" href="mailto:carlos&#64;domatix.com">carlos&#64;domatix.com</a>&gt;</li>
 <li>Pierrick Brun &lt;<a class="reference external" href="mailto:pierrick.brun&#64;akretion.com">pierrick.brun&#64;akretion.com</a>&gt;</li>
 <li>Iván Todorovich &lt;<a class="reference external" href="mailto:ivan.todorovich&#64;druidoo.io">ivan.todorovich&#64;druidoo.io</a>&gt;</li>
+<li>David Alonso &lt;<a class="reference external" href="mailto:david.alonso&#64;solvos.es">david.alonso&#64;solvos.es</a>&gt;</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
