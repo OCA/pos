@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 9.0c\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,12 +14,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_automatic_validation
-#: model:ir.model.fields,field_description:pos_automatic_validation.field_account_journal_iface_automatic_validation
+#: model:ir.model.fields,field_description:pos_automatic_validation.field_account_journal__iface_automatic_validation
 msgid "Automatic Validation"
 msgstr ""
 
 #. module: pos_automatic_validation
-#: model:ir.model.fields,help:pos_automatic_validation.field_account_journal_iface_automatic_validation
+#: model:ir.model.fields,help:pos_automatic_validation.field_account_journal__iface_automatic_validation
 msgid "Check this if this journal validate the sale automatically if payment is completed."
 msgstr ""
 
