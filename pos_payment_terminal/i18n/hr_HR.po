@@ -21,6 +21,11 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_config__iface_payment_terminal
+msgid "A payment terminal is available on the Proxy"
+msgstr ""
+
+#. module: pos_payment_terminal
 #: selection:account.journal,pos_terminal_payment_mode:0
 msgid "Card"
 msgstr "Kartica"
@@ -36,9 +41,17 @@ msgid "Journal"
 msgstr "Dnevnik"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
-msgid "Payment Mode"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_config__iface_payment_terminal
+#: model_terms:ir.ui.view,arch_db:pos_payment_terminal.view_pos_config_form
+#, fuzzy
+#| msgid "Payment Mode"
+msgid "Payment Terminal"
 msgstr "Način plaćanja"
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
 
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_order
@@ -58,6 +71,11 @@ msgid "Start transaction"
 msgstr "Započni transakciju"
 
 #. module: pos_payment_terminal
-#: model:ir.model,name:pos_payment_terminal.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
+#, fuzzy
+#| msgid "Payment Mode"
+msgid "Terminal Payment Mode"
+msgstr "Način plaćanja"
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
