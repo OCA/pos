@@ -6,51 +6,53 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-02-12 10:13+0000\n"
+"Last-Translator: Luisa Miguéns (Solvos) <luisa.miguens@solvos.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_order_return_traceability
 #. openerp-web
 #: code:addons/pos_order_return_traceability/static/src/js/widgets.js:63
 #, python-format
 msgid "* Invalid quantity line(s): "
-msgstr ""
+msgstr "* Línea(s) con cantidad no válida: "
 
 #. module: pos_order_return_traceability
 #. openerp-web
 #: code:addons/pos_order_return_traceability/static/src/js/widgets.js:68
 #, python-format
 msgid "* Non-returnable line(s): "
-msgstr ""
+msgstr "* Línea(s) sin posibilidad de devolución: "
 
 #. module: pos_order_return_traceability
 #: model:ir.model.fields,field_description:pos_order_return_traceability.field_pos_order__is_returnable
 msgid "Is Returnable"
-msgstr ""
+msgstr "Se puede devolver"
 
 #. module: pos_order_return_traceability
 #. openerp-web
 #: code:addons/pos_order_return_traceability/static/src/js/widgets.js:60
 #, python-format
 msgid "Please check the following line(s):"
-msgstr ""
+msgstr "Por favor, compruebe la(s) siguiente(s) línea(s):"
 
 #. module: pos_order_return_traceability
 #: model:ir.model,name:pos_order_return_traceability.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Pedidos de Punto de Venta"
 
 #. module: pos_order_return_traceability
 #. openerp-web
 #: code:addons/pos_order_return_traceability/static/src/js/widgets.js:73
 #, python-format
 msgid "Return lines error(s)"
-msgstr ""
+msgstr "Errores en líneas de devolución"
 
 #. module: pos_order_return_traceability
 #. openerp-web
