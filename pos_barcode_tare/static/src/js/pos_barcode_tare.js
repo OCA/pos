@@ -8,10 +8,12 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
     var utils = require('web.utils');
+    var formats = require('web.formats');
 
     var QWeb = core.qweb;
     var _t = core._t;
     var round_pr = utils.round_precision;
+    var round_di = utils.round_decimals;
     var tare_barcode_type = "tare";
 
     // Define functions used to do unit operation.
@@ -27,7 +29,9 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     var convert_mass = function (mass, from_unit, to_unit) {
         // There is no conversion from one category to another.
         if (from_unit.category_id[0] !== to_unit.category_id[0]) {
-            return;
+            throw new Error(_.str.sprintf(
+                _t("We can not cast a weight in %s into %s."),
+                from_unit.name, to_unit.name));
         }
         // No need to convert as weights are measured in same unit.
         if (from_unit.id === to_unit.id) {
@@ -46,8 +50,13 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         } else {
             result /= to_unit.factor_inv;
         }
-        // Round the result.
-        return round_pr(result || 0, to_unit.rounding);
+
+        if (to_unit.rounding) {
+            // Return the rounded result if needed.
+            return round_pr(result || 0, to_unit.rounding);
+        }
+
+        return result || 0;
     };
 
     // This configures read action for tare barcode. A tare barcode contains a
@@ -56,47 +65,15 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     screens.ScreenWidget.include(
         {
             barcode_tare_action: function (code) {
-                var order = this.pos.get_order();
-                // Computes the paid weight
-                var last_order_line = order.get_last_orderline();
-                var total_weight = last_order_line.get_quantity();
-                var tare = code.value;
-                var product_unit = last_order_line.get_unit();
-                // Try to convert tare in KG into product UOM.
-                var kg_unit = get_unit(this.pos, "kg");
-                var tare_in_product_uom =
-                    convert_mass(tare, kg_unit, product_unit);
-                // Alert when mass conversion failed.
-                if (typeof tare_in_product_uom === 'undefined') {
-                    this.gui.show_popup('error',
-                        {'title': _t('Mismatch in units of measure'),
-                            'body':
-                            _.str.sprintf(
-                                _t('You scanned a tare barcode. ' +
-                                'The tare should apply to "%s %s of %s". '+
-                                'We do not know how to convert kg to %s. ' +
-                                'We can not apply the tare to this product.'),
-                                total_weight,
-                                product_unit.name,
-                                last_order_line.product.display_name,
-                                product_unit.name)});
-                    return;
-                }
-                // Computes the paid (net) weight.
-                var paid_weight = total_weight - tare_in_product_uom;
-                // Throws a warning popup if the price is negative.
-                if (paid_weight <= 0) {
-                    this.gui.show_popup('confirm',
-                        {'title': _t('Negative weight'),
-                            'body':  _t('The calculated weight is negative. ' +
-                        'Did you scan the correct tare label?'),
-                            confirm: function () {
-                                // Operator can choose to ignore the warning.
-                                last_order_line.set_quantity(paid_weight);
-                            }});
-                } else {
-                    // Updates the prices.
-                    last_order_line.set_quantity(paid_weight);
+                try {
+                    var order = this.pos.get_order();
+                    var last_order_line = order.get_last_orderline();
+                    var tare_weight = code.value;
+                    last_order_line.set_tare(tare_weight);
+                } catch (error) {
+                    var title = _t("We can not apply this tare barcode.");
+                    var popup = {title: title, body: error.message};
+                    this.gui.show_popup('error', popup);
                 }
             },
             // Setup the callback action for the "weight" barcodes.
@@ -267,4 +244,95 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
     gui.define_screen({name:'tare', widget: TareScreenWidget});
 
+    // Update Orderline model
+    var _super_ = models.Orderline.prototype;
+
+    models.Orderline = models.Orderline.extend({
+        initialize: function (session, attributes) {
+            this.tareQuantity = 0;
+            this.tareQuantityStr = '0';
+            return _super_.initialize.call(this, session, attributes);
+        },
+        init_from_JSON: function (json) {
+            _super_.init_from_JSON.call(this, json);
+            this.tareQuantity = json.tareQuantity ||0;
+            this.tareQuantityStr = json.tareQuantityStr ||'0';
+        },
+        set_tare: function (quantity) {
+            this.order.assert_editable();
+
+            // Prevent to apply multiple times a tare to the same product.
+            if (this.get_tare() > 0) {
+                throw new RangeError(_.str.sprintf(
+                    _t("The tare (%s) is already set for the " +
+                    "product \"%s\". We can not re-apply a tare to this " +
+                    "product."),
+                    this.get_tare_str_with_unit(), this.product.display_name));
+            }
+
+            var self = this;
+            // This function is used to format the quantity into string
+            // according to the rounding specifications.
+            var stringify = function (qty) {
+                var unit = self.get_unit();
+                if (unit.rounding) {
+                    var q = round_pr(qty, unit.rounding);
+                    var decimals = self.pos.dp['Product Unit of Measure'];
+                    return formats.format_value(
+                        round_di(q, decimals),
+                        {type: 'float', digits: [69, decimals]});
+                }
+                return qty.toFixed(0);
+            };
+            // We convert the tare that is always measured in kilogrammes into
+            // the unit of measure for this order line.
+            var kg = get_unit(this.pos, "kg");
+            var tare = parseFloat(quantity) || 0;
+            var unit = this.get_unit();
+            var tare_in_product_uom = convert_mass(tare, kg, unit);
+            var tare_in_product_uom_string = stringify(tare_in_product_uom);
+            var net_quantity = this.get_quantity() - tare_in_product_uom;
+            // This method fails when the net weight is negative.
+            if (net_quantity <= 0) {
+                throw new RangeError(_.str.sprintf(
+                    _t("The tare weight is %s %s this is greater or equal to " +
+                    "the product weight %s. We can not apply this tare."),
+                    tare_in_product_uom_string, unit.name,
+                    this.get_quantity_str_with_unit()));
+            }
+            // Update tare value.
+            this.tareQuantity = tare_in_product_uom;
+            this.tareQuantityStr = tare_in_product_uom_string;
+            // Update the quantity with the new weight net of tare quantity.
+            this.set_quantity(net_quantity);
+            this.trigger('change', this);
+        },
+        get_tare: function () {
+            return this.tareQuantity;
+        },
+        get_tare_str: function () {
+            return this.tareQuantityStr;
+        },
+        get_tare_str_with_unit: function () {
+            var unit = this.get_unit();
+            return this.tareQuantityStr + ' ' + unit.name;
+        },
+        export_as_JSON: function () {
+            var json = _super_.export_as_JSON.call(this);
+            json.tareQuantity = this.get_tare();
+            json.tareQuantityStr = this.get_tare_str();
+            return json;
+        },
+        clone: function () {
+            var orderline = _super_.clone.call(this);
+            orderline.tareQuantity = this.tareQuantity;
+            orderline.tareQuantityStr = this.tareQuantityStr;
+            return orderline;
+        },
+        export_for_printing: function () {
+            var result = _super_.export_for_printing.call(this);
+            result.tare_quantity = this.get_tare();
+            return result;
+        },
+    });
 });
