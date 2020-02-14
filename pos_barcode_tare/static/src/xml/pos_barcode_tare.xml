@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TareScreenWidget">
+        <div class='tare-screen screen'>
+            <div class='screen-content'>
+                <div class='top-content'>
+                     <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1>Print a tare label</h1>
+                </div>
+                <div class="centered-content">
+                    <div class="pos-tare-label-container"></div>
+                    <div class="pos-directions-for-user">
+                        Set the pot on the scale and check the weight above
+                    </div>
+                    <div class='print-label'>
+                        Print
+                        <i class='fa fa-angle-double-right'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PosTareLabel">
+        <div class="pos-center-align">
+            <div class="pos-tare-paper">
+                <div class="pos-tare-label">
+                    <img t-att-src="'/report/barcode/EAN13/' + widget.get_barcode_data()" />
+                    <span class="caption">tare = <t t-esc="widget.get_weight()" />kg</span>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="TareScreenButton">
+        <t t-if="widget.pos.config.iface_tare_label">
+            <span class="control-button">
+            <i class="fa fa-print"></i>
+            Print a tare label
+        </span>
+        </t>
+    </t>
+
+    <t t-name="Orderline">
+        <li t-attf-class="orderline #{ line.selected ? 'selected' : '' }">
+            <span class="product-name">
+                <t t-esc="line.get_product().display_name"/>
+            </span>
+            <span class="price">
+                <t t-esc="widget.format_currency(line.get_display_price())"/>
+            </span>
+            <ul class="info-list">
+                <t t-if="line.get_quantity_str() !== '1' || line.selected ">
+                    <li class="info">
+                        <em>
+                            <t t-esc="line.get_quantity_str()" />
+                        </em>
+                        <t t-esc="line.get_unit().name" />
+                        at
+                        <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')" />
+                        /
+                        <t t-esc="line.get_unit().name" />
+                    </li>
+                </t>
+                <t t-if="line.get_discount_str() !== '0'">
+                    <li class="info">
+                        With a
+                        <em>
+                            <t t-esc="line.get_discount_str()" />%
+                        </em>
+                        discount
+                    </li>
+                </t>
+                <t t-if="line.get_tare_str() !== '0'">
+                    <li class="info">
+                        tare = <t t-esc="line.get_tare_str_with_unit()" />
+                    </li>
+                </t>
+            </ul>
+        </li>
+    </t>
+
+</templates>

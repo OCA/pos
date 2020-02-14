@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record model="ir.ui.view" id="view_pos_config_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group[@name='features']" position="inside">
+                <separator string="Loose good options" colspan="4"/>
+                <group>
+                    <field name="iface_tare_label" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

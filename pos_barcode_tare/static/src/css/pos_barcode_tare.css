@@ -1,0 +1,111 @@
+.pos .print-label.disabled {
+    background: #e2e2e2;
+    border: solid 1px #BEBEBE;
+    opacity: 0.5;
+    cursor: default;
+    color: inherit;
+}
+
+.pos .pos-tare-label {
+    width: 300px;
+    background-color: white;
+    margin: 20px;
+    padding: 15px;
+    font-size: 21px;
+    padding-bottom:30px;
+    display: inline-block;
+    font-family: "Inconsolata";
+    border: solid 1px rgb(220,220,220);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.pos .pos-tare-label .caption {
+    display: block;
+}
+
+.pos .tare-screen .pos-directions-for-user {
+    font-size: 25px;
+    margin: 8px;
+    text-align: center;
+    line-height: 2;
+}
+
+.pos .tare-screen .pos-directions-for-user span {
+    width:100px;
+    height: 50px;
+    background-color: rgb(49,174,218);
+    color: white !important;
+    font-weight: bold;
+    border: solid 1px black;
+    border-radius: 90% 30%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    vertical-align:middle;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pos .pos-tare-label img {
+    width: 50mm;
+    height: 45mm;
+}
+
+.pos .tare-screen .print-label {
+    text-align: center;
+    font-size: 32px;
+    background: rgb(110,200,155);
+    color: white;
+    border-radius: 3px;
+    padding: 16px;
+    margin: 16px;
+    cursor: pointer;
+}
+
+@media print {
+    .pos .tare-screen header,
+    .pos .tare-screen .top-content,
+    .pos .tare-screen .centered-content .print-label,
+    .pos .tare-screen .pos-directions-for-user {
+        display: none !important;
+    }
+
+    .pos .tare-screen .centered-content {
+        position: static;
+        border: none;
+    }
+
+    .pos .pos-tare-label .caption {
+        display: block;
+    }
+
+    .pos .pos-tare-paper {
+        margin: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 99% !important;
+        height: 99% !important;
+        display: block;
+        position: fixed;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .pos-tare-label img {
+        width: 27mm !important;
+        height: 21mm !important;
+        display: run-in;
+    }
+
+    .pos .pos-tare-label {
+        margin: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        position: fixed !important;
+        border: none !important;
+        font-size: 10px !important;
+    }
+}
