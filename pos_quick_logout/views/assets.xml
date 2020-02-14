@@ -6,12 +6,16 @@
 -->
 
 <odoo>
+
     <template id="assets_frontend" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_quick_logout/static/src/js/pos_quick_logout.js"/>
+            <script type="text/javascript"
+                src="/pos_quick_logout/static/src/js/pos_quick_logout.js"/>
         </xpath>
         <xpath expr="//link[@id='pos-stylesheet']" position="after">
-            <link rel="stylesheet" href="/pos_quick_logout/static/src/css/pos_quick_logout.css" />
+            <link rel="stylesheet"
+                href="/pos_quick_logout/static/src/css/pos_quick_logout.css" />
         </xpath>
     </template>
+
 </odoo>
