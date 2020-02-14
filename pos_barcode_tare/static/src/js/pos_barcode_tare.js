@@ -124,7 +124,13 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             var self = this;
             queue.schedule(function () {
                 return self.pos.proxy.scale_read().then(function (weight) {
-                    self.set_weight(weight);
+                    try {
+                        self.set_weight(weight);
+                    } catch (error) {
+                        var title = _t("Failed to read weight from scale.");
+                        var popup = {title: title, body: error.message};
+                        self.gui.show_popup('error', popup);
+                    }
                 });
             }, {duration:150, repeat: true});
             // Shows a barcode whose weight might be zero, but this is preferred
@@ -152,6 +158,16 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         set_weight: function (scale_measure) {
             var weight = scale_measure.weight;
             var unit = get_unit(this.pos, scale_measure.unit);
+
+            if (typeof unit === 'undefined') {
+                throw new Error(_.str.sprintf(
+                    _t("The scale sent a measure in %s unit. This unit of "+
+                     "measure (UOM) in not found in the point of sale. You " +
+                     "may need to create a new UOM named %s. The UOM name is "+
+                     "case sensitive."), scale_measure.unit,
+                    scale_measure.unit));
+            }
+
             if (weight > 0) {
                 this.weight_in_kg = convert_mass(weight, unit, this.kg_unit);
                 this.render_receipt();
@@ -174,7 +190,12 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // is a checksum, here symbolized by x.
             var padding_size = 5;
             var void_product_id = '0'.repeat(padding_size);
-            var weight_in_gram = weight * 10e2;
+            var weight_in_gram = weight * 1e3;
+
+            if (weight_in_gram >= Math.pow(10, padding_size)) {
+                throw new RangeError(_t("Maximum tare weight is 99.999kg"));
+            }
+
             // Weight has to be padded with zeros.
             var weight_with_padding = '0'.repeat(padding_size) + weight_in_gram;
             var padded_weight = weight_with_padding.substr(
@@ -295,7 +316,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             // This method fails when the net weight is negative.
             if (net_quantity <= 0) {
                 throw new RangeError(_.str.sprintf(
-                    _t("The tare weight is %s %s this is greater or equal to " +
+                    _t("The tare weight is %s %s, it's greater or equal to " +
                     "the product weight %s. We can not apply this tare."),
                     tare_in_product_uom_string, unit.name,
                     this.get_quantity_str_with_unit()));
