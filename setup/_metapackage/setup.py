@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo9-addon-pos_accented_search',
         'odoo9-addon-pos_access_right',
+        'odoo9-addon-pos_barcode_tare',
         'odoo9-addon-pos_customer_display',
         'odoo9-addon-pos_customer_required',
         'odoo9-addon-pos_empty_home',
