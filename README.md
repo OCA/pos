@@ -15,6 +15,7 @@ addon | version | summary
 --- | --- | ---
 [pos_accented_search](pos_accented_search/) | 9.0.0.0.2 | Point of Sale - Product search works regardless of accented characters
 [pos_access_right](pos_access_right/) | 9.0.1.0.0 | Point of Sale - Extra Access Right for certain actions
+[pos_barcode_tare](pos_barcode_tare/) | 9.0.0.0.1 | Point of Sale - Print and scan tare barecodes labels to sell loose goods.
 [pos_customer_display](pos_customer_display/) | 9.0.0.1.0 | Manage Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 9.0.1.0.0 | Point of Sale Require Customer
 [pos_empty_home](pos_empty_home/) | 9.0.1.0.0 | Hide products at the start of the Point of Sale
