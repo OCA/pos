@@ -29,7 +29,7 @@ msgstr "Retour"
 #: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:130
 #, python-format
 msgid "Failed to read weight from scale."
-msgstr "Failed to read weight from scale."
+msgstr "Echec lors de la lecture du poids depuis la balance"
 
 #. module: pos_barcode_tare
 #: model:product.uom,name:pos_barcode_tare.product_uom_kgm_dbg
