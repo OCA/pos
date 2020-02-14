@@ -11,6 +11,7 @@
     'website': "https://github.com/OCA/pos",
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
+    'demo': ['demo/pos_barcode_tare_demo.xml'],
     'data': [
         'pos_barcode_tare.xml',
         'views/pos_config_view.xml',
