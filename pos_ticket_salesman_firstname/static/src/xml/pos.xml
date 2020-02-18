@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="PosTicket">
+        <t t-jquery="div[class='receipt-user']" t-operation="replace">
+            <div class="receipt-user">
+                User: 
+                <t t-if="widget.pos.config.receipt_salesman_firstname" t-esc="widget.pos.get_cashier().firstname"/>
+                <t t-else="" t-esc="widget.pos.get_cashier().name"/>
+                <br />
+            </div>
+        </t>
+    </t>
+
+</templates>
