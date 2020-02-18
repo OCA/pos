@@ -19,4 +19,6 @@ odoo.define('pos_price_to_weight.screens', function (require) {
             });
         },
     });
+
+    return screens;
 });
