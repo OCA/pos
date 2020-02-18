@@ -9,6 +9,7 @@
     'author': "Le Nid, Odoo Community Association (OCA)",
     'website': "https://github.com/OCA/pos",
     'license': 'AGPL-3',
+    'maintainers': ['fkawala',],
     'depends': [
         'point_of_sale',
     ],
