@@ -78,6 +78,7 @@
     }
 
     .pos .pos-tare-label .caption {
+        text-overflow: ellipsis;
         display: block;
     }
 

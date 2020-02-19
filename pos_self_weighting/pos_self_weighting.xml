@@ -1,0 +1,8 @@
+<odoo>
+    <template id="assets_backend" name="pos_barcode_tare" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/pos_self_weighting/static/src/css/pos_self_weighting.css"/>
+                <script type="text/javascript" src="/pos_self_weighting/static/src/js/pos_self_weighting.js"></script>
+            </xpath>
+    </template>
+</odoo>

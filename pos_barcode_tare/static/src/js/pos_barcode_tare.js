@@ -1,9 +1,7 @@
 odoo.define('pos_barcode_tare.screens', function (require) {
 
     "use strict";
-    var chrome = require('point_of_sale.chrome');
     var core = require('web.core');
-    var devices = require('point_of_sale.devices');
     var gui = require('point_of_sale.gui');
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
@@ -67,9 +65,9 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             barcode_tare_action: function (code) {
                 try {
                     var order = this.pos.get_order();
-                    var last_order_line = order.get_last_orderline();
+                    var selected_order_line = order.get_selected_orderline();
                     var tare_weight = code.value;
-                    last_order_line.set_tare(tare_weight);
+                    selected_order_line.set_tare(tare_weight);
                 } catch (error) {
                     var title = _t("We can not apply this tare barcode.");
                     var popup = {title: title, body: error.message};
@@ -223,6 +221,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         },
         print_web: function () {
             window.print();
+            // TODO check this
             this.pos.get_order()._printed = true;
         },
         print: function () {
@@ -267,8 +266,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
     // Update Orderline model
     var _super_ = models.Orderline.prototype;
-
-    models.Orderline = models.Orderline.extend({
+    var OrderLineWithTare = models.Orderline.extend({
         initialize: function (session, attributes) {
             this.tareQuantity = 0;
             this.tareQuantityStr = '0';
@@ -356,4 +354,9 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             return result;
         },
     });
+
+    models.Orderline = OrderLineWithTare;
+
+    return {TareScreenWidget: TareScreenWidget,
+        OrderLineWithTare: OrderLineWithTare};
 });

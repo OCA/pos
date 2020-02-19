@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="SelfServiceWidgetHome">
+        <div class='self-service-screen screen'>
+            <div class='screen-content'>
+                <div class='left-content pc33'>
+                    <div class="centered">
+                        <div class='big-button green tare'>
+                            Tare<br/>a container
+                            <span class='ico foodbox' />
+                         </div>
+                    </div>
+                </div>
+                <div class='left-content middle'>
+                    <div class="centered">
+                        <div class='big-button red scan'>
+                            Weight a product in a container
+                            <span class='ico foodinbox' />
+                         </div>
+                    </div>
+                </div>
+                <div class='right-content pc33'>
+                    <div class="centered">
+                        <div class='big-button blue weight'>
+                            Weight<br/>a product
+                            <span class='ico scale' />
+                         </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+    </t>
+
+    <t t-name="SelfServiceProduct">
+        <div class="self-product-screen screen">
+            <div class="leftpane">
+                <div class='window'>
+                    <div class='subwindow'>
+                        <div class='subwindow-container'>
+                            <div class='subwindow-container-fix'>
+                                <div class="placeholder-OrderWidget"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='subwindow collapsed'>
+                        <div class='subwindow-container'>
+                            <div class='subwindow-container-fix pads'>
+                                <div class="placeholder-ActionpadWidget"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rightpane">
+                <table class="layout-table">
+                    <tr class="header-row">
+                        <td class="header-cell">
+                            <div class="placeholder-SelfServiceSearchWidget"></div>
+                        </td>
+                    </tr>
+                    <tr class="content-row">
+                        <td class="content-cell">
+                            <div class="content-container">
+                                <span class="placeholder-ProductListWidget" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="placeholder-PriceLabelsWidget"></div>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceActionpadWidget">
+        <div class="actionpad">
+            <button class='button back'>
+                <i class='fa fa-angle-double-left'></i>
+                Back
+            </button>
+            <button class='button print'>
+                <div class='print-circle'>
+                    <i class='fa fa-chevron-right' />
+                </div>
+                Validate
+            </button>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceSearchWidget">
+        <div class="searchbox">
+            <input type="text" placeholder="&#xF002; Enter the name of product to be weighted"/>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceTareScanWidget">
+        <div class='self-tare-scan-screen screen'>
+            <div class='screen-content'>
+                <div class='top-content'>
+                     <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1>Scan a tare label</h1>
+                </div>
+                <div class="centered-content">
+                    <div class="pos-directions-for-user">
+                        Scan the tare label of your pot, it looks like the image below.
+                    </div>
+                    <div class="pos-tare-label-container"></div>
+                    <div class="pos-directions-for-user">
+                        Once the tare label scanned, the product selection screen will be displayed.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PosPriceLabels">
+        <div>
+            <div class="labels"></div>
+        </div>
+    </t>
+
+    <t t-name="PosLabels">
+        <t t-foreach='orderlines' t-as='line'>
+            <t t-set="export" t-value="line.export_for_printing()" />
+            <div class="label">
+                <span class="caption"><t t-esc="export.product_name" /></span>
+                <img t-att-src="'/report/barcode/EAN13/' + line.get_barcode_data()" />
+                <span class="caption">
+                    <t t-if="widget.pos.currency.position == 'before'"><t t-esc="export.price_with_tax" /></t>
+                    <t t-esc="export.price_with_tax" />
+                    <t t-if="widget.pos.currency.position == 'after'"><t t-esc="widget.pos.currency.symbol"/></t>
+                    (<t t-esc="export.quantity" /><t t-esc="export.unit_name" />)
+                </span>
+            </div>
+        </t>
+    </t>
+
+</templates>
