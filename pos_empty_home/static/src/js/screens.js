@@ -12,12 +12,12 @@ odoo.define('pos_empty_home.screens', function (require) {
     var screens = require('point_of_sale.screens');
 
     screens.ProductListWidget.include({
-        renderElement: function() {
-            this._super();
-            if (this.product_list.length == 0) {
-                this.el.querySelector('.product-list-empty-home').style['display'] = 'block';
+        set_product_list: function(product_list){
+            this._super(product_list);
+            if (product_list.length) {
+               $(this.el.querySelector('.product-list-empty-home')).hide();
             } else {
-                this.el.querySelector('.product-list-empty-home').style['display'] = 'none';
+                $(this.el.querySelector('.product-list-empty-home')).show();
             }
         },
     });
