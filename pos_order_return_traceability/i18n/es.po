@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_order_return_traceability
+# 	* pos_order_return_traceability
 #
 msgid ""
 msgstr ""
@@ -18,14 +18,14 @@ msgstr ""
 
 #. module: pos_order_return_traceability
 #. openerp-web
-#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:63
+#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:64
 #, python-format
 msgid "* Invalid quantity line(s): "
 msgstr "* Línea(s) con cantidad no válida: "
 
 #. module: pos_order_return_traceability
 #. openerp-web
-#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:68
+#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:69
 #, python-format
 msgid "* Non-returnable line(s): "
 msgstr "* Línea(s) sin posibilidad de devolución: "
@@ -37,7 +37,7 @@ msgstr "Se puede devolver"
 
 #. module: pos_order_return_traceability
 #. openerp-web
-#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:60
+#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:61
 #, python-format
 msgid "Please check the following line(s):"
 msgstr "Por favor, compruebe la(s) siguiente(s) línea(s):"
@@ -49,7 +49,7 @@ msgstr "Pedidos de Punto de Venta"
 
 #. module: pos_order_return_traceability
 #. openerp-web
-#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:73
+#: code:addons/pos_order_return_traceability/static/src/js/widgets.js:74
 #, python-format
 msgid "Return lines error(s)"
 msgstr "Errores en líneas de devolución"
