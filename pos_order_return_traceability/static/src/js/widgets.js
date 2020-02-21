@@ -6,6 +6,7 @@ odoo.define('pos_order_return_traceability.widgets', function (require) {
     "use strict";
 
     var core = require('web.core');
+    var _t = core._t;
     var screens = require('point_of_sale.screens');
     var order_mgmt_widgets = require('pos_order_mgmt.widgets');
 
