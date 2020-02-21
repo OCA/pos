@@ -18,7 +18,7 @@ msgstr ""
 
 #. module: pos_empty_home
 #. openerp-web
-#: code:addons/pos_empty_home/static/src/xml/pos_empty_home.xml:12
+#: code:addons/pos_empty_home/static/src/xml/pos_empty_home.xml:13
 #, python-format
 msgid ""
 "To select a product, please scan a barcode or search products by category or "
