@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-pos_empty_home',
         'odoo12-addon-pos_fix_search_limit',
         'odoo12-addon-pos_invoicing',
+        'odoo12-addon-pos_journal_image',
         'odoo12-addon-pos_margin',
         'odoo12-addon-pos_order_mgmt',
         'odoo12-addon-pos_order_return',
