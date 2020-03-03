@@ -10,9 +10,14 @@ class PosTicketMailTest(TransactionCase):
         self.ir_config_parameter = self.env['ir.config_parameter']
         self.PosOrder = self.env['pos.order']
         self.partner1 = self.env.ref('base.res_partner_1')
-        self.pos_config = self.env['pos.config'].create({
-            'name': 'test_pos_email',
-        })
+        self.posconfig = self.env['pos.config']
+        self.pos_config = self.posconfig.search([
+            ('name', '=', 'test_pos_email')
+        ], limit=1)
+        if not self.pos_config:
+            self.pos_config = self.posconfig.create({
+                'name': 'test_pos_email',
+            })
         self.res_users = self.env['res.users']
         self.pos_user = self.res_users.search([
             ('login', '=', 'pos_test_email')
@@ -26,7 +31,7 @@ class PosTicketMailTest(TransactionCase):
         self.pos_session = self.env['pos.session']
         self.PosSession = self.pos_session.search([
             ('user_id', '=', self.pos_user.id)
-        ])
+        ], limit=1)
         if not self.PosSession:
             self.PosSession = self.env['pos.session'].create({
                 'user_id': self.pos_user.id,
