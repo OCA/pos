@@ -9,7 +9,6 @@ _logger = logging.getLogger(__name__)
 
 
 class PosOrder(models.Model):
-
     _inherit = 'pos.order'
 
     email_status = fields.Selection([

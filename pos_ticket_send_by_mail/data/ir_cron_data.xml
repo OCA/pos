@@ -10,7 +10,6 @@
         <field name="model_id" ref="point_of_sale.model_pos_order"/>
         <field name="code">model._send_order_cron()</field>
         <field name="state">code</field>
-        <field name="args" eval="'()'" />
     </record>
 
 </odoo>
