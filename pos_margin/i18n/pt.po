@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_margin
+# 	* pos_margin
 #
 msgid ""
 msgstr ""
@@ -23,7 +23,9 @@ msgstr "Preço de Custo"
 
 #. module: pos_margin
 #: model:ir.model.fields,help:pos_margin.field_pos_order__margin
-msgid "It gives profitability by calculating the difference between the Unit Price and the cost price."
+msgid ""
+"It gives profitability by calculating the difference between the Unit Price "
+"and the cost price."
 msgstr ""
 "Fornece a rentabilidade pelo cálculo da diferença entre os preços de venda e "
 "de custo."
@@ -35,13 +37,20 @@ msgid "Margin"
 msgstr "Margem"
 
 #. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin_percent
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__margin_percent
+#, fuzzy
+#| msgid "Margin"
+msgid "Margin (%)"
+msgstr "Margem"
+
+#. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_rate
 msgid "Margin Rate"
 msgstr "Margem Percentual"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_total
-#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
 msgid "Margin Total"
 msgstr "Margem Total"
 
@@ -59,3 +68,8 @@ msgstr "Pedidos do Ponto de Venda"
 #: model:ir.model,name:pos_margin.model_report_pos_order
 msgid "Point of Sale Orders Report"
 msgstr "Relatório de Pedidos do Ponto de Venda"
+
+#. module: pos_margin
+#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
+msgid "Total"
+msgstr ""
