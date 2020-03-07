@@ -13,9 +13,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="arch" type="xml">
             <field name="amount_total" position="after">
                     <field name="margin" widget="monetary"/>
+                    <field name="margin_percent" widget="monetary"/>
             </field>
-            <xpath expr="//field[@name='lines']/tree/field[@name='price_unit']" position="after">
+            <xpath expr="//field[@name='lines']/tree/field[@name='discount']" position="after">
                 <field name="purchase_price" widget="monetary"/>
+                <field name="margin"/>
+                <field name="margin_percent"/>
             </xpath>
         </field>
     </record>
@@ -25,7 +28,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
         <field name="arch" type="xml">
             <field name="amount_total" position="before">
-                    <field name="margin" widget="monetary" sum="Margin Total"/>
+                    <field name="margin" widget="monetary" sum="Total"/>
+                    <field name="margin_percent" widget="monetary"/>
             </field>
         </field>
     </record>
