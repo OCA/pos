@@ -18,8 +18,8 @@ odoo.define('pos_timeout.models', function (require) {
         _save_to_server: function (orders, options) {
             // Get PoS Config Settings
             var timeout = this.config.pos_order_timeout;
-            if (timeout > 0) {
-                arguments[1].timeout = timeout * 1000;
+            if (timeout > 0 && orders && orders.length) {
+                arguments[1].timeout = timeout * 1000 * orders.length;
             }
             return PosModelParent._save_to_server.apply(this, arguments);
         },
