@@ -4,14 +4,13 @@ Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
 
-odoo.define('pos_check_session_state.pos_check_session_state', function (require){
+odoo.define('pos_check_session_state.chrome', function (require){
 
     "use strict";
-    var PopupWidget = require('point_of_sale.popups');
-    var gui = require('point_of_sale.gui');
-    var chrome = require('point_of_sale.chrome');
-
     var rpc = require('web.rpc');
+    var core = require('web.core');
+    var chrome = require('point_of_sale.chrome');
+    var _t = core._t;
 
     /*
         Overload build_widgets to add a check done every
@@ -42,8 +41,21 @@ odoo.define('pos_check_session_state.pos_check_session_state', function (require
             rpc.query(params)
             .then(function(sessions){
                 if (sessions[0].state !== 'opened') {
+                    var title = _t("Session not opened : ") + self.pos.pos_session.name;
+                    var body = _t("This PoS window will be closed and you'll have to open a new session.");
+                    if ((sessions[0].state) !== 'closing_control') {
+                        body = _t("The session you're working on is in closing control : ") + body;
+                    } else {
+                        body = _t("The session you're working on is closed : ") + body;
+                    }
                     // warn user if current session is not opened
-                    self.gui.show_popup('error-closed-session', {session_state: sessions[0].state});
+                    self.gui.show_popup('error', {
+                        'title': title,
+                        'body': body,
+                        cancel: function(){
+                            self.gui.close();
+                        },
+                    });
                     clearInterval(self.intervalIDCheckSessionState);
                 }
             })
@@ -53,27 +65,5 @@ odoo.define('pos_check_session_state.pos_check_session_state', function (require
             });
         }
     });
-
-    /*
-        Define : New ErrorClosedSessionPopupWidget Widget.
-        This pop up will be shown if the current pos.session of the PoS is not
-        in an 'open' state;
-        The check will be done depending on a parameter on the PoS config
-    */
-    var ErrorClosedSessionPopupWidget = PopupWidget.extend({
-        template: 'ErrorClosedSessionPopupWidget',
-
-        show: function(options){
-            this._super(options);
-            this.gui.play_sound('error');
-        },
-
-    });
-
-    gui.define_popup({name:'error-closed-session', widget: ErrorClosedSessionPopupWidget});
-
-    return {
-        ErrorClosedSessionPopupWidget: ErrorClosedSessionPopupWidget,
-    };
 
 });
