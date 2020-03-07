@@ -38,6 +38,14 @@ msgid "Margin"
 msgstr "Margine"
 
 #. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin_percent
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__margin_percent
+#, fuzzy
+#| msgid "Margin"
+msgid "Margin (%)"
+msgstr "Margine"
+
+#. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_rate
 #, fuzzy
 msgid "Margin Rate"
@@ -45,7 +53,6 @@ msgstr "Margine"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_total
-#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
 msgid "Margin Total"
 msgstr "Totale margine"
 
@@ -63,6 +70,11 @@ msgstr "Ordini punto vendita"
 #: model:ir.model,name:pos_margin.model_report_pos_order
 msgid "Point of Sale Orders Report"
 msgstr "Resoconto ordini punto vendita"
+
+#. module: pos_margin
+#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
+msgid "Total"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Lines of Point of Sale Orders"
