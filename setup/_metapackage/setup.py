@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo12-addon-pos_journal_image',
         'odoo12-addon-pos_margin',
         'odoo12-addon-pos_order_mgmt',
+        'odoo12-addon-pos_order_remove_line',
         'odoo12-addon-pos_order_return',
         'odoo12-addon-pos_order_return_traceability',
         'odoo12-addon-pos_partner_firstname',
