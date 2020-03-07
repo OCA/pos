@@ -9,7 +9,7 @@ Copyright (C) 2015-Today GRAP (http://www.grap.coop)
 
     <template id="assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_check_session_state/static/src/js/pos_check_session_state.js"></script>
+            <script type="text/javascript" src="/pos_check_session_state/static/src/js/chrome.js"/>
         </xpath>
     </template>
 
