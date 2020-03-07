@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo11-addon-pos_order_return',
         'odoo11-addon-pos_payment_entries_globalization',
         'odoo11-addon-pos_picking_delayed',
+        'odoo11-addon-pos_price_to_weight',
         'odoo11-addon-pos_session_pay_invoice',
         'odoo11-addon-pos_stock_picking_invoice_link',
         'odoo11-addon-pos_ticket_logo',
