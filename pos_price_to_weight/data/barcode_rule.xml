@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <data noupdate="1">
+
+        <record id="rule_price_to_weight" model="barcode.rule">
+            <field name="name">Price Barcodes (Computed Weight) 2 Decimals</field>
+            <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+            <field name="type">price_to_weight</field>
+            <field name="pattern">02.....{NNNDD}</field>
+            <field name="sequence">15</field>
+            <field name="encoding">ean13</field>
+        </record>
+
+    </data>
+
+</odoo>
