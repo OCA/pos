@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-15 20:54+0000\n"
-"PO-Revision-Date: 2019-07-15 20:54+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2020-03-09 12:13+0000\n"
+"Last-Translator: Simon Mas <simon.mas@druidoo.io>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
@@ -23,11 +24,9 @@ msgstr "Autoriser ?? dupliquer des commandes r??alis??es dans l'interface tactil
 
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-#, fuzzy
-#| msgid "Allows to return already done orders in the frontend"
 msgid "Allows to manage already done orders in the frontend."
 msgstr ""
-"Autoriser ?? rembourser des commandes r??alis??es dans l'interface tactile"
+"Autoriser ?? rembourser des commandes r??alis??es dans l'interface tactile."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
@@ -120,10 +119,8 @@ msgstr "Date"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
-#, fuzzy
-#| msgid "Duplicate Done Orders"
 msgid "Duplicate Orders"
-msgstr "Copier une commande r??alis??es"
+msgstr "Copier une commande r??alis??e"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
@@ -138,11 +135,14 @@ msgid ""
 "Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
 "none (it's still possible to load them by ticket code)."
 msgstr ""
+"Nombre maximum de commandes ?? charger dans le point de vente ?? son "
+"initialisation. Indiquer \"0\" pour n'en charger aucune (Il est toujours "
+"possible de les charger par une r??f??rence de commande)."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
 msgid "Order Management"
-msgstr ""
+msgstr "Gestion des commandes"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
@@ -195,7 +195,7 @@ msgstr "Commandes rembours??es"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
 msgid "Refund Orders Quantity"
-msgstr "Nombre de remboursement"
+msgstr "Nombre de remboursements"
 
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
