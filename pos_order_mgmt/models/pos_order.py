@@ -136,6 +136,7 @@ class PosOrder(models.Model):
             'qty': order_line.qty,
             'price_unit': order_line.price_unit,
             'discount': order_line.discount,
+            'pack_lot_names': order_line.pack_lot_ids.mapped('lot_name'),
         }
 
     @api.multi
