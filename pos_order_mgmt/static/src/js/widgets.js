@@ -13,11 +13,25 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
     var gui = require('point_of_sale.gui');
     var chrome = require('point_of_sale.chrome');
     var pos = require('point_of_sale.models');
+    var PaymentScreenWidget = screens.PaymentScreenWidget;
 
     var QWeb = core.qweb;
     var ScreenWidget = screens.ScreenWidget;
     var DomCache = screens.DomCache;
 
+    PaymentScreenWidget.include({
+        validate_order: function(force_validation) {
+            var order = this.pos.get_order();
+            order.get_orderlines().forEach(function (orderline) {
+                if (orderline.pack_lot_lines)
+                {
+                    orderline.pack_lot_lines.remove_empty_model();
+                    orderline.trigger('change', orderline);
+                }
+            });
+            this._super(force_validation);
+        },
+    });
     screens.ReceiptScreenWidget.include({
         render_receipt: function () {
             if (!this.pos.reloaded_order) {
@@ -210,6 +224,15 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
             order.trigger('change');
             this.pos.get('orders').add(order);
             this.pos.set('selectedOrder', order);
+            order.get_orderlines().forEach(function (orderline) {
+                if (orderline.pack_lot_lines)
+                {
+                    var PacklotlineCollection = pos.Packlotline;
+                    orderline.pack_lot_lines.add(new PacklotlineCollection({'lot_name': orderline.return_lot_no}, {'order_line': orderline}));
+                    order.save_to_db();
+                    orderline.trigger('change', orderline);
+                }
+            });
             return order;
         },
 
@@ -324,12 +347,14 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                 // Invert line quantities
                 qty *= -1;
             }
-
             return {
                 price: line.price_unit,
                 quantity: qty,
                 discount: line.discount,
                 merge: false,
+                extras: {
+                    return_lot_no: line.lot_name,
+                },
             }
 
         },

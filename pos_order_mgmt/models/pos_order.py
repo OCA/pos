@@ -131,11 +131,15 @@ class PosOrder(models.Model):
     @api.multi
     def _prepare_done_order_line_for_pos(self, order_line):
         self.ensure_one()
+        lot_name = ''
+        if order_line.pack_lot_ids:
+            lot_name = order_line.pack_lot_ids[0].lot_name
         return {
             'product_id': order_line.product_id.id,
             'qty': order_line.qty,
             'price_unit': order_line.price_unit,
             'discount': order_line.discount,
+            'lot_name': lot_name,
         }
 
     @api.multi
