@@ -26,6 +26,7 @@ class POSBankStatementUpdateClosingBalance(models.TransientModel):
             "balance_start": statement.balance_start,
             "total_entry_encoding": statement.total_entry_encoding,
             "currency_id": statement.currency_id.id,
+            "pos_move_reason_id": statement.journal_id.pos_move_reason_id.id,
         }
 
     @api.model
@@ -53,11 +54,13 @@ class POSBankStatementUpdateClosingBalance(models.TransientModel):
         return res
 
     @api.model
-    def _prepare_cash_box_journal(self, item):
+    def _prepare_wizard_pos_move_reason(self, item):
         return {
+            'move_reason_id':
+                item.statement_id.journal_id.pos_move_reason_id.id,
             'amount': abs(item.difference),
-            'name': _('Out'),
-            "journal_id": item.journal_id.id,
+            'journal_id': item.journal_id.id,
+            'name': _("Ending balance adjustment")
         }
 
     @api.multi
@@ -66,17 +69,19 @@ class POSBankStatementUpdateClosingBalance(models.TransientModel):
         for item in self.item_ids:
             if item.difference:
                 if item.difference > 0.0:
-                    model = "cash.box.journal.in"
+                    default_move_type = "income"
                 else:
-                    model = "cash.box.journal.out"
+                    default_move_type = "expense"
                 wizard = (
-                    self.env[model]
+                    self.env["wizard.pos.move.reason"]
                         .with_context(
                         active_model="pos.session",
-                        active_ids=self.session_id.ids
-                    ).create(self._prepare_cash_box_journal(item))
+                        active_ids=self.session_id.ids,
+                        active_id=self.session_id.id,
+                        default_move_type=default_move_type,
+                    ).create(self._prepare_wizard_pos_move_reason(item))
                 )
-                wizard.run()
+                wizard.apply()
             item.statement_id.balance_end_real = item.balance_end_real
         return True
 
@@ -111,6 +116,10 @@ class BankStatementLineUpdateEndingBalanceLine(models.TransientModel):
     currency_id = fields.Many2one(
         comodel_name='res.currency',
         related='statement_id.currency_id'
+    )
+    pos_move_reason_id = fields.Many2one(
+        comodel_name='pos.move.reason',
+        string='Reason',
     )
 
     def _compute_balance_end(self):

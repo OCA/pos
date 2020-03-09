@@ -11,7 +11,7 @@
     'website': 'http://www.github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
-        'pos_cash_box_journal',
+        'pos_cash_move_reason',
     ],
     'data': [
         'wizards/pos_update_statement_closing_balance.xml',

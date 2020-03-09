@@ -8,3 +8,7 @@ class AccountJournal(models.Model):
 
     pos_control_ending_balance = fields.Boolean(
         'Control ending balance in POS')
+    pos_move_reason_id = fields.Many2one(
+        string='Default reason POS adjustments',
+        comodel_name='pos.move.reason',
+    )

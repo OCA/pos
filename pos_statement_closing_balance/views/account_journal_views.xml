@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="account.view_account_journal_form"/>
         <field name="arch" type="xml">
             <field name="type" position="after">
-                <field name="pos_control_ending_balance"/>
+                <field name="pos_control_ending_balance" attrs="{'invisible':[('journal_user', '=', False)]}"/>
+                <field name="pos_move_reason_id" attrs="{'invisible':[('pos_control_ending_balance', '=', False)]}"/>
             </field>
         </field>
     </record>
