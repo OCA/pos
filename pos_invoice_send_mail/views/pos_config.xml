@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_journal_id']/parent::div" position="after">
+                <div class="row">
+                    <label for="iface_invoice_mail" class="col-lg-3 o_light_label"/>
+                    <field name="iface_invoice_mail"/>
+                </div>
+                <div class="row" attrs="{'invisible': [('iface_invoice_mail', '=', False)]}">
+                    <label string="Email Template" for="invoice_mail_template_id" class="col-lg-3 o_light_label"/>
+                    <field name="invoice_mail_template_id" attrs="{'required': [('iface_invoice_mail', '=', True)]}"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

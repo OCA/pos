@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="PaymentScreenWidget">
+        <t t-jquery="t[t-if='widget.pos.config.module_account'] t[t-if='widget.pos.get_order()']" t-operation="append">
+            <t t-if="widget.pos.config.iface_invoice_mail and widget.pos.config.invoice_mail_template_id">
+                <div t-attf-class='button js_send_mail #{ widget.pos.get_order().is_to_send_mail() ? "highlight" : ""} '>
+                    <i class='fa fa-envelope-open-o' /> Send Invoice by Email
+                </div>
+            </t>
+        </t>
+    </t>
+
+</templates>
