@@ -385,7 +385,8 @@ odoo.define('pos_self_weighting.screens', function (require) {
         get_barcode_data: function () {
             // Pad the values to match the EAN13 format.
             var padding_size = 5;
-            var product_base_code = this.product.barcode.substr(0, 7);
+            var product_barcode = this.product.barcode || "0".repeat(13);
+            var product_base_code = product_barcode.substr(0, 7);
             var unit = get_unit(this.pos, this.product.uom_id[1]);
             var rounding = unit.rounding;
             var product_qty_in_gram = this.get_quantity() * 1e3;

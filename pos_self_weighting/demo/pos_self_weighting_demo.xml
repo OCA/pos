@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="product_uom_kgm_dbg" model="product.uom">
+        <field name="category_id" ref="product.product_uom_categ_kgm"/>
+        <field name="name">Kg</field>
+        <field name="factor" eval="1"/>
+        <field name="rounding" eval="0.001"/>
+    </record>
     <record id="product_price_to_weight_barcode" model="product.product">
         <field name="name">Apples (with weight barcode)</field>
         <field name="barcode">2112345000008</field>
         <field name="list_price">1.50</field>
-        <field name="uom_id" ref="uom.product_uom_kgm"/>
-        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_id" ref="product_uom_kgm_dbg"/>
+        <field name="uom_po_id" ref="product_uom_kgm_dbg"/>
     </record>
 </odoo>
