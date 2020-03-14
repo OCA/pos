@@ -4,11 +4,14 @@ odoo.define('pos_self_weighting.screens', function (require) {
     var chrome = require('point_of_sale.chrome');
     var core = require('web.core');
     var gui = require('point_of_sale.gui');
+    var utils = require('web.utils');
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
     var tare = require('pos_barcode_tare.screens');
 
     var _t = core._t;
+    var round_pr = utils.round_precision;
+    var get_unit = tare.get_unit;
     var QWeb = core.qweb;
 
     /* Widgets */
@@ -372,37 +375,24 @@ odoo.define('pos_self_weighting.screens', function (require) {
     models.Orderline = models.Orderline.extend({
         pad_data: function (padding_size, data) {
             // For padding size = 5, this function transforms 123 into 00123
-            var padded = '0'.repeat(padding_size) + data;
+            var data_str = data.toString();
+            if (data_str.length >= padding_size) {
+                return data_str;
+            }
+            var padded = '0'.repeat(padding_size) + data_str;
             return padded.substr(padded.length - padding_size);
-        },
-        get_barcode_prefix: function (barcode_rule_name) {
-            var barcode_pattern = this.get_barcode_pattern(barcode_rule_name);
-            return barcode_pattern.substr(0, 2);
-        },
-        get_barcode_pattern: function (barcode_rule_name) {
-            // Search barcode pattern in the barcode nomenclature / rules.
-            var rules = this.get_barcode_rules();
-            var rule = rules.filter(
-                function (r) {
-                    // We select the first (smallest sequence ID) barcode rule
-                    // with the expected type.
-                    return r.type === barcode_rule_name;
-                })[0];
-            return rule.pattern;
-        },
-        get_barcode_rules: function () {
-            return this.pos.barcode_reader.barcode_parser.nomenclature.rules;
         },
         get_barcode_data: function () {
             // Pad the values to match the EAN13 format.
             var padding_size = 5;
-            var product_id = this.pad_data(padding_size, this.product.id);
-            var price_in_cents = this.get_price_with_tax() * 100;
-            var price = this.pad_data(padding_size, price_in_cents);
+            var product_base_code = this.product.barcode.substr(0, 7);
+            var unit = get_unit(this.pos, this.product.uom_id[1]);
+            var rounding = unit.rounding;
+            var product_qty_in_gram = this.get_quantity() * 1e3;
+            var product_qty_round = round_pr(product_qty_in_gram, rounding);
+            var qty = this.pad_data(padding_size, product_qty_round);
             // Builds the barcode using a placeholder checksum.
-            var barcode = this.get_barcode_prefix("price_to_weight")
-                .concat(product_id, price)
-                .concat(0);
+            var barcode = product_base_code.concat(qty, 0);
             // Compute checksum.
             var barcode_parser = this.pos.barcode_reader.barcode_parser;
             var checksum = barcode_parser.ean_checksum(barcode);
@@ -411,8 +401,19 @@ odoo.define('pos_self_weighting.screens', function (require) {
         },
     });
 
-    // Redefines the tare barcode call back.
     screens.ScreenWidget.include({
+        barcode_product_action: function (code) {
+            var self = this;
+            if (self.pos.scan_product(code)) {
+                if (this.pos.config.iface_self_weight) {
+                    self.gui.show_screen("selfProducts");
+                } else if (self.barcode_product_screen) {
+                    self.gui.show_screen(self.barcode_product_screen);
+                }
+            } else {
+                this.barcode_error_action(code);
+            }
+        },
         barcode_tare_action_self_service: function (code) {
             // Apply tare barcode function depending on POS configuration.
             var current_screen = this.gui.get_current_screen();

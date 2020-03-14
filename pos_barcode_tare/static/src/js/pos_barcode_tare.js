@@ -358,5 +358,6 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     models.Orderline = OrderLineWithTare;
 
     return {TareScreenWidget: TareScreenWidget,
-        OrderLineWithTare: OrderLineWithTare};
+        OrderLineWithTare: OrderLineWithTare,
+        get_unit: get_unit};
 });

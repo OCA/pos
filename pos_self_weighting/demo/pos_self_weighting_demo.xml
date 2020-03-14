@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_price_to_weight_barcode" model="product.product">
+        <field name="name">Apples (with weight barcode)</field>
+        <field name="barcode">2112345000008</field>
+        <field name="list_price">1.50</field>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+    </record>
+</odoo>

@@ -11,7 +11,8 @@
     'website': "https://github.com/OCA/pos",
     'license': 'AGPL-3',
     'maintainers': ['fkawala'],
-    'depends': ['point_of_sale', 'pos_barcode_tare', 'pos_price_to_weight'],
+    'depends': ['point_of_sale', 'pos_barcode_tare'],
+    'demo': ['demo/pos_self_weighting_demo.xml'],
     'data': [
         'pos_self_weighting.xml',
         'views/pos_config_view.xml'
