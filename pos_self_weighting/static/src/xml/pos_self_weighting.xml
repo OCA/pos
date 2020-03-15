@@ -129,7 +129,7 @@
                 <span class="caption"><t t-esc="export.product_name" /></span>
                 <img t-att-src="'/report/barcode/EAN13/' + line.get_barcode_data()" />
                 <span class="caption">
-                    <t t-if="widget.pos.currency.position == 'before'"><t t-esc="export.price_with_tax" /></t>
+                    <t t-if="widget.pos.currency.position == 'before'"><t t-esc="widget.pos.currency.symbol" /></t>
                     <t t-esc="export.price_with_tax" />
                     <t t-if="widget.pos.currency.position == 'after'"><t t-esc="widget.pos.currency.symbol"/></t>
                     (<t t-esc="export.quantity" /><t t-esc="export.unit_name" />)
