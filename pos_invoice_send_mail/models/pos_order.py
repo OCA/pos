@@ -19,7 +19,6 @@ class PosOrder(models.Model):
         for order in self.browse(order_ids):
             if (
                 order.config_id.iface_invoice_mail
-                and order.config_id.invoice_mail_template_id
                 and order.invoice_id
                 and not order.invoice_id.sent
                 and order.pos_reference in refs_to_send_mail
