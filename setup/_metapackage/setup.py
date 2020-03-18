@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo12-addon-pos_default_empty_image',
         'odoo12-addon-pos_empty_home',
         'odoo12-addon-pos_fix_search_limit',
+        'odoo12-addon-pos_invoice_send_mail',
         'odoo12-addon-pos_invoicing',
         'odoo12-addon-pos_journal_image',
         'odoo12-addon-pos_margin',
