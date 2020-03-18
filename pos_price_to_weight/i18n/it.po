@@ -19,18 +19,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Alias"
+msgstr ""
+
+#. module: pos_price_to_weight
 #: model:product.product,name:pos_price_to_weight.product_price_to_weight_barcode
 #: model:product.template,name:pos_price_to_weight.product_price_to_weight_barcode_product_template
 msgid "Apples (with Price To Weight Barcode)"
 msgstr ""
 
 #. module: pos_price_to_weight
-#: code:addons/pos_price_to_weight/models/barcode_rule.py:13
-#, python-format
+#: model:ir.model,name:pos_price_to_weight.model_barcode_rule
+#, fuzzy
+#| msgid "barcode.rule"
+msgid "Barcode Rule"
+msgstr "barcode.rule"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Cashier"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Client"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Discounted Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Location"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Lot"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Package"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Priced Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
 msgid "Priced Product (Computed Weight)"
 msgstr ""
 
 #. module: pos_price_to_weight
-#: model:ir.model,name:pos_price_to_weight.model_barcode_rule
-msgid "barcode.rule"
-msgstr "barcode.rule"
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
+msgid "Type"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Unit Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Weighted Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:product.product,uom_name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.product,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.template,uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+#: model:product.template,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+msgid "kg"
+msgstr ""
