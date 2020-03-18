@@ -24,6 +24,12 @@ msgid "Invoice Email Template"
 msgstr ""
 
 #. module: pos_invoice_send_mail
+#: code:addons/pos_invoice_send_mail/models/pos_config.py:28
+#, python-format
+msgid "Invoice Email Template is required"
+msgstr ""
+
+#. module: pos_invoice_send_mail
 #. openerp-web
 #: code:addons/pos_invoice_send_mail/static/src/js/screens.js:48
 #, python-format
