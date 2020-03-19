@@ -47,7 +47,7 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
         print_web: function() {
             if (this.jspmWSStatus) {
                 //generate an image of HTML content through html2canvas utility
-                html2canvas(document.getElementsByClassName('pos-receipt-container')[0], { scale: 5 }).then(function (canvas) {
+                html2canvas(document.getElementsByClassName('pos-sale-ticket')[0], { scale: 5 }).then(function (canvas) {
 
                     //Create a ClientPrintJob
                     var cpj = new JSPM.ClientPrintJob();
