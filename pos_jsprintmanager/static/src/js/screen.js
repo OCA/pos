@@ -49,32 +49,88 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             var receipt = order.export_for_printing();
             var orderlines = order.get_orderlines();
             var paymentlines = order.get_paymentlines();
+
             var esc = '\x1B'; //ESC byte in hex notation
             var newLine = '\x0A'; //LF byte in hex notation
+            var space = ' ';
+            const lineLength = 24;
             var cmds = esc + "@"; //Initializes the printer (ESC @)
+
             cmds += esc + '!' + '\x38'; //Emphasized + Double-height + Double-width mode selected (ESC ! (8 + 16 + 32)) 56 dec => 38 hex
-            cmds += 'BEST DEAL STORES'; //text to print
+            // Title of receipt
+            cmds += newLine;
+            var freeSpace = lineLength - receipt.date.localestring.length;
+            cmds += Array(Math.floor(freeSpace/2)).fill(space).join("") + receipt.date.localestring + Array(Math.ceil(freeSpace/2)).fill(space).join("");
+            cmds += newLine;
+            var freeSpace = lineLength - receipt.name.length;
+            cmds += Array(Math.floor(freeSpace/2)).fill(space).join("") + receipt.name + Array(Math.ceil(freeSpace/2)).fill(space).join("");
             cmds += newLine + newLine;
-            cmds += esc + '!' + '\x00'; //Character font A selected (ESC ! 0)
-            cmds += 'COOKIES                   5.00';
-            cmds += newLine;
-            cmds += 'MILK 65 Fl oz             3.78';
+            // Header of receipt with Company data
+            cmds += receipt.company.contact_address ? receipt.company.contact_address + newLine : "";
+            cmds += receipt.company.phone ? _t("Tel: ") + receipt.company.phone + newLine : "";
+            cmds += receipt.company.vat ? _t("VAT: ") + receipt.company.vat + newLine : "";
+            cmds += receipt.company.email ? receipt.company.email + newLine : "";
+            cmds += receipt.company.website ? receipt.company.website + newLine : "";
+            cmds += receipt.company.header ? receipt.company.header + newLine : "";
+            cmds += receipt.cashier ? (newLine + "--------------------------------" + newLine + _t("Served by ") + receipt.cashier) : "";
             cmds += newLine + newLine;
-            cmds += 'SUBTOTAL                  8.78';
-            cmds += newLine;
-            cmds += 'TAX 5%                    0.44';
-            cmds += newLine;
-            cmds += 'TOTAL                     9.22';
-            cmds += newLine;
-            cmds += 'CASH TEND                10.00';
-            cmds += newLine;
-            cmds += 'CASH DUE                  0.78';
+
+            // Order Lines
+            for (const line of orderlines) {
+                let productName = line.get_product().display_name;
+                let quantity = "" + line.get_quantity_str_with_unit();
+                let price = "" + this.format_currency(line.get_display_price());
+                let freeSpace = lineLength - productName.length - quantity.length - price.length - 1;
+                if (freeSpace > 0) {
+                    let empty = Array(freeSpace).fill(space);
+                    cmds += productName + empty.join("") + quantity + " " + price + newLine;
+                }
+            }
             cmds += newLine + newLine;
-            cmds += esc + '!' + '\x18'; //Emphasized + Double-height mode selected (ESC ! (16 + 8)) 24 dec => 18 hex
-            cmds += '# ITEMS SOLD 2';
-            cmds += esc + '!' + '\x00'; //Character font A selected (ESC ! 0)
-            cmds += newLine + newLine;
-            cmds += '11/03/13  19:53:17';
+
+            // Subtotal
+            var total_without_tax = this.format_currency(order.get_total_without_tax());
+            var freeSpace = Array(lineLength - 10 - total_without_tax.length).fill(space).join("");
+            cmds += _t("Subtotal: ") + freeSpace + total_without_tax + newLine;
+            // Taxes
+            for (const taxdetail of order.get_tax_details()) {
+                let tax_name = taxdetail.name;
+                let tax_amount = this.format_currency(taxdetail.amount);
+                let freeSpace = Array(lineLength - tax_name.length - tax_amount.length).fill(space).join("");
+                cmd += tax_name + freeSpace + newLine;
+            }
+            // Discounts
+            if (order.get_total_discount() > 0) {
+                let total_discount = this.format_currency(order.get_total_discount());
+                let freeSpace = Array(lineLength - 10 - total_discount.length).fill(space).join("");
+                cmds += _t("Discount: ") + freeSpace + total_discount + newLine;
+            }
+            // Total amount
+            var total_with_tax = this.format_currency(order.get_total_with_tax());
+            var freeSpace = Array(lineLength - 7 - total_with_tax.length).fill(space).join("");
+            cmds += _t("Total: ") + freeSpace + total_with_tax + newLine;
+            cmds += newLine;
+
+            // Payment Lines
+            for (const line of paymentlines) {
+                let line_name = line.name;
+                let payment_amount = this.format_currency(line.get_amount());
+                let freeSpace = Array(lineLength - line_name.length - payment_amount.length).fill(space).join("");
+                cmds += line_name + freeSpace + payment_amount + newLine;
+            }
+            cmds += newLine;
+            // Change
+            var change = this.format_currency(order.get_change());
+            var freeSpace = Array(lineLength - 8 - change.length).fill(space).join("");
+            cmds += _t("Change: ") + freeSpace + change + newLine;
+            cmds += newLine;
+
+            // Footer
+            if (receipt.footer) {
+                cmds += receipt.footer;
+            }
+            console.log(cmds)
+
             return cmds
         },
 
@@ -82,14 +138,15 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             if (this.jspmWSStatus && this.pos.config.use_jsprintmanager == true) {
                 var outputFormat = this.pos.config.jsprintmanager_output_format;
                 var default_printer = this.pos.config.jsprintmanager_default_receipt_printer;
-                    //Create a ClientPrintJob
-                    var cpj = new JSPM.ClientPrintJob();
-                    if (default_printer) {
-                        cpj.clientPrinter = new JSPM.InstalledPrinter(default_printer);
-                    } else {
-                        cpj.clientPrinter = new JSPM.DefaultPrinter();
-                    }
-                if (outputFormat == 'esc-pos'){
+                console.log(outputFormat)
+                //Create a ClientPrintJob
+                var cpj = new JSPM.ClientPrintJob();
+                if (default_printer) {
+                    cpj.clientPrinter = new JSPM.InstalledPrinter(default_printer);
+                } else {
+                    cpj.clientPrinter = new JSPM.DefaultPrinter();
+                }
+                if (outputFormat == 'escpos'){
                     //Set content to print...
                     //Create ESP/POS commands for sample label
                     var cmds = this.get_escpos_receipt_cmds()
