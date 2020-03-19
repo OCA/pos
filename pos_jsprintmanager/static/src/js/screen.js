@@ -81,7 +81,7 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
                 if (outputFormat == 'esc-pos'){
                     //Create a ClientPrintJob
                     var cpj = new JSPM.ClientPrintJob()
-                    cpj.clientPrinter = new JSPM.InstalledPrinter("CT-S310II");
+                    cpj.clientPrinter = new JSPM.DefaultPrinter();
                     //Set content to print...
                     //Create ESP/POS commands for sample label
                     var cmds = this.get_escpos_receipt_cmds()
