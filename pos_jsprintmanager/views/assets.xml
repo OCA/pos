@@ -8,12 +8,12 @@
 <odoo>
     <template id="assets_frontend" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_jsprintmanager/static/src/lib/jsprintmanager/deflate.js"/>
-            <script type="text/javascript" src="/pos_jsprintmanager/static/src/lib/jsprintmanager/zip.js"/>
-            <script type="text/javascript" src="/pos_jsprintmanager/static/src/lib/jsprintmanager/zip-ext.js"/>
-            <script type="text/javascript" src="/pos_jsprintmanager/static/src/lib/jsprintmanager/JSPrintManager.js"/>
-            <script type="text/javascript" src="/pos_jsprintmanager/static/src/lib/jsprintmanager/html2canvas.min.js"/>
-            <script type="text/javascript" src="/pos_jsprintmanager/static/src/lib/jsprintmanager/bluebird.min.js"/>
+            <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/jsprintmanager/deflate.js"/>
+            <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/jsprintmanager/zip.js"/>
+            <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/jsprintmanager/zip-ext.js"/>
+            <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/jsprintmanager/JSPrintManager.js"/>
+            <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/jsprintmanager/html2canvas.min.js"/>
+            <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/jsprintmanager/bluebird.min.js"/>
             <script type="text/javascript" src="/pos_jsprintmanager/static/src/js/screen.js"/>
         </xpath>
     </template>
