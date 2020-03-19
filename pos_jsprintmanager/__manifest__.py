@@ -13,6 +13,10 @@
     ],
     "data": [
         "views/assets.xml",
+        "views/pos_config_view.xml",
+    ],
+    "qweb": [
+        'static/src/xml/pos.xml',
     ],
     "installable": True,
 }
