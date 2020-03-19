@@ -45,7 +45,10 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
         },
 
         get_escpos_receipt_cmds: function() {
-            var order = this.pos.get_order()
+            var order = this.pos.get_order();
+            var receipt = order.export_for_printing();
+            var orderlines = order.get_orderlines();
+            var paymentlines = order.get_paymentlines();
             var esc = '\x1B'; //ESC byte in hex notation
             var newLine = '\x0A'; //LF byte in hex notation
             var cmds = esc + "@"; //Initializes the printer (ESC @)
