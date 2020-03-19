@@ -72,6 +72,7 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             cmds += esc + '!' + '\x00'; //Character font A selected (ESC ! 0)
             cmds += newLine + newLine;
             cmds += '11/03/13  19:53:17';
+            return cmds
         },
 
         print_web: function() {
