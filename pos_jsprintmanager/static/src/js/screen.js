@@ -76,12 +76,17 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
         },
 
         print_web: function() {
-            if (this.jspmWSStatus) {
-                var outputFormat = 'esc-pos'
-                if (outputFormat == 'esc-pos'){
+            if (this.jspmWSStatus && this.pos.config.use_jsprintmanager == true) {
+                var outputFormat = this.pos.config.jsprintmanager_output_format;
+                var default_printer = this.pos.config.jsprintmanager_default_receipt_printer;
                     //Create a ClientPrintJob
-                    var cpj = new JSPM.ClientPrintJob()
-                    cpj.clientPrinter = new JSPM.DefaultPrinter();
+                    var cpj = new JSPM.ClientPrintJob();
+                    if (default_printer) {
+                        cpj.clientPrinter = new JSPM.InstalledPrinter(default_printer);
+                    } else {
+                        cpj.clientPrinter = new JSPM.DefaultPrinter();
+                    }
+                if (outputFormat == 'esc-pos'){
                     //Set content to print...
                     //Create ESP/POS commands for sample label
                     var cmds = this.get_escpos_receipt_cmds()
@@ -92,25 +97,22 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
                     //generate an image of HTML content through html2canvas utility
                     var ticket = document.getElementsByClassName('pos-sale-ticket')[0]
                     html2canvas(ticket, {scale: 10, width: 900}).then(function (canvas) {
-                        //Create a ClientPrintJob
-                        var cpj = new JSPM.ClientPrintJob();
-                        cpj.clientPrinter = new JSPM.DefaultPrinter();
                         //Set content to print...
                         var b64Prefix = "data:image/png;base64,";
                         var imgBase64DataUri = canvas.toDataURL("image/png");
                         var imgBase64Content = imgBase64DataUri.substring(b64Prefix.length, imgBase64DataUri.length);
-
                         var myImageFile = new JSPM.PrintFile(imgBase64Content, JSPM.FileSourceType.Base64, 'myFileToPrint.png', 1);
                         //add file to print job
                         cpj.files.push(myImageFile);
-
                         //Send print job to printer!
                         cpj.sendToClient();
                     });
                 }
-
+                this.pos.get_order()._printed = true;
+            } else {
+                return this._super();
             }
-            this.pos.get_order()._printed = true;
+
         },
     })
 });
