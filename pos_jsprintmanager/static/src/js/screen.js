@@ -52,8 +52,8 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
 
             var esc = '\x1B'; //ESC byte in hex notation
             var newLine = '\x0A'; //LF byte in hex notation
-            var space = '\xA0';
-            const lineLength = 32;
+            var space = ' ';
+            const lineLength = 24;
             var cmds = esc + "@"; //Initializes the printer (ESC @)
 
             cmds += esc + '!' + '\x38'; //Emphasized + Double-height + Double-width mode selected (ESC ! (8 + 16 + 32)) 56 dec => 38 hex
