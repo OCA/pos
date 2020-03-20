@@ -42,98 +42,132 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
                     })
                 }
             }
-        },
 
+            // Variables definition
+            const this.esc = '\x1B'; //ESC byte in hex notation
+            const this.line_feed = '\x0A'; //LF byte in hex notation
+
+            const this.page_width = 48;
+            const this.this.qty_width = 12;
+            const this.price_width = 12;
+            const this.totals_width = 24;
+            const this.name_width = this.page_width - this.this.qty_width - this.price_width;
+
+        },
+        center_align_string: function(s, width) {
+            return s.padStart(
+                Math.floor((width - s.length) / 2 + s.length),
+                ' '
+            );
+        },
+        right_align_string: function(s, width) {
+            return s.padStart(width, ' ');
+        },
         get_escpos_receipt_cmds: function() {
+            var cmds = '';
             var order = this.pos.get_order();
             var receipt = order.export_for_printing();
             var orderlines = order.get_orderlines();
             var paymentlines = order.get_paymentlines();
 
-            var esc = '\x1B'; //ESC byte in hex notation
-            var newLine = '\x0A'; //LF byte in hex notation
-            var space = ' ';
-            const lineLength = 24;
-            var cmds = esc + "@"; //Initializes the printer (ESC @)
+            //Initializes the printer (ESC @)
+            cmds += this.esc + "@";
+            cmds += this.esc + "\x70" + "\x00"; // Drawer kick, pin 2 (first drawer)
+            cmds += this.esc + "1\x02" // Codepage 850
 
-            cmds += esc + '!' + '\x38'; //Emphasized + Double-height + Double-width mode selected (ESC ! (8 + 16 + 32)) 56 dec => 38 hex
-            // Title of receipt
-            cmds += newLine;
-            var freeSpace = lineLength - receipt.date.localestring.length;
-            cmds += Array(Math.floor(freeSpace/2)).fill(space).join("") + receipt.date.localestring + Array(Math.ceil(freeSpace/2)).fill(space).join("");
-            cmds += newLine;
-            var freeSpace = lineLength - receipt.name.length;
-            cmds += Array(Math.floor(freeSpace/2)).fill(space).join("") + receipt.name + Array(Math.ceil(freeSpace/2)).fill(space).join("");
-            cmds += newLine + newLine;
             // Header of receipt with Company data
-            cmds += receipt.company.contact_address ? receipt.company.contact_address + newLine : "";
-            cmds += receipt.company.phone ? _t("Tel: ") + receipt.company.phone + newLine : "";
-            cmds += receipt.company.vat ? _t("VAT: ") + receipt.company.vat + newLine : "";
-            cmds += receipt.company.email ? receipt.company.email + newLine : "";
-            cmds += receipt.company.website ? receipt.company.website + newLine : "";
-            cmds += receipt.company.header ? receipt.company.header + newLine : "";
-            cmds += receipt.cashier ? (newLine + "--------------------------------" + newLine + _t("Served by ") + receipt.cashier) : "";
-            cmds += newLine + newLine;
+            cmds += receipt.company.contact_address ? receipt.company.contact_address + this.line_feed : "";
+            cmds += receipt.company.phone ? _t("Tel: ") + receipt.company.phone + this.line_feed : "";
+            cmds += receipt.company.vat ? _t("VAT: ") + receipt.company.vat + this.line_feed : "";
+            cmds += receipt.company.email ? receipt.company.email + this.line_feed : "";
+            cmds += receipt.company.website ? receipt.company.website + this.line_feed : "";
+            cmds += receipt.company.header ? receipt.company.header + this.line_feed : "";
+            cmds += this.line_feed + this.line_feed;
+
+            // Date and Order ID
+            cmds += this.center_align_string(
+                receipt.date.localestring + ' ' + receipt.name,
+                this.page_width
+            );
+            cmds += this.line_feed + this.line_feed;
 
             // Order Lines
             for (const line of orderlines) {
-                let productName = line.get_product().display_name;
-                let quantity = "" + line.get_quantity_str_with_unit();
+                let name = line.get_product().display_name;
+                let qty = "" + line.get_quantity_str_with_unit();
                 let price = "" + this.format_currency(line.get_display_price());
-                let freeSpace = lineLength - productName.length - quantity.length - price.length - 1;
-                if (freeSpace > 0) {
-                    let empty = Array(freeSpace).fill(space);
-                    cmds += productName + empty.join("") + quantity + " " + price + newLine;
+
+                cmds += name.substring(0, this.name_width).padEnd(this.name_width, ' ');
+                cmds += this.right_align_string(qty, this.qty_width);
+                cmds += this.right_align_string(price, this.price_width);
+                cmds += this.line_feed;
+
+                if (line.discount > 0) {
+                    cmds += _(' - with a ') + line.discountStr + '% ' + _(' discount');
+                    cmds += this.line_feed;
                 }
             }
-            cmds += newLine + newLine;
+            cmds += this.line_feed;
 
             // Subtotal
             var total_without_tax = this.format_currency(order.get_total_without_tax());
-            var freeSpace = Array(lineLength - 10 - total_without_tax.length).fill(space).join("");
-            cmds += _t("Subtotal: ") + freeSpace + total_without_tax + newLine;
+            cmds += _t("Subtotal: ").padEnd(this.totals_width, ' ');
+            cmds += this.right_align_string(this.format_currency(order.get_total_without_tax()), this.totals_width)
+            cmds += this.line_feed;
+
             // Taxes
             for (const taxdetail of order.get_tax_details()) {
-                let tax_name = taxdetail.name;
-                let tax_amount = this.format_currency(taxdetail.amount);
-                let freeSpace = Array(lineLength - tax_name.length - tax_amount.length).fill(space).join("");
-                cmd += tax_name + freeSpace + newLine;
+                cmds += taxdetail.name.padEnd(this.totals_width, ' ');
+                cmds += this.right_align_string(this.format_currency(taxdetail.amount), this.totals_width);
             }
-            // Discounts
+            cmds += this.line_feed;
+
+            // Discount
             if (order.get_total_discount() > 0) {
-                let total_discount = this.format_currency(order.get_total_discount());
-                let freeSpace = Array(lineLength - 10 - total_discount.length).fill(space).join("");
-                cmds += _t("Discount: ") + freeSpace + total_discount + newLine;
+                cmds += _t("Discount: ").padEnd(this.totals_width, ' ');
+                cmds += this.right_align_string(this.format_currency(order.get_total_discount()), this.totals_width);
             }
+            cmds += this.line_feed;
+
             // Total amount
-            var total_with_tax = this.format_currency(order.get_total_with_tax());
-            var freeSpace = Array(lineLength - 7 - total_with_tax.length).fill(space).join("");
-            cmds += _t("Total: ") + freeSpace + total_with_tax + newLine;
-            cmds += newLine;
+            cmds += this.esc + '!' + '\x10'; // Double-height
+            cmds += _t("Total: ").padEnd(this.totals_width, ' ');
+            cmds += this.right_align_string(this.format_currency(order.get_total_with_tax()), this.totals_width);
+            cmds += this.esc + '!' + '\x00'; // Normal character
+            cmds += this.line_feed + this.line_feed;
+
 
             // Payment Lines
             for (const line of paymentlines) {
-                let line_name = line.name;
-                let payment_amount = this.format_currency(line.get_amount());
-                let freeSpace = Array(lineLength - line_name.length - payment_amount.length).fill(space).join("");
-                cmds += line_name + freeSpace + payment_amount + newLine;
+                cmds += line.name.padEnd(this.totals_width, ' ');
+                cmds += this.right_align_string(this.format_currency(line.get_amount()), this.totals_width);
             }
-            cmds += newLine;
-            // Change
-            var change = this.format_currency(order.get_change());
-            var freeSpace = Array(lineLength - 8 - change.length).fill(space).join("");
-            cmds += _t("Change: ") + freeSpace + change + newLine;
-            cmds += newLine;
+            cmds += this.line_feed;
 
-            // Footer
+
+            // Change
+            cmds += _t("Change: ").padEnd(this.totals_width, ' ');
+            cmds += this.right_align_string(this.format_currency(order.get_change()), this.totals_width);
+            cmds += this.line_feed;
+
+            return cmds
+
+        },
+        get_escpos_receipt_cmds_footer: function () {
+            var cmds = '';
+            var order = this.pos.get_order();
+            var receipt = order.export_for_printing();
+
             if (receipt.footer) {
                 cmds += receipt.footer;
             }
-            console.log(cmds)
+
+            cmds += this.line_feed + this.line_feed + this.line_feed + this.line_feed; // Space before cut
+            cmds += "\x1dV\x00"; // Full cut
+            cmds += this.line_feed + this.line_feed;
 
             return cmds
         },
-
         print_web: function() {
             if (this.jspmWSStatus && this.pos.config.use_jsprintmanager == true) {
                 var outputFormat = this.pos.config.jsprintmanager_output_format;
@@ -149,7 +183,7 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
                 if (outputFormat == 'escpos'){
                     //Set content to print...
                     //Create ESP/POS commands for sample label
-                    var cmds = this.get_escpos_receipt_cmds()
+                    var cmds = [this.get_escpos_receipt_cmds(), this.get_escpos_receipt_cmds_footer()].join("")
                     cpj.printerCommands = cmds;
                     //Send print job to printer!
                     cpj.sendToClient();
@@ -176,3 +210,4 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
         },
     })
 });
+
