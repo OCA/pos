@@ -1,43 +1,30 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    Hardware Telium Payment Terminal module for Odoo
-#    Copyright (C) 2014 Akretion (http://www.akretion.com)
-#    @author Alexis de Lattre <alexis.delattre@akretion.com>
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
-
-
 import logging
 import simplejson
 import time
 import curses.ascii
 from threading import Thread, Lock
-from Queue import Queue
-import openerp.addons.hw_proxy.controllers.main as hw_proxy
-from openerp import http
-from openerp.tools.config import config
+from queue import Queue
+
+from odoo import http
+from odoo.tools.config import config
+
+from odoo.addons.hw_proxy.controllers import main as hw_proxy
 
 logger = logging.getLogger(__name__)
 
 try:
-    import pycountry
     from serial import Serial
 except (ImportError, IOError) as err:
     logger.debug(err)
+
+try:
+    import pycountry
+    EUR_CY_NBR = False
+except (ImportError, IOError) as err:
+    logger.debug(err)
+    logger.warning(
+        'Unable to import pycountry, only EUR currency is supported')
+    EUR_CY_NBR = 978
 
 
 class TeliumPaymentTerminalDriver(Thread):
@@ -68,13 +55,13 @@ class TeliumPaymentTerminalDriver(Thread):
                 self.status['messages'] = []
 
         if status == 'error' and message:
-            logger.error('Payment Terminal Error: '+message)
+            logger.error('Payment Terminal Error: ' + message)
         elif status == 'disconnected' and message:
-            logger.warning('Disconnected Terminal: '+message)
+            logger.warning('Disconnected Terminal: ' + message)
 
     def lockedstart(self):
         with self.lock:
-            if not self.isAlive():
+            if not self.is_alive():
                 self.daemon = True
                 self.start()
 
@@ -84,7 +71,17 @@ class TeliumPaymentTerminalDriver(Thread):
 
     def serial_write(self, text):
         assert isinstance(text, str), 'text must be a string'
-        self.serial.write(text)
+        raw = text.encode()
+        logger.debug("%s raw send to terminal" % raw)
+        logger.debug("%s send to terminal" % text)
+        self.serial.write(raw)
+
+    def serial_read(self, size=1):
+        raw = self.serial.read(size)
+        msg = raw.decode('ascii')
+        logger.debug("%s raw received from terminal" % raw)
+        logger.debug("%s received from terminal" % msg)
+        return msg
 
     def initialize_msg(self):
         max_attempt = 3
@@ -109,17 +106,22 @@ class TeliumPaymentTerminalDriver(Thread):
         logger.debug('Signal %s sent to terminal' % signal)
 
     def get_one_byte_answer(self, expected_signal):
+        assert isinstance(expected_signal, str), 'expected_signal must be a string'
         ascii_names = curses.ascii.controlnames
-        one_byte_read = self.serial.read(1)
+        one_byte_read = self.serial_read(1)
         expected_char = ascii_names.index(expected_signal)
         if one_byte_read == chr(expected_char):
-            logger.debug("%s received from terminal" % expected_signal)
             return True
         else:
             return False
 
-    def prepare_data_to_send(self, payment_info_dict):
+    def _get_amount(self, payment_info_dict):
         amount = payment_info_dict['amount']
+        cur_decimals = payment_info_dict['currency_decimals']
+        cur_fact = 10 ** cur_decimals
+        return ('%.0f' % (amount * cur_fact)).zfill(8)
+
+    def prepare_data_to_send(self, payment_info_dict):
         if payment_info_dict['payment_mode'] == 'check':
             payment_mode = 'C'
         elif payment_info_dict['payment_mode'] == 'card':
@@ -129,12 +131,14 @@ class TeliumPaymentTerminalDriver(Thread):
                 "The payment mode '%s' is not supported"
                 % payment_info_dict['payment_mode'])
             return False
-        cur_decimals = payment_info_dict['currency_decimals']
-        cur_fact = 10**cur_decimals
+
         cur_iso_letter = payment_info_dict['currency_iso'].upper()
         try:
-            cur = pycountry.currencies.get(alpha_3=cur_iso_letter)
-            cur_numeric = str(cur.numeric)
+            if EUR_CY_NBR:
+                cur_numeric = str(EUR_CY_NBR)
+            else:
+                cur = pycountry.currencies.get(alpha_3=cur_iso_letter)
+                cur_numeric = str(cur.numeric)
         except:
             logger.error("Currency %s is not recognized" % cur_iso_letter)
             return False
@@ -145,9 +149,9 @@ class TeliumPaymentTerminalDriver(Thread):
             'payment_mode': payment_mode,
             'currency_numeric': cur_numeric.zfill(3),
             'private': ' ' * 10,
-            'delay': 'A011',
+            'delay': 'A010',
             'auto': 'B010',
-            'amount_msg': ('%.0f' % (amount * cur_fact)).zfill(8),
+            'amount_msg': self._get_amount(payment_info_dict),
         }
         return data
 
@@ -179,9 +183,7 @@ class TeliumPaymentTerminalDriver(Thread):
         logger.info('Message sent to terminal')
 
     def compare_data_vs_answer(self, data, answer_data):
-        for field in [
-                'pos_number', 'amount_msg',
-                'currency_numeric', 'private']:
+        for field in ['pos_number', 'amount_msg', 'currency_numeric', 'private']:
             if data[field] != answer_data[field]:
                 logger.warning(
                     "Field %s has value '%s' in data and value '%s' in answer"
@@ -202,8 +204,8 @@ class TeliumPaymentTerminalDriver(Thread):
 
     def get_answer_from_terminal(self, data):
         ascii_names = curses.ascii.controlnames
-        full_msg_size = 1+2+1+8+1+3+10+1+1
-        msg = self.serial.read(size=full_msg_size)
+        full_msg_size = 1 + 2 + 1 + 8 + 1 + 3 + 10 + 1 + 1
+        msg = self.serial_read(size=full_msg_size)
         logger.debug('%d bytes read from terminal' % full_msg_size)
         assert len(msg) == full_msg_size, 'Answer has a wrong size'
         if msg[0] != chr(ascii_names.index('STX')):
@@ -242,7 +244,8 @@ class TeliumPaymentTerminalDriver(Thread):
 
             if self.serial.isOpen():
                 self.set_status("connected",
-                                "Connected to {}".format(self.device_name))
+                                "Connected to {} with baudrate {}".format(
+                                    self.device_name, self.device_rate))
             else:
                 self.set_status("disconnected",
                                 "Could not connect to {}"
@@ -256,13 +259,28 @@ class TeliumPaymentTerminalDriver(Thread):
                 if self.get_one_byte_answer('ACK'):
                     self.send_one_byte_signal('EOT')
 
-                    logger.info("Now expecting answer from Terminal")
-                    if self.get_one_byte_answer('ENQ'):
-                        self.send_one_byte_signal('ACK')
-                        self.get_answer_from_terminal(data)
-                        self.send_one_byte_signal('ACK')
-                        if self.get_one_byte_answer('EOT'):
-                            logger.info("Answer received from Terminal")
+                    self.status['in_transaction'] = True
+                    logger.debug("Now expecting answer from Terminal")
+
+                    # We wait the end of transaction
+                    attempt_nr = 0
+                    while attempt_nr < 600:
+                        attempt_nr += 1
+                        if self.get_one_byte_answer('ENQ'):
+                            self.send_one_byte_signal('ACK')
+                            answer = self.get_answer_from_terminal(data)
+                            # '0' : accepted transaction
+                            # '7' : refused transaction
+                            if answer['transaction_result'] == '0' \
+                                    and self._get_amount(payment_info_dict) == answer['amount_msg']:
+                                self.status['latest_transactions'] = {payment_info_dict['order_id']: {}}
+                                logger.info("Transaction OK")
+                            self.send_one_byte_signal('ACK')
+                            if self.get_one_byte_answer('EOT'):
+                                logger.debug("Answer received from Terminal")
+                            break
+                        time.sleep(0.5)
+                    self.status['in_transaction'] = False
 
         except Exception as e:
             logger.error('Exception in serial connection: %s' % str(e))
