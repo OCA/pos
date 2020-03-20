@@ -49,18 +49,21 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             var receipt = order.export_for_printing();
             var orderlines = order.get_orderlines();
             var paymentlines = order.get_paymentlines();
-            console.log(order)
-            console.log(receipt)
-            console.log(orderlines)
-            console.log(paymentlines)
 
             var esc = '\x1B'; //ESC byte in hex notation
             var newLine = '\x0A'; //LF byte in hex notation
+            var space = '\xA0';
+            const lineLength = 32;
             var cmds = esc + "@"; //Initializes the printer (ESC @)
 
             cmds += esc + '!' + '\x38'; //Emphasized + Double-height + Double-width mode selected (ESC ! (8 + 16 + 32)) 56 dec => 38 hex
             // Title of receipt
-            cmds += receipt.date.localestring + " " + receipt.name;
+            cmds += newLine;
+            var freeSpace = lineLength - receipt.date.localestring.length;
+            cmds += Array(Math.floor(freeSpace/2)).fill(space).join("") + receipt.date.localestring + Array(Math.ceil(freeSpace/2)).fill(space).join("");
+            cmds += newLine;
+            var freeSpace = lineLength - receipt.name.length;
+            cmds += Array(Math.floor(freeSpace/2)).fill(space).join("") + receipt.name + Array(Math.ceil(freeSpace/2)).fill(space).join("");
             cmds += newLine + newLine;
             // Header of receipt with Company data
             cmds += receipt.company.contact_address ? receipt.company.contact_address + newLine : "";
@@ -74,39 +77,52 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
 
             // Order Lines
             for (const line of orderlines) {
-                let lineLength = 30;
                 let productName = line.get_product().display_name;
                 let quantity = "" + line.get_quantity_str_with_unit();
                 let price = "" + this.format_currency(line.get_display_price());
-                let freeSpace = lineLength - productName.length - quantity.length - price.length - 1
+                let freeSpace = lineLength - productName.length - quantity.length - price.length - 1;
                 if (freeSpace > 0) {
-                    console.log(freeSpace)
-                    cmds += productName.padEnd(freeSpace, " ") + quantity + " " + price + newLine
+                    let empty = Array(freeSpace).fill(space);
+                    cmds += productName + empty.join("") + quantity + " " + price + newLine;
                 }
             }
             cmds += newLine + newLine;
 
             // Subtotal
-            cmds += _t("Subtotal: ") + this.format_currency(order.get_total_without_tax()) + newLine;
+            var total_without_tax = this.format_currency(order.get_total_without_tax());
+            var freeSpace = Array(lineLength - 10 - total_without_tax.length).fill(space).join("");
+            cmds += _t("Subtotal: ") + freeSpace + total_without_tax + newLine;
             // Taxes
             for (const taxdetail of order.get_tax_details()) {
-                cmd += taxdetail.name + " " + this.format_currency(taxdetail.amount) + newLine;
+                let tax_name = taxdetail.name;
+                let tax_amount = this.format_currency(taxdetail.amount);
+                let freeSpace = Array(lineLength - tax_name.length - tax_amount.length).fill(space).join("");
+                cmd += tax_name + freeSpace + newLine;
             }
             // Discounts
             if (order.get_total_discount() > 0) {
-                cmds += _t("Discount: ") + this.format_currency(order.get_total_discount()) + newLine;
+                let total_discount = this.format_currency(order.get_total_discount());
+                let freeSpace = Array(lineLength - 10 - total_discount.length).fill(space).join("");
+                cmds += _t("Discount: ") + freeSpace + total_discount + newLine;
             }
             // Total amount
-            cmds += _t("Total: ") + this.format_currency(order.get_total_with_tax()) + newLine;
+            var total_with_tax = this.format_currency(order.get_total_with_tax());
+            var freeSpace = Array(lineLength - 7 - total_with_tax.length).fill(space).join("");
+            cmds += _t("Total: ") + freeSpace + total_with_tax + newLine;
             cmds += newLine;
 
             // Payment Lines
             for (const line of paymentlines) {
-                cmds += line.name + " " + this.format_currency(line.get_amount()) + newLine;
+                let line_name = line.name;
+                let payment_amount = this.format_currency(line.get_amount());
+                let freeSpace = Array(lineLength - line_name.length - payment_amount.length).fill(space).join("");
+                cmds += line_name + freeSpace + payment_amount + newLine;
             }
             cmds += newLine;
             // Change
-            cmds += _t("Change: ") + this.format_currency(order.get_change()) + newLine;
+            var change = this.format_currency(order.get_change());
+            var freeSpace = Array(lineLength - 8 - change.length).fill(space).join("");
+            cmds += _t("Change: ") + freeSpace + change + newLine;
             cmds += newLine;
 
             // Footer
