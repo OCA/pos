@@ -1,4 +1,4 @@
-odoo.define('pos_self_weighting.screens', function (require) {
+odoo.define('pos_self_weighing.screens', function (require) {
 
     "use strict";
     var chrome = require('point_of_sale.chrome');
@@ -123,45 +123,51 @@ odoo.define('pos_self_weighting.screens', function (require) {
             this.order_widget = options.order_widget;
             this.price_labels = options.price_labels;
         },
+        click_back: function () {
+            var order = this.pos.get_order();
+            var orderline = order.get_selected_orderline();
+            if (orderline) {
+                order.remove_orderline(orderline);
+            }
+            if ( order.orderlines.length === 0) {
+                // Go back to the default screen when there is nothing left
+                // to remove from the current order.
+                this.gui.show_screen('selfService');
+            } else {
+                this.order_widget.renderElement();
+            }
+        },
+        print: function () {
+            var order = this.pos.get_order();
+            var orderline = order.get_selected_orderline();
+            // The print button works only when there is at least one
+            // label to print.
+            if (orderline) {
+                this.price_labels.renderElement();
+                window.print();
+                this.gui.show_screen('selfService');
+                this.pos.delete_current_order();
+            } else {
+                var popup = {
+                    title: _t("There is no product to print label for."),
+                    body:
+                    _t("You did not weighted any product. Start by " +
+                    "weighing a product, then you'll be able to print a " +
+                    "price barcode label for this product."),
+                };
+                this.gui.show_popup('alert', popup);
+            }
+        },
         renderElement: function () {
             var self = this;
             this._super();
 
             this.$('.back').click(function () {
-                var order = self.pos.get_order();
-                var orderline = order.get_selected_orderline();
-                if (orderline) {
-                    order.remove_orderline(orderline);
-                }
-                if ( order.orderlines.length === 0) {
-                    // Go back to the default screen when there is nothing left
-                    // to remove from the current order.
-                    self.gui.show_screen('selfService');
-                } else {
-                    self.order_widget.renderElement();
-                }
+                self.click_back();
             });
 
             this.$('.print').click(function () {
-                var order = self.pos.get_order();
-                var orderline = order.get_selected_orderline();
-                // The print button works only when there is at least one
-                // label to print.
-                if (orderline) {
-                    self.price_labels.renderElement();
-                    window.print();
-                    self.gui.show_screen('selfService');
-                    self.pos.delete_current_order();
-                } else {
-                    var popup = {
-                        title: _t("There is no product to print label for."),
-                        body:
-                        _t("You did not weighted any product. Start by " +
-                        "weighting a product, then you'll be able to print a " +
-                        "price barcode label for this product."),
-                    };
-                    self.gui.show_popup('alert', popup);
-                }
+                self.print();
             });
         },
     });
@@ -243,6 +249,20 @@ odoo.define('pos_self_weighting.screens', function (require) {
     var SelfServiceTareScreenWidget = tare.TareScreenWidget.extend({
         next_screen: 'selfService',
         previous_screen: 'selfService',
+        show: function () {
+            this._super();
+            if (!this.pos.config.iface_electronic_scale) {
+                var popup = {
+                    title: _t("We can not add this product to the order."),
+                    body:
+                        _t("You did not configured this POS to use the " +
+                        "electronic scale. This add-on requires POS to use " +
+                        "the scale. Reconfigure the POS to be able to use " +
+                        "this add-on."),
+                };
+                this.gui.show_popup('error', popup);
+            }
+        },
     });
 
     // This is the home screen with the three call to action buttons.
@@ -328,12 +348,13 @@ odoo.define('pos_self_weighting.screens', function (require) {
             if (this.pos.config.iface_self_weight) {
                 this.order_widget.replace(this.$('.placeholder-OrderWidget'));
                 this.product_list_widget.replace(
-                    this.$('.placeholder-ProductListWidget'));
-                this.actionpad.replace(this.$('.placeholder-ActionpadWidget'));
+                    this.$('.placeholder-SelfServiceProductListWidget'));
+                this.actionpad.replace(
+                    this.$('.placeholder-SelfServiceActionpadWidget'));
                 this.search_widget.replace(
                     this.$('.placeholder-SelfServiceSearchWidget'));
                 this.price_labels.replace(
-                    this.$('.placeholder-PriceLabelsWidget'));
+                    this.$('.placeholder-SelfServiceProductListWidget'));
             }
         },
         get_tare_code: function () {
@@ -346,13 +367,30 @@ odoo.define('pos_self_weighting.screens', function (require) {
             }
         },
         click_product: function (product) {
-            if (product.to_weight && this.pos.config.iface_electronic_scale) {
+            var self = this;
+            var order = this.pos.get_order();
+            var order_length = order.orderlines.length;
+
+            if (order_length > 0 &&
+                !this.pos.config.iface_self_weight_multi_label) {
+                var print_popup = {
+                    title: _t("We can add this product to the order."),
+                    confirm: function () {
+                        self.actionpad.print();
+                    },
+                    body:
+                        _t("You already have one label to print. " +
+                        "Do you want to print it now?"),
+                };
+                this.gui.show_popup('confirm', print_popup);
+            } else if (product.to_weight &&
+                this.pos.config.iface_electronic_scale) {
                 var tare_code = this.get_tare_code();
                 var scale_params = {product: product, tare_code: tare_code};
                 this.gui.show_screen('selfScale', scale_params);
             } else {
                 var popup = {
-                    title: _t("We can not apply this tare barcode."),
+                    title: _t("We can add this product to the order."),
                     body:
                         _t("You did not configured this POS to use the " +
                         "electronic scale. This add-on requires POS to use " +
@@ -447,6 +485,7 @@ odoo.define('pos_self_weighting.screens', function (require) {
                 this._super();
                 this.gui.set_default_screen('selfService');
                 this.gui.set_startup_screen('selfService');
+                this.widget.close_button.hide();
             } else {
                 this._super();
             }

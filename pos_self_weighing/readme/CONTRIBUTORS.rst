@@ -1,3 +1,4 @@
 - Le Nid
 - SPP Meyrin
+- CoopItEasy
 - Icons made by Freepik from flaticon.com

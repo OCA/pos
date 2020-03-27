@@ -46,7 +46,7 @@
                     <div class='subwindow collapsed'>
                         <div class='subwindow-container'>
                             <div class='subwindow-container-fix pads'>
-                                <div class="placeholder-ActionpadWidget"></div>
+                                <div class="placeholder-SelfServiceActionpadWidget"></div>
                             </div>
                         </div>
                     </div>
@@ -62,13 +62,13 @@
                     <tr class="content-row">
                         <td class="content-cell">
                             <div class="content-container">
-                                <span class="placeholder-ProductListWidget" />
+                                <span class="placeholder-SelfServiceProductListWidget" />
                             </div>
                         </td>
                     </tr>
                 </table>
             </div>
-            <div class="placeholder-PriceLabelsWidget"></div>
+            <div class="placeholder-SelfServiceProductListWidget"></div>
         </div>
     </t>
 
