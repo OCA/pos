@@ -25,14 +25,10 @@
     </t>
 
     <t t-name="PosTareLabel">
-        <div class="pos-center-align">
-            <div class="pos-tare-paper">
-                <div class="pos-tare-label">
-                    <img t-att-src="'/report/barcode/EAN13/' + widget.get_barcode_data()" />
-                    <span class="caption">tare = <t t-esc="widget.get_weight()" />kg</span>
-                </div>
-            </div>
-        </div>
+        <img t-att-src="'/report/barcode/EAN13/' + widget.get_barcode_data()" />
+        <span class="caption">
+            tare = <t t-esc="widget.get_tare_str()" /> kg
+        </span>
     </t>
 
     <t t-name="TareScreenButton">

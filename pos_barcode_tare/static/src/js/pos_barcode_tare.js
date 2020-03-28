@@ -57,6 +57,18 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         return result || 0;
     };
 
+    // Format the tare value.
+    var format_tare = function (pos, qty, unit) {
+        if (unit.rounding) {
+            var q = round_pr(qty, unit.rounding);
+            var decimals = pos.dp['Product Unit of Measure'];
+            return formats.format_value(
+                round_di(q, decimals),
+                {type: 'float', digits: [69, decimals]});
+        }
+        return qty.toFixed(0);
+    };
+
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
     // latest order line.
@@ -260,6 +272,10 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             delete this.weight;
             this.pos.proxy_queue.clear();
         },
+        get_tare_str: function () {
+            return format_tare(this.pos, this.get_weight(),
+                get_unit(this.pos, "kg"));
+        },
     });
 
     gui.define_screen({name:'tare', widget: TareScreenWidget});
@@ -289,27 +305,14 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                     this.get_tare_str_with_unit(), this.product.display_name));
             }
 
-            var self = this;
-            // This function is used to format the quantity into string
-            // according to the rounding specifications.
-            var stringify = function (qty) {
-                var unit = self.get_unit();
-                if (unit.rounding) {
-                    var q = round_pr(qty, unit.rounding);
-                    var decimals = self.pos.dp['Product Unit of Measure'];
-                    return formats.format_value(
-                        round_di(q, decimals),
-                        {type: 'float', digits: [69, decimals]});
-                }
-                return qty.toFixed(0);
-            };
             // We convert the tare that is always measured in kilogrammes into
             // the unit of measure for this order line.
             var kg = get_unit(this.pos, "kg");
             var tare = parseFloat(quantity) || 0;
             var unit = this.get_unit();
             var tare_in_product_uom = convert_mass(tare, kg, unit);
-            var tare_in_product_uom_string = stringify(tare_in_product_uom);
+            var tare_in_product_uom_string = format_tare(this.pos,
+                tare_in_product_uom, unit);
             var net_quantity = this.get_quantity() - tare_in_product_uom;
             // This method fails when the net weight is negative.
             if (net_quantity <= 0) {
