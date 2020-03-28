@@ -330,12 +330,14 @@ odoo.define('pos_self_weighing.screens', function (require) {
                         self.click_product(product);
                     }});
 
+            // Search bar to find products by theirs names.
             this.search_widget = new SelfServiceSearchWidget(this,
                 {product_list_widget: this.product_list_widget});
 
-            // Handles barcode rendering
+            // Handles barcode rendering.
             this.price_labels = new PriceLabelsWidget(this,
                 {order_widget: this.order_widget});
+
             // A two button pad: back action undo last action, validate action
             // prints the labels.
             this.actionpad = new SelfServiceActionpadWidget(this,

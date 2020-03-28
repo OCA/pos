@@ -124,15 +124,16 @@
 
     <t t-name="PosLabels">
         <t t-foreach='orderlines' t-as='line'>
-            <t t-set="export" t-value="line.export_for_printing()" />
             <div class="label">
-                <span class="caption"><t t-esc="export.product_name" /></span>
+                <span class="caption"><t t-esc="line.get_product().display_name" /></span>
                 <img t-att-src="'/report/barcode/EAN13/' + line.get_barcode_data()" />
                 <span class="caption">
-                    <t t-if="widget.pos.currency.position == 'before'"><t t-esc="widget.pos.currency.symbol" /></t>
-                    <t t-esc="export.price_with_tax" />
-                    <t t-if="widget.pos.currency.position == 'after'"><t t-esc="widget.pos.currency.symbol"/></t>
-                    (<t t-esc="export.quantity" /><t t-esc="export.unit_name" />)
+                    <t t-esc="widget.format_currency(line.get_display_price())"/>
+                    /
+                    <t t-esc="line.get_quantity_str()" /> <t t-esc="line.get_unit().name" />
+                    <t t-if="line.get_tare_str() !== '0'">
+                        / Tare = <t t-esc="line.get_tare_str_with_unit()" />
+                    </t>
                 </span>
             </div>
         </t>
