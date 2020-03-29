@@ -30,7 +30,7 @@ The default way to process a weight barcode in odoo is to match the base part of
 For instance, if you setup barcode **21 12345 00000 8** for your carrots, any barcode with pattern **21 12345 \*\*\*\*\* \*** will be a match for carrots.
 This add-on uses weight barcode to encode labels. Therefore, with the previous barcode, **21 12345 01000 7** is be the label for 1kg of carrots. Be sure to have a barcode setup for each article you want to weight with a scale. See screenshot below.
 
-.. image:: ../static/description/configuration_details.png
+.. image:: ../static/description/barcode_config.png
 
 
 SSL certificate generation
