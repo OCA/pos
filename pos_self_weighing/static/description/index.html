@@ -394,24 +394,134 @@ ul.auto-toc {
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#usage" id="id1">Usage</a></li>
-<li><a class="reference internal" href="#bug-tracker" id="id2">Bug Tracker</a></li>
-<li><a class="reference internal" href="#credits" id="id3">Credits</a><ul>
-<li><a class="reference internal" href="#authors" id="id4">Authors</a></li>
-<li><a class="reference internal" href="#contributors" id="id5">Contributors</a></li>
-<li><a class="reference internal" href="#maintainers" id="id6">Maintainers</a></li>
+<li><a class="reference internal" href="#configuration" id="id1">Configuration</a></li>
+<li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
+<li><a class="reference internal" href="#setup-the-self-service-pos" id="id3">Setup the self service POS</a></li>
+<li><a class="reference internal" href="#setup-a-barcode-for-each-product-to-weight-with-a-scale" id="id4">Setup a barcode for each product “to weight with a scale”</a></li>
+<li><a class="reference internal" href="#ssl-certificate-generation" id="id5">SSL certificate generation</a></li>
+<li><a class="reference internal" href="#firefox" id="id6">Firefox</a></li>
+<li><a class="reference internal" href="#chrome" id="id7">Chrome</a></li>
+<li><a class="reference internal" href="#usage" id="id8">Usage</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="id9">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="id10">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="id11">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="id12">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="id13">Maintainers</a></li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="usage">
-<h1><a class="toc-backref" href="#id1">Usage</a></h1>
-<p>Install this add-on and configure the point of sale where you want to use a self service weighting station. The label printing is done using web print. To streamline the label printing it is advised to use the silent printing mode (firefox) or the kiosk printing (chrome).</p>
-<p>The command line to start a chrome base browser in kiosk mode with silent printing looks like:</p>
+<div class="section" id="configuration">
+<h1><a class="toc-backref" href="#id1">Configuration</a></h1>
+</div>
+<div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id2">Introduction</a></h1>
+<p>Install this add-on and configure the point of sale where you want to use a self service weighing station. The label printing is done using web print.
+This add-on requires to be connected to Odoo POS from a computer that’ll be accessible by your customers/members. In order to limit the risk of unfortunate/malicious actions on this POS you should:</p>
+<ul class="simple">
+<li><strong>Use a dedicated odoo account with the least possible rights</strong></li>
+<li>Configure the web browser to be in kiosk mode (only browsing without navigation bar)</li>
+</ul>
+<p>Those measures aren’t sufficient <em>per se</em>, but should lower the risk significantly.</p>
+</div>
+<div class="section" id="setup-the-self-service-pos">
+<h1><a class="toc-backref" href="#id3">Setup the self service POS</a></h1>
+<ol class="arabic simple">
+<li>Create a new POS</li>
+<li><dl class="first docutils">
+<dt>Setup hardware proxy</dt>
+<dd><ul class="first last">
+<li>Make sure you have a valid SSL certificate issued for POSBOX host (see below).</li>
+<li>Enable electronic scale</li>
+<li>Enable barcode reader</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Enable self service weighing</dt>
+<dd><ul class="first last">
+<li>Use the checkbox as shown on screen shot below.</li>
+<li>If your label printer is able to distribute several labels in a row you can select the <cite>Enable weighing station to print multiple labels at once</cite>. With this option your customers will be able to weigh several products and print all the labels at once. This is assumed to be more efficient.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>See the screenshot below, you new POS should page should like this.</p>
+<img alt="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" src="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" />
+</div>
+<div class="section" id="setup-a-barcode-for-each-product-to-weight-with-a-scale">
+<h1><a class="toc-backref" href="#id4">Setup a barcode for each product “to weight with a scale”</a></h1>
+<p>In the default odoo barcode nomenclature, a barcode with prefix 21 is a “weight” barcode.
+The default way to process a weight barcode in odoo is to match the base part of the barcode (<em>ie</em>. the two digits prefix and the following five digits).
+For instance, if you setup barcode <strong>21 12345 00000 8</strong> for your carrots, any barcode with pattern <strong>21 12345 ***** *</strong> will be a match for carrots.
+This add-on uses weight barcode to encode labels. Therefore, with the previous barcode, <strong>21 12345 01000 7</strong> is be the label for 1kg of carrots. Be sure to have a barcode setup for each article you want to weight with a scale. See screenshot below.</p>
+<img alt="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" src="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" />
+</div>
+<div class="section" id="ssl-certificate-generation">
+<h1><a class="toc-backref" href="#id5">SSL certificate generation</a></h1>
+<p>Nowadays for any internet facing service the most convenient, secure, and fast way to get SSL certificates is [letsencrypt](<a class="reference external" href="https://letsencrypt.org/">https://letsencrypt.org/</a>).
+However, it is likely (and expected) that your POSBox and the computer used to display to self weighing POS belong to same network.
+In such a situation to use a self issued SSL certificate is a valid option.
+To use a self issued SSL certificate is low maintenance as you can set an arbitrarily far expiration date.
+As your HTTPS communications are expected to happen locally the security risk of using a self issued SSL certificate is fairly low.</p>
+<dl class="docutils">
+<dt>See bash scripts in the GIST below to:</dt>
+<dd><ul class="first last simple">
+<li>create a certification authority</li>
+<li>self issue a SSL certificate with this certification authority</li>
+<li>setup a nginx reverse proxy serving the posbox with the self issued SSL certificate</li>
+<li>Install the certification authority into the web browser of the computer displaying the self weighing POS belong so that the self issued SSL certificate is considered valid by chrome and firefox.</li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="https://gist.github.com/Fkawala/0d46376d3abb7369d34afefaa1ac98fa">https://gist.github.com/Fkawala/0d46376d3abb7369d34afefaa1ac98fa</a></p>
+</div>
+<div class="section" id="firefox">
+<h1><a class="toc-backref" href="#id6">Firefox</a></h1>
+<p>See below how to setup firefox in silent printing mode is described below [source](<a class="reference external" href="http://manual.koha-community.org/3.2/en/firefoxreceipt.html">http://manual.koha-community.org/3.2/en/firefoxreceipt.html</a>)</p>
+<ol class="arabic simple">
+<li>Open File &gt; Page Setup<ul>
+<li>Make all the headers and footers blank</li>
+<li>Set the margins to 0 (zero)</li>
+</ul>
+</li>
+<li>In the address bar of Firefox, type <a class="reference external" href="about:config">about:config</a><ul>
+<li>Search for print.always_print_silent and double click it</li>
+<li>Change it from false to true</li>
+<li><dl class="first docutils">
+<dt>If print.always_print_silent does not come up:</dt>
+<dd><ul class="first last">
+<li>Right click on a blank area of the preference window</li>
+<li>Select new &gt; Boolean</li>
+<li>Enter “print.always_print_silent” as the name (without quotes)</li>
+<li>Click OK</li>
+<li>Select true for the value</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+<p>You may also want to check what is listed for print.print_printer. You may have to choose Generic/Text Only (or whatever your receipt printer might be named)</p>
+</div>
+<div class="section" id="chrome">
+<h1><a class="toc-backref" href="#id7">Chrome</a></h1>
+<p>Chrome base browsers have a kiosk mode. In kiosk mode the navigation bar is disabled and user action are limited to web browsing. To start a chrome base browser in kiosk mode with silent printing use the command below.</p>
 <p><tt class="docutils literal"><span class="pre">chromium-browser</span> <span class="pre">--use-system-default-printer</span> <span class="pre">--kiosk</span> <span class="pre">--kiosk-printing</span> <span class="pre">http://localhost:8069/</span></tt></p>
 </div>
+<div class="section" id="usage">
+<h1><a class="toc-backref" href="#id8">Usage</a></h1>
+<ol class="arabic simple">
+<li>Setup the add-on as explained in the <strong>configuration</strong> section</li>
+<li>Start the POS</li>
+<li>Let your happy customers/members use the POS to print price labels for fruits, vegetables and loose goods, let them enjoy a swift checkout process</li>
+</ol>
+</div>
 <div class="section" id="bug-tracker">
-<h1><a class="toc-backref" href="#id2">Bug Tracker</a></h1>
+<h1><a class="toc-backref" href="#id9">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
@@ -419,15 +529,15 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
-<h1><a class="toc-backref" href="#id3">Credits</a></h1>
+<h1><a class="toc-backref" href="#id10">Credits</a></h1>
 <div class="section" id="authors">
-<h2><a class="toc-backref" href="#id4">Authors</a></h2>
+<h2><a class="toc-backref" href="#id11">Authors</a></h2>
 <ul class="simple">
 <li>Le Nid</li>
 </ul>
 </div>
 <div class="section" id="contributors">
-<h2><a class="toc-backref" href="#id5">Contributors</a></h2>
+<h2><a class="toc-backref" href="#id12">Contributors</a></h2>
 <ul class="simple">
 <li>Le Nid</li>
 <li>SPP Meyrin</li>
@@ -436,7 +546,7 @@ If you spotted it first, help us smashing it by providing a detailed and welcome
 </ul>
 </div>
 <div class="section" id="maintainers">
-<h2><a class="toc-backref" href="#id6">Maintainers</a></h2>
+<h2><a class="toc-backref" href="#id13">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
 <a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose

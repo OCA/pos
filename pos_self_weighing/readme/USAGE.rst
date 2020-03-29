@@ -1,5 +1,3 @@
-Install this add-on and configure the point of sale where you want to use a self service weighting station. The label printing is done using web print. To streamline the label printing it is advised to use the silent printing mode (firefox) or the kiosk printing (chrome).
-
-The command line to start a chrome base browser in kiosk mode with silent printing looks like:
-
-``chromium-browser --use-system-default-printer --kiosk --kiosk-printing http://localhost:8069/``
+1. Setup the add-on as explained in the **configuration** section
+2. Start the POS
+3. Let your happy customers/members use the POS to print price labels for fruits, vegetables and loose goods, let them enjoy a swift checkout process
