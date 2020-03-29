@@ -394,13 +394,15 @@ ul.auto-toc {
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#configuration" id="id1">Configuration</a></li>
+<li><a class="reference internal" href="#configuration" id="id1">Configuration</a><ul>
 <li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
 <li><a class="reference internal" href="#setup-the-self-service-pos" id="id3">Setup the self service POS</a></li>
 <li><a class="reference internal" href="#setup-a-barcode-for-each-product-to-weight-with-a-scale" id="id4">Setup a barcode for each product “to weight with a scale”</a></li>
 <li><a class="reference internal" href="#ssl-certificate-generation" id="id5">SSL certificate generation</a></li>
 <li><a class="reference internal" href="#firefox" id="id6">Firefox</a></li>
 <li><a class="reference internal" href="#chrome" id="id7">Chrome</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#usage" id="id8">Usage</a></li>
 <li><a class="reference internal" href="#bug-tracker" id="id9">Bug Tracker</a></li>
 <li><a class="reference internal" href="#credits" id="id10">Credits</a><ul>
@@ -413,9 +415,8 @@ ul.auto-toc {
 </div>
 <div class="section" id="configuration">
 <h1><a class="toc-backref" href="#id1">Configuration</a></h1>
-</div>
 <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id2">Introduction</a></h1>
+<h2><a class="toc-backref" href="#id2">Introduction</a></h2>
 <p>Install this add-on and configure the point of sale where you want to use a self service weighing station. The label printing is done using web print.
 This add-on requires to be connected to Odoo POS from a computer that’ll be accessible by your customers/members. In order to limit the risk of unfortunate/malicious actions on this POS you should:</p>
 <ul class="simple">
@@ -425,7 +426,7 @@ This add-on requires to be connected to Odoo POS from a computer that’ll be ac
 <p>Those measures aren’t sufficient <em>per se</em>, but should lower the risk significantly.</p>
 </div>
 <div class="section" id="setup-the-self-service-pos">
-<h1><a class="toc-backref" href="#id3">Setup the self service POS</a></h1>
+<h2><a class="toc-backref" href="#id3">Setup the self service POS</a></h2>
 <ol class="arabic simple">
 <li>Create a new POS</li>
 <li><dl class="first docutils">
@@ -452,15 +453,15 @@ This add-on requires to be connected to Odoo POS from a computer that’ll be ac
 <img alt="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" src="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" />
 </div>
 <div class="section" id="setup-a-barcode-for-each-product-to-weight-with-a-scale">
-<h1><a class="toc-backref" href="#id4">Setup a barcode for each product “to weight with a scale”</a></h1>
+<h2><a class="toc-backref" href="#id4">Setup a barcode for each product “to weight with a scale”</a></h2>
 <p>In the default odoo barcode nomenclature, a barcode with prefix 21 is a “weight” barcode.
 The default way to process a weight barcode in odoo is to match the base part of the barcode (<em>ie</em>. the two digits prefix and the following five digits).
 For instance, if you setup barcode <strong>21 12345 00000 8</strong> for your carrots, any barcode with pattern <strong>21 12345 ***** *</strong> will be a match for carrots.
 This add-on uses weight barcode to encode labels. Therefore, with the previous barcode, <strong>21 12345 01000 7</strong> is be the label for 1kg of carrots. Be sure to have a barcode setup for each article you want to weight with a scale. See screenshot below.</p>
-<img alt="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" src="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/configuration_details.png" />
+<img alt="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/barcode_config.png" src="https://raw.githubusercontent.com/OCA/pos/9.0/pos_self_weighing/static/description/barcode_config.png" />
 </div>
 <div class="section" id="ssl-certificate-generation">
-<h1><a class="toc-backref" href="#id5">SSL certificate generation</a></h1>
+<h2><a class="toc-backref" href="#id5">SSL certificate generation</a></h2>
 <p>Nowadays for any internet facing service the most convenient, secure, and fast way to get SSL certificates is [letsencrypt](<a class="reference external" href="https://letsencrypt.org/">https://letsencrypt.org/</a>).
 However, it is likely (and expected) that your POSBox and the computer used to display to self weighing POS belong to same network.
 In such a situation to use a self issued SSL certificate is a valid option.
@@ -479,7 +480,7 @@ As your HTTPS communications are expected to happen locally the security risk of
 <p><a class="reference external" href="https://gist.github.com/Fkawala/0d46376d3abb7369d34afefaa1ac98fa">https://gist.github.com/Fkawala/0d46376d3abb7369d34afefaa1ac98fa</a></p>
 </div>
 <div class="section" id="firefox">
-<h1><a class="toc-backref" href="#id6">Firefox</a></h1>
+<h2><a class="toc-backref" href="#id6">Firefox</a></h2>
 <p>See below how to setup firefox in silent printing mode is described below [source](<a class="reference external" href="http://manual.koha-community.org/3.2/en/firefoxreceipt.html">http://manual.koha-community.org/3.2/en/firefoxreceipt.html</a>)</p>
 <ol class="arabic simple">
 <li>Open File &gt; Page Setup<ul>
@@ -508,9 +509,10 @@ As your HTTPS communications are expected to happen locally the security risk of
 <p>You may also want to check what is listed for print.print_printer. You may have to choose Generic/Text Only (or whatever your receipt printer might be named)</p>
 </div>
 <div class="section" id="chrome">
-<h1><a class="toc-backref" href="#id7">Chrome</a></h1>
+<h2><a class="toc-backref" href="#id7">Chrome</a></h2>
 <p>Chrome base browsers have a kiosk mode. In kiosk mode the navigation bar is disabled and user action are limited to web browsing. To start a chrome base browser in kiosk mode with silent printing use the command below.</p>
 <p><tt class="docutils literal"><span class="pre">chromium-browser</span> <span class="pre">--use-system-default-printer</span> <span class="pre">--kiosk</span> <span class="pre">--kiosk-printing</span> <span class="pre">http://localhost:8069/</span></tt></p>
+</div>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#id8">Usage</a></h1>
