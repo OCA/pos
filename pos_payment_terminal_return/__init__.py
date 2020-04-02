@@ -1,1 +1,1 @@
-from . import pos_payment_terminal
+from . import models
