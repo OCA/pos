@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-24 14:27+0000\n"
-"PO-Revision-Date: 2019-07-24 14:27+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2020-04-02 14:19+0000\n"
+"Last-Translator: Simon Mas <simon.mas@druidoo.io>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_invoice_send_mail
 #: model_terms:ir.ui.view,arch_db:pos_invoice_send_mail.pos_config_view_form
@@ -23,13 +24,12 @@ msgstr "Modèle de courriel"
 
 #. module: pos_invoice_send_mail
 #: model:ir.model.fields,field_description:pos_invoice_send_mail.field_pos_config__invoice_mail_template_id
-#, fuzzy
 msgid "Invoice Email Template"
 msgstr "Modèle de courriel"
 
 #. module: pos_invoice_send_mail
 #: code:addons/pos_invoice_send_mail/models/pos_config.py:28
-#, fuzzy, python-format
+#, python-format
 msgid "Invoice Email Template is required"
 msgstr "Modèle de courriel"
 
@@ -38,7 +38,7 @@ msgstr "Modèle de courriel"
 #: code:addons/pos_invoice_send_mail/static/src/js/screens.js:48
 #, python-format
 msgid "Please fill the customer email"
-msgstr ""
+msgstr "Remplissez le courriel du client"
 
 #. module: pos_invoice_send_mail
 #: model:ir.model,name:pos_invoice_send_mail.model_pos_config
@@ -55,16 +55,16 @@ msgstr "Commandes du point de vente"
 #: code:addons/pos_invoice_send_mail/static/src/xml/pos.xml:8
 #, python-format
 msgid "Send Invoice by Email"
-msgstr ""
+msgstr "Envoyer la facture par courriel"
 
 #. module: pos_invoice_send_mail
 #: model:ir.model.fields,field_description:pos_invoice_send_mail.field_pos_config__iface_invoice_mail
 msgid "Send Invoice by Mail"
-msgstr ""
+msgstr "Envoyer la facture par courriel"
 
 #. module: pos_invoice_send_mail
 #. openerp-web
 #: code:addons/pos_invoice_send_mail/static/src/js/screens.js:49
 #, python-format
 msgid "You need to complete the customer email in order to send it."
-msgstr ""
+msgstr "Vous devez compléter le courriel du client pour pouvoir l'envoyer."
