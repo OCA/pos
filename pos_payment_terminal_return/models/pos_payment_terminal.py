@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    POS Payment Terminal module for Odoo
 #    Copyright (C) 2014 Aurélien DUMAINE
 #    Copyright (C) 2015 Akretion (www.akretion.com)
+#    Copyright (C) 2020-Today: Druidoo (<https://www.druidoo.io>)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,11 +20,12 @@
 #
 ##############################################################################
 
-from openerp import models, fields
+from odoo import models, fields
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     iface_payment_terminal_return = fields.Boolean(
-        'Wait Payment Terminal Return')
+        "Wait Payment Terminal Return"
+    )

@@ -43,3 +43,4 @@ Contributors
 ------------
 
 * Mathieu Vatel <mathieu@julius.fr>
+* Druidoo <https://www.druidoo.io>

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    POS Payment Terminal module for Odoo
@@ -21,20 +20,17 @@
 
 
 {
-    'name': 'POS Payment Terminal Return',
-    'version': '9.0.0.1.0',
-    'category': 'Point Of Sale',
-    'summary': 'Manage Payment Terminal device from POS front end with return',
-    'author': "Julius Network Solutions",
-    'contributors': "Mathieu Vatel <mathieu@julius.fr>",
-    'license': 'AGPL-3',
-    'depends': [
-                'point_of_sale',
-                'pos_payment_terminal',
-                ],
-    'data': [
-             'pos_payment_terminal_view.xml',
-             'static/src/xml/templates.xml',
-             ],
-    'installable': True,
+    "name": "POS Payment Terminal Return",
+    "version": "12.0.1.0.0",
+    "category": "Point Of Sale",
+    "summary": "Manage Payment Terminal device from POS front end with return",
+    "author": "Julius Network Solutions, Druidoo",
+    "contributors": "Mathieu Vatel <mathieu@julius.fr>",
+    "license": "AGPL-3",
+    "depends": ["point_of_sale", "pos_payment_terminal"],
+    "data": [
+        "views/pos_payment_terminal_view.xml",
+        "views/templates.xml",
+    ],
+    "installable": True,
 }
