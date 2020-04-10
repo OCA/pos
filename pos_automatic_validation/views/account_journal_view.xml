@@ -3,12 +3,14 @@
     <record id="view_acount_journal_form" model="ir.ui.view">
         <field name="name">account.journal.automatic.validation.form</field>
         <field name="model">account.journal</field>
-        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
         <field name="priority">20</field>
         <field name="arch" type="xml">
-            <field name="journal_user" position="after">
-                <field name="iface_automatic_validation"/>
-            </field>
+            <xpath expr="//group[@name='amount_authorized']" position="after">
+                <group>
+                    <field name="iface_automatic_validation"/>
+                </group>
+            </xpath>
         </field>
     </record>
 </odoo>
