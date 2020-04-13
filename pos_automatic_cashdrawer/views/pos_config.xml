@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">pos.automatic.cashdrawer.config.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='barcode_scanner']" position="after">
+                <div id="iface_automatic_cashdrawer" class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="iface_automatic_cashdrawer"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="iface_automatic_cashdrawer" string="Automatic Cashdrawer"/>
+                        <div class="content-group row mt16" attrs="{'invisible': [('iface_automatic_cashdrawer', '=', False)]}">
+                            <label string="Automatic Cashdrawer IP address" for="iface_automatic_cashdrawer_ip_address" class="col-lg-3 o_light_label"/>
+                            <field name="iface_automatic_cashdrawer_ip_address"/>
+                            <label string="Automatic Cashdrawer TCP port" for="iface_automatic_cashdrawer_tcp_port" class="col-lg-3 o_light_label"/>
+                            <field name="iface_automatic_cashdrawer_tcp_port"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

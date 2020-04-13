@@ -1,0 +1,96 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_automatic_cashdrawer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer
+msgid "An automatic cashdrawer is available on the Proxy"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_account_journal_iface_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer
+msgid "Automatic cashdrawer"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_ip_address
+msgid "Automatic cashdrawer IP address"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_tcp_port
+msgid "Automatic cashdrawer TCP port"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_display_accept_button
+msgid "Automatic cashdrawer display accept button"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_screen_on_top
+msgid "Automatic cashdrawer screen on top"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_account_journal_iface_automatic_cashdrawer
+msgid "Check this if this journal is linked to an automatic cashdrawer"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model,name:pos_automatic_cashdrawer.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:res.groups,name:pos_automatic_cashdrawer.group_pos_automatic_cashlogy_config
+msgid "PoS - Allow Cashlogy config"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:res.groups,name:pos_automatic_cashdrawer.group_pos_automatic_cashlogy
+msgid "PoS - Allow Cashlogy connection"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_group_pos_automatic_cashlogy_config
+msgid "Point of Sale - Allow Cashlogy Config"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_group_pos_automatic_cashlogy
+msgid "Point of Sale - Allow Cashlogy connection"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_pos_config_group_pos_automatic_cashlogy_config
+msgid "This field is there to pass the id of the 'PoS - Allow Cashlogy config' Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_pos_config_group_pos_automatic_cashlogy
+msgid "This field is there to pass the id of the 'PoS - Allow Cashlogy connection' Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model,name:pos_automatic_cashdrawer.model_pos_config
+msgid "pos.config"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model,name:pos_automatic_cashdrawer.model_pos_session
+msgid "pos.session"
+msgstr ""
+

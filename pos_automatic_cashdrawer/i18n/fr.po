@@ -1,0 +1,574 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_automatic_cashdrawer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-09 09:17+0000\n"
+"PO-Revision-Date: 2020-04-09 09:17+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:173
+#, python-format
+msgid " but the dispensed amount was: "
+msgstr " but the dispensed amount was: "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:250
+#, python-format
+msgid "AccessError"
+msgstr "AccessError"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:400
+#, python-format
+msgid "Added Cash"
+msgstr "Monnaie Cash ajoutée"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:53
+#, python-format
+msgid "Added so far"
+msgstr "Added so far"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer
+msgid "An automatic cashdrawer is available on the Proxy"
+msgstr "An automatic cashdrawer is available on the Proxy"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:109
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:184
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer
+#, python-format
+msgid "Automatic Cashdrawer"
+msgstr "Monnayeur automatique"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:75
+#, python-format
+msgid "Automatic Cashdrawer Connecting.."
+msgstr "Connexion au Monnayeur automatique..."
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_ip_address
+msgid "Automatic Cashdrawer IP address"
+msgstr "Monnayeur automatique IP address"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:79
+#, python-format
+msgid "Automatic Cashdrawer Offline"
+msgstr "Automatic Cashdrawer Offline"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_tcp_port
+msgid "Automatic Cashdrawer TCP port"
+msgstr "Monnayeur automatique TCP port"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:233
+#, python-format
+msgid "Automatic Cashdrawer: Close Till / ADDED"
+msgstr "Monnayeur automatique: Close Till / ADDED"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:247
+#, python-format
+msgid "Automatic Cashdrawer: Close Till / DISPENSED"
+msgstr "Monnayeur automatique: Close Till / DISPENSED"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:305
+#, python-format
+msgid "Automatic Cashdrawer: Complete Emptying"
+msgstr "Automatic Cashdrawer: Complete Emptying"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:276
+#, python-format
+msgid "Automatic Cashdrawer: Empty Stacker"
+msgstr "Monnayeur automatique: Empty Stacker"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_account_journal_iface_automatic_cashdrawer
+msgid "Automatic cashdrawer"
+msgstr "Monnayeur automatique"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:35
+#, python-format
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:142
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:157
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:227
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:270
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:299
+#, python-format
+msgid "Cash In/Out not possible"
+msgstr "Cash In/Out not possible"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:190
+#, python-format
+msgid "Cash Withdrawal"
+msgstr "Retrait de cash"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:15
+#, python-format
+msgid "Cashdrawer Admin"
+msgstr "Cashdrawer Admin"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:62
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:81
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:99
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:117
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:146
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:164
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:192
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:208
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:224
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:255
+#, python-format
+msgid "Cashdrawer Error: "
+msgstr "Erreur Monnayeur automatique"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:6
+#, python-format
+msgid "Cashlogy Backoffice"
+msgstr "Cashlogy Backoffice"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_account_journal_iface_automatic_cashdrawer
+msgid "Check this if this journal is linked to an automatic cashdrawer"
+msgstr "Vérifiez sur ce journal est lié à un monnayeur automatique"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:97
+#, python-format
+msgid "Close"
+msgstr "Close"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:22
+#, python-format
+msgid "Close Till / Cash Float"
+msgstr "Close Till / Cash Float"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:251
+#, python-format
+msgid "Close Till Result"
+msgstr "Close Till Result"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:237
+#, python-format
+msgid "Close Till: Put In"
+msgstr "Close Till: Put In"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:349
+#, python-format
+msgid "Closing Balance Set"
+msgstr "Closing Balance Set"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:309
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:24
+#, python-format
+msgid "Complete Emptying"
+msgstr "Complete Emptying"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:57
+#, python-format
+msgid "Confirm"
+msgstr "Confirm"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:176
+#, python-format
+msgid "Could not dispense the value requested"
+msgstr "Ne peu remettre la valeur demandée"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:186
+#, python-format
+msgid "Dispensed: "
+msgstr "Dispensed: "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:280
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:23
+#, python-format
+msgid "Empty Stacker"
+msgstr "Empty Stacker"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:214
+#, python-format
+msgid "IMPORTANT: This operations is not registered on the cash statement. You have to manually register it."
+msgstr "IMPORTANT: Cette opération n'est pas enregistrées sur le journal d'espèces, vous devez les enregistrer manuellement."
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:110
+#, python-format
+msgid "Inventory"
+msgstr "Inventory"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:338
+#, python-format
+msgid "It looks the session is already opened"
+msgstr "Il semble qu'une session soit déjà ouverte."
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model,name:pos_automatic_cashdrawer.model_account_journal
+msgid "Journal"
+msgstr "Journal"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:211
+#, python-format
+msgid "Manual Cancel"
+msgstr "Annulation Manuelle"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:396
+#, python-format
+msgid "Manual: put money in"
+msgstr "Action Manuelle: placez les espèces."
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:185
+#, python-format
+msgid "Manual: take money out"
+msgstr "Action Manuelle: retirez les espèces"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:237
+#, python-format
+msgid "Method not implemented yet"
+msgstr "Methode pas encore implementée"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:213
+#, python-format
+msgid "Money in/out: "
+msgstr "Ajout / retrait d'espèces. "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/devices.js:236
+#, python-format
+msgid "Not implemented"
+msgstr "Non implementé"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:31
+#, python-format
+msgid "Open Backoffice"
+msgstr "Open Backoffice"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:330
+#, python-format
+msgid "Opening Balance Set"
+msgstr "Ouverture du réglage de balance."
+
+#. module: pos_automatic_cashdrawer
+#: code:addons/pos_automatic_cashdrawer/models/pos_session.py:64
+#, python-format
+msgid "Please check that the field 'Journal' is set on the Bank Statement"
+msgstr "Vérifiez que le champ  'Journal' est configuré sur les données de la Banque"
+
+#. module: pos_automatic_cashdrawer
+#: code:addons/pos_automatic_cashdrawer/models/pos_session.py:68
+#, python-format
+msgid "Please check that the field 'Transfer Account' is set on the company."
+msgstr "Vérifiez que le champ  'Compte de transfert' est défini pour cette société."
+
+#. module: pos_automatic_cashdrawer
+#: model:res.groups,name:pos_automatic_cashdrawer.group_pos_automatic_cashlogy_config
+msgid "PoS - Allow Cashlogy config"
+msgstr "Point de vente - Autoriser configuration Cashlogy"
+
+#. module: pos_automatic_cashdrawer
+#: model:res.groups,name:pos_automatic_cashdrawer.group_pos_automatic_cashlogy
+msgid "PoS - Allow Cashlogy connection"
+msgstr "Point de vente - Autoriser la connexion Cashlogy"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer.field_pos_config_group_pos_automatic_cashlogy_config
+msgid "Point of Sale - Allow Cashlogy Config"
+msgstr "Point de Vente - Autoriser Cashlogy Config"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:98
+#, python-format
+msgid "Print"
+msgstr "Print"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:21
+#, python-format
+msgid "Print Inventory"
+msgstr "Print Inventory"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:18
+#, python-format
+msgid "Put Money In"
+msgstr "Put Money In"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:220
+#, python-format
+msgid "REF:"
+msgstr "REF:"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:78
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:153
+#, python-format
+msgid "Recycler"
+msgstr "Recycler"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:32
+#, python-format
+msgid "Send Cancel Command"
+msgstr "Send Cancel Command"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/models.js:66
+#, python-format
+msgid "Set balance error: "
+msgstr "Set balance error: "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:79
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:157
+#, python-format
+msgid "Stacker"
+msgstr "Stacker"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:46
+#, python-format
+msgid "Start adding cash into the machine."
+msgstr "Start adding cash into the machine."
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:219
+#, python-format
+msgid "Statement:"
+msgstr "Statement:"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:331
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:350
+#, python-format
+msgid "Success"
+msgstr "Success"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/chrome.js:34
+#, python-format
+msgid "Sync Opening Balance"
+msgstr "Synchronisation de l'ouverture Balance"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/chrome.js:69
+#, python-format
+msgid "Synchronizing automatic cashdrawer inventory"
+msgstr "Synchronisation de l'inventaire du Monnayeur automatique."
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:165
+#, python-format
+msgid "TOTAL"
+msgstr "TOTAL"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:133
+#, python-format
+msgid "TOTALS"
+msgstr "TOTALS"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:19
+#, python-format
+msgid "Take Money Out"
+msgstr "Take Money Out"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:180
+#, python-format
+msgid "The dispensed amount was: "
+msgstr "The dispensed amount was: "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/chrome.js:35
+#, python-format
+msgid "The opening balance for this session is missing. Do you wan't to synchronize it with the automatic cashdrawer?"
+msgstr "La balance d'ouverture pour cette session est manquante. Voulez vous la synchroniser avec le monnayeur automatique ?"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_pos_config_iface_automatic_cashdrawer_tcp_port
+msgid "The port to connect to the Cashdrawer.\n"
+"WARNING: set a port bigger than 1024 to allow a non-root user to listen on it."
+msgstr "Port à connecter au Monnayeur automatique.\n"
+"WARNING: configurez un port plus grand que 1024 pour autoriser l'écoute par un utilisateur non root."
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:173
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:178
+#, python-format
+msgid "The requested amount to dispense was: "
+msgstr "The requested amount to dispense was: "
+
+#. module: pos_automatic_cashdrawer
+#: code:addons/pos_automatic_cashdrawer/models/pos_session.py:61
+#, python-format
+msgid "There's no cash register on this session"
+msgstr "Il n'y a pas de caisse enregistreuse sur la session"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer.field_pos_config_group_pos_automatic_cashlogy_config
+msgid "This field is there to pass the id of the \"PoS - Allow Cashlogy config\" group to the POS."
+msgstr "This field is there to pass the id of the \"PoS - Allow Cashlogy config\" group to the POS."
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:80
+#, python-format
+msgid "Total"
+msgstr "Total"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:239
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:402
+#, python-format
+msgid "Total added: "
+msgstr "Total added: "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:253
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:282
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:311
+#, python-format
+msgid "Total dispensed: "
+msgstr "Total dispensed: "
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/js/widgets.js:337
+#, python-format
+msgid "Unable to set balance on opened sessions"
+msgstr "Unable to set balance on opened sessions"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:126
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:202
+#, python-format
+msgid "User:"
+msgstr "User:"
+
+#. module: pos_automatic_cashdrawer
+#. openerp-web
+#: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:47
+#, python-format
+msgid "When you finish, press confirm."
+msgstr "When you finish, press confirm."
+
+#. module: pos_automatic_cashdrawer
+#: code:addons/pos_automatic_cashdrawer/models/pos_session.py:72
+#, python-format
+msgid "You cannot put/take money in/out for a bank statement which is closed."
+msgstr "Vous ne pouvez pas placer ou retirer des espèces d'un journal de banque fermé."
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model,name:pos_automatic_cashdrawer.model_pos_config
+msgid "pos.config"
+msgstr "pos.config"
+
+#. module: pos_automatic_cashdrawer
+#: model:ir.model,name:pos_automatic_cashdrawer.model_pos_session
+msgid "pos.session"
+msgstr "pos.session"
+
