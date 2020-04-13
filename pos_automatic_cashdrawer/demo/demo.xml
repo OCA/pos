@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="point_of_sale.pos_config_main" model="pos.config">
+            <field name="iface_automatic_cashdrawer" eval="True"/>
+            <field name="iface_automatic_cashdrawer_ip_address" >127.0.0.1</field>
+            <field name="iface_automatic_cashdrawer_tcp_port" >8092</field>
+        </record>
+    </data>
+</odoo>

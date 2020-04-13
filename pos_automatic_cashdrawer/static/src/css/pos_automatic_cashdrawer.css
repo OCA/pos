@@ -1,0 +1,81 @@
+.automatic-cashdrawer-transaction-start button {
+    width: 150px;
+    height: 60px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align:center;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    left: 105%;
+    bottom: 10px;
+    position: absolute;
+}
+
+.pos .modal-dialog .popup.popup-cashdrawer-admin {
+    height: 650px;
+}
+
+.pos .popup-cashdrawer-admin .actions .button {
+    float: none;
+    width: auto;
+    margin: 15px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: normal;
+    position: relative;
+}
+
+.pos .popup-cashdrawer-admin hr {
+    border-color: rgba(60,60,60,0.1);
+    margin: 10px 15px;
+}
+
+.pos .popup-cashdrawer-admin .actions .button .fa {
+    position: absolute;
+    left: 15px;
+    top: 8px;
+    margin-right: 8px;
+    font-size: 25px;
+    width: 35px;
+}
+
+.pos .popup-cashdrawer .total .value {
+    text-align: center;
+    padding: 24px 0px 18px;
+    font-size: 64px;
+    color: #43996E;
+    text-shadow: 0px 2px white, 0px 2px 2px rgba(0, 0, 0, 0.27);
+}
+
+
+.pos .modal-dialog .popup-cashdrawer-inventory {
+    height: 700px;
+}
+
+.pos .popup-cashdrawer-inventory .inventory-table {
+    padding: 20px;
+}
+
+.pos .popup-cashdrawer-inventory .inventory-table table {
+    width: 100%;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: right;
+}
+
+.pos .popup-cashdrawer-inventory .inventory-table table td {
+    line-height: 25px;
+    padding: 0 10px;
+}
+
+.pos .popup-cashdrawer-inventory .inventory-table table th {
+    line-height: 30px;
+    padding: 0 10px;
+    width: 25%;
+}
+
+.pos .popup-cashdrawer-inventory .inventory-table thead > tr,
+.pos .popup-cashdrawer-inventory .inventory-table tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
