@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+     <record id="view_wizard_pos_update_bank_statement_balance_form" model="ir.ui.view">
+        <field name="model">wizard.pos.update.bank.statement.balance</field>
+        <field name="arch" type="xml">
+            <form string="Update Balance">
+                Here you can change the <b><field name="balance_moment" readonly="1"/></b>
+                <field name="item_ids" nolabel="1">
+                    <tree string="Statements" create="0" editable="top" limit="1">
+                        <field name="journal_id"/>
+                        <field name="balance_moment" invisible="1"/>
+                        <field name="balance_start"/>
+                        <field name="balance_start_real" invisible="context.get('balance_moment') != 'starting'"/>
+                        <field name="total_entry_encoding" invisible="context.get('balance_moment') != 'ending'"/>
+                        <field name="balance_end" invisible="context.get('balance_moment') != 'ending'"/>
+                        <field name="balance_end_real" invisible="context.get('balance_moment') != 'ending'"/>
+                        <field name="currency_id" groups="base.group_multi_currency"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="action_confirm" string="Apply" type="object" class="btn-primary"/>
+                    <button class="btn-secondary" special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_pos_update_bank_statement_balance" model="ir.actions.act_window">
+        <field name="name">Update Balances</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizard.pos.update.bank.statement.balance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
