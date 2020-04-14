@@ -9,7 +9,7 @@
     "summary": "Allow user to control each statement and add extra checks",
     "version": "12.0.1.0.0",
     "category": "Point of Sale",
-    "author": "GRAP",
+    "author": "GRAP, Odoo Community Association (OCA)",
     "website": "http://www.grap.coop",
     "license": "AGPL-3",
     "depends": [

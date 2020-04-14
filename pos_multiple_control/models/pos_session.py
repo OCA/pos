@@ -144,8 +144,12 @@ class PosSession(models.Model):
                 ("user_id", "=", session.user_id.id),
             ]
             if self.search_count(domain) > 1:
-                raise ValidationError("You cannot create two active sessions\
-                 with the same responsible!")
+                raise ValidationError(
+                    _(
+                        "You cannot create two active sessions "
+                        "with the same responsible!"
+                    )
+                )
 
     @api.multi
     @api.constrains('config_id', 'state')
@@ -156,5 +160,9 @@ class PosSession(models.Model):
                 ("config_id", "=", session.config_id.id),
             ]
             if self.search_count(domain) > 1:
-                raise ValidationError("You cannot create two active sessions\
-                 related to the same point of sale!")
+                raise ValidationError(
+                    _(
+                        "You cannot create two active sessions related"
+                        " to the same point of sale!"
+                    )
+                )
