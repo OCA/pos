@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
+@author: Quentin DUPONT (https://twitter.com/pondupont)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="register_error_income" model="account.account">
+        <field name="code">7582</field>
+        <field name="name">Cash Register Error Income</field>
+        <field name="user_type_id" ref="account.data_account_type_revenue"/>
+    </record>
+
+    <record id="register_error_expense" model="account.account">
+        <field name="code">6582</field>
+        <field name="name">Cash Register Error Expense</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses"/>
+    </record>
+
+</odoo>
