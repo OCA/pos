@@ -1,2 +1,3 @@
 queue
 partner-contact
+pos_cash_move_reason https://github.com/legalsylvain/pos.git 12.0-mig-pos_cash_move_reason
