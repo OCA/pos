@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+@author Quentin DUPONT (https://twitter.com/pondupont)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="pos_config_control" model="pos.config">
+        <field name="name">Point Of Sale (With Mutiple Controls)</field>
+        <field name="picking_type_id" ref="point_of_sale.picking_type_posout" />
+        <field name="journal_ids" eval="[
+            (4, ref('check_journal')),
+            (4, ref('cash_journal'))]" />
+        <field name="cash_control" eval="True" />
+        <field name="autosolve_pos_move_reason" eval="cash_register_error" />
+
+    </record>
+
+</odoo>

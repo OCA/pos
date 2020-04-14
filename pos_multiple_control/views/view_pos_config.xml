@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+Copyright (C) 2019 - Today: GRAP (http://www.grap.coop)
+@author Quentin DUPONT (quentin.dupont@grap.coop)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
+-->
+
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_precompute_cash']/../.." position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label for="autosolve_pos_move_reason"/>
+                        <field name="autosolve_pos_move_reason"/>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label for="autosolve_limit"/>
+                        <div class="text-muted">
+                            Limit to display autosolve button
+                        </div>
+                        <field name="autosolve_limit"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_config_kanban" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='open_existing_session_cb']" position="after">
+                <button t-if="_.contains(['closing_control'], record.current_session_state.raw_value)" class="btn btn-primary" name="open_new_session" type="object">New Session</button>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
