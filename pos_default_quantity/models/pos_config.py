@@ -6,9 +6,8 @@ from odoo import models, fields
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     set_default_product_quantity = fields.Boolean(
-        string='Sets default product quantity in POS',
-        default=False,
+        string="Sets default product quantity in POS", default=False,
     )

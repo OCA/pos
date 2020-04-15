@@ -12,13 +12,11 @@
         When adding an to order line, this module sets the quantity to
          the default quantity set on the product unit category.
     """,
-    "depends": [
-        'point_of_sale',
+    "depends": ["point_of_sale",],
+    "data": [
+        "views/pos_config.xml",
+        "views/product_view.xml",
+        "static/src/xml/templates.xml",
     ],
-    'data': [
-        'views/pos_config.xml',
-        'views/product_view.xml',
-        'static/src/xml/templates.xml',
-    ],
-    'installable': True,
+    "installable": True,
 }
