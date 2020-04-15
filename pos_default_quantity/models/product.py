@@ -8,4 +8,4 @@ from odoo import models, fields
 class UoMCategory(models.Model):
     _inherit = "uom.category"
 
-    pos_default_qty = fields.Float(string="POS Default Quantity", default=0,)
+    pos_default_qty = fields.Float(string="POS Default Quantity", default=1,)
