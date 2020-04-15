@@ -13,7 +13,7 @@ odoo.define(
         var models = require('point_of_sale.models');
 
         models.load_models({
-            model: 'product.uom.categ',
+            model: 'uom.category',
             fields: ['name','pos_default_qty'],
             loaded: function (self, unit_categories) {
                 self.unit_categories = unit_categories;

@@ -5,8 +5,8 @@
 from odoo import models, fields
 
 
-class ProductUomCategory(models.Model):
-    _inherit = 'product.uom.categ'
+class UoMCategory(models.Model):
+    _inherit = 'uom.category'
 
     pos_default_qty = fields.Float(
         string='POS Default Quantity',
