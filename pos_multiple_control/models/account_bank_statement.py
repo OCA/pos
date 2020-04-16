@@ -15,13 +15,13 @@ class AccountBankStatement(models.Model):
     control_balance = fields.Float(
         string="Controled Balance",
         compute="_compute_control_balance",
-        digits_compute=dp.get_precision("Account"),
+        digits=dp.get_precision('Account'),
     )
 
     control_difference = fields.Float(
         string="Control Difference",
         compute="_compute_control_difference",
-        digits_compute=dp.get_precision("Account"),
+        digits=dp.get_precision('Account'),
     )
 
     is_pos_control = fields.Boolean(
