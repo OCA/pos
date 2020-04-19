@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo noupdate="1">
 
     <!--Email template -->
     <record id="email_send_pos_receipt" model="mail.template">
