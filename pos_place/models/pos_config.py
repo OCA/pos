@@ -7,6 +7,10 @@ from odoo import api, fields, models
 class PosConfig(models.Model):
     _inherit = 'pos.config'
 
+    use_pos_place = fields.Boolean(
+        string="Use Point of Sale places",
+        default=False)
+
     group_pos_place_user_id = fields.Many2one(
         'res.groups', string='Point of Sale Place User Group',
         compute='_compute_group_pos_place_user_id',

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2013 - Today: GRAP (http://www.grap.coop)
+@author: Quentin DUPONT (https://twitter.com/pondupont)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_pos_restaurant']/../.." position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="use_pos_place" groups="pos_place.group_pos_place_manager"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="use_pos_place" groups="pos_place.group_pos_place_manager"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
