@@ -143,6 +143,11 @@ msgid "This field is there to pass the id of the pos place user group to the poi
 msgstr ""
 
 #. module: pos_place
+#: model:ir.model.fields,field_description:pos_place.field_pos_config__use_pos_place
+msgid "Use Point of Sale places"
+msgstr "Utiliser les emplacements"
+
+#. module: pos_place
 #: model:res.groups,name:pos_place.group_pos_place_user
 msgid "User"
 msgstr "Utilisateur"

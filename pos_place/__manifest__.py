@@ -18,6 +18,7 @@
         'security/res_groups.xml',
         'security/ir.model.access.csv',
         'views/templates.xml',
+        'views/view_pos_config.xml',
         'views/view_pos_place.xml',
         'views/view_pos_order.xml',
     ],

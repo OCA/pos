@@ -29,7 +29,8 @@ odoo.define('pos_place.widgets', function (require) {
             });
         },
         is_visible: function () {
-            return this.pos.user.groups_id.indexOf(
+            return this.pos.config.use_pos_place &&
+            this.pos.user.groups_id.indexOf(
                 this.pos.config.group_pos_place_user_id[0]) !== -1;
         },
         get_name: function () {
