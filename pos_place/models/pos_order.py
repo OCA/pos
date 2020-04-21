@@ -13,6 +13,6 @@ class PosOrder(models.Model):
 
     @api.model
     def _order_fields(self, ui_order):
-        res = super(PosOrder, self)._order_fields(ui_order)
+        res = super()._order_fields(ui_order)
         res['place_id'] = ui_order.get('place_id', False)
         return res
