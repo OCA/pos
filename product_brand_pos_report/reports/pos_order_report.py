@@ -18,6 +18,10 @@ class PosOrderReport(models.Model):
 
     @api.model_cr
     def init(self):
+        # This method is fully rewritten and does not call its super.
+        # In future versions of pos module it could be great to
+        # split init method of report.pos.order model in different
+        # methods like "_select" and "_from" to avoid overwrite the full method
         tools.drop_view_if_exists(self._cr, 'report_pos_order')
         self._cr.execute("""
             CREATE OR REPLACE VIEW report_pos_order AS (

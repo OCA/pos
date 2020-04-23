@@ -9,7 +9,7 @@
     'description': 'Show product Brand in pos order report',
     'category': 'Point Of Sale',
     'author': 'PlanetaTIC',
-    'website': 'https://www.planetatic.com',
+    'website': 'https://www.github.com/OCA/pos',
     'license': 'AGPL-3',
     'application': False,
     'installable': True,
