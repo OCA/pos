@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Chrome">
+        <t t-jquery=".pos-logo" t-operation="after">
+            <span class="placeholder-PlaceNameWidget"></span>
+        </t>
+    </t>
+
+    <t t-name="PlaceNameWidget">
+        <t t-if="widget.is_visible()">
+            <span class="username">
+                <t t-esc="widget.get_name()" />
+            </span>
+        </t>
+    </t>
+
+    <!-- Non Proxy Bill -->
+    <t t-extend="PosTicket">
+        <t t-jquery="[class='receipt-user']" t-operation="after">
+             <t t-if="receipt.place">
+                <div class="receipt-place">
+                    Place: <t t-esc="receipt.place.name"/><br />
+                </div>
+            </t>
+        </t>
+    </t>
+
+    <!--     Proxy Bill -->
+    <t t-extend="XmlReceipt">
+        <t t-jquery="[t-if='receipt.cashier']" t-operation="after">
+            <t t-if='receipt.place'>
+                <div class='place'>
+                    <div>--------------------------------</div>
+                    <div>Place: <t t-esc='receipt.place.name' /></div>
+                </div>
+            </t>
+        </t>
+    </t>
+
+</templates>
