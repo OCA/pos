@@ -90,12 +90,9 @@ msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: selection:res.config.settings,receipt_options:0
-msgid ""
-"Email receipt and print it unless configured on user that                    "
-"he only receives electronically"
+#: selection:user.config.settings,receipt_options:0
+msgid "Email receipt and print it unless configured on user that                    he only receives electronically"
 msgstr ""
-"Envoyer le reçu par email et l'imprimer sauf si ce partenaire est configuré "
-"pour recevoir uniquement le reçu électronique"
 
 #. module: pos_ticket_send_by_mail
 #: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_partner__email_pos_receipt
@@ -133,12 +130,12 @@ msgstr ""
 #. module: pos_ticket_send_by_mail
 #: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.view_res_config_settings_form_pos_inherit
 msgid "Receipt Options"
-msgstr "Reçu"
+msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.view_res_config_settings_form_pos_inherit
 msgid "Select one of the receipting options for point of sales."
-msgstr "Sélectionnez une des options de reçu pour le point de vente"
+msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: model:ir.actions.server,name:pos_ticket_send_by_mail.ir_cron_sent_pos_ticket_ir_actions_server
