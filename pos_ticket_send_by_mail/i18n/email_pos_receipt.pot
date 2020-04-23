@@ -54,9 +54,13 @@ msgid "Email receipt and print it"
 msgstr ""
 
 #. module: pos_ticket_send_by_mail
-#: selection:pos.config.settings,receipt_options:0
-msgid "Email receipt and print it unless configured on user that he only receives electronically"
+#: selection:res.config.settings,receipt_options:0
+msgid ""
+"Email receipt and print it unless configured on user that                    "
+"he only receives electronically"
 msgstr ""
+"Envoyer le reçu par email et l'imprimer sauf si ce partenaire est configuré "
+"pour recevoir uniquement le reçu électronique"
 
 #. module: pos_ticket_send_by_mail
 #: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_partner_pos_ticket_send_by_mail
