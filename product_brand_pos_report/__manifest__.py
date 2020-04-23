@@ -8,7 +8,7 @@
     'version': '10.0.1.0.0',
     'description': 'Show product Brand in pos order report',
     'category': 'Point Of Sale',
-    'author': 'PlanetaTIC',
+    'author': 'PlanetaTIC, Odoo Community Association (OCA)',
     'website': 'https://www.github.com/OCA/pos',
     'license': 'AGPL-3',
     'application': False,
