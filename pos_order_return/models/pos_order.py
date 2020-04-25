@@ -125,9 +125,11 @@ class PosOrder(models.Model):
     def create_picking(self):
         """Odoo bases return picking if the quantities are negative, but it's
         not linked to the original one"""
-        res = super(PosOrder, self.filtered(lambda x: not x.returned_order_id)
-                    ).create_picking()
-        for order in self.filtered('returned_order_id'):
+        orders = self.filtered(
+            lambda x: not x.returned_order_id
+            or not x.returned_order_id.picking_id)
+        res = super(PosOrder, orders).create_picking()
+        for order in self - orders:
             wizard = order._create_picking_return()
             res = wizard.create_returns()
             order.write({'picking_id': res['res_id']})
