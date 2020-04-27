@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright (C) 2015-Today GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<openerp><data>
+
+    <record id="view_account_bank_statement_form" model="ir.ui.view">
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']/tree/field[@name='amount']" position="after">
+                <field name="pos_statement_id" invisible="1" />
+                <button name="%(action_pos_switch_journal_wizard)d" string="Switch Journal" type="action" icon="gtk-index" attrs="{'invisible':[('pos_statement_id', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</data></openerp>
