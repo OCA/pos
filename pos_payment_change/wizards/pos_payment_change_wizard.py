@@ -62,9 +62,9 @@ class PosPaymentChangeWizard(models.TransientModel):
             "payment_date": fields.Date.context_today(self),
         } for line in self.line_ids]
 
-        order_ids = order.change_payment(new_payments)
+        orders = order.change_payment(new_payments)
 
-        if len(order_ids) == 1:
+        if len(orders) == 1:
             # if policy is 'update', only close the pop up
             action = {'type': 'ir.actions.act_window_close'}
         else:
@@ -72,6 +72,6 @@ class PosPaymentChangeWizard(models.TransientModel):
             action = self.env.ref(
                 "point_of_sale.action_pos_pos_form"
             ).read()[0]
-            action['domain'] = [('id', 'in', order_ids)]
+            action['domain'] = [('id', 'in', orders.ids)]
 
         return action
