@@ -3,6 +3,8 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from datetime import datetime
+
 from odoo import _, api, fields, models
 from odoo.tools import float_is_zero
 from odoo.exceptions import Warning as UserError
@@ -21,7 +23,7 @@ class PosOrder(models.Model):
         payment_change_policy of the related pos_config.
         """
         self.ensure_one()
-        order_ids = [self.id]
+        orders = self
 
         # Removing zero lines
         precision = self.pricelist_id.currency_id.decimal_places
@@ -31,6 +33,16 @@ class PosOrder(models.Model):
         ]
 
         self._check_payment_change_allowed()
+
+        comment = _(
+            "The payments of the Order %s (Ref: %s) has been changed"
+            " by %s at %s." % (
+                self.name,
+                self.pos_reference,
+                self.env.user.name,
+                datetime.today(),
+            )
+        )
 
         if self.config_id.payment_change_policy == "update":
             self.statement_ids.with_context().unlink()
@@ -55,14 +67,20 @@ class PosOrder(models.Model):
 
             # Resale order and mark it as paid
             # with the new payment
-            resale_order = self.copy()
+            resale_order = self.copy(
+                default={"pos_reference": self.pos_reference}
+            )
 
             for line in payment_lines:
                 resale_order.add_payment(line)
             resale_order.action_pos_order_paid()
 
-            order_ids += [refund_order.id, resale_order.id]
-        return order_ids
+            orders += refund_order + resale_order
+            comment += _(" (Refund Order: %s ; Resale Order: %s)" % (
+                refund_order.name, resale_order.name))
+        for order in orders:
+            order.note = "%s\n%s" % (order.note or "", comment)
+        return orders
 
     @api.multi
     def _check_payment_change_allowed(self):
