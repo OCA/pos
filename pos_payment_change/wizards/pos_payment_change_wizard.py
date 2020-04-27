@@ -1,0 +1,77 @@
+# Copyright (C) 2015-Today GRAP (http://www.grap.coop)
+# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from odoo import _, api, fields, models
+from odoo.exceptions import Warning as UserError
+
+
+class PosPaymentChangeWizard(models.TransientModel):
+    _name = "pos.payment.change.wizard"
+    _description = "PoS Payment Change Wizard"
+
+    # Column Section
+    order_id = fields.Many2one(
+        comodel_name="pos.order", string="Order", readonly=True
+    )
+
+    line_ids = fields.One2many(
+        comodel_name="pos.payment.change.wizard.line",
+        inverse_name="wizard_id",
+        string="Payment Lines",
+    )
+
+    amount_total = fields.Float(string="Total", readonly=True)
+
+    # View Section
+    @api.model
+    def default_get(self, fields):
+        PosOrder = self.env["pos.order"]
+        res = super().default_get(fields)
+        order = PosOrder.browse(self._context.get("active_id"))
+        res.update({"order_id": order.id})
+        res.update({"amount_total": order.amount_total})
+        return res
+
+    # View section
+    @api.multi
+    def button_change_payment(self):
+        self.ensure_one()
+        order = self.order_id
+
+        # Check if the total is correct
+        total = 0
+        for line in self.line_ids:
+            total += line.amount
+        if total != self.amount_total:
+            raise UserError(
+                _(
+                    "Differences between the two values for the POS"
+                    " Order '%s':\n\n"
+                    " * Total of all the new payments %s;\n"
+                    " * Total of the POS Order %s;\n\n"
+                    "Please change the payments."
+                    % (order.name, total, order.amount_total)
+                )
+            )
+
+        # Change payment
+        new_payments = [{
+            "journal": line.new_journal_id.id,
+            "amount": line.amount,
+            "payment_date": fields.Date.context_today(self),
+        } for line in self.line_ids]
+
+        order_ids = order.change_payment(new_payments)
+
+        if len(order_ids) == 1:
+            # if policy is 'update', only close the pop up
+            action = {'type': 'ir.actions.act_window_close'}
+        else:
+            # otherwise (refund policy), displays the 3 orders
+            action = self.env.ref(
+                "point_of_sale.action_pos_pos_form"
+            ).read()[0]
+            action['domain'] = [('id', 'in', order_ids)]
+
+        return action
