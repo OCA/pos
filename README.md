@@ -31,7 +31,7 @@ addon | version | summary
 [pos_payment_terminal](pos_payment_terminal/) | 10.0.0.1.1 | Manage Payment Terminal device from POS front end
 [pos_picking_delayed](pos_picking_delayed/) | 10.0.1.0.0 | Delay the creation of the picking when PoS order is created
 [pos_price_to_weight](pos_price_to_weight/) | 10.0.1.0.0 | Compute weight based on barcodes with prices
-[pos_pricelist](pos_pricelist/) | 10.0.1.0.2 | Pricelist for Point of sale
+[pos_pricelist](pos_pricelist/) | 10.0.1.0.3 | Pricelist for Point of sale
 [pos_product_template](pos_product_template/) | 10.0.2.1.0 | Manage Product Template in Front End Point Of Sale
 [pos_quick_logout](pos_quick_logout/) | 10.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_remove_pos_category](pos_remove_pos_category/) | 10.0.2.0.0 | POS Remove POS Category
