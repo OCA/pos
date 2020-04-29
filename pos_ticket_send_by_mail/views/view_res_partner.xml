@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
             <field name="category_id" position="after">
-                <field name="email_pos_receipt" />
+                <field name="email_pos_receipt" groups="point_of_sale.group_pos_user"/>
             </field>
         </field>
     </record>

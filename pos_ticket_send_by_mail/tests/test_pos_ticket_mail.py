@@ -7,7 +7,7 @@ class PosTicketMailTest(TransactionCase):
     def setUp(self):
         super(PosTicketMailTest, self).setUp()
 
-        self.ir_config_parameter = self.env['ir.config_parameter']
+        self.ir_config_parameter = self.env['ir.config_parameter'].sudo()
         self.PosOrder = self.env['pos.order']
         self.partner1 = self.env.ref('base.res_partner_1')
         self.posconfig = self.env['pos.config']

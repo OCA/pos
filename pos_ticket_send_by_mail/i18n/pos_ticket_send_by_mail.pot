@@ -72,7 +72,6 @@ msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: selection:res.config.settings,receipt_options:0
-#: selection:user.config.settings,receipt_options:0
 msgid "Do not send receipt via email"
 msgstr ""
 
@@ -84,13 +83,11 @@ msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: selection:res.config.settings,receipt_options:0
-#: selection:user.config.settings,receipt_options:0
 msgid "Email receipt and print it"
 msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: selection:res.config.settings,receipt_options:0
-#: selection:user.config.settings,receipt_options:0
 msgid "Email receipt and print it unless configured on user that                    he only receives electronically"
 msgstr ""
 
@@ -123,7 +120,6 @@ msgstr ""
 #. module: pos_ticket_send_by_mail
 #: model:ir.actions.report,name:pos_ticket_send_by_mail.action_report_pos_receipt
 #: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_config_settings__receipt_options
-#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_user_config_settings__receipt_options
 msgid "Receipt"
 msgstr ""
 
