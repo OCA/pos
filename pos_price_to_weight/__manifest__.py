@@ -17,6 +17,7 @@
     'data': [
         'data/barcode_rule.xml',
         'views/assets.xml',
+        'views/view_pos_config.xml',
     ],
     'demo': [
         'demo/product_product.xml',
