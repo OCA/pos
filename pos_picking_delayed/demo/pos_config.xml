@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+    Copyright 2020 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <!--
+    we disable the feature for the demo pos config to avoid
+    other module to fail during the test.
+    -->
+    <record id="point_of_sale.pos_config_main" model="pos.config">
+        <field name="picking_creation_delayed">False</field>
+    </record>
+
+</odoo>
