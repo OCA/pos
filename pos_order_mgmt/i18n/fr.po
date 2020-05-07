@@ -1,0 +1,272 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_order_mgmt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-15 20:54+0000\n"
+"PO-Revision-Date: 2020-03-19 11:13+0000\n"
+"Last-Translator: Simon Mas <simon.mas@druidoo.io>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
+msgid "Allows to duplicate already done orders in the frontend"
+msgstr "Autoriser à dupliquer des commandes réalisées dans l'interface tactile"
+
+#. module: pos_order_mgmt
+#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
+msgid "Allows to manage already done orders in the frontend."
+msgstr ""
+"Autoriser à rembourser des commandes réalisées dans l'interface tactile."
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
+msgid "Allows to manage orders in the frontend"
+msgstr "Autoriser à gérer des commandes réalisées dans l'interface tactile"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
+msgid "Allows to reprint already done orders in the frontend"
+msgstr ""
+"Autoriser à réimprimer des commandes réalisées dans l'interface tactile"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
+msgid "Allows to return already done orders in the frontend"
+msgstr ""
+"Autoriser à rembourser des commandes réalisées dans l'interface tactile"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
+#, python-format
+msgid "Amount"
+msgstr "Total"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:17
+#, python-format
+msgid "Back"
+msgstr "Retour"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:368
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:423
+#, python-format
+msgid "Can not execute this action because the POS is currently offline"
+msgstr ""
+"Vous ne pouvez pas exécuter cette action, car le Point de Vente est "
+"actuellement hors ligne"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:367
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:422
+#, python-format
+msgid "Connection error"
+msgstr "Erreur de connexion"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:61
+#, python-format
+msgid "Create a new order based on this one"
+msgstr "Créer une nouvelle commande basée sur celle-ci"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:64
+#, python-format
+msgid "Create a refund order of this order"
+msgstr "Rembourser cette commande"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:34
+#, python-format
+msgid "Customer"
+msgstr "Client"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:89
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:98
+#, python-format
+msgid "DUPLICATE"
+msgstr "DUPLICATA"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:35
+#, python-format
+msgid "Date"
+msgstr "Date"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
+msgid "Duplicate Orders"
+msgstr "Copier une commande réalisée"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
+msgid "Maximum Orders to load"
+msgstr "Nombre maximum de commande à charger"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
+msgid ""
+"Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
+"none (it's still possible to load them by ticket code)."
+msgstr ""
+"Nombre maximum de commandes à charger dans le point de vente à son "
+"initialisation. Indiquer \"0\" pour n'en charger aucune (Il est toujours "
+"possible de les charger par une référence de commande)."
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
+msgid "Order Management"
+msgstr "Gestion des commandes"
+
+#. module: pos_order_mgmt
+#: model:ir.model,name:pos_order_mgmt.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_order_mgmt
+#: model:ir.model,name:pos_order_mgmt.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:58
+#, python-format
+msgid "Print a duplicate for this order"
+msgstr "Imprimer un duplicata de cette commande"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:83
+#, python-format
+msgid "Rectifies:"
+msgstr "Rectifie : "
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:33
+#, python-format
+msgid "Ref."
+msgstr "Réf."
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
+msgid "Reference of the returned Order"
+msgstr "Réference de la vente retournée"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:245
+#, python-format
+msgid "Refund "
+msgstr "Rembourse "
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
+msgid "Refund Orders"
+msgstr "Commandes remboursées"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
+msgid "Refund Orders Quantity"
+msgstr "Nombre de remboursements"
+
+#. module: pos_order_mgmt
+#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
+msgid "Refunds"
+msgstr "Remboursements"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
+msgid "Reprint Orders"
+msgstr "Réimprimer les tickets de commandes réalisées"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
+msgid "Return Orders"
+msgstr "Commande retournée"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
+msgid "Returned Order"
+msgstr "Commande retournée"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:74
+#, python-format
+msgid "Returned order:"
+msgstr "Commande retournée:"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:21
+#, python-format
+msgid "Search Order"
+msgstr "Recherche une commande"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:385
+#, python-format
+msgid ""
+"Unable to load some order lines because the products are not available in "
+"the POS cache.\n"
+"\n"
+"Please check that lines :\n"
+"\n"
+"  * "
+msgstr ""
+"Impossible de charger certaines lignes de ticket car les produits ne sont "
+"pas disponible dans le point de vente\n"
+"Veuillez vérifier les lignes suivantes : \n"
+"\n"
+"  * "
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:384
+#, python-format
+msgid "Unknown Products"
+msgstr "Produit inconnu"
+
+#~ msgid "Allow to duplicate done orders in this POS"
+#~ msgstr ""
+#~ "Autoriser à dupliquer des commandes réalisées dans l'interface tactile"
+
+#~ msgid "Allow to reprint done orders in this POS"
+#~ msgstr ""
+#~ "Autoriser à réimprimer des commandes réalisées dans l'interface tactile"
+
+#~ msgid "Allow to return done orders in this POS"
+#~ msgstr ""
+#~ "Autoriser à rembourser des commandes réalisées dans l'interface tactile"
+
+#~ msgid "Load Done Order Max Qty."
+#~ msgstr "Quantité maximale de commandes à charger"
+
+#~ msgid "Max. Done Orders Quantity To Load"
+#~ msgstr "Quantité maximale de commandes à charger"
+
+#~ msgid "Return Done Orders"
+#~ msgstr "Retourner une commande réalisée"
