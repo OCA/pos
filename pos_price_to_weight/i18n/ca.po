@@ -52,6 +52,11 @@ msgid "Discounted Product"
 msgstr ""
 
 #. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_name
+msgid "Field Name"
+msgstr ""
+
+#. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Location"
 msgstr ""
@@ -64,6 +69,16 @@ msgstr ""
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Package"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:ir.model,name:pos_price_to_weight.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_id
+msgid "Price To Weight Field"
 msgstr ""
 
 #. module: pos_price_to_weight
@@ -81,6 +96,11 @@ msgstr "Producte amb preu (pes automatitzat)"
 #. module: pos_price_to_weight
 #: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
 msgid "Type"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model_terms:ir.ui.view,arch_db:pos_price_to_weight.view_pos_config_form
+msgid "Unit Price field used when converting scanned weight to price."
 msgstr ""
 
 #. module: pos_price_to_weight
