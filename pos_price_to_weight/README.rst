@@ -80,8 +80,21 @@ if {NNNDD} is 00810, the price is so 8,10€ and the according quantity is
 Configuration
 =============
 
-* Go to 'Point of Sale' / 'Configuration' / 'Barcode Nomenclatures'
+* Go to Point of Sale > Configuration > Barcode Nomenclatures
 * Edit your barcode rules, according to your barcodes settings
+
+* Go to Point of Sale > Configuration > Point of Sale
+* Select the 'Unit Price' field that will be used to convert the price to weight.
+
+.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_config_form.png
+   :width: 800 px
+
+**Note:**
+
+By default, this is the field ``list_price`` that will be used.
+If you want to use a custom field, it should be loaded in the javascript file calling
+
+``models.load_fields("product.product", ['my_custom_field']);``
 
 Bug Tracker
 ===========
