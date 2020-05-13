@@ -1,12 +1,11 @@
-# coding: utf-8
-# Copyright 2019 Coop IT Easy SCRLfs
+# Copyright 2019-2020 Coop IT Easy SCRLfs
 # 	    Robin Keunen <robin@coopiteasy.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Require Product Quantity in POS",
-    "version": "9.0.0.1.0",
+    "version": "12.0.0.1.0",
     "author": "Coop IT Easy SCRLfs, Odoo Community Association (OCA)",
-    "website": "www.coopiteasy.be",
+    "website": "https://www.coopiteasy.be",
     "license": "AGPL-3",
     "category": "Point of Sale",
     "summary": """
