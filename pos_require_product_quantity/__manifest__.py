@@ -17,7 +17,7 @@
     ],
     'data': [
         'views/pos_config.xml',
-        'static/src/xml/templates.xml',
+        'views/assets.xml',
     ],
     'installable': True,
 }
