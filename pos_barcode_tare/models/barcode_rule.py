@@ -1,14 +1,9 @@
-# -*- coding: utf-8 -*-
-
-from openerp import _, models, api
-
+from odoo import _, models, fields
 
 class BarcodeRule(models.Model):
     _inherit = 'barcode.rule'
 
-    @api.model
-    def _get_type_selection(self):
-        res = super(BarcodeRule, self)._get_type_selection()
-        res.append(
-            ('tare', _('Tare')))
-        return res
+    type = fields.Selection(selection_add=[
+        ('tare', _('Tare'))
+    ])
+

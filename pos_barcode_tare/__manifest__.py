@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # @author: François Kawala
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': "Point of Sale - Tare barecode labels for loose goods",
-    'version': '9.0.0.0.1',
+    'version': '12.0.1.0.0',
     'category': 'Point of Sale',
     'summary': """Point of Sale - Print and scan tare \
                   barecodes labels to sell loose goods.""",
