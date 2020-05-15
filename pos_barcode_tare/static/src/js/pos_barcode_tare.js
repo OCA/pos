@@ -7,6 +7,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
     var screens = require('point_of_sale.screens');
     var utils = require('web.utils');
     var field_utils = require('web.field_utils');
+
     var QWeb = core.qweb;
     var _t = core._t;
     var round_pr = utils.round_precision;
@@ -56,6 +57,18 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         return result || 0;
     };
 
+    // Format the tare value.
+    var format_tare = function (pos, qty, unit) {
+        if (unit.rounding) {
+            var q = round_pr(qty, unit.rounding);
+            var decimals = pos.dp['Product Unit of Measure'];
+            return field_utils.format.float(
+                round_di(q, decimals),
+                {type: 'float', digits: [69, decimals]});
+        }
+        return qty.toFixed(0);
+    };
+
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
     // latest order line.
@@ -64,9 +77,9 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             barcode_tare_action: function (code) {
                 try {
                     var order = this.pos.get_order();
-                    var last_order_line = order.get_last_orderline();
+                    var selected_order_line = order.get_selected_orderline();
                     var tare_weight = code.value;
-                    last_order_line.set_tare(tare_weight);
+                    selected_order_line.set_tare(tare_weight);
                 } catch (error) {
                     var title = _t("We can not apply this tare barcode.");
                     var popup = {title: title, body: error.message};
@@ -220,6 +233,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         },
         print_web: function () {
             window.print();
+            // TODO check this
             this.pos.get_order()._printed = true;
         },
         print: function () {
@@ -258,14 +272,17 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             delete this.weight;
             this.pos.proxy_queue.clear();
         },
+        get_tare_str: function () {
+            return format_tare(this.pos, this.get_weight(),
+                get_unit(this.pos, "kg"));
+        },
     });
 
     gui.define_screen({name:'tare', widget: TareScreenWidget});
 
     // Update Orderline model
     var _super_ = models.Orderline.prototype;
-
-    models.Orderline = models.Orderline.extend({
+    var OrderLineWithTare = models.Orderline.extend({
         initialize: function (session, attributes) {
             this.tareQuantity = 0;
             this.tareQuantityStr = '0';
@@ -288,27 +305,14 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                     this.get_tare_str_with_unit(), this.product.display_name));
             }
 
-            var self = this;
-            // This function is used to format the quantity into string
-            // according to the rounding specifications.
-            var stringify = function (qty) {
-                var unit = self.get_unit();
-                if (unit.rounding) {
-                    var q = round_pr(qty, unit.rounding);
-                    var decimals = self.pos.dp['Product Unit of Measure'];
-                    return field_utils.format.float(
-                        round_di(q, decimals),
-                        {type: 'float', digits: [69, decimals]});
-                }
-                return qty.toFixed(0);
-            };
             // We convert the tare that is always measured in kilogrammes into
             // the unit of measure for this order line.
             var kg = get_unit(this.pos, "kg");
             var tare = parseFloat(quantity) || 0;
             var unit = this.get_unit();
             var tare_in_product_uom = convert_mass(tare, kg, unit);
-            var tare_in_product_uom_string = stringify(tare_in_product_uom);
+            var tare_in_product_uom_string = format_tare(this.pos,
+                tare_in_product_uom, unit);
             var net_quantity = this.get_quantity() - tare_in_product_uom;
             // This method fails when the net weight is negative.
             if (net_quantity <= 0) {
@@ -353,4 +357,10 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             return result;
         },
     });
+
+    models.Orderline = OrderLineWithTare;
+
+    return {TareScreenWidget: TareScreenWidget,
+        OrderLineWithTare: OrderLineWithTare,
+        get_unit: get_unit};
 });
