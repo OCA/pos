@@ -1,7 +1,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': "Point of Sale - Accented Product Search",
-    'version': '12.0.0.0.2',
+    'version': '12.0.1.0.0',
     'category': 'Point of Sale',
     'summary': 'Point of Sale - Product search works regardless of accented characters',
     'author': "Le Nid, Odoo Community Association (OCA)",
