@@ -2,17 +2,16 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
     "use strict";
     var core = require('web.core');
-    var gui = require('point_of_sale.gui');
+    // Var gui = require('point_of_sale.gui');
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
     var utils = require('web.utils');
     var field_utils = require('web.field_utils');
 
-    var QWeb = core.qweb;
+    // Var QWeb = core.qweb;
     var _t = core._t;
     var round_pr = utils.round_precision;
     var round_di = utils.round_decimals;
-    var tare_barcode_type = "tare";
 
     // Define functions used to do unit operation.
     // Get unit search for unit based on unit name.
@@ -88,28 +87,18 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             },
             // Setup the callback action for the "weight" barcodes.
             show: function () {
-                
+
                 console.log("okok");
                 this._super();
                 if (this.pos.config.iface_tare_method !== 'Manual') {
-                
+
                     console.log("okokokok");
                     this.pos.barcode_reader.set_action_callback(
                         'tare',
                         _.bind(this.barcode_tare_action, this));
-                    }
+                }
             },
         });
-
-    // This create a new button on top of action widget. This button links to
-    // the barcode label printing screen defined below.
-    var TareScreenButton = screens.ActionButtonWidget.extend({
-        template: 'TareScreenButton',
-
-        button_click: function () {
-            this.gui.show_screen('tare');
-        },
-    });
 
     screens.ScaleScreenWidget.include({
 
@@ -118,37 +107,38 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         // /////////////////////////////
 
         // Overload show function
-        // add an handler on the 
-        show: function(){
+        // add an handler on the
+        show: function () {
             this._super();
             this.tare = 0.0;
             var self = this;
-            this.$('#input_weight_tare').keyup(function(event){
+            this.$('#input_weight_tare').keyup(function (event) {
                 self.onchange_tare(event);
             });
-            this.$('#input_weight_tare').focus()
+            this.$('#input_weight_tare').focus();
         },
 
         // Overload set_weight function
         // We assume that the argument is now the gross weight
         // we compute the net weight, depending on the tare and the gross weight
         // then we call super, with the net weight
-        set_weight: function(gross_weight){
+        set_weight: function (gross_weight) {
             this.gross_weight = gross_weight;
             var net_weight = gross_weight - (this.tare || 0);
-            this.$('#container_weight_gross').text(this.get_product_gross_weight_string());
+            this.$('#container_weight_gross').text(
+                this.get_product_gross_weight_string());
             this._super(net_weight);
         },
 
-        order_product: function(){
+        order_product: function () {
             // TODO Set a warning, if the value is incorrect;
             if (this.tare === undefined) {
-                this.gui.show_popup('error',{
+                this.gui.show_popup('error', {
                     'title': _t('Incorrect Tare Value'),
-                    'body': _t('Please set a numeric value in the tare field, or let empty.'),
+                    'body': _t('Please set a numeric value' +
+                        ' in the tare field, or let empty.'),
                 });
-            }
-            else {
+            } else {
                 this._super();
                 if (this.tare > 0.0) {
                     var order = this.pos.get_order();
@@ -161,42 +151,41 @@ odoo.define('pos_barcode_tare.screens', function (require) {
         // /////////////////////////////
         // Custom Section
         // /////////////////////////////
-        get_product_gross_weight_string: function(){
+        get_product_gross_weight_string: function () {
             var product = this.get_product();
             var defaultstr = (this.gross_weight || 0).toFixed(3) + ' Kg';
-            if(!product || !this.pos){
+            if (!product || !this.pos) {
                 return defaultstr;
             }
             var unit_id = product.uom_id;
-            if(!unit_id){
+            if (!unit_id) {
                 return defaultstr;
             }
             var unit = this.pos.units_by_id[unit_id[0]];
             var weight = round_pr(this.gross_weight || 0, unit.rounding);
-            var weightstr = weight.toFixed(Math.ceil(Math.log(1.0/unit.rounding) / Math.log(10) ));
+            var weightstr = weight.toFixed(
+                Math.ceil(Math.log(1.0/unit.rounding) / Math.log(10) ));
             weightstr += ' ' + unit.name;
             return weightstr;
         },
 
-        onchange_tare: function(event){
-            this.tare = this.check_sanitize_value('#input_weight_tare');;
+        onchange_tare: function () {
+            this.tare = this.check_sanitize_value('#input_weight_tare');
             this.set_weight(this.gross_weight);
         },
 
-        check_sanitize_value: function (input_name){
+        check_sanitize_value: function (input_name) {
             var res = this.$(input_name)[0].value.replace(',', '.').trim();
-            if (isNaN(res)){
+            if (isNaN(res)) {
                 this.$(input_name).css("background-color", "#F66");
                 return undefined;
             }
-            else{
-                this.$(input_name).css("background-color", "#FFF");
-                return parseFloat(res, 10);
-            }
+            this.$(input_name).css("background-color", "#FFF");
+            return parseFloat(res, 10);
         },
 
     });
-    
+
     // Update Orderline model
     var _super_ = models.Orderline.prototype;
     var OrderLineWithTare = models.Orderline.extend({
