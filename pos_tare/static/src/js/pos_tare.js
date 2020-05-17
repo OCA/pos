@@ -2,13 +2,11 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
     "use strict";
     var core = require('web.core');
-    // Var gui = require('point_of_sale.gui');
     var models = require('point_of_sale.models');
     var screens = require('point_of_sale.screens');
     var utils = require('web.utils');
     var field_utils = require('web.field_utils');
 
-    // Var QWeb = core.qweb;
     var _t = core._t;
     var round_pr = utils.round_precision;
     var round_di = utils.round_decimals;
