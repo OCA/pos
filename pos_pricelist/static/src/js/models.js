@@ -207,7 +207,7 @@ odoo.define("pos_pricelist.models", function (require) {
         _Orderline_initialize.apply(this, arguments);
         if (options.product) {
             this.set_unit_price(
-                options.product.price ||
+                options.price ||
                 this.product.get_price(
                     this.order.pricelist,
                     this.get_quantity()
