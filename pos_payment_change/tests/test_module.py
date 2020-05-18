@@ -17,8 +17,8 @@ class TestModule(TransactionCase):
         self.AccountJournal = self.env["account.journal"]
         self.PosMakePayment = self.env['pos.make.payment']
         self.PosPaymentChangeWizard = self.env["pos.payment.change.wizard"]
-        self.PosPaymentChangeWizardLine = self.env[
-            "pos.payment.change.wizard.line"
+        self.PosPaymentChangeWizardNewLine = self.env[
+            "pos.payment.change.wizard.new.line"
         ]
         self.product = self.env.ref("product.product_product_3")
         self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
@@ -91,7 +91,7 @@ class TestModule(TransactionCase):
         wizard = self.PosPaymentChangeWizard.with_context(
             active_id=order.id
         ).create({})
-        self.PosPaymentChangeWizardLine.with_context(
+        self.PosPaymentChangeWizardNewLine.with_context(
             active_id=order.id
         ).create(
             {
@@ -101,7 +101,7 @@ class TestModule(TransactionCase):
             }
         )
         if journal_2:
-            self.PosPaymentChangeWizardLine.with_context(
+            self.PosPaymentChangeWizardNewLine.with_context(
                 active_id=order.id
             ).create(
                 {
