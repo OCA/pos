@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="name">pos.config.form.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='restrict_price_control']/../.." position="after">
+                <div class="col-xs-12 col-lg-6 o_setting_box" >
+                    <div class="o_setting_left_pane">
+                        <field name="require_product_quantity"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="require_product_quantity"/>
+                        <div class="text-muted">
+                            Show pop-up when product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
