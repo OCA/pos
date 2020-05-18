@@ -1,5 +1,4 @@
-#! /usr/bin/python
-# -*- encoding: utf-8 -*-
+#! /usr/bin/python3
 
 from serial import Serial
 import curses.ascii
@@ -16,7 +15,7 @@ AMOUNT = 12.42
 
 def serial_write(serial, text):
     assert isinstance(text, str), 'text must be a string'
-    serial.write(text)
+    serial.write(text.encode('ascii'))
 
 
 def initialize_msg(serial):
@@ -45,7 +44,7 @@ def send_one_byte_signal(serial, signal):
 
 def get_one_byte_answer(serial, expected_signal):
     ascii_names = curses.ascii.controlnames
-    one_byte_read = serial.read(1)
+    one_byte_read = serial.read(1).decode('ascii')
     expected_char = ascii_names.index(expected_signal)
     if one_byte_read == chr(expected_char):
         print("%s received from terminal" % expected_signal)
@@ -139,7 +138,7 @@ def parse_terminal_answer(real_msg, data):
 def get_answer_from_terminal(serial, data):
     ascii_names = curses.ascii.controlnames
     full_msg_size = 1+2+1+8+1+3+10+1+1
-    msg = serial.read(size=full_msg_size)
+    msg = serial.read(size=full_msg_size).decode('ascii')
     print('%d bytes read from terminal' % full_msg_size)
     assert len(msg) == full_msg_size, 'Answer has a wrong size'
     if msg[0] != chr(ascii_names.index('STX')):
