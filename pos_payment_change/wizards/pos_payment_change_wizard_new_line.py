@@ -6,8 +6,8 @@ from odoo import api, fields, models
 
 
 class PosPaymentChangeWizardLine(models.TransientModel):
-    _name = "pos.payment.change.wizard.line"
-    _description = "PoS Payment Change Wizard Line"
+    _name = "pos.payment.change.wizard.new.line"
+    _description = "PoS Payment Change Wizard New Line"
 
     wizard_id = fields.Many2one(
         comodel_name="pos.payment.change.wizard", required=True,
@@ -26,7 +26,6 @@ class PosPaymentChangeWizardLine(models.TransientModel):
     def _domain_new_journal_id(self):
         PosOrder = self.env["pos.order"]
         order = PosOrder.browse(self.env.context.get("active_id"))
-        # return [("id", "in", order.session_id.journal_ids.ids)]
         return [("id", "in", order.mapped(
             "session_id.statement_ids.journal_id").ids)]
 
@@ -34,12 +33,12 @@ class PosPaymentChangeWizardLine(models.TransientModel):
     @api.model
     def default_get(self, fields):
         res = super().default_get(fields)
-        if "line_ids" not in self._context:
+        if "new_line_ids" not in self._context:
             return res
         balance = self._context.get("amount_total", 0.0)
         for line in self.wizard_id.resolve_2many_commands(
-                "line_ids",
-                self._context["line_ids"],
+                "new_line_ids",
+                self._context["new_line_ids"],
                 fields=["amount"]):
             balance -= line.get("amount")
         res.update({'amount': balance})

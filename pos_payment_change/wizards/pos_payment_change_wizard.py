@@ -15,10 +15,17 @@ class PosPaymentChangeWizard(models.TransientModel):
         comodel_name="pos.order", string="Order", readonly=True
     )
 
-    line_ids = fields.One2many(
-        comodel_name="pos.payment.change.wizard.line",
+    old_line_ids = fields.One2many(
+        comodel_name="pos.payment.change.wizard.old.line",
         inverse_name="wizard_id",
-        string="Payment Lines",
+        string="Old Payment Lines",
+        readonly=True,
+    )
+
+    new_line_ids = fields.One2many(
+        comodel_name="pos.payment.change.wizard.new.line",
+        inverse_name="wizard_id",
+        string="New Payment Lines",
     )
 
     amount_total = fields.Float(string="Total", readonly=True)
@@ -29,8 +36,18 @@ class PosPaymentChangeWizard(models.TransientModel):
         PosOrder = self.env["pos.order"]
         res = super().default_get(fields)
         order = PosOrder.browse(self._context.get("active_id"))
-        res.update({"order_id": order.id})
-        res.update({"amount_total": order.amount_total})
+        old_lines_vals = []
+        for statement_line in order.statement_ids:
+            old_lines_vals.append((0, 0, {
+                "old_journal_id": statement_line.statement_id.journal_id.id,
+                "amount": statement_line.amount
+                }
+            ))
+        res.update({
+            "order_id": order.id,
+            "amount_total": order.amount_total,
+            "old_line_ids": old_lines_vals,
+        })
         return res
 
     # View section
@@ -40,9 +57,7 @@ class PosPaymentChangeWizard(models.TransientModel):
         order = self.order_id
 
         # Check if the total is correct
-        total = 0
-        for line in self.line_ids:
-            total += line.amount
+        total = sum(self.mapped("new_line_ids.amount"))
         if total != self.amount_total:
             raise UserError(
                 _(
@@ -60,9 +75,15 @@ class PosPaymentChangeWizard(models.TransientModel):
             "journal": line.new_journal_id.id,
             "amount": line.amount,
             "payment_date": fields.Date.context_today(self),
-        } for line in self.line_ids]
+        } for line in self.new_line_ids]
 
         orders = order.change_payment(new_payments)
+
+        # Note. Because of the poor design of the closing session process
+        # in Odoo, we call _check_pos_session_balance() that sets
+        # balance_end_real with balance_end for "non cash" journals
+        if order.session_id.state == "closing_control":
+            order.session_id._check_pos_session_balance()
 
         if len(orders) == 1:
             # if policy is 'update', only close the pop up
