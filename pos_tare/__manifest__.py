@@ -13,7 +13,8 @@
     "demo": ["demo/uom_uom.xml"],
     "data": [
         "views/templates.xml",
-        "views/pos_config_view.xml",
+        "views/view_pos_config.xml",
+        "views/view_pos_order.xml",
         "data/barcode_rule.xml",
     ],
     "qweb": [

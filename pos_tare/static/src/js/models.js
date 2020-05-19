@@ -14,28 +14,28 @@ odoo.define('pos_tare.models', function (require) {
         // Overload Section
         // /////////////////////////////
         initialize: function (session, attributes) {
-            this.tareQuantity = 0;
-            this.tareQuantityStr = '0';
+            this.tare = 0;
+            this.tareStr = '0';
             return _super_.initialize.call(this, session, attributes);
         },
 
         init_from_JSON: function (json) {
             _super_.init_from_JSON.call(this, json);
-            this.tareQuantity = json.tareQuantity ||0;
-            this.tareQuantityStr = json.tareQuantityStr ||'0';
+            this.tare = json.tare ||0;
+            this.tareStr = json.tareStr ||'0';
         },
 
         clone: function () {
             var orderline = _super_.clone.call(this);
-            orderline.tareQuantity = this.tareQuantity;
-            orderline.tareQuantityStr = this.tareQuantityStr;
+            orderline.tare = this.tare;
+            orderline.tareStr = this.tareStr;
             return orderline;
         },
 
         export_as_JSON: function () {
             var json = _super_.export_as_JSON.call(this);
-            json.tareQuantity = this.get_tare();
-            json.tareQuantityStr = this.get_tare_str();
+            json.tare = this.get_tare();
+            json.tareStr = this.get_tare_str();
             return json;
         },
 
@@ -78,24 +78,24 @@ odoo.define('pos_tare.models', function (require) {
                     this.get_quantity_str_with_unit()));
             }
             // Update tare value.
-            this.tareQuantity = tare_in_product_uom;
-            this.tareQuantityStr = tare_in_product_uom_string;
+            this.tare = tare_in_product_uom;
+            this.tareStr = tare_in_product_uom_string;
             // Update the quantity with the new weight net of tare quantity.
             this.set_quantity(net_quantity);
             this.trigger('change', this);
         },
 
         get_tare: function () {
-            return this.tareQuantity;
+            return this.tare;
         },
 
         get_tare_str: function () {
-            return this.tareQuantityStr;
+            return this.tareStr;
         },
 
         get_tare_str_with_unit: function () {
             var unit = this.get_unit();
-            return this.tareQuantityStr + ' ' + unit.name;
+            return this.tareStr + ' ' + unit.name;
         },
 
     });
