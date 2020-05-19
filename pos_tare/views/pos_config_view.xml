@@ -2,14 +2,14 @@
 
 
 <odoo>
+
     <record model="ir.ui.view" id="view_pos_config_form">
-        <field name="name">view.pos.config.form</field>
         <field name="model">pos.config</field>
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="priority" eval="30"/>
         <field name="arch" type="xml">
-    <xpath expr="//h2[@name='order']/following-sibling::*[position()=1]" position="inside">
-        <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
+            <xpath expr="//h2[@name='order']/following-sibling::*[position()=1]" position="inside">
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
                     <div class="o_setting_right_pane">
                         <label for="iface_tare_method" string="Tare method"/>
                         <div class="text-muted">
@@ -22,7 +22,7 @@
                         </div>
                     </div>
                 </div>
-    </xpath>
-    </field>
+            </xpath>
+        </field>
     </record>
 </odoo>
