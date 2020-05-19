@@ -9,15 +9,6 @@ odoo.define('pos_tare.tools', function (require) {
     var round_pr = utils.round_precision;
     var round_di = utils.round_decimals;
 
-    // Define functions used to do unit operation.
-    // Get unit search for unit based on unit name.
-    var get_unit = function (pos, unit_name) {
-        return pos.units.filter(
-            function (u) {
-                return u.name === unit_name;
-            })[0];
-    };
-
     // Convert mass using the reference UOM as pivot unit.
     var convert_mass = function (mass, from_unit, to_unit) {
         // There is no conversion from one category to another.
@@ -65,7 +56,6 @@ odoo.define('pos_tare.tools', function (require) {
     };
 
     return {
-        get_unit: get_unit,
         convert_mass: convert_mass,
         format_tare: format_tare,
     };

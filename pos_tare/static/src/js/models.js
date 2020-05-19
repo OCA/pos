@@ -60,21 +60,21 @@ odoo.define('pos_tare.models', function (require) {
                     this.get_tare_str_with_unit(), this.product.display_name));
             }
 
-            // We convert the tare that is always measured in kilogrammes into
+            // We convert the tare that is always measured in the same UoM into
             // the unit of measure for this order line.
-            var kg = pos_tare_tools.get_unit(this.pos, "kg");
+            var tare_unit = this.pos.units_by_id[this.pos.config.iface_tare_uom_id[0]];
             var tare = parseFloat(quantity) || 0;
-            var unit = this.get_unit();
-            var tare_in_product_uom = pos_tare_tools.convert_mass(tare, kg, unit);
+            var line_unit = this.get_unit();
+            var tare_in_product_uom = pos_tare_tools.convert_mass(tare, tare_unit, line_unit);
             var tare_in_product_uom_string = pos_tare_tools.format_tare(this.pos,
-                tare_in_product_uom, unit);
+                tare_in_product_uom, line_unit);
             var net_quantity = this.get_quantity() - tare_in_product_uom;
             // This method fails when the net weight is negative.
             if (net_quantity <= 0) {
                 throw new RangeError(_.str.sprintf(
                     _t("The tare weight is %s %s, it's greater or equal to " +
                     "the product weight %s. We can not apply this tare."),
-                    tare_in_product_uom_string, unit.name,
+                    tare_in_product_uom_string, line_unit.name,
                     this.get_quantity_str_with_unit()));
             }
             // Update tare value.

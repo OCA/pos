@@ -22,6 +22,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
+                    <div class="o_setting_right_pane">
+                        <label for="iface_tare_uom_id" string="Tare UoM"/>
+                        <div class="text-muted">
+             Unit of Measure of the tares.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field name="iface_tare_uom_id" class="o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </xpath>
         </field>
     </record>
