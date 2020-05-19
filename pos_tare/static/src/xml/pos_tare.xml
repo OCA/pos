@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    
+
 
     <t t-extend="ScaleScreenWidget">
         <t t-jquery=".js-weight" t-operation="before">
-            <t t-if="widget.pos.config.iface_tare_method != 'Barcode'">
+            <t t-if="widget.pos.config.iface_tare_method != 'barcode'">
                 <div class="weight-label">
                     Gross Weight
                 </div>

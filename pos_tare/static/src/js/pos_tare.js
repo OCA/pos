@@ -88,7 +88,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
 
                 console.log("okok");
                 this._super();
-                if (this.pos.config.iface_tare_method !== 'Manual') {
+                if (this.pos.config.iface_tare_method !== 'manual') {
 
                     console.log("okokokok");
                     this.pos.barcode_reader.set_action_callback(
