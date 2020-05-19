@@ -12,7 +12,7 @@
     'depends': ['point_of_sale'],
     'demo': ['demo/pos_tare_demo.xml'],
     'data': [
-        'pos_tare.xml',
+        'views/templates.xml',
         'views/pos_config_view.xml',
         'data/barcode_rule.xml',
     ],
