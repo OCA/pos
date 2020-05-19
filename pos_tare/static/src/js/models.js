@@ -97,6 +97,16 @@ odoo.define('pos_tare.models', function (require) {
             return tare_str + ' ' + unit.name;
         },
 
+        get_gross_weight_str_with_unit: function () {
+            var unit = this.get_unit();
+            var gross_weight_str = pos_tare_tools.format_tare(
+                this.pos,
+                this.get_tare() + this.get_quantity(),
+                this.get_unit(),
+            );
+            return gross_weight_str + ' ' + unit.name;
+        },
+
     });
 
     models.Orderline = OrderLineWithTare;

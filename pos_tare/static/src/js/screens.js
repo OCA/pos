@@ -42,11 +42,10 @@ odoo.define('pos_tare.screens', function (require) {
         // Overload Section
         // /////////////////////////////
 
-        // Overload show function
-        // add an handler on the
         show: function () {
-            this._super();
             this.tare = 0.0;
+            this.gross_weight = 0.0;
+            this._super();
             var self = this;
             this.$('#input_weight_tare').keyup(function (event) {
                 self.onchange_tare(event);

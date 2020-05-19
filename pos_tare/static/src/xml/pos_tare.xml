@@ -40,4 +40,20 @@
         </t>
     </t>
 
+    <t t-name="PosTicket" t-extend="PosTicket">
+        <t t-jquery="tr[t-foreach='orderlines'] > td:nth-child(1)"
+           t-operation="append">
+           <t t-if="orderline.get_tare() > 0">
+                <div class="pos-disc-font">
+                    Gross Weight : <t t-esc="orderline.get_gross_weight_str_with_unit()" /><br/>
+                    Tare : <t t-esc="orderline.get_tare_str_with_unit()" /><br/>
+                </div>
+           </t>
+        </t>
+    </t>
+
+<!-- TODO Overload XmlReceipt for Proxy usage -->
+<!--     <t t-name="XmlReceipt" t-extend="XmlReceipt">
+    </t> -->
+
 </templates>
