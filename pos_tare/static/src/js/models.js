@@ -44,7 +44,7 @@ odoo.define('pos_tare.models', function (require) {
         // /////////////////////////////
         // Custom Section
         // /////////////////////////////
-        set_tare: function (quantity) {
+        set_tare: function (quantity, update_net_weight) {
             this.order.assert_editable();
 
             // Prevent to apply multiple times a tare to the same product.
@@ -64,20 +64,23 @@ odoo.define('pos_tare.models', function (require) {
             var tare_in_product_uom = pos_tare_tools.convert_mass(tare, tare_unit, line_unit);
             var tare_in_product_uom_string = pos_tare_tools.format_tare(this.pos,
                 tare_in_product_uom, line_unit);
-            var net_quantity = this.get_quantity() - tare_in_product_uom;
-            // This method fails when the net weight is negative.
-            if (net_quantity <= 0) {
-                throw new RangeError(_.str.sprintf(
-                    _t("The tare weight is %s %s, it's greater or equal to " +
-                    "the product weight %s. We can not apply this tare."),
-                    tare_in_product_uom_string, line_unit.name,
-                    this.get_quantity_str_with_unit()));
+            if (update_net_weight) {
+                var net_quantity = this.get_quantity() - tare_in_product_uom;
+                // This method fails when the net weight is negative.
+                if (net_quantity <= 0) {
+                    throw new RangeError(_.str.sprintf(
+                        _t("The tare weight is %s %s, it's greater or equal to " +
+                        "the product weight %s. We can not apply this tare."),
+                        tare_in_product_uom_string, line_unit.name,
+                        this.get_quantity_str_with_unit()));
+                }
+                // Update the quantity with the new weight net of tare quantity.
+                this.set_quantity(net_quantity);
             }
             // Update tare value.
             this.tare = tare_in_product_uom;
-            // Update the quantity with the new weight net of tare quantity.
-            this.set_quantity(net_quantity);
             this.trigger('change', this);
+
         },
 
         get_tare: function () {

@@ -18,7 +18,7 @@ odoo.define('pos_tare.screens', function (require) {
                     var order = this.pos.get_order();
                     var selected_order_line = order.get_selected_orderline();
                     var tare_weight = code.value;
-                    selected_order_line.set_tare(tare_weight);
+                    selected_order_line.set_tare(tare_weight, true);
                 } catch (error) {
                     var title = _t("We can not apply this tare barcode.");
                     var popup = {title: title, body: error.message};
@@ -51,7 +51,15 @@ odoo.define('pos_tare.screens', function (require) {
             this.$('#input_weight_tare').keyup(function (event) {
                 self.onchange_tare(event);
             });
-            this.$('#input_weight_tare').focus();
+            this.$('#input_gross_weight').keyup(function (event) {
+                self.onchange_gross_weight(event);
+            });
+            if (this.pos.config.iface_gross_weight_method === 'scale') {
+                this.$('#input_weight_tare').focus();
+            } else{
+                this.pos.proxy_queue.clear();
+                this.$('#input_gross_weight').focus();
+            }
         },
 
         // Overload set_weight function
@@ -79,7 +87,7 @@ odoo.define('pos_tare.screens', function (require) {
                 if (this.tare > 0.0) {
                     var order = this.pos.get_order();
                     var orderline = order.get_last_orderline();
-                    orderline.set_tare(this.tare);
+                    orderline.set_tare(this.tare, false);
                 }
             }
         },
@@ -108,6 +116,11 @@ odoo.define('pos_tare.screens', function (require) {
         onchange_tare: function () {
             this.tare = this.check_sanitize_value('#input_weight_tare');
             this.set_weight(this.gross_weight);
+        },
+
+        onchange_gross_weight: function () {
+            var gross_weight = this.check_sanitize_value('#input_gross_weight');
+            this.set_weight(gross_weight);
         },
 
         check_sanitize_value: function (input_name) {
