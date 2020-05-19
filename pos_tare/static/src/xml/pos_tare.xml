@@ -21,7 +21,7 @@
 
     <t t-extend="Orderline">
         <t t-jquery=".info-list:last-child" t-operation="append">
-            <t t-if="line.get_tare_str() !== '0'">
+            <t t-if="line.get_tare() !== 0">
                 <li class="info">
                      <i class="fa fa-beer"/>
                      Tare : <t t-esc="line.get_tare_str_with_unit()" />
