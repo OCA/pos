@@ -27,12 +27,8 @@ odoo.define('pos_tare.screens', function (require) {
             },
             // Setup the callback action for the "weight" barcodes.
             show: function () {
-
-                console.log("okok");
                 this._super();
                 if (this.pos.config.iface_tare_method !== 'manual') {
-
-                    console.log("okokokok");
                     this.pos.barcode_reader.set_action_callback(
                         'tare',
                         _.bind(this.barcode_tare_action, this));
