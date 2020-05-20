@@ -1,1 +1,0 @@
-- Print tare value on customer receipt.

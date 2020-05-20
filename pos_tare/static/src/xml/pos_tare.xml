@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-    
+
 
     <t t-extend="ScaleScreenWidget">
         <t t-jquery=".js-weight" t-operation="before">
-            <t t-if="widget.pos.config.iface_tare_method != 'Barcode'">
+            <t t-if="widget.pos.config.iface_tare_method != 'barcode'">
                 <div class="weight-label">
                     Gross Weight
                 </div>
-                <div class="weight-value weight-value-fixed" id="container_weight_gross"/>
+                <t t-if="widget.pos.config.iface_gross_weight_method == 'scale'">
+                    <div class="weight-value weight-value-fixed"
+                        id="container_weight_gross"/>
+                </t>
+                <t t-else="1">
+                    <div class="weight-value weight-value-alterable">
+                        <input type="text" class="input-weight" id="input_gross_weight" placeholder="0.000"/>
+                        <t t-esc="widget.pos.config.iface_tare_uom_id[1]"/>
+                    </div>
+                </t>
                 <div class="weight-label">
                     Tare
                 </div>
                 <div class="weight-value weight-value-alterable">
-                    <input type="text" class="input-weight" id="input_weight_tare" placeholder="0.000"/> Kg
+                    <input type="text" class="input-weight" id="input_weight_tare" placeholder="0.000"/>
+                    <t t-esc="widget.pos.config.iface_tare_uom_id[1]"/>
                 </div>
             </t>
         </t>
     </t>
-    <t t-name="Orderline">
-        <li t-attf-class="orderline #{ line.selected ? 'selected' : '' }">
-            <span class="product-name">
-                <t t-esc="line.get_product().display_name"/>
-            </span>
-            <span class="price">
-                <t t-esc="widget.format_currency(line.get_display_price())"/>
-            </span>
-            <ul class="info-list">
-                <t t-if="line.get_quantity_str() !== '1' || line.selected ">
-                    <li class="info">
-                        <em>
-                            <t t-esc="line.get_quantity_str()" />
-                        </em>
-                        <t t-esc="line.get_unit().name" />
-                        at
-                        <t t-esc="widget.format_currency(line.get_unit_display_price(),'Product Price')" />
-                        /
-                        <t t-esc="line.get_unit().name" />
-                    </li>
-                </t>
-                <t t-if="line.get_discount_str() !== '0'">
-                    <li class="info">
-                        With a
-                        <em>
-                            <t t-esc="line.get_discount_str()" />%
-                        </em>
-                        discount
-                    </li>
-                </t>
-                <t t-if="line.get_tare_str() !== '0'">
-                    <li class="info">
-                        tare = <t t-esc="line.get_tare_str_with_unit()" />
-                    </li>
-                </t>
-            </ul>
-        </li>
+
+    <t t-extend="Orderline">
+        <t t-jquery=".info-list:last-child" t-operation="append">
+            <t t-if="line.get_tare() !== 0">
+                <li class="info">
+                     <i class="fa fa-beer"/>
+                     Tare : <t t-esc="line.get_tare_str_with_unit()" />
+                </li>
+            </t>
+        </t>
     </t>
+
+    <t t-name="PosTicket" t-extend="PosTicket">
+        <t t-jquery="tr[t-foreach='orderlines'] > td:nth-child(1)"
+           t-operation="append">
+           <t t-if="orderline.get_tare() > 0">
+                <div class="pos-disc-font">
+                    Gross Weight : <t t-esc="orderline.get_gross_weight_str_with_unit()" /><br/>
+                    Tare : <t t-esc="orderline.get_tare_str_with_unit()" /><br/>
+                </div>
+           </t>
+        </t>
+    </t>
+
+<!-- TODO Overload XmlReceipt for Proxy usage -->
+<!--     <t t-name="XmlReceipt" t-extend="XmlReceipt">
+    </t> -->
 
 </templates>
