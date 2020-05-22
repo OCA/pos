@@ -30,4 +30,35 @@
         </t>
     </t>
 
+    <t t-name="XmlReceiptWithoutPrice" t-extend="XmlReceipt">
+        <t t-jquery="t[t-if='receipt.company.logo']" t-operation="before">
+            <h1>TICKET WITHOUT PRICE</h1>  
+        </t>
+        
+        <t t-jquery="t[t-foreach='receipt.orderlines']" t-operation="replace">
+            <t t-foreach='receipt.orderlines' t-as='line'>
+                 <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                    <t t-esc='line.quantity' />
+                </value>
+                x
+                <t t-esc='line.product_name_wrapped[0]' />
+                <br/>
+            </t>
+        </t>
+
+        <t t-jquery="t[t-set='taxincluded']" t-operation="replace" />
+        <t t-jquery="t[t-set='!taxincluded']" t-operation="replace" />
+        <t t-jquery="t[t-set='taxincluded']" t-operation="replace" />
+
+        <t t-jquery="line &gt; right" t-operation="replace" />
+        <t t-jquery="line &gt; left" t-operation="replace" />
+        
+        <t t-jquery="line[class='total']" t-operation="replace" />
+        <t t-jquery="t[t-foreach='paymentlines']" t-operation="replace" />
+        <t t-jquery="line[size='double-height']" t-operation="replace" />
+        <t t-jquery="line[class='before-footer']" t-operation="replace" />
+
+
+    </t>
+
 </templates>
