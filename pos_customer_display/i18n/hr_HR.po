@@ -21,106 +21,143 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: pos_customer_display
-#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
-msgid "Bottom Line"
-msgstr ""
-
-#. module: pos_customer_display
-#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_next_l2
-msgid ""
-"Bottom line of the message on the customer display which is displayed after "
-"starting POS and also after validation of an order"
-msgstr ""
-
-#. module: pos_customer_display
-#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_closed_l2
-msgid ""
-"Bottom line of the message on the customer display which is displayed when "
-"POS is closed"
+#: selection:pos.config,customer_display_format:0
+msgid "2 Lines of 20 Characters"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:74
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:94
 #, python-format
-msgid "Cancel Payment"
+msgid "Customer Account"
 msgstr ""
 
 #. module: pos_customer_display
-#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_iface_customer_display
-#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
-msgid "Customer Display"
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_format
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Customer Display Format"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:59
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:61
 #, python-format
-msgid "Delete Item"
+msgid "Deleting Line ..."
 msgstr ""
 
 #. module: pos_customer_display
-#: model:ir.model.fields,help:pos_customer_display.field_pos_config_iface_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__iface_customer_display
 msgid "Display data on the customer display"
 msgstr ""
 
 #. module: pos_customer_display
-#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_line_length
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_next_l1
+msgid ""
+"First line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
+msgid ""
+"First line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__iface_customer_display
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "LED Customer Display"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_line_length
 msgid "Length of the LEDs lines of the customer display"
 msgstr ""
 
 #. module: pos_customer_display
-#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_line_length
-msgid "Line Length of the Customer Display"
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_line_length
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Line Length"
 msgstr ""
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_customer_display.py:46
-#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_next_l2
-#, python-format
-msgid "Next Customer (bottom line)"
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l1
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Next Customer (Line 1)"
 msgstr ""
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_customer_display.py:44
-#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_next_l1
-#, python-format
-msgid "Next Customer (top line)"
-msgstr ""
-
-#. module: pos_customer_display
-#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
-msgid "Next Customer Message"
-msgstr ""
-
-#. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_customer_display.py:50
-#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_closed_l2
-#, python-format
-msgid "POS Closed (bottom line)"
-msgstr ""
-
-#. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_customer_display.py:48
-#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_closed_l1
-#, python-format
-msgid "POS Closed (top line)"
-msgstr ""
-
-#. module: pos_customer_display
-#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
-msgid "POS Closed Message"
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l2
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Next Customer (Line 2)"
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:66
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:99
 #, python-format
-msgid "TOTAL: "
+msgid "No Customer Account"
 msgstr ""
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_customer_display.py:55
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "PoS Closed (Line 1)"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "PoS Closed (Line 2)"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:64
+#, python-format
+msgid "Point of Sale Closed"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model,name:pos_customer_display.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:60
+#, python-format
+msgid "Point of Sale Open"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:81
+#, python-format
+msgid "Returned: "
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_next_l2
+msgid ""
+"Second line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
+msgid ""
+"Second line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:66
+#, python-format
+msgid "See you soon!"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:93
 #, python-format
 msgid ""
 "The message for customer display '%s' is too long: it has %d chars whereas "
@@ -128,32 +165,24 @@ msgid ""
 msgstr ""
 
 #. module: pos_customer_display
-#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
-msgid "Top Line"
-msgstr ""
-
-#. module: pos_customer_display
-#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_next_l1
-msgid ""
-"Top line of the message on the customer display which is displayed after "
-"starting POS and also after validation of an order"
-msgstr ""
-
-#. module: pos_customer_display
-#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_closed_l1
-msgid ""
-"Top line of the message on the customer display which is displayed when POS "
-"is closed"
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:79
+#, python-format
+msgid "To Pay: "
 msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display.js:81
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:86
 #, python-format
-msgid "Your Change:"
+msgid "Total"
 msgstr ""
 
 #. module: pos_customer_display
-#: model:ir.model,name:pos_customer_display.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+#: code:addons/pos_customer_display/models/pos_config.py:62
+#, python-format
+msgid "Welcome!"
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
