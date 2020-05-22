@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_customer_display
+# 	* pos_customer_display
 #
 msgid ""
 msgstr ""
@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2020-01-11 23:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -47,14 +48,20 @@ msgstr ""
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_next_l1
-msgid "First line of the message on the customer display which is displayed after starting POS and also after validation of an order"
-msgstr "Première ligne du message de l'afficheur client qui est affiché après le "
+msgid ""
+"First line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+"Première ligne du message de l'afficheur client qui est affiché après le "
 "démarrage de la caisse et également après validation d'une commande client"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
-msgid "First line of the message on the customer display which is displayed when POS is closed"
-msgstr "Première ligne du message de l'afficheur client qui est affiché quand la "
+msgid ""
+"First line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+"Première ligne du message de l'afficheur client qui est affiché quand la "
 "caisse est fermée"
 
 #. module: pos_customer_display
@@ -131,14 +138,20 @@ msgstr "A rendre : "
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_next_l2
-msgid "Second line of the message on the customer display which is displayed after starting POS and also after validation of an order"
-msgstr "Deuxième ligne du message de l'afficheur client qui est affiché après le "
+msgid ""
+"Second line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+"Deuxième ligne du message de l'afficheur client qui est affiché après le "
 "démarrage de la caisse et également après validation d'une commande client"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
-msgid "Second line of the message on the customer display which is displayed when POS is closed"
-msgstr "Deuxième ligne du message de l'afficheur client qui est affiché quand la "
+msgid ""
+"Second line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+"Deuxième ligne du message de l'afficheur client qui est affiché quand la "
 "caisse est fermée"
 
 #. module: pos_customer_display
@@ -150,8 +163,11 @@ msgstr "Au revoir !"
 #. module: pos_customer_display
 #: code:addons/pos_customer_display/models/pos_config.py:93
 #, python-format
-msgid "The message for customer display '%s' is too long: it has %d chars whereas the maximum is %d chars."
-msgstr "Le message de l'afficheur client '%s' est trop long : il contient %d "
+msgid ""
+"The message for customer display '%s' is too long: it has %d chars whereas "
+"the maximum is %d chars."
+msgstr ""
+"Le message de l'afficheur client '%s' est trop long : il contient %d "
 "caractères alors que le maximum est de %d caractères."
 
 #. module: pos_customer_display
