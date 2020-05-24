@@ -11,30 +11,29 @@ odoo.define('pos_tare.screens', function (require) {
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
     // latest order line.
-    screens.ScreenWidget.include(
-        {
-            barcode_tare_action: function (code) {
-                try {
-                    var order = this.pos.get_order();
-                    var selected_order_line = order.get_selected_orderline();
-                    var tare_weight = code.value;
-                    selected_order_line.set_tare(tare_weight, true);
-                } catch (error) {
-                    var title = _t("We can not apply this tare barcode.");
-                    var popup = {title: title, body: error.message};
-                    this.gui.show_popup('error', popup);
-                }
-            },
-            // Setup the callback action for the "weight" barcodes.
-            show: function () {
-                this._super();
-                if (this.pos.config.iface_tare_method !== 'manual') {
-                    this.pos.barcode_reader.set_action_callback(
-                        'tare',
-                        _.bind(this.barcode_tare_action, this));
-                }
-            },
-        });
+    screens.ScreenWidget.include({
+        barcode_tare_action: function (code) {
+            try {
+                var order = this.pos.get_order();
+                var selected_order_line = order.get_selected_orderline();
+                var tare_weight = code.value;
+                selected_order_line.set_tare(tare_weight, true);
+            } catch (error) {
+                var title = _t("We can not apply this tare barcode.");
+                var popup = {title: title, body: error.message};
+                this.gui.show_popup('error', popup);
+            }
+        },
+        // Setup the callback action for the "weight" barcodes.
+        show: function () {
+            this._super();
+            if (this.pos.config.iface_tare_method !== 'manual') {
+                this.pos.barcode_reader.set_action_callback(
+                    'tare',
+                    _.bind(this.barcode_tare_action, this));
+            }
+        },
+    });
 
     screens.ScaleScreenWidget.include({
 
@@ -55,7 +54,7 @@ odoo.define('pos_tare.screens', function (require) {
             });
             if (this.pos.config.iface_gross_weight_method === 'scale') {
                 this.$('#input_weight_tare').focus();
-            } else{
+            } else {
                 this.pos.proxy_queue.clear();
                 this.$('#input_gross_weight').focus();
             }
@@ -134,35 +133,32 @@ odoo.define('pos_tare.screens', function (require) {
 
     });
 
-    screens.OrderWidget.include(
-        {
-        set_value: function(val) {
-          var order = this.pos.get_order();
-          if (order.get_selected_orderline()) {
+    screens.OrderWidget.include({
+        set_value: function (val) {
+            var order = this.pos.get_order();
+            if (order.get_selected_orderline()) {
                 var mode = this.numpad_state.get('mode');
-                if( mode === 'quantity'){
+                if (mode === 'quantity') {
                     order.get_selected_orderline().set_quantity(val);
-                }else if( mode === 'discount'){
+                } else if (mode === 'discount') {
                     order.get_selected_orderline().set_discount(val);
-                }else if( mode === 'price'){
+                } else if (mode === 'price') {
                     var selected_orderline = order.get_selected_orderline();
                     selected_orderline.price_manually_set = true;
                     selected_orderline.set_unit_price(val);
-                }else if( mode === 'tare'){
-                  if (this.pos.config.iface_tare_method !== 'barcode') {
-                    order.get_selected_orderline().set_tare(val, true);
-                  } else {
-                    this.gui.show_popup('error', {
-                        'title': _t('Incorrect Tare Value'),
-                        'body': _t('You can not set the tare' +
-                            ' manually. To be able to set the tare manually' +
-                            ' you have to change the tare input method' +
-                            ' in the POS configuration.'),
-                    });
-                  }
+                } else if (mode === 'tare') {
+                    if (this.pos.config.iface_tare_method === 'barcode') {
+                        this.gui.show_popup('error',
+                            {'title': _t('Incorrect Tare Value'),
+                                'body': _t('You can not set the tare.' +
+                                ' To be able to set the tare manually' +
+                                ' you have to change the tare input method' +
+                                ' in the POS configuration.')});
+                    } else {
+                        order.get_selected_orderline().set_tare(val, true);
+                    }
                 }
-          }
-      },});
-
-
+            }
+        },
+    });
 });
