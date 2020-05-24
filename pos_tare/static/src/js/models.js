@@ -15,8 +15,8 @@ odoo.define('pos_tare.models', function (require) {
         }
     }
 
+    _NumpadState_: models.NumpadState.prototype;
     var NumpadState = models.NumpadState.extend({
-      _NumpadState_: models.NumpadState.prototype;
       appendNewChar: function (newChar) {
             try {
                 _NumpadState_.appendNewChar.call(this, newChar);
