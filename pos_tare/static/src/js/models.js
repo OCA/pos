@@ -7,6 +7,32 @@ odoo.define('pos_tare.models', function (require) {
 
     var _t = core._t;
 
+    class ValidationError extends Error {
+      constructor(message, gui) {
+        super(message); // (1)
+        this.name = "ValidationError"; // (2)
+        this.gui = gui;
+      }
+    }
+
+    var _NumpadState_ = models.NumpadState.prototype;
+    var NumpadState = models.NumpadState.extend({
+      appendNewChar: function(newChar) {
+        try {
+          _NumpadState_.appendNewChar.call(this, newChar);
+        } catch (error) {
+
+            if (error instanceof ValidationError) {
+
+            var title = _t("We can not apply this numpad action");
+            var popup = {title: title, body: error.message};
+            error.gui.show_popup('error', popup);
+            _NumpadState_.deleteLastChar.call(this);  
+            }
+         }
+      },
+    });
+
     var _super_ = models.Orderline.prototype;
     var OrderLineWithTare = models.Orderline.extend({
 
@@ -38,22 +64,23 @@ odoo.define('pos_tare.models', function (require) {
         export_for_printing: function () {
             var result = _super_.export_for_printing.call(this);
             result.tare_quantity = this.get_tare();
+            result.gross_quantity = this.get_gross_weight();
             return result;
         },
 
         // /////////////////////////////
         // Custom Section
         // /////////////////////////////
+
         set_tare: function (quantity, update_net_weight) {
             this.order.assert_editable();
 
             // Prevent to apply multiple times a tare to the same product.
+
             if (this.get_tare() > 0) {
-                throw new RangeError(_.str.sprintf(
-                    _t("The tare (%s) is already set for the " +
-                    "product \"%s\". We can not re-apply a tare to this " +
-                    "product."),
-                    this.get_tare_str_with_unit(), this.product.display_name));
+                // This is valid because the tare is stored using product UOM.
+                this.set_quantity(this.get_quantity() + this.get_tare());
+                this.reset_tare();
             }
 
             // We convert the tare that is always measured in the same UoM into
@@ -68,11 +95,11 @@ odoo.define('pos_tare.models', function (require) {
                 var net_quantity = this.get_quantity() - tare_in_product_uom;
                 // This method fails when the net weight is negative.
                 if (net_quantity <= 0) {
-                    throw new RangeError(_.str.sprintf(
+                    throw new ValidationError(_.str.sprintf(
                         _t("The tare weight is %s %s, it's greater or equal to " +
                         "the product weight %s. We can not apply this tare."),
                         tare_in_product_uom_string, line_unit.name,
-                        this.get_quantity_str_with_unit()));
+                        this.get_quantity_str_with_unit()), this.pos.gui);
                 }
                 // Update the quantity with the new weight net of tare quantity.
                 this.set_quantity(net_quantity);
@@ -83,8 +110,16 @@ odoo.define('pos_tare.models', function (require) {
 
         },
 
+        reset_tare: function () {
+            this.tare = 0;
+        },
+
         get_tare: function () {
             return this.tare;
+        },
+
+        get_gross_weight: function () {
+            return this.get_tare() + this.get_quantity();
         },
 
         get_tare_str_with_unit: function () {
@@ -101,7 +136,7 @@ odoo.define('pos_tare.models', function (require) {
             var unit = this.get_unit();
             var gross_weight_str = pos_tare_tools.format_tare(
                 this.pos,
-                this.get_tare() + this.get_quantity(),
+                this.get_gross_weight(),
                 this.get_unit(),
             );
             return gross_weight_str + ' ' + unit.name;
@@ -109,6 +144,8 @@ odoo.define('pos_tare.models', function (require) {
 
     });
 
-    models.Orderline = OrderLineWithTare;
+
+    models.NumpadState = NumpadState
+    models.Orderline = OrderLineWithTare;;
 
 });

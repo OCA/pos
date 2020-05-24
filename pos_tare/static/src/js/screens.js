@@ -134,4 +134,35 @@ odoo.define('pos_tare.screens', function (require) {
 
     });
 
+    screens.OrderWidget.include(
+        {
+        set_value: function(val) {
+          var order = this.pos.get_order();
+          if (order.get_selected_orderline()) {
+                var mode = this.numpad_state.get('mode');
+                if( mode === 'quantity'){
+                    order.get_selected_orderline().set_quantity(val);
+                }else if( mode === 'discount'){
+                    order.get_selected_orderline().set_discount(val);
+                }else if( mode === 'price'){
+                    var selected_orderline = order.get_selected_orderline();
+                    selected_orderline.price_manually_set = true;
+                    selected_orderline.set_unit_price(val);
+                }else if( mode === 'tare'){
+                  if (this.pos.config.iface_tare_method !== 'barcode') {
+                    order.get_selected_orderline().set_tare(val, true);
+                  } else {
+                    this.gui.show_popup('error', {
+                        'title': _t('Incorrect Tare Value'),
+                        'body': _t('You can not set the tare' +
+                            ' manually. To be able to set the tare manually' +
+                            ' you have to change the tare input method' +
+                            ' in the POS configuration.'),
+                    });
+                  }
+                }
+          }
+      },});
+
+
 });
