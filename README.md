@@ -14,7 +14,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [pos_access_right](pos_access_right/) | 12.0.1.0.1 | Point of Sale - Extra Access Right for certain actions
-[pos_cash_move_reason](pos_cash_move_reason/) | 12.0.3.0.0 | POS cash in-out reason
+[pos_cash_move_reason](pos_cash_move_reason/) | 12.0.3.0.1 | POS cash in-out reason
 [pos_customer_display](pos_customer_display/) | 12.0.1.0.0 | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 12.0.1.0.0 | Point of Sale Require Customer
 [pos_default_empty_image](pos_default_empty_image/) | 12.0.1.0.0 | Optimize loading time for products without image
