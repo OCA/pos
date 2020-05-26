@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo12-addon-pos_access_right',
+        'odoo12-addon-pos_cash_move_reason',
         'odoo12-addon-pos_customer_display',
         'odoo12-addon-pos_customer_required',
         'odoo12-addon-pos_default_empty_image',
