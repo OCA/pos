@@ -1,0 +1,43 @@
+<odoo>
+    <record id="pos_container_tree_view" model="ir.ui.view">
+      <field name="name">pos.container.tree</field>
+      <field name="model">pos.container</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="barcode"/>
+          <field name="weight"/>
+        </tree>
+      </field>
+    </record>
+    
+    <record id="pos_container_form_view" model="ir.ui.view">
+      <field name="name">pos.container.form</field>
+      <field name="model">pos.container</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="barcode"/>
+              <field name="weight"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="pos_container_action_window" model="ir.actions.act_window" >
+      <field name="name">Containers</field>
+      <field name="res_model">pos.container</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="pos_container_menu"
+              name="Containers"
+              parent="point_of_sale.pos_config_menu_catalog"
+              sequence="13"
+              action="pos_container_action_window"
+              groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"
+              />
+</odoo>

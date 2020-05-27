@@ -1,0 +1,384 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_container
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19 09:34+0000\n"
+"PO-Revision-Date: 2019-11-19 10:42+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#. module: pos_container
+#: model:product.product,description:pos_container.temporary_container_product
+#: model:product.template,description:pos_container.temporary_container_product_product_template
+msgid ""
+"\n"
+"            This product is used to describe POS order lines having a container but no product yet\n"
+"        "
+msgstr ""
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:161
+#: code:addons/pos_container/static/src/xml/pos.xml:202
+#: code:addons/pos_container/static/src/xml/pos.xml:252
+#, python-format
+msgid "% discount"
+msgstr "% de réduction"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:127
+#, python-format
+msgid "Add a container"
+msgstr "Ajouter un contenant"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Alias"
+msgstr "Alias"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:184
+#: code:addons/pos_container/static/src/xml/pos.xml:318
+#, python-format
+msgid "Automatic Weighing"
+msgstr "Pesée automatique"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:124
+#, python-format
+msgid "Back"
+msgstr "Retour"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:48
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__barcode
+#, python-format
+msgid "Barcode"
+msgstr "Code Barre"
+
+#. module: pos_container
+#: model:ir.model,name:pos_container.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Règle de code barre"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:22
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Cashier"
+msgstr "Caissier"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Client"
+msgstr "Client"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/js/container.js:374
+#: code:addons/pos_container/static/src/xml/pos.xml:6
+#: code:addons/pos_container/static/src/xml/pos.xml:135
+#: model:ir.model.fields,field_description:pos_container.field_pos_order_line__container_id
+#, python-format
+msgid "Container"
+msgstr "Contenants"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_order_line__container_weight
+msgid "Container Weight"
+msgstr "Poids du contenant"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/js/container.js:80
+#, python-format
+msgid "Container deletion"
+msgstr "Suppression de contenant"
+
+#. module: pos_container
+#: model:ir.model,name:pos_container.model_pos_container
+msgid "Container for bulk items"
+msgstr "Contenant pour produits en vrac"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:134
+#, python-format
+msgid "Container name:"
+msgstr "Nom du contenant:"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Container unit"
+msgstr "Unité de contenant"
+
+#. module: pos_container
+#: model:product.product,name:pos_container.temporary_container_product
+#: model:product.template,name:pos_container.temporary_container_product_product_template
+msgid "Container without product"
+msgstr "Contenant sans produit"
+
+#. module: pos_container
+#: model:ir.actions.act_window,name:pos_container.pos_container_action_window
+#: model:ir.ui.menu,name:pos_container.pos_container_menu
+msgid "Containers"
+msgstr "Contenants"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:30
+#, python-format
+msgid "Delete container"
+msgstr "Supprimer le contenant"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:295
+#: code:addons/pos_container/static/src/xml/pos.xml:335
+#: code:addons/pos_container/static/src/xml/pos.xml:383
+#, python-format
+msgid "Discount:"
+msgstr "Réduction:"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Discounted Product"
+msgstr "Article en promotion"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/js/container.js:81
+#, python-format
+msgid "Do you want to delete this container ?\n"
+msgstr "Voulez-vous supprimer ce contenant ?\n"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/js/container.js:144
+#, python-format
+msgid "Error: Could not Save Changes"
+msgstr "Erreur: Impossible de sauvegarder les changements"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:84
+#: code:addons/pos_container/static/src/xml/pos.xml:101
+#, python-format
+msgid "Gross :"
+msgstr "Poids Brut :"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Location"
+msgstr "Lieu"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Lot"
+msgstr "Lot"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:234
+#: code:addons/pos_container/static/src/xml/pos.xml:366
+#, python-format
+msgid "Manual Input"
+msgstr "Saisie manuelle"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:47
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__name
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__owner_id
+msgid "Owner"
+msgstr "Propriétaire"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Package"
+msgstr "Colis"
+
+#. module: pos_container
+#: model:ir.model,name:pos_container.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Lignes de Commande en Point de Vente"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Priced Product"
+msgstr "Article à prix fixe"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:137
+#, python-format
+msgid "Save"
+msgstr "Sauvegarder"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:26
+#, python-format
+msgid "Search Containers"
+msgstr "Recherche contenant"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:34
+#, python-format
+msgid "Select a container"
+msgstr "Sélection contenant"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:12
+#: model:ir.model.fields,field_description:pos_container.field_pos_order_line__tare
+#, python-format
+msgid "Tare"
+msgstr "Tare"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:215
+#: code:addons/pos_container/static/src/xml/pos.xml:266
+#: code:addons/pos_container/static/src/xml/pos.xml:356
+#: code:addons/pos_container/static/src/xml/pos.xml:404
+#, python-format
+msgid "Tare :"
+msgstr "PT :"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_barcode_rule__type
+msgid "Type"
+msgstr "Type"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Unit Product"
+msgstr "Unité de produit"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:49
+#, python-format
+msgid "Weight"
+msgstr "Poids"
+
+#. module: pos_container
+#: model:ir.model.fields,field_description:pos_container.field_pos_container__weight
+msgid "Weight (g)"
+msgstr "Poids (kg)"
+
+#. module: pos_container
+#: selection:barcode.rule,type:0
+msgid "Weighted Product"
+msgstr "Article pesé"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:160
+#: code:addons/pos_container/static/src/xml/pos.xml:201
+#: code:addons/pos_container/static/src/xml/pos.xml:251
+#, python-format
+msgid "With a"
+msgstr "Avec un"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/js/container.js:138
+#, python-format
+msgid "Your Internet connection is probably down."
+msgstr "Votre connexion internet est probablement coupée."
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:85
+#: code:addons/pos_container/static/src/xml/pos.xml:102
+#: model:product.product,uom_name:pos_container.temporary_container_product
+#: model:product.product,weight_uom_name:pos_container.temporary_container_product
+#: model:product.template,uom_name:pos_container.temporary_container_product_product_template
+#: model:product.template,weight_uom_name:pos_container.temporary_container_product_product_template
+#, python-format
+msgid "kg"
+msgstr "kg"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:90
+#, python-format
+msgid ""
+"kg \n"
+"                            -"
+msgstr ""
+"kg\n"
+"                            -"
+
+#. module: pos_container
+#. openerp-web
+#: code:addons/pos_container/static/src/xml/pos.xml:107
+#, python-format
+msgid ""
+"kg \n"
+"                            - Manual tare"
+msgstr ""
+"kg \n"
+"                            - Tare manuelle"

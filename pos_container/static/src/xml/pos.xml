@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ContainerButton">
+        <button class="control-button main o_container_button">
+            <i class="fa fa-beer" role="img" aria-label="Container" title="Container"/>
+            Container
+        </button>
+    </t>
+
+    <t t-name="TareButton">
+        <button class="control-button second mode-button o_tare_button" data-mode="tare">
+            Tare
+        </button>
+    </t>
+
+    <t t-name="ContainerListScreenWidget">
+         <div class="containerlist-screen screen">
+             <div class="screen-content">
+                 <section class="top-content">
+                     <span class="button back">
+                         <i class="fa fa-angle-double-left"/>
+                         Cancel
+                     </span>
+                     <span class="searchbox">
+                         <input placeholder="Search Containers"/>
+                         <span class="search-clear"/>
+                     </span>
+                     <span class="searchbox"/>
+                     <span class="button delete-container oe_hidden" role="img" aria-label="Delete container" title="Delete container">
+                         <i class="fa fa-beer"/>
+                         <i class="fa fa-trash"/>
+                     </span>
+                     <span class="button next oe_hidden highlight">
+                         Select a container
+                         <i class="fa fa-angle-double-right"/>
+                     </span>
+                 </section>
+                 <section class="full-content">
+                     <div class="window">
+                         <section class="subwindow">
+                             <div class="subwindow-container">
+                                 <div class="subwindow-container-fix touch-scrollable scrollable-y">
+                                     <table class="container-list">
+                                         <thead>
+                                             <tr>
+                                                 <th>Name</th>
+                                                 <th>Barcode</th>
+                                                 <th>Weight</th>
+                                             </tr>
+                                         </thead>
+                                         <tbody class="container-list-contents">
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             </div>
+                         </section>
+                     </div>
+                 </section>
+             </div>
+         </div>
+     </t>
+
+    <t t-name="ContainerLine">
+        <tr class="container-line" t-att-data-id="container.barcode">
+            <td>
+                <t t-esc="container.name"/>
+            </td>
+            <td>
+                <t t-esc="container.barcode"/>
+            </td>
+            <td>
+                <t t-esc="container.weight"/>
+            </td>
+        </tr>
+    </t>
+
+    <t t-extend='Orderline'>
+        <t t-jquery='.info-list:last-child' t-operation='prepend'>
+            <t t-if="line.get_container()">
+                <ul class="info-list">
+                    <ul class="info-list">
+                        <i><t t-if="line.get_gross_weight()">
+                            <li class="info">
+                                Gross : <t t-esc="line.get_gross_weight()"/> kg
+                            </li>
+                        </t>
+                        <li class="info">
+                            <i class='fa fa-beer'/> :
+                            <t t-esc="line.get_container().weight"/> kg 
+                            - 
+                            <t t-esc="line.get_container().name"/>
+                        </li></i>
+                    </ul>
+                </ul>
+            </t>
+            <t t-if="line.get_tare()">
+                <ul class="info-list">
+                    <ul class="info-list">
+                        <i><t t-if="line.get_gross_weight()">
+                            <li class="info">
+                                Gross : <t t-esc="line.get_gross_weight()"/> kg
+                            </li>
+                        </t>
+                        <li class="info">
+                            <i class='fa fa-beer'/> :
+                            <t t-esc="line.get_tare()"/> kg 
+                            - Manual tare
+                        </li></i>
+                    </ul>
+                </ul>
+            </t>
+            <div class="pos-right-align">
+                <t t-esc="line.get_tare_mode()"/>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="ContainerScaleScreenWidget">
+        <div class="scale-screen screen">
+            <div class="screen-content">
+                <div class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1 class='product-name'>Add a container</h1>
+                </div>
+                <div class="centered-content">
+                    <div class='weight js-weight'>
+                        <t t-esc="widget.get_product_weight_string()" />
+                    </div>
+                    <div class='container-name'>
+                        <span class='label'>Container name: </span><br/>
+                        <input class='detail container-name' name='container_name' placeholder="Container"></input>
+                    </div>
+                    <div class='add-container'>
+                        Save
+                        <i class='fa fa-angle-double-right'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery='.receipt-orderlines' t-operation='inner'>              
+            <table>
+                <colgroup>
+                    <col width='50%' />
+                    <col width='25%' />
+                    <col width='25%' />
+                </colgroup>
+                <tr t-foreach="orderlines" t-as="orderline">
+                    <t t-if="orderline.get_tare_mode() == undefined
+                            and orderline.product.barcode != 'CONTAINER'">
+                        <td>
+                            <t t-esc="orderline.get_product().display_name"/>
+                            <t t-if="orderline.get_discount() > 0">
+                                <div class="pos-disc-font">
+                                    With a <t t-esc="orderline.get_discount()"/>% discount
+                                </div>
+                            </t>
+                       </td>
+                       <td class="pos-right-align">
+                            <t t-esc="orderline.get_quantity_str_with_unit()"/>
+                       </td>
+                       <td class="pos-right-align">
+                            <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+                       </td>
+                    </t>
+                </tr>
+            </table>
+            <t t-if="order.has_tare_line('AUTO')">
+                <table>
+                    <colgroup>
+                        <col width='20%' />
+                        <col width='60%' />
+                        <col width='20%' />
+                    </colgroup>
+                    <td></td>
+                    <td>
+                        <center>------------------------</center>
+                        <center>Automatic Weighing</center>
+                        <center>------------------------</center>
+                    </td>
+                </table>
+            </t>
+            <table>
+                <colgroup>
+                    <col width='50%' />
+                    <col width='25%' />
+                    <col width='25%' />
+                </colgroup>
+                <tr t-foreach="orderlines" t-as="orderline">
+                    <t t-if="orderline.get_tare_mode() == 'AUTO'">
+                        <tr>
+                            <td>
+                                <t t-esc="orderline.get_product().display_name"/>
+                                <t t-if="orderline.get_discount() > 0">
+                                    <div class="pos-disc-font">
+                                        With a <t t-esc="orderline.get_discount()"/>% discount
+                                    </div>
+                                </t>
+                            </td>
+							<td/>
+                            <td class="pos-right-align">
+                                <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                               <div style="margin-left:5%">
+								   <t t-esc="orderline.get_quantity_str_with_unit()"/>
+								   x
+								   <t t-esc="widget.format_currency(orderline.get_unit_display_price())"/>/<t t-esc="orderline.get_unit().name"/>
+                               </div>
+                            </td>
+                        </tr>
+                        <t t-if="orderline.get_container()">
+                            <tr>
+                                <td>
+                                   <div style="margin-left:5%">
+                                       Tare : <t t-esc="orderline.get_container().weight"/>
+                                       <t t-esc="orderline.get_unit().name"/>
+                                   </div>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="orderline.get_tare()">
+                            <tr>
+                                <td>
+                                   <div style="margin-left:5%">
+                                       Tare : <t t-esc="orderline.get_tare()"/>
+                                       <t t-esc="orderline.get_unit().name"/>
+                                   </div>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </tr>
+            </table>
+            <t t-if="order.has_tare_line('MAN')">
+                <table>
+                    <colgroup>
+                        <col width='20%' />
+                        <col width='60%' />
+                        <col width='20%' />
+                    </colgroup>
+                    <td></td>
+                    <td>
+                        <center>------------------------</center>
+                        <center>Manual Input</center>
+                        <center>------------------------</center>
+                    </td>
+                </table>
+            </t>
+            <table>
+                <colgroup>
+                    <col width='50%' />
+                    <col width='25%' />
+                    <col width='25%' />
+                </colgroup>
+                <tr t-foreach="orderlines" t-as="orderline">
+                    <t t-if="orderline.get_tare_mode() == 'MAN'">
+                        <tr>
+                            <td>
+                                <t t-esc="orderline.get_product().display_name"/>
+                                <t t-if="orderline.get_discount() > 0">
+                                    <div class="pos-disc-font">
+                                        With a <t t-esc="orderline.get_discount()"/>% discount
+                                    </div>
+                                </t>
+                            </td>
+                            <td class="pos-right-align">
+                                <t t-esc="orderline.get_quantity_str_with_unit()"/>
+                            </td>
+                            <td class="pos-right-align">
+                                <t t-esc="widget.format_currency(orderline.get_display_price())"/>
+                            </td>
+                        </tr>
+                        <t t-if="orderline.get_tare()">
+                            <tr>
+                                <td>
+                                   <div style="margin-left:5%">
+                                       Tare : <t t-esc="orderline.tare"/>
+                                       <t t-esc="orderline.get_unit().name"/>
+                                   </div>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </tr>
+            </table>
+        </t>
+    </t>
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery='.orderlines' t-operation='inner'>              
+            <t t-foreach='receipt.orderlines' t-as='line'>
+                <t t-if="line.tare_mode == undefined and line.product_barcode != 'CONTAINER'">
+                    <t t-set='simple' t-value='line.discount === 0 and line.unit_name === "Unit(s)" and line.quantity === 1' />
+                    <t t-if='simple'>
+                        <line>
+                            <left><t t-esc='line.product_name_wrapped[0]' /></left>
+                            <right><value t-att-value-decimals='pos.currency.decimals'><t t-esc='line.price_display' /></value></right>
+                        </line>
+                        <t t-call="XmlReceiptWrappedProductNameLines"/>
+                    </t>
+                    <t t-if='!simple'>
+                        <line><left><t t-esc='line.product_name_wrapped[0]' /></left></line>
+                        <t t-call="XmlReceiptWrappedProductNameLines"/>
+                        <t t-if='line.discount !== 0'>
+                            <line indent='1'><left>Discount: <t t-esc='line.discount' />%</left></line>
+                        </t>
+                        <line indent='1'>
+                            <left>
+                                <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                                    <t t-esc='line.quantity' />
+                                </value>
+                                <t t-if='line.unit_name !== "Unit(s)"'>
+                                    <t t-esc='line.unit_name' />
+                                </t>
+                                x
+                                <value t-att-value-decimals='pos.dp["Product Price"]'>
+                                    <t t-esc='line.price' />
+                                </value>
+                            </left>
+                            <right>
+                                <value t-att-value-decimals='pos.currency.decimals'><t t-esc='line.price_display' /></value>
+                            </right>
+                        </line>
+                    </t>
+                </t>
+            </t>
+            <div>------------------</div>
+            <t t-if="receipt.has_tare_mode.auto">
+                Automatic Weighing
+                <div>------------------</div>
+                <t t-foreach='receipt.orderlines' t-as='line'>
+                    <t t-if="line.tare_mode == 'AUTO'">
+                        <t t-set='simple' t-value='line.discount === 0 and line.unit_name === "Unit(s)" and line.quantity === 1' />
+                        <t t-if='simple'>
+                            <line>
+                                <left><t t-esc='line.product_name_wrapped[0]' /></left>
+                                <right><value t-att-value-decimals='pos.currency.decimals'><t t-esc='line.price_display' /></value></right>
+                            </line>
+                            <t t-call="XmlReceiptWrappedProductNameLines"/>
+                        </t>
+                        <t t-if='!simple'>
+                            <line><left><t t-esc='line.product_name_wrapped[0]' /></left></line>
+                            <t t-call="XmlReceiptWrappedProductNameLines"/>
+                            <t t-if='line.discount !== 0'>
+                                <line indent='1'><left>Discount: <t t-esc='line.discount' />%</left></line>
+                            </t>
+                            <line indent='1'>
+                                <left>
+                                    <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                                        <t t-esc='line.quantity' />
+                                    </value>
+                                    <t t-if='line.unit_name !== "Unit(s)"'>
+                                        <t t-esc='line.unit_name' />
+                                    </t>
+                                    x
+                                    <value t-att-value-decimals='pos.dp["Product Price"]'>
+                                        <t t-esc='line.price' />
+                                    </value>
+                                </left>
+                                <right>
+                                    <value t-att-value-decimals='pos.currency.decimals'><t t-esc='line.price_display' /></value>
+                                </right>
+                            </line>
+                            <t t-if='line.container'>
+                                <line indent='1'>
+                                    <left>
+                                        Tare : <t t-esc='line.container.weight' /><t t-esc='line.unit_name' />
+                                    </left>
+                                </line>
+                            </t>
+                            <t t-if='line.tare'>
+                                <line indent='1'>
+                                    <left>
+                                        Tare : <t t-esc='line.tare' /><t t-esc='line.unit_name' />
+                                    </left>
+                                </line>
+                            </t>
+                        </t>
+                    </t>
+                </t>
+                <div>------------------</div>
+            </t>
+            <t t-if="receipt.has_tare_mode.manual">
+                Manual Input
+                <div>------------------</div>
+                <t t-foreach='receipt.orderlines' t-as='line'>
+                    <t t-if="line.tare_mode == 'MAN'">
+                        <t t-set='simple' t-value='line.discount === 0 and line.unit_name === "Unit(s)" and line.quantity === 1' />
+                        <t t-if='simple'>
+                            <line>
+                                <left><t t-esc='line.product_name_wrapped[0]' /></left>
+                                <right><value t-att-value-decimals='pos.currency.decimals'><t t-esc='line.price_display' /></value></right>
+                            </line>
+                            <t t-call="XmlReceiptWrappedProductNameLines"/>
+                        </t>
+                        <t t-if='!simple'>
+                            <line><left><t t-esc='line.product_name_wrapped[0]' /></left></line>
+                            <t t-call="XmlReceiptWrappedProductNameLines"/>
+                            <t t-if='line.discount !== 0'>
+                                <line indent='1'><left>Discount: <t t-esc='line.discount' />%</left></line>
+                            </t>
+                            <line indent='1'>
+                                <left>
+                                    <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                                        <t t-esc='line.quantity' />
+                                    </value>
+                                    <t t-if='line.unit_name !== "Unit(s)"'>
+                                        <t t-esc='line.unit_name' />
+                                    </t>
+                                    x
+                                    <value t-att-value-decimals='pos.dp["Product Price"]'>
+                                        <t t-esc='line.price' />
+                                    </value>
+                                </left>
+                                <right>
+                                    <value t-att-value-decimals='pos.currency.decimals'><t t-esc='line.price_display' /></value>
+                                </right>
+                            </line>
+                            <t t-if='line.tare'>
+                                <line indent='1'>
+                                    <left>
+                                        Tare : <t t-esc='line.tare' /><t t-esc='line.unit_name' />
+                                    </left>
+                                </line>
+                            </t>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </t>
+
+</templates>

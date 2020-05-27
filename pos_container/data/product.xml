@@ -1,0 +1,20 @@
+<odoo>
+    <record id="temporary_container_product" model="product.product">
+        <field name="name">Container without product</field>
+            <!-- The barcode is used to find it from the POS -->
+        <field name="barcode">CONTAINER</field>
+        <field name="uom_id" ref="uom.product_uom_kgm"/>
+        <field name="uom_po_id" ref="uom.product_uom_kgm"/>
+        <field name="purchase_ok" eval="False"/>
+        <field name="description">
+            This product is used to describe POS order lines having a container but no product yet
+        </field>
+        <field name="list_price">0</field>
+        <field name="available_in_pos" eval="True"/>
+        <field name="to_weight" eval="True"/>
+        <field name="active" eval="False"/>
+    </record>
+    <record id="temporary_container_product_product_template" model="product.template">
+        <field name="active" eval="False"/>
+    </record>
+</odoo>
