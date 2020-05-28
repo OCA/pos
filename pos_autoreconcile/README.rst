@@ -34,6 +34,9 @@ closing a session.
 
 Module also grants access rights for POS users to create reconciliation records
 
+Module also allows to configure a write-off account for writing differences
+between order total and paid amount.
+
 Installation
 ============
 
@@ -78,6 +81,7 @@ Contributors
 ------------
 
 * Andrius Preimantas <andrius@versada.lt>
+* Jacques-Etienne Baudoux <je@bcim.be>
 
 Maintainer
 ----------

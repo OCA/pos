@@ -22,7 +22,7 @@
 
 {
     'name': 'POS Autoreconcile',
-    'version': '8.0.0.1.0',
+    'version': '8.0.0.2.0',
     'author': 'Versada UAB,Odoo Community Association (OCA)',
     'category': 'Point Of Sale',
     'website': 'http://www.versada.lt',
@@ -31,6 +31,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/pos_config.xml',
     ],
     'installable': True,
     'application': False,
