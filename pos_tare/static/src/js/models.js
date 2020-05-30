@@ -15,9 +15,9 @@ odoo.define('pos_tare.models', function (require) {
         }
     }
 
-    _NumpadState_: models.NumpadState.prototype;
+    var _NumpadState_ = models.NumpadState.prototype;
     var NumpadState = models.NumpadState.extend({
-      appendNewChar: function (newChar) {
+        appendNewChar: function (newChar) {
             try {
                 _NumpadState_.appendNewChar.call(this, newChar);
             } catch (error) {
@@ -26,6 +26,8 @@ odoo.define('pos_tare.models', function (require) {
                     var popup = {title: title, body: error.message};
                     error.gui.show_popup('error', popup);
                     _NumpadState_.deleteLastChar.call(this);
+                } else {
+                  throw error;
                 }
             }
         },
