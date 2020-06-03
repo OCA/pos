@@ -93,6 +93,8 @@ class PosOrder(models.Model):
                     'returned_line_id': wizard_line.pos_order_line_id.id,
                     'qty': qty,
                 })
+                copy_line._onchange_amount_line_all()
+        new_order._onchange_amount_all()
         return res
 
     def action_pos_order_paid(self):
