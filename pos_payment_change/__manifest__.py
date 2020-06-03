@@ -5,7 +5,7 @@
     "name": "Point Of Sale - Change Payments",
     "version": "12.0.1.0.0",
     "summary": "Allow cashier to change order payments, as long as"
-    " the session is not closed",
+    " the session is not closed.",
     "category": "Point Of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://www.github.com/OCA/pos",
