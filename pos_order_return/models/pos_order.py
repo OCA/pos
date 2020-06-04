@@ -72,12 +72,13 @@ class PosOrder(models.Model):
         for line in self.lines:
             qty = - line.max_returnable_qty([])
             if qty != 0:
-                copy_line = line.copy()
-                copy_line.write({
-                    'order_id': new_order.id,
-                    'returned_line_id': line.id,
-                    'qty': qty,
-                })
+                line.copy(
+                    {
+                        'order_id': new_order.id,
+                        'returned_line_id': line.id,
+                        'qty': qty,
+                    }
+                )
         return res
 
     def partial_refund(self, partial_return_wizard):
@@ -87,12 +88,15 @@ class PosOrder(models.Model):
         for wizard_line in partial_return_wizard.line_ids:
             qty = -wizard_line.qty
             if qty != 0:
-                copy_line = wizard_line.pos_order_line_id.copy()
-                copy_line.write({
-                    'order_id': new_order.id,
-                    'returned_line_id': wizard_line.pos_order_line_id.id,
-                    'qty': qty,
-                })
+                copy_line = wizard_line.pos_order_line_id.copy(
+                    {
+                        'order_id': new_order.id,
+                        'returned_line_id': wizard_line.pos_order_line_id.id,
+                        'qty': qty,
+                    }
+                )
+                copy_line._onchange_amount_line_all()
+        new_order._onchange_amount_all()
         return res
 
     def action_pos_order_paid(self):
