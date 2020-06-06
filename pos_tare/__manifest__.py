@@ -9,7 +9,9 @@
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "maintainers": ["fkawala"],
-    "depends": ["point_of_sale"],
+    "depends": [
+        "point_of_sale",
+        "base_fontawesome"],
     "data": [
         "views/templates.xml",
         "views/view_pos_config.xml",
