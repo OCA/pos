@@ -4,7 +4,8 @@ from odoo import api, models, fields
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    iface_tare_method = fields.Selection([
+    iface_tare_method = fields.Selection(
+        [
             ("manual", "Input the tare manually"),
             ("barcode", "Scan a barcode to set the tare"),
             ("both", "Manual input and barcode"),
@@ -18,7 +19,8 @@ class PosConfig(models.Model):
         "* 'both' : manual input and barcode methods are enabled;",
     )
 
-    iface_gross_weight_method = fields.Selection([
+    iface_gross_weight_method = fields.Selection(
+        [
             ("manual", "Input the Gross Weight manually"),
             ("scale", "Input Gross Weight via Scale")
         ],

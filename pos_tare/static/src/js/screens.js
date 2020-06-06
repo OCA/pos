@@ -7,6 +7,7 @@ odoo.define('pos_tare.screens', function (require) {
 
     var _t = core._t;
     var round_pr = utils.round_precision;
+    var leq_zero_qty = (ol) => ol.get_quantity() <= 0;
 
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
@@ -133,13 +134,44 @@ odoo.define('pos_tare.screens', function (require) {
 
     });
 
+    screens.PaymentScreenWidget.include({
+        validate_order: function(options) {
+            var order = this.pos.get_order();
+            var orderlines = Array.from(order.get_orderlines());
+
+            if (orderlines.some(leq_zero_qty)) {
+                var _super_validate_order = this._super.bind(this);
+                var wrong_orderline = orderlines.find(leq_zero_qty);
+                var wrong_product = wrong_orderline.get_product().display_name;
+                this.gui.show_popup('confirm', {
+                    title: _t('Quantity lower or equal to zero'),
+                    body:  _.str.sprintf(
+                        _t("The quantity for \"%s\" is lower or equal to" +
+                        " zero. Call for help unless your perfectly sure " +
+                        " about what you are doing."), wrong_product),
+                    confirm: function() {
+                        _super_validate_order();
+                    },
+                });
+                return;
+            }
+            return this._super(options);
+        },
+    });
+
     screens.OrderWidget.include({
         set_value: function (val) {
             var order = this.pos.get_order();
             if (order.get_selected_orderline()) {
                 var mode = this.numpad_state.get('mode');
                 if (mode === 'quantity') {
-                    order.get_selected_orderline().set_quantity(val);
+                    var orderline = order.get_selected_orderline();
+                    var tare = orderline.get_tare();
+                    orderline.reset_tare();
+                    orderline.set_quantity(val);
+                    if (tare > 0) {
+                      orderline.set_tare(tare, true);
+                    }
                 } else if (mode === 'discount') {
                     order.get_selected_orderline().set_discount(val);
                 } else if (mode === 'price') {
@@ -155,7 +187,13 @@ odoo.define('pos_tare.screens', function (require) {
                                 ' you have to change the tare input method' +
                                 ' in the POS configuration.')});
                     } else {
-                        order.get_selected_orderline().set_tare(val, true);
+                        try {
+                            order.get_selected_orderline().set_tare(val, true);
+                        } catch (error) {
+                            var title = _t("We can not apply this tare.");
+                            var popup = {title: title, body: error.message};
+                            this.gui.show_popup('error', popup);
+                        }
                     }
                 }
             }
