@@ -1,0 +1,294 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_meal_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-01 17:04+0000\n"
+"PO-Revision-Date: 2020-09-01 17:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:29
+#, python-format
+msgid "(Dematerialized)"
+msgstr "(Dématérialisé)"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/js/screens.js:148
+#, python-format
+msgid ", when the maximum amount is "
+msgstr ", alors que le montant maximum est de "
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/js/screens.js:150
+#, python-format
+msgid ".\n"
+"\n"
+" Clicking 'Confirm' will validate the payment."
+msgstr ".\n"
+"\n"
+" Cliquer sur 'confirmer' validera le paiement."
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "<span class=\"o_form_label\">Meal Voucher Amount</span>"
+msgstr "<span class=\"o_form_label\">Montant de titre restaurant</span>"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Alias"
+msgstr "Alias"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
+msgid "Apply to all Products"
+msgstr "Appliquer à tous les produitss"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Règle de code barre"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Cashier"
+msgstr "Caissier"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,help:pos_meal_voucher.field_product_product__meal_voucher_ok
+#: model:ir.model.fields,help:pos_meal_voucher.field_product_template__meal_voucher_ok
+msgid "Check this box if the product can be paid with meal vouchers."
+msgstr "Cocher cette case si le produit peut être payé avec des titres restaurants."
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Client"
+msgstr "Client"
+
+#. module: pos_meal_voucher
+#: selection:account.journal,meal_voucher_type:0
+msgid "Credit Card / Dematerialized"
+msgstr "Carte bleue / Dématérialisé"
+
+#. module: pos_meal_voucher
+#: selection:account.journal,meal_voucher_type:0
+msgid "Dematerialized"
+msgstr "Dématérialisé"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Discounted Product"
+msgstr "Article en promotion"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_product_screen
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "Display icon before products on screen"
+msgstr "Afficher une icone devant les produits"
+
+#. module: pos_meal_voucher
+#: model:product.category,name:pos_meal_voucher.food_category
+msgid "Food"
+msgstr "Alimentaire"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "If checked, an icon will be displayed on the screen, before each product that can be paid with meal vouchers."
+msgstr "Si la case est cochée, une icône sera affiché sur l'écran du point de vente, avant chaque produit éligible au paiement par titre restaurant."
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,help:pos_meal_voucher.field_product_category__meal_voucher_ok
+msgid "If checked, the products that belong to the category will be marked as 'can be paid with meal vouchers', by default."
+msgstr "Si la case est cochée, les produits qui appartiennent à cette catégorie seront marqués comme 'Peuvent être payé en titre restaurant', par défaut."
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_account_journal
+msgid "Journal"
+msgstr "Journal"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Location"
+msgstr "Lieu"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Lot"
+msgstr "Lot"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:52
+#, python-format
+msgid "Max Amount"
+msgstr "Montant maximum"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "Maximum amount of Meal Vouchers that can be received for a PoS Order.\n"
+"                                Let 0, if you don't want to enable this check."
+msgstr "Montant total de titres restaurant qui peuvent être encaissé pour une vente.\n"
+"                                Laisser vide si vous ne souhaitez pas activer cette vérification."
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:39
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_product__meal_voucher_ok
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_template__meal_voucher_ok
+#, python-format
+msgid "Meal Voucher"
+msgstr "Titre restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__max_meal_voucher_amount
+msgid "Meal Voucher Amount"
+msgstr "Montant de titre restaurant"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Meal Voucher Payment"
+msgstr "Paiement en titre restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_type
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_journal__meal_voucher_type
+msgid "Meal Voucher Type"
+msgstr "Type de titre restaurant"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:16
+#, python-format
+msgid "Meal Voucher:"
+msgstr "Titre restaurant :"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "Meal Vouchers"
+msgstr "Titres Restaurant"
+
+#. module: pos_meal_voucher
+#: model:product.product,name:pos_meal_voucher.bread
+#: model:product.template,name:pos_meal_voucher.bread_product_template
+msgid "Organic Wholemeal Bread"
+msgstr "Pain complet biologique"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Package"
+msgstr "Colis"
+
+#. module: pos_meal_voucher
+#: selection:account.journal,meal_voucher_type:0
+msgid "Paper"
+msgstr "Papier"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/js/screens.js:145
+#, python-format
+msgid "Please Confirm Meal Voucher Amount"
+msgstr "Veuillez confirmer le montant en titre restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Priced Product"
+msgstr "Article à prix fixe"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_product_category
+msgid "Product Category"
+msgstr "Catégorie d'article"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_mixed_text
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_journal__meal_voucher_mixed_text
+msgid "Text for Mixed Journal"
+msgstr "Texte pour le journal mixte"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,help:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_mixed_text
+#: model:ir.model.fields,help:pos_meal_voucher.field_account_journal__meal_voucher_mixed_text
+msgid "Text that will be displayed in the point of sale if the journal is a mixed journal (Credit Card /  Dematerialized) for the dematerialized button."
+msgstr "Ce texte sera affiché dans le point de vente, pour le journal de type 'mixte' (Carte bleue / Dématérialisé) pour le bouton correspondant au paiement dématérialisé"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:44
+#, python-format
+msgid "Total Eligible"
+msgstr "Total éligible"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:60
+#, python-format
+msgid "Total Received"
+msgstr "Total encaissé"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_barcode_rule__type
+msgid "Type"
+msgstr "Type"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Unit Product"
+msgstr "Unité de produit"
+
+#. module: pos_meal_voucher
+#: model:product.product,uom_name:pos_meal_voucher.bread
+#: model:product.template,uom_name:pos_meal_voucher.bread_product_template
+msgid "Unit(s)"
+msgstr "Unité(s)"
+
+#. module: pos_meal_voucher
+#: selection:barcode.rule,type:0
+msgid "Weighted Product"
+msgstr "Article pesé"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/js/screens.js:146
+#, python-format
+msgid "You are about to validate a meal voucher payment of "
+msgstr "Vous êtes sur le point de valider un paiement en titre restaurant d'un montant de "
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
+msgid "by clicking on this button, all the products of this category will have the same settings than the current category, for the value 'Meal Voucher'"
+msgstr "En cliquant sur ce bouton, tous les produits de cette catégories auront le même paramétrage que cette catégorie, pour la valeur 'Titre Restaurant'"
+
+#. module: pos_meal_voucher
+#: model:product.product,weight_uom_name:pos_meal_voucher.bread
+#: model:product.template,weight_uom_name:pos_meal_voucher.bread_product_template
+msgid "kg"
+msgstr "kg"
+

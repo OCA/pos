@@ -1,0 +1,65 @@
+.pos .order .summary .line .meal-voucher{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+    font-style:italic;
+    color: #999;
+}
+
+.pos .paymentline .is-meal-voucher{
+    cursor: pointer;
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #f0eeee;
+}
+
+.pos .paymentline .is-meal-voucher .fa-cutlery{
+    border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-size: 20px;
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: 0%;
+    color:#AAA;
+    background-color: #FFF;
+}
+
+.payment-screen .paymentmethods .fa-cutlery{
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    margin-top: -25px;
+    font-size: 20px;
+    border-radius: 26px;
+    border: 1px solid rgba(0,0,0,0.2);
+    background: rgba(255,255,255,0.4);
+}
+
+.payment-screen div.meal-voucher-summary{
+    border-top: dashed 1px gainsboro;
+}
+
+.payment-screen div.meal-voucher-summary .fa-warning{
+    color: red;
+}
+
+.payment-screen div.meal-voucher-summary table{
+    width: 100%;
+}
+
+.payment-screen div.meal-voucher-summary tbody{
+    background: white;
+}
+
+.payment-screen div.meal-voucher-summary th {
+    font-size: 16px;
+    padding: 8px;
+    text-align: center;
+}
+.payment-screen div.meal-voucher-summary td {
+    font-size: 22px;
+    padding: 8px 12px;
+}
+

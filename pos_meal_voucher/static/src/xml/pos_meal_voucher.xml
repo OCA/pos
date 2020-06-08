@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Orderline">
+        <t t-jquery=".product-name" t-operation="prepend">
+            <t t-if="line.get_product().meal_voucher_ok === true &amp;&amp;
+                widget.pos.config.meal_voucher_display_product_screen">
+                <i class="fa fa-lg fa-cutlery"/>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="OrderWidget">
+        <t t-jquery="div.line" t-operation="append">
+            <div class="meal-voucher">
+                (<span>Meal Voucher: </span> <span class="value">0.00 €</span>)
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="PaymentScreen-Paymentmethods">
+        <t t-jquery="div.paymentmethod" t-operation="after">
+            <t t-if="['mixed'].indexOf(cashregister.journal.meal_voucher_type) !== -1">
+                <div class="button paymentmethod-meal-voucher-mixed" t-att-data-id="cashregister.journal_id[0]">
+                    <t t-if="cashregister.journal.meal_voucher_mixed_text">
+                        <t t-esc="cashregister.journal.meal_voucher_mixed_text" />
+                    </t>
+                    <t t-else="">
+                        <t t-esc="cashregister.journal_id[1]" /> (Dematerialized)
+                    </t>
+                </div>
+            </t>
+        </t>
+        <t t-jquery="div.paymentmethods" t-operation="after">
+            <div class="meal-voucher-summary">
+                <table class="meal-voucher-summary">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Meal Voucher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Total Eligible</td>
+                            <td>
+                                <span id="meal-voucher-eligible-amount">0.00 €</span>
+                                <i id="meal-voucher-eligible-warning" class="fa fa-warning"/>
+                            </td>
+                        </tr>
+                <t t-if="widget.pos.config.max_meal_voucher_amount !== 0">
+                        <tr>
+                            <td>Max Amount</td>
+                            <td>
+                                <span id="meal-voucher-max-amount">0.00 €</span>
+                                <i id="meal-voucher-max-warning" class="fa fa-warning"/>
+                            </td>
+                        </tr>
+                </t>
+                        <tr>
+                            <td>Total Received</td>
+                            <td>
+                                <span id="meal-voucher-received-amount">0.00 €</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="PaymentScreen-Paymentlines">
+        <t t-jquery="td.delete-button" t-operation="after">
+            <t t-if="['paper', 'dematerialized'].indexOf(line.cashregister.journal.meal_voucher_type) !== -1 ||
+                line.manual_meal_voucher === true">
+                <td class="is-meal-voucher">
+                    <i class="fa fa-lg fa-cutlery" />
+                </td>
+            </t>
+        </t>
+    </t>
+
+</templates>
