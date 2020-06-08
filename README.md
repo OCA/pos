@@ -13,6 +13,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[pos_accented_search](pos_accented_search/) | 12.0.1.0.0 | Point of Sale - Product search works regardless of accented characters
 [pos_access_right](pos_access_right/) | 12.0.1.0.1 | Point of Sale - Extra Access Right for certain actions
 [pos_cash_move_reason](pos_cash_move_reason/) | 12.0.3.0.1 | POS cash in-out reason
 [pos_customer_display](pos_customer_display/) | 12.0.1.0.0 | Manage LED Customer Display device from POS front end
