@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-pos Odoo addons",
     version=version,
     install_requires=[
+        'odoo12-addon-pos_accented_search',
         'odoo12-addon-pos_access_right',
         'odoo12-addon-pos_cash_move_reason',
         'odoo12-addon-pos_customer_display',
