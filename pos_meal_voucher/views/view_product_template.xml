@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_product_template" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="point_of_sale.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="to_weight" position="after">
+                <field name="meal_voucher_ok"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

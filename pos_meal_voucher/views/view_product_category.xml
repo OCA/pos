@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_product_category" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="meal_voucher_ok"/>
+                <button type="object"
+                    name="button_apply_meal_voucher_settings"
+                    string="Apply to all Products"
+                    help="by clicking on this button, all the products of this category will have the same settings than the current category, for the value 'Meal Voucher'"
+                        icon="fa-cogs" colspan="2"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

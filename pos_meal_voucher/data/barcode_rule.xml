@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="rule_meal_voucher" model="barcode.rule">
+        <field name="name">Meal Voucher Payment</field>
+        <field name="barcode_nomenclature_id" ref="barcodes.default_barcode_nomenclature"/>
+        <field name="type">meal_voucher_payment</field>
+        <field name="encoding">any</field>
+        <field name="sequence">1</field>
+        <field name="pattern">...........{NNNDD}........</field>
+    </record>
+
+</odoo>

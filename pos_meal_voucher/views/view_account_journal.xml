@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_account_journal" model="ir.ui.view">
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
+        <field name="arch" type="xml">
+            <group name="amount_authorized" position="after">
+                <group>
+                    <field name="meal_voucher_type"/>
+                    <field name="meal_voucher_mixed_text"
+                        attrs="{'invisible': [('meal_voucher_type', '!=', 'mixed')]}"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
