@@ -15,7 +15,7 @@ class PosOrder(models.Model):
         related='session_id.config_id.require_customer',
     )
 
-    @api.constrains('partner_id', 'require_customer')
+    @api.constrains('partner_id', 'session_id')
     def _check_partner(self):
         for rec in self:
             if rec.require_customer != 'no' and not rec.partner_id:
