@@ -57,14 +57,12 @@ msgstr "Sélectionnez un client pour cette commande."
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_config
 #, fuzzy
-#| msgid "Point of Sale Payment"
 msgid "Point of Sale Configuration"
 msgstr "Paiement du ticket"
 
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
 #, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Orders"
 msgstr "Point de vente"
 
