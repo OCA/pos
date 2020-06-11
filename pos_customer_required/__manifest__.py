@@ -7,7 +7,7 @@
 
 {
     'name': 'Point of Sale Require Customer',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'category': 'Point Of Sale',
     'summary': 'Point of Sale Require Customer',
     'author': 'Apertoso NV, La Louve, Odoo Community Association (OCA)',
