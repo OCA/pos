@@ -14,7 +14,7 @@ odoo.define('pos_customer_display.gui', function (require) {
 
         close: function(){
             this.pos.proxy.send_text_customer_display(
-                this.pos.proxy.prepare_message_closed()
+                this.pos.proxy.prepare_message_close()
             );
             return this._super();
         },
