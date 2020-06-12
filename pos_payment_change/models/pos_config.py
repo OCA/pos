@@ -31,7 +31,7 @@ class PosConfig(models.Model):
     def _check_payment_change_policy(self):
         # Check if certification module is installed
         # and if yes, if 'update payments' option is allowed
-        module_states = self.env["ir.module.module"].search([
+        module_states = self.env["ir.module.module"].sudo().search([
             ("name", "=", "l10n_fr_certification")]
         ).mapped("state")
         if "installed" not in module_states:
