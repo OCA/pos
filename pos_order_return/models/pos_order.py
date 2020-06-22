@@ -72,13 +72,15 @@ class PosOrder(models.Model):
         for line in self.lines:
             qty = - line.max_returnable_qty([])
             if qty != 0:
-                line.copy(
+                copy_line = line.copy(
                     {
                         'order_id': new_order.id,
                         'returned_line_id': line.id,
                         'qty': qty,
                     }
                 )
+                copy_line._onchange_amount_line_all()
+        new_order._onchange_amount_all()
         return res
 
     def partial_refund(self, partial_return_wizard):
