@@ -53,7 +53,7 @@ msgid "Display Name"
 msgstr ""
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:193
+#: code:addons/pos_order_return/models/pos_order.py:195
 #, python-format
 msgid "For legal and traceability reasons, you can not set a negative quantity (%d %s of %s), without using return wizard."
 msgstr ""
@@ -201,14 +201,14 @@ msgid "Wizard"
 msgstr ""
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:182
+#: code:addons/pos_order_return/models/pos_order.py:184
 #, python-format
 msgid "You can not return %d %s of %s because some refunds have already been done.\n"
 " Maximum quantity allowed : %d %s."
 msgstr ""
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:173
+#: code:addons/pos_order_return/models/pos_order.py:175
 #, python-format
 msgid "You can not return %d %s of %s because the original Order line only mentions %d %s."
 msgstr ""
