@@ -30,6 +30,7 @@ addon | version | summary
 [pos_order_return](pos_order_return/) | 12.0.1.0.3 | Point of Sale Order Return
 [pos_order_return_traceability](pos_order_return_traceability/) | 12.0.1.0.0 | Adds full return traceability to POS frontend
 [pos_partner_firstname](pos_partner_firstname/) | 12.0.1.1.0 | POS Support of partner firstname
+[pos_payment_change](pos_payment_change/) | 12.0.1.0.0 | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 12.0.0.1.1 | Manage Payment Terminal device from POS front end
 [pos_picking_delayed](pos_picking_delayed/) | 12.0.1.0.1 | Delay the creation of the picking when PoS order is created
 [pos_place](pos_place/) | 12.0.1.0.1 | Define places on PoS orders
