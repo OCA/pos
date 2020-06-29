@@ -25,7 +25,7 @@ addon | version | summary
 [pos_invoicing](pos_invoicing/) | 12.0.3.0.0 | Handle invoicing from Point Of Sale
 [pos_journal_image](pos_journal_image/) | 12.0.1.0.0 | Add images on Account Journals available in the PoS
 [pos_margin](pos_margin/) | 12.0.1.0.0 | Margin on PoS Order
-[pos_multi_ean](pos_multi_ean/) | 12.0.1.0.0 | Search products by multiple EAN
+[pos_multi_ean](pos_multi_ean/) | 12.0.1.0.1 | Search products by multiple EAN
 [pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.0 | Manage old POS Orders from the frontend
 [pos_order_remove_line](pos_order_remove_line/) | 12.0.1.0.0 | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 12.0.1.0.3 | Point of Sale Order Return
