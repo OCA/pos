@@ -7,13 +7,16 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-09 09:17+0000\n"
-"PO-Revision-Date: 2020-04-09 09:17+0000\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2020-07-01 10:27+0000\n"
+"Last-Translator: Simon Mas <simon.mas@druidoo.io>\n"
+"Language-Team: French <https://translate.druidoo.io/projects/foodcoops-12-0/"
+"foodcoops-12-0-pos_automatic_cashdrawer/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.8\n"
 
 #. module: pos_automatic_cashdrawer
 #. openerp-web
@@ -119,7 +122,7 @@ msgstr "Monnayeur automatique"
 #: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:35
 #, python-format
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Annuler"
 
 #. module: pos_automatic_cashdrawer
 #. openerp-web
@@ -222,7 +225,7 @@ msgstr "Complete Emptying"
 #: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:57
 #, python-format
 msgid "Confirm"
-msgstr "Confirm"
+msgstr "Confirmer"
 
 #. module: pos_automatic_cashdrawer
 #. openerp-web
@@ -258,7 +261,7 @@ msgstr "IMPORTANT: Cette opération n'est pas enregistrées sur le journal d'esp
 #: code:addons/pos_automatic_cashdrawer/static/src/xml/pos_automatic_cashdrawer.xml:110
 #, python-format
 msgid "Inventory"
-msgstr "Inventory"
+msgstr "Ligne d'inventaire"
 
 #. module: pos_automatic_cashdrawer
 #. openerp-web
@@ -571,4 +574,3 @@ msgstr "pos.config"
 #: model:ir.model,name:pos_automatic_cashdrawer.model_pos_session
 msgid "pos.session"
 msgstr "pos.session"
-
