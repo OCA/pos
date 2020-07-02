@@ -9,9 +9,7 @@ class PosOrder(models.Model):
 
     @api.model
     def create(self, vals):
-        if not vals.get("partner_id"):
-            company_id = vals.get("company_id") or self.env.user.company_id.id
-            partner = self.env["res.company"].browse(company_id).pos_default_partner_id
-            if partner:
-                vals["partner_id"] = partner.id
+        session = self.env["pos.session"].browse(vals.get("session_id"))
+        if session.config_id.default_partner_id and not vals.get("partner_id"):
+            vals["partner_id"] = session.config_id.default_partner_id.id
         return super().create(vals)

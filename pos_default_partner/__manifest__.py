@@ -14,7 +14,7 @@
         "point_of_sale",
     ],
     "data": [
-        "views/config_view.xml"
+        'views/pos_config.xml',
     ],
     "website": "https://github.com/OCA/pos",
     "installable": True,
