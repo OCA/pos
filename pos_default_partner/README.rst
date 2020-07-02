@@ -35,7 +35,13 @@ Define a default partner for Point Of Sale order on each company.
 Configuration
 =============
 
-Set default partner on POS settings
+Go to Point of Sale's settings page and select a default customer for a
+specific PoS configuration.
+
+Known issues / Roadmap
+======================
+
+Set the default customer also on the PoS UI.
 
 Bug Tracker
 ===========
