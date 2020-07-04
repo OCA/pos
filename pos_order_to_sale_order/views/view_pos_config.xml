@@ -41,26 +41,3 @@
         </field>
     </record>
 </odoo>
-
-<!-- string="Create Delivered Sale Orders" -->
-
-
-<!-- <div class="text-muted">
-                            Display pictures of product categories
-                        </div>
-
-
-            <xpath expr="//field[@name='iface_cashdrawer']/.." position="after">
-                <div class="row">
-                    <label string="Create Draft Sale Orders" for="iface_create_draft_sale_order" class="col-lg-3 o_light_label"/>
-                    <field name="iface_create_draft_sale_order"/>
-                </div>
-                <div class="row">
-                    <label string="Create Confirmed Sale Orders" for="iface_create_confirmed_sale_order" class="col-lg-3 o_light_label"/>
-                    <field name="iface_create_confirmed_sale_order"/>
-                </div>
-                <div class="row">
-                    <label string="Create Delivered Sale Orders" for="iface_create_delivered_sale_order" class="col-lg-3 o_light_label"/>
-                    <field name="iface_create_delivered_sale_order"/>
-                </div> -->
-

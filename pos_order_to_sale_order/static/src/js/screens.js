@@ -94,8 +94,6 @@ odoo.define('pos_order_to_sale_order.screens', function (require) {
 
         click_sale_order_button: function(action) {
             var self = this;
-            console.log("click_sale_order_button : " + action);
-
             this.gui.show_popup('confirm', {
                 'title': _t(
                     'Create Sale Order and discard the current' +
