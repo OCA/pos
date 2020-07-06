@@ -38,17 +38,19 @@ msgid "Lines of Point of Sale"
 msgstr "Lignes de Points de Vente"
 
 #. module: pos_margin
-#: field:pos.order,margin:0 field:pos.order.line,margin:0
+#: view:pos.order:pos_margin.view_pos_order_form
+#: field:pos.order,margin:0
+#: field:pos.order.line,margin:0
 msgid "Margin"
 msgstr "Marge"
+
+#. module: pos_margin
+#: field:pos.order,margin_percent:0
+#: field:pos.order.line,margin_percent:0
+msgid "Margin (%)"
+msgstr "Marge (%)"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order
 msgid "Point of Sale"
 msgstr "Point de Vente"
-
-#~ msgid "Margin (%)"
-#~ msgstr "Marge (%)"
-
-#~ msgid "Total"
-#~ msgstr "Total"

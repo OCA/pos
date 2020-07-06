@@ -5,12 +5,11 @@
 
 {
     'name': 'POS Margin',
-    'version': '8.0.1.0.0',
+    'version': '8.0.1.0.1',
     'category': 'Point Of Sale',
-    'sequence': 1,
     'author': "GRAP,"
               "Odoo Community Association (OCA)",
-    'summary': 'Margin on PoS Order',
+    'summary': 'Margin on PoS Orders',
     'depends': [
         'point_of_sale',
     ],
@@ -18,4 +17,5 @@
         'views/view_pos_order.xml',
     ],
     'installable': True,
+    'pre_init_hook': 'pre_init_hook',
 }
