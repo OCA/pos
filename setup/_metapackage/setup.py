@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-pos_customer_display',
         'odoo12-addon-pos_customer_required',
         'odoo12-addon-pos_default_empty_image',
+        'odoo12-addon-pos_default_partner',
         'odoo12-addon-pos_empty_home',
         'odoo12-addon-pos_fix_search_limit',
         'odoo12-addon-pos_invoice_send_mail',
