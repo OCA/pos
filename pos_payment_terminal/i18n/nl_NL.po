@@ -56,6 +56,7 @@ msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_account_bank_statement_import_journal_creation__pos_terminal_payment_mode
 #: model:ir.model.fields,help:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 msgid "Select the payment mode sent to the payment terminal"
 msgstr ""
@@ -68,6 +69,7 @@ msgid "Start transaction"
 msgstr ""
 
 #. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_bank_statement_import_journal_creation__pos_terminal_payment_mode
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 msgid "Terminal Payment Mode"
 msgstr ""
