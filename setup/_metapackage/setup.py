@@ -42,6 +42,7 @@ setuptools.setup(
         'odoo12-addon-pos_ticket_salesman_firstname',
         'odoo12-addon-pos_ticket_without_price',
         'odoo12-addon-pos_to_weight_by_product_uom',
+        'odoo12-addon-pos_user_restriction',
     ],
     classifiers=[
         'Programming Language :: Python',
