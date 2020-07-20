@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_journal_image
+# 	* pos_journal_image
 #
 msgid ""
 msgstr ""
@@ -22,6 +22,7 @@ msgid "Journal"
 msgstr "Diari"
 
 #. module: pos_journal_image
+#: model:ir.model.fields,field_description:pos_journal_image.field_account_bank_statement_import_journal_creation__pos_image
 #: model:ir.model.fields,field_description:pos_journal_image.field_account_journal__pos_image
 msgid "PoS Image"
 msgstr "Imatge al TPV"
