@@ -22,6 +22,7 @@ msgid "Journal"
 msgstr "Journal"
 
 #. module: pos_journal_image
+#: model:ir.model.fields,field_description:pos_journal_image.field_account_bank_statement_import_journal_creation__pos_image
 #: model:ir.model.fields,field_description:pos_journal_image.field_account_journal__pos_image
 msgid "PoS Image"
 msgstr "Image PdV"
