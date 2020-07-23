@@ -38,6 +38,7 @@ setuptools.setup(
         'odoo12-addon-pos_require_product_quantity',
         'odoo12-addon-pos_reset_search',
         'odoo12-addon-pos_supplierinfo_barcode',
+        'odoo12-addon-pos_tare',
         'odoo12-addon-pos_ticket_logo',
         'odoo12-addon-pos_ticket_salesman_firstname',
         'odoo12-addon-pos_ticket_without_price',
