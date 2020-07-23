@@ -3,7 +3,7 @@
 {
     "name": "Point Of Sale - Tare",
     "summary": "Manage Tare in Point Of Sale module",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Point of Sale",
     "author": "GRAP, Le Nid, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
