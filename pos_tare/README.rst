@@ -51,11 +51,6 @@ Install this add-on and configure your point of sale. To enable this addon, go t
 
 To generate a tare barcode you need to use the default barcode nomenclature. The default barcode pattern is `0700000{NNDDD}`. Using that pattern, the barcode for a tare of 0.1kg is `0700000001006`. The `pos_tare_barcode_generator` allows you to create tare labels right from the POS.
 
-Known issues / Roadmap
-======================
-
-- Print tare value on customer receipt.
-
 Bug Tracker
 ===========
 
@@ -81,7 +76,6 @@ Contributors
 - Sylvain LE GAL (https://www.twitter.com/legalsylvain)
 - Le Nid
 - CoopITEasy
-  
 
 Maintainers
 ~~~~~~~~~~~
@@ -99,10 +93,13 @@ promote its widespread use.
 .. |maintainer-fkawala| image:: https://github.com/fkawala.png?size=40px
     :target: https://github.com/fkawala
     :alt: fkawala
+.. |maintainer-legalsylvain| image:: https://github.com/legalsylvain.png?size=40px
+    :target: https://github.com/legalsylvain
+    :alt: legalsylvain
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-fkawala| 
+|maintainer-fkawala| |maintainer-legalsylvain| 
 
 This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_tare>`_ project on GitHub.
 
