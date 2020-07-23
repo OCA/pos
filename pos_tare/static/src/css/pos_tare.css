@@ -1,0 +1,71 @@
+/***************************************************************
+Overloading existing PoS objects
+****************************************************************/
+
+/*Change the design of the numpad in the product-screen*/
+.pos .product-screen .actionpad .button.pay {
+    height: 216px;
+}
+
+.pos .product-screen .numpad button.input-button.numpad-backspace {
+    width: 216px;
+}
+
+/*Fix the receipt in the non proxy mode as the order lines can now
+content multiple lines*/
+.pos .pos-right-align{
+    vertical-align: top;
+}
+
+/***************************************************************
+New style for new scale objects
+****************************************************************/
+
+.pos .scale-screen .weight-label {
+    font-size: 25px;
+    margin: 16px;
+    text-align: center;
+    display: inline-block;
+    width: 40%;
+    margin-bottom: 0px;
+}
+
+.pos .scale-screen .weight-value {
+    font-size: 25px;
+    display: inline-block;
+    margin: 16px;
+    margin-top: 0px;
+    padding: 16px;
+    width: 40%;
+    font-family: Inconsolata;
+    font-weight: bold;
+    text-shadow: 0px 2px 0px rgb(210,210,210);
+    margin-bottom: 0px;
+}
+
+.pos .scale-screen .weight-value-fixed {
+    border-radius: 3px;
+    box-shadow: 0px 2px 0px rgb(225,225,225) inset;
+    text-align: right;
+    background: white;
+}
+
+.pos .scale-screen .weight-value-alterable {
+    text-align: left;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+.pos .scale-screen .input-weight {
+    border: 1px solid #cecbcb;
+    border-radius: 20px;
+    padding: 15px 20px;
+    width: 50%;
+    font-family: Inconsolata;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.pos .scale-screen .input-weight:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px #6EC89B;
+}

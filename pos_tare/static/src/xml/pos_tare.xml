@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ScaleScreenWidget">
+        <t t-jquery=".js-weight" t-operation="before">
+            <t t-if="widget.pos.config.iface_tare_method != 'barcode'">
+                <div class="weight-label">
+                    Gross Weight
+                </div>
+                <t t-if="widget.pos.config.iface_gross_weight_method == 'scale'">
+                    <div class="weight-value weight-value-fixed" id="container_weight_gross"/>
+                </t>
+                <t t-else="1">
+                    <div class="weight-value weight-value-alterable">
+                        <input type="text" class="input-weight" id="input_gross_weight" placeholder="0.000"/>
+                        <t t-esc="widget.pos.config.iface_tare_uom_id[1]"/>
+                    </div>
+                </t>
+                <div class="weight-label">
+                    Tare
+                </div>
+                <div class="weight-value weight-value-alterable">
+                    <input type="text" class="input-weight" id="input_weight_tare" placeholder="0.000"/>
+                    <t t-esc="widget.pos.config.iface_tare_uom_id[1]"/>
+                </div>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="Orderline">
+        <t t-jquery=".info-list:last-child" t-operation="append">
+            <t t-if="line.get_tare() !== 0">
+                <li class="info">
+                    <i>
+                      (Gross Weight:
+                      <em><t t-esc="line.get_gross_weight_str_with_unit()"/></em>
+                      - Tare:
+                      <em><t t-esc="line.get_tare_str_with_unit()"/></em>)
+                    </i>
+                </li>
+            </t>
+        </t>
+    </t>
+
+    <t t-name="PosTicket" t-extend="PosTicket">
+        <t t-jquery="tr[t-foreach='orderlines'] > td:nth-child(1)" t-operation="append">
+            <t t-if="orderline.get_tare() > 0">
+                <div class="pos-disc-font">
+                    Gross Weight :
+                    <t t-esc="orderline.get_gross_weight_str_with_unit()"/><br/>
+                    Tare :
+                    <t t-esc="orderline.get_tare_str_with_unit()"/><br/>
+                </div>
+            </t>
+        </t>
+    </t>
+
+    <t t-name="XmlReceipt" t-extend="XmlReceipt">
+        <t t-jquery="t[t-if='!simple']" t-operation="append">
+            <t t-if="line.tare_quantity !== 0">
+                <line indent='1'>
+                    <left>
+                        (
+                        <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                          <t t-esc="line.gross_quantity" />
+                        </value> -
+                        <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                          <t t-esc="line.tare_quantity"/>
+                        </value>
+                        )
+                    </left>
+                </line>
+            </t>
+        </t>
+    </t>
+
+    <t t-name="NumpadWidget">
+        <div class="numpad">
+            <button class="input-button number-char">1</button>
+            <button class="input-button number-char">2</button>
+            <button class="input-button number-char">3</button>
+            <button class="mode-button" data-mode='quantity'>Qty</button>
+
+            <br />
+            <button class="input-button number-char">4</button>
+            <button class="input-button number-char">5</button>
+            <button class="input-button number-char">6</button>
+            <button class="mode-button" data-mode='tare'>Tare</button>
+
+            <br />
+            <button class="input-button number-char">7</button>
+            <button class="input-button number-char">8</button>
+            <button class="input-button number-char">9</button>
+            <button class="mode-button" data-mode='discount'>Disc</button>
+
+            <br />
+            <button class="input-button numpad-minus" >+/-</button>
+            <button class="input-button number-char">0</button>
+            <button class="input-button number-char">.</button>
+            <button class="mode-button" data-mode='price'>Price</button>
+
+            <button class="input-button numpad-backspace">
+                <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24" height="21" alt="Backspace"/>
+            </button>
+        </div>
+    </t>
+</templates>
