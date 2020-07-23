@@ -85,6 +85,11 @@ msgid "Priced Product (Computed Weight)"
 msgstr ""
 
 #. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Tare"
+msgstr ""
+
+#. module: pos_price_to_weight
 #: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
 msgid "Type"
 msgstr ""
