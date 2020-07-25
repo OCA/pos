@@ -44,12 +44,6 @@
                 </section>
                 <section class="full-content">
                     <div class="window">
-                        <section class="subwindow collapsed">
-                            <div class="subwindow-container">
-                                <div class="subwindow-container-fix order-details-contents">
-                                </div>
-                            </div>
-                        </section>
                         <section class="subwindow">
                             <div class="subwindow-container">
                                 <div class="subwindow-container-fix touch-scrollable scrollable-y">
