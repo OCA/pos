@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 11:15+0000\n"
-"PO-Revision-Date: 2019-12-27 19:13+0000\n"
-"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -19,46 +19,35 @@ msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
 msgid "Allows to duplicate already done orders in the frontend"
-msgstr "Permitir cargar pedidos en este PdV"
+msgstr "Permite duplicar pedidos ya realizados en la interfaz"
 
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
 msgid "Allows to manage already done orders in the frontend."
-msgstr "Permitir cargar pedidos en este PdV"
+msgstr "Permite gestionar pedidos ya realizados en la interfaz."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
 msgid "Allows to manage orders in the frontend"
-msgstr "Permitir cargar pedidos en este PdV"
+msgstr "Permite gestionar pedidos en la interfaz"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
 msgid "Allows to reprint already done orders in the frontend"
-msgstr "Permitir cargar pedidos en este PdV"
+msgstr "Permite reimprimir pedidos ya realizados en la interfaz"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
-#, fuzzy
-#| msgid "Allow to load done orders in this POS"
 msgid "Allows to return already done orders in the frontend"
-msgstr "Permitir cargar pedidos en este PdV"
+msgstr "Permite devolver pedidos ya realizados en la interfaz"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
-#, fuzzy, python-format
-#| msgid "Amount Total"
+#, python-format
 msgid "Amount"
-msgstr "Importe Total"
+msgstr "Importe"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -96,7 +85,7 @@ msgstr "Crea un nuevo pedido basado en este"
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:64
 #, python-format
 msgid "Create a refund order of this order"
-msgstr ""
+msgstr "Crear un pedido de reembolso de este pedido"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -122,31 +111,22 @@ msgstr "Fecha"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
-#, fuzzy
-#| msgid "Load Done Orders"
 msgid "Duplicate Orders"
-msgstr "Cargar Ventas Realizadas"
+msgstr "Órdenes duplicadas"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-#, fuzzy
-#| msgid "Maximum number orders to load"
 msgid "Maximum Orders to load"
-msgstr "Ventas máximas a cargar"
+msgstr "Máximo de pedidos para cargar"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-#, fuzzy
-#| msgid ""
-#| "Maximum number of orders to load on the PoS at its init. Set it to 0 to "
-#| "load none (it's still posible to load them by ticket code)."
 msgid ""
 "Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
 "none (it's still possible to load them by ticket code)."
 msgstr ""
-"Número máximo de ventas a cargar en el PdV cuando este se inicia. "
-"Establézcalo a 0 para no cargar ninguna (es posible cargarlas por referencia "
-"del ticket)."
+"Número máximo de órdenes para cargar en el PdV en su inicio. Póngalo a 0 "
+"para cargar ninguno (aún es posible cargarlos por código de ticket)."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
@@ -187,54 +167,44 @@ msgstr "Ref."
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
 msgid "Reference of the returned Order"
-msgstr ""
+msgstr "Referencia de la orden devuelta"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:245
 #, python-format
 msgid "Refund "
-msgstr ""
+msgstr "Reembolso "
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
-#, fuzzy
-#| msgid "Returned order:"
 msgid "Refund Orders"
-msgstr "Devolución de venta:"
+msgstr "Pedidos de devolución"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
-#, fuzzy
-#| msgid "Max. Done Orders Quantity To Load"
 msgid "Refund Orders Quantity"
-msgstr "Nº Máximo de Ventas Realizadas a Cargar"
+msgstr "Cantidad de pedidos de devolución"
 
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
 msgid "Refunds"
-msgstr ""
+msgstr "Reembolsos"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-#, fuzzy
-#| msgid "Load Done Orders"
 msgid "Reprint Orders"
-msgstr "Cargar Ventas Realizadas"
+msgstr "Reimprimir pedidos"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
-#, fuzzy
-#| msgid "Returned order:"
 msgid "Return Orders"
-msgstr "Devolución de venta:"
+msgstr "Pedidos de Devolución"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
-#, fuzzy
-#| msgid "Returned order:"
 msgid "Returned Order"
-msgstr "Devolución de venta:"
+msgstr "Pedido Devuelto"
 
 #. module: pos_order_mgmt
 #. openerp-web
