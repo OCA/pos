@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-12-27 19:13+0000\n"
-"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -33,10 +33,9 @@ msgstr "Contacto"
 #. openerp-web
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:19
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:51
-#, fuzzy, python-format
-#| msgid "Last Name"
+#, python-format
 msgid "Name"
-msgstr "Apellido"
+msgstr "Nombre"
 
 #. module: pos_partner_firstname
 #. openerp-web
@@ -44,7 +43,7 @@ msgstr "Apellido"
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:59
 #, python-format
 msgid "Surname"
-msgstr ""
+msgstr "Apellido"
 
 #~ msgid "First Name"
 #~ msgstr "Nombre"
