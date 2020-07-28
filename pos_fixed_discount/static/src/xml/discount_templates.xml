@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="DiscountButton">
+        <t t-jquery="div[class='control-button js_discount']" t-operation="replace">
+            <div class='control-button js_discount'>
+                <i class='fa fa-tag' /> Discount (%)
+            </div>
+        </t>
+    </t>
+
+    <t t-name="FixedDiscountButton">
+        <div class='control-button js_fixed_discount'>
+            <i class='fa fa-tag' /> Discount (Amount)
+        </div>
+    </t>
+
+</templates>
