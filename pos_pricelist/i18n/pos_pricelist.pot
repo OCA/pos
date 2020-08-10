@@ -59,7 +59,7 @@ msgstr ""
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/screens.js:144
+#: code:addons/pos_pricelist/static/src/js/screens.js:150
 #: code:addons/pos_pricelist/static/src/xml/pos.xml:15
 #: code:addons/pos_pricelist/static/src/xml/pos.xml:31
 #, python-format
@@ -73,7 +73,7 @@ msgstr ""
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/screens.js:131
+#: code:addons/pos_pricelist/static/src/js/screens.js:137
 #, python-format
 msgid "Select pricelist"
 msgstr ""
