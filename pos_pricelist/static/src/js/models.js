@@ -206,12 +206,13 @@ odoo.define("pos_pricelist.models", function (require) {
     models.Orderline.prototype.initialize = function (attr, options) {
         _Orderline_initialize.apply(this, arguments);
         if (options.product) {
+            var product = new exports.Product(this.product);
             this.set_unit_price(
-                options.product.price ||
-                this.product.get_price(
+                product.get_price(
                     this.order.pricelist,
                     this.get_quantity()
-                )
+                ) ||
+                options.product.price
             );
         }
     };
@@ -225,7 +226,8 @@ odoo.define("pos_pricelist.models", function (require) {
         delete this.keep_price;
         // just like in sale.order changing the quantity will recompute the unit price
         if (!keep_price) {
-            this.set_unit_price(this.product.get_price(
+            var product = new exports.Product(this.product);
+            this.set_unit_price(product.get_price(
                 this.order.pricelist,
                 this.get_quantity()
             ));
@@ -260,8 +262,9 @@ odoo.define("pos_pricelist.models", function (require) {
         var self = this;
         this.pricelist = pricelist;
         _.each(this.get_orderlines(), function (line) {
+            var product = new exports.Product(line.product);
             line.set_unit_price(
-                line.product.get_price(self.pricelist, line.get_quantity())
+                product.get_price(self.pricelist, line.get_quantity())
             );
             self.fix_tax_included_price(line);
         });

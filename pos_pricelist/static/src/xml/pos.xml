@@ -41,11 +41,11 @@
 
     <t t-extend="Product">
         <t t-jquery=".price-tag:eq(0)" t-operation="inner">
-            <t t-esc="widget.format_currency(product.get_price(widget._get_active_pricelist(), 1),'Product Price')"/>
+            <t t-esc="widget.format_currency(widget.get_price(product, widget._get_active_pricelist(), 1),'Product Price')"/>
         </t>
 
-        <t t-jquery=".price-tag:eq(0)" t-operation="inner">
-            <t t-esc="widget.format_currency(product.get_price(widget._get_active_pricelist(), 1),'Product Price')+'/'+widget.pos.units_by_id[product.uom_id[0]].name"/>
+        <t t-jquery=".price-tag:eq(1)" t-operation="inner">
+            <t t-esc="widget.format_currency(widget.get_price(product, widget._get_active_pricelist(), 1),'Product Price')+'/'+widget.pos.units_by_id[product.uom_id[0]].name"/>
         </t>
     </t>
 </templates>

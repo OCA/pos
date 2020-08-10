@@ -8,6 +8,7 @@ odoo.define("pos_pricelist.screens", function (require) {
     var screens = require("point_of_sale.screens");
     var _t = core._t;
     var exports = {};
+    var models = require("pos_pricelist.models");
 
     screens.ScaleScreenWidget.include({
         _get_active_pricelist: function() {
@@ -56,6 +57,7 @@ odoo.define("pos_pricelist.screens", function (require) {
 
     screens.ProductListWidget.include({
         init: function () {
+            this.models = models;
             this._super.apply(this, arguments);
             this.pos.get('orders').bind(
                 'add remove change',
@@ -83,6 +85,10 @@ odoo.define("pos_pricelist.screens", function (require) {
                 current_pricelist = current_order.pricelist;
             }
             return current_pricelist;
+        },
+        get_price: function(product, pricelist, quantity) {
+            var product = new this.models.Product(product);
+            return product.get_price(pricelist, quantity);
         },
     });
 
