@@ -1,7 +1,7 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
 # * pos_order_load
-# 
+#
 # Translators:
 # Imre Kristoffer Eilertsen <imreeil42@gmail.com>, 2016
 msgid ""
@@ -11,24 +11,25 @@ msgstr ""
 "POT-Creation-Date: 2016-12-02 03:44+0000\n"
 "PO-Revision-Date: 2016-12-02 03:44+0000\n"
 "Last-Translator: Imre Kristoffer Eilertsen <imreeil42@gmail.com>, 2016\n"
-"Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/oca/teams/23907/nb_NO/)\n"
+"Language-Team: Norwegian Bokmål (Norway) (https://www.transifex.com/oca/"
+"teams/23907/nb_NO/)\n"
+"Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Language: nb_NO\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:289
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:315
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:296
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:322
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:181
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:188
 #, python-format
 msgid "Can not load the Selected Order because the POS is currently offline"
 msgstr ""
@@ -42,16 +43,16 @@ msgstr "Lukk"
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:180
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:288
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:314
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:187
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:295
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:321
 #, python-format
 msgid "Connection error"
 msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:60
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:54
 #, python-format
 msgid "Customer"
 msgstr ""
@@ -65,14 +66,14 @@ msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:59
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:53
 #, python-format
 msgid "Order"
 msgstr "Ordre"
 
 #. module: pos_order_load
 #: model:ir.model,name:pos_order_load.model_pos_order
-msgid "Point of Sale"
+msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_order_load
@@ -84,7 +85,7 @@ msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:71
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:85
 #, python-format
 msgid "Save The current Order ?"
 msgstr ""
@@ -105,7 +106,7 @@ msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:72
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:86
 #, python-format
 msgid ""
 "This operation will save the current order in a draft state. You'll have to "
@@ -114,17 +115,18 @@ msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:61
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:55
 #, python-format
 msgid "Total Amount"
 msgstr "Totalsum"
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:267
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:274
 #, python-format
 msgid ""
-"Unable to load some order lines because the products are not available in the POS cache.\n"
+"Unable to load some order lines because the products are not available in "
+"the POS cache.\n"
 "\n"
 "Please check that lines :\n"
 "\n"
@@ -133,7 +135,7 @@ msgstr ""
 
 #. module: pos_order_load
 #. openerp-web
-#: code:addons/pos_order_load/static/src/js/pos_order_load.js:266
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:273
 #, python-format
 msgid "Unknown Products"
 msgstr ""
