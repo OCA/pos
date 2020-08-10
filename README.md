@@ -22,6 +22,7 @@ addon | version | summary
 [pos_default_partner](pos_default_partner/) | 12.0.1.0.1 | Add a default customer in pos order
 [pos_empty_home](pos_empty_home/) | 12.0.1.0.0 | Point of Sale - Hide products at the start of the Point of Sale
 [pos_fix_search_limit](pos_fix_search_limit/) | 12.0.1.0.0 | Increase search in the PoS
+[pos_fixed_discount](pos_fixed_discount/) | 12.0.1.0.0 | Allow to apply discounts with fixed amount
 [pos_invoice_send_mail](pos_invoice_send_mail/) | 12.0.1.0.0 | Send invoices by email from the POS
 [pos_invoicing](pos_invoicing/) | 12.0.3.0.0 | Handle invoicing from Point Of Sale
 [pos_journal_image](pos_journal_image/) | 12.0.1.0.0 | Add images on Account Journals available in the PoS
