@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_pricelist
+# 	* pos_pricelist
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,10 @@ msgstr ""
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:59
 #, python-format
-msgid "All available pricelists must be in the same currency as the company or as the Sales Journal set on this point of sale if you use the Accounting application."
+msgid ""
+"All available pricelists must be in the same currency as the company or as "
+"the Sales Journal set on this point of sale if you use the Accounting "
+"application."
 msgstr ""
 "Totes les tarifes han de tenir la mateixa moneda que la companyia o bé que "
 "el diari de vendes escollit per aquest TPV, si està utilitzant l'aplicació "
@@ -28,14 +31,18 @@ msgstr ""
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:71
 #, python-format
-msgid "All payment methods must be in the same currency as the Sales Journal or the company currency if that is not set."
+msgid ""
+"All payment methods must be in the same currency as the Sales Journal or the "
+"company currency if that is not set."
 msgstr ""
 "Tots els modes de pagament han de tenir la mateixa moneda que el diari de "
 "vendes o, si no n'hi ha, de la companyia."
 
 #. module: pos_pricelist
 #: model:ir.model.fields,help:pos_pricelist.field_pos_config_group_sale_pricelist
-msgid "Allows to manage different prices based on rules per category of customers. Example: 10% for retailers, promotion of 5 EUR on this product, etc."
+msgid ""
+"Allows to manage different prices based on rules per category of customers. "
+"Example: 10% for retailers, promotion of 5 EUR on this product, etc."
 msgstr ""
 "Permet gestionar diferents preus basats en normes segons categoria de "
 "clients. Per exemple: 10% per a minoristes, promoció de 5€ en aquest "
@@ -48,7 +55,11 @@ msgstr "Llistes de preus disponibles"
 
 #. module: pos_pricelist
 #: model:ir.model.fields,help:pos_pricelist.field_pos_config_available_pricelist_ids
-msgid "Make several pricelists available in the Point of Sale. You can also apply a pricelist to specific customers from their contact form (in Sales tab). To be valid, this pricelist must be listed here as an available pricelist. Otherwise the default pricelist will apply."
+msgid ""
+"Make several pricelists available in the Point of Sale. You can also apply a "
+"pricelist to specific customers from their contact form (in Sales tab). To "
+"be valid, this pricelist must be listed here as an available pricelist. "
+"Otherwise the default pricelist will apply."
 msgstr ""
 "Fer disponibles varies tarifes en aquest TPV. També es pot aplicar una "
 "tarifa a clients específics des del seu formulari de contacte (a la pestanya "
@@ -74,7 +85,7 @@ msgstr "Punt de Venda"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/screens.js:144
+#: code:addons/pos_pricelist/static/src/js/screens.js:150
 #: code:addons/pos_pricelist/static/src/xml/pos.xml:15
 #: code:addons/pos_pricelist/static/src/xml/pos.xml:31
 #, python-format
@@ -88,7 +99,7 @@ msgstr "Llistes de preus"
 
 #. module: pos_pricelist
 #. openerp-web
-#: code:addons/pos_pricelist/static/src/js/screens.js:131
+#: code:addons/pos_pricelist/static/src/js/screens.js:137
 #, python-format
 msgid "Select pricelist"
 msgstr "Escollir llista de preus"
@@ -114,7 +125,9 @@ msgstr ""
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:65
 #, python-format
-msgid "The invoice journal must be in the same currency as the Sales Journal or the company currency if that is not set."
+msgid ""
+"The invoice journal must be in the same currency as the Sales Journal or the "
+"company currency if that is not set."
 msgstr ""
 "El diari de factures ha de tenir la mateixa moneda que el diari de vendes o, "
 "si no està configurat, que la moneda de la companyia."
