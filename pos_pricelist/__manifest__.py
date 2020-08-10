@@ -4,7 +4,7 @@
 
 {
     'name': 'POS Pricelist',
-    'version': '10.0.1.0.3',
+    'version': '10.0.1.0.4',
     'category': 'Point Of Sale',
     'author': "Tecnativa, "
               "Odoo SA, "
