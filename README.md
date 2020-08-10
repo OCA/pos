@@ -23,6 +23,7 @@ addon | version | summary
 [pos_lot_selection](pos_lot_selection/) | 10.0.1.0.0 | POS Lot Selection
 [pos_loyalty](pos_loyalty/) | 10.0.1.0.0 | Loyalty Program
 [pos_margin](pos_margin/) | 10.0.1.0.0 | Margin on PoS Order
+[pos_order_load](pos_order_load/) | 10.0.1.0.0 | POS Order Load and Save
 [pos_order_mgmt](pos_order_mgmt/) | 10.0.1.0.3 | Manage old POS Orders from the frontend
 [pos_order_remove_line](pos_order_remove_line/) | 10.0.1.0.0 | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 10.0.1.0.0 | Point of Sale Order Return
