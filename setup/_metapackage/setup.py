@@ -35,6 +35,7 @@ setuptools.setup(
         'odoo10-addon-pos_session_pay_invoice',
         'odoo10-addon-pos_stock_picking_invoice_link',
         'odoo10-addon-pos_timeout',
+        'odoo10-addon-product_brand_pos_report',
     ],
     classifiers=[
         'Programming Language :: Python',
