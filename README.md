@@ -40,6 +40,7 @@ addon | version | summary
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 10.0.1.0.0 | Pay and receive invoices from PoS Session
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 10.0.1.0.0 | POS Stock Picking Invoice Link
 [pos_timeout](pos_timeout/) | 10.0.1.0.0 | Set the timeout of the point of sale
+[product_brand_pos_report](product_brand_pos_report/) | 10.0.1.0.0 | Product Brand in Point of Sale Report
 
 
 Unported addons
