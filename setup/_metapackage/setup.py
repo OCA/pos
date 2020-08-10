@@ -16,6 +16,7 @@ setuptools.setup(
         'odoo9-addon-pos_empty_home',
         'odoo9-addon-pos_payment_terminal',
         'odoo9-addon-pos_price_to_weight',
+        'odoo9-addon-pos_product_template',
         'odoo9-addon-pos_quick_logout',
         'odoo9-addon-pos_reset_search',
         'odoo9-addon-pos_restricted_customer_list',
