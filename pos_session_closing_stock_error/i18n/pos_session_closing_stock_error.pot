@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_session_closing_stock_error
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_session_closing_stock_error
+#: model:ir.model.fields,field_description:pos_session_closing_stock_error.field_pos_config__allow_session_closing_with_stock_errors
+msgid "Allow closing sessions with stock errors"
+msgstr ""
+
+#. module: pos_session_closing_stock_error
+#: model:ir.model.fields,help:pos_session_closing_stock_error.field_pos_config__allow_session_closing_with_stock_errors
+#: model_terms:ir.ui.view,arch_db:pos_session_closing_stock_error.pos_config_view_form
+msgid "If disabled, closing a session that has stock errors will be blocked."
+msgstr ""
+
+#. module: pos_session_closing_stock_error
+#: code:addons/pos_session_closing_stock_error/models/pos_session.py:14
+#, python-format
+msgid "It's not possible to close the session %s because it has %i picking error(s).\n"
+"Please resolve them or enable 'Allow closing sessions with stock errors' in PoS Configuration: %s."
+msgstr ""
+
+#. module: pos_session_closing_stock_error
+#: model:ir.model,name:pos_session_closing_stock_error.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_session_closing_stock_error
+#: model:ir.model,name:pos_session_closing_stock_error.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
