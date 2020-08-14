@@ -44,14 +44,14 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             }
 
             // Variables definition
-            const this.esc = '\x1B'; //ESC byte in hex notation
-            const this.line_feed = '\x0A'; //LF byte in hex notation
+            this.esc = '\x1B'; //ESC byte in hex notation
+            this.line_feed = '\x0A'; //LF byte in hex notation
 
-            const this.page_width = 48;
-            const this.this.qty_width = 12;
-            const this.price_width = 12;
-            const this.totals_width = 24;
-            const this.name_width = this.page_width - this.this.qty_width - this.price_width;
+            this.page_width = 48;
+            this.qty_width = 12;
+            this.price_width = 12;
+            this.totals_width = 24;
+            this.name_width = this.page_width - this.qty_width - this.price_width;
 
         },
         center_align_string: function(s, width) {
