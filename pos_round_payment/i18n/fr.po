@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_round_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-30 23:35+0000\n"
+"PO-Revision-Date: 2019-11-30 23:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_round_payment
+#: field:account.journal,round_payment:0
+msgid "Round Payment to 5 cents"
+msgstr "Arrondir le paiement à 5 centimes"
+
+#. module: pos_round_payment
+#: view:website:point_of_sale.report_receipt
+msgid "Rounded"
+msgstr "Arrondi"
+

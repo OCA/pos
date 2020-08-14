@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+    <record model="ir.ui.view" id="view_account_journal_pos_user_form">
+        <field name="name">POS Round Payment</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
+        <field name="arch" type="xml">
+            <field name="journal_user" position="after">
+                <field name="round_payment"/>
+            </field>
+        </field>
+    </record>
+</data>
+</openerp>
