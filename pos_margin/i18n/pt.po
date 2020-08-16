@@ -40,7 +40,6 @@ msgstr "Margem"
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin_percent
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__margin_percent
 #, fuzzy
-#| msgid "Margin"
 msgid "Margin (%)"
 msgstr "Margem"
 
