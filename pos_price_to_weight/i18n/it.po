@@ -32,7 +32,6 @@ msgstr ""
 #. module: pos_price_to_weight
 #: model:ir.model,name:pos_price_to_weight.model_barcode_rule
 #, fuzzy
-#| msgid "barcode.rule"
 msgid "Barcode Rule"
 msgstr "barcode.rule"
 
