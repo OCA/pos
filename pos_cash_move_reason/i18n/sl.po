@@ -171,7 +171,6 @@ msgstr ""
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_reason_id
 #, fuzzy
-#| msgid "Reason"
 msgid "Move Reason"
 msgstr "Razlog"
 
@@ -180,7 +179,6 @@ msgstr "Razlog"
 #: model:ir.actions.act_window,name:pos_cash_move_reason.action_wizard_pos_move_reason
 #: model:ir.ui.menu,name:pos_cash_move_reason.menu_pos_move_reason
 #, fuzzy
-#| msgid "Reason"
 msgid "Move Reasons"
 msgstr "Razlog"
 
