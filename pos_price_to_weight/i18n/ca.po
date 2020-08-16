@@ -32,7 +32,6 @@ msgstr "Pomes (amb preu per pes de codi de barres)"
 #. module: pos_price_to_weight
 #: model:ir.model,name:pos_price_to_weight.model_barcode_rule
 #, fuzzy
-#| msgid "barcode.rule"
 msgid "Barcode Rule"
 msgstr "barcode.rule"
 
@@ -84,7 +83,6 @@ msgstr ""
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 #, fuzzy
-#| msgid "Priced Product (Computed Weight)"
 msgid "Priced Product"
 msgstr "Producte amb preu (pes automatitzat)"
 
