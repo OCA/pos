@@ -30,7 +30,6 @@ msgstr ""
 #. module: pos_picking_delayed
 #: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_order_has_picking_delayed
 #, fuzzy
-#| msgid "Has picking delayed"
 msgid "Has Picking Delayed"
 msgstr "A un transfert de stock retardé"
 
