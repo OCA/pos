@@ -69,6 +69,5 @@ msgstr "Démarrer la transaction"
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_account_bank_statement_import_journal_creation__pos_terminal_payment_mode
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
 #, fuzzy
-#| msgid "Payment Mode"
 msgid "Terminal Payment Mode"
 msgstr "Moyen de paiement"
