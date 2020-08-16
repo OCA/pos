@@ -57,14 +57,12 @@ msgstr "Si us plau seleccioneu un client per a aquesta comanda."
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_config
 #, fuzzy
-#| msgid "Point of Sale Payment"
 msgid "Point of Sale Configuration"
 msgstr "Pagament del Punt de Venda "
 
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
 #, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Orders"
 msgstr "Punt de Venda "
 
