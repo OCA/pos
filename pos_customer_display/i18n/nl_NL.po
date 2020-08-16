@@ -84,7 +84,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l1
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 #, fuzzy
-#| msgid "Next Customer (top line)"
 msgid "Next Customer (Line 1)"
 msgstr "Volgende Klant (bovenste regel)"
 
@@ -92,7 +91,6 @@ msgstr "Volgende Klant (bovenste regel)"
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l2
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 #, fuzzy
-#| msgid "Next Customer (top line)"
 msgid "Next Customer (Line 2)"
 msgstr "Volgende Klant (bovenste regel)"
 
@@ -100,7 +98,6 @@ msgstr "Volgende Klant (bovenste regel)"
 #. openerp-web
 #: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:99
 #, fuzzy, python-format
-#| msgid "Next Customer (top line)"
 msgid "No Customer Account"
 msgstr "Volgende Klant (bovenste regel)"
 
@@ -108,7 +105,6 @@ msgstr "Volgende Klant (bovenste regel)"
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 #, fuzzy
-#| msgid "POS Closed (top line)"
 msgid "PoS Closed (Line 1)"
 msgstr "Kassa Gesloten (bovenste regel)"
 
@@ -116,7 +112,6 @@ msgstr "Kassa Gesloten (bovenste regel)"
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 #, fuzzy
-#| msgid "POS Closed (top line)"
 msgid "PoS Closed (Line 2)"
 msgstr "Kassa Gesloten (bovenste regel)"
 
