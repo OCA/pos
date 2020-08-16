@@ -25,12 +25,6 @@ msgid "Apples (with Price To Weight Barcode)"
 msgstr ""
 
 #. module: pos_price_to_weight
-#: code:addons/pos_price_to_weight/models/barcode_rule.py:13
-#, python-format
-msgid "Priced Product (Computed Weight)"
-msgstr ""
-
-#. module: pos_price_to_weight
 #: model:ir.model,name:pos_price_to_weight.model_barcode_rule
 msgid "barcode.rule"
 msgstr "barcode.rule"
