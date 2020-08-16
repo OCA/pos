@@ -32,7 +32,6 @@ msgstr ""
 #. module: pos_timeout
 #: model:ir.model.fields,field_description:pos_timeout.field_pos_config_pos_order_timeout
 #, fuzzy
-#| msgid "PoS Order Timeout"
 msgid "PoS Order(s) Timeout"
 msgstr "Timeout des commandes"
 
