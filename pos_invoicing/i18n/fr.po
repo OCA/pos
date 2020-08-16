@@ -45,7 +45,6 @@ msgstr "PdV - Paiement en cours"
 #. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_pos_order
 #, fuzzy
-#| msgid "Point of Sale Session"
 msgid "Point of Sale Orders"
 msgstr "Session du point de vente"
 
