@@ -40,7 +40,6 @@ odoo.define("pos_ticket_logo.models", function (require) {
             logo_loaded.reject();
         };
         self.company_logo.crossOrigin = "anonymous";
-        /*self.company_logo.src = '/web/binary/image?model=res.company&id=' + */
         self.company_logo.src = '/web/image?model=res.company&id=' +
                                 self.company.id + '&field=logo';
         return logo_loaded;
