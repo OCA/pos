@@ -1,0 +1,290 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_tare
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-27 12:55+0000\n"
+"PO-Revision-Date: 2020-08-27 12:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:34
+#, python-format
+msgid "(Gross Weight:"
+msgstr "(Poids brut:"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:36
+#, python-format
+msgid "- Tare:"
+msgstr "- Tare :"
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Alias"
+msgstr ""
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:103
+#, python-format
+msgid "Backspace"
+msgstr ""
+
+#. module: pos_tare
+#: model:ir.model,name:pos_tare.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Règle de code barre"
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Cashier"
+msgstr "Caissier"
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Client"
+msgstr ""
+
+#. module: pos_tare
+#: model_terms:ir.ui.view,arch_db:pos_tare.view_pos_config_form
+msgid "Configure how to input Gross Weight."
+msgstr "Méthode de saisie du poids brut."
+
+#. module: pos_tare
+#: model_terms:ir.ui.view,arch_db:pos_tare.view_pos_config_form
+msgid "Configure how to tare products to weight with a scale."
+msgstr "Méthode de saisie de la tare pour les produit à peser avec une balance."
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:94
+#, python-format
+msgid "Disc"
+msgstr ""
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Discounted Product"
+msgstr "Article en promotion"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:7
+#, python-format
+msgid "Gross Weight"
+msgstr "Poids brut"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:48
+#, python-format
+msgid "Gross Weight :"
+msgstr "Poids brut :"
+
+#. module: pos_tare
+#: model:ir.model.fields,field_description:pos_tare.field_pos_config__iface_gross_weight_method
+#: model_terms:ir.ui.view,arch_db:pos_tare.view_pos_config_form
+msgid "Gross Weight Input Method"
+msgstr "Méthode de saisie du poids buit."
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:79
+#: code:addons/pos_tare/static/src/js/screens.js:183
+#, python-format
+msgid "Incorrect Tare Value"
+msgstr "La valeur de la tare est incorrecte"
+
+#. module: pos_tare
+#: selection:pos.config,iface_gross_weight_method:0
+msgid "Input Gross Weight via Scale"
+msgstr "Mesurer le poids brut en utilisant une balance électronique"
+
+#. module: pos_tare
+#: selection:pos.config,iface_gross_weight_method:0
+msgid "Input the Gross Weight manually"
+msgstr "Saisir le poids brut manuellement"
+
+#. module: pos_tare
+#: selection:pos.config,iface_tare_method:0
+msgid "Input the tare manually"
+msgstr "Saisir la tare manuellement"
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Location"
+msgstr "Lieu"
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Lot"
+msgstr ""
+
+#. module: pos_tare
+#: selection:pos.config,iface_tare_method:0
+msgid "Manual input and barcode"
+msgstr "Saisir la tare manuellement et avec les codes barres"
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Package"
+msgstr "Colis"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:80
+#, python-format
+msgid "Please set a numeric value in the tare field, or let empty."
+msgstr "Saisissez une valeure numérique dans le champ dédié à la tare ou laisser ce champ vide. "
+
+#. module: pos_tare
+#: model:ir.model,name:pos_tare.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_tare
+#: model:ir.model,name:pos_tare.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Lignes des commandes du point de vente"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:100
+#, python-format
+msgid "Price"
+msgstr ""
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Priced Product"
+msgstr "Article à prix fixe"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:82
+#, python-format
+msgid "Qty"
+msgstr ""
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:146
+#, python-format
+msgid "Quantity lower or equal to zero"
+msgstr "La quantité est inférieure ou égale à zéro"
+
+#. module: pos_tare
+#: selection:pos.config,iface_tare_method:0
+msgid "Scan a barcode to set the tare"
+msgstr "Saisir la tare en utilisant les codes barres"
+
+#. module: pos_tare
+#: model:ir.model.fields,help:pos_tare.field_pos_config__iface_tare_method
+msgid "Select tare method:\n"
+"* 'manual' : the scale screen has an extra tare input field;\n"
+"* 'barecode' : (scan a barcode to tare the selected order line;\n"
+"* 'both' : manual input and barcode methods are enabled;"
+msgstr "Sélectionnez la méthode de saisie de la tare:\n"
+"* 'manual' : l'écran de pesé dispose d'un nouveau champ pour saisir la tare;\n"
+"* 'barecode' : utilisez des codes barres pour encoder la valeur de la tare. A la lecture du code barre la tare est appliquée à l'article selectionné;\n"
+"* 'both' : les deux méthodes (manuelle et par code barre) sont activées;"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:19
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:88
+#: selection:barcode.rule,type:0
+#: model:ir.model.fields,field_description:pos_tare.field_pos_order_line__tare
+#, python-format
+msgid "Tare"
+msgstr ""
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:50
+#, python-format
+msgid "Tare :"
+msgstr ""
+
+#. module: pos_tare
+#: model:ir.model.fields,field_description:pos_tare.field_pos_config__iface_tare_method
+#: model_terms:ir.ui.view,arch_db:pos_tare.view_pos_config_form
+msgid "Tare Input Method"
+msgstr "Méthode de saisie de la tare"
+
+#. module: pos_tare
+#: model_terms:ir.ui.view,arch_db:pos_tare.view_pos_config_form
+msgid "Tare UoM"
+msgstr ""
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:148
+#, python-format
+msgid "The quantity for \"%s\" is lower or equal to zero. Call for help unless you're perfectly sure you are doing right."
+msgstr "La quantité pour le produit \"%s\" est inférieur ou égale à zéro. Appelez à l'aide pour résoudre ce problème. Ne continuez que si vous êtes absolument sûr·e et certain·e que vous faites le bon choix."
+
+#. module: pos_tare
+#: model:ir.model.fields,field_description:pos_tare.field_barcode_rule__type
+msgid "Type"
+msgstr ""
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Unit Product"
+msgstr "Unité de produit"
+
+#. module: pos_tare
+#: model:ir.model.fields,field_description:pos_tare.field_pos_config__iface_tare_uom_id
+msgid "Unit of Measure of the tare"
+msgstr "Unité de mesure de la tare"
+
+#. module: pos_tare
+#: model_terms:ir.ui.view,arch_db:pos_tare.view_pos_config_form
+msgid "Unit of Measure of the tares."
+msgstr "Unité de mesure des tares."
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:23
+#, python-format
+msgid "We can not apply this tare barcode."
+msgstr "Impossible d'appliquer ce code barre de tare."
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:192
+#, python-format
+msgid "We can not apply this tare."
+msgstr "Impossible d'appliquer cette tare."
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/tools.js:17
+#, python-format
+msgid "We can not cast a weight in %s into %s."
+msgstr "Il n'est pas possible de convertir un poids mesuré en %s vers un poids en %s "
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
+msgid "Weighted Product"
+msgstr "Article pesé"
+
+#. module: pos_tare
+#. openerp-web
+#: code:addons/pos_tare/static/src/js/screens.js:184
+#, python-format
+msgid "You can not set the tare. To be able to set the tare manually you have to change the tare input method in the POS configuration."
+msgstr "Vous ne pouvez pas définir la tare. Pour pouvoir définir la tare manuellement vous devez changer la méthode de saisie de la tare dans la configuration du POS."
+
