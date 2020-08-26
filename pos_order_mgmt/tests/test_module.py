@@ -16,9 +16,22 @@ class TestModule(TransactionCase):
         self.AccountPayment = self.env['account.payment']
 
         # Get Object
-        self.pos_product = self.env.ref('point_of_sale.whiteboard_pen')
-        self.pricelist = self.env.ref('product.list0')
-        self.partner = self.env.ref('base.res_partner_12')
+        self.pos_product = self.env["product.product"].create({
+            "name": "Test POS Product",
+        })
+        self.pricelist = self.env["product.pricelist"].create({
+            "name": "Test pricelist",
+            "currency_id": self.env.user.company_id.currency_id.id,
+            "item_ids": [(0, 0, {
+                "applied_on": "3_global",
+                "compute_price": "formula",
+                "base": "list_price",
+            })]
+        })
+        self.partner = self.env["res.partner"].create({
+            "name": "Mr. Odoo",
+            "property_product_pricelist": self.pricelist.id,
+        })
 
         # Create a new pos config and open it
         self.pos_config = self.env.ref('point_of_sale.pos_config_main').copy()
