@@ -1,0 +1,165 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_barcode_tare
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:8
+#, python-format
+msgid "Back"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:130
+#, python-format
+msgid "Failed to read weight from scale."
+msgstr ""
+
+#. module: pos_barcode_tare
+#: model:product.uom,name:pos_barcode_tare.product_uom_kgm_dbg
+msgid "Kg"
+msgstr ""
+
+#. module: pos_barcode_tare
+#: model:ir.ui.view,arch_db:pos_barcode_tare.view_pos_config_form
+msgid "Loose good options"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:196
+#, python-format
+msgid "Maximum tare weight is 99.999kg"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:18
+#, python-format
+msgid "Print"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:11
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:41
+#, python-format
+msgid "Print a tare label"
+msgstr ""
+
+#. module: pos_barcode_tare
+#: model:ir.model.fields,help:pos_barcode_tare.field_pos_config_iface_tare_label
+msgid "Print tare labels with this POS"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:15
+#, python-format
+msgid "Set the pot on the scale and check the weight above"
+msgstr ""
+
+#. module: pos_barcode_tare
+#: model:ir.model.fields,field_description:pos_barcode_tare.field_pos_config_iface_tare_label
+msgid "Show tare label button"
+msgstr ""
+
+#. module: pos_barcode_tare
+#: code:addons/pos_barcode_tare/models/barcode_rule.py:13
+#, python-format
+msgid "Tare"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:164
+#, python-format
+msgid "The scale sent a measure in %s unit. This unit of measure (UOM) in not found in the point of sale. You may need to create a new UOM named %s. The UOM name is case sensitive."
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:288
+#, python-format
+msgid "The tare (%s) is already set for the product \"%s\". We can not re-apply a tare to this product."
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:319
+#, python-format
+msgid "The tare weight is %s %s, it's greater or equal to the product weight %s. We can not apply this tare."
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:74
+#, python-format
+msgid "We can not apply this tare barcode."
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/js/pos_barcode_tare.js:33
+#, python-format
+msgid "We can not cast a weight in %s into %s."
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:69
+#, python-format
+msgid "With a"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:61
+#, python-format
+msgid "at"
+msgstr ""
+
+#. module: pos_barcode_tare
+#: model:ir.model,name:pos_barcode_tare.model_barcode_rule
+msgid "barcode.rule"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:71
+#, python-format
+msgid "discount"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:32
+#, python-format
+msgid "kg"
+msgstr ""
+
+#. module: pos_barcode_tare
+#: model:ir.model,name:pos_barcode_tare.model_pos_config
+msgid "pos.config"
+msgstr ""
+
+#. module: pos_barcode_tare
+#. openerp-web
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:32
+#: code:addons/pos_barcode_tare/static/src/xml/pos_barcode_tare.xml:78
+#, python-format
+msgid "tare ="
+msgstr ""
+

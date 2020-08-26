@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="TareScreenWidget">
+        <div class='tare-screen screen'>
+            <div class='screen-content'>
+                <div class='top-content'>
+                     <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Back
+                    </span>
+                    <h1>Print a tare label</h1>
+                </div>
+                <div class="centered-content">
+                    <div class="pos-tare-label-container"></div>
+                    <div class="pos-directions-for-user">
+                        Set the pot on the scale and check the weight above
+                    </div>
+                    <div class='print-label'>
+                        Print
+                        <i class='fa fa-angle-double-right'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PosTareLabel">
+        <div class="pos-center-align">
+            <div class="pos-tare-paper">
+                <div class="pos-tare-label">
+                    <img t-att-src="'/report/barcode/EAN13/' + widget.get_barcode_data()" />
+                    <span class="caption">tare = <t t-esc="widget.get_tare_weight()" />kg</span>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="TareScreenButton">
+        <t t-if="widget.pos.config.iface_tare_label">
+            <span class="control-button">
+            <i class="fa fa-print"></i>
+            Print a tare label
+        </span>
+        </t>
+    </t>
+
+</templates>
