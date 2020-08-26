@@ -35,6 +35,10 @@ class TestModule(TransactionCase):
 
         # Create a new pos config and open it
         self.pos_config = self.env.ref('point_of_sale.pos_config_main').copy()
+        self.pos_config.write({
+            'available_pricelist_ids': [(6, 0, self.pricelist.ids)],
+            'pricelist_id': self.pricelist.id,
+        })
         self.pos_config.open_session_cb()
 
     # Test Section
