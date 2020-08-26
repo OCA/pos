@@ -5,7 +5,7 @@
 {
     'name': 'POS Frontend Orders Management',
     'summary': 'Manage old POS Orders from the frontend',
-    'version': '12.0.1.1.1',
+    'version': '12.0.1.1.2',
     'category': 'Point of Sale',
     'author': 'GRAP, '
               'Tecnativa, '
