@@ -1,6 +1,6 @@
 This module extends the functionality of Point of Sale module.
 
-By default, in Odoo a timeout is set to 7.5 seconds for the creation of
+By default, in Odoo a timeout is set to 30 seconds for the creation of
 a PoS order. This threshold is usually sufficient, but in some cases it is not,
 mainly if the connection is bad, or if some custom modules add extra
 long treatments.
