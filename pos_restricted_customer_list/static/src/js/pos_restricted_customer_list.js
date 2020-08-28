@@ -45,6 +45,7 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
                             def.reject();
                         }
                     },
+                    // eslint-disable-next-line handle-callback-err
                     function(err, event) {
                         event.preventDefault();
                         def.reject();
