@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 # Copyright (C) 2017 - Today: Akretion (http://www.akretion.com)
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -12,18 +11,9 @@
     "website": "https://odoo-community.org/",
     "author": "GRAP, Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "depends": [
-        "point_of_sale",
-    ],
-    "images": [
-        "static/description/pos_config.png",
-    ],
-    "data": [
-        "views/view_pos_config.xml",
-        "views/templates.xml",
-    ],
-    'qweb': [
-        'static/src/xml/pos_timeout.xml',
-    ],
+    "depends": ["point_of_sale",],
+    "images": ["static/description/pos_config.png",],
+    "data": ["views/view_pos_config.xml", "views/templates.xml",],
+    "qweb": ["static/src/xml/pos_timeout.xml",],
     "installable": True,
 }
