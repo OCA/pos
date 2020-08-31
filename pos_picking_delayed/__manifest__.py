@@ -18,6 +18,9 @@
         'views/view_pos_config.xml',
         'views/view_pos_order.xml',
     ],
+    'demo': [
+        'demo/pos_config.xml',
+    ],
     'images': [
         'static/description/pos_order_tree.png',
     ],
