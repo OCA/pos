@@ -11,7 +11,7 @@
     other module to fail during the test.
     -->
     <record id="point_of_sale.pos_config_main" model="pos.config">
-        <field name="picking_creation_delayed">False</field>
+        <field name="picking_creation_delayed" eval="False"/>
     </record>
 
 </odoo>
