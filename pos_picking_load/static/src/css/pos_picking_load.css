@@ -1,0 +1,50 @@
+
+/* LoadPickingScreenWidget - Header Part*/
+.pos .pickinglist-screen .button.picking-button {
+    width: 150px;
+}
+
+.pos .pickinglist-screen .searchbox{
+    top: 4px;
+    position: relative;
+}
+
+.pos .pickinglist-screen .searchbox input{
+    width: 300px;
+}
+
+.pos .pickinglist-screen .button.validate.picking-button{
+    right: 0px;
+}
+
+/* LoadPickingScreenWidget - List Part*/
+
+.pos .pickinglist-screen .picking-list{
+    font-size: 16px;
+    width: 100%;
+    line-height: 40px;
+}
+
+.pos .pickinglist-screen .picking-list th,
+.pos .pickinglist-screen .picking-list td {
+    padding: 0px 8px;
+}
+
+.pos .pickinglist-screen .picking-list tbody > tr{
+    background: rgb(230,230,230);
+    cursor: pointer;
+}
+
+.pos .pickinglist-screen .picking-list thead > tr,
+.pos .pickinglist-screen .picking-list tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
+
+.pos .pickinglist-screen .picking-list .highlight {
+    background-color: rgb(110, 200, 155) !important;
+    color: rgb(255, 255, 255);
+}
+
+.pos .pickinglist-screen .picking-list tbody > tr:hover {
+    background: rgb(220,220,220);
+}

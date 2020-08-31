@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_picking_load/static/src/js/widget.js"></script>
+            <script type="text/javascript" src="/pos_picking_load/static/src/js/model.js"></script>
+        </xpath>
+    </template>
+
+    <template id="index" inherit_id="point_of_sale.index">
+        <xpath expr="//head" position="inside">
+            <link rel="stylesheet" href="/pos_picking_load/static/src/css/pos_picking_load.css"/>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+
+    <t t-name="LoadPickingButtonWidget">
+        <span class="control-button order-split" t-att-style='widget.is_visible() ? "display: block;" : "display: none;"'>
+            <i class="fa fa-upload"></i>
+            <t t-esc="widget.button_text()"/>
+        </span>
+    </t>
+
+    <t t-name="LoadPickingLine">
+        <tr class="picking-line" t-att-data-picking-id="picking.id">
+            <td><t t-esc="picking.name"/></td>
+            <td><t t-esc="picking.partner_id[1] || ''"/></td>
+            <td><t t-esc="picking.scheduled_date || ''"/></td>
+            <td><t t-esc="picking.origin || ''"/></td>
+        </tr>
+    </t>
+
+    <t t-name="LoadPickingScreenWidget">
+        <div class="pickinglist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class="button back picking-button">
+                        <i class="fa fa-times"></i>
+                        Cancel
+                    </span>
+                    <span class="button validate picking-button highlight">
+                        <i class="fa fa-arrow-circle-o-right"></i>
+                        Select
+                    </span>
+                    <span class="searchbox">
+                        <input placeholder="Search Picking" />
+                    </span>
+                </section>
+                <section class="full-content">
+                    <div class="window">
+                        <section class="subwindow collapsed">
+                            <div class="subwindow-container collapsed">
+                                <div class="subwindow-container-fix">
+                                </div>
+                            </div>
+                        </section>
+                        <section class="subwindow">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix touch-scrollable scrollable-y">
+                                    <table class="picking-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Customer</th>
+                                                <th>Scheduled Date</th>
+                                                <th>Source Document</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="picking-list-contents">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery="[t-if='receipt.cashier']" t-operation="after">
+            <t t-if="receipt.origin_picking_name">
+                <div>--------------------------------</div>
+                <div>Origin Picking: <t t-esc='receipt.origin_picking_name' /></div>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery="[t-esc='widget.pos.get_cashier().name']" t-operation="after">
+            <t t-if="order.get('origin_picking_name')">
+                <br /><br />Origin Picking: <t t-esc="order.get('origin_picking_name')"/>
+            </t>
+        </t>
+    </t>
+
+</template>

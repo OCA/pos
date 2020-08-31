@@ -1,0 +1,203 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_picking_load
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# Ivan BARAYEV <ivanbarayev@hotmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-13 03:00+0000\n"
+"PO-Revision-Date: 2017-07-13 03:00+0000\n"
+"Last-Translator: Ivan BARAYEV <ivanbarayev@hotmail.com>, 2017\n"
+"Language-Team: Turkish (https://www.transifex.com/oca/teams/23907/tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:70
+#, python-format
+msgid "--------------------------------"
+msgstr ""
+
+#. module: pos_picking_load
+#: field:stock.picking.type,available_in_pos:0
+msgid "Available in Point Of Sale"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:264
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:290
+#, python-format
+msgid "Can not execute this action because the POS is currently offline"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:22
+#, python-format
+msgid "Cancel"
+msgstr "Vazgeç"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:263
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:289
+#, python-format
+msgid "Connection error"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:50
+#, python-format
+msgid "Customer"
+msgstr "Müşteri"
+
+#. module: pos_picking_load
+#: field:sale.order,final_pos_order_id:0
+#: field:stock.picking,final_pos_order_id:0
+msgid "Final PoS Order"
+msgstr ""
+
+#. module: pos_picking_load
+#: help:stock.picking.type,available_in_pos:0
+msgid ""
+"If checked, associated pickings will be available in the point of sale, to "
+"be changed and paid in it"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:5
+#, python-format
+msgid "Load Picking"
+msgstr ""
+
+#. module: pos_picking_load
+#: field:pos.config,iface_load_picking:0
+msgid "Load Pickings"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:49
+#, python-format
+msgid "Name"
+msgstr "Adı"
+
+#. module: pos_picking_load
+#: field:pos.order,origin_picking_id:0
+msgid "Origin Picking"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:71
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:79
+#, python-format
+msgid "Origin Picking:"
+msgstr ""
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_stock_picking
+msgid "Picking List"
+msgstr "Toplama Listesi"
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_pos_order
+msgid "Point of Sale"
+msgstr ""
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_sale_order
+msgid "Sales Order"
+msgstr "Sipariş Emri"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:51
+#, python-format
+msgid "Scheduled Date"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:30
+#, python-format
+msgid "Search Picking"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:26
+#, python-format
+msgid "Select"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:52
+#, python-format
+msgid "Source Document"
+msgstr ""
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_stock_picking_type
+msgid "The picking type determines the picking view"
+msgstr ""
+
+#. module: pos_picking_load
+#: help:sale.order,final_pos_order_id:0
+msgid "This Sale Order has beend replaced by this PoS Order"
+msgstr ""
+
+#. module: pos_picking_load
+#: help:stock.picking,final_pos_order_id:0
+msgid ""
+"This picking has been canceled, because it has been replaced by this PoS "
+"Order"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:228
+#, python-format
+msgid ""
+"Unable to load some picking lines because the products are not available in "
+"the POS cache.\n"
+"\n"
+"Please check that lines :\n"
+"\n"
+"  * "
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:239
+#, python-format
+msgid ""
+"Unable to load this picking because the partner is not known in the Point Of "
+"Sale as a customer"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:238
+#, python-format
+msgid "Unknown Partner"
+msgstr ""
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/pos_picking_load.js:227
+#, python-format
+msgid "Unknown Products"
+msgstr ""
