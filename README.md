@@ -36,9 +36,9 @@ addon | version | summary
 [pos_partner_firstname](pos_partner_firstname/) | 12.0.1.1.0 | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 12.0.1.0.1 | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 12.0.0.1.1 | Manage Payment Terminal device from POS front end
-[pos_picking_delayed](pos_picking_delayed/) | 12.0.1.0.1 | Delay the creation of the picking when PoS order is created
-[pos_picking_load](pos_picking_load/) | 12.0.1.0.0 | Load and confirm stock pickings via Point Of Sale
-[pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.0 | Improve load of picking in PoS by partner name
+[pos_picking_delayed](pos_picking_delayed/) | 12.0.1.0.2 | Delay the creation of the picking when PoS order is created
+[pos_picking_load](pos_picking_load/) | 12.0.1.0.1 | Load and confirm stock pickings via Point Of Sale
+[pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.1 | Improve load of picking in PoS by partner name
 [pos_place](pos_place/) | 12.0.1.0.1 | Define places on PoS orders
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.0 | Compute weight based on barcodes with prices
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.0 | Allow PoS user to logout quickly after user changed
