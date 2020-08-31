@@ -32,6 +32,8 @@ setuptools.setup(
         'odoo12-addon-pos_payment_change',
         'odoo12-addon-pos_payment_terminal',
         'odoo12-addon-pos_picking_delayed',
+        'odoo12-addon-pos_picking_load',
+        'odoo12-addon-pos_picking_load_partner_name',
         'odoo12-addon-pos_place',
         'odoo12-addon-pos_price_to_weight',
         'odoo12-addon-pos_quick_logout',
