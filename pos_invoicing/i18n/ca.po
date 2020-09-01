@@ -6,53 +6,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-09-01 13:00+0000\n"
+"Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_invoicing
 #: model:ir.model.fields,help:pos_invoicing.field_account_invoice__pos_pending_payment
 msgid "Indicates an invoice for which there are pending payments in the Point of Sale. \n"
 "The invoice will be marked as paid when the session will be closed."
 msgstr ""
+"Indica una factura per a la qual hi ha pagaments pendents al punt de venda.\n"
+"La factura es marcarà com a pagada quan es tancarà la sessió."
 
 #. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_account_invoice
 msgid "Invoice"
-msgstr ""
+msgstr "Factura"
 
 #. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_account_payment
 msgid "Payments"
-msgstr ""
+msgstr "Pagaments"
 
 #. module: pos_invoicing
 #: model:ir.model.fields,field_description:pos_invoicing.field_account_invoice__pos_pending_payment
 msgid "PoS - Pending Payment"
-msgstr ""
+msgstr "PoS: pagament pendent"
 
 #. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Comandes de punt de venda"
 
 #. module: pos_invoicing
 #: model:ir.model,name:pos_invoicing.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessió del punt de venda"
 
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/account_invoice.py:38
 #, python-format
 msgid "You can not realize this action on the invoice(s) %s because there are pending payments in the Point of Sale."
 msgstr ""
+"No podeu realitzar aquesta acció a les factures (%s) perquè hi ha pagaments "
+"pendents al punt de venda."
 
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/account_payment.py:17
 #, python-format
 msgid "You can not realize this action on the payments(s) %s because there are pending payments in the Point of Sale."
 msgstr ""
+"No podeu realitzar aquesta acció als pagaments %s perquè hi ha pagaments "
+"pendents al punt de venda."
