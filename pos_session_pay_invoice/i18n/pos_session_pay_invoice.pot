@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -14,20 +14,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_session_pay_invoice
-#: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
 msgid "<span class=\"o_stat_text\">Collect Payment</span>\n"
 "                        <span class=\"o_stat_text\">from Invoice</span>"
 msgstr ""
 
 #. module: pos_session_pay_invoice
-#: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
 msgid "<span class=\"o_stat_text\">Pay</span>\n"
 "                        <span class=\"o_stat_text\">Invoice</span>"
 msgstr ""
 
 #. module: pos_session_pay_invoice
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:53
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:50
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:52
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:49
 #, python-format
 msgid "Bank Statement was not found"
 msgstr ""
@@ -43,12 +43,12 @@ msgid "Pay invoice"
 msgstr ""
 
 #. module: pos_session_pay_invoice
-#: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
 msgid "Summary"
 msgstr ""
 
 #. module: pos_session_pay_invoice
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:24
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:23
 #, python-format
 msgid "There is no cash register for this Pos session"
 msgstr ""
