@@ -90,7 +90,7 @@ class WizardPosMoveReason(models.TransientModel):
             account = self.move_reason_id.expense_account_id
             amount = - self.amount
         return {
-            'date': fields.Datetime.now(),
+            'date': fields.Date.context_today(self),
             'statement_id': self.statement_id.id,
             'journal_id': self.journal_id.id,
             'amount': amount,
