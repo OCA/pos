@@ -32,6 +32,7 @@ setuptools.setup(
         'odoo10-addon-pos_quick_logout',
         'odoo10-addon-pos_remove_pos_category',
         'odoo10-addon-pos_report_session_summary',
+        'odoo10-addon-pos_sequence_ref_number',
         'odoo10-addon-pos_session_pay_invoice',
         'odoo10-addon-pos_stock_picking_invoice_link',
         'odoo10-addon-pos_timeout',
