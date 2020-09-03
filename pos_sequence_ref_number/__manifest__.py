@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'POS Sequence Ref Number',
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.0.1',
     'category': 'Point Of Sale',
     'sequence': 1,
     'author': "Eficent Business and IT Consulting Services,"
