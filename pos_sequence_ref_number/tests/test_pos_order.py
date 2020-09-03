@@ -42,6 +42,7 @@ class TestSequenceNumberSync(SavepointCase):
             'data': {
                 'creation_date': fields.Datetime.now(),
                 'fiscal_position_id': False,
+                'pricelist_id': current_session.config_id.pricelist_id.id,
                 'amount_return': 0,
                 'sequence_ref_number': sequence_ref_number,
                 'lines': [[0, 0, {'product_id': self.product.id,
