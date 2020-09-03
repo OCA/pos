@@ -18,7 +18,7 @@ msgstr ""
 #. module: pos_disable_change_cashier
 #: model:ir.model.fields,field_description:pos_disable_change_cashier.field_pos_config__iface_change_cashier
 msgid "Change Cashier"
-msgstr "Changer de caisser"
+msgstr "Changer de caissier"
 
 #. module: pos_disable_change_cashier
 #: model:ir.model.fields,help:pos_disable_change_cashier.field_pos_config__iface_change_cashier
