@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2017 Jordi Ballester, Rafael Blasco, Ivan Yelizariev, Antonio Espinosa, Meyomesse Gilles
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
+        <template id="pos_sequence_ref_number_assets_backend"
+                  name="pos_sequence_ref_number_assets_backend"
+                  inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script src="/pos_sequence_ref_number/static/src/js/main.js"
+                        type="text/javascript"/>
+                <script type="text/javascript"
+                        src="/pos_sequence_ref_number/static/lib/moment.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
