@@ -4,7 +4,7 @@
 
 {
     'name': 'Point of Sale - Disable Change Cashier',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'category': 'Point Of Sale',
     'summary': 'Disable the feature that allow to change cashier in the PoS',
     'author': 'GRAP, Odoo Community Association (OCA)',
