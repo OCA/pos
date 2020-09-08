@@ -15,6 +15,7 @@ setuptools.setup(
         'odoo12-addon-pos_customer_required',
         'odoo12-addon-pos_default_empty_image',
         'odoo12-addon-pos_default_partner',
+        'odoo12-addon-pos_disable_change_cashier',
         'odoo12-addon-pos_empty_home',
         'odoo12-addon-pos_fix_search_limit',
         'odoo12-addon-pos_fixed_discount',
