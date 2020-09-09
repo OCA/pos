@@ -8,7 +8,7 @@
               'Odoo Community Association (OCA)',
     'website': "https://www.github.com/OCA/pos",
     'category': 'Point Of sale',
-    'version': '12.0.3.0.1',
+    'version': '12.0.3.0.2',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
