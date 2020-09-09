@@ -317,4 +317,9 @@ odoo.define('pos_picking_load.widget', function (require) {
         },
     });
 
+    return {
+        LoadPickingScreenWidget: LoadPickingScreenWidget,
+        LoadPickingButtonWidget: LoadPickingButtonWidget,
+    }
+
 });
