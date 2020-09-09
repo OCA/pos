@@ -1,0 +1,30 @@
+/*
+    Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+*/
+
+
+.pos .payment-numpad .numpad button[data-action="+10"] {
+    visibility: hidden;
+}
+
+.pos .payment-numpad .numpad button[data-action='+20'] {
+    visibility: hidden;
+}
+
+.pos .payment-numpad .numpad button[data-action='+50'] {
+    visibility: hidden;
+}
+
+.pos .payment-numpad .numpad{
+    border-top: 0px solid;
+}
+
+.pos .payment-numpad .numpad button[data-action='1'],
+        .pos .payment-numpad .numpad button[data-action='2'],
+        .pos .payment-numpad .numpad button[data-action='3'],
+        .pos .payment-numpad .numpad button[data-action='BACKSPACE'] {
+    border-top: 1px solid;
+    border-color: #cacaca;
+}
