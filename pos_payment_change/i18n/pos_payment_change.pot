@@ -43,6 +43,12 @@ msgid "Change Payments"
 msgstr ""
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
+msgid "Company Currency"
+msgstr ""
+
+#. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__create_uid
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__create_uid
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__create_uid
@@ -188,6 +194,12 @@ msgstr ""
 #. module: pos_payment_change
 #: selection:pos.config,payment_change_policy:0
 msgid "Update Payments"
+msgstr ""
+
+#. module: pos_payment_change
+#: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
+#: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
+msgid "Utility field to express amount currency"
 msgstr ""
 
 #. module: pos_payment_change
