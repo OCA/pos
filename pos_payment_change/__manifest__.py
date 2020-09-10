@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Point Of Sale - Change Payments",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "summary": "Allow cashier to change order payments, as long as"
     " the session is not closed.",
     "category": "Point Of Sale",
