@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_payment_change
+# 	* pos_payment_change
 #
 msgid ""
 msgstr ""
@@ -46,6 +46,12 @@ msgid "Change Payments"
 msgstr "Cambiar pagos"
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
+msgid "Company Currency"
+msgstr ""
+
+#. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__create_uid
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__create_uid
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__create_uid
@@ -62,7 +68,8 @@ msgstr "Creado el"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
 #, python-format
-msgid "Differences between the two values for the POS Order '%s':\n"
+msgid ""
+"Differences between the two values for the POS Order '%s':\n"
 "\n"
 " * Total of all the new payments %s;\n"
 " * Total of the POS Order %s;\n"
@@ -139,17 +146,21 @@ msgstr "Política de cambio de pago"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
-msgid "Payment Change Policy when users want to change the payment lines of a given PoS Order.\n"
-"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, and create a new PoS Order with the correct payment lines.\n"
+msgid ""
+"Payment Change Policy when users want to change the payment lines of a given "
+"PoS Order.\n"
+"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
+"and create a new PoS Order with the correct payment lines.\n"
 "* 'Update Payments': Odoo will change payment lines.\n"
 "\n"
-"Note : In some countries the 'Update Payments' Option is not allowed by law, because orders history shouldn't not be altered."
+"Note : In some countries the 'Update Payments' Option is not allowed by law, "
+"because orders history shouldn't not be altered."
 msgstr ""
 "Política de cambio de pago cuando los usuarios desean cambiar las líneas de "
 "pago de un pedido PdV determinado.\n"
 "* 'Reembolso y reventa': Odoo reembolsará el pedido de posición actual para "
-"cancelarlo y creará un nuevo pedido de PoS con las líneas de pago correctas."
-"\n"
+"cancelarlo y creará un nuevo pedido de PoS con las líneas de pago "
+"correctas.\n"
 "* 'Actualizar pagos': Odoo cambiará las líneas de pago.\n"
 "\n"
 "Nota: En algunos países, la opción 'Actualizar pagos' no está permitida por "
@@ -200,7 +211,9 @@ msgstr "Total"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_config.py:43
 #, python-format
-msgid "Unable to use the 'Update Payments' options for companies that have unalterable accounting."
+msgid ""
+"Unable to use the 'Update Payments' options for companies that have "
+"unalterable accounting."
 msgstr ""
 "No se pueden usar las opciones de 'Actualizar pagos' para empresas que "
 "tienen contabilidad inalterable."
@@ -211,6 +224,12 @@ msgid "Update Payments"
 msgstr "Actualizar pagos"
 
 #. module: pos_payment_change
+#: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
+#: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
+msgid "Utility field to express amount currency"
+msgstr ""
+
+#. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__wizard_id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__wizard_id
 msgid "Wizard"
@@ -219,7 +238,9 @@ msgstr "Asistente"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:97
 #, python-format
-msgid "You can not change payments of the POS '%s' because the associated session '%s' has been closed!"
+msgid ""
+"You can not change payments of the POS '%s' because the associated session "
+"'%s' has been closed!"
 msgstr ""
 "¡No puede cambiar los pagos del PdV '%s' porque la sesión asociada '%s' se "
 "ha cerrado!"
