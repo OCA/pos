@@ -20,4 +20,16 @@ class PosPaymentChangeWizardOldLine(models.TransientModel):
         readonly=True,
     )
 
-    amount = fields.Float(string="Amount", required=True, readonly=True)
+    company_currency_id = fields.Many2one(
+        comodel_name='res.currency', store=True,
+        related='old_journal_id.currency_id',
+        string="Company Currency", readonly=True,
+        help='Utility field to express amount currency'
+    )
+
+    amount = fields.Monetary(
+        string="Amount",
+        required=True,
+        readonly=True, default=0.0,
+        currency_field='company_currency_id'
+    )

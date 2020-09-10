@@ -20,7 +20,18 @@ class PosPaymentChangeWizardLine(models.TransientModel):
         domain=lambda s: s._domain_new_journal_id(),
     )
 
-    amount = fields.Float(string="Amount", required=True)
+    company_currency_id = fields.Many2one(
+        comodel_name='res.currency', store=True,
+        related='new_journal_id.currency_id',
+        string="Company Currency", readonly=True,
+        help='Utility field to express amount currency'
+    )
+
+    amount = fields.Monetary(
+        string="Amount",
+        required=True, default=0.0,
+        currency_field='company_currency_id'
+    )
 
     @api.model
     def _domain_new_journal_id(self):
