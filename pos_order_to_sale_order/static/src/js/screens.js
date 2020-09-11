@@ -158,4 +158,9 @@ odoo.define('pos_order_to_sale_order.screens', function (require) {
         },
     });
 
+    return {
+        CreateSaleOrderButtonWidget: CreateSaleOrderButtonWidget,
+        CreateSaleOrderScreenWidget: CreateSaleOrderScreenWidget,
+    }
+
 });
