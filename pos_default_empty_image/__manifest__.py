@@ -13,6 +13,7 @@
     ],
     'data': [
         'views/templates.xml',
+        'views/pos_config.xml',
     ],
     'qweb': [
         'static/src/xml/pos_default_empty_image.xml',
