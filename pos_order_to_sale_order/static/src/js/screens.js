@@ -35,7 +35,11 @@ odoo.define('pos_order_to_sale_order.screens', function (require) {
         },
 
         is_visible: function () {
-            return this.pos.get_order().orderlines.length > 0;
+            if (this.pos.get_order()){
+                return this.pos.get_order().orderlines.length > 0;
+            } else {
+                return false;
+            }
         },
 
     });
