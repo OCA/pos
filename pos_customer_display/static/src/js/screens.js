@@ -12,7 +12,10 @@ odoo.define('pos_customer_display.screens', function (require) {
     screens.PaymentScreenWidget.include({
 
         render_paymentlines: function() {
-            if (this.pos.get_order().get_total_with_tax() === 0) {
+            if (
+                !this.pos.get_order() ||
+                (this.pos.get_order() && this.pos.get_order().get_total_with_tax() === 0)
+            ) {
                 // Render payment is called each time a new order is created
                 // (and so when lauching the PoS)
                 // in that case, we display the welcome message
