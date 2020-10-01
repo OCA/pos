@@ -6,7 +6,7 @@
 {
     "name": "POS Backend Communication",
     "summary": "Communicate with odoo's backend from POS.",
-    "version": "10.0.1.0.0",
+    "version": "12.0.1.0.0",
     "category": "Point of Sale",
     "website": "http://www.akretion.com",
     'author': 'Akretion, Odoo Community Association (OCA)',
