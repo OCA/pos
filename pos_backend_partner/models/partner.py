@@ -16,8 +16,8 @@ class Partner(models.Model):
         Action called from view with self.id = a res.partner.
         """
         return {
-            'type': 'ir.actions.act_tell_pos',
-            'payload': {
+            'type': 'ir.actions.tell_pos',
+            'params': {
                 'type': 'partner.partner_selected',
                 'partner_id': self.id,
                 'name': self.name,
