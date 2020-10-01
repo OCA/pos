@@ -21,11 +21,18 @@ odoo.define('pos_backend_communication.back', function (require) {
     if (is_tied_to_pos()) {
         //set up action 'act_tell_pos' called by .py
         ActionManager.include({
-            ir_actions_act_tell_pos: function (action, options) {
-                sendMessage(action.payload);
-            }
+            _handleAction: function (action, options) {
+                if (action['type'] == 'ir.actions.tell_pos') {
+                    return this._executeTellPOSAction(action, options);
+                } else {
+                    return this._super.apply(this, arguments);
+                }
+            },
+            _executeTellPOSAction: function (action, options) {
+                sendMessage(action.params);
+                return $.when();
+            },
         });
-
         //when page is fully loaded
         core.bus.on('web_client_ready', null, function () {
             //this class hides menus
