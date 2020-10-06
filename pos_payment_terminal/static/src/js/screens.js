@@ -32,9 +32,9 @@ odoo.define('pos_payment_terminal.screens', function (require) {
             if (!order) {
                 return;
             } else if (order.in_transaction) {
-                self.$('.next').html('<img src="/web/static/src/img/spin.png" style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle;">');
+                this.$('.in_transaction').removeClass('oe_hidden');
             } else {
-                self.$('.next').html('Validate <i class="fa fa-angle-double-right"></i>');
+                this.$('.in_transaction').addClass('oe_hidden');
             }
         }
     });

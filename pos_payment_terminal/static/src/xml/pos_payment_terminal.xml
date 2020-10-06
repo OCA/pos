@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
+
+    <t t-extend="PaymentScreenWidget" >
+        <t t-jquery=".next" t-operation="after">
+            <span class="button in_transaction" style="right: 0px; margin-right: 150px;">
+                <img src="/web/static/src/img/spin.png"
+                    style="animation: fa-spin 1s infinite steps(12);width: 20px;height: auto;vertical-align: middle; "/>
+            </span>
+        </t>
+    </t>
+
     <t t-extend="PaymentScreen-Paymentlines" >
         <t t-jquery=".col-name" t-operation="append">
             <t t-if="line.cashregister.journal.pos_terminal_payment_mode and widget.pos.config.iface_payment_terminal">
@@ -7,4 +17,5 @@
             </t>
         </t>
     </t>
+
 </templates>
