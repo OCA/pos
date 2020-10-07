@@ -2,6 +2,19 @@
 <templates id="template" xml:space="preserve">
     <t t-name="ProductNoImage">
         <article class='product' t-att-data-product-id="product.id" tabindex="0" t-attf-aria-labelledby="article_product_#{product.id}">
+            <t t-set="name_length" t-value="product.display_name.length" />
+            <t t-if='widget.pos.config.iface_fixed_font_size'>
+                <t t-set="font_size" t-value="widget.pos.config.iface_fixed_font_size" />
+            </t>
+            <t t-else="">
+                <t t-set="font_size" t-value="
+                    name_length >=120 and 11
+                    or name_length >=90 and 12
+                    or name_length >=60 and 13
+                    or name_length>=50 and 14
+                    or name_length>=40 and 16
+                    or 20"/>
+            </t>
             <div class="product-img-without-image">
                 <t t-if="!product.to_weight">
                     <span class="price-tag">
@@ -14,7 +27,7 @@
                     </span>
                 </t>
             </div>
-            <div class="product-name-without-image" t-attf-id="article_product_#{product.id}">
+            <div class="product-name-without-image" t-attf-id="article_product_#{product.id}" t-attf-style="font-size: #{font_size}px !important; line-height: #{font_size}px !important;">
                 <t t-esc="product.display_name"/>
             </div>
         </article>
