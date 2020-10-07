@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 11:15+0000\n"
-"PO-Revision-Date: 2019-03-01 15:53+0000\n"
-"Last-Translator: Marta Vázquez Rodríguez <vazrodmar@gmail.com>\n"
+"PO-Revision-Date: 2020-10-08 01:16+0000\n"
+"Last-Translator: FranciscoFactorLibre <francisco.santos@factorlibre.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_order_mgmt
 #: model:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
@@ -110,7 +110,7 @@ msgstr "Ventas máximas a cargar"
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_order
 msgid "Point of Sale Orders"
-msgstr "Ventas del Punto de Venta"
+msgstr "Pedidos del Punto de Venta"
 
 #. module: pos_order_mgmt
 #. openerp-web
