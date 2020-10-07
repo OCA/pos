@@ -11,15 +11,14 @@ class PosOrder(models.Model):
         return super(PosOrder, self_ctx).create_picking()
 
     def _prepare_invoice(self):
-        res = super(PosOrder, self)._prepare_invoice()
+        res = super()._prepare_invoice()
         res.update({
             'picking_ids': [(6, 0, self.picking_id.ids)],
         })
         return res
 
     def _action_create_invoice_line(self, line=False, invoice_id=False):
-        invoice_line = super(
-            PosOrder, self)._action_create_invoice_line(line, invoice_id)
+        invoice_line = super()._action_create_invoice_line(line, invoice_id)
         if not line:
             return invoice_line
         invoice_line.move_line_ids |= line.stock_move_ids
