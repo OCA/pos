@@ -6,10 +6,10 @@
         <!-- Priority to avoid to break account and logistics fields-->
         <field name="priority">20</field>
         <field name="arch" type="xml">
-            <field name="type" position="after">
+            <field name="parent_id" position="after">
                 <field name="available_in_pos"/>
             </field>
-            <xpath expr="//div[contains(@class,'oe_title')]" position="before">
+            <xpath expr="//field[@name='name']/../.." position="before">
                 <field name="image_medium"
                        widget="image"
                        class="oe_avatar"

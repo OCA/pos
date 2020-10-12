@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (C) 2015-TODAY Akretion (<http://www.akretion.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -21,13 +20,13 @@ class ProductTemplate(models.Model):
     def create(self, vals):
         if 'categ_id' in vals:
             vals['pos_categ_id'] = vals['categ_id']
-        return super(ProductTemplate, self).create(vals)
+        return super().create(vals)
 
     @api.multi
     def write(self, vals):
         if 'pos_categ_id' in vals and not vals['pos_categ_id']:
             del vals['pos_categ_id']
-        return super(ProductTemplate, self).write(vals)
+        return super().write(vals)
 
 
 class ProductCategory(models.Model):
