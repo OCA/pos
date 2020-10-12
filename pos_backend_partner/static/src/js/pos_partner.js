@@ -13,14 +13,15 @@ odoo.define('pos_backend_partner.partner_pos', function (require) {
         var data = message.data;
         var partner_info = {
             'id': parseInt(data.partner_id, 10),
-            'name': data.name
+            'name': data.name,
+            'country_id': [],
         };
         pos_instance.get('selectedOrder').set_client(partner_info);
+        pos_instance.db.add_partners([partner_info]);
         alert(_t('Customer set')); //try to get the focus back
     }
 
     function open_backend(message) {
-        console.log('open backend partner');
         //lookup action_id
         action_url = action_url || session.rpc(
             '/web/action/load', { "action_id":"pos_backend_partner.action_select_partner_pos"})
@@ -63,7 +64,7 @@ odoo.define('pos_backend_partner.partner_pos', function (require) {
     tools.callbacks['partner.partner_selected'] = set_client;
 
     return {
-        callbacks: tools.callbacks
+        callbacks: tools.callbacks,
     };
 });
 
