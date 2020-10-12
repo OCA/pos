@@ -10,8 +10,6 @@ odoo.define('pos_remove_pos_category.remove_pos_category', function (require) {
     var core = require('web.core');
     var pos_models = require('point_of_sale.models');
     var pos_screens = require('point_of_sale.screens');
-    var Model = require('web.DataModel');
-    var _t = core._t;
 
     var _pos_super = pos_models.PosModel.prototype;
     pos_models.PosModel = pos_models.PosModel.extend({
