@@ -74,6 +74,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                         attrs="{'invisible': [('state', 'in', ['opening_control'])], 'readonly': 1}">
                     <tree decoration-muted="is_pos_control == False and state != 'closed'" decoration-danger="is_pos_control == True and control_difference != 0">
                         <field name="is_pos_control" invisible="1"/>
+                        <field name="pos_session_state" invisible="1"/>
                         <field name="name" />
                         <field name="journal_id" />
                         <field name="balance_start"/>
@@ -81,7 +82,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             help="Set your starting balance"
                             type="object"
                             class="oe_stat_button" icon="fa-money"
-                            attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('state', 'in', ['opening_control','closed'])]}">
+                            attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}">
                         </button>
                         <field name="total_entry_encoding" />
                         <field name="balance_end_real"/>
@@ -89,7 +90,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             help="Set your ending balance"
                             type="object"
                             class="oe_stat_button" icon="fa-money"
-                            attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('state', 'in', ['opening_control', 'closed'])]}">
+                            attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}">
                         </button>
                         <field name="control_difference"/>
                         <field name="currency_id" groups="base.group_multi_currency" />

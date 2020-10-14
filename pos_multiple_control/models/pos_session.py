@@ -120,7 +120,8 @@ class PosSession(models.Model):
     def action_pos_session_closing_control(self):
         # Doesn't check balance before validate pos.session
         for session in self:
-            session.write({'state': 'closing_control', 'stop_at': fields.Datetime.now()})
+            session.write({'state': 'closing_control',
+                           'stop_at': fields.Datetime.now()})
             if not session.config_id.cash_control:
                 session.action_pos_session_close()
 
