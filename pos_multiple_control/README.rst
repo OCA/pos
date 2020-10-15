@@ -13,11 +13,17 @@ Point Of Sale - Multiple Cash Control
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-quentinDupont%2Fgrap--odoo--incubator-lightgray.png?logo=github
-    :target: https://github.com/quentinDupont/grap-odoo-incubator/tree/12.0_pos_multiple_control/pos_multiple_control
-    :alt: quentinDupont/grap-odoo-incubator
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
+    :target: https://github.com/OCA/pos/tree/12.0/pos_multiple_control
+    :alt: OCA/pos
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_multiple_control
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extends the functionality of the point of sale by allowing a 
 better control at the closing of the session.
@@ -27,7 +33,7 @@ better control at the closing of the session.
 * Allow user to control each statement. (not only the cash statement, by
   default) and change his starting and ending balance
 
-.. figure:: https://raw.githubusercontent.com/quentinDupont/grap-odoo-incubator/12.0_pos_multiple_control/pos_multiple_control/static/description/change_starting_balance.gif
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/change_starting_balance.gif
 
 * Quickly solve differences (we can set an absolute limit),
   thanks to pos_move_reason
@@ -35,12 +41,12 @@ better control at the closing of the session.
 See this gif where where we set ending balance with difference, solve it and
 close session :
 
-.. figure:: https://raw.githubusercontent.com/quentinDupont/grap-odoo-incubator/12.0_pos_multiple_control/pos_multiple_control/static/description/end_session_balance_automatic_solve.gif
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/end_session_balance_automatic_solve.gif
 
 As the verification is more complete, allow the user to reopen a new session, 
 if the first one is in a closed state.
 
-.. figure:: https://raw.githubusercontent.com/quentinDupont/grap-odoo-incubator/12.0_pos_multiple_control/pos_multiple_control/static/description/open_new_session.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/open_new_session.png
 
 Extra checks are done, to prevent user errors:
 
@@ -65,7 +71,7 @@ To configure this module, you need to:
 
 * Unchecked journal will be in grey
 
-.. figure:: https://raw.githubusercontent.com/quentinDupont/grap-odoo-incubator/12.0_pos_multiple_control/pos_multiple_control/static/description/account_journal_config.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/account_journal_config.png
 
 **Configure your POS configuration** 
 
@@ -79,15 +85,15 @@ To configure this module, you need to:
 
 * (optional) Choose a limit to allow or not the user to autosolve control difference in pos - Set 0 if you don't want any limit. (4)
 
-.. figure:: https://raw.githubusercontent.com/quentinDupont/grap-odoo-incubator/12.0_pos_multiple_control/pos_multiple_control/static/description/pos_session_config.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/pos_session_config.png
 
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/quentinDupont/grap-odoo-incubator/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/quentinDupont/grap-odoo-incubator/issues/new?body=module:%20pos_multiple_control%0Aversion:%2012.0_pos_multiple_control%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_multiple_control%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -109,6 +115,16 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `quentinDupont/grap-odoo-incubator <https://github.com/quentinDupont/grap-odoo-incubator/tree/12.0_pos_multiple_control/pos_multiple_control>`_ project on GitHub.
+This module is maintained by the OCA.
 
-You are welcome to contribute.
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_multiple_control>`_ project on GitHub.
+
+You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
