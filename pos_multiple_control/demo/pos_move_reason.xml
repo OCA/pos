@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Quentin DUPONT (https://twitter.com/pondupont)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record model="pos.move.reason" id="cash_register_error">
+        <field name="name">Cash register error</field>
+        <field name="is_income_reason" eval="True" />
+        <field name="is_expense_reason" eval="True"/>
+        <field name="income_account_id" ref="register_error_income"/>
+        <field name="expense_account_id" ref="register_error_expense"/>
+        <field name="journal_ids" model="account.journal" search="[
+            ('type', '=', 'cash'),
+            ('company_id', '=', obj().env.ref('base.main_company').id),
+        ]"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+</odoo>
