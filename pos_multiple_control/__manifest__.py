@@ -7,7 +7,7 @@
 {
     "name": "Point Of Sale - Multiple Cash Control",
     "summary": "Allow user to control each statement and add extra checks",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Point of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "http://www.grap.coop",
