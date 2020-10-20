@@ -51,6 +51,7 @@ addon | version | summary
 [pos_reset_search](pos_reset_search/) | 12.0.1.0.0 | Point of Sale - Clear product search when user clicks on a product.
 [pos_session_closing_stock_error](pos_session_closing_stock_error/) | 12.0.1.0.1 | Prevent closing PoS Sessions that have stock errors
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 12.0.1.0.1 | Pay and receive invoices from PoS Session
+[pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 12.0.1.0.0 | POS Stock Picking Invoice Link
 [pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 12.0.1.0.0 | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 12.0.1.0.1 | Search products by supplier data
 [pos_tare](pos_tare/) | 12.0.1.0.1 | Manage Tare in Point Of Sale module
