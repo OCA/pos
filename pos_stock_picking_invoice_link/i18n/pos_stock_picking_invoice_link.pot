@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 11.0\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -15,7 +15,7 @@ msgstr ""
 
 #. module: pos_stock_picking_invoice_link
 #: model:ir.model,name:pos_stock_picking_invoice_link.model_pos_order_line
-msgid "Lines of Point of Sale Orders"
+msgid "Point of Sale Order Lines"
 msgstr ""
 
 #. module: pos_stock_picking_invoice_link
@@ -24,12 +24,12 @@ msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_stock_picking_invoice_link
-#: model:ir.model.fields,field_description:pos_stock_picking_invoice_link.field_stock_move_pos_order_line_id
+#: model:ir.model.fields,field_description:pos_stock_picking_invoice_link.field_stock_move__pos_order_line_id
 msgid "Related POS Order Line"
 msgstr ""
 
 #. module: pos_stock_picking_invoice_link
-#: model:ir.model.fields,field_description:pos_stock_picking_invoice_link.field_pos_order_line_stock_move_ids
+#: model:ir.model.fields,field_description:pos_stock_picking_invoice_link.field_pos_order_line__stock_move_ids
 msgid "Related Stock Moves"
 msgstr ""
 
