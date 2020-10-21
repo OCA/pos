@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2017-07-13 03:00+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2020-10-21 17:08+0000\n"
+"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -27,11 +28,13 @@ msgid ""
 "A picking is still loaded. You can not load another picking. Please create a "
 "new order."
 msgstr ""
+"Ein Lieferschein ist bereits geladen. Es kann kein weiterer Lieferschein "
+"geladen werden. Dafür muss ein neuer POS-Auftrag erstellt werden."
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_stock_picking_type__available_in_pos
 msgid "Available in Point Of Sale"
-msgstr ""
+msgstr "Im 'Point of Sale' anzeigen"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -39,20 +42,21 @@ msgstr ""
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
+"Die Aktion kann nicht ausgeführt werden, weil das POS gerade offline ist."
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:25
 #, python-format
 msgid "Cancel"
-msgstr "Löschen"
+msgstr "Abbrechen"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:242
 #, python-format
 msgid "Connection error"
-msgstr ""
+msgstr "Verbindungsfehler"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -64,13 +68,13 @@ msgstr "Kunde"
 #. module: pos_picking_load
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 msgid "Enable the possibility to load pickings in the Point of Sale"
-msgstr ""
+msgstr "Laden von Lieferscheinen im 'Point of Sale' ermöglichen"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_sale_order__final_pos_order_id
 #: model:ir.model.fields,field_description:pos_picking_load.field_stock_picking__final_pos_order_id
 msgid "Final PoS Order"
-msgstr ""
+msgstr "POS-Auftrag"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,help:pos_picking_load.field_stock_picking_type__available_in_pos
@@ -78,25 +82,27 @@ msgid ""
 "If checked, associated pickings will be available in the point of sale, to "
 "be changed and paid in it"
 msgstr ""
+"Wenn der Haken gesetzt ist, werden die entsprechenden Lieferscheine im "
+"'Point of Sale' verfügbar sein, um sie zu ändern und zu bezahlen."
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:285
 #, python-format
 msgid "Load Picking"
-msgstr ""
+msgstr "Lieferschein laden"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_config__iface_load_picking
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 msgid "Load Pickings"
-msgstr ""
+msgstr "Lieferscheine laden"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_config__iface_load_picking_max_qty
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 msgid "Max Picking Quantity To Load"
-msgstr ""
+msgstr "Max. Anzahl von zu ladenen Lieferscheinen"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -108,7 +114,7 @@ msgstr "Bezeichnung"
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_order__origin_picking_id
 msgid "Origin Picking"
-msgstr ""
+msgstr "Ursprünglicher Lieferschein"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -116,21 +122,19 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:80
 #, python-format
 msgid "Origin Picking:"
-msgstr ""
+msgstr "Lieferschein:"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:273
 #, python-format
 msgid "Pending Picking"
-msgstr ""
+msgstr "Ausstehender Lieferschein"
 
 #. module: pos_picking_load
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
-#, fuzzy
-#| msgid "Picking List"
 msgid "Picking Load"
-msgstr "Pickliste"
+msgstr "Lieferschein laden"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -138,33 +142,25 @@ msgstr "Pickliste"
 #: code:addons/pos_picking_load/static/src/js/widget.js:166
 #, python-format
 msgid "Picking Still Loaded"
-msgstr ""
+msgstr "Lieferschein bereits geladen"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking_type
-#, fuzzy
-#| msgid "Picking List"
 msgid "Picking Type"
-msgstr "Pickliste"
+msgstr "Vorgangstyp"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_config
-#, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Configuration"
-msgstr "Verkaufsstelle"
+msgstr "Point Of Sale Konfiguration"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_order
-#, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Orders"
-msgstr "Verkaufsstelle"
+msgstr "POS Aufträge"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_sale_order
-#, fuzzy
-#| msgid "Sales Order"
 msgid "Sale Order"
 msgstr "Verkaufsauftrag"
 
@@ -180,7 +176,7 @@ msgstr "Geplantes Datum"
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:33
 #, python-format
 msgid "Search Picking"
-msgstr ""
+msgstr "Lieferschein suchen"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -194,14 +190,14 @@ msgstr "Auswahl"
 #: code:addons/pos_picking_load/static/src/js/widget.js:235
 #, python-format
 msgid "Server Error"
-msgstr ""
+msgstr "Server-Fehler"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:53
 #, python-format
 msgid "Source Document"
-msgstr ""
+msgstr "Referenzbeleg"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -209,11 +205,12 @@ msgstr ""
 #, python-format
 msgid "The server encountered an error while receiving your order."
 msgstr ""
+"Beim Empfangen Ihres Auftrages ist auf dem Server ein Fehler aufgetreten."
 
 #. module: pos_picking_load
 #: model:ir.model.fields,help:pos_picking_load.field_sale_order__final_pos_order_id
 msgid "This Sale Order has beend replaced by this PoS Order"
-msgstr ""
+msgstr "Dieser Verkaufsauftrag wurde durch einen POS-Auftrag ersetzt."
 
 #. module: pos_picking_load
 #: model:ir.model.fields,help:pos_picking_load.field_stock_picking__final_pos_order_id
@@ -221,6 +218,8 @@ msgid ""
 "This picking has been canceled, because it has been replaced by this PoS "
 "Order"
 msgstr ""
+"Dieser Lieferschein wurde abgebrochen, da er durch diesen POS-Auftrag "
+"ersetzt wurde."
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking
@@ -239,6 +238,12 @@ msgid ""
 "\n"
 "  * "
 msgstr ""
+"Einige Lieferschein-Positionen können nicht geladen werden, weil die "
+"Produkte nicht im POS Cache liegen.\n"
+"\n"
+"Bitte diese Zeilen prüfen:\n"
+"\n"
+"  * "
 
 #. module: pos_picking_load
 #. openerp-web
@@ -249,6 +254,9 @@ msgid ""
 "PoS Order :\n"
 "\n"
 msgstr ""
+"Der Lieferschein kann nicht geladen werden, weil er bereits in einem anderen "
+"bestätigtem POS-Auftrag enthalten ist:\n"
+"\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -259,6 +267,9 @@ msgid ""
 "Order :\n"
 "\n"
 msgstr ""
+"Der Lieferschein kann nicht geladen werden, weil er bereits in einem anderen "
+"POS-Auftragsentwurf enthalten ist:\n"
+"\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -268,20 +279,22 @@ msgid ""
 "Unable to load this picking because the partner is not known in the Point Of "
 "Sale as a customer"
 msgstr ""
+"Der Lieferschein kann nicht geladen werden, weil der Partner im Point of "
+"Sale nicht als Kunde bekannt ist."
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:136
 #, python-format
 msgid "Unknown Partner"
-msgstr ""
+msgstr "Unbekannter Partner"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:118
 #, python-format
 msgid "Unknown Products"
-msgstr ""
+msgstr "Unbekannte Produkte"
 
 #~ msgid "The picking type determines the picking view"
 #~ msgstr "Die Art der Kommissionierung bestimmt die Sicht"
