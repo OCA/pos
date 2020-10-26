@@ -6,26 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2020-10-26 11:08+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
 
 #. module: pos_disable_change_cashier
 #: model:ir.model.fields,field_description:pos_disable_change_cashier.field_pos_config__iface_change_cashier
 msgid "Change Cashier"
-msgstr ""
+msgstr "Cambio de cajero/a"
 
 #. module: pos_disable_change_cashier
 #: model:ir.model.fields,help:pos_disable_change_cashier.field_pos_config__iface_change_cashier
 #: model_terms:ir.ui.view,arch_db:pos_disable_change_cashier.pos_config_view_form
 msgid "Enable the possibility to change cashier"
-msgstr ""
+msgstr "Habilita la posibilidad de cambiar de cajero"
 
 #. module: pos_disable_change_cashier
 #: model:ir.model,name:pos_disable_change_cashier.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuración del punto de venta"
