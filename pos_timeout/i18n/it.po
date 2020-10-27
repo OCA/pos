@@ -19,7 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_timeout
-#: model:ir.model.fields,help:pos_timeout.field_pos_config_pos_order_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "<span class=\"o_form_label\">Timeout</span>"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,help:pos_timeout.field_pos_config__pos_order_timeout
 msgid ""
 "Defines the value of the client-side timeout for the creation of PoS "
 "Order(s) from the POS UI.\n"
@@ -32,12 +37,20 @@ msgid ""
 msgstr ""
 
 #. module: pos_timeout
-#: model:ir.model.fields,field_description:pos_timeout.field_pos_config_pos_order_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
 #, fuzzy
 msgid "PoS Order(s) Timeout"
 msgstr "PoS Order Timeout"
 
 #. module: pos_timeout
 #: model:ir.model,name:pos_timeout.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "Technical settings"
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"

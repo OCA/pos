@@ -20,7 +20,12 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: pos_timeout
-#: model:ir.model.fields,help:pos_timeout.field_pos_config_pos_order_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "<span class=\"o_form_label\">Timeout</span>"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,help:pos_timeout.field_pos_config__pos_order_timeout
 msgid ""
 "Defines the value of the client-side timeout for the creation of PoS "
 "Order(s) from the POS UI.\n"
@@ -34,8 +39,8 @@ msgstr ""
 "Define el valor del tiempo de espera del lado del cliente para la creación "
 "de pedidos de PoS desde la interfaz de usuario de POS.\n"
 " El valor se expresa en segundos, para un solo pedido.\n"
-" Si no se define, se utilizará el valor predeterminado de Odoo: 30 segundos."
-"\n"
+" Si no se define, se utilizará el valor predeterminado de Odoo: 30 "
+"segundos.\n"
 " Si la llamada contiene más de una orden (después de un largo período de "
 "desconexión, por ejemplo, o si la llamada anterior generó el tiempo de "
 "espera),\n"
@@ -43,11 +48,19 @@ msgstr ""
 "tiempo de espera definido multiplicado por el número de pedidos.\n"
 
 #. module: pos_timeout
-#: model:ir.model.fields,field_description:pos_timeout.field_pos_config_pos_order_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
 msgid "PoS Order(s) Timeout"
 msgstr "Tiempo de espera de pedidos de PoS"
 
 #. module: pos_timeout
 #: model:ir.model,name:pos_timeout.model_pos_config
-msgid "pos.config"
-msgstr "pos.config"
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "Technical settings"
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
