@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_tare
+# 	* pos_tare
 #
 msgid ""
 msgstr ""
@@ -139,6 +139,11 @@ msgstr "Entrada manual y código de barras"
 
 #. module: pos_tare
 #: selection:barcode.rule,type:0
+msgid "Meal Voucher Payment"
+msgstr ""
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
 msgid "Package"
 msgstr "Paquete"
 
@@ -197,7 +202,8 @@ msgstr "Escanee un código de barras para establecer la tara"
 
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_pos_config__iface_tare_method
-msgid "Select tare method:\n"
+msgid ""
+"Select tare method:\n"
 "* 'manual' : the scale screen has an extra tare input field;\n"
 "* 'barecode' : (scan a barcode to tare the selected order line;\n"
 "* 'both' : manual input and barcode methods are enabled;"
@@ -242,7 +248,9 @@ msgstr "Tara UdM"
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:148
 #, python-format
-msgid "The quantity for \"%s\" is lower or equal to zero. Call for help unless you're perfectly sure you are doing right."
+msgid ""
+"The quantity for \"%s\" is lower or equal to zero. Call for help unless "
+"you're perfectly sure you are doing right."
 msgstr ""
 "La cantidad para \"%s\" es menor o igual a cero. Solicite ayuda a menos que "
 "esté completamente seguro de que lo está haciendo bien."
@@ -297,7 +305,9 @@ msgstr "Producto ponderado"
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:184
 #, python-format
-msgid "You can not set the tare. To be able to set the tare manually you have to change the tare input method in the POS configuration."
+msgid ""
+"You can not set the tare. To be able to set the tare manually you have to "
+"change the tare input method in the POS configuration."
 msgstr ""
 "No se puede establecer la tara. Para poder establecer la tara manualmente, "
 "debe cambiar el método de entrada de tara en la configuración de PdV."
