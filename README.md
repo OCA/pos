@@ -29,6 +29,7 @@ addon | version | summary
 [pos_invoicing](pos_invoicing/) | 12.0.3.0.0 | Handle invoicing from Point Of Sale
 [pos_journal_image](pos_journal_image/) | 12.0.1.0.0 | Add images on Account Journals available in the PoS
 [pos_margin](pos_margin/) | 12.0.1.0.0 | Margin on PoS Order
+[pos_meal_voucher](pos_meal_voucher/) | 12.0.1.0.1 | Handle meal vouchers in Point of Sale with eligible amount and max amount
 [pos_multi_ean](pos_multi_ean/) | 12.0.1.0.1 | Search products by multiple EAN
 [pos_multiple_control](pos_multiple_control/) | 12.0.1.0.1 | Allow user to control each statement and add extra checks
 [pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.3 | Manage old POS Orders from the frontend
