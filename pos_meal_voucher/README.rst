@@ -13,11 +13,17 @@ Point Of Sale - Meal Voucher
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-legalsylvain%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/legalsylvain/pos/tree/12.0-ADD-pos_meal_voucher/pos_meal_voucher
-    :alt: legalsylvain/pos
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
+    :target: https://github.com/OCA/pos/tree/12.0/pos_meal_voucher
+    :alt: OCA/pos
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_meal_voucher
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module extend the Point of Sale Odoo module, regarding Meal Vouchers.
 
@@ -39,12 +45,12 @@ Products
 * go to your products, and click on the 'Meal Voucher' checkbox, if your product
   can be paid with meal vouchers.
 
-.. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/product_product_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/product_product_form.png
 
 * You can configure your product categories to have a default value for the products
   that belong to this category.
 
-.. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/product_category_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/product_category_form.png
 
 * configures your Account journals, mentioning the type of Meal Voucher:
 
@@ -52,11 +58,11 @@ Products
 - Dematerialized: the journal will be used for dematerialized meal vouchers
 - Mixed: Specific configuration if your accountant want to use a single journal for Credit card AND dematerialized meal vouchers. In that case, the button of this journal will be duplicated, and an extra text can be set to display an alternative label.
 
-.. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/account_journal_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/account_journal_form.png
 
 * go your point of sale configuration form, and set the maximum amount allowed by ticket. (optional)
 
-.. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/pos_config_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/pos_config_form.png
 
 Usage
 =====
@@ -66,21 +72,21 @@ Usage
 * Cashier can see the food products, eligible for meal voucher payment, and see the total for
   Meal Voucher amount
 
-  .. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/front_ui_pos_order_screen.png
+  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_order_screen.png
 
 * go to the payment screen
 
 A Meal Voucher Summary is available:
 
-  .. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/front_ui_pos_payment_screen.png
+  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_payment_screen.png
 
 If the amount received is too important, a warning icon is displayed
 
-  .. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/front_ui_pos_payment_screen_summary.png
+  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_payment_screen_summary.png
 
 If the cashier try to validate the order, a warning is also display, asking confirmation
 
-  .. figure:: https://raw.githubusercontent.com/legalsylvain/pos/12.0-ADD-pos_meal_voucher/pos_meal_voucher/static/description/front_ui_pos_payment_screen_warning.png
+  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_payment_screen_warning.png
 
 It is a non blocking warning, because we don't want to prevent an order to be done,
 if products are not correctly set, or if a recent law changed the maximum amount that can
@@ -108,10 +114,10 @@ Known issues / Roadmap
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/legalsylvain/pos/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/legalsylvain/pos/issues/new?body=module:%20pos_meal_voucher%0Aversion:%2012.0-ADD-pos_meal_voucher%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_meal_voucher%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -139,6 +145,16 @@ The development of this module has been financially supported by:
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `legalsylvain/pos <https://github.com/legalsylvain/pos/tree/12.0-ADD-pos_meal_voucher/pos_meal_voucher>`_ project on GitHub.
+This module is maintained by the OCA.
 
-You are welcome to contribute.
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_meal_voucher>`_ project on GitHub.
+
+You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
