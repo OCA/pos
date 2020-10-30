@@ -136,6 +136,11 @@ msgstr ""
 
 #. module: pos_tare
 #: selection:barcode.rule,type:0
+msgid "Meal Voucher Payment"
+msgstr ""
+
+#. module: pos_tare
+#: selection:barcode.rule,type:0
 msgid "Package"
 msgstr ""
 
