@@ -69,6 +69,11 @@ msgstr ""
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
+msgid "Meal Voucher Payment"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
 msgid "Package"
 msgstr ""
 
