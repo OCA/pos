@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="food_category" model="product.category">
+        <field name="name">Food</field>
+        <field name="parent_id" ref="point_of_sale.product_category_pos"/>
+        <field name="meal_voucher_ok" eval="True"/>
+    </record>
+
+</odoo>
