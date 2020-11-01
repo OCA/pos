@@ -55,6 +55,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                         var title = _t("Failed to read weight from scale.");
                         var popup = {title: title, body: error.message};
                         self.gui.show_popup('error', popup);
+                        self.pos.proxy_queue.clear();
                     }
                 });
             }, {duration:150, repeat: true});
