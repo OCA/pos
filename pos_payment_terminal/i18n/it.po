@@ -29,6 +29,15 @@ msgid "Check"
 msgstr ""
 
 #. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/pos_payment_terminal.js:101
+#, python-format
+msgid ""
+"Failed to send the amount to pay to the payment terminal. Press the red "
+"button on the payment terminal and try again."
+msgstr ""
+
+#. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_account_journal
 msgid "Journal"
 msgstr ""
@@ -36,6 +45,13 @@ msgstr ""
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal_payment_mode
 msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/pos_payment_terminal.js:100
+#, python-format
+msgid "Payment Terminal Error"
 msgstr ""
 
 #. module: pos_payment_terminal
