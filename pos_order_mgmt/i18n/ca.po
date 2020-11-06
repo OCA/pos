@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-08-31 14:00+0000\n"
+"PO-Revision-Date: 2020-11-06 13:08+0000\n"
 "Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -59,10 +59,10 @@ msgstr "esquena"
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:368
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:423
-#, python-format
+#, fuzzy, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
-"No es pot executar aquesta acció perquè el TPV està actualment fora de línia"
+"No es pot executar aquesta acció perquè actualment el POS està fora de línia"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -177,7 +177,7 @@ msgstr "Devolució "
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
 msgid "Refund Orders"
-msgstr "Comandes de devolució"
+msgstr "Ordres de devolució"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
@@ -202,7 +202,7 @@ msgstr "Comandes de devolució"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
 msgid "Returned Order"
-msgstr "Ordre retornada"
+msgstr "Comanda retornada"
 
 #. module: pos_order_mgmt
 #. openerp-web
