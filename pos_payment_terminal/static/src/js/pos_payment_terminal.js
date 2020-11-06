@@ -69,7 +69,13 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
                         'payment_mode' : line.cashregister.journal.payment_mode,
                         'order_id': order.uid};
             //console.log(JSON.stringify(data));
-            this.message('payment_terminal_transaction_start', {'payment_info' : JSON.stringify(data)});
+            var promise = this.message(
+                'payment_terminal_transaction_start',
+                {'payment_info' : JSON.stringify(data)}
+            ).then(function(response) {
+                return response;
+            });
+            return promise;
         },
     });
 
@@ -78,12 +84,24 @@ odoo.define('pos_payment_terminal.pos_payment_terminal', function (require) {
         render_paymentlines : function(){
             this._super.apply(this, arguments);
             var self  = this;
-            this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event){
-            // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
-            //console.log(event.target);
-            self.pos.get_order().in_transaction = true;
-            self.order_changes();
-            self.pos.proxy.payment_terminal_transaction_start($(this).data('cid'), self.pos.currency.name, self.pos.currency.decimals);
+            this.$('.paymentlines-container').unbind('click').on('click', '.payment-terminal-transaction-start', function(event) {
+                // Why this "on" thing links severaltime the button to the action if I don't use "unlink" to reset the button links before ?
+                self.pos.get_order().in_transaction = true;
+                self.order_changes();
+                self.pos.proxy.payment_terminal_transaction_start(
+                    $(this).data('cid'),
+                    self.pos.currency.name,
+                    self.pos.currency.decimals
+                ).then(function(response) {
+                    if (response === false) {
+                        self.gui.show_popup(
+                            'error',
+                            {
+                                'title': _t('Payment Terminal Error'),
+                                'body': _t('Failed to send the amount to pay to the payment terminal. Press the red button on the payment terminal and try again.'),
+                            });
+                    }
+                });
             });
         },
         order_changes: function(){
