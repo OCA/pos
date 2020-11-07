@@ -115,8 +115,7 @@ class AccountBankStatement(models.Model):
                         'journal_id': cb_journal_id,
                         'statement_id': statement.id,
                         'amount': abs(cb_difference),
-                        'name': _('Automatic solve') + " ("
-                                                     + cb_journal_name + ")",
+                        'name': _('Automatic solve (%s)') % cb_journal_name,
                     })
                 wizard.apply()
 
