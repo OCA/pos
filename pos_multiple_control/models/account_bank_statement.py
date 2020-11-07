@@ -102,6 +102,7 @@ class AccountBankStatement(models.Model):
                 cb_pos_move_reason_id = pos_move_reason.id
                 cb_difference = statement.control_difference
                 cb_journal_id = statement.journal_id.id
+                cb_journal_name = statement.journal_id.name
                 if cb_difference < 0:
                     default_move_type = "expense"
                 else:
@@ -114,7 +115,8 @@ class AccountBankStatement(models.Model):
                         'journal_id': cb_journal_id,
                         'statement_id': statement.id,
                         'amount': abs(cb_difference),
-                        'name': 'Automatic solve',
+                        'name': _('Automatic solve') + " ("
+                                                     + cb_journal_name + ")",
                     })
                 wizard.apply()
 
