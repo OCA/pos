@@ -41,6 +41,12 @@ odoo.define('pos_customer_display.devices', function (require) {
         },
 
         _prepare_line: function(left_part, right_part){
+            if (left_part === false){
+                left_part = "";
+            }
+            if (right_part === false){
+                right_part = "";
+            }
             var line_length = this.pos.config.customer_display_line_length;
             var max_left_length = line_length;
             if (right_part.length !== 0) {
