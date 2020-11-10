@@ -13,13 +13,7 @@
     "application": False,
     "installable": True,
     "auto_install": True,
-    "depends": [
-        "product_multi_ean",
-        "point_of_sale",
-    ],
-    "data": [
-        "views/assets.xml",
-    ],
-    "demo": [
-    ],
+    "depends": ["product_multi_ean", "point_of_sale"],
+    "data": ["views/assets.xml"],
+    "demo": [],
 }
