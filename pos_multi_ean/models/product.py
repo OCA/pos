@@ -1,6 +1,6 @@
 import json
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class Product(models.Model):
@@ -11,7 +11,6 @@ class Product(models.Model):
         "Multi EAN list", readonly=True, compute="_compute_multi_ean_json"
     )
 
-    @api.multi
     def _compute_multi_ean_json(self):
         for p in self:
             multi_ean_json = [x for x in p.mapped("ean13_ids.name") if x]

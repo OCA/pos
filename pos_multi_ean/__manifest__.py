@@ -3,7 +3,7 @@
 {
     "name": "Point of sale - Multi EAN support",
     "summary": "Search products by multiple EAN",
-    "version": "12.0.1.0.1",
+    "version": "13.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
