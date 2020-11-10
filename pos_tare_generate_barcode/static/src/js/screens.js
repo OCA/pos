@@ -88,13 +88,25 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                     return u.name === scale_measure.unit;
                 })[0];
 
+            var kilogram_uom = this.pos.units.filter(
+                function (u) {
+                    return u.name === "kg";
+                })[0];
+
             if (typeof measure_unit === 'undefined') {
                 throw new Error(_.str.sprintf(
                     _t("The scale sent a measure in %s unit. This unit of "+
-                     "measure (UOM) in not found in the point of sale. You " +
+                     "measure (UOM) in not found in the point of sale. You "+
                      "may need to create a new UOM named %s. The UOM name is "+
                      "case sensitive."), scale_measure.unit,
                     scale_measure.unit));
+            }
+
+            if (typeof kilogram_uom === 'undefined') {
+                    throw new Error(
+                        _t("You need to setup a kilogram (kg) UOM "+
+                         "this UOM is used to encode the tare mass "+
+                         "in the tare barcode."));
             }
 
             if (weight > 0) {
@@ -102,6 +114,8 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                 var tare_unit = this.pos.units_by_id[tare_uom];
                 this.weight_in_tare_unit = convert_mass(weight,
                     measure_unit, tare_unit);
+                this.weight_in_kilogram = convert_mass(weight,
+                        measure_unit, kilogram_uom);
                 this.render_receipt();
                 this.lock_screen(false);
             }
@@ -111,6 +125,12 @@ odoo.define('pos_barcode_tare.screens', function (require) {
                 return this.default_tare_value;
             }
             return this.weight_in_tare_unit;
+        },
+        get_tare_weight_in_kilogram: function () {
+            if (typeof this.weight_in_kilogram === 'undefined') {
+                return this.default_tare_value;
+            }
+            return this.weight_in_kilogram;
         },
         barcode_data: function (weight) {
             // We use EAN13 barcode, it looks like 07 00000 12345 x. First there
@@ -143,7 +163,7 @@ odoo.define('pos_barcode_tare.screens', function (require) {
             return barcode.substr(0, 12).concat(checksum);
         },
         get_barcode_data: function () {
-            return this.barcode_data(this.get_tare_weight());
+            return this.barcode_data(this.get_tare_weight_in_kilogram());
         },
         lock_screen: function (locked) {
             this._locked = locked;

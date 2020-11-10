@@ -29,7 +29,7 @@
             <div class="pos-tare-paper">
                 <div class="pos-tare-label">
                     <img t-att-src="'/report/barcode/EAN13/' + widget.get_barcode_data()" />
-                    <span class="caption">tare = <t t-esc="widget.get_tare_weight()" />kg</span>
+                    <span class="caption">tare = <t t-esc="widget.get_tare_weight()" /><t t-esc="widget.pos.config.iface_tare_uom_id[1]"/></span>
                 </div>
             </div>
         </div>
