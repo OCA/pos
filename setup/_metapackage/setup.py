@@ -40,6 +40,7 @@ setuptools.setup(
         'odoo12-addon-pos_picking_load_partner_name',
         'odoo12-addon-pos_place',
         'odoo12-addon-pos_price_to_weight',
+        'odoo12-addon-pos_product_sort',
         'odoo12-addon-pos_quick_logout',
         'odoo12-addon-pos_report_order_payment',
         'odoo12-addon-pos_report_session_summary',
