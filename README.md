@@ -45,7 +45,7 @@ addon | version | summary
 [pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.1 | Improve load of picking in PoS by partner name
 [pos_place](pos_place/) | 12.0.1.0.1 | Define places on PoS orders
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.0 | Compute weight based on barcodes with prices
-[pos_product_sort](pos_product_sort/) | 12.0.1.0.0 | sort the products by name in the point of sale instead of sorting them by the sequence field.
+[pos_product_sort](pos_product_sort/) | 12.0.1.0.1 | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.0 | Allow PoS user to logout quickly after user changed
 [pos_report_order_payment](pos_report_order_payment/) | 12.0.1.0.0 | Analyze point of sale payments
 [pos_report_session_summary](pos_report_session_summary/) | 12.0.1.0.0 | Adds a Session Summary PDF report on the POS session
