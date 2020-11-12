@@ -1,12 +1,7 @@
-.payment-terminal-transaction-start button {
-    width: 150px;
-    height: 60px;
-    font-size: 18px;
-    cursor: pointer;
-    text-align:center;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    left: 105%;
-    bottom: 10px;
-    position: absolute;
+button.payment-terminal-transaction-start {
+    /*Same css values as ".screen .top-content .button" */
+    font-size: 20px;
+    padding: 3px 13px;
+    line-height: 32px;
+    border-radius: 3px;
 }
