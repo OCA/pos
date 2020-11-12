@@ -13,7 +13,11 @@
     <t t-extend="PaymentScreen-Paymentlines" >
         <t t-jquery=".col-name" t-operation="append">
             <t t-if="line.cashregister.journal.pos_terminal_payment_mode and widget.pos.config.iface_payment_terminal">
-                   <button class="payment-terminal-transaction-start"  t-att-data-cid='line.cid'>Start transaction</button>
+                   <button class="payment-terminal-transaction-start" t-att-data-cid="line.cid"
+                        title="Start transaction">
+                        <i class="fa fa-credit-card" />
+                        <i class="fa fa-share-square" />
+                    </button>
             </t>
         </t>
     </t>
