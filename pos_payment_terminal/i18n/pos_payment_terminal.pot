@@ -58,6 +58,7 @@ msgstr ""
 #. module: pos_payment_terminal
 #. openerp-web
 #: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:6
+#: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:16
 #, python-format
 msgid "Start transaction"
 msgstr ""
