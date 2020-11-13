@@ -6,11 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-18 10:52+0000\n"
-"PO-Revision-Date: 2020-01-18 10:52+0000\n"
+"POT-Creation-Date: 2020-11-12 15:11+0000\n"
+"PO-Revision-Date: 2020-11-12 15:11+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -34,7 +33,7 @@ msgstr "Chèque"
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_account_journal
 msgid "Journal"
-msgstr "Journal"
+msgstr ""
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_config__iface_payment_terminal
@@ -60,7 +59,7 @@ msgstr "Sélectionner le mode de paiement envoyé au terminal de paiement"
 
 #. module: pos_payment_terminal
 #. openerp-web
-#: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:16
+#: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:17
 #, python-format
 msgid "Start transaction"
 msgstr "Démarrer la transaction"
@@ -68,6 +67,5 @@ msgstr "Démarrer la transaction"
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_account_bank_statement_import_journal_creation__pos_terminal_payment_mode
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
-#, fuzzy
 msgid "Terminal Payment Mode"
 msgstr "Moyen de paiement"
