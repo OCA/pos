@@ -65,6 +65,7 @@ msgstr "Seleccione la forma de pega enviada al terminal de pago"
 #. module: pos_payment_terminal
 #. openerp-web
 #: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:16
+#: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:17
 #, python-format
 msgid "Start transaction"
 msgstr "Iniciar transacción"
