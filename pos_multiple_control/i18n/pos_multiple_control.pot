@@ -422,7 +422,6 @@ msgid "Update Balances"
 msgstr ""
 
 #. module: pos_multiple_control
-#: code:addons/pos_multiple_control/models/account_bank_statement.py:123
 #: code:addons/pos_multiple_control/models/account_bank_statement.py:124
 #, python-format
 msgid "We can't autosolve this difference. \n"
