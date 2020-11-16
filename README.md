@@ -31,7 +31,7 @@ addon | version | summary
 [pos_margin](pos_margin/) | 12.0.1.0.0 | Margin on PoS Order
 [pos_meal_voucher](pos_meal_voucher/) | 12.0.1.0.2 | Handle meal vouchers in Point of Sale with eligible amount and max amount
 [pos_multi_ean](pos_multi_ean/) | 12.0.1.0.1 | Search products by multiple EAN
-[pos_multiple_control](pos_multiple_control/) | 12.0.1.0.1 | Allow user to control each statement and add extra checks
+[pos_multiple_control](pos_multiple_control/) | 12.0.1.0.2 | Allow user to control each statement and add extra checks
 [pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.3 | Manage old POS Orders from the frontend
 [pos_order_remove_line](pos_order_remove_line/) | 12.0.1.0.0 | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 12.0.1.0.3 | Point of Sale Order Return
