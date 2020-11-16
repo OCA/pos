@@ -432,7 +432,6 @@ msgid "Update Balances"
 msgstr "Actualizar saldos"
 
 #. module: pos_multiple_control
-#: code:addons/pos_multiple_control/models/account_bank_statement.py:123
 #: code:addons/pos_multiple_control/models/account_bank_statement.py:124
 #, python-format
 msgid ""
