@@ -80,6 +80,12 @@ odoo.define('pos_tare.screens', function (require) {
                     'body': _t('Please set a numeric value' +
                         ' in the tare field, or let empty.'),
                 });
+            } else if (isNaN(this.gross_weight)) {
+                this.gui.show_popup('error', {
+                    'title': _t('Incorrect Gross Weight Value'),
+                    'body': _t('Please set a numeric value' +
+                        ' in the gross weight field.'),
+                });
             } else {
                 this._super();
                 if (this.tare > 0.0) {
@@ -180,7 +186,7 @@ odoo.define('pos_tare.screens', function (require) {
                 } else if (mode === 'tare') {
                     if (this.pos.config.iface_tare_method === 'barcode') {
                         this.gui.show_popup('error',
-                            {'title': _t('Incorrect Tare Value'),
+                            {'title': _t('Feature Disabled'),
                                 'body': _t('You can not set the tare.' +
                                 ' To be able to set the tare manually' +
                                 ' you have to change the tare input method' +
