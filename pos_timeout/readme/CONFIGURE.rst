@@ -7,4 +7,9 @@ To configure this module, you need to:
    :alt: PoS Configuration
    :width: 800 px
 
-If not set, the default Odoo timeout will be used. (7.5 seconds in V10.0)
+**Note**
+
+- When installing the module, or for new ``pos.config`` created, the default value will
+  be 30 seconds. (like in Odoo V13.0)
+
+- If the value is not set, the default Odoo timeout will be used. (7.5 seconds in V12.0)
