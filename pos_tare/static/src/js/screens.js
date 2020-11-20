@@ -36,6 +36,8 @@ odoo.define('pos_tare.screens', function (require) {
         },
     });
 
+    var _super_ScaleScreenWidget_order_product = screens.ScaleScreenWidget.prototype.order_product;
+
     screens.ScaleScreenWidget.include({
 
         // /////////////////////////////
@@ -74,6 +76,7 @@ odoo.define('pos_tare.screens', function (require) {
         },
 
         order_product: function () {
+            var self = this;
             if (this.tare === undefined) {
                 this.gui.show_popup('error', {
                     'title': _t('Incorrect Tare Value'),
@@ -85,6 +88,21 @@ odoo.define('pos_tare.screens', function (require) {
                     'title': _t('Incorrect Gross Weight Value'),
                     'body': _t('Please set a numeric value' +
                         ' in the gross weight field.'),
+                });
+            } else if (this.weight <= 0) {
+                this.gui.show_popup('confirm', {
+                    title: _t('Quantity lower or equal to zero'),
+                    body: _t(
+                            "The quantity is lower or equal to" +
+                            " zero. Are you sure you want to continue ?"),
+                    confirm: function() {
+                        _super_ScaleScreenWidget_order_product.apply(self);
+                        if (self.tare > 0.0) {
+                            var order = self.pos.get_order();
+                            var orderline = order.get_last_orderline();
+                            orderline.set_tare(self.tare, false);
+                        }
+                    },
                 });
             } else {
                 this._super();
@@ -137,31 +155,6 @@ odoo.define('pos_tare.screens', function (require) {
             return parseFloat(res, 10);
         },
 
-    });
-
-    screens.PaymentScreenWidget.include({
-        validate_order: function(options) {
-            var order = this.pos.get_order();
-            var orderlines = Array.from(order.get_orderlines());
-
-            if (orderlines.some(leq_zero_qty)) {
-                var _super_validate_order = this._super.bind(this);
-                var wrong_orderline = orderlines.find(leq_zero_qty);
-                var wrong_product = wrong_orderline.get_product().display_name;
-                this.gui.show_popup('confirm', {
-                    title: _t('Quantity lower or equal to zero'),
-                    body:  _.str.sprintf(
-                        _t("The quantity for \"%s\" is lower or equal to" +
-                        " zero. Call for help unless you're perfectly" +
-                        " sure you are doing right."), wrong_product),
-                    confirm: function() {
-                        _super_validate_order();
-                    },
-                });
-                return;
-            }
-            return this._super(options);
-        },
     });
 
     screens.OrderWidget.include({
