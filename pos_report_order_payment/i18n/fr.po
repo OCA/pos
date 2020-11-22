@@ -112,7 +112,6 @@ msgstr "Payé"
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_amount
 #, fuzzy
-#| msgid "Payment Amount"
 msgid "Paid Amount"
 msgstr "Montant du paiement"
 
