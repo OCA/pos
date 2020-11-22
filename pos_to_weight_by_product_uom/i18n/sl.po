@@ -49,7 +49,6 @@ msgstr "EM proizvoda"
 #. module: pos_to_weight_by_product_uom
 #: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_category
 #, fuzzy
-#| msgid "Product uom categ"
 msgid "Product UoM Categories"
 msgstr "Kateg. EM proizvoda"
 
