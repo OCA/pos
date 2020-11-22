@@ -48,7 +48,6 @@ msgstr "Maßeinheit des Produkts"
 #. module: pos_to_weight_by_product_uom
 #: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_category
 #, fuzzy
-#| msgid "Product Unit of Measure"
 msgid "Product UoM Categories"
 msgstr "Maßeinheit des Produkts"
 
