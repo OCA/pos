@@ -127,7 +127,6 @@ msgstr "Assistant de retour partiel"
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
 #, fuzzy
-#| msgid "Partial Return Wizard"
 msgid "Partial Return Wizard Line"
 msgstr "Assistant de retour partiel"
 
