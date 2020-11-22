@@ -24,7 +24,6 @@ msgstr "Autoriser à dupliquer des commandes réalisées dans l'interface tactil
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config_iface_order_mgmt
 #, fuzzy
-#| msgid "Allows to return already done orders in the frontend"
 msgid "Allows to manage orders in the frontend"
 msgstr ""
 "Autoriser à rembourser des commandes réalisées dans l'interface tactile"
@@ -45,7 +44,6 @@ msgstr ""
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
 #, fuzzy, python-format
-#| msgid "Amount Total"
 msgid "Amount"
 msgstr "Total"
 
@@ -113,14 +111,12 @@ msgstr "Date"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config_iface_copy_done_order
 #, fuzzy
-#| msgid "Duplicate Done Orders"
 msgid "Duplicate Orders"
 msgstr "Copier une commande réalisées"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config_iface_load_done_order_max_qty
 #, fuzzy
-#| msgid "Maximum number orders to load"
 msgid "Maximum Orders to load"
 msgstr "Nombre maximum de commande à charger"
 
@@ -193,14 +189,12 @@ msgstr "Remboursements"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config_iface_reprint_done_order
 #, fuzzy
-#| msgid "Reprint Done Orders"
 msgid "Reprint Orders"
 msgstr "Réimprimer le ticket d'une commande réalisée"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config_iface_return_done_order
 #, fuzzy
-#| msgid "Returned Order"
 msgid "Return Orders"
 msgstr "Commande retournée"
 
