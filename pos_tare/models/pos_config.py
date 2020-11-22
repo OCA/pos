@@ -7,8 +7,7 @@ class PosConfig(models.Model):
     iface_tare_on_scale_screen_method = fields.Boolean(
         string='Show tare input on scale screen',
         help="Adds an input text field to set the tare on the scale screen.",
-        default=True,
-        required=True
+        default=True
     )
 
     iface_tare_method = fields.Selection(
