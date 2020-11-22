@@ -128,7 +128,6 @@ msgstr ""
 #. module: pos_picking_load
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 #, fuzzy
-#| msgid "Picking List"
 msgid "Picking Load"
 msgstr "Toplama Listesi"
 
@@ -143,7 +142,6 @@ msgstr ""
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking_type
 #, fuzzy
-#| msgid "Picking List"
 msgid "Picking Type"
 msgstr "Toplama Listesi"
 
@@ -155,14 +153,12 @@ msgstr ""
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_order
 #, fuzzy
-#| msgid "Sales Order"
 msgid "Point of Sale Orders"
 msgstr "Sipariş Emri"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_sale_order
 #, fuzzy
-#| msgid "Sales Order"
 msgid "Sale Order"
 msgstr "Sipariş Emri"
 

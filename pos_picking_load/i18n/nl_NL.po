@@ -147,21 +147,18 @@ msgstr ""
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_config
 #, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Configuration"
 msgstr "Kassa"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_order
 #, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Orders"
 msgstr "Kassa"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_sale_order
 #, fuzzy
-#| msgid "Sales Order"
 msgid "Sale Order"
 msgstr "Verkooporder"
 

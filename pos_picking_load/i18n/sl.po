@@ -125,14 +125,12 @@ msgstr "Izvorni zbirnik:"
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:273
 #, fuzzy, python-format
-#| msgid "Origin Picking"
 msgid "Pending Picking"
 msgstr "Izvorni zbirnik"
 
 #. module: pos_picking_load
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 #, fuzzy
-#| msgid "Picking List"
 msgid "Picking Load"
 msgstr "Zbirnik"
 
@@ -147,28 +145,24 @@ msgstr ""
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking_type
 #, fuzzy
-#| msgid "Picking List"
 msgid "Picking Type"
 msgstr "Zbirnik"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_config
 #, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Configuration"
 msgstr "POS Prodajna točka"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_order
 #, fuzzy
-#| msgid "Point of Sale"
 msgid "Point of Sale Orders"
 msgstr "POS Prodajna točka"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_sale_order
 #, fuzzy
-#| msgid "Sales Order"
 msgid "Sale Order"
 msgstr "Prodajni nalog"
 
@@ -254,9 +248,6 @@ msgstr ""
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:167
 #, fuzzy, python-format
-#| msgid ""
-#| "Unable to load this picking because the partner is not known in the Point "
-#| "Of Sale as a customer"
 msgid ""
 "Unable to load this picking because it has been loaded in another confirmed "
 "PoS Order :\n"
@@ -267,9 +258,6 @@ msgstr "Tega zbirnika ni mogoče uvoziti, ker partner v POS ni znan kot kupec."
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:151
 #, fuzzy, python-format
-#| msgid ""
-#| "Unable to load this picking because the partner is not known in the Point "
-#| "Of Sale as a customer"
 msgid ""
 "Unable to load this picking because it has been loaded in another draft PoS "
 "Order :\n"
