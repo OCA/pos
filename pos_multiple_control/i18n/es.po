@@ -54,7 +54,6 @@ msgstr ""
 #. module: pos_multiple_control
 #: model_terms:pos.config,customer_facing_display_html:pos_multiple_control.pos_config_control
 #, fuzzy
-#| msgid "<span class=\"o_stat_text\">Set Opening Balance</span>"
 msgid "<span class=\"pos-change_title\">Change</span>"
 msgstr "<span class=\"o_stat_text\">Establecer un Balance de Apertura</span>"
 
