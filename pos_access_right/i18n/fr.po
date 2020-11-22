@@ -55,7 +55,6 @@ msgstr "Quantité négative - Fonctionnalité non autorisée"
 #. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
 #, fuzzy, python-format
-#| msgid "Discount - Unauthorized function"
 msgid "Payment - Unauthorized function"
 msgstr "Remise - Fonctionnalité non autorisée"
 
@@ -112,7 +111,6 @@ msgstr "Point de Vente - Quantité négative"
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
 #: model:res.groups,name:pos_access_right.group_payment
 #, fuzzy
-#| msgid "Point of Sale - Discount"
 msgid "Point of Sale - Payment"
 msgstr "Point de Vente - Remise"
 
@@ -175,9 +173,6 @@ msgstr ""
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
 #, fuzzy
-#| msgid ""
-#| "This field is there to pass the id of the 'PoS - Many Orders Group to the "
-#| "Point of Sale Frontend."
 msgid ""
 "This field is there to pass the id of the 'PoS - Payment' Group to the Point "
 "of Sale Frontend."

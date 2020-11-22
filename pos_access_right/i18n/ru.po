@@ -112,7 +112,6 @@ msgstr "Точка продаж - Отрицательное количеств�
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
 #: model:res.groups,name:pos_access_right.group_payment
 #, fuzzy
-#| msgid "Point of Sale - Discount"
 msgid "Point of Sale - Payment"
 msgstr "Точка продаж - Скидки"
 
