@@ -15,6 +15,11 @@ class AccountJournal(models.Model):
         default=False
     )
 
+    cashbox_default = fields.Many2one(
+        comodel_name="account.bank.statement.cashbox",
+        string="Cashbox Defaut",
+    )
+
     @api.onchange("type")
     def onchange_type(self):
         for journal in self:

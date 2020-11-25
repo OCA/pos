@@ -14,6 +14,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <field name="journal_user" position="after">
                 <field name="pos_control" attrs="{'invisible': [('type', 'not in', ['bank', 'cash'])]}"/>
             </field>
+            <xpath expr="//group[@name='group_alias']" position="after">
+                <group string="Cashbox Default">
+                    <field name="cashbox_default" domain="[('is_pattern', '=', True)]"/>
+                </group>
+            </xpath>
         </field>
     </record>
 

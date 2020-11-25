@@ -37,6 +37,16 @@ class AccountBankStatement(models.Model):
         string="Display autosolve", compute="_compute_display_autosolve"
     )
 
+    cashbox_starting = fields.Many2one(
+        comodel_name="account.bank.statement.cashbox",
+        string="Cashbox start",
+    )
+
+    cashbox_ending = fields.Many2one(
+        comodel_name="account.bank.statement.cashbox",
+        string="Cashbox end",
+    )
+
     # Compute Section
     @api.multi
     @api.depends("line_ids")
@@ -115,7 +125,7 @@ class AccountBankStatement(models.Model):
                         'journal_id': cb_journal_id,
                         'statement_id': statement.id,
                         'amount': abs(cb_difference),
-                        'name': _('Automatic solve (%s)') % cb_journal_name,
+                        'name': _('Automatic solve %s') % cb_journal_name,
                     })
                 wizard.apply()
 
@@ -137,7 +147,7 @@ class AccountBankStatement(models.Model):
     def open_cashbox_balance(self, balance_moment):
         action = self.env.ref(
             "pos_multiple_control."
-            "action_wizard_pos_update_bank_statement_balance").read()[0]
+            "action_wizard_update_bank_statement").read()[0]
         action['context'] = {'balance_moment': balance_moment,
                              'active_id': [self.id],
                              'active_pos_id': [self.pos_session_id.id],

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
+@author: Quentin DUPONT (https://twitter.com/pondupont)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="cashbox_french_cash_drawer" model="account.bank.statement.cashbox">
+        <field name="name">French cash drawer</field>
+        <field name="is_pattern">True</field>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_001" model="account.cashbox.line">
+        <field name="coin_value">0.01</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_002" model="account.cashbox.line">
+        <field name="coin_value">0.02</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_005" model="account.cashbox.line">
+        <field name="coin_value">0.05</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_010" model="account.cashbox.line">
+        <field name="coin_value">0.10</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_020" model="account.cashbox.line">
+        <field name="coin_value">0.20</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_050" model="account.cashbox.line">
+        <field name="coin_value">0.50</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_01" model="account.cashbox.line">
+        <field name="coin_value">1</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_02" model="account.cashbox.line">
+        <field name="coin_value">2</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_05" model="account.cashbox.line">
+        <field name="coin_value">5</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_10" model="account.cashbox.line">
+        <field name="coin_value">10</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_20" model="account.cashbox.line">
+        <field name="coin_value">20</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+    <record id="cashbox_french_cash_drawer_line_50" model="account.cashbox.line">
+        <field name="coin_value">50</field>
+        <field name="number">0</field>
+        <field name="subtotal">0</field>
+        <field name="cashbox_id" ref="cashbox_french_cash_drawer"/>
+    </record>
+
+</odoo>

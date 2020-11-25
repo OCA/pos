@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+@author Quentin DUPONT (quentin.dupont@grap.coop)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <data>
+        <record id="view_account_bank_statement_cashbox_form" model="ir.ui.view">
+            <field name="model">account.bank.statement.cashbox</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="is_pattern"/>
+                            <field name="cashbox_lines_ids">
+                                <tree editable="bottom">
+                                    <field name="coin_value" 
+                                        widget="numeric_step" options="{'step': 0.05, 'min': 0}"/>
+                                    <field name="number"
+                                        widget="numeric_step" options="{'step': 1, 'min': 0}"/>
+                                    <field name="subtotal" sum="Balance total"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
