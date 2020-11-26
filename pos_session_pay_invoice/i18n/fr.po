@@ -1,0 +1,72 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_session_pay_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-12-10 15:36+0000\n"
+"Last-Translator: Julien Guenat <julien.guenat@geckoescalade.ch>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid "<span class=\"o_stat_text\">Collect Payment</span>\n"
+"                        <span class=\"o_stat_text\">from Invoice</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Encaisser une</span>\n"
+"                        <span class=\"o_stat_text\">facture</span>"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid "<span class=\"o_stat_text\">Pay</span>\n"
+"                        <span class=\"o_stat_text\">Invoice</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Payer une</span>\n"
+"                        <span class=\"o_stat_text\">facture "
+"fournisseur</span>"
+
+#. module: pos_session_pay_invoice
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:52
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:49
+#, python-format
+msgid "Bank Statement was not found"
+msgstr "Relevé bancaire introuvable"
+
+#. module: pos_session_pay_invoice
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
+msgid "Collect Payment from Invoice"
+msgstr "Encaisser une facture"
+
+#. module: pos_session_pay_invoice
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
+msgid "Pay invoice"
+msgstr "Payer une facture (cash)"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: pos_session_pay_invoice
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:23
+#, python-format
+msgid "There is no cash register for this Pos session"
+msgstr "Il n'y a pas de caisse enregistreuse pour cette session"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
+msgid "cash.invoice.in"
+msgstr "cash.invoice.in"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_out
+msgid "cash.invoice.out"
+msgstr "cash.invoice.out"
