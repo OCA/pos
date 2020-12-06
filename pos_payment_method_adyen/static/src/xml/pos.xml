@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="XmlReceipt">
+        <t t-jquery='.before-footer' t-operation='append'>
+            <t t-foreach='paymentlines' t-as='line'>
+                <t t-if='line.card_receipt'>
+                    <t t-foreach="line.card_receipt" t-as="receipt_field">
+                        <line>
+                            <left><t t-esc="receipt_field"/></left>
+                        </line>
+                    </t>
+                    <line>
+                        <left>APPROVED</left>
+                    </line>
+                </t>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="PosTicket">
+        <t t-jquery='.receipt-change' t-operation='after'>
+            <div class="pos-center-align">CARDHOLDER COPY</div>
+            <br />
+            <table class='receipt-paymentlines-adyen'>
+                <t t-foreach="paymentlines" t-as="line">
+                    <t t-if='line.card_receipt'>
+                        <t t-foreach="line.card_receipt" t-as="receipt_field">
+                            <tr>
+                                <td class="pos-left-align">
+                                    <t t-esc="receipt_field"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td class="pos-center-align">
+                                APPROVED
+                            </td>
+                        </tr>
+                    </t>
+                </t>
+            </table>
+        </t>
+        <t t-jquery='.receipt-paymentlines' t-operation="replace"/>
+    </t>
+
+</templates>

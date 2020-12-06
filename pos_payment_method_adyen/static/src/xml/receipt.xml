@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AdyenReceipt">
+        <screen name="virtual-receipt.xslt">
+        <!-- screen names are: virtual-receipt-with-qr-code.xslt, virtual_receipt01.xslt and virtual_receipt02.xslt for M400; or virtual-receipt.xslt for other terminals -->
+            <receipt>
+                <qrcodeblock>
+                <!-- the qrcodeblock is ignored when not applicable for the screen name -->
+                    <qrheader>
+                        <description>Scan to join the club&#33;</description>
+                    </qrheader>
+                    <qrcodedata>
+                        <call-to-action>Scan</call-to-action>
+                        <data>https%3A%2F%2Fwww%2Eadyen%2Ecom%2Fsignup%2F%3Flocation%3Damsterdam%26store%3DStore42%26POSID%3DREG0042%26hash%3DAAhbcdfjkbckjwbnadsjkn4%3D</data>
+                    </qrcodedata>
+                    <qrfooter>
+                        <description>&#91;qr-footer&#93;</description>
+                    </qrfooter>
+                </qrcodeblock>
+                <list-header>Your items</list-header>
+                <!-- a receipt can have 0 or 1 lines element -->
+                <lines>
+                    <!-- the lines element can have 0 or more lineitems -->
+                    <lineitem>
+                        <description>** SALES **</description>
+                    </lineitem>
+                    <lineitem>
+                        <!-- all elements (count, description, and amount) are optional -->
+                        <count>1</count>
+                        <description>Running shoes</description>
+                        <amount>
+                            <!-- an amount must have a currency symbol or code, and a value -->
+                            <currency>$</currency>
+                            <value>79.99</value>
+                        </amount>
+                    </lineitem>
+                    <lineitem>
+                        <count>2</count>
+                        <description>Green T-shirt @ 9.89</description>
+                        <amount>
+                            <currency>$</currency>
+                            <value>19.78</value>
+                        </amount>
+                    </lineitem>
+                    <lineitem>
+                            <description>** DISCOUNTS **</description>
+                    </lineitem>
+                    <lineitem>
+                        <description>Loyalty discount</description>
+                        <amount>
+                            <currency>$</currency>
+                            <value>-4.48</value>
+                        </amount>
+                    </lineitem>
+                    <lineitem>
+                        <description></description><!-- a lineitem containing only an empty description returns a blank line -->
+                    </lineitem>
+                    <lineitem>
+                        <description>** RETURNS **</description>
+                    </lineitem>
+                    <lineitem>
+                        <count>1</count>
+                        <description>Grey t-shirt @ 12.99</description>
+                        <amount>
+                            <currency>$</currency>
+                            <value>-12.99</value>
+                        </amount>
+                    </lineitem>
+                    <lineitem>
+                        <description>____________________</description>
+                    </lineitem>
+                    <!-- an empty lineitem returns a blank line (taking up vertical space) -->
+                    <lineitem></lineitem>
+                </lines>
+                <!-- a receipt can have 0 or 1 tax element -->
+                <tax>
+                    <!-- a tax element can have 0 or 1 taxtotal element -->
+                    <taxtotal>
+                        <!-- description and amount are both optional -->
+                        <description>Total tax:</description>
+                        <amount>
+                            <currency>$</currency>
+                            <value>22.14</value>
+                        </amount>
+                    </taxtotal>
+                    <!-- the tax element can have 0 or more taxitems -->
+                    <taxitem>
+                        <!-- description and amount are both optional -->
+                        <description>VAT:</description>
+                        <amount>
+                            <currency>$</currency>
+                            <value>21.34</value>
+                        </amount>
+                    </taxitem>
+                    <taxitem>
+                        <description>Seasonal tax:</description>
+                        <amount>
+                            <currency>$</currency>
+                            <value>0.80</value>
+                        </amount>
+                    </taxitem>
+                </tax>
+                <!-- a receipt can have 0 or 1 subtotal element -->
+                <subtotal>
+                    <!-- description and amount are both optional -->
+                    <description>subtotal</description>
+                    <amount>
+                        <currency>$</currency>
+                        <value>82.30</value>
+                    </amount>
+                </subtotal>
+                <!-- a receipt can have 0 or 1 total element -->
+                <total>
+                    <!-- description and amount are both optional -->
+                    <description>Total amount:</description>
+                    <amount>
+                        <currency>$</currency>
+                        <value>104.44</value>
+                    </amount>
+                </total>
+            </receipt>
+        </screen>
+    </t>
+
+</templates>
