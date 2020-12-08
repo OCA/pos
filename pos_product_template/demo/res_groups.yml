@@ -22,4 +22,4 @@
 
 - !record {model: res.groups, id: base.group_no_one}:
     users:
-        - base.user_root
+      - base.user_root

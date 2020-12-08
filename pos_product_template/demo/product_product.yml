@@ -28,7 +28,7 @@
 
 - !record {model: product.product, id: product.product_product_4c}:
     available_in_pos: True
-    
+
 - !record {model: product.product, id: product.product_product_11}:
     available_in_pos: True
 
