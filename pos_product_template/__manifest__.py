@@ -8,13 +8,13 @@
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
-        "pos_fix_search_limit",
     ],
     "data": [
         "view/view.xml",
     ],
     "qweb": [
         "static/src/xml/ppt.xml",
+        "static/src/xml/SelectVariantPopup.xml",
     ],
     "demo": [
         "demo/product_attribute_value.yml",

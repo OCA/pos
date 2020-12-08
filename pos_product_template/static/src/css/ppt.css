@@ -86,6 +86,10 @@
     background-color: white;
 }
 
+.attributeValue.selected {
+    color: red;
+}
+
 .pos .attribute .attribute-value {
     float: left;
     width: 150px;
