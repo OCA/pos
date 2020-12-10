@@ -11,11 +11,11 @@ odoo.define('pos_payment_terminal_return.pos_payment_terminal_return', function 
 
     var models = require('point_of_sale.models');
 
-    models.load_fields("account.journal", ['payment_mode']);
+    models.load_fields("account.journal", ['pos_terminal_payment_mode']);
 
     models.Paymentline = models.Paymentline.extend({
         wait_terminal_return: function () {
-            if (this.cashregister.journal.payment_mode === 'card' && this.pos.config.iface_payment_terminal && this.pos.config.iface_payment_terminal_return) {
+            if (this.cashregister.journal.pos_terminal_payment_mode === 'card' && this.pos.config.iface_payment_terminal && this.pos.config.iface_payment_terminal_return) {
                 return true;
             }
             return false;
