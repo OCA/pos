@@ -153,6 +153,11 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             return cmds
 
         },
+        get_escpos_card_receipt_cmds: function () {
+            var cmds = '';
+            /* To be inherited */
+            return cmds
+        },
         get_escpos_receipt_cmds_footer: function () {
             var cmds = '';
             var order = this.pos.get_order();
@@ -183,7 +188,11 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
                 if (outputFormat == 'escpos'){
                     //Set content to print...
                     //Create ESP/POS commands for sample label
-                    var cmds = [this.get_escpos_receipt_cmds(), this.get_escpos_receipt_cmds_footer()].join("")
+                    var cmds = [
+                        this.get_escpos_receipt_cmds(),
+                        this.get_escpos_card_receipt_cmds(),
+                        this.get_escpos_receipt_cmds_footer()
+                    ].join("")
                     cpj.printerCommands = cmds;
                     //Send print job to printer!
                     cpj.sendToClient();
