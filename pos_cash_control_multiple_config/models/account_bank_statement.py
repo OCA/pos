@@ -12,7 +12,7 @@ class AccountBankStatement(models.Model):
     def _get_opening_balance(self, journal_id):
         PosSession = self.env["pos.session"]
         pos_config_id = self.env.context.get("pos_config_id")
-        if self.env.context.get("pos_config_id"):
+        if pos_config_id:
             sessions = PosSession.search(
                 [('config_id', '=', pos_config_id)],
                 order="start_at desc", limit=1)
@@ -26,6 +26,6 @@ class AccountBankStatement(models.Model):
                     if old_statement.journal_id.id == journal_id:
                         last_valid_statement = old_statement
                 if last_valid_statement:
-                    return last_valid_statement.balance_end
+                    return last_valid_statement.balance_end_real
 
         return super()._get_opening_balance(journal_id)
