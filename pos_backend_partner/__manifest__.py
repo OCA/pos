@@ -7,16 +7,16 @@
     "summary": "Choose point of sale customers in backend",
     "version": "14.0.1.0.0",
     "category": "Point of sale",
-    "website": "http://www.akretion.com",
-    'author': "Akretion,Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/pos",
+    "author": "Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    'installable': True,
+    "installable": True,
     "depends": [
         "pos_backend_communication",
     ],
     "data": [
-        'views/assets.xml',
-        'views/backend_partner.xml',
+        "views/assets.xml",
+        "views/backend_partner.xml",
     ],
 }
