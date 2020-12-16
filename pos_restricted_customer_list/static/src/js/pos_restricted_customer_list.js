@@ -1,7 +1,7 @@
 odoo.define("pos_restricted_customer_list.point_of_sale.models", function(require) {
     "use strict";
 
-    var Model = require("web.DataModel");
+    var rpc = require("web.rpc");
     var PosModels = require("point_of_sale.models");
     var PosModel = PosModels.PosModel;
     var PosModelSuper = PosModel.prototype;
@@ -21,37 +21,30 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
         },
         prepare_load_new_partners_domain: function() {
             return [
-                ["customer", "=", true],
                 ["available_in_pos", "=", true],
             ];
         },
-        load_new_partners: function() {
+        load_new_partners: function(){
             var self = this;
-            var def = new $.Deferred();
-            var fields = _.find(this.models, function(model) {
-                return model.model === "res.partner";
-            }).fields;
-            var domain = self.prepare_load_new_partners_domain();
-            new Model("res.partner")
-                .query(fields)
-                .filter(domain)
-                .all({timeout: 3000, shadow: true})
-                .then(
-                    function(partners) {
-                        if (self.db.add_partners(partners)) {
-                            // Check if the partners we got were real updates
-                            def.resolve();
-                        } else {
-                            def.reject();
-                        }
-                    },
-                    // eslint-disable-next-line handle-callback-err
-                    function(err, event) {
-                        event.preventDefault();
-                        def.reject();
+            return new Promise(function (resolve, reject) {
+                var fields = _.find(self.models, function(model){ return model.label === 'load_partners'; }).fields;
+                var domain = self.prepare_load_new_partners_domain();
+                rpc.query({
+                    model: 'res.partner',
+                    method: 'search_read',
+                    args: [domain, fields],
+                }, {
+                    timeout: 3000,
+                    shadow: true,
+                })
+                .then(function (partners) {
+                    if (self.db.add_partners(partners)) {   // check if the partners we got were real updates
+                        resolve();
+                    } else {
+                        reject();
                     }
-                );
-            return def;
+                }, function (type, err) { reject(); });
+            });
         },
     });
 });
