@@ -20,30 +20,41 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
             return PosModelSuper.initialize.call(self, session, attributes);
         },
         prepare_load_new_partners_domain: function() {
-            return [
-                ["available_in_pos", "=", true],
-            ];
+            return [["available_in_pos", "=", true]];
         },
-        load_new_partners: function(){
+        load_new_partners: function() {
             var self = this;
-            return new Promise(function (resolve, reject) {
-                var fields = _.find(self.models, function(model){ return model.label === 'load_partners'; }).fields;
+            return new Promise(function(resolve, reject) {
+                var fields = _.find(self.models, function(model) {
+                    return model.label === "load_partners";
+                }).fields;
                 var domain = self.prepare_load_new_partners_domain();
-                rpc.query({
-                    model: 'res.partner',
-                    method: 'search_read',
-                    args: [domain, fields],
-                }, {
-                    timeout: 3000,
-                    shadow: true,
-                })
-                .then(function (partners) {
-                    if (self.db.add_partners(partners)) {   // check if the partners we got were real updates
-                        resolve();
-                    } else {
+                rpc.query(
+                    {
+                        model: "res.partner",
+                        method: "search_read",
+                        args: [domain, fields],
+                    },
+                    {
+                        timeout: 3000,
+                        shadow: true,
+                    }
+                ).then(
+                    function(partners) {
+                        if (self.db.add_partners(partners)) {
+                            // Check if the partners we got were real updates
+                            resolve();
+                        } else {
+                            reject();
+                        }
+                    },
+                    function(type, err) {
+                        if (type || err) {
+                            // Avoid eslint false positive
+                        }
                         reject();
                     }
-                }, function (type, err) { reject(); });
+                );
             });
         },
     });
