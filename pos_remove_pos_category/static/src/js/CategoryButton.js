@@ -11,10 +11,10 @@ odoo.define("pos_remove_pos_category.CategoryButton", function (require) {
     var PRPCCategoryButton = (CategoryButton) =>
         class PRPCCategoryButton extends CategoryButton {
             get imageUrl() {
-                const category = this.props.category
+                const category = this.props.category;
                 return `/web/image?model=product.category&field=image_128&id=${category.id}&write_date=${category.write_date}&unique=1`;
             }
-        }
+        };
 
     Registries.Component.extend(CategoryButton, PRPCCategoryButton);
 
