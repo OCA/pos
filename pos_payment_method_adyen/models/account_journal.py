@@ -34,10 +34,6 @@ class AccountJournal(models.Model):
     adyen_test_mode = fields.Boolean(
         help='Run transactions in the test environment.'
     )
-    adyen_show_receipt_poi = fields.Boolean(
-        string="Show Receipt in Terminal",
-        help='Show the receipt in the terminal screen at payment'
-    )
     adyen_latest_response = fields.Char(
         help='Technical field used to buffer the latest asynchronous '
              'notification from Adyen.',

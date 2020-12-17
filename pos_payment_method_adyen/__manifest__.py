@@ -14,6 +14,7 @@
     ],
     "data": [
         "views/account_journal_views.xml",
+        "views/pos_config_views.xml",
         "views/assets.xml",
     ],
     "qweb": [

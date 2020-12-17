@@ -29,6 +29,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 } else {
                     this.adyen_send_refund_request();
                 }
+                // TODO: Move this to Hobbii specific module
                 // this.adyen_show_virtual_receipt();
             }
         },
@@ -40,50 +41,13 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             }
         },
 
-        _adyen_virtual_receipt_data: function () {
-            this.most_recent_service_id = Math.floor(Math.random() * Math.pow(2, 64)).toString(); // random ID to identify request/response pairs
-            this.most_recent_service_id = this.most_recent_service_id.substring(0, 10); // max length is 10
-            var data = {
-                'SaleToPOIRequest': {
-                    'DisplayRequest': {
-                        'DisplayOutput':[
-                            {
-                                'Device': 'CustomerDisplay',
-                                'InfoQualify': 'Display',
-                                'OutputContent': {
-                                    'OutputFormat': 'XHTML',
-                                    'OutputXHTML': btoa(QWeb.render('AdyenReceipt', this._adyen_receipt_render_env())),
-                                }
-                            }
-                        ]
-                    },
-                    'MessageHeader':{
-                        'ProtocolVersion': '3.0',
-                        'MessageClass': 'Device',
-                        'MessageType': 'Request',
-                        'SaleID': this._adyen_get_sale_id(),
-                        'ServiceID': this.most_recent_service_id,
-                        'POIID': this.journal.adyen_terminal_identifier,
-                        'MessageCategory': 'Display'
-                    }
-                }
-            }
-
-            return data;
-        },
-
-        adyen_show_virtual_receipt: function () {
-            var self = this;
-            var data = this._adyen_virtual_receipt_data();
-
-            return this._call_adyen(data).then(function (data) {
-                return self._adyen_handle_response(data);
-            });
-        },
-
         adyen_send_payment_request: function () {
+            var self = this;
+            this.use_payment_token = false;
+            this.shopperReference = null;
             this._reset_state();
-            return this._adyen_pay();
+            // Check if we can store customer card token
+            this._check_create_new_customer_profile()
         },
         adyen_send_refund_request: function () {
             this._reset_state();
@@ -104,6 +68,25 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             this.last_diagnosis_service_id = false;
             this.remaining_polls = 2;
             clearTimeout(this.polling);
+        },
+
+        _check_create_new_customer_profile: function () {
+            // We create a new customer profile if:
+            // - Active Shopper Recognition is enabled in the PoS Config
+            // - The partner is set
+            // - The partner has the field pos_payment_token empty
+            var partner = this.pos.get_client();
+            if (this.pos.config.active_shopper_recognition && partner && partner.pos_payment_token !== "0") {
+                if (partner.pos_payment_token === "") {
+                    // We only store the customer information if he/she agrees
+                    this._ask_client_confirmation(partner);
+                } else {
+                    this.use_payment_token = true;
+                    this._adyen_card_acquisition();
+                }
+            } else {
+                this._adyen_pay();
+            }
         },
 
         _handle_odoo_connection_failure: function (data) {
@@ -154,9 +137,50 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return {}
         },
 
+        // ADYEN Card Acquisition
+
+        _adyen_card_acquisition_data: function () {
+            var order = this.pos.get_order();
+            var line = order.selected_paymentline;
+            var data = {
+                'SaleToPOIRequest': {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                        'MessageCategory': 'CardAcquisition',
+                    }),
+                    'CardAcquisitionRequest': {
+                        'SaleData': {
+                            'SaleTransactionID': {
+                                'TransactionID': order.uid,
+                                'TimeStamp': moment().format(), // iso format: '2018-01-10T11:30:15+00:00'
+                            },
+                            'TokenRequestedType': 'Customer'
+                        },
+                        'CardAcquisitionTransaction': {
+                            'TotalAmount': line.amount
+                        }
+                    }
+                }
+            }
+
+            return data;
+        },
+
+        _adyen_card_acquisition: function () {
+            var self = this;
+            this.card_acquisition_transaction = true;
+            var partner = this.pos.get_client();
+            this.shopperReference = partner.id + Math.floor(Math.random() * Math.pow(2, 64)).toString();
+
+            var data = this._adyen_card_acquisition_data();
+
+            return this._call_adyen(data).then(function (data) {
+                return self._adyen_handle_response(data);
+            });
+        },
+
         // ADYEN Payment
 
-        _adyen_pay_data: function () {
+        _adyen_pay_data: function (timeStamp, transactionId) {
             var order = this.pos.get_order();
             var config = this.pos.config;
             var line = order.selected_paymentline;
@@ -170,7 +194,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                             'SaleTransactionID': {
                                 'TransactionID': order.uid,
                                 'TimeStamp': moment().format(), // iso format: '2018-01-10T11:30:15+00:00'
-                            }
+                            },
+                            'TokenRequestedType': 'Customer'
                         },
                         'PaymentTransaction': {
                             'AmountsReq': {
@@ -182,10 +207,22 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 }
             };
 
+            if (this.use_payment_token) {
+                var partner = this.pos.get_client();
+                var partner_email = partner.email;
+                data['SaleToPOIRequest']['PaymentRequest']['SaleData']['SaleToAcquirerData'] = 'shopperEmail=' + partner_email + '&shopperReference=' + this.shopperReference;
+                data['SaleToPOIRequest']['PaymentRequest']['PaymentData'] = {
+                    'CardAcquisitionReference': {
+                        'TimeStamp': timeStamp ? timeStamp : moment().format(),
+                        'TransactionID': transactionId ? transactionId : order.uid,
+                    }
+                };
+            }
+
             return data;
         },
 
-        _adyen_pay: function () {
+        _adyen_pay: function (timestamp=false, transactionId=false) {
             var self = this;
 
             if (this.pos.get_order().selected_paymentline.amount < 0) {
@@ -193,7 +230,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 return Promise.resolve();
             }
 
-            var data = this._adyen_pay_data();
+            var data = this._adyen_pay_data(timestamp, transactionId);
 
             return this._call_adyen(data).then(function (data) {
                 return self._adyen_handle_response(data);
@@ -247,6 +284,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         // ADYEN Cancel
 
         _adyen_cancel: function (ignore_error) {
+            var self = this;
             var previous_service_id = this.most_recent_service_id;
             var header = _.extend(this._adyen_common_message_header(), {
                 'MessageCategory': 'Abort',
@@ -345,30 +383,62 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 }
 
                 if (notification && notification.SaleToPOIResponse.MessageHeader.ServiceID == self.most_recent_service_id) {
-                    var response = notification.SaleToPOIResponse.PaymentResponse.Response;
+                    if (self.card_acquisition_transaction) {
+                        var response = notification.SaleToPOIResponse.CardAcquisitionResponse.Response;
+                    } else {
+                        var response = notification.SaleToPOIResponse.PaymentResponse.Response;
+                    }
                     var additional_response = new URLSearchParams(response.AdditionalResponse);
 
                     if (response.Result == 'Success') {
-                        var config = self.pos.config;
-                        var payment_response = notification.SaleToPOIResponse.PaymentResponse;
-                        var payment_result = payment_response.PaymentResult;
-                        var customer_receipt = payment_response.PaymentReceipt.find(function (receipt) {
-                            return receipt.DocumentQualifier == 'CustomerReceipt';
-                        });
+                        if (self.card_acquisition_transaction) {
+                            var card_acquisition_response = notification.SaleToPOIResponse.CardAcquisitionResponse;
+                            var poi_transaction_id = card_acquisition_response.POIData.POITransactionID;
+                            var timeStamp = poi_transaction_id.TimeStamp;
+                            var transactionId = poi_transaction_id.TransactionID;
 
-                        if (customer_receipt) {
-                            line.ticket = self._convert_receipt_info(customer_receipt.OutputContent.OutputText);
-                            line.card_receipt = self._convert_receipt_info_dict(customer_receipt.OutputContent.OutputText);
+                            var shopperReference = additional_response.get('shopperReference');
+                            self.card_acquisition_transaction = false;
+                            var partner_reference = self.pos.get_client().pos_payment_token;
+                            if (shopperReference) {
+                                if (!partner_reference || partner_reference != shopperReference) {
+                                    self._rpc({
+                                        model: 'res.partner',
+                                        method: 'write',
+                                        args: [self.pos.get_client().id, {pos_payment_token: shopperReference}],
+                                    }).then(function () { self._adyen_pay(timeStamp, transactionId); });
+                                } else {
+                                    self._adyen_pay(timeStamp, transactionId);
+                                }
+                            } else {
+                                self._rpc({
+                                    model: 'res.partner',
+                                    method: 'write',
+                                    args: [self.pos.get_client().id, {pos_payment_token: self.shopperReference}],
+                                }).then(function () { self._adyen_pay(timeStamp, transactionId); });
+                            }
+                        } else {
+                            var payment_response = notification.SaleToPOIResponse.PaymentResponse;
+                            var payment_result = payment_response.PaymentResult;
+                            // Check if there is receipt
+                            var customer_receipt = payment_response.PaymentReceipt.find(function (receipt) {
+                                return receipt.DocumentQualifier == 'CustomerReceipt';
+                            });
+
+                            if (customer_receipt) {
+                                line.ticket = self._convert_receipt_info(customer_receipt.OutputContent.OutputText);
+                                line.card_receipt = self._convert_receipt_info_dict(customer_receipt.OutputContent.OutputText);
+                            }
+
+                            var config = this.pos.config;
+                            // If passive shopper recognition is enabled store data of transaction
+                            if (config.passive_shopper_recognition) {
+                                // TODO: finish this
+                            }
+
+                            self.validate_order();
+                            resolve(true);
                         }
-
-                        line.transaction_id = additional_response.get('pspReference');
-                        line.card_type = additional_response.get('cardType');
-
-                        // If partner is loaded we ask if we can store card information
-                        console.log(self.pos.get_client())
-
-                        self.validate_order()
-                        resolve(true);
                     } else {
                         var message = additional_response.get('message');
                         self._show_error(_.str.sprintf(_t('Message from Adyen: %s'), message));
@@ -429,6 +499,25 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
                 return res;
             }
+        },
+
+        _ask_client_confirmation: function (partner) {
+            var self = this;
+            this.gui.show_popup('confirm',{
+                title: _t('Please Confirm Client Agreement to Store Data'),
+                body:  _t('Does client agrees on the storage of sensitive data in our system?'),
+                confirm: function () {
+                    self.store_user_token = true;
+                    self._adyen_card_acquisition();
+                },
+                cancel: function () {
+                    return self._rpc({
+                        model: 'res.partner',
+                        method: 'write',
+                        args: [partner.id, {pos_payment_token: "0"}],
+                    }).then(function () { self._adyen_pay(); });
+                }
+            });
         },
 
         _show_error: function (msg, title) {

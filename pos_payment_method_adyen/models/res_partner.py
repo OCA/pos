@@ -7,4 +7,8 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    card_token = fields.String()
+    pos_payment_token = fields.Char(
+        string="PoS Payment Token",
+        help="This is the token used for payment automation with Adyen, 0 means the "
+             "client has declined storing information in the system."
+    )
