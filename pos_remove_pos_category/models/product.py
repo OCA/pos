@@ -30,23 +30,11 @@ class ProductTemplate(models.Model):
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    image = fields.Binary(help='Show Image Category in Form View')
-    image_medium = fields.Binary(help='Show image category button in POS',
-                                 compute="_compute_image",
-                                 inverse="_set_image",
-                                 store=True)
+    image_128 = fields.Image("Image", max_width=128, max_height=128)
+
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
         default=True,
         help="Check if you want this category to appear in Point Of Sale.\n"
              "If you uncheck, children categories will becomes invisible too, "
              "whatever their checkbox state.")
-
-    def _compute_image(self):
-        return dict(
-            (rec.id, tools.image_get_resized_images(rec.image)) for rec in
-            self)
-
-    def _set_image(self):
-        return self.write(
-            {'image': tools.image_resize_image_big(self.image_medium)})

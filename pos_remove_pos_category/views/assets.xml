@@ -2,7 +2,9 @@
 <odoo>
     <template id="assets" inherit_id="point_of_sale.assets">
       <xpath expr="." position="inside">
-          <script type="text/javascript" src="/pos_remove_pos_category/static/src/js/pos_remove_pos_category.js"></script>
+          <script type="text/javascript" src="/pos_remove_pos_category/static/src/js/models.js"></script>
+          <script type="text/javascript" src="/pos_remove_pos_category/static/src/js/Chrome.js"></script>
+          <script type="text/javascript" src="/pos_remove_pos_category/static/src/js/CategoryButton.js"></script>
       </xpath>
     </template>
 </odoo>

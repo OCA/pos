@@ -10,10 +10,7 @@
                 <field name="available_in_pos"/>
             </field>
             <xpath expr="//field[@name='name']/../.." position="before">
-                <field name="image_medium"
-                       widget="image"
-                       class="oe_avatar"
-                       options='{"size": [100, 100]}'/>
+                <field name="image_128" widget="image" class="oe_avatar"/>
             </xpath>
         </field>
     </record>
