@@ -1,22 +1,20 @@
-# © 2014-2016 Aurélien DUMAINE
-# © 2015-2016 Akretion (Alexis de Lattre <alexis.delattre@akretion.com>)
+# Copyright 2014-2020 Aurélien DUMAINE
+# Copyrght 2015-2020 Akretion (http://www.akretion.com/)
+# @author: Alexis de Lattre <alexis.delattre@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': 'POS Payment Terminal',
-    'version': '12.0.0.1.3',
+    'version': '14.0.1.0.0',
     'category': 'Point Of Sale',
-    'summary': 'Manage Payment Terminal device from POS front end',
+    'summary': 'Point of sale: support generic payment terminal',
     'author': "Aurélien DUMAINE,GRAP,Akretion,"
               "Odoo Community Association (OCA)",
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [
-        'views/pos_config.xml',
-        'views/account_journal.xml',
+        'views/pos_payment_method.xml',
         'views/assets.xml',
-        ],
-    'demo': ['demo/pos_config.xml'],
-    'qweb': ['static/src/xml/pos_payment_terminal.xml'],
+    ],
     'installable': True,
 }
