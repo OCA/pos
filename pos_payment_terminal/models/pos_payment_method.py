@@ -2,17 +2,17 @@
 # @author: Alexis de Lattre <alexis.delattre@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models, _
+from odoo import _, fields, models
 
 
 class PosPaymentMethod(models.Model):
-    _inherit = 'pos.payment.method'
+    _inherit = "pos.payment.method"
 
     def _get_payment_terminal_selection(self):
         res = super()._get_payment_terminal_selection()
-        res.append(('oca_payment_terminal', _('OCA Payment Terminal')))
+        res.append(("oca_payment_terminal", _("OCA Payment Terminal")))
         return res
 
     oca_payment_terminal_mode = fields.Selection(
-        [('card', 'Card'), ('check', 'Check')],
-        string='Payment Mode', default='card')
+        [("card", "Card"), ("check", "Check")], string="Payment Mode", default="card"
+    )
