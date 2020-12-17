@@ -23,7 +23,12 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         process_payment_terminal: function (line_cid) {
             this._super.apply(this, arguments);
             if (this.journal.use_payment_terminal == "adyen") {
-                this.adyen_send_payment_request();
+                var isRefund = this.pos.get_order().selected_paymentline.amount < 0;
+                if (!isRefund) {
+                    this.adyen_send_payment_request();
+                } else {
+                    this.adyen_send_refund_request();
+                }
                 // this.adyen_show_virtual_receipt();
             }
         },
@@ -79,6 +84,10 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         adyen_send_payment_request: function () {
             this._reset_state();
             return this._adyen_pay();
+        },
+        adyen_send_refund_request: function () {
+            this._reset_state();
+            return this._adyen_refund();
         },
         adyen_send_payment_cancel: function (order, cid) {
             // set only if we are polling
@@ -145,6 +154,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return {}
         },
 
+        // ADYEN Payment
+
         _adyen_pay_data: function () {
             var order = this.pos.get_order();
             var config = this.pos.config;
@@ -189,6 +200,52 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             });
         },
 
+        // ADYEN Refund
+
+        _adyen_refund_data: function () {
+            var order = this.pos.get_order();
+            var config = this.pos.config;
+            var line = order.selected_paymentline;
+            var data = {
+                'SaleToPOIRequest': {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                        'MessageCategory': 'Payment',
+                    }),
+                    'PaymentRequest': {
+                        'SaleData': {
+                            'SaleTransactionID': {
+                                'TransactionID': order.uid,
+                                'TimeStamp': moment().format(), // iso format: '2018-01-10T11:30:15+00:00'
+                            }
+                        },
+                        'PaymentTransaction': {
+                            'AmountsReq': {
+                                'Currency': this.pos.currency.name,
+                                'RequestedAmount': (-1) * line.amount,
+                            }
+                        },
+                        'PaymentData': {
+                            'PaymentType': 'Refund',
+                        }
+                    }
+                }
+            };
+
+            return data;
+        },
+
+        _adyen_refund: function () {
+            var self = this;
+
+            var data = this._adyen_refund_data();
+
+            return this._call_adyen(data).then(function (data) {
+                return self._adyen_handle_response(data);
+            });
+        },
+
+        // ADYEN Cancel
+
         _adyen_cancel: function (ignore_error) {
             var previous_service_id = this.most_recent_service_id;
             var header = _.extend(this._adyen_common_message_header(), {
@@ -219,6 +276,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             });
         },
 
+        // ADYEN Helper
+
         _convert_receipt_info: function (output_text) {
             return output_text.reduce(function (acc, entry) {
                 var params = new URLSearchParams(entry.Text);
@@ -247,6 +306,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             });
             return receiptInfo;
         },
+
+        // ADYEN Notification management
 
         _poll_for_response: function (resolve, reject) {
             var self = this;
