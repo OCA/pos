@@ -12,12 +12,12 @@ odoo.define("pos_remove_pos_category.Chrome", function (require) {
     var PRPCChrome = (Chrome) =>
         class PRPCChrome extends Chrome {
             _preloadImages() {
-                // don't preload categories images
+                // Don't preload categories images
                 // because _preloadImage can't be overriden properly
                 // and we don't want to mess with images loading
                 var backup = this.env.pos.db.category_by_id;
-                this.env.pos.db.category_by_id = {}
-                super._preloadImages()
+                this.env.pos.db.category_by_id = {};
+                super._preloadImages();
                 this.env.pos.db.category_by_id = backup;
             }
         };
