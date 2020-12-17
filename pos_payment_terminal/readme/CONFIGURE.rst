@@ -1,11 +1,5 @@
-* Go to Point of Sale > Configuration > Point of Sale, and check
-  the field "Payment Terminal"
+* Go to *Point of Sale > Configuration > Payment Methods*, edit the
+  payment method corresponding to the card reader and set
+  the field *Use a payment terminal* to *OCA Payment Terminal*. A new field *Payment Mode* will appear, that has *Card* as defaut value. If the payment method is for Checks and you have a check printer, select *Check* instead.
 
-.. figure:: ../static/description/pos_config_form.png
-
-* Then, in the same point of sale form, click on "Payment Methods" to
-  set correctly your account journals.
-  This module support two payment modes : *card* and *check*, this
-  option is available in te Point of sale tab.
-
-.. figure:: ../static/description/account_journal_form.png
+.. figure:: ../static/description/pos_payment_method_form.png
