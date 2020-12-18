@@ -47,6 +47,7 @@ addon | version | summary
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.0 | Compute weight based on barcodes with prices
 [pos_product_sort](pos_product_sort/) | 12.0.1.0.1 | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.0 | Allow PoS user to logout quickly after user changed
+[pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.0 | POS Remove POS Category
 [pos_report_order_payment](pos_report_order_payment/) | 12.0.1.0.0 | Analyze point of sale payments
 [pos_report_session_summary](pos_report_session_summary/) | 12.0.1.0.0 | Adds a Session Summary PDF report on the POS session
 [pos_require_product_quantity](pos_require_product_quantity/) | 12.0.0.1.1 | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
