@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_category_form_view" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <!-- Priority to avoid to break account and logistics fields-->
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <field name="parent_id" position="after">
+                <field name="available_in_pos"/>
+            </field>
+            <xpath expr="//field[@name='name']/../.." position="before">
+                <field name="image_medium"
+                       widget="image"
+                       class="oe_avatar"
+                       options='{"size": [100, 100]}'/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_category_list_view" model="ir.ui.view">
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_list_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="available_in_pos" string="Available in POS"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
