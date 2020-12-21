@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template
-        id="assets_backend"
-        name="backend"
-        inherit_id="web.assets_backend"
-    >
+    <template id="assets_backend" name="backend" inherit_id="web.assets_backend">
         <xpath expr="." position="inside">  <!-- both back and POS -->
             <script
                 type="text/javascript"
