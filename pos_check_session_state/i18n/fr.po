@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-09 20:22+0000\n"
-"PO-Revision-Date: 2020-03-09 20:22+0000\n"
+"POT-Creation-Date: 2020-12-24 07:58+0000\n"
+"PO-Revision-Date: 2020-12-24 07:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,34 +21,37 @@ msgid "Frequency of Checking the State of the Session"
 msgstr "Fréquence de vérification de l'état de la session"
 
 #. module: pos_check_session_state
-#. openerp-web
-#: code:addons/pos_check_session_state/static/src/js/chrome.js:45
-#, python-format
-msgid "This PoS window will be closed and you'll have to open a new session."
-msgstr "Cette fenêtre de point de vente sera fermée et vous devrez ouvrir une nouvelle sessions."
-
-#. module: pos_check_session_state
 #: model:ir.model,name:pos_check_session_state.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Paramétrage du point de vente"
 
 #. module: pos_check_session_state
+#: model:ir.model,name:pos_check_session_state.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: pos_check_session_state
+#: model:ir.model,name:pos_check_session_state.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#. module: pos_check_session_state
 #. openerp-web
-#: code:addons/pos_check_session_state/static/src/js/chrome.js:44
+#: code:addons/pos_check_session_state/static/src/js/chrome.js:46
 #, python-format
 msgid "Session not opened : "
 msgstr "Session non ouverte : "
 
 #. module: pos_check_session_state
 #. openerp-web
-#: code:addons/pos_check_session_state/static/src/js/chrome.js:49
+#: code:addons/pos_check_session_state/static/src/js/chrome.js:51
 #, python-format
 msgid "The session you're working on is closed : "
 msgstr "La sessions sur laquelle vous travaillez est fermée : "
 
 #. module: pos_check_session_state
 #. openerp-web
-#: code:addons/pos_check_session_state/static/src/js/chrome.js:47
+#: code:addons/pos_check_session_state/static/src/js/chrome.js:49
 #, python-format
 msgid "The session you're working on is in closing control : "
 msgstr "La session sur laquelle vous travaillez est en contrôle de fermeture : "
@@ -58,4 +61,17 @@ msgstr "La session sur laquelle vous travaillez est en contrôle de fermeture : 
 #: model_terms:ir.ui.view,arch_db:pos_check_session_state.view_pos_config_form
 msgid "The value is set in seconds."
 msgstr "La valeur est définie en seconde."
+
+#. module: pos_check_session_state
+#. openerp-web
+#: code:addons/pos_check_session_state/static/src/js/chrome.js:47
+#, python-format
+msgid "This PoS window will be closed and you'll have to open a new session."
+msgstr "Cette fenêtre de point de vente sera fermée et vous devrez ouvrir une nouvelle sessions."
+
+#. module: pos_check_session_state
+#: code:addons/pos_check_session_state/models/pos_order.py:17
+#, python-format
+msgid "Unable to write an order in a closed Session"
+msgstr "Impossible de sauvegarder une vente sur une session fermée."
 

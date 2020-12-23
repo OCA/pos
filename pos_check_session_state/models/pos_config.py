@@ -10,4 +10,4 @@ class PosConfig(models.Model):
 
     check_session_state_frequency = fields.Integer(
         string="Frequency of Checking the State of the Session",
-        default=60, help="The value is set in seconds.")
+        default=0, help="The value is set in seconds.")

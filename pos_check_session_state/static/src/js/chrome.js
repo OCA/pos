@@ -23,9 +23,11 @@ odoo.define('pos_check_session_state.chrome', function (require){
             var res = this._super.apply(this, arguments);
             var frequency = self.pos.config.check_session_state_frequency * 1000;
 
-            self.intervalIDCheckSessionState = setInterval(function() {
-                self._check_session_state();
-            }, frequency);
+            if (frequency) {
+                self.intervalIDCheckSessionState = setInterval(function() {
+                    self._check_session_state();
+                }, frequency);
+            }
             return res;
         },
 
