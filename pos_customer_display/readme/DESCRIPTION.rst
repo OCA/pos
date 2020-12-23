@@ -1,8 +1,9 @@
 This module adds support for LED Customer Display in the Point of Sale.
 
-It has been tested with
+It has been tested with the following devices:
 
-* Bixolon BCD-1100 (http://www.bixolon.com/html/en/product/product_detail.xhtml?prod_id=61),
+* Bixolon BCD-2000 (https://www.bixolon.com/product_view.php?idx=162),
+* Bixolon BCD-1100 (Discontinued by Bixolon. Support page: https://www.bixolon.com/download_view.php?idx=78),
 * Aures OCD 300 (https://www.aures.com/point-de-vente-equipment-solutions-systemes/ecrans-tactiles-afficheurs/ocd-300-350-afficheur-client-graphique)
 
 But it should support most serial and USB-serial LED displays out-of-the-box or with minor adaptations in the source code

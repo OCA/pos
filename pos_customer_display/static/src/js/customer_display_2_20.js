@@ -69,16 +69,16 @@ odoo.define('pos_customer_display.customer_display_2_20', function (require) {
             var order = this.pos.get_order()
             var total = order.get_total_with_tax().toFixed(currency_rounding);
             var total_paid = order.get_total_paid().toFixed(currency_rounding);
-            var total_change = order.get_due().toFixed(currency_rounding);
+            var total_change = order.get_change().toFixed(currency_rounding);
             var total_to_pay = (total - total_paid).toFixed(currency_rounding);
 
             var remaining_operation_str = "";
 
             if (total_paid != 0) {
-                if (total_to_pay > 0) {
+                if (total_change > 0) {
+                    remaining_operation_str = _t("Returned: ") + String(total_change);
+                } else if (total_to_pay > 0) {
                     remaining_operation_str = _t("To Pay: ") + String(total_to_pay);
-                } else if (total_change < 0) {
-                    remaining_operation_str = _t("Returned: ") + String(- total_change);
                 }
             }
 
