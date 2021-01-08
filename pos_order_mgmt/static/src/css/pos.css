@@ -1,5 +1,5 @@
 /* Copyright 2018 Tecnativa - David Vidal
-   Copyright 2019 Druidoo - Iv??n Todorovich
+   Copyright 2019 Druidoo - Iván Todorovich
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 */
 
@@ -35,11 +35,11 @@
     text-align: center;
 }
 
-.orderlist-screen table td[name='td_ol_amount_total'] {
+.orderlist-screen table td[name="td_ol_amount_total"] {
     text-align: right;
 }
 
 /* Keep the table from breaking when the customer name is too long */
-.orderlist-screen table td:not([name='td_ol_customer']) {
+.orderlist-screen table td:not([name="td_ol_customer"]) {
     white-space: nowrap;
 }
