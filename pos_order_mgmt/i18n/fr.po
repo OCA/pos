@@ -20,30 +20,30 @@ msgstr ""
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
 msgid "Allows to duplicate already done orders in the frontend"
-msgstr "Autoriser ?? dupliquer des commandes r??alis??es dans l'interface tactile"
+msgstr "Autoriser à dupliquer des commandes réalisées dans l'interface tactile"
 
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 msgid "Allows to manage already done orders in the frontend."
 msgstr ""
-"Autoriser ?? rembourser des commandes r??alis??es dans l'interface tactile."
+"Autoriser à rembourser des commandes réalisées dans l'interface tactile."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
 msgid "Allows to manage orders in the frontend"
-msgstr "Autoriser ?? g??rer des commandes r??alis??es dans l'interface tactile"
+msgstr "Autoriser à gérer des commandes réalisées dans l'interface tactile"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
 msgid "Allows to reprint already done orders in the frontend"
 msgstr ""
-"Autoriser ?? r??imprimer des commandes r??alis??es dans l'interface tactile"
+"Autoriser à réimprimer des commandes réalisées dans l'interface tactile"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Allows to return already done orders in the frontend"
 msgstr ""
-"Autoriser ?? rembourser des commandes r??alis??es dans l'interface tactile"
+"Autoriser à rembourser des commandes réalisées dans l'interface tactile"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -66,7 +66,7 @@ msgstr "Retour"
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
-"Vous ne pouvez pas ex??cuter cette action, car le Point de Vente est "
+"Vous ne pouvez pas exécuter cette action, car le Point de Vente est "
 "actuellement hors ligne"
 
 #. module: pos_order_mgmt
@@ -82,7 +82,7 @@ msgstr "Erreur de connexion"
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:61
 #, python-format
 msgid "Create a new order based on this one"
-msgstr "Cr??er une nouvelle commande bas??e sur celle-ci"
+msgstr "Créer une nouvelle commande basée sur celle-ci"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -116,12 +116,12 @@ msgstr "Date"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
 msgid "Duplicate Orders"
-msgstr "Copier une commande r??alis??e"
+msgstr "Copier une commande réalisée"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
 msgid "Maximum Orders to load"
-msgstr "Nombre maximum de commande ?? charger"
+msgstr "Nombre maximum de commande à charger"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
@@ -129,9 +129,9 @@ msgid ""
 "Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
 "none (it's still possible to load them by ticket code)."
 msgstr ""
-"Nombre maximum de commandes ?? charger dans le point de vente ?? son "
+"Nombre maximum de commandes à charger dans le point de vente à son "
 "initialisation. Indiquer \"0\" pour n'en charger aucune (Il est toujours "
-"possible de les charger par une r??f??rence de commande)."
+"possible de les charger par une référence de commande)."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
@@ -141,7 +141,7 @@ msgstr "Gestion des commandes"
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr "Param??trage du point de vente"
+msgstr "Paramétrage du point de vente"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_order
@@ -167,12 +167,12 @@ msgstr "Rectifie : "
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:33
 #, python-format
 msgid "Ref."
-msgstr "R??f."
+msgstr "Réf."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
 msgid "Reference of the returned Order"
-msgstr "R??ference de la vente retourn??e"
+msgstr "Réference de la vente retournée"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -184,7 +184,7 @@ msgstr "Rembourse "
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
 msgid "Refund Orders"
-msgstr "Commandes rembours??es"
+msgstr "Commandes remboursées"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
@@ -199,24 +199,24 @@ msgstr "Remboursements"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
 msgid "Reprint Orders"
-msgstr "R??imprimer les tickets de commandes r??alis??es"
+msgstr "Réimprimer les tickets de commandes réalisées"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Return Orders"
-msgstr "Commande retourn??e"
+msgstr "Commande retournée"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
 msgid "Returned Order"
-msgstr "Commande retourn??e"
+msgstr "Commande retournée"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:74
 #, python-format
 msgid "Returned order:"
-msgstr "Commande retourn??e:"
+msgstr "Commande retournée:"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -239,7 +239,7 @@ msgid ""
 msgstr ""
 "Impossible de charger certaines lignes de ticket car les produits ne sont "
 "pas disponible dans le point de vente\n"
-"Veuillez v??rifier les lignes suivantes : \n"
+"Veuillez vérifier les lignes suivantes : \n"
 "\n"
 "  * "
 
@@ -252,21 +252,21 @@ msgstr "Produit inconnu"
 
 #~ msgid "Allow to duplicate done orders in this POS"
 #~ msgstr ""
-#~ "Autoriser ?? dupliquer des commandes r??alis??es dans l'interface tactile"
+#~ "Autoriser à dupliquer des commandes réalisées dans l'interface tactile"
 
 #~ msgid "Allow to reprint done orders in this POS"
 #~ msgstr ""
-#~ "Autoriser ?? r??imprimer des commandes r??alis??es dans l'interface tactile"
+#~ "Autoriser à réimprimer des commandes réalisées dans l'interface tactile"
 
 #~ msgid "Allow to return done orders in this POS"
 #~ msgstr ""
-#~ "Autoriser ?? rembourser des commandes r??alis??es dans l'interface tactile"
+#~ "Autoriser à rembourser des commandes réalisées dans l'interface tactile"
 
 #~ msgid "Load Done Order Max Qty."
-#~ msgstr "Quantit?? maximale de commandes ?? charger"
+#~ msgstr "Quantité maximale de commandes à charger"
 
 #~ msgid "Max. Done Orders Quantity To Load"
-#~ msgstr "Quantit?? maximale de commandes ?? charger"
+#~ msgstr "Quantité maximale de commandes à charger"
 
 #~ msgid "Return Done Orders"
-#~ msgstr "Retourner une commande r??alis??e"
+#~ msgstr "Retourner une commande réalisée"

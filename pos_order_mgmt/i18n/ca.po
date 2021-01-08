@@ -62,7 +62,7 @@ msgstr "esquena"
 #, fuzzy, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
-"No es pot executar aquesta acci?? perqu?? actualment el POS est?? fora de l??nia"
+"No es pot executar aquesta acció perquè actualment el POS està fora de línia"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -70,7 +70,7 @@ msgstr ""
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:422
 #, python-format
 msgid "Connection error"
-msgstr "Error de connexi??"
+msgstr "Error de connexió"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -84,7 +84,7 @@ msgstr "Creeu un nou ordre basat en aquest"
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:64
 #, python-format
 msgid "Create a refund order of this order"
-msgstr "Creeu una comanda de reembossament d???aquesta comanda"
+msgstr "Creeu una comanda de reembossament d’aquesta comanda"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -116,25 +116,25 @@ msgstr "Ordres duplicats"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
 msgid "Maximum Orders to load"
-msgstr "M??ximes Comandes a carregar"
+msgstr "Màximes Comandes a carregar"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
 msgid "Maximum number of orders to load on the PoS at its init. Set it to 0 to load none (it's still possible to load them by ticket code)."
 msgstr ""
-"Nombre m??xim de comandes per carregar a la versi?? PoS al seu inici. "
-"Configureu-lo a 0 per carregar-ne cap (encara ??s possible carregar-les per "
+"Nombre màxim de comandes per carregar a la versió PoS al seu inici. "
+"Configureu-lo a 0 per carregar-ne cap (encara és possible carregar-les per "
 "codi de bitllet)."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
 msgid "Order Management"
-msgstr "Gesti?? de comandes"
+msgstr "Gestió de comandes"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr "Configuraci?? del punt de venda"
+msgstr "Configuració del punt de venda"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_order
@@ -165,24 +165,24 @@ msgstr "Ref."
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
 msgid "Reference of the returned Order"
-msgstr "Refer??ncia de la comanda retornada"
+msgstr "Referència de la comanda retornada"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:245
 #, python-format
 msgid "Refund "
-msgstr "Devoluci?? "
+msgstr "Devolució "
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
 msgid "Refund Orders"
-msgstr "Ordres de devoluci??"
+msgstr "Ordres de devolució"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
 msgid "Refund Orders Quantity"
-msgstr "Quantitat de comandes de devoluci??"
+msgstr "Quantitat de comandes de devolució"
 
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
@@ -192,12 +192,12 @@ msgstr "Devolucions"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
 msgid "Reprint Orders"
-msgstr "Comandes de reimpressi??"
+msgstr "Comandes de reimpressió"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Return Orders"
-msgstr "Comandes de devoluci??"
+msgstr "Comandes de devolució"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
@@ -228,10 +228,10 @@ msgid "Unable to load some order lines because the products are not available in
 "\n"
 "  * "
 msgstr ""
-"No es poden carregar algunes l??nies de comanda perqu?? els productes no estan "
-"disponibles a la mem??ria cau POS.\n"
+"No es poden carregar algunes línies de comanda perquè els productes no estan "
+"disponibles a la memòria cau POS.\n"
 "\n"
-"Comproveu les l??nies seg??ents:\n"
+"Comproveu les línies següents:\n"
 "\n"
 "  * "
 

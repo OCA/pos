@@ -59,7 +59,7 @@ Point of Sale* and enable *Order Management*
 Usage
 =====
 
-Once the PoS is loaded, you'll find a shopping trolley icon (????) in the top
+Once the PoS is loaded, you'll find a shopping trolley icon (🛒) in the top
 bar that grants access to the order list screen.
 
 .. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_mgmt/static/description/order-mgmt-icon.png
@@ -71,8 +71,8 @@ the current session:
 .. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_mgmt/static/description/order-mgmt-list.png
 
 #. You can see their totals as well as their custumers if registered.
-#. You can reprint their tickets clicking on the printer icon (???).
-#. You can return them pressing on the arrow icon (???).
+#. You can reprint their tickets clicking on the printer icon (⎙).
+#. You can return them pressing on the arrow icon (↶).
 #. You have a search input as well that lets you find past tickets by its
    reference number.
 
@@ -111,9 +111,9 @@ Contributors
 
 * David Vidal <david.vidal@tecnativa.com>
 * Sylvain LE GAL (https://twitter.com/legalsylvain)
-* Carlos Mart??nez <carlos@domatix.com>
+* Carlos Martínez <carlos@domatix.com>
 * Pierrick Brun <pierrick.brun@akretion.com>
-* Iv??n Todorovich <ivan.todorovich@druidoo.io>
+* Iván Todorovich <ivan.todorovich@druidoo.io>
 * David Alonso <david.alonso@solvos.es>
 
 Maintainers

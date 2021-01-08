@@ -24,7 +24,7 @@ msgstr "Permite duplicar no frontend pedidos previamente efetuados"
 #. module: pos_order_mgmt
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 msgid "Allows to manage already done orders in the frontend."
-msgstr "Permite a gest??o no frontend de pedidos previamente efetuados."
+msgstr "Permite a gestão no frontend de pedidos previamente efetuados."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
@@ -34,12 +34,12 @@ msgstr "Permite gerir pedidos no frontend"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
 msgid "Allows to reprint already done orders in the frontend"
-msgstr "Permite a reimpress??o no frontend de pedidos previamente efetuados"
+msgstr "Permite a reimpressão no frontend de pedidos previamente efetuados"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Allows to return already done orders in the frontend"
-msgstr "Permite a devolu????o no frontend de pedidos previamente efetuados"
+msgstr "Permite a devolução no frontend de pedidos previamente efetuados"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -61,7 +61,7 @@ msgstr "Voltar"
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:423
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
-msgstr "N??o ?? poss??vel executar esta a????o porque o POS est?? offline"
+msgstr "Não é possível executar esta ação porque o POS está offline"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -69,7 +69,7 @@ msgstr "N??o ?? poss??vel executar esta a????o porque o POS est?? offline"
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:422
 #, python-format
 msgid "Connection error"
-msgstr "Erro de conex??o"
+msgstr "Erro de conexão"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -115,7 +115,7 @@ msgstr "Duplicar Pedidos"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
 msgid "Maximum Orders to load"
-msgstr "M??ximo de Pedidos a carregar"
+msgstr "Máximo de Pedidos a carregar"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
@@ -123,19 +123,19 @@ msgid ""
 "Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
 "none (it's still possible to load them by ticket code)."
 msgstr ""
-"N?? m??ximo de pedidos a carregar no POS na sua inicializa????o. Atribua o valor "
-"0 para n??o carregar nenhum (ser?? ainda assim poss??vel carreg??-los por c??digo "
+"Nº máximo de pedidos a carregar no POS na sua inicialização. Atribua o valor "
+"0 para não carregar nenhum (será ainda assim possível carregá-los por código "
 "de ticket)."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
 msgid "Order Management"
-msgstr "Gest??o de Pedidos"
+msgstr "Gestão de Pedidos"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr "Configura????o do Ponto de Venda"
+msgstr "Configuração do Ponto de Venda"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_order
@@ -161,12 +161,12 @@ msgstr "Retifica:"
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:33
 #, python-format
 msgid "Ref."
-msgstr "Ref??"
+msgstr "Refª"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
 msgid "Reference of the returned Order"
-msgstr "Refer??ncia do pedido devolvido"
+msgstr "Referência do pedido devolvido"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -231,8 +231,8 @@ msgid ""
 "\n"
 "  * "
 msgstr ""
-"N??o foi poss??vel carregar algumas linhas de pedidos porque os produtos n??o "
-"est??o dispon??veis na cache do POS.\n"
+"Não foi possível carregar algumas linhas de pedidos porque os produtos não "
+"estão disponíveis na cache do POS.\n"
 "\n"
 "Por favor, verifique que as linhas :\n"
 "\n"
