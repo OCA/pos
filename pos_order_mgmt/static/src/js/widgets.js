@@ -25,7 +25,7 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
             }
             var order = this.pos.reloaded_order;
             this.$(".pos-receipt-container").html(
-                QWeb.render("PosTicket", {
+                QWeb.render("OrderReceipt", {
                     widget: this,
                     pos: this.pos,
                     order: order,
@@ -356,7 +356,7 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
                 model: "pos.order",
                 method: "load_done_order_for_pos",
                 args: [order_id],
-            }).fail(function(error) {
+            }).catch(function(error) {
                 if (parseInt(error.code, 10) === 200) {
                     // Business Logic Error, not a connection problem
                     self.gui.show_popup("error-traceback", {
@@ -415,7 +415,7 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
                         }
                     });
                 })
-                .fail(function(error, event) {
+                .catch(function(error, event) {
                     if (parseInt(error.code, 10) === 200) {
                         // Business Logic Error, not a connection problem
                         self.gui.show_popup("error-traceback", {
@@ -437,7 +437,7 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
 
         perform_search: function() {
             var self = this;
-            return this.search_done_orders(self.search_query).done(function() {
+            return this.search_done_orders(self.search_query).then(function() {
                 self.render_list();
             });
         },

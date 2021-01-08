@@ -16,7 +16,7 @@ class TestModule(TransactionCase):
 
         # Get Object
         self.pos_product = self.env["product.product"].create(
-            {"name": "Test POS Product",}
+            {"name": "Test POS Product"}
         )
         self.pricelist = self.env["product.pricelist"].create(
             {
@@ -36,7 +36,7 @@ class TestModule(TransactionCase):
             }
         )
         self.partner = self.env["res.partner"].create(
-            {"name": "Mr. Odoo", "property_product_pricelist": self.pricelist.id,}
+            {"name": "Mr. Odoo", "property_product_pricelist": self.pricelist.id}
         )
 
         # Create a new pos config and open it
@@ -56,16 +56,47 @@ class TestModule(TransactionCase):
         )
         self.assertEqual(len(orders_data), 1)
         self.assertEqual(orders_data[0]["id"], order.id)
+        orders_data2 = self.PosOrder.search_done_orders_for_pos(
+            "0006", self.pos_config.current_session_id.id
+        )
+        self.assertEqual(len(orders_data2), 1)
 
         detail_data = order.load_done_order_for_pos()
         self.assertEqual(
             len(detail_data.get("line_ids", [])), 1, "Loading order detail failed"
         )
 
+        self.assertEqual(order.refund_order_qty, 0)
+        self.assertFalse(order.action_view_refund_orders().get("res_id", False))
+
+        refund_order_data = order.refund()
+        self.assertEqual(order.refund_order_qty, 1)
+        self.assertEqual(
+            order.action_view_refund_orders().get("res_id"), refund_order_data["res_id"]
+        )
+
+    def test_prepare_filters(self):
+        prepare_filter = self.PosOrder._prepare_filter_for_pos(
+            self.pos_config.current_session_id.id
+        )
+        self.assertEqual(prepare_filter[0][0], "state")
+        query = "myquery"
+        prepare_query = self.PosOrder._prepare_filter_query_for_pos(
+            self.pos_config.current_session_id.id, query
+        )
+        self.assertEqual(prepare_query[2][2], query)
+        self.assertEqual(prepare_query[3][2], query)
+        self.assertEqual(prepare_query[4][2], query)
+
     def _create_order(self):
+        account_receivable_id = (
+            self.env.user.partner_id.property_account_receivable_id.id
+        )
+        current_session = self.pos_config.current_session_id
+        payment_methods = current_session.payment_method_ids
         # Create order
         order_data = {
-            "id": u"0006-001-0010",
+            "id": "0006-001-0010",
             "to_invoice": True,
             "data": {
                 "pricelist_id": self.pricelist.id,
@@ -92,13 +123,15 @@ class TestModule(TransactionCase):
                         0,
                         0,
                         {
-                            "journal_id": self.pos_config.journal_ids[0].id,
+                            "journal_id": self.pos_config.journal_id.id,
                             "amount": 0.9,
                             "name": fields.Datetime.now(),
-                            "account_id": self.env.user.partner_id.property_account_receivable_id.id,
-                            "statement_id": self.pos_config.current_session_id.statement_ids[
-                                0
-                            ].id,
+                            "account_id": account_receivable_id,
+                            "statement_id": current_session.statement_ids[0].id,
+                            "payment_method_id": payment_methods.filtered(
+                                lambda pm: pm.is_cash_count
+                                and not pm.split_transactions
+                            )[0].id,
                         },
                     ]
                 ],
@@ -113,5 +146,5 @@ class TestModule(TransactionCase):
         }
 
         result = self.PosOrder.create_from_ui([order_data])
-        order = self.PosOrder.browse(result[0])
+        order = self.PosOrder.browse(result[0]["id"])
         return order
