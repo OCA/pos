@@ -5,7 +5,7 @@
 
 from datetime import datetime
 
-from odoo import _, api, fields, models
+from odoo import _, api, models
 from odoo.tools import float_is_zero
 from odoo.exceptions import Warning as UserError
 
@@ -57,11 +57,16 @@ class PosOrder(models.Model):
             refund_result = self.refund()
             refund_order = self.browse(refund_result["res_id"])
 
+            refund_order.write({
+                "date_order": self.date_order,
+                "session_id": self.session_id.id,
+                })
+
             for statement in self.statement_ids:
                 refund_order.add_payment({
                     "journal": statement.journal_id.id,
                     "amount": - statement.amount,
-                    "payment_date": fields.Date.context_today(self),
+                    "payment_date": self.date_order,
                 })
             refund_order.action_pos_order_paid()
 
