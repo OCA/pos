@@ -20,7 +20,6 @@ msgstr ""
 #. openerp-web
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:8
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:37
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:41
 #, python-format
 msgid "Company"
 msgstr "Compañías"
@@ -34,7 +33,6 @@ msgstr "Contacto"
 #. openerp-web
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:19
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:47
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:51
 #, python-format
 msgid "Name"
 msgstr "Nombre"
@@ -42,9 +40,7 @@ msgstr "Nombre"
 #. module: pos_partner_firstname
 #. openerp-web
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:25
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:29
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:53
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:59
 #, python-format
 msgid "Surname"
 msgstr "Apellido"
