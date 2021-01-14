@@ -29,8 +29,6 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 } else {
                     this.adyen_send_refund_request();
                 }
-                // TODO: Move this to Hobbii specific module
-                // this.adyen_show_virtual_receipt();
             }
         },
 
@@ -345,6 +343,77 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return receiptInfo;
         },
 
+        _update_shopper_reference: function (shopperReference) {
+            var self = this;
+            return this._rpc({
+                model: 'res.partner',
+                method: 'write',
+                args: [self.pos.get_client().id, {pos_payment_token: shopperReference}],
+            })
+        },
+
+        _manage_card_acquisition_response: function (notification) {
+            var self = this;
+            self.card_acquisition_transaction = false;
+
+            var response = notification.SaleToPOIResponse.CardAcquisitionResponse.Response;
+            var additional_response = new URLSearchParams(response.AdditionalResponse);
+            var card_acquisition_response = notification.SaleToPOIResponse.CardAcquisitionResponse;
+            var poi_transaction_id = card_acquisition_response.POIData.POITransactionID;
+            var timeStamp = poi_transaction_id.TimeStamp;
+            var transactionId = poi_transaction_id.TransactionID;
+            var shopperReference = additional_response.get('shopperReference');
+            var partner_reference = self.pos.get_client().pos_payment_token;
+
+            // If we get a shopper reference from the request we check if we have the same value in Odoo
+            // if not we update it. If we do not get a shopper reference we write our generated one.
+            if (shopperReference) {
+                if (!partner_reference || partner_reference != shopperReference) {
+                    self._update_shopper_reference(shopperReference).then(function () {
+                        self._adyen_pay(timeStamp, transactionId);
+                    });
+                } else {
+                    self._adyen_pay(timeStamp, transactionId);
+                }
+            } else {
+                self._update_shopper_reference(self.shopperReference).then(function () {
+                    self._adyen_pay(timeStamp, transactionId);
+                });
+            }
+        },
+
+        _manage_adyen_transaction_response: function (notification) {
+            var self = this;
+            var order = self.pos.get_order();
+            var line = order.selected_paymentline;
+            var response = notification.SaleToPOIResponse.PaymentResponse.Response;
+            var additional_response = new URLSearchParams(response.AdditionalResponse);
+
+            var payment_response = notification.SaleToPOIResponse.PaymentResponse;
+            var payment_result = payment_response.PaymentResult;
+
+            // Check if there is receipt
+            var customer_receipt = payment_response.PaymentReceipt.find(function (receipt) {
+                return receipt.DocumentQualifier == 'CustomerReceipt';
+            });
+
+            if (customer_receipt) {
+                line.ticket = self._convert_receipt_info(customer_receipt.OutputContent.OutputText);
+                line.card_receipt = self._convert_receipt_info_dict(customer_receipt.OutputContent.OutputText);
+            }
+
+            var config = this.pos.config;
+            // If passive shopper recognition is enabled store the card details on the order
+            if (config.passive_shopper_recognition) {
+                // order.customer_card_alias = additional_response.get('issuerCountry') || '';
+                order.customer_card_country_code = additional_response.get('issuerCountry') || '';
+                order.customer_card_country_iso = additional_response.get('cardIssuerCountryId') || '';
+                order.customer_card_funding_source = additional_response.get('fundingSource') || '';
+            }
+
+            self.validate_order();
+        },
+
         // ADYEN Notification management
 
         _poll_for_response: function (resolve, reject) {
@@ -372,7 +441,6 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 var notification = status.latest_response;
                 var last_diagnosis_service_id = status.last_received_diagnosis_id;
                 var order = self.pos.get_order();
-                var line = order.selected_paymentline;
 
 
                 if (self.last_diagnosis_service_id != last_diagnosis_service_id) {
@@ -389,54 +457,13 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                         var response = notification.SaleToPOIResponse.PaymentResponse.Response;
                     }
                     var additional_response = new URLSearchParams(response.AdditionalResponse);
-
                     if (response.Result == 'Success') {
+                        // We treat differently the response if we come from a card acquisition transaction or from a
+                        // payment transaction
                         if (self.card_acquisition_transaction) {
-                            var card_acquisition_response = notification.SaleToPOIResponse.CardAcquisitionResponse;
-                            var poi_transaction_id = card_acquisition_response.POIData.POITransactionID;
-                            var timeStamp = poi_transaction_id.TimeStamp;
-                            var transactionId = poi_transaction_id.TransactionID;
-
-                            var shopperReference = additional_response.get('shopperReference');
-                            self.card_acquisition_transaction = false;
-                            var partner_reference = self.pos.get_client().pos_payment_token;
-                            if (shopperReference) {
-                                if (!partner_reference || partner_reference != shopperReference) {
-                                    self._rpc({
-                                        model: 'res.partner',
-                                        method: 'write',
-                                        args: [self.pos.get_client().id, {pos_payment_token: shopperReference}],
-                                    }).then(function () { self._adyen_pay(timeStamp, transactionId); });
-                                } else {
-                                    self._adyen_pay(timeStamp, transactionId);
-                                }
-                            } else {
-                                self._rpc({
-                                    model: 'res.partner',
-                                    method: 'write',
-                                    args: [self.pos.get_client().id, {pos_payment_token: self.shopperReference}],
-                                }).then(function () { self._adyen_pay(timeStamp, transactionId); });
-                            }
+                            self._manage_card_acquisition_response(notification)
                         } else {
-                            var payment_response = notification.SaleToPOIResponse.PaymentResponse;
-                            var payment_result = payment_response.PaymentResult;
-                            // Check if there is receipt
-                            var customer_receipt = payment_response.PaymentReceipt.find(function (receipt) {
-                                return receipt.DocumentQualifier == 'CustomerReceipt';
-                            });
-
-                            if (customer_receipt) {
-                                line.ticket = self._convert_receipt_info(customer_receipt.OutputContent.OutputText);
-                                line.card_receipt = self._convert_receipt_info_dict(customer_receipt.OutputContent.OutputText);
-                            }
-
-                            var config = this.pos.config;
-                            // If passive shopper recognition is enabled store data of transaction
-                            if (config.passive_shopper_recognition) {
-                                // TODO: finish this
-                            }
-
-                            self.validate_order();
+                            self._manage_adyen_transaction_response(notification)
                             resolve(true);
                         }
                     } else {
