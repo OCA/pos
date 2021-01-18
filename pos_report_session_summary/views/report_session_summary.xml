@@ -126,7 +126,7 @@
                                     <td><span t-field="line.name" /></td>
                                     <td><span t-field="line.ref" /></td>
                                     <td><span t-field="line.partner_id" /></td>
-                                    <td><span t-field="line.account_id" /></td>
+                                    <td><span t-field="statement.account_id" /></td>
                                     <td class="text-right">
                                         <span
                                                 t-field="line.amount"
