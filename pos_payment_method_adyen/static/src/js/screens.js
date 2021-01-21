@@ -127,7 +127,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 'MessageType': 'Request',
                 'SaleID': this._adyen_get_sale_id(),
                 'ServiceID': this.most_recent_service_id,
-                'POIID': this.journal.adyen_terminal_identifier
+                'POIID': this.pos.config.adyen_terminal_identifier
             };
         },
 
@@ -428,7 +428,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 method: 'get_latest_adyen_status',
                 args: [this.journal.id,
                        this._adyen_get_sale_id(),
-                       this.journal.adyen_terminal_identifier,
+                       this.pos.config.adyen_terminal_identifier,
                        this.journal.adyen_test_mode,
                        this.journal.adyen_api_key],
             }, {

@@ -8,6 +8,22 @@
             <xpath expr="//sheet/div[6]" position="after">
                 <h2>Adyen Integration</h2>
                 <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-lg-6 o_setting_box" id="product_prices">
+                        <div class="o_setting_right_pane">
+                            <label for="adyen_terminal_identifier" string="Adyen Terminal Identifier"/>
+                            <div class="text-muted">
+                                Identification of the payment terminal to be used by this Point of Sale
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="adyen_payment_method_present" invisible="1"/>
+                                    <field name="adyen_terminal_identifier" attrs="{'required': [('adyen_payment_method_present', '=', True)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container">
                     <div class="col-12 col-lg-6 o_setting_box" >
                         <div class="o_setting_left_pane">
                             <field name="passive_shopper_recognition"/>

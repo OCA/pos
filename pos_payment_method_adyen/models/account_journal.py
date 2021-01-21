@@ -8,7 +8,6 @@ import requests
 import string
 
 from odoo import fields, models, api, _
-from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
@@ -26,11 +25,6 @@ class AccountJournal(models.Model):
         help='Used when connecting to Adyen: https://docs.adyen.com/user-management/how-to-get-the-api-key/#description',
         copy=False
     )
-    adyen_terminal_identifier = fields.Char(
-        help='[Terminal model]-[Serial number], '
-             'for example: P400Plus-123456789',
-        copy=False
-    )
     adyen_test_mode = fields.Boolean(
         help='Run transactions in the test environment.'
     )
@@ -46,24 +40,6 @@ class AccountJournal(models.Model):
         copy=False,
         groups='base.group_erp_manager'
     )
-
-    @api.constrains('adyen_terminal_identifier')
-    def _check_adyen_terminal_identifier(self):
-        for payment_method in self:
-            if not payment_method.adyen_terminal_identifier:
-                continue
-            existing_payment_method = self.search([
-                ('id', '!=', payment_method.id),
-                ('adyen_terminal_identifier', '=', payment_method.adyen_terminal_identifier)
-            ], limit=1)
-            if existing_payment_method:
-                raise ValidationError(
-                    _('Terminal %s is already used on payment method %s.')
-                    % (
-                        payment_method.adyen_terminal_identifier,
-                        existing_payment_method.display_name
-                    )
-                )
 
     def _is_write_forbidden(self, fields):
         whitelisted_fields = {
@@ -165,4 +141,3 @@ class AccountJournal(models.Model):
         super()._onchange_use_payment_terminal()
         if self.use_payment_terminal != 'adyen':
             self.adyen_api_key = False
-            self.adyen_terminal_identifier = False

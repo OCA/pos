@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"/>
         <field name="arch" type="xml">
             <group name="amount_authorized" position="after">
-                <group name="pos_payment_terminal">
+                <group name="pos_payment_terminal" groups="base.group_no_one">
                     <field name="hide_use_payment_terminal" invisible="1"/>
                     <field name="use_payment_terminal" attrs="{'invisible': [('hide_use_payment_terminal', '=', True)]}"/>
                 </group>
