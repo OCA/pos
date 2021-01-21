@@ -19,9 +19,7 @@ odoo.define("pos_require_customer.PRCPaymentScreen", function (require) {
                     if (order.is_customer_required()) {
                         var ret = await this.showPopup("ConfirmPopup", {
                             title: _t("Please select the Customer"),
-                            body: _(
-                                "You need to select the customer before you can invoice an order"
-                            ),
+                            body: _t("The customer is required for this pricelist"),
                         });
                         if (ret.confirmed) {
                             this.selectClient();
