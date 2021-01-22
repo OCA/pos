@@ -7,8 +7,18 @@ from odoo import fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    pos_payment_token = fields.Char(
-        string="PoS Payment Token",
+    pos_adyen_shopper_reference = fields.Char(
+        string="PoS Adyen Shopper Reference",
+        help="This is a unique reference for this customer in Adyen."
+    )
+    pos_adyen_payment_token = fields.Char(
+        string="PoS Adyen Payment Token",
         help="This is the token used for payment automation with Adyen, 0 means the "
              "client has declined storing information in the system."
+    )
+    pos_adyen_card_details = fields.Serialized(
+        readonly=True
+    )
+    pos_adyen_payment_token_expiration = fields.Date(
+        string="Expiration of PoS Adyen payment Token"
     )

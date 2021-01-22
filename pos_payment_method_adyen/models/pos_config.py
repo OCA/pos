@@ -17,13 +17,16 @@ class PosConfig(models.Model):
              'for example: P400Plus-123456789',
         copy=False
     )
-    passive_shopper_recognition = fields.Boolean(
+    adyen_passive_shopper_recognition = fields.Boolean(
         string="Enable Passive Shopper Recognition",
         help="Gain insights to grow your business.",
     )
-    active_shopper_recognition = fields.Boolean(
+    adyen_active_shopper_recognition = fields.Boolean(
         string="Enable Active Shopper Recognition",
         help="Engage recognized shoppers by personalizing their shopping experience.",
+    )
+    adyen_automated_payment = fields.Boolean(
+        string="Enable Adyen online payment with stored token",
     )
 
     @api.constrains('adyen_terminal_identifier')

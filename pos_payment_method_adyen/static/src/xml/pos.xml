@@ -43,4 +43,36 @@
         <t t-jquery='.receipt-paymentlines' t-operation="replace"/>
     </t>
 
+    <t t-name="AutomatedPaymentPopupWidget">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-payment" style="width: 800px;">
+                <header class="title"><t t-esc=" widget.options.title || 'Confirm ?' " /></header>
+                <main class="body">
+                    <div class="row">
+                        <t t-esc="  widget.options.body || '' "/>
+                    </div>
+                    <t t-if="widget.options.data">
+                        <div class="row card-row">
+                            <i class="fa fa-credit-card fa-10x card-icon"></i>
+                            <ul class="card-details">
+                                <li>Card Type: <t t-esc="widget.options.data.paymentMethod || ''"/></li>
+                                <li>Card Summary: *****<t t-esc="widget.options.data.cardSummary || ''"/></li>
+                                <li>Funding Source: <t t-esc="widget.options.data.fundingSource || ''"/></li>
+                                <li>Expiry Date: <t t-esc="widget.options.data.expiryDate || ''"/></li>
+                            </ul>
+                        </div>
+                    </t>
+                </main>
+                <footer class="footer">
+                    <div class="button confirm">
+                        Confirm
+                    </div>
+                    <div class="button cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
 </templates>

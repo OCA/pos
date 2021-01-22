@@ -5,6 +5,8 @@
         <field name="inherit_id" ref="pos_payment_method.view_account_journal_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='use_payment_terminal']" position="after">
+                <field name="adyen_merchant_account"
+                       attrs="{'invisible': [('use_payment_terminal', '!=', 'adyen')]}"/>
                 <field name="adyen_api_key"
                        attrs="{'invisible': [('use_payment_terminal', '!=', 'adyen')], 'required': [('use_payment_terminal', '=', 'adyen')]}"/>
                 <field name="adyen_test_mode"

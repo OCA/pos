@@ -7,24 +7,13 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
     var QWeb = core.qweb;
 
-    var receiptFields = [
-        'Card',
-        'PAN Seq.',
-        'Card type',
-        'AID',
-        'MID',
-        'Auth. code',
-        'Tender',
-        'TOTAL',
-    ]
-
     screens.PaymentScreenWidget.include({
 
         process_payment_terminal: function (line_cid) {
             this._super.apply(this, arguments);
             if (this.journal.use_payment_terminal == "adyen") {
-                var isRefund = this.pos.get_order().selected_paymentline.amount < 0;
-                if (!isRefund) {
+                this.isRefund = this.pos.get_order().selected_paymentline.amount < 0;
+                if (!this.isRefund) {
                     this.adyen_send_payment_request();
                 } else {
                     this.adyen_send_refund_request();
@@ -48,6 +37,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             this._check_create_new_customer_profile()
         },
         adyen_send_refund_request: function () {
+            this.use_payment_token = false;
+            this.shopperReference = null;
             this._reset_state();
             return this._adyen_refund();
         },
@@ -64,7 +55,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         _reset_state: function () {
             this.was_cancelled = false;
             this.last_diagnosis_service_id = false;
-            this.remaining_polls = 2;
+            this.remaining_polls = 3;
             clearTimeout(this.polling);
         },
 
@@ -72,15 +63,20 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             // We create a new customer profile if:
             // - Active Shopper Recognition is enabled in the PoS Config
             // - The partner is set
-            // - The partner has the field pos_payment_token empty
+            // - The partner has the field pos_adyen_shopper_reference empty
             var partner = this.pos.get_client();
-            if (this.pos.config.active_shopper_recognition && partner && partner.pos_payment_token !== "0") {
-                if (partner.pos_payment_token === "") {
+            if (this.pos.config.adyen_active_shopper_recognition && partner && partner.pos_adyen_shopper_reference !== "0") {
+                if (partner.pos_adyen_shopper_reference == "") {
                     // We only store the customer information if he/she agrees
                     this._ask_client_confirmation(partner);
                 } else {
-                    this.use_payment_token = true;
-                    this._adyen_card_acquisition();
+                    if (this.pos.config.adyen_automated_payment) {
+                        // If we have the token stored we ask for user to confirm we can use the token for the payment
+                        this._make_online_payment(partner);
+                    } else {
+                        this.use_payment_token = true;
+                        this._adyen_card_acquisition();
+                    }
                 }
             } else {
                 this._adyen_pay();
@@ -129,10 +125,6 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 'ServiceID': this.most_recent_service_id,
                 'POIID': this.pos.config.adyen_terminal_identifier
             };
-        },
-
-        _adyen_receipt_render_env: function () {
-            return {}
         },
 
         // ADYEN Card Acquisition
@@ -208,7 +200,11 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             if (this.use_payment_token) {
                 var partner = this.pos.get_client();
                 var partner_email = partner.email;
-                data['SaleToPOIRequest']['PaymentRequest']['SaleData']['SaleToAcquirerData'] = 'shopperEmail=' + partner_email + '&shopperReference=' + this.shopperReference;
+                var SaleToAcquirerData = 'shopperEmail=' + partner_email + '&shopperReference=' + this.shopperReference;
+                if (this.pos.config.adyen_automated_payment) {
+                    SaleToAcquirerData += '&recurringContract=ONECLICK,RECURRING';
+                }
+                data['SaleToPOIRequest']['PaymentRequest']['SaleData']['SaleToAcquirerData'] = SaleToAcquirerData
                 data['SaleToPOIRequest']['PaymentRequest']['PaymentData'] = {
                     'CardAcquisitionReference': {
                         'TimeStamp': timeStamp ? timeStamp : moment().format(),
@@ -218,6 +214,28 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             }
 
             return data;
+        },
+
+        _adyen_automated_payment_data: function (partner) {
+            var order = this.pos.get_order();
+            var config = this.pos.config;
+            var line = order.selected_paymentline;
+            var data = {
+                "amount": {
+                    "value": line.amount * 100,
+                    "currency": this.pos.currency.name,
+                },
+                "paymentMethod": {
+                    "type": "scheme",
+                    "storedPaymentMethodId": partner.pos_adyen_payment_token,
+                },
+                "reference": this._adyen_get_sale_id(),
+                "shopperInteraction": "ContAuth",
+                "recurringProcessingModel": "CardOnFile",
+                "merchantAccount": this.journal.adyen_merchant_account,
+                "shopperReference": partner.pos_adyen_shopper_reference,
+            }
+            return data
         },
 
         _adyen_pay: function (timestamp=false, transactionId=false) {
@@ -336,7 +354,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 var name = params.get('name');
                 var value = params.get('value');
 
-                if (name && receiptFields.includes(name) && value) {
+                if (name && value) {
                     receiptInfo.push(_.str.sprintf('%s: %s', name, value))
                 }
             });
@@ -348,7 +366,51 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return this._rpc({
                 model: 'res.partner',
                 method: 'write',
-                args: [self.pos.get_client().id, {pos_payment_token: shopperReference}],
+                args: [self.pos.get_client().id, {pos_adyen_shopper_reference: shopperReference}],
+            })
+        },
+
+        _update_shopper_recurring_token: function (shopperRecurringToken) {
+            var self = this;
+            return this._rpc({
+                model: 'res.partner',
+                method: 'write',
+                args: [self.pos.get_client().id, {pos_adyen_payment_token: shopperRecurringToken}],
+            })
+        },
+
+        _update_shopper_details: function (additional_response) {
+            var self = this;
+            var shopperRecurringToken = '';
+            if (self.pos.config.adyen_automated_payment) {
+                shopperRecurringToken = additional_response.get('recurring.recurringDetailReference');
+            }
+            // We check expiration of card so we don't use it after it has been expired, otherwise we set an expiration
+            // of the token to 1 year.
+            var expiryMonth = additional_response.get('expiryMonth');
+            var expiryYear = additional_response.get('expiryYear');
+            var expiryDay = new Date(expiryYear, expiryMonth, 0).getDate();
+            var expiryDate = '';
+            if (expiryDay && expiryMonth && expiryYear) {
+                expiryDate = expiryYear + '-' + expiryMonth + '-' + expiryDay;
+            }
+            // Card details that will be shown upon further payments
+            var cardDetails = {
+                "paymentMethod": additional_response.get('paymentMethod'),
+                "cardSummary": additional_response.get('cardSummary'),
+                "fundingSource": additional_response.get('fundingSource'),
+                "expiryDate": additional_response.get('expiryDate').split('%2f').join('-'),
+            }
+            // Data to update in the partner
+            var data = {
+                pos_adyen_payment_token: shopperRecurringToken,
+                pos_adyen_card_details: cardDetails,
+                pos_adyen_payment_token_expiration: expiryDate,
+            }
+            return this._rpc({
+                model: 'res.partner',
+                method: 'write',
+                args: [self.pos.get_client().id, data],
             })
         },
 
@@ -363,7 +425,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             var timeStamp = poi_transaction_id.TimeStamp;
             var transactionId = poi_transaction_id.TransactionID;
             var shopperReference = additional_response.get('shopperReference');
-            var partner_reference = self.pos.get_client().pos_payment_token;
+            var partner_reference = self.pos.get_client().pos_adyen_shopper_reference;
 
             // If we get a shopper reference from the request we check if we have the same value in Odoo
             // if not we update it. If we do not get a shopper reference we write our generated one.
@@ -404,11 +466,58 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
             var config = this.pos.config;
             // If passive shopper recognition is enabled store the card details on the order
-            if (config.passive_shopper_recognition) {
-                // order.customer_card_alias = additional_response.get('issuerCountry') || '';
+            if (config.adyen_passive_shopper_recognition) {
+                order.customer_card_alias = additional_response.get('alias') || '';
                 order.customer_card_country_code = additional_response.get('issuerCountry') || '';
                 order.customer_card_country_iso = additional_response.get('cardIssuerCountryId') || '';
                 order.customer_card_funding_source = additional_response.get('fundingSource') || '';
+            }
+            if (self.use_payment_token && !self.isRefund) {
+                // Store shopper details
+                self._update_shopper_details(additional_response);
+            }
+
+            self.validate_order();
+        },
+
+        _manage_adyen_online_payment_response: function (notification) {
+            var self = this;
+            var order = self.pos.get_order();
+            var line = order.selected_paymentline;
+            var response = notification.additionalData;
+
+            if (notification.errorCode) {
+                var message = notification.message;
+                self._show_error(_.str.sprintf(_t('Message from Adyen: %s'), message));
+                return
+            }
+
+            if (notification.resultCode != 'Authorised') {
+                var message = 'Payment failed for unknown reasons';
+                self._show_error(_.str.sprintf(_t('Message from Odoo: %s'), message));
+                return
+            }
+
+            var receiptFields = ["cardSummary", "recurringProcessingModel", "acquirerReference", "authCode",
+                                 "authorisedAmountValue", "authorisedAmountCurrency", "fundingSource"];
+
+            if (response) {
+                var receiptInfo = [];
+                for (var key in response) {
+                    var name = key;
+                    var value = response[key];
+
+                    if (name && value && receiptFields.includes(name)) {
+                        if (name == "authorisedAmountValue") {
+                            value = (parseInt(value, 10) / 100).toFixed(2);
+                        } else if (name == "cardSummary") {
+                            value = "************" + value;
+                        }
+                        name = name.charAt(0).toUpperCase() + name.slice(1);
+                        receiptInfo.push(_.str.sprintf('%s: %s', name.split(/(?=[A-Z])/).join(' '), value))
+                    }
+                }
+                line.card_receipt = receiptInfo;
             }
 
             self.validate_order();
@@ -445,7 +554,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
                 if (self.last_diagnosis_service_id != last_diagnosis_service_id) {
                     self.last_diagnosis_service_id = last_diagnosis_service_id;
-                    self.remaining_polls = 2;
+                    self.remaining_polls = 3;
                 } else {
                     self.remaining_polls--;
                 }
@@ -528,21 +637,58 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             }
         },
 
+        // POPUPS
+
         _ask_client_confirmation: function (partner) {
             var self = this;
             this.gui.show_popup('confirm',{
                 title: _t('Please Confirm Client Agreement to Store Data'),
                 body:  _t('Does client agrees on the storage of sensitive data in our system?'),
                 confirm: function () {
-                    self.store_user_token = true;
+                    self.use_payment_token = true;
                     self._adyen_card_acquisition();
                 },
                 cancel: function () {
                     return self._rpc({
                         model: 'res.partner',
                         method: 'write',
-                        args: [partner.id, {pos_payment_token: "0"}],
+                        args: [partner.id, {pos_adyen_shopper_reference: "0"}],
                     }).then(function () { self._adyen_pay(); });
+                }
+            });
+        },
+
+        _make_online_payment: function (partner) {
+            var self = this;
+            this.gui.show_popup('automatedPayment',{
+                title: _t('Automated payment with stored token'),
+                body:  _t('Does client agrees on using previously stored token for the payment?'),
+                data:  partner.pos_adyen_card_details,
+                confirm: function () {
+                    var data = self._adyen_automated_payment_data(partner);
+                    return rpc.query({
+                        model: 'account.journal',
+                        method: 'adyen_make_payment_request',
+                        args: [data, self.journal.adyen_test_mode, self.journal.adyen_api_key],
+                    }, {
+                        // When a payment terminal is disconnected it takes Adyen
+                        // a while to return an error (~6s). So wait 10 seconds
+                        // before concluding Odoo is unreachable.
+                        timeout: 10000,
+                        shadow: true,
+                    }).fail(function () {
+                        self._handle_odoo_connection_failure.bind(self)
+                    }).then(function (res) {
+                        self._manage_adyen_online_payment_response(res);
+                    });
+                },
+                cancel: function () {
+                    self._adyen_pay();
+                },
+                cancel_remove: function () {
+                    // What do we remove here? Everything?
+                    self._delete_shopper_data()
+                    self._adyen_pay();
                 }
             });
         },

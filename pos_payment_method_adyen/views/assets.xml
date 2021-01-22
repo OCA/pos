@@ -5,7 +5,8 @@
         <xpath expr="." position="inside">
             <script type="text/javascript" src="/pos_payment_method_adyen/static/src/js/screens.js"></script>
             <script type="text/javascript" src="/pos_payment_method_adyen/static/src/js/models.js"></script>
-            <link rel="stylesheet" type="text/scss" href="/pos_payment_method_adyen/static/src/scss/pos_receipts.scss" />
+            <script type="text/javascript" src="/pos_payment_method_adyen/static/src/js/popups.js"></script>
+            <link rel="stylesheet" type="text/scss" href="/pos_payment_method_adyen/static/src/scss/pos.scss" />
       </xpath>
     </template>
 
