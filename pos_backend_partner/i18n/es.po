@@ -20,13 +20,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_backend_partner
-#: model:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
+#: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
 msgid "Choose"
 msgstr "Elija"
 
 #. module: pos_backend_partner
 #. openerp-web
-#: code:addons/pos_backend_partner/static/src/js/back_partner.js:12
+#: code:addons/pos_backend_partner/static/src/js/back_partner.js:0
 #, python-format
 msgid "Choose a customer"
 msgstr "Elija un cliente"
@@ -37,18 +37,41 @@ msgid "Client"
 msgstr "Cliente"
 
 #. module: pos_backend_partner
+#: model:ir.model,name:pos_backend_partner.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_backend_partner
+#: model_terms:ir.actions.act_window,help:pos_backend_partner.action_select_partner_pos
+msgid "Create new document"
+msgstr ""
+
+#. module: pos_backend_partner
 #. openerp-web
-#: code:addons/pos_backend_partner/static/src/js/pos_partner.js:19
+#: code:addons/pos_backend_partner/static/src/js/pos_partner.js:0
 #, python-format
 msgid "Customer set"
 msgstr "Cliente establecido"
 
 #. module: pos_backend_partner
-#: model:ir.model,name:pos_backend_partner.model_res_partner
-msgid "Partner"
-msgstr "Empresa"
+#: model:ir.model.fields,field_description:pos_backend_partner.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: pos_backend_partner
-#: model:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
+#: model:ir.model.fields,field_description:pos_backend_partner.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_backend_partner
+#: model:ir.model.fields,field_description:pos_backend_partner.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_backend_partner
+#: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
 msgid "Select as customer in point of sale"
 msgstr "Seleccionar como cliente del TPV"
+
+#~ msgid "Partner"
+#~ msgstr "Empresa"

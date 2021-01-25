@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_backend_partner
+# 	* pos_backend_partner
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,13 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_backend_partner
-#: model:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
+#: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
 msgid "Choose"
 msgstr ""
 
 #. module: pos_backend_partner
 #. openerp-web
-#: code:addons/pos_backend_partner/static/src/js/back_partner.js:12
+#: code:addons/pos_backend_partner/static/src/js/back_partner.js:0
 #, python-format
 msgid "Choose a customer"
 msgstr ""
@@ -31,19 +31,38 @@ msgid "Client"
 msgstr ""
 
 #. module: pos_backend_partner
+#: model:ir.model,name:pos_backend_partner.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_backend_partner
+#: model_terms:ir.actions.act_window,help:pos_backend_partner.action_select_partner_pos
+msgid "Create new document"
+msgstr ""
+
+#. module: pos_backend_partner
 #. openerp-web
-#: code:addons/pos_backend_partner/static/src/js/pos_partner.js:19
+#: code:addons/pos_backend_partner/static/src/js/pos_partner.js:0
 #, python-format
 msgid "Customer set"
 msgstr ""
 
 #. module: pos_backend_partner
-#: model:ir.model,name:pos_backend_partner.model_res_partner
-msgid "Partner"
+#: model:ir.model.fields,field_description:pos_backend_partner.field_res_partner__display_name
+msgid "Display Name"
 msgstr ""
 
 #. module: pos_backend_partner
-#: model:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
-msgid "Select as customer in point of sale"
+#: model:ir.model.fields,field_description:pos_backend_partner.field_res_partner__id
+msgid "ID"
 msgstr ""
 
+#. module: pos_backend_partner
+#: model:ir.model.fields,field_description:pos_backend_partner.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_backend_partner
+#: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
+msgid "Select as customer in point of sale"
+msgstr ""
