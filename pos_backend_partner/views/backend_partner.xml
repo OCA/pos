@@ -7,14 +7,14 @@
         <field name="priority">32</field>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
-            <field name="display_name" position="before">
-                    <button
+            <xpath expr="field[1]" position="before">
+                <button
                     string="Choose"
                     type="object"
                     name="select_in_pos_current_order"
                     help="Select as customer in point of sale"
                 />
-                </field>
+            </xpath>
         </field>
     </record>
 
