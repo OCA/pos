@@ -9,6 +9,7 @@
     "category": "Point of sale",
     "website": "https://github.com/OCA/pos",
     "author": "Akretion,Odoo Community Association (OCA)",
+    "maintainers": ["hparfr"],
     "license": "AGPL-3",
     "application": False,
     "installable": True,

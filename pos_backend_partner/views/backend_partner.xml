@@ -18,6 +18,25 @@
         </field>
     </record>
 
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="priority">32</field>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <sheet position="before">
+                <header>
+                    <button
+                        string="Choose"
+                        type="object"
+                        name="select_in_pos_current_order"
+                        help="Select as customer in point of sale"
+                    />
+                </header>
+            </sheet>
+        </field>
+    </record>
+
     <record id="action_select_partner_pos" model="ir.actions.act_window">
         <field name="name">Client</field>
         <field name="type">ir.actions.act_window</field>
@@ -30,6 +49,13 @@
         <field name="sequence" eval="3" />
         <field name="view_mode">tree</field>
         <field name="view_id" ref="view_partner_tree" />
+        <field name="act_window_id" ref="action_select_partner_pos" />
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_select_partner_pos_form">
+        <field name="sequence" eval="4" />
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_partner_form" />
         <field name="act_window_id" ref="action_select_partner_pos" />
     </record>
 

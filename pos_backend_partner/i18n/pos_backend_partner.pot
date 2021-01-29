@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_backend_partner
+#: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_form
 #: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
 msgid "Choose"
 msgstr ""
@@ -63,6 +64,7 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: pos_backend_partner
+#: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_form
 #: model_terms:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
 msgid "Select as customer in point of sale"
 msgstr ""
