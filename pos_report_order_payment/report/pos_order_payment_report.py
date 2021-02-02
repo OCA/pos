@@ -148,9 +148,10 @@ class PosOrderPaymentReport(models.Model):
                 pol.id AS pos_line_id,
                 sl.id AS statement_line_id,
                 st.journal_id AS journal_id,
-                (
-                    sl.amount / po.amount_total * pol.price_subtotal_incl
-                ) AS amount
+                CASE po.amount_total
+                    WHEN 0 THEN 0
+                    ELSE sl.amount / po.amount_total * pol.price_subtotal_incl
+                END AS amount
             FROM pos_order_line AS pol
             INNER JOIN pos_order AS po
                 ON pol.order_id = po.id
