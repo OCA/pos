@@ -5,7 +5,7 @@
     'name': 'Point of Sale Payment Report',
     'summary': 'Analyze point of sale payments',
     'category': 'Point of Sale',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'author': 'Druidoo, '
               'Moka Tourisme, '
               'Odoo Community Association (OCA)',
