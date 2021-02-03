@@ -4,15 +4,14 @@
 
 */
 
-odoo.define('pos_payment_restriction.screens', function (require) {
+odoo.define("pos_payment_restriction.screens", function(require) {
     "use strict";
 
-    var screens = require('point_of_sale.screens');
-    var devices = require('point_of_sale.devices');
+    var screens = require("point_of_sale.screens");
 
     screens.PaymentScreenWidget.include({
-        payment_input: function(){
-            if (this.pos.config.payment_amount_readonly){
+        payment_input: function() {
+            if (this.pos.config.payment_amount_readonly) {
                 return;
             }
             this._super.apply(this, arguments);
