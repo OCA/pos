@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class PosSession(models.Model):
@@ -12,12 +12,14 @@ class PosSession(models.Model):
 
     display_move_reason_expense = fields.Boolean(compute="_compute_display_move_reason")
 
-    @api.multi
     def _compute_display_move_reason(self):
         MoveReason = self.env["pos.move.reason"]
+        all_reasons = MoveReason.search(
+            [("company_id", "in", self.mapped("config_id.company_id").ids)]
+        )
         for session in self:
             # Get all reasons
-            reasons = MoveReason.search(
+            reasons = all_reasons.filtered_domain(
                 [("company_id", "=", session.config_id.company_id.id)]
             )
             session.display_move_reason_income = len(
