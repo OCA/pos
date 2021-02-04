@@ -4,12 +4,12 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
 
-.pos .pos-branding .pos-logout{
-    float:right;
-    color:#DDD;
-    font-size:16px;
-    margin-right:32px;
+.pos .pos-branding .pos-logout {
+    float: right;
+    color: #ddd;
+    font-size: 16px;
+    margin-right: 32px;
     line-height: 48px;
-    font-style:italic;
+    font-style: italic;
     cursor: pointer;
 }

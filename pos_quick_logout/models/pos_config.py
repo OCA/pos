@@ -1,10 +1,11 @@
-
-from odoo import models, fields
+from odoo import fields, models
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     logout_timeout = fields.Integer(
-        default=10, string='Logout Timeout',
-        help='Time out for automatic logout for sessions in this POS')
+        default=10,
+        string="Logout Timeout",
+        help="Time out for automatic logout for sessions in this POS",
+    )

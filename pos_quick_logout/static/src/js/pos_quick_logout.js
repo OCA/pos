@@ -4,14 +4,14 @@
     @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
-odoo.define('pos_quick_logout.pos_quick_logout', function(require) {
+odoo.define("pos_quick_logout.pos_quick_logout", function(require) {
     "use strict";
 
-    var chrome = require('point_of_sale.chrome');
-    var core = require('web.core');
+    var chrome = require("point_of_sale.chrome");
+    var core = require("web.core");
 
     /* ********************************************************
-    chrome.Chrome
+    Chrome.Chrome
     ******************************************************** */
     chrome.Chrome.include({
         start: function() {
@@ -22,7 +22,7 @@ odoo.define('pos_quick_logout.pos_quick_logout', function(require) {
         },
         idletimeout: function() {
             var self = this;
-            $(document).bind('mousemove keypress mousedown click scroll', function() {
+            $(document).bind("mousemove keypress mousedown click scroll", function() {
                 self.resetTimer();
             });
         },
@@ -37,7 +37,7 @@ odoo.define('pos_quick_logout.pos_quick_logout', function(require) {
             var self = this;
             clearTimeout(this.timer);
             if (self.pos.config && self.pos.config.logout_timeout) {
-                this.timer = setTimeout(function(){
+                this.timer = setTimeout(function() {
                     self.logout();
                 }, self.pos.config.logout_timeout * 1000);
             }
@@ -45,25 +45,24 @@ odoo.define('pos_quick_logout.pos_quick_logout', function(require) {
         renderElement: function() {
             this._super();
             var self = this;
-            this.$('#pos-quick-logout').click(function() {
+            this.$("#pos-quick-logout").click(function() {
                 self.pos.set_cashier(self.pos.user);
                 self.widget.username.renderElement();
             });
-        }
+        },
     });
 
     /* ********************************************************
-    chrome.Chrome
+    Chrome.Chrome
     ******************************************************** */
     chrome.UsernameWidget.include({
         renderElement: function() {
             this._super();
             if (this.pos.user.id === this.pos.get_cashier().id) {
-                $('#pos-quick-logout').hide();
+                $("#pos-quick-logout").hide();
             } else {
-                $('#pos-quick-logout').show();
+                $("#pos-quick-logout").show();
             }
-        }
+        },
     });
-
 });
