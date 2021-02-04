@@ -1,0 +1,246 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_order_mgmt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-11-22 13:35+0000\n"
+"Last-Translator: Lorenzo Battistini <lb@takobi.online>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.8\n"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
+msgid "Allows to duplicate already done orders in the frontend"
+msgstr "Permette di duplicare ordini già fatti nel frontend"
+
+#. module: pos_order_mgmt
+#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
+msgid "Allows to manage already done orders in the frontend."
+msgstr "Permette di gestire ordini già fatti nel frontend."
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
+msgid "Allows to manage orders in the frontend"
+msgstr "Permette di gestire ordini nel frontend"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
+msgid "Allows to reprint already done orders in the frontend"
+msgstr "Permette di ristampare ordini già fatti nel frontend"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
+msgid "Allows to return already done orders in the frontend"
+msgstr "Permette di fare il reso di ordini già fatti nel frontend"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
+#, python-format
+msgid "Amount"
+msgstr "Importo"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:17
+#, python-format
+msgid "Back"
+msgstr "Indietro"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:368
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:423
+#, python-format
+msgid "Can not execute this action because the POS is currently offline"
+msgstr "Impossibile eseguire questa azione perchè il POS è attualmente offline"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:367
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:422
+#, python-format
+msgid "Connection error"
+msgstr "Errore di connessione"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:61
+#, python-format
+msgid "Create a new order based on this one"
+msgstr "Creare un nuovo ordine basato su questo"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:64
+#, python-format
+msgid "Create a refund order of this order"
+msgstr "Creare un reso di quest'ordine"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:34
+#, python-format
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:89
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:98
+#, python-format
+msgid "DUPLICATE"
+msgstr "DUPLICATO"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:35
+#, python-format
+msgid "Date"
+msgstr "Data"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
+msgid "Duplicate Orders"
+msgstr "Ordini duplicati"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
+msgid "Maximum Orders to load"
+msgstr "Numero massimo di ordini da caricare"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
+msgid ""
+"Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
+"none (it's still possible to load them by ticket code)."
+msgstr ""
+"Massimo numero di ordini da caricare nel PoS al suo avvio. Impostarlo a 0 "
+"per non caricarne nessuno (è sempre possibile caricarli tramite codice "
+"scontrino)."
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
+msgid "Order Management"
+msgstr "Gestione ordine"
+
+#. module: pos_order_mgmt
+#: model:ir.model,name:pos_order_mgmt.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configurazione punto vendita"
+
+#. module: pos_order_mgmt
+#: model:ir.model,name:pos_order_mgmt.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Ordini punto vendita"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:58
+#, python-format
+msgid "Print a duplicate for this order"
+msgstr "Stampare un duplicato di quest'ordine"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:83
+#, python-format
+msgid "Rectifies:"
+msgstr "Rettifica:"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:33
+#, python-format
+msgid "Ref."
+msgstr "Rif."
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
+msgid "Reference of the returned Order"
+msgstr "Riferimento del reso"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:245
+#, python-format
+msgid "Refund "
+msgstr "Reso "
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
+msgid "Refund Orders"
+msgstr "Ordini di reso"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
+msgid "Refund Orders Quantity"
+msgstr "Quantità ordini di reso"
+
+#. module: pos_order_mgmt
+#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
+msgid "Refunds"
+msgstr "Resi"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
+msgid "Reprint Orders"
+msgstr "Ordini ristampa"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
+msgid "Return Orders"
+msgstr "Ordini di reso"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
+msgid "Returned Order"
+msgstr "Reso"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:74
+#, python-format
+msgid "Returned order:"
+msgstr "Reso:"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:21
+#, python-format
+msgid "Search Order"
+msgstr "Ricerca ordine"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:385
+#, python-format
+msgid ""
+"Unable to load some order lines because the products are not available in "
+"the POS cache.\n"
+"\n"
+"Please check that lines :\n"
+"\n"
+"  * "
+msgstr ""
+"Impossibile caricare alcune righe d'ordine perchè i prodotti non sono "
+"disponibili nella cache POS.\n"
+"\n"
+"Per favore controllare quelle righe :\n"
+"\n"
+"  * "
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:384
+#, python-format
+msgid "Unknown Products"
+msgstr "Prodotti sconosciuti"

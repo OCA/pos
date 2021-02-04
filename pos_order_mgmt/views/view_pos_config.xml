@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 GRAP - Sylvain LE GAL
+     Copyright 2018 Tecnativa - David Vidal
+     Copyright 2019 Druidoo - Iván Todorovich
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <div id="receipt" position="inside">
+                <div class="col-xs-12 col-md-6 o_setting_box" id="pos_order_mgmt">
+                    <div class="o_setting_left_pane">
+                        <field name="iface_order_mgmt" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="iface_order_mgmt" />
+                        <div class="text-muted">
+                           Allows to manage already done orders in the frontend.
+                        </div>
+                        <div
+                            class="content-group mt16"
+                            attrs="{'invisible': [('iface_order_mgmt', '=', False)]}"
+                        >
+                            <div class="row mt16" id="reprint_done_order">
+                                <label
+                                    for="iface_reprint_done_order"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field name="iface_reprint_done_order" />
+                            </div>
+                            <div class="row mt16" id="copy_done_order">
+                                <label
+                                    for="iface_return_done_order"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field name="iface_return_done_order" />
+                            </div>
+                            <div class="row mt16" id="return_done_order">
+                                <label
+                                    for="iface_copy_done_order"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field name="iface_copy_done_order" />
+                            </div>
+                            <div class="row mt16" id="load_done_order_max_qty">
+                                <label
+                                    for="iface_load_done_order_max_qty"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field name="iface_load_done_order_max_qty" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>

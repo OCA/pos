@@ -1,0 +1,45 @@
+/* Copyright 2018 Tecnativa - David Vidal
+   Copyright 2019 Druidoo - Iván Todorovich
+   License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+*/
+
+.order-list-button {
+    font-size: 20px;
+}
+
+.orderlist-screen .order-line .button {
+    cursor: pointer;
+    top: 0px;
+    line-height: 32px;
+    padding: 3px 13px;
+    font-size: 20px;
+    background: rgb(230, 230, 230);
+    margin-left: 12px;
+    border-radius: 3px;
+    border: solid 1px rgb(209, 209, 209);
+    transition: all 150ms linear;
+}
+
+.orderlist-screen .order-line .button:active {
+    background: black;
+    border-color: black;
+    color: white;
+}
+
+.orderlist-screen .order-returned-warning {
+    font-size: 16px;
+    font-style: italic;
+    padding: 8px 0;
+    background-color: rgb(239, 153, 65);
+    color: white;
+    text-align: center;
+}
+
+.orderlist-screen table td[name="td_ol_amount_total"] {
+    text-align: right;
+}
+
+/* Keep the table from breaking when the customer name is too long */
+.orderlist-screen table td:not([name="td_ol_customer"]) {
+    white-space: nowrap;
+}

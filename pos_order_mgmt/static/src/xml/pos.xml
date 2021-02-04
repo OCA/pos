@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ListOrderButtonWidget">
+        <t t-if="widget.pos.config.iface_order_mgmt">
+            <div class="header-button order-list-button">
+                <i class='fa fa-fw fa-shopping-cart' />
+            </div>
+        </t>
+    </t>
+    <t t-name="OrderListScreenWidget">
+        <div class="orderlist-screen clientlist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left' />
+                        Back
+                    </span>
+                    <span class='searchbox'>
+                        <input placeholder='Search Order' />
+                        <span class='search-clear' />
+                    </span>
+                    <span class='searchbox' />
+                </section>
+                <section class="full-content">
+                    <div class="window">
+                        <section class="subwindow">
+                            <div class="subwindow-container">
+                                <div
+                                    class="subwindow-container-fix touch-scrollable scrollable-y"
+                                >
+                                    <table class="client-list">
+                                        <thead>
+                                            <th name="th_ol_ref">Ref.</th>
+                                            <th name="th_ol_customer">Customer</th>
+                                            <th name="th_ol_date">Date</th>
+                                            <th name="th_ol_amount_total">Amount</th>
+                                            <th name="th_ol_reprint" />
+                                        </thead>
+                                        <tbody class="order-list-contents">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+    <t t-name="OrderLine">
+        <tr class='order-line' t-att-data-id='order.id' t-att-data-Uid='order.uid'>
+            <td name="td_ol_name">
+                <t t-esc='order.pos_reference or order.name' />
+            </td>
+            <td name="td_ol_customer">
+                <t t-esc='order.partner_id[1]' />
+            </td>
+            <td name="td_ol_date">
+                <t t-esc='order.date_order' />
+            </td>
+            <td name="td_ol_amount_total">
+                <t t-esc='widget.format_currency(order.amount_total)' />
+            </td>
+            <td
+                name="td_ol_reprint"
+                t-att-data-order-id="order.id"
+                t-att-data-Uid='order.uid'
+            >
+                <span
+                    t-if="widget.pos.config.iface_reprint_done_order"
+                    class="button order-list-reprint"
+                    t-att-data-order-id="order.id"
+                    t-att-data-Uid='order.uid'
+                    title="Print a duplicate for this order"
+                >
+                    <i class='fa fa-fw fa-print' />
+                </span>
+                <span
+                    t-if="widget.pos.config.iface_copy_done_order"
+                    class="button order-list-copy"
+                    t-att-data-order-id="order.id"
+                    t-att-data-Uid='order.uid'
+                    title="Create a new order based on this one"
+                >
+                    <i class='fa fa-fw fa-copy' />
+                </span>
+                <span
+                    t-if="widget.pos.config.iface_return_done_order and order.amount_total >= 0"
+                    class="button order-list-return"
+                    t-att-data-order-id="order.id"
+                    t-att-data-Uid='order.uid'
+                    title="Create a refund order of this order"
+                >
+                    <i class='fa fa-fw fa-undo' />
+                </span>
+            </td>
+        </tr>
+    </t>
+    <t t-extend="OrderWidget">
+        <t t-jquery=".summary" t-operation="after">
+            <div class="order-returned-warning" t-if="order.returned_order_id">
+                <span>Returned order: </span>
+                <t
+                    name="returned-order-reference"
+                    t-esc="order.returned_order_reference"
+                />
+            </div>
+        </t>
+    </t>
+    <t t-extend="PosTicket">
+        <t t-jquery="t[t-esc='order.name']" t-operation="after">
+            <t t-if="order.returned_order_id">
+                <br />
+                <span name="returned-order-reference">Rectifies: </span>
+                <t t-esc="order.returned_order_reference" />
+            </t>
+        </t>
+        <t t-jquery=".receipt-user" t-operation="after">
+            <t t-if="pos.reloaded_order">
+                <br />
+                <div style='text-align:center'>DUPLICATE</div>
+                <br />
+            </t>
+        </t>
+    </t>
+    <t t-extend="XmlReceipt">
+        <t t-jquery=".orderlines" t-operation="before">
+            <t t-if="pos.current_order">
+                <div>DUPLICATE</div>
+                <br />
+            </t>
+        </t>
+    </t>
+</templates>
