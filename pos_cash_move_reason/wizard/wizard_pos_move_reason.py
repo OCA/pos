@@ -67,30 +67,30 @@ class WizardPosMoveReason(models.TransientModel):
     @api.onchange("move_reason_id")
     def onchange_reason(self):
         if len(self.journal_ids) == 1:
-            self.journal_id = self.journal_ids[0].id
+            self.journal_id = fields.first(self.journal_ids).id
         self.name = self.move_reason_id.name
 
     @api.constrains("amount")
     def _check_amount(self):
-        for wizard in self.filtered(lambda x: x.amount <= 0):
+        if any(w.amount <= 0 for w in self):
             raise UserError(_("Invalid Amount"))
 
     @api.depends("journal_id", "session_id")
     def _compute_statement_id(self):
         for wizard in self:
+            statement = self.env["account.bank.statement"].browse()
             if wizard.session_id and wizard.journal_id:
                 statements = wizard.session_id.statement_ids.filtered(
-                    lambda x: x.journal_id == wizard.journal_id
+                    lambda x, w=wizard: x.journal_id == w.journal_id
                 )
-                wizard.statement_id = statements and statements[0]
+                statement = fields.first(statements)
+            wizard.statement_id = statement
 
-    @api.multi
     def apply(self):
         self.ensure_one()
         AccountBankStatementLine = self.env["account.bank.statement.line"]
         AccountBankStatementLine.create(self._prepare_statement_line())
 
-    @api.multi
     def _prepare_statement_line(self):
         self.ensure_one()
         if self.move_type == "income":

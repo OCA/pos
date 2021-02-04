@@ -6,9 +6,10 @@
 -->
 <odoo>
     <record id="view_pos_move_reason_tree" model="ir.ui.view">
+        <field name="name">pos.move.reason.tree (in pos_cash_move_reason)</field>
         <field name="model">pos.move.reason</field>
         <field name="arch" type="xml">
-            <tree colors="gray:active == False;">
+            <tree decoration-muted="active == 'False'">
                 <field name="name" />
                 <field name="journal_ids" widget="many2many_tags" />
                 <field name="income_account_id" />
@@ -19,6 +20,7 @@
         </field>
     </record>
     <record id="view_pos_move_reason_form" model="ir.ui.view">
+        <field name="name">pos.move.reason.form (in pos_cash_move_reason)</field>
         <field name="model">pos.move.reason</field>
         <field name="arch" type="xml">
             <form>
@@ -61,7 +63,6 @@
         <field name="name">Move Reasons</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">pos.move.reason</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
     </record>
     <menuitem

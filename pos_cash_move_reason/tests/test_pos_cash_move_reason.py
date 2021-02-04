@@ -1,30 +1,32 @@
 # © 2015 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests import common
+from odoo.tests.common import SavepointCase
 
 
-class TestPosCashMoveReason(common.TransactionCase):
-    def setUp(self):
-        super(TestPosCashMoveReason, self).setUp()
-        self.PosSession = self.env["pos.session"]
-        self.WizardReason = self.env["wizard.pos.move.reason"]
-        self.AccountMoveLine = self.env["account.move.line"]
+class TestPosCashMoveReason(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.PosSession = cls.env["pos.session"]
+        cls.WizardReason = cls.env["wizard.pos.move.reason"]
+        cls.AccountMoveLine = cls.env["account.move.line"]
 
-        self.config = self.env.ref("point_of_sale.pos_config_main").copy()
-        self.cash_journal = self.env["account.journal"].search(
+        cls.config = cls.env.ref("point_of_sale.pos_config_main").copy()
+        cls.cash_journal = cls.env["account.journal"].search(
             [
                 ("type", "=", "cash"),
-                ("company_id", "=", self.env.ref("base.main_company").id),
+                ("company_id", "=", cls.env.ref("base.main_company").id),
             ]
         )[0]
-        self.deposit_reason = self.env.ref("pos_cash_move_reason.bank_out_reason")
+        cls.deposit_reason = cls.env.ref("pos_cash_move_reason.bank_out_reason")
 
     def test_take_money(self):
         # Open New Session
         self.config.open_session_cb()
         session = self.PosSession.search(
-            [("state", "=", "opened"), ("config_id", "=", self.config.id),]
+            [("state", "=", "opened"), ("config_id", "=", self.config.id)]
         )
 
         # Get Cash Statement
@@ -56,4 +58,4 @@ class TestPosCashMoveReason(common.TransactionCase):
             ]
         )
         # I check the created move line from the cash in
-        self.assertEquals(len(move_line.ids), 1)
+        self.assertEquals(len(move_line), 1)

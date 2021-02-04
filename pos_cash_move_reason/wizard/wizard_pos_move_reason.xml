@@ -41,7 +41,6 @@
         <field name="name">Move Reasons</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">wizard.pos.move.reason</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
