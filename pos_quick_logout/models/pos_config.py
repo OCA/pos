@@ -7,5 +7,5 @@ class PosConfig(models.Model):
     logout_timeout = fields.Integer(
         default=10,
         string="Logout Timeout",
-        help="Time out for automatic logout for sessions in this POS",
+        help="Timeout (sec) for automatic session logout in this POS",
     )

@@ -8,14 +8,12 @@ odoo.define("pos_quick_logout.pos_quick_logout", function(require) {
     "use strict";
 
     var chrome = require("point_of_sale.chrome");
-    var core = require("web.core");
 
     /* ********************************************************
     Chrome.Chrome
     ******************************************************** */
     chrome.Chrome.include({
         start: function() {
-            var self = this;
             this._super();
             this.timer = false;
             this.idletimeout();
