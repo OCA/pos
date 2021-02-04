@@ -141,14 +141,16 @@ odoo.define("pos_product_template.models", function(require){
                 var tmpl_attribute_value_ids = new Set();
                 template.product_variant_ids.forEach((variant_id) => {
                     var variant = this.get_product_by_id(variant_id);
-                    variant.product_template_attribute_value_ids.forEach( tmpl_attr_value_id => {
-                        tmpl_attribute_value_ids.add(this.get_product_template_attribute_value_by_id(tmpl_attr_value_id));
+                    if (variant != undefined){
+                        variant.product_template_attribute_value_ids.forEach( tmpl_attr_value_id => {
+                            tmpl_attribute_value_ids.add(this.get_product_template_attribute_value_by_id(tmpl_attr_value_id));
 
-                        //add ptav
-                        product_template_attribute_value_ids.push(tmpl_attr_value_id);
-                    });
-                    variant.product_variant_count = template.product_variant_count;
-                    variant.template = template;
+                            //add ptav
+                            product_template_attribute_value_ids.push(tmpl_attr_value_id);
+                        });
+                        variant.product_variant_count = template.product_variant_count;
+                        variant.template = template;
+                    }
                 });
 
                 template.product_template_attribute_value_ids = product_template_attribute_value_ids;
