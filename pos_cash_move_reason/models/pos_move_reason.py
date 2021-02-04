@@ -12,9 +12,7 @@ class PosMoveReason(models.Model):
     @api.model
     def _default_journal_ids(self):
         AccountJournal = self.env["account.journal"]
-        journals = AccountJournal.search(
-            [("journal_user", "=", True), ("type", "=", "cash")]
-        )
+        journals = AccountJournal.search([("type", "=", "cash")])
         return journals.ids
 
     @api.model
