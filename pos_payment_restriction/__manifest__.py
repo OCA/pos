@@ -9,7 +9,7 @@
     "license": "AGPL-3",
     "development_status": "Beta",
     "maintainers": ["rousseldenis"],
-    "category": "Point of Sale",
+    "category": "Sales/Point Of Sale",
     "author": "ACSONE SA/NV,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "depends": ["point_of_sale"],
