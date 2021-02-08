@@ -1,73 +1,75 @@
 # Copyright 2017 Creu Blanca <https://creublanca.es/>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-from odoo.tests import common
+from odoo.tests.common import SavepointCase
 
 
-class TestSessionPayInvoice(common.TransactionCase):
-    def setUp(self):
-        super(TestSessionPayInvoice, self).setUp()
-        self.company = self.env.ref("base.main_company")
-        partner = self.env.ref("base.partner_demo")
-        self.invoice_out = self.env["account.invoice"].create(
+class TestSessionPayInvoice(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
+        cls.company = cls.env.ref("base.main_company")
+        partner = cls.env.ref("base.partner_demo")
+        cls.invoice_out = cls.env["account.move"].create(
             {
-                "company_id": self.company.id,
+                "company_id": cls.company.id,
                 "partner_id": partner.id,
                 "date_invoice": "2016-03-12",
                 "type": "out_invoice",
             }
         )
-        account = self.env["account.account"].create(
+        account = cls.env["account.account"].create(
             {
                 "code": "test_cash_pay_invoice",
-                "company_id": self.company.id,
+                "company_id": cls.company.id,
                 "name": "Test",
-                "user_type_id": self.env.ref("account.data_account_type_revenue").id,
+                "user_type_id": cls.env.ref("account.data_account_type_revenue").id,
             }
         )
-        self.env["account.invoice.line"].create(
+        cls.env["account.move.line"].create(
             {
-                "product_id": self.env.ref("product.product_delivery_02").id,
-                "invoice_id": self.invoice_out.id,
+                "product_id": cls.env.ref("product.product_delivery_02").id,
+                "invoice_id": cls.invoice_out.id,
                 "account_id": account.id,
                 "name": "Producto de prueba",
                 "quantity": 1.0,
                 "price_unit": 100.0,
             }
         )
-        self.invoice_out._onchange_invoice_line_ids()
-        self.invoice_out.action_invoice_open()
-        self.invoice_out.number = "2999/99999"
-        self.invoice_in = self.env["account.invoice"].create(
+        cls.invoice_out._onchange_invoice_line_ids()
+        cls.invoice_out.action_invoice_open()
+        cls.invoice_out.number = "2999/99999"
+        cls.invoice_in = cls.env["account.move"].create(
             {
                 "partner_id": partner.id,
-                "company_id": self.company.id,
+                "company_id": cls.company.id,
                 "type": "in_invoice",
                 "date_invoice": "2016-03-12",
             }
         )
-        self.env["account.invoice.line"].create(
+        cls.env["account.move.line"].create(
             {
-                "product_id": self.env.ref("product.product_delivery_02").id,
-                "invoice_id": self.invoice_in.id,
+                "product_id": cls.env.ref("product.product_delivery_02").id,
+                "invoice_id": cls.invoice_in.id,
                 "name": "Producto de prueba",
                 "account_id": account.id,
                 "quantity": 1.0,
                 "price_unit": 100.0,
             }
         )
-        self.invoice_in._onchange_invoice_line_ids()
-        self.invoice_in.action_invoice_open()
-        self.invoice_in.number = "2999/99999"
-        self.config = self.env.ref("point_of_sale.pos_config_main")
-        self.config.cash_control = True
+        cls.invoice_in._onchange_invoice_line_ids()
+        cls.invoice_in.action_invoice_open()
+        cls.invoice_in.number = "2999/99999"
+        cls.config = cls.env.ref("point_of_sale.pos_config_main")
+        cls.config.cash_control = True
 
-        self.account_cash_differences_id = self.env["account.account"].create(
+        cls.account_cash_differences_id = cls.env["account.account"].create(
             {
                 "code": "test_cash_differences",
-                "company_id": self.company.id,
+                "company_id": cls.company.id,
                 "name": "Test Cash Differences",
-                "user_type_id": self.env.ref("account.data_account_type_revenue").id,
+                "user_type_id": cls.env.ref("account.data_account_type_revenue").id,
             }
         )
 
