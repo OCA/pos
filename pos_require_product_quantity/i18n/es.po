@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_require_product_quantity
+# 	* pos_require_product_quantity
 #
 msgid ""
 msgstr ""
@@ -18,14 +18,14 @@ msgstr ""
 
 #. module: pos_require_product_quantity
 #. openerp-web
-#: code:addons/pos_require_product_quantity/static/src/js/pos.js:49
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:30
 #, python-format
 msgid "Missing quantities"
 msgstr "Cantidades faltantes"
 
 #. module: pos_require_product_quantity
 #. openerp-web
-#: code:addons/pos_require_product_quantity/static/src/js/pos.js:38
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:32
 #, python-format
 msgid "No quantity set for products:"
 msgstr "No hay cantidad establecida para productos:"
@@ -42,7 +42,9 @@ msgstr "Requerir cantidad de producto en PdV"
 
 #. module: pos_require_product_quantity
 #: model_terms:ir.ui.view,arch_db:pos_require_product_quantity.view_pos_config_form
-msgid "Show pop-up when product quantity is set to 0 for one or more order lines when clicking on \"Payment\" button."
+msgid ""
+"Show pop-up when product quantity is set to 0 for one or more order lines "
+"when clicking on \"Payment\" button."
 msgstr ""
 "Mostrar ventana emergente cuando la cantidad del producto se establece en 0 "
 "para una o más líneas de pedido al hacer clic en el botón \"Pago\"."
