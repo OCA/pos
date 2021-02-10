@@ -15,14 +15,14 @@ msgstr ""
 
 #. module: pos_require_product_quantity
 #. openerp-web
-#: code:addons/pos_require_product_quantity/static/src/js/pos.js:49
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:30
 #, python-format
 msgid "Missing quantities"
 msgstr ""
 
 #. module: pos_require_product_quantity
 #. openerp-web
-#: code:addons/pos_require_product_quantity/static/src/js/pos.js:38
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:32
 #, python-format
 msgid "No quantity set for products:"
 msgstr ""
