@@ -15,7 +15,7 @@ odoo.define(
 
         var _t = core._t;
 
-        screens.ActionpadWidget = screens.ActionpadWidget.include({
+        screens.ActionpadWidget.include({
             renderElement: function () {
                 var self = this;
                 this._super();
