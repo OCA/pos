@@ -22,3 +22,17 @@ class ResPartner(models.Model):
     pos_adyen_payment_token_expiration = fields.Date(
         string="Expiration of PoS Adyen payment Token"
     )
+
+    def cron_clean_adyen_payment_token(self):
+        """
+            Goes over all users with adyen payment token and removes those that have
+            expired
+        """
+        partners = self.search([
+            ("pos_adyen_payment_token", "!=", False),
+            ("pos_adyen_payment_token_expiration", "<", fields.Date.today())
+        ])
+        partners.write({
+            "pos_adyen_payment_token": False,
+            "pos_adyen_payment_token_expiration": False
+        })

@@ -6,6 +6,9 @@ odoo.define('pos_payment_method_adyen.popups', function (require) {
 
     var AutomatedPaymentPopupWidget = PopupWidget.extend({
         template: 'AutomatedPaymentPopupWidget',
+        events: _.extend({}, PopupWidget.prototype.events, {
+            'click .cancel-remove': 'cancel_remove',
+        }),
     });
 
     gui.define_popup({name:'automatedPayment', widget: AutomatedPaymentPopupWidget});

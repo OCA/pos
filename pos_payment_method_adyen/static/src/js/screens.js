@@ -414,6 +414,20 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             })
         },
 
+        _delete_shopper_data: function () {
+            var data = {
+                pos_adyen_shopper_reference: false,
+                pos_adyen_payment_token: false,
+                pos_adyen_card_details: false,
+                pos_adyen_payment_token_expiration: false,
+            }
+            return this._rpc({
+                model: 'res.partner',
+                method: 'write',
+                args: [self.pos.get_client().id, data],
+            })
+        },
+
         _manage_card_acquisition_response: function (notification) {
             var self = this;
             self.card_acquisition_transaction = false;

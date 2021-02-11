@@ -70,6 +70,9 @@
                     <div class="button cancel">
                         Cancel
                     </div>
+                    <div class="button cancel-remove">
+                        Cancel &amp; Remove
+                    </div>
                 </footer>
             </div>
         </div>
