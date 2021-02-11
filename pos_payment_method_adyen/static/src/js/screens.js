@@ -12,11 +12,22 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         process_payment_terminal: function (line_cid) {
             this._super.apply(this, arguments);
             if (this.journal.use_payment_terminal == "adyen") {
-                this.isRefund = this.pos.get_order().selected_paymentline.amount < 0;
-                if (!this.isRefund) {
-                    this.adyen_send_payment_request();
+                // We check the amount, we do not allow going over the order amount
+                var order = this.pos.get_order()
+                var selected_paymentline = order.selected_paymentline;
+                var order_amount_taxed = order.get_total_with_tax()
+                if (selected_paymentline.amount > order_amount_taxed) {
+                    this._show_error(_('You are not allowed to pay an amount greater than the order amount'));
+                    order.in_transaction = false;
+                    this.order_changes();
                 } else {
-                    this.adyen_send_refund_request();
+                    // We check if it's a refund or not
+                    this.isRefund = selected_paymentline.amount < 0;
+                    if (!this.isRefund) {
+                        this.adyen_send_payment_request();
+                    } else {
+                        this.adyen_send_refund_request();
+                    }
                 }
             }
         },
