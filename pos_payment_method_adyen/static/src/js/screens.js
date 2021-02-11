@@ -61,6 +61,11 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         close: function () {
             this._super.apply(this, arguments);
         },
+        click_back: function(){
+            // If there is an Adyen transaction ongoing we cancel it before going back
+            this.$('.transaction-cancel').trigger('click');
+            this._super.apply(this, arguments);
+        },
 
         // private methods
         _reset_state: function () {
@@ -603,6 +608,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     } else {
                         var message = additional_response.get('message');
                         self._show_error(_.str.sprintf(_t('Message from Adyen: %s'), message));
+                        self.pos.get_order().in_transaction = false;
+                        self.order_changes();
 
                         // this means the transaction was cancelled by pressing the cancel button on the device
                         if (message.startsWith('108 ')) {
@@ -614,6 +621,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 } else if (self.remaining_polls <= 0) {
                     self._show_error(_t('The connection to your payment terminal failed. Please check if it is still connected to the internet.'));
                     self._adyen_cancel();
+                    self.pos.get_order().in_transaction = false;
+                    self.order_changes();
                     resolve(false);
                 }
             });
