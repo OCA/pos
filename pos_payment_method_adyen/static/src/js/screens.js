@@ -156,7 +156,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     'CardAcquisitionRequest': {
                         'SaleData': {
                             'SaleTransactionID': {
-                                'TransactionID': order.uid,
+                                'TransactionID': "Order " + order.uid,
                                 'TimeStamp': moment().format(), // iso format: '2018-01-10T11:30:15+00:00'
                             },
                             'TokenRequestedType': 'Customer'
@@ -198,7 +198,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     'PaymentRequest': {
                         'SaleData': {
                             'SaleTransactionID': {
-                                'TransactionID': order.uid,
+                                'TransactionID': "Order " + order.uid,
                                 'TimeStamp': moment().format(), // iso format: '2018-01-10T11:30:15+00:00'
                             },
                             'TokenRequestedType': 'Customer'
@@ -245,7 +245,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     "type": "scheme",
                     "storedPaymentMethodId": partner.pos_adyen_payment_token,
                 },
-                "reference": this._adyen_get_sale_id(),
+                "reference": "Order " + order.uid,
                 "shopperInteraction": "ContAuth",
                 "recurringProcessingModel": "CardOnFile",
                 "merchantAccount": this.journal.adyen_merchant_account,
@@ -283,7 +283,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     'PaymentRequest': {
                         'SaleData': {
                             'SaleTransactionID': {
-                                'TransactionID': order.uid,
+                                'TransactionID': "Order " + order.uid,
                                 'TimeStamp': moment().format(), // iso format: '2018-01-10T11:30:15+00:00'
                             }
                         },
