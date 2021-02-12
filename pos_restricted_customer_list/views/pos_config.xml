@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2019 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!--FORM view-->
+    <record model="ir.ui.view" id="pos_config_view_form">
+        <field name="name">pos.config.form (in pos_restricted_customer_list)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_big_scrollbars']/../.." position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label for="partner_category_id" />
+                        <div class="text-muted">
+                            Partner tag allowing to show only customers who belong to it
+                        </div>
+                        <div class="content-group mt16">
+                            <field name="partner_category_id" />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

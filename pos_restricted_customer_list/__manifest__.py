@@ -13,5 +13,11 @@
     "website": "https://odoo-community.org/",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/assets_backend.xml", "views/res_partner.xml"],
+    "data": [
+        "views/assets_backend.xml",
+        "views/res_partner.xml",
+        "views/pos_config.xml",
+    ],
+    "qweb": ["static/src/xml/pos.xml"],
+    "installable": True,
 }
