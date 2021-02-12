@@ -23,9 +23,8 @@ class AccountInvoice(models.Model):
         self._check_pos_pending_payment()
         return super().action_cancel()
 
-    @api.multi
+    @api.one
     def _get_outstanding_info_JSON(self):
-        self.ensure_one()
         if self.pos_pending_payment:
             return
         else:
