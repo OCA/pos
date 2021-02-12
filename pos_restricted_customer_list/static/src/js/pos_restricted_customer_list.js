@@ -1,7 +1,7 @@
 odoo.define("pos_restricted_customer_list.point_of_sale.models", function(require) {
     "use strict";
 
-    var Model = require("web.DataModel");
+    var rpc = require("web.rpc");
     var PosModels = require("point_of_sale.models");
     var PosModel = PosModels.PosModel;
     var PosModelSuper = PosModel.prototype;
@@ -9,13 +9,13 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
     PosModels.PosModel = PosModel.extend({
         initialize: function(session, attributes) {
             var self = this;
-            var res_partner_index;
+            var res_partner_index = 0;
             for (var i = 0; i < self.models.length; i++) {
                 var model = self.models[i];
                 var model_name = model.model;
                 if (model_name === "res.partner") {
-                    model.domain = function(self) {
-                        return self.prepare_load_new_partners_domain();
+                    model.domain = function(myself) {
+                        return myself.prepare_load_new_partners_domain();
                     };
                     res_partner_index = i;
                 }
@@ -25,12 +25,12 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
             self.models.push({
                 model: "res.partner.category",
                 fields: ["name"],
-                loaded: function(self, categories) {
-                    self.categories = categories;
-                    self.config.category = null;
-                    for (var i = 0; i < categories.length; i++) {
-                        if (categories[i].id === self.config.partner_category_id[0]) {
-                            self.config.category = categories[i];
+                loaded: function(myself, categories) {
+                    myself.categories = categories;
+                    myself.config.category = null;
+                    for (var j = 0; j < categories.length; j++) {
+                        if (categories[j].id === myself.config.partner_category_id[0]) {
+                            myself.config.category = categories[j];
                         }
                     }
                 },
@@ -39,10 +39,7 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
         },
         prepare_load_new_partners_domain: function() {
             var self = this;
-            var domain = [
-                ["customer", "=", true],
-                ["available_in_pos", "=", true],
-            ];
+            var domain = [["available_in_pos", "=", true]];
             if (self.config.partner_category_id) {
                 domain.push([
                     "category_id",
@@ -56,30 +53,38 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
         },
         load_new_partners: function() {
             var self = this;
-            var def = new $.Deferred();
-            var fields = _.find(this.models, function(model) {
-                return model.model === "res.partner";
-            }).fields;
-            var domain = self.prepare_load_new_partners_domain();
-            new Model("res.partner")
-                .query(fields)
-                .filter(domain)
-                .all({timeout: 3000, shadow: true})
-                .then(
+            return new Promise(function(resolve, reject) {
+                var fields = _.find(self.models, function(model) {
+                    return model.label === "load_partners";
+                }).fields;
+                var domain = self.prepare_load_new_partners_domain();
+                rpc.query(
+                    {
+                        model: "res.partner",
+                        method: "search_read",
+                        args: [domain, fields],
+                    },
+                    {
+                        timeout: 3000,
+                        shadow: true,
+                    }
+                ).then(
                     function(partners) {
                         if (self.db.add_partners(partners)) {
                             // Check if the partners we got were real updates
-                            def.resolve();
+                            resolve();
                         } else {
-                            def.reject();
+                            reject();
                         }
                     },
-                    function(err, event) {
-                        event.preventDefault();
-                        def.reject();
+                    function(type, err) {
+                        if (type || err) {
+                            // Avoid eslint false positive
+                        }
+                        reject();
                     }
                 );
-            return def;
+            });
         },
     });
 });
@@ -90,7 +95,7 @@ odoo.define("pos_restricted_customer_list.point_of_sale.screens", function(requi
     var core = require("web.core");
     var QWeb = core.qweb;
     var _t = core._t;
-    var Model = require("web.DataModel");
+    var rpc = require("web.rpc");
     var PosScreens = require("point_of_sale.screens");
     var ClientListScreenWidget = PosScreens.ClientListScreenWidget;
 
@@ -235,13 +240,17 @@ odoo.define("pos_restricted_customer_list.point_of_sale.screens", function(requi
             fields.country_id = fields.country_id || false;
             fields.barcode = fields.barcode || "";
             if (fields.category_id) {
-                fields.category_id = [[6, 0, [parseInt(fields.category_id)]]];
+                fields.category_id = [[6, 0, [parseInt(fields.category_id, 10)]]];
             } else {
                 fields.category_id = false;
             }
 
             self.gui.chrome.loading_show();
-            new Model("res.partner").call("create_from_ui", [fields]).then(
+            rpc.query({
+                model: "res.partner",
+                method: "create_from_ui",
+                args: [fields],
+            }).then(
                 function(partner_id) {
                     self.saved_client_details(partner_id).then(function() {
                         self.gui.chrome.loading_hide();
