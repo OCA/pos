@@ -8,14 +8,13 @@ odoo.define("pos_payment_terminal.payment", function (require) {
     "use strict";
 
     var core = require("web.core");
-    var rpc = require("web.rpc");
     var PaymentInterface = require("point_of_sale.PaymentInterface");
     const {Gui} = require("point_of_sale.Gui");
 
     var _t = core._t;
 
     var OCAPaymentTerminal = PaymentInterface.extend({
-        send_payment_request: function (cid) {
+        send_payment_request: function () {
             this._super.apply(this, arguments);
             return this._oca_payment_terminal_pay();
         },
@@ -66,11 +65,8 @@ odoo.define("pos_payment_terminal.payment", function (require) {
         },
 
         _show_error: function (msg, title) {
-            if (!title) {
-                title = _t("Payment Terminal Error");
-            }
             Gui.showPopup("ErrorPopup", {
-                title: title,
+                title: title || _t("Payment Terminal Error"),
                 body: msg,
             });
         },
