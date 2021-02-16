@@ -8,6 +8,8 @@
 */
 
 odoo.define("pos_payment_terminal.models", function (require) {
+    "use strict";
+
     var models = require("point_of_sale.models");
     var OCAPaymentTerminal = require("pos_payment_terminal.payment");
     models.register_payment_method("oca_payment_terminal", OCAPaymentTerminal);
