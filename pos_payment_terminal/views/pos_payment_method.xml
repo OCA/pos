@@ -10,6 +10,10 @@
                     name="oca_payment_terminal_mode"
                     attrs="{'invisible': [('use_payment_terminal', '!=', 'oca_payment_terminal')]}"
                 />
+                <field
+                    name="oca_payment_terminal_id"
+                    attrs="{'invisible': [('use_payment_terminal', '!=', 'oca_payment_terminal')]}"
+                />
             </field>
         </field>
     </record>

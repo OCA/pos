@@ -16,7 +16,10 @@ odoo.define("pos_payment_terminal.models", function (require) {
 
     var OCAPaymentTerminal = require("pos_payment_terminal.payment");
     models.register_payment_method("oca_payment_terminal", OCAPaymentTerminal);
-    models.load_fields("pos.payment.method", "oca_payment_terminal_mode");
+    models.load_fields("pos.payment.method", [
+        "oca_payment_terminal_mode",
+        "oca_payment_terminal_id",
+    ]);
 
     var _paymentlineproto = models.Paymentline.prototype;
     models.Paymentline = models.Paymentline.extend({
