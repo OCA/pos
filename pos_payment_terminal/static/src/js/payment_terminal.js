@@ -1,6 +1,7 @@
 /*
     Copyright 2020 Akretion France (http://www.akretion.com/)
     @author: Alexis de Lattre <alexis.delattre@akretion.com>
+    @author: Stéphane Bidoul <stephane.bidoul@acsone.eu>
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
@@ -14,6 +15,10 @@ odoo.define("pos_payment_terminal.payment", function (require) {
     var _t = core._t;
 
     var OCAPaymentTerminal = PaymentInterface.extend({
+        init: function () {
+            this._super.apply(this, arguments);
+        },
+
         send_payment_request: function () {
             this._super.apply(this, arguments);
             return this._oca_payment_terminal_pay();
@@ -47,10 +52,22 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                     );
                     // There was an error, let the user retry.
                     return false;
+                } else if (response instanceof Object && "transaction_id" in response) {
+                    // The response has a terminal transaction identifier:
+                    // return a promise that polls for transaction status.
+                    pay_line.set_payment_status("waitingCard");
+                    this._oca_update_payment_line_terminal_transaction_status(
+                        pay_line,
+                        response
+                    );
+                    return new Promise((resolve, reject) => {
+                        this._oca_poll_for_transaction_status(
+                            pay_line,
+                            resolve,
+                            reject
+                        );
+                    });
                 }
-                // TODO: handle the case where response has a terminal
-                // transaction identifier and return a promise that polls
-                // for transaction success or error.
 
                 // The transaction was started, but the terminal driver
                 // does not report status, so we won't know the
@@ -61,6 +78,71 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 pay_line.set_payment_status("force_done");
                 return Promise.reject();
             });
+        },
+
+        _oca_poll_for_transaction_status: function (pay_line, resolve, reject) {
+            var timerId = setInterval(() => {
+                // Query the driver status more frequently than the regular POS
+                // proxy, to get faster feedback when the transaction is
+                // complete on the terminal.
+                this.pos.proxy.connection
+                    .rpc("/hw_proxy/status_json", {}, {shadow: true, timeout: 1000})
+                    .then((drivers_status) => {
+                        for (var driver_name in drivers_status) {
+                            // Look for a driver that is a payment terminal and has
+                            // transactions.
+                            var driver = drivers_status[driver_name];
+                            if (!driver.is_terminal || !("transactions" in driver)) {
+                                continue;
+                            }
+                            for (var transaction_id in driver.transactions) {
+                                var transaction = driver.transactions[transaction_id];
+                                if (
+                                    transaction.transaction_id ===
+                                    pay_line.terminal_transaction_id
+                                ) {
+                                    // Look for the transaction corresponding to
+                                    // the payment line.
+                                    this._oca_update_payment_line_terminal_transaction_status(
+                                        pay_line,
+                                        transaction
+                                    );
+                                    if (
+                                        pay_line.terminal_transaction_success !== null
+                                    ) {
+                                        resolve(pay_line.terminal_transaction_success);
+                                        // Stop the loop
+                                        clearInterval(timerId);
+                                    }
+                                }
+                            }
+                        }
+                    })
+                    .catch(() => {
+                        console.error("Error querying terminal driver status");
+                        // We could not query the transaction status so we
+                        // won't know the transaction result: we let the user
+                        // enter the outcome manually. This is done by
+                        // rejecting the promise as explained in the
+                        // send_payment_request() documentation.
+                        pay_line.set_payment_status("force_done");
+                        reject();
+                        // Stop the loop
+                        clearInterval(timerId);
+                    });
+            }, 1000);
+        },
+
+        _oca_update_payment_line_terminal_transaction_status: function (
+            pay_line,
+            transaction
+        ) {
+            pay_line.terminal_transaction_id = transaction.transaction_id;
+            pay_line.terminal_transaction_success = transaction.success;
+            pay_line.terminal_transaction_status = transaction.status;
+            pay_line.terminal_transaction_status_details = transaction.status_details;
+            // Payment transaction reference, for accounting reconciliation purposes.
+            pay_line.transaction_id = transaction.reference;
         },
 
         _oca_payment_terminal_proxy_request: function (data) {
