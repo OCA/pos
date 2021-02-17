@@ -71,12 +71,8 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 .then((response) => {
                     return response;
                 })
-                .catch((error) => {
-                    console.error(
-                        "Error starting payment transaction:",
-                        error,
-                        error.stack
-                    );
+                .catch(() => {
+                    console.error("Error starting payment transaction");
                     return false;
                 });
         },
