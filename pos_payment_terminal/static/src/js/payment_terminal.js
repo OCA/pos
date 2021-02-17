@@ -23,10 +23,10 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             var order = this.pos.get_order();
             var pay_line = order.selected_paymentline;
             var currency = this.pos.currency;
-            if (pay_line.amount < 0) {
+            if (pay_line.amount <= 0) {
                 // TODO check if it's possible or not
                 this._show_error(
-                    _t("Cannot process transactions with negative amount.")
+                    _t("Cannot process transactions with zero or negative amount.")
                 );
                 return Promise.resolve();
             }
