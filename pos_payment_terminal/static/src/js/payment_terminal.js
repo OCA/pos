@@ -43,6 +43,9 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 payment_id: pay_line.cid,
                 order_id: order.name,
             };
+            if (this.payment_method.oca_payment_terminal_id) {
+                data.terminal_id = this.payment_method.oca_payment_terminal_id;
+            }
             return this._oca_payment_terminal_proxy_request(data).then((response) => {
                 if (response === false) {
                     this._show_error(
@@ -85,8 +88,15 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 // Query the driver status more frequently than the regular POS
                 // proxy, to get faster feedback when the transaction is
                 // complete on the terminal.
+                var status_params = {};
+                if (this.payment_method.oca_payment_terminal_id) {
+                    status_params.terminal_id = this.payment_method.oca_payment_terminal_id;
+                }
                 this.pos.proxy.connection
-                    .rpc("/hw_proxy/status_json", {}, {shadow: true, timeout: 1000})
+                    .rpc("/hw_proxy/status_json", status_params, {
+                        shadow: true,
+                        timeout: 1000,
+                    })
                     .then((drivers_status) => {
                         for (var driver_name in drivers_status) {
                             // Look for a driver that is a payment terminal and has
