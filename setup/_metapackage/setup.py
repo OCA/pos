@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-pos Odoo addons",
     version=version,
     install_requires=[
+        'odoo14-addon-pos_payment_terminal',
         'odoo14-addon-pos_show_config_name',
     ],
     classifiers=[
