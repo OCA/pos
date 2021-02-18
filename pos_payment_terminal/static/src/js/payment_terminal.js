@@ -10,7 +10,6 @@ odoo.define("pos_payment_terminal.payment", function(require) {
 
     var core = require("web.core");
     var PaymentInterface = require("point_of_sale.PaymentInterface");
-    const {Gui} = require("point_of_sale.Gui");
 
     var _t = core._t;
 
@@ -170,7 +169,7 @@ odoo.define("pos_payment_terminal.payment", function(require) {
         },
 
         _show_error: function(msg, title) {
-            Gui.showPopup("ErrorPopup", {
+            this.pos.gui.show_popup("error", {
                 title: title || _t("Payment Terminal Error"),
                 body: msg,
             });
