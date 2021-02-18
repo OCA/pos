@@ -5,7 +5,7 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_payment_terminal.payment", function (require) {
+odoo.define("pos_payment_terminal.payment", function(require) {
     "use strict";
 
     var core = require("web.core");
@@ -15,16 +15,16 @@ odoo.define("pos_payment_terminal.payment", function (require) {
     var _t = core._t;
 
     var OCAPaymentTerminal = PaymentInterface.extend({
-        init: function () {
+        init: function() {
             this._super.apply(this, arguments);
         },
 
-        send_payment_request: function () {
+        send_payment_request: function() {
             this._super.apply(this, arguments);
             return this._oca_payment_terminal_pay();
         },
 
-        _oca_payment_terminal_pay: function () {
+        _oca_payment_terminal_pay: function() {
             var order = this.pos.get_order();
             var pay_line = order.selected_paymentline;
             var currency = this.pos.currency;
@@ -46,7 +46,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             if (this.payment_method.oca_payment_terminal_id) {
                 data.terminal_id = this.payment_method.oca_payment_terminal_id;
             }
-            return this._oca_payment_terminal_proxy_request(data).then((response) => {
+            return this._oca_payment_terminal_proxy_request(data).then(response => {
                 if (response === false) {
                     this._show_error(
                         _t(
@@ -83,7 +83,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             });
         },
 
-        _oca_poll_for_transaction_status: function (pay_line, resolve, reject) {
+        _oca_poll_for_transaction_status: function(pay_line, resolve, reject) {
             var timerId = setInterval(() => {
                 // Query the driver status more frequently than the regular POS
                 // proxy, to get faster feedback when the transaction is
@@ -97,7 +97,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                         shadow: true,
                         timeout: 1000,
                     })
-                    .then((drivers_status) => {
+                    .then(drivers_status => {
                         for (var driver_name in drivers_status) {
                             // Look for a driver that is a payment terminal and has
                             // transactions.
@@ -143,7 +143,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             }, 1000);
         },
 
-        _oca_update_payment_line_terminal_transaction_status: function (
+        _oca_update_payment_line_terminal_transaction_status: function(
             pay_line,
             transaction
         ) {
@@ -155,12 +155,12 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             pay_line.transaction_id = transaction.reference;
         },
 
-        _oca_payment_terminal_proxy_request: function (data) {
+        _oca_payment_terminal_proxy_request: function(data) {
             return this.pos.proxy
                 .message("payment_terminal_transaction_start", {
                     payment_info: JSON.stringify(data),
                 })
-                .then((response) => {
+                .then(response => {
                     return response;
                 })
                 .catch(() => {
@@ -169,7 +169,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 });
         },
 
-        _show_error: function (msg, title) {
+        _show_error: function(msg, title) {
             Gui.showPopup("ErrorPopup", {
                 title: title || _t("Payment Terminal Error"),
                 body: msg,

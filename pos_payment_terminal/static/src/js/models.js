@@ -9,7 +9,7 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_payment_terminal.models", function (require) {
+odoo.define("pos_payment_terminal.models", function(require) {
     "use strict";
 
     var models = require("point_of_sale.models");
@@ -36,7 +36,7 @@ odoo.define("pos_payment_terminal.models", function (require) {
 
     var _paymentlineproto = models.Paymentline.prototype;
     models.Paymentline = models.Paymentline.extend({
-        initialize: function () {
+        initialize: function() {
             _paymentlineproto.initialize.apply(this, arguments);
             // Id of the terminal transaction, used to find the payment
             // line corresponding to a terminal transaction status coming
@@ -49,7 +49,7 @@ odoo.define("pos_payment_terminal.models", function (require) {
             // Additional information about the transaction status.
             this.terminal_transaction_status_details = null;
         },
-        init_from_JSON: function (json) {
+        init_from_JSON: function(json) {
             _paymentlineproto.init_from_JSON.apply(this, arguments);
             this.terminal_transaction_id = json.terminal_transaction_id;
             this.terminal_transaction_success = json.terminal_transaction_success;
@@ -57,7 +57,7 @@ odoo.define("pos_payment_terminal.models", function (require) {
             this.terminal_transaction_status_details =
                 json.terminal_transaction_status_details;
         },
-        export_as_JSON: function () {
+        export_as_JSON: function() {
             var vals = _paymentlineproto.export_as_JSON.apply(this, arguments);
             vals.terminal_transaction_id = this.terminal_transaction_id;
             vals.terminal_transaction_success = this.terminal_transaction_success;
