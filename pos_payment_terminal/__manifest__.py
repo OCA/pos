@@ -8,7 +8,13 @@
     "version": "14.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of sale: support generic payment terminal",
-    "author": "Aurélien DUMAINE,GRAP,Akretion," "Odoo Community Association (OCA)",
+    "author": (
+        "Aurélien DUMAINE,"
+        "GRAP,"
+        "Akretion,"
+        "ACSONE SA/NV,"
+        "Odoo Community Association (OCA)"
+    ),
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
