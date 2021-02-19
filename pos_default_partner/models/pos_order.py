@@ -8,8 +8,8 @@ class PosOrder(models.Model):
     _inherit = "pos.order"
 
     @api.model
-    def create(self, vals):
-        session = self.env["pos.session"].browse(vals.get("session_id"))
-        if session.config_id.default_partner_id and not vals.get("partner_id"):
-            vals["partner_id"] = session.config_id.default_partner_id.id
-        return super().create(vals)
+    def _complete_values_from_session(self, session, values):
+        result = super()._complete_values_from_session(session, values)
+        if session.config_id.default_partner_id and not result.get("partner_id"):
+            result["partner_id"] = session.config_id.default_partner_id.id
+        return result
