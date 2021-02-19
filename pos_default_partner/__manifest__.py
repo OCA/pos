@@ -6,16 +6,11 @@
     "summary": "Add a default customer in pos order",
     "license": "AGPL-3",
     "version": "12.0.1.0.1",
-    "author": "Akretion,"
-              "Odoo Community Association (OCA)",
+    "author": "Akretion," "Odoo Community Association (OCA)",
     "maintainer": "Akretion",
     "category": "Point of sale",
-    "depends": [
-        "point_of_sale",
-    ],
-    "data": [
-        'views/pos_config.xml',
-    ],
+    "depends": ["point_of_sale"],
+    "data": ["views/pos_config.xml"],
     "website": "https://github.com/OCA/pos",
     "installable": True,
 }
