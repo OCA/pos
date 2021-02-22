@@ -51,7 +51,7 @@ addon | version | summary
 [pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.0 | POS Remove POS Category
 [pos_report_order_payment](pos_report_order_payment/) | 12.0.1.0.1 | Analyze point of sale payments
 [pos_report_session_summary](pos_report_session_summary/) | 12.0.1.0.0 | Adds a Session Summary PDF report on the POS session
-[pos_require_product_quantity](pos_require_product_quantity/) | 12.0.0.1.1 | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
+[pos_require_product_quantity](pos_require_product_quantity/) | 12.0.0.2.0 | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
 [pos_reset_search](pos_reset_search/) | 12.0.1.0.0 | Point of Sale - Clear product search when user clicks on a product.
 [pos_session_closing_stock_error](pos_session_closing_stock_error/) | 12.0.1.0.1 | Prevent closing PoS Sessions that have stock errors
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 12.0.1.0.1 | Pay and receive invoices from PoS Session
