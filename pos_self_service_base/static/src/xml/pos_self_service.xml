@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Chrome" t-if="pos.config.iface_self_service">
+        <t t-jquery=".window" t-operation="replace">
+            <div class="leftpane">
+                <div class='window'>
+                    <div class='subwindow'>
+                        <div class='subwindow-container'>
+                            <div class='subwindow-container-fix'>
+                                <!-- here goes the scale widget -->
+                                <div class="placeholder-SelfServiceScaleWidget"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subwindow">
+                        <div class='subwindow-container'>
+                            <div class='subwindow-container-fix pads'>
+                                <!-- here goes the control buttons : back_button and home_button -->
+                                <div class="self-service-control-buttons"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rightpane">
+                <div class='window'>
+                    <div class='subwindow'>
+                        <div class='subwindow-container'>
+                            <div class='subwindow-container-fix screens'>
+                                <!-- here go the self-service screens -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="SelfServiceScaleWidget">
+        <div class="self-service-scale-container">
+            <div class="self-service-scale-scroller touch-scrollable">
+                <div class="self-service-scale">
+                    <div class='weight js-weight'>
+                        <t t-esc="widget.get_weight_string()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceBackButton">
+        <div class="self-service-control-button">
+            <span class='button back'>
+                <i class='fa fa-arrow-left'></i>
+                Back
+            </span>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceHomeButton">
+        <div class="self-service-control-button">
+            <span class='button home'>
+                <i class='fa fa-home'></i>
+                Home
+            </span>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceScreenWidget">
+        <div class='self-service-screen screen'>
+            <div class="screen-content">
+                <div class="top-content">
+                    <h1>Self-Service Home Screen</h1>
+                </div>
+                <div class="full-content touch-scrollable">
+                    <!-- Here goes user actions such as label printing, barcode scanning, etc. -->
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
