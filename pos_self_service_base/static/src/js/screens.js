@@ -43,4 +43,8 @@ odoo.define('pos_self_service_base.screens', function (require) {
             }
         },
     });
+
+    return {
+        SelfServiceScreenWidget: SelfServiceScreenWidget,
+    }
 });

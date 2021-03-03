@@ -69,4 +69,8 @@ odoo.define('pos_self_service_base.chrome', function (require) {
         },
     });
 
+    return {
+        SelfServiceScaleWidget: SelfServiceScaleWidget,
+    }
+
 });
