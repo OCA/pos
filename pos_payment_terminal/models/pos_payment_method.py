@@ -16,3 +16,10 @@ class PosPaymentMethod(models.Model):
     oca_payment_terminal_mode = fields.Selection(
         [("card", "Card"), ("check", "Check")], string="Payment Mode", default="card"
     )
+    oca_payment_terminal_id = fields.Char(
+        string="Terminal identifier",
+        help=(
+            "The identifier of the terminal as known by the hardware proxy. "
+            "Leave empty if the proxy has only one terminal connected."
+        ),
+    )
