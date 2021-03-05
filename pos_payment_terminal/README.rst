@@ -79,6 +79,7 @@ Authors
 * Aurélien DUMAINE
 * GRAP
 * Akretion
+* ACSONE SA/NV
 
 Contributors
 ~~~~~~~~~~~~
