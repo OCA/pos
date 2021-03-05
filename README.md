@@ -19,7 +19,7 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[pos_payment_terminal](pos_payment_terminal/) | 14.0.1.0.0 | Point of sale: support generic payment terminal
+[pos_payment_terminal](pos_payment_terminal/) | 14.0.2.0.0 | Point of sale: support generic payment terminal
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 | Point of sale: show pos config name
 
 [//]: # (end addons)
