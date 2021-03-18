@@ -129,7 +129,7 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             return this.weight;
         },
         get_weight_string: function() {
-            var defaultstr = (this.weight || 0).toFixed(3) + ' Kg';
+            var defaultstr = (this.weight || 0).toFixed(3) + ' kg';
             return defaultstr;
         },
     });
