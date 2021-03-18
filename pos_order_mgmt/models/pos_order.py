@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+import pytz
 
 
 class PosOrder(models.Model):
@@ -110,9 +111,12 @@ class PosOrder(models.Model):
         for payment_line in self.payment_ids:
             payment_line = self._prepare_done_order_payment_for_pos(payment_line)
             payment_lines.append(payment_line)
+        tz = self.env.user.tz
+        date_order_utc = pytz.UTC.localize(self.date_order)
+        date_order_tz = date_order_utc.astimezone(pytz.timezone(tz))
         res = {
             "id": self.id,
-            "date_order": self.date_order,
+            "date_order": date_order_tz,
             "pos_reference": self.pos_reference,
             "name": self.name,
             "partner_id": self.partner_id.id,
@@ -138,7 +142,7 @@ class PosOrder(models.Model):
     def _prepare_done_order_payment_for_pos(self, payment_line):
         self.ensure_one()
         return {
-            "journal_id": payment_line.pos_order_id.sale_journal,
+            "payment_method_id": payment_line.payment_method_id.id,
             "amount": payment_line.amount,
         }
 
