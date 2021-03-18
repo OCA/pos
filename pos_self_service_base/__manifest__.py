@@ -10,7 +10,11 @@
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/templates.xml", "views/pos_config_view.xml"],
+    "data": [
+        "data/barcode_rule.xml",
+        "views/templates.xml",
+        "views/pos_config_view.xml",
+    ],
     "qweb": ["static/src/xml/pos_self_service.xml"],
     "installable": True,
 }
