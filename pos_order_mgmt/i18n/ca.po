@@ -6,37 +6,41 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-22 15:46+0000\n"
+"Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_order_mgmt
 #: model:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 msgid "Allow to load done orders in this POS"
-msgstr ""
+msgstr "Permet carregar les comandes fetes en aquest TPV"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config_iface_load_done_order
 msgid "Allows to load already done orders in the frontend to operate over them, allowing reprint the tickets, return items, etc."
 msgstr ""
+"Permet carregar les comandes ja fetes al frontend per operar sobre elles, "
+"permetent reimprimir els bitllets, tornar articles, etc."
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
 #, python-format
 msgid "Amount Total"
-msgstr ""
+msgstr "Import total"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:17
 #, python-format
 msgid "Back"
-msgstr ""
+msgstr "Tornar"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -45,6 +49,7 @@ msgstr ""
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
+"No es pot executar aquesta acció perquè actualment el TPV està fora de línia"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -52,80 +57,82 @@ msgstr ""
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:338
 #, python-format
 msgid "Connection error"
-msgstr ""
+msgstr "Error de connexió"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:34
 #, python-format
 msgid "Customer"
-msgstr ""
+msgstr "Client"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:35
 #, python-format
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. module: pos_order_mgmt
 #: model:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 msgid "Load Done Order Max Qty."
-msgstr ""
+msgstr "Càrrega Feta Comanda Quantitat màx."
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config_iface_load_done_order
 #: model:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 msgid "Load Done Orders"
-msgstr ""
+msgstr "Carrega les comandes fetes"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config_iface_load_done_order_max_qty
 msgid "Max. Done Orders Quantity To Load"
-msgstr ""
+msgstr "Màx. Comandes fetes Quantitat per carregar"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config_iface_load_done_order_max_qty
 msgid "Maximum number of orders to load on the PoS at its init. Set it to 0 to load none (it's still posible to load them by ticket code)."
 msgstr ""
+"Nombre màxim de comandes per carregar al PoS al seu inici. Establiu-lo a 0 "
+"per carregar-ne cap (encara és possible carregar-los per codi de bitllet)."
 
 #. module: pos_order_mgmt
 #: model:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
 msgid "Maximum number orders to load"
-msgstr ""
+msgstr "Nombre màxim de comandes per carregar"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Comandes de punt de venda"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:80
 #, python-format
 msgid "Rectifies:"
-msgstr ""
+msgstr "Rectifica:"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:33
 #, python-format
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:71
 #, python-format
 msgid "Returned order:"
-msgstr ""
+msgstr "Comanda retornada:"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:21
 #, python-format
 msgid "Search Order"
-msgstr ""
+msgstr "Ordre de cerca"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -137,15 +144,21 @@ msgid "Unable to load some order lines because the products are not available in
 "\n"
 "  * "
 msgstr ""
+"No es poden carregar algunes línies de comanda perquè els productes no estan "
+"disponibles a la memòria cau de TPV.\n"
+"\n"
+"Comproveu les línies següents:\n"
+"\n"
+"  * "
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:280
 #, python-format
 msgid "Unknown Products"
-msgstr ""
+msgstr "Productes desconeguts"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
 msgid "pos.config"
-msgstr ""
+msgstr "pos.config"
