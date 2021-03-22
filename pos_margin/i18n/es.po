@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2020-10-08 01:16+0000\n"
-"Last-Translator: FranciscoFactorLibre <francisco.santos@factorlibre.com>\n"
+"PO-Revision-Date: 2021-03-22 15:46+0000\n"
+"Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line_purchase_price
@@ -36,9 +36,8 @@ msgstr ""
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order_line
-#, fuzzy
 msgid "Lines of Point of Sale Orders"
-msgstr "Líneas del punto de venta"
+msgstr "Líneas de órdenes de punto de venta"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line_margin
@@ -48,9 +47,8 @@ msgstr "Margen"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order_margin_rate
-#, fuzzy
 msgid "Margin Rate"
-msgstr "Margen"
+msgstr "Tasa de margen"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order_margin_total
@@ -64,6 +62,5 @@ msgstr "Pedidos del TPV"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_report_pos_order
-#, fuzzy
 msgid "Point of Sale Orders Statistics"
-msgstr "Pedidos del TPV"
+msgstr "Estadísticas de pedidos en el punto de venta"
