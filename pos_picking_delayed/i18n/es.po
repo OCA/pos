@@ -6,46 +6,53 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-22 15:46+0000\n"
+"Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_config_picking_creation_delayed
 msgid "Check this box if you want to delay the creation of the picking created by the PoS orders. If checked, the pickings will be created later, by a cron task."
 msgstr ""
+"Marque esta casilla si desea retrasar la creación del picking creado por los "
+"pedidos de PoS. Si se marca, las selecciones se crearán más tarde, mediante "
+"una tarea cron."
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_order_has_picking_delayed
 msgid "Has Picking Delayed"
-msgstr ""
+msgstr "Se ha retrasado la selección"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_config_picking_creation_delayed
 #: model:ir.ui.view,arch_db:pos_picking_delayed.view_pos_config_form
 msgid "Picking Creation Delayed"
-msgstr ""
+msgstr "Selección de creación retrasada"
 
 #. module: pos_picking_delayed
 #: model:ir.model,name:pos_picking_delayed.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Órdenes de punto de venta"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_order_has_picking_delayed
 msgid "This checkbox is checked if the generation of the picking has been delayed. The picking will be created by cron."
 msgstr ""
+"Esta casilla de verificación está marcada si se ha retrasado la generación "
+"del picking. La selección será creada por cron."
 
 #. module: pos_picking_delayed
 #: model:ir.ui.view,arch_db:pos_picking_delayed.view_pos_config_form
 msgid "Use Queue Jobs to process order pickings"
-msgstr ""
+msgstr "Usar trabajos en cola para procesar pedidos de picking"
 
 #. module: pos_picking_delayed
 #: model:ir.model,name:pos_picking_delayed.model_pos_config
 msgid "pos.config"
-msgstr ""
+msgstr "pos.config"
