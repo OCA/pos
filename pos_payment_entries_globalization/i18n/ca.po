@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_payment_entries_globalization
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_payment_entries_globalization
+#: model:ir.model,name:pos_payment_entries_globalization.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: model:ir.ui.view,arch_db:pos_payment_entries_globalization.view_account_journal_pos_user_form
+msgid "Payment Globalization"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: code:addons/pos_payment_entries_globalization/models/pos_session.py:35
+#: code:addons/pos_payment_entries_globalization/models/pos_session.py:59
+#, python-format
+msgid "Payment globalization"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: code:addons/pos_payment_entries_globalization/models/pos_session.py:44
+#, python-format
+msgid "Payment globalization counterpart"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: model:ir.model.fields,field_description:pos_payment_entries_globalization.field_account_journal_pos_payment_globalization
+msgid "Pos Payment Globalization"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: model:ir.model.fields,field_description:pos_payment_entries_globalization.field_account_journal_pos_payment_globalization_account
+msgid "Pos Payment Globalization Account"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: model:ir.model.fields,field_description:pos_payment_entries_globalization.field_account_journal_pos_payment_globalization_journal
+msgid "Pos Payment Globalization Journal"
+msgstr ""
+
+#. module: pos_payment_entries_globalization
+#: model:ir.model,name:pos_payment_entries_globalization.model_pos_session
+msgid "pos.session"
+msgstr ""
