@@ -2,9 +2,6 @@
 <templates id="template" xml:space="preserve">
 
     <t t-extend="Chrome" t-if="pos.config.iface_self_service">
-        <!-- hide topheader -->
-        <t t-jquery=".pos-topheader" t-operation="replace"/>
-
         <!-- split leftpane/rightpane -->
         <t t-jquery=".window" t-operation="replace">
             <div class="leftpane">
