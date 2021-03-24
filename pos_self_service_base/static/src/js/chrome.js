@@ -155,12 +155,12 @@ odoo.define('pos_self_service_base.chrome', function (require) {
                     var classe = classes[i];
                     if (!classe.condition || classe.condition.call(this)) {
                         var widget = new classe.widget(this, {});
-                        widget.appendTo(this.$('.control-buttons'));
+                        widget.appendTo(this.$('.self-service-control-buttons'));
                         this.self_service_action_buttons[classe.name] = widget;
                     }
                 }
                 if (_.size(this.self_service_action_buttons)) {
-                    this.$('.control-buttons').removeClass('oe_hidden');
+                    this.$('.self-service-control-buttons').removeClass('oe_hidden');
                 }
                 this.gui.set_startup_screen('selfservice');
                 this.gui.set_default_screen('selfservice');

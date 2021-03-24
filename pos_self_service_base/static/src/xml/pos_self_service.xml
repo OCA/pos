@@ -18,7 +18,7 @@
                         <div class='subwindow-container'>
                             <div class='subwindow-container-fix pads'>
                                 <!-- here goes the control buttons : back_button and home_button -->
-                                <div class="control-buttons oe_hidden"></div>
+                                <div class="self-service-control-buttons oe_hidden"></div>
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
     </t>
 
     <t t-name="SelfServiceHomeButton">
-        <div class="control-button">
+        <div class="self-service-control-button">
             <span class='button home'>
                 <i class='fa fa-home'></i>
                 Home
@@ -61,7 +61,7 @@
     </t>
 
     <t t-name="SelfServiceBackButton">
-        <div class="control-button">
+        <div class="self-service-control-button">
             <span class='button back'>
                 <i class='fa fa-arrow-left'></i>
                 Back

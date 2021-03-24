@@ -5,6 +5,61 @@
 .pos .pos-content {
     top: 0;
 }
+/*  *** The self-service control buttons *** */
+.pos .self-service-control-buttons {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding: 8px 16px 0px 11px;
+}
+.pos .self-service-control-button {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    background: #e2e2e2;
+    border: solid 1px #bfbfbf;
+    display: inline-block;
+    line-height: 76px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0px 10px;
+    font-size: 36px;
+    margin-left: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all linear 150ms;
+}
+.pos .self-service-control-button:hover {
+    background: #efefef;
+}
+.pos .self-service-control-button:active {
+    background: black;
+    color: white;
+    border-color: black;
+}
+.pos .self-service-control-button .fa{
+    margin-right: 4px;
+}
+.pos .self-service-control-button.highlight {
+    background: #6EC89B !important;
+    border: solid 1px #64AF8A !important;
+    color: white !important;
+}
+.pos .self-service-control-button.altlight {
+    background: #7F82AC !important;
+    border: solid 1px #756A99 !important;
+    color: white !important;
+}
+.pos .self-service-control-button.disabled,
+.pos .self-service-control-button.disabled:active{
+    background: #e2e2e2;
+    border: solid 1px #BEBEBE;
+    opacity: 0.5;
+    cursor: default;
+    color: inherit;
+}
 
 /* ------ Self Service Screen Widget -------*/
 .centered {
