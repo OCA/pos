@@ -1,4 +1,29 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+(function (Buffer){(function (){
+const ipp = require("../lib/ipp");
+
+var printer = ipp.Printer(
+    "http://localhost:8631/printers/ZTC-ZD420-203dpi-ZPL"
+);
+
+window.printZPL = (zplString) => {
+    console.log("Sending print job");
+    printer.execute(
+        "Print-Job",
+        {
+            "operation-attributes-tag": {
+                "document-format": "text/plain",
+            },
+            data: Buffer.from(zplString),
+        },
+        function (err, res) {
+            console.log(res);
+        }
+    );
+};
+
+}).call(this)}).call(this,require("buffer").Buffer)
+},{"../lib/ipp":2,"buffer":16}],2:[function(require,module,exports){
 
 var util = require('./lib/ipputil');
 
@@ -24,7 +49,7 @@ module.exports.attribute = {
 	syntaxes: util.xref(module.exports.tags.lookup.slice(0x20))
 }
 
-},{"./lib/attributes":2,"./lib/enums":3,"./lib/ipputil":4,"./lib/keywords":5,"./lib/parser":6,"./lib/printer":7,"./lib/request":8,"./lib/serializer":9,"./lib/status-codes":10,"./lib/tags":11,"./lib/versions":12}],2:[function(require,module,exports){
+},{"./lib/attributes":3,"./lib/enums":4,"./lib/ipputil":5,"./lib/keywords":6,"./lib/parser":7,"./lib/printer":8,"./lib/request":9,"./lib/serializer":10,"./lib/status-codes":11,"./lib/tags":12,"./lib/versions":13}],3:[function(require,module,exports){
 
 /*
 
@@ -962,7 +987,7 @@ resolve(attributes);
 module.exports = attributes;
 //console.log("var x = ",JSON.stringify(attributes, null, '\t'));
 
-},{"./tags":11}],3:[function(require,module,exports){
+},{"./tags":12}],4:[function(require,module,exports){
 
 var xref = require('./ipputil').xref;
 var enums = {
@@ -1128,7 +1153,7 @@ enums["print-quality-supported"] = enums["print-quality"];//1setOf
 
 
 module.exports = enums;
-},{"./ipputil":4}],4:[function(require,module,exports){
+},{"./ipputil":5}],5:[function(require,module,exports){
 
 
 //  To serialize and deserialize, we need to be able to look
@@ -1158,7 +1183,7 @@ exports.extend  = function extend(destination, source) {
 	return destination;
 };
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 
 var attributes = require('./attributes');
 
@@ -3394,7 +3419,7 @@ keywords["y-image-position-supported"] = setof_keyword(
 );
 
 module.exports = keywords;
-},{"./attributes":2}],6:[function(require,module,exports){
+},{"./attributes":3}],7:[function(require,module,exports){
 
 
 var enums = require('./enums'),
@@ -3592,7 +3617,7 @@ module.exports.handleUnknownTag = 	function log(tag, name, length, read) {
 	return value;
 };
 
-},{"./enums":3,"./status-codes":10,"./tags":11}],7:[function(require,module,exports){
+},{"./enums":4,"./status-codes":11,"./tags":12}],8:[function(require,module,exports){
 
 var request = require('./request'),
 	serialize = require('./serializer'),
@@ -3649,7 +3674,7 @@ Printer.prototype = {
 
 module.exports = Printer;
 
-},{"./ipputil":4,"./request":8,"./serializer":9,"url":48}],8:[function(require,module,exports){
+},{"./ipputil":5,"./request":9,"./serializer":10,"url":48}],9:[function(require,module,exports){
 (function (Buffer){(function (){
 
 var http = require('http'),
@@ -3728,7 +3753,7 @@ IppResponseError.prototype = Object.create(Error.prototype);
 IppResponseError.prototype.constructor = IppResponseError;
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"./parser":6,"buffer":16,"http":28,"https":19,"url":48}],9:[function(require,module,exports){
+},{"./parser":7,"buffer":16,"http":28,"https":19,"url":48}],10:[function(require,module,exports){
 (function (Buffer){(function (){
 
 var operations = require('./enums')['operations-supported'],
@@ -3998,7 +4023,7 @@ function timezone(d) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"./attributes":2,"./enums":3,"./keywords":5,"./status-codes":10,"./tags":11,"./versions":12,"buffer":16}],10:[function(require,module,exports){
+},{"./attributes":3,"./enums":4,"./keywords":6,"./status-codes":11,"./tags":12,"./versions":13,"buffer":16}],11:[function(require,module,exports){
 
 var xref = require('./ipputil').xref;
 
@@ -4058,7 +4083,7 @@ status[0x050C] = 'server-error-too-many-documents';                    //ftp://f
 
 module.exports = xref(status);
 
-},{"./ipputil":4}],11:[function(require,module,exports){
+},{"./ipputil":5}],12:[function(require,module,exports){
 
 var xref = require('./ipputil').xref;
 
@@ -4113,7 +4138,7 @@ var tags = [
 tags[0x7F] = "extension";  // http://tools.ietf.org/html/rfc2910#section-3.5.2
 module.exports = xref(tags);
 
-},{"./ipputil":4}],12:[function(require,module,exports){
+},{"./ipputil":5}],13:[function(require,module,exports){
 
 var versions = [];
 versions[0x0100] = '1.0';
@@ -4123,140 +4148,7 @@ versions[0x0201] = '2.1';
 
 module.exports = require('./ipputil').xref(versions);
 
-},{"./ipputil":4}],13:[function(require,module,exports){
-(function (global,Buffer){(function (){
-global.yoprint = () => console.log("yo");
-
-const ipp = require("../static/src/lib/ipp");
-
-let poem = `Listen to yourself,
-to the subtle flows
-of emotion, desire
-coursing through your body.
-You need not conform
-to any boxes, any borders.
-Desires overflow
-these simple lines
-designed
-to control,
-to contain.
-Love yourself,
-what you bring to the world.
-Voices may say,
-"You're not good enough,
-you're not doing it right."
-They speak
-from anger
-from fear.
-You need not hold
-these words
-in your belly.
-Let them go,
-when you are ready.
-Practice yourself;
-do what moves you.
-Feel your breath, your body.
-Touch your heart.
-Caress your skin.
-Take in the touch you need
-of wind and water,
-earth and sun,
-food and drink,
-hands and mouths.
-`;
-
-poem = `You do not have to be good.
-You do not have to walk on your knees
-For a hundred miles through the desert,
-    repenting.
-You only have to let the soft animal of
-    your body
-love what it loves.
-Tell me about your despair, yours, and
-    I will tell you mine.
-Meanwhile the world goes on.
-Meanwhile the sun and the clear pebbles
-    of the rain
-are moving across the landscapes,
-over the prairies and the deep trees,
-the mountains and the rivers.
-Meanwhile the wild geese, high in the
-    clean blue air,
-are heading home again.
-Whoever you are, no matter how lonely,
-the world offers itself to your
-    imagination,
-calls to you like the wild geese,
-    harsh and exciting --
-over and over announcing your place
-in the family of things.`
-
-var lines = poem.split(/\r?\n/).slice(0, 13);
-var lines2 = poem.split(/\r?\n/).slice(13, 26);
-var lines3 = poem.split(/\r?\n/).slice(26, 34);
-
-const zplLines = lines
-    .map(
-        (line, index) => `^FO0,${index * 13 + 30} ^A0,13
-^FD ${line}^FS
-`
-    )
-    .join("");
-const zplLines2 = lines2
-    .map(
-        (line, index) => `^FO0,${index * 13 + 30} ^A0,13
-^FD ${line}^FS
-`
-    )
-    .join("");
-const zplLines3 = lines3
-    .map(
-        (line, index) => `^FO0,${index * 13 + 30} ^A0,13
-^FD ${line}^FS
-`
-    )
-    .join("");
-
-const wrappedLines = `
-^XA
-^PW250
-${zplLines3}
-
-^XZ
-^XA
-^PW250
-${zplLines2}
-
-^XZ
-^XA
-^PW250
-${zplLines}
-
-^XZ`;
-console.log(wrappedLines);
-
-// var doc = Buffer.from(wrappedLines);
-var doc = Buffer.from("^XA ^FD ^FS  ^XZ")
-
-var printer = ipp.Printer("http://localhost:8631/printers/ZTC-ZD420-203dpi-ZPL");
-var msg = {
-    "operation-attributes-tag": {
-        "requesting-user-name": "William",
-        "job-name": "My Test Job",
-        "document-format": "text/plain",
-    },
-    data: doc,
-};
-
-global.printZebra = () => {
-    console.log("sending print job to zebra...");
-    printer.execute("Print-Job", msg, function (err, res) {
-        console.log(res);
-    });
-};
-
-}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"../static/src/lib/ipp":1,"buffer":16}],14:[function(require,module,exports){
+},{"./ipputil":5}],14:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -12814,4 +12706,4 @@ function extend() {
     return target
 }
 
-},{}]},{},[13]);
+},{}]},{},[1]);

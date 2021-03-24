@@ -35,20 +35,22 @@ odoo.define('pos_self_service_base.screens', function (require) {
         click_print: function (){
             console.log("[SelfServiceLabelScreenWidget] click_print");
             var weight = this.self_service_scale_widget.get_weight();
-            if (weight > 0){
-                console.log(weight)
-                this.set_barcode(this.format_barcode(weight))
-                console.log(this.get_barcode());
-                var title = _t("BARCODE:") + this.get_barcode();
-                var message = "Almost there guys!"
-                var popup = {title: title, body: message};
-                this.gui.show_popup('alert', popup);
-            } else {
-                var title = _t("");
-                var message = _("")
-                var popup = {title: title, body: message};
-                this.gui.show_popup('error', popup);
-            }
+            // if (weight > 0) return
+
+            this.set_barcode(this.format_barcode(weight))
+
+            console.log(this.get_barcode());
+            console.log('get_ZPL_barcode', this.get_ZPL_barcode())
+            window.printZPL(this.get_ZPL_barcode())
+                // var title = _t("BARCODE:") + this.get_barcode();
+                // var popup = {title: title, body: message};
+                // this.gui.show_popup('alert', popup);
+            // } else {
+            //     var title = _t("");
+            //     var message = _("")
+            //     var popup = {title: title, body: message};
+            //     this.gui.show_popup('error', popup);
+            // }
 
             // TODO render label ?
 
@@ -84,6 +86,11 @@ odoo.define('pos_self_service_base.screens', function (require) {
             var ean_checksum = this.barcode_parser.ean_checksum(barcode);
             // Replace checksum placeholder by the actual checksum.
             return barcode.substr(0, 12).concat(ean_checksum);
+        },
+        get_ZPL_barcode: function() {
+            return "^XA ^FX ^BY3,2,100 ^FO10,10 ^BE^FD" 
+            + this.get_barcode()
+            + "^FS ^XZ"
         },
         get_barcode_prefix: function () {
             var barcode_pattern = this.get_barcode_pattern();

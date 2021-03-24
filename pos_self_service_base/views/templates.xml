@@ -4,6 +4,7 @@
               <script type="text/javascript" src="/pos_self_service_base/static/src/js/chrome.js"></script>
               <script type="text/javascript" src="/pos_self_service_base/static/src/js/models.js"></script>
               <script type="text/javascript" src="/pos_self_service_base/static/src/js/screens.js"></script>
+              <script type="text/javascript" src="/pos_self_service_base/static/src/js/bundle.js"></script>
          </xpath>
         <xpath expr="//link[@id='pos-stylesheet']" position="after">
           <link rel="stylesheet" href="/pos_self_service_base/static/src/css/pos_self_service.css"/>

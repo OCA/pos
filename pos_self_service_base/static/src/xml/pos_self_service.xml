@@ -71,13 +71,13 @@
      <t t-name="SelfServiceLabelScreenWidget">
         <div class='self-service-screen screen'>
             <div class="screen-content">
-                <div class="top-content">
+                <!-- <div class="top-content">
                     <h1>Self-Service Label Screen</h1>
-                </div>
+                </div> -->
                 <div class="centered touch-scrollable">
                     <div class="big-button grey print">
                         <i class='fa fa-print'></i>
-                        Print Label
+                        Print label
                     </div>
                 </div>
             </div>
