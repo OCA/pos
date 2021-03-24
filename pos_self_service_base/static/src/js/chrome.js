@@ -140,7 +140,7 @@ odoo.define('pos_self_service_base.chrome', function (require) {
     chrome.Chrome.include({
         build_widgets: function(){
             if (this.pos.config.iface_self_service) {
-                 // here we add widgets available to all self-service screens
+                // here we add widgets available to all self-service screens
                 this.widgets.push(
                     {
                         'name': 'self_service_scale_widget',

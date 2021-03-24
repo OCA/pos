@@ -1,4 +1,10 @@
 /* --- POS Self Service Specific CSS --- */
+/*  workaround to hide .pos-topheader
+    and fully display .pos-content
+ */
+.pos .pos-content {
+    top: 0;
+}
 
 /* ------ Self Service Screen Widget -------*/
 .centered {
@@ -79,7 +85,7 @@
     text-align: center;
     border-style: solid;
     border-color: #787878;
-    border-width: 1px 0 3px 0;
+    border-width: 0 0 3px 0;
     background: white;
     padding: 40px;
     font-size: 56px;
