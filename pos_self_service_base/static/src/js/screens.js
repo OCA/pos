@@ -34,6 +34,8 @@ odoo.define('pos_self_service_base.screens', function (require) {
 
         click_print: function (){
             console.log("[SelfServiceLabelScreenWidget] click_print");
+            console.log(this.pos.config.label_height)
+            console.log(this.pos.config.label_width)
             var weight = this.self_service_scale_widget.get_weight();
             // if (weight > 0) return
 
@@ -88,7 +90,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
             return barcode.substr(0, 12).concat(ean_checksum);
         },
         get_ZPL_barcode: function() {
-            return "^XA ^FX ^BY3,2,100 ^FO10,10 ^BE^FD" 
+            return "^XA ^FX ^BY3,2,100 ^FO10,10 ^BE^FD"
             + this.get_barcode()
             + "^FS ^XZ"
         },
