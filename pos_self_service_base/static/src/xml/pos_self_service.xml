@@ -51,6 +51,12 @@
         </div>
     </t>
 
+    <t t-name="SelfServiceActionButtonWidget">
+        <div class='self-service-control-button'>
+            <t t-esc='widget.label'/>
+        </div>
+    </t>
+
     <t t-name="SelfServiceHomeButton">
         <div class="self-service-control-button">
             <span class='button home'>
