@@ -68,7 +68,6 @@ odoo.define('pos_self_service_base.chrome', function (require) {
 
         button_click: function () {
             this._super();
-            this.pos.chrome.self_service_action_buttons.back_button.history_stack = [];
             this.gui.show_screen(this.home_screen);
         },
     });
