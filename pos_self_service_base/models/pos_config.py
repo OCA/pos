@@ -19,3 +19,4 @@ class PosConfig(models.Model):
     )
     label_height = fields.Integer(string="Label Height (ZPL ^BY command argument)", default=2)
     label_width = fields.Integer(string="Label Width (ZPL ^BY command argument)", default=100)
+    printer_name = fields.Char(string="CUPS printer name (find at localhost:631)")

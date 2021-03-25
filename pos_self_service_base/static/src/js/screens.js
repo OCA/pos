@@ -36,7 +36,10 @@ odoo.define('pos_self_service_base.screens', function (require) {
             console.log("[SelfServiceLabelScreenWidget] click_print");
             var weight = this.self_service_scale_widget.get_weight();
             this.set_barcode(this.format_barcode(weight))
-            window.printZPL(this.get_ZPL_barcode())
+
+            var printer_name = this.pos.config.printer_name
+            var barcode = this.get_ZPL_barcode()
+            window.printZPL(printer_name, barcode)
         },
         format_barcode: function (weight){
             console.log("[SelfServiceLabelScreenWidget] format_barcode");

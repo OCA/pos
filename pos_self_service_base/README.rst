@@ -51,6 +51,15 @@ Reset a Zebra printer
 
 Factory reset video: https://www.youtube.com/watch?v=SXvoW3sm6ls
 
+Launch Firefox
+==============
+
+firefox <url> -foreground --kiosk
+
+Define printer as default printer
+
+http://localhost:631/printers
+use the ubuntu credentials when requested
 
 Credits
 =======
