@@ -38,6 +38,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
             this.set_barcode(this.format_barcode(weight))
 
             var printer_name = this.pos.config.printer_name
+            //TODO : popup if !printer_name
             var barcode = this.get_ZPL_barcode()
             window.printZPL(printer_name, barcode)
         },
