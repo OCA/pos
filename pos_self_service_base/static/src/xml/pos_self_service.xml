@@ -66,41 +66,16 @@
         </div>
     </t>
 
-    <t t-name="SelfServiceBackButton">
-        <div class="self-service-control-button">
-            <span class='button back'>
-                <i class='fa fa-arrow-left'></i>
-                Back
-            </span>
-        </div>
-    </t>
-
-     <t t-name="SelfServiceLabelScreenWidget">
-        <div class='self-service-screen screen'>
-            <div class="screen-content">
-                <!-- <div class="top-content">
-                    <h1>Self-Service Label Screen</h1>
-                </div> -->
-                <div class="centered touch-scrollable">
-                    <div class="big-button grey print">
-                        <i class='fa fa-print'></i>
-                        Print label
-                    </div>
-                </div>
-            </div>
-        </div>
-    </t>
-
     <t t-name="SelfServiceScreenWidget">
         <div class='self-service-screen screen'>
             <div class="screen-content">
-                <div class="top-content">
+                <!-- <div class="top-content">
                     <h1>Self-Service Home Screen</h1>
-                </div>
+                </div> -->
                 <div class="centered touch-scrollable">
                     <!-- Here goes user actions such as label printing, barcode scanning, etc. -->
                     <div class='big-button green tare'>
-                        Tare<br/>a container
+                        Print container tare
                         <span class='ico foodbox' />
                      </div>
                 </div>

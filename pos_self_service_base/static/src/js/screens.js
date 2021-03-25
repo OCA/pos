@@ -7,31 +7,34 @@ odoo.define('pos_self_service_base.screens', function (require) {
     var gui = require('point_of_sale.gui');
     var screens = require('point_of_sale.screens');
 
-    var SelfServiceLabelScreenWidget = screens.ScreenWidget.extend({
-        template: 'SelfServiceLabelScreenWidget',
+    /* -------- The Self-Service Screen  -------- */
+    // This is the home screen with the call to action buttons.
+    var SelfServiceScreenWidget = screens.ScreenWidget.extend({
+        template: 'SelfServiceScreenWidget',
+
+        // Ignore products, discounts, and client barcodes
+        barcode_product_action: function(code){},
+        barcode_discount_action: function(code){},
+        barcode_client_action: function(code){},
         start: function(){
-            console.log("[SelfServiceLabelScreenWidget] start()")
             var self = this;
             this._super();
             this.self_service_scale_widget = this.pos.chrome.widget.self_service_scale_widget
             this.barcode_parser = this.pos.barcode_reader.barcode_parser;
             this.barcode = null;
         },
-
         show: function(){
-            console.log("[SelfServiceLabelScreenWidget] show()")
-            var self = this;
             this._super();
+            this.chrome.widget.order_selector.hide();
         },
         renderElement(){
-            console.log("[SelfServiceLabelScreenWidget] renderElement")
+            console.log("[SelfServiceScreenWidget] renderElement")
             var self = this;
             this._super();
-            this.$('.print').click(function(){
+            this.$('.tare').click(function () {
                 self.click_print();
             });
         },
-
         click_print: function (){
             console.log("[SelfServiceLabelScreenWidget] click_print");
             var weight = this.self_service_scale_widget.get_weight();
@@ -105,41 +108,6 @@ odoo.define('pos_self_service_base.screens', function (require) {
             console.log("[SelfServiceLabelScreenWidget] set_barcode");
             this.barcode = barcode;
         }
-    });
-
-    // Add the self-service tare screen to the GUI
-    gui.define_screen({
-        'name': 'selfservice_label',
-        'widget': SelfServiceLabelScreenWidget,
-        'condition': function(){
-            return this.pos.config.iface_self_service;
-        },
-    });
-
-
-    /* -------- The Self-Service Screen  -------- */
-    // This is the home screen with the call to action buttons.
-    var SelfServiceScreenWidget = screens.ScreenWidget.extend({
-        template: 'SelfServiceScreenWidget',
-
-        // Ignore products, discounts, and client barcodes
-        barcode_product_action: function(code){},
-        barcode_discount_action: function(code){},
-        barcode_client_action: function(code){},
-
-        show: function(){
-            this._super();
-            this.chrome.widget.order_selector.hide();
-        },
-        renderElement(){
-            console.log("[SelfServiceScreenWidget] renderElement")
-            var self = this;
-            this._super();
-            this.$('.tare').click(function () {
-                self.pos.chrome.self_service_action_buttons.back_button.history_stack.push(self.gui.get_current_screen());
-                self.gui.show_screen('selfservice_label');
-            });
-        },
     });
 
     // Add the self-service screen to the GUI

@@ -78,26 +78,6 @@ odoo.define('pos_self_service_base.chrome', function (require) {
         'widget': SelfServiceHomeButton,
     });
 
-    /* -------- The Self-Service Back Button  -------- */
-
-    // The back button allows the user to go back to the previous screen.
-    var SelfServiceBackButton = SelfServiceActionButtonWidget.extend({
-        template: 'SelfServiceBackButton',
-        history_stack: [],
-
-        button_click: function () {
-            this._super();
-            var previousScreen = this.history_stack.pop();
-            if (previousScreen) {
-                this.gui.show_screen(previousScreen);
-            }
-        },
-    });
-
-    define_self_service_action_button({
-        'name': 'back_button',
-        'widget': SelfServiceBackButton,
-    });
 
     /* -------- The Self-Service Scale Widget  -------- */
 
