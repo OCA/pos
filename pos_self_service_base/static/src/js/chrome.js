@@ -86,21 +86,34 @@ odoo.define('pos_self_service_base.chrome', function (require) {
         init: function(parent, options) {
             this._super(parent,options);
             this.weight = 0;
+            this.observers = [];
             this.renderElement()
         },
         start: function(){
             var self = this;
             this._super();
             var queue = this.pos.proxy_queue;
-
             this.set_weight(0);
             this.renderElement();
 
             queue.schedule(function(){
                 return self.pos.proxy.scale_read().then(function(weight){
                     self.set_weight(weight.weight);
+                    self.notify_all(weight.weight);
                 });
             },{duration:500, repeat: true});
+        },
+        add_observer: function(observer){
+          this.observers.push(observer);
+        },
+        notify_all: function(data){
+            var observers = this.observers;
+            if (observers.length > 0) {
+                for (var i = 0; i < observers.length; i++) {
+                    var observer = observers[i]
+                    observer.update(data)
+                }
+            }
         },
         set_weight: function(weight){
             this.weight = weight;
@@ -114,8 +127,6 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             return defaultstr;
         },
     });
-
-
 
     // Add the self-service widgets to the Chrome
     chrome.Chrome.include({

@@ -74,12 +74,18 @@
                 </div> -->
                 <div class="centered touch-scrollable">
                     <!-- Here goes user actions such as label printing, barcode scanning, etc. -->
-                    <div class='big-button green tare'>
-                        Print container tare
-                        <span class='ico foodbox' />
-                     </div>
+                    <div class="tare">
+                        <div class='tare-button-container'></div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </t>
+
+    <t t-name="TareButton">
+        <div t-attf-class='big-button #{scale_weight &gt; 0 ? "green" : "grey"}'>
+            Print container tare
+            <span class='ico foodbox' />
         </div>
     </t>
 </templates>

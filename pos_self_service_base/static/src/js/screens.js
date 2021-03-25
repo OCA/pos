@@ -6,11 +6,15 @@ odoo.define('pos_self_service_base.screens', function (require) {
 
     var gui = require('point_of_sale.gui');
     var screens = require('point_of_sale.screens');
+    var core = require('web.core');
+    var QWeb = core.qweb;
+
 
     /* -------- The Self-Service Screen  -------- */
     // This is the home screen with the call to action buttons.
     var SelfServiceScreenWidget = screens.ScreenWidget.extend({
         template: 'SelfServiceScreenWidget',
+        scale_weight: 0,
 
         // Ignore products, discounts, and client barcodes
         barcode_product_action: function(code){},
@@ -20,23 +24,39 @@ odoo.define('pos_self_service_base.screens', function (require) {
             var self = this;
             this._super();
             this.self_service_scale_widget = this.pos.chrome.widget.self_service_scale_widget
+            this.self_service_scale_widget.add_observer(this);
             this.barcode_parser = this.pos.barcode_reader.barcode_parser;
             this.barcode = null;
         },
         show: function(){
+            var self = this;
             this._super();
             this.chrome.widget.order_selector.hide();
+            this.$('.tare').click(function () {
+                console.log('click')
+                self.click_print();
+            });
+            this.render_button();
+        },
+        get_tare_button_render_env: function() {
+            return {
+                widget: this,
+                pos: this.pos,
+                scale_weight: this.scale_weight
+            };
+        },
+        update: function(data){
+          this.scale_weight = data;
+          this.render_button();
         },
         renderElement(){
             console.log("[SelfServiceScreenWidget] renderElement")
             var self = this;
             this._super();
-            this.$('.tare').click(function () {
-                self.click_print();
-            });
         },
         click_print: function (){
             console.log("[SelfServiceLabelScreenWidget] click_print");
+            //TODO if this.scale_weight > 0
             var weight = this.self_service_scale_widget.get_weight();
             this.set_barcode(this.format_barcode(weight))
 
@@ -107,7 +127,10 @@ odoo.define('pos_self_service_base.screens', function (require) {
         set_barcode: function(barcode){
             console.log("[SelfServiceLabelScreenWidget] set_barcode");
             this.barcode = barcode;
-        }
+        },
+        render_button: function(){
+            this.$('.tare-button-container').html(QWeb.render('TareButton', this.get_tare_button_render_env()));
+        },
     });
 
     // Add the self-service screen to the GUI
