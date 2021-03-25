@@ -5,6 +5,8 @@ odoo.define('pos_self_service_base.chrome', function (require) {
 
     var PosBaseWidget = require('point_of_sale.BaseWidget');
     var chrome = require('point_of_sale.chrome');
+    var core = require('web.core');
+    var _t = core._t;
 
     /* ----- The Self Service Action Buttons ----- */
 
