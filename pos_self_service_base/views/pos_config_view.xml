@@ -15,6 +15,37 @@
                         <div class="o_setting_right_pane">
                             <label for="iface_self_service"/>
                         </div>
+
+                        <div class="o_setting_left_pane">
+                            <field name="label_offset_x"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="label_offset_x"/>
+                        </div>
+
+                        <div class="o_setting_left_pane">
+                            <field name="label_offset_y"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="label_offset_y"/>
+                        </div>
+
+
+                        <div class="o_setting_left_pane">
+                            <field name="label_width"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="label_width"/>
+                        </div>
+
+
+                        <div class="o_setting_left_pane">
+                            <field name="label_height"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="label_height"/>
+                        </div>
+
                     </div>
                 </div>
             </xpath>

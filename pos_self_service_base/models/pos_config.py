@@ -7,15 +7,15 @@ class PosConfig(models.Model):
     iface_self_service = fields.Boolean(
         string="Is Self-Service", help="Use that POS as self-service point"
     )
-    origin_x = fields.Integer(
+    label_offset_x = fields.Integer(
         required=True,
-        default=10,
+        default=320,
         help="Origin point of the contents in the label, X coordinate.",
     )
-    origin_y = fields.Integer(
+    label_offset_y = fields.Integer(
         required=True,
-        default=10,
+        default=40,
         help="Origin point of the contents in the label, Y coordinate.",
     )
-    label_height = fields.Integer(string="Label Height (mm)", default=20)
-    label_width = fields.Integer(string="Label Width (mm)", default=30)
+    label_height = fields.Integer(string="Label Height (ZPL ^BY command argument)", default=2)
+    label_width = fields.Integer(string="Label Width (ZPL ^BY command argument)", default=100)

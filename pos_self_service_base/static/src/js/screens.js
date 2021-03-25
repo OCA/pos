@@ -34,29 +34,9 @@ odoo.define('pos_self_service_base.screens', function (require) {
 
         click_print: function (){
             console.log("[SelfServiceLabelScreenWidget] click_print");
-            console.log(this.pos.config.label_height)
-            console.log(this.pos.config.label_width)
             var weight = this.self_service_scale_widget.get_weight();
-            // if (weight > 0) return
-
             this.set_barcode(this.format_barcode(weight))
-
-            console.log(this.get_barcode());
-            console.log('get_ZPL_barcode', this.get_ZPL_barcode())
             window.printZPL(this.get_ZPL_barcode())
-                // var title = _t("BARCODE:") + this.get_barcode();
-                // var popup = {title: title, body: message};
-                // this.gui.show_popup('alert', popup);
-            // } else {
-            //     var title = _t("");
-            //     var message = _("")
-            //     var popup = {title: title, body: message};
-            //     this.gui.show_popup('error', popup);
-            // }
-
-            // TODO render label ?
-
-            // TODO print label
         },
         format_barcode: function (weight){
             console.log("[SelfServiceLabelScreenWidget] format_barcode");
@@ -90,9 +70,11 @@ odoo.define('pos_self_service_base.screens', function (require) {
             return barcode.substr(0, 12).concat(ean_checksum);
         },
         get_ZPL_barcode: function() {
-            return "^XA ^FX ^BY3,2,100 ^FO10,10 ^BE^FD"
-            + this.get_barcode()
-            + "^FS ^XZ"
+            return `^XA ^FX
+            ^BY${this.pos.config.label_height},2,${this.pos.config.label_width}
+            ^FO${this.pos.config.label_offset_x},${this.pos.config.label_offset_y}
+            ^BE^FD${this.get_barcode()}^FS
+            ^XZ`
         },
         get_barcode_prefix: function () {
             var barcode_pattern = this.get_barcode_pattern();
