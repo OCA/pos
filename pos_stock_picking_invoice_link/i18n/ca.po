@@ -6,35 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_stock_picking_invoice_link
 #: model:ir.model,name:pos_stock_picking_invoice_link.model_pos_order_line
 msgid "Lines of Point of Sale Orders"
-msgstr ""
+msgstr "Línies de comandes de punt de venda"
 
 #. module: pos_stock_picking_invoice_link
 #: model:ir.model,name:pos_stock_picking_invoice_link.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Comandes de punt de venda"
 
 #. module: pos_stock_picking_invoice_link
 #: model:ir.model.fields,field_description:pos_stock_picking_invoice_link.field_stock_move_pos_order_line_id
 msgid "Related POS Order Line"
-msgstr ""
+msgstr "Línia de comanda de TPV relacionada"
 
 #. module: pos_stock_picking_invoice_link
 #: model:ir.model.fields,field_description:pos_stock_picking_invoice_link.field_pos_order_line_stock_move_ids
 msgid "Related Stock Moves"
-msgstr ""
+msgstr "Moviments d'estoc relacionats"
 
 #. module: pos_stock_picking_invoice_link
 #: model:ir.model,name:pos_stock_picking_invoice_link.model_stock_move
 msgid "Stock Move"
-msgstr ""
+msgstr "Moviment d’estoc"
