@@ -6,21 +6,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: product_brand_pos_report
 #: model:ir.model.fields,field_description:product_brand_pos_report.field_report_pos_order_product_brand_id
 #: model:ir.ui.view,arch_db:product_brand_pos_report.view_report_pos_order_search
 msgid "Brand"
-msgstr ""
+msgstr "Marca"
 
 #. module: product_brand_pos_report
 #: model:ir.model,name:product_brand_pos_report.model_report_pos_order
 msgid "Point of Sale Orders Statistics"
-msgstr ""
+msgstr "Estadístiques de comandes de punt de venda"
