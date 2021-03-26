@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_payment_terminal
 #: selection:account.journal,payment_mode:0
@@ -37,6 +38,8 @@ msgid ""
 "Failed to send the amount to pay to the payment terminal. Press the red "
 "button on the payment terminal and try again."
 msgstr ""
+"No se pudo enviar el monto a pagar a la terminal de pago. Presione el botón "
+"rojo en la terminal de pago y vuelva a intentarlo."
 
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_account_journal
@@ -53,12 +56,12 @@ msgstr "Forma de pago"
 #: code:addons/pos_payment_terminal/static/src/js/pos_payment_terminal.js:100
 #, python-format
 msgid "Payment Terminal Error"
-msgstr ""
+msgstr "Error de terminal de pago"
 
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Órdenes de punto de venta"
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,help:pos_payment_terminal.field_account_journal_payment_mode
@@ -75,4 +78,4 @@ msgstr "Iniciar transacción"
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_config
 msgid "pos.config"
-msgstr "Configuración del TPV"
+msgstr "pos.config"
