@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_timeout
 #: model:ir.model.fields,help:pos_timeout.field_pos_config_pos_order_timeout
@@ -23,13 +25,22 @@ msgid "Defines the value of the client-side timeout for the creation of PoS Orde
 " the effective timeout value applied will be equal to the defined timeout value multiplied by the number of orders.\n"
 ""
 msgstr ""
+"Defineix el valor del temps d'espera del client per a la creació d'ordres "
+"PoS des de la interfície d'usuari del POS.\n"
+"  El valor s’expressa en segons, per a una sola comanda.\n"
+"  Si no es defineix, s'utilitzarà el valor Odoo per defecte: 7,5 segons.\n"
+"  Si la trucada conté més d'una comanda (per exemple, després d'un llarg "
+"període de desconnexió o si la trucada anterior va augmentar el temps "
+"d'espera),\n"
+"  el valor de temps d'espera efectiu aplicat serà igual al valor de temps "
+"d'espera definit multiplicat pel nombre de comandes.\n"
 
 #. module: pos_timeout
 #: model:ir.model.fields,field_description:pos_timeout.field_pos_config_pos_order_timeout
 msgid "PoS Order(s) Timeout"
-msgstr ""
+msgstr "Temps d'espera de les ordres PoS"
 
 #. module: pos_timeout
 #: model:ir.model,name:pos_timeout.model_pos_config
 msgid "pos.config"
-msgstr ""
+msgstr "pos.config"
