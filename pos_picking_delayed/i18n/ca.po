@@ -6,40 +6,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_config_picking_creation_delayed
 msgid "Check this box if you want to delay the creation of the picking created by the PoS orders. If checked, the pickings will be created later, by a cron task."
 msgstr ""
+"Marqueu aquesta casella si voleu retardar la creació de la selecció creada "
+"per les comandes PoS. Si està marcat, les seleccions es crearan més endavant "
+"mitjançant una tasca cron."
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_order_has_picking_delayed
 msgid "Has picking delayed"
-msgstr ""
+msgstr "La selecció s'ha retardat"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_config_picking_creation_delayed
 msgid "Picking Creation Delayed"
-msgstr ""
+msgstr "La creació de la selecció s'ha retardat"
 
 #. module: pos_picking_delayed
 #: model:ir.model,name:pos_picking_delayed.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Comandes de punt de venda"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_order_has_picking_delayed
 msgid "This checkbox is checked if the generation of the picking has been delayed. The picking will be created by cron."
 msgstr ""
+"Aquesta casella de selecció està marcada si la generació del picking s'ha "
+"endarrerit. El picking serà creat per cron."
 
 #. module: pos_picking_delayed
 #: model:ir.model,name:pos_picking_delayed.model_pos_config
 msgid "pos.config"
-msgstr ""
+msgstr "pos.config"
