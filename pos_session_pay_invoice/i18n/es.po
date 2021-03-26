@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -24,6 +25,8 @@ msgid ""
 "<span class=\"o_stat_text\">Collect Payment</span>\n"
 "                        <span class=\"o_stat_text\">from Invoice</span>"
 msgstr ""
+"<span class = \"o_stat_text\"> Cobrar pago </span>\n"
+"                         <span class = \"o_stat_text\"> de Factura </span>"
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -31,6 +34,8 @@ msgid ""
 "<span class=\"o_stat_text\">Pay</span>\n"
 "                        <span class=\"o_stat_text\">Invoice</span>"
 msgstr ""
+"<span class = \"o_stat_text\"> Pagar </span>\n"
+"                         <span class = \"o_stat_text\"> Factura </span>"
 
 #. module: pos_session_pay_invoice
 #: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:53
@@ -43,7 +48,7 @@ msgstr "No se ha encontrado extracto bancario"
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
 msgid "Pay invoice"
-msgstr ""
+msgstr "Factura de pago"
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
@@ -54,7 +59,7 @@ msgstr "Resumen"
 #: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:24
 #, python-format
 msgid "There is no cash register for this Pos session"
-msgstr ""
+msgstr "No hay caja registradora para esta sesión de Pos"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
