@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-03-23 21:46+0000\n"
-"Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -24,37 +24,37 @@ msgstr "revista"
 #. module: pos_payment_entries_globalization
 #: model:ir.ui.view,arch_db:pos_payment_entries_globalization.view_account_journal_pos_user_form
 msgid "Payment Globalization"
-msgstr ""
+msgstr "Globalització del pagament"
 
 #. module: pos_payment_entries_globalization
 #: code:addons/pos_payment_entries_globalization/models/pos_session.py:35
 #: code:addons/pos_payment_entries_globalization/models/pos_session.py:59
 #, python-format
 msgid "Payment globalization"
-msgstr ""
+msgstr "Globalització del pagament"
 
 #. module: pos_payment_entries_globalization
 #: code:addons/pos_payment_entries_globalization/models/pos_session.py:44
 #, python-format
 msgid "Payment globalization counterpart"
-msgstr ""
+msgstr "Homòleg de globalització de pagaments"
 
 #. module: pos_payment_entries_globalization
 #: model:ir.model.fields,field_description:pos_payment_entries_globalization.field_account_journal_pos_payment_globalization
 msgid "Pos Payment Globalization"
-msgstr ""
+msgstr "TPV Globalització del pagament"
 
 #. module: pos_payment_entries_globalization
 #: model:ir.model.fields,field_description:pos_payment_entries_globalization.field_account_journal_pos_payment_globalization_account
 msgid "Pos Payment Globalization Account"
-msgstr ""
+msgstr "Compte de globalització de pagaments TPV"
 
 #. module: pos_payment_entries_globalization
 #: model:ir.model.fields,field_description:pos_payment_entries_globalization.field_account_journal_pos_payment_globalization_journal
 msgid "Pos Payment Globalization Journal"
-msgstr ""
+msgstr "Diari de globalització de pagament de TPV"
 
 #. module: pos_payment_entries_globalization
 #: model:ir.model,name:pos_payment_entries_globalization.model_pos_session
 msgid "pos.session"
-msgstr ""
+msgstr "pos.session"
