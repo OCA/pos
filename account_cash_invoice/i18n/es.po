@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"PO-Revision-Date: 2021-03-26 17:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: account_cash_invoice
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_amount
@@ -39,12 +40,12 @@ msgstr "Cancelar"
 #. module: account_cash_invoice
 #: model:ir.actions.act_window,name:account_cash_invoice.action_cash_invoice_out_from_statement
 msgid "Collect Payment from Invoice"
-msgstr ""
+msgstr "Cobrar el pago de la factura"
 
 #. module: account_cash_invoice
 #: model:ir.ui.view,arch_db:account_cash_invoice.cash_invoice_out_form
 msgid "Collect payment from customer invoice or supplier refund"
-msgstr ""
+msgstr "Cobrar el pago de la factura del cliente o el reembolso del proveedor"
 
 #. module: account_cash_invoice
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_company_id
@@ -93,7 +94,7 @@ msgstr "Factura"
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_journal_count
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_out_journal_count
 msgid "Journal count"
-msgstr ""
+msgstr "Recuento de diarios"
 
 #. module: account_cash_invoice
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_journal_id
@@ -129,12 +130,12 @@ msgstr "Última actualización el"
 #: model:ir.actions.act_window,name:account_cash_invoice.action_cash_invoice_in_from_statement
 #: model:ir.ui.view,arch_db:account_cash_invoice.cash_invoice_in_form
 msgid "Pay invoice"
-msgstr ""
+msgstr "Factura de pago"
 
 #. module: account_cash_invoice
 #: model:ir.ui.view,arch_db:account_cash_invoice.cash_invoice_in_form
 msgid "Pay supplier invoice or customer refund"
-msgstr ""
+msgstr "Pagar la factura del proveedor o el reembolso del cliente"
 
 #. module: account_cash_invoice
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_name
