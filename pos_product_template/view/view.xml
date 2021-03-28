@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-Today Akretion (https://www.akretion.com)
+     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <template id="index" name="pos_product_template assets" inherit_id="point_of_sale.assets">
+        <xpath expr="//link[@id='pos-stylesheet']" position="after">
+            <link rel="stylesheet" href="/pos_product_template/static/src/css/ppt.css" id="pos_product_template-stylesheet"/>
+        </xpath>
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_product_template/static/src/js/ppt.js"></script>
+        </xpath>
+    </template>
+</odoo>
