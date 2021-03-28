@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_customer_display
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-25 02:39+0000\n"
+"PO-Revision-Date: 2017-04-25 02:39+0000\n"
+"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"Language-Team: Dutch (https://www.transifex.com/oca/teams/23907/nl/)\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_customer_display
+#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Bottom Line"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_next_l2
+msgid ""
+"Bottom line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_closed_l2
+msgid ""
+"Bottom line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:74
+#, python-format
+msgid "Cancel Payment"
+msgstr "Annuleren Betaling"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_iface_customer_display
+#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Customer Display"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:59
+#, python-format
+msgid "Delete Item"
+msgstr "Verwijderen Item"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config_iface_customer_display
+msgid "Display data on the customer display"
+msgstr "Weergeven gegevens op het klant scherm"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_line_length
+msgid "Length of the LEDs lines of the customer display"
+msgstr "Lengte van de LED lijnen van het klant scherm"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_line_length
+msgid "Line Length of the Customer Display"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_customer_display.py:46
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_next_l2
+#, python-format
+msgid "Next Customer (bottom line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_customer_display.py:44
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_next_l1
+#, python-format
+msgid "Next Customer (top line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Next Customer Message"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_customer_display.py:50
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_closed_l2
+#, python-format
+msgid "POS Closed (bottom line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_customer_display.py:48
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config_customer_display_msg_closed_l1
+#, python-format
+msgid "POS Closed (top line)"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "POS Closed Message"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:66
+#, python-format
+msgid "TOTAL: "
+msgstr "TOTAAL:"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_customer_display.py:55
+#, python-format
+msgid ""
+"The message for customer display '%s' is too long: it has %d chars whereas "
+"the maximum is %d chars."
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Top Line"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_next_l1
+msgid ""
+"Top line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config_customer_display_msg_closed_l1
+msgid ""
+"Top line of the message on the customer display which is displayed when POS "
+"is closed"
+msgstr ""
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display.js:81
+#, python-format
+msgid "Your Change:"
+msgstr "Wisselgeld:"
+
+#. module: pos_customer_display
+#: model:ir.model,name:pos_customer_display.model_pos_config
+msgid "pos.config"
+msgstr ""
