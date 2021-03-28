@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+    Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
+    Copyright (C) 2016-Today La Louve (<http://www.lalouve.net/>)
+
+    @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+
+    The licence is in the file __openerp__.py
+-->
+
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_config_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <div id="posbox_reference" position="after">
+                <h2>Customer Required</h2>
+                <div class="row mt16 o_settings_container" id="req_customer">
+                    <div class="col-xs-12 col-md-8 o_setting_box">
+                        <div class="o_setting_right_pane">
+
+                            <label for="require_customer" string="Customer Identification"/>
+                            <div class="text-muted">
+                                Force customer identification
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="require_customer" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</odoo>
