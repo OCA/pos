@@ -1,0 +1,55 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_session_summary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_session_summary
+#: model:ir.model,name:pos_session_summary.model_account_bank_statement
+msgid "Bank Statement"
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_account_bank_statement_total_entry_encoding_cash
+msgid "Cash Moves"
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_order_qty
+msgid "Orders Qty"
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_account_bank_statement_total_entry_encoding_sales
+msgid "Sale Transactions Subtotal"
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model.fields,help:pos_session_summary.field_account_bank_statement_total_entry_encoding_cash
+msgid "Total of cash inputs or outputs."
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model.fields,help:pos_session_summary.field_account_bank_statement_total_entry_encoding_sales
+msgid "Total of sale transaction lines."
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_total_amount
+msgid "Transactions Total"
+msgstr ""
+
+#. module: pos_session_summary
+#: model:ir.model,name:pos_session_summary.model_pos_session
+msgid "pos.session"
+msgstr ""
