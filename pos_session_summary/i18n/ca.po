@@ -9,19 +9,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 05:50+0000\n"
-"PO-Revision-Date: 2017-03-28 05:50+0000\n"
-"Last-Translator: Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017\n"
+"PO-Revision-Date: 2021-03-29 09:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_session_summary
 #: model:ir.model,name:pos_session_summary.model_account_bank_statement
 msgid "Bank Statement"
-msgstr "Extracte de compte "
+msgstr "Extracte de compte"
 
 #. module: pos_session_summary
 #: model:ir.model.fields,field_description:pos_session_summary.field_account_bank_statement_total_entry_encoding_cash
@@ -31,7 +32,7 @@ msgstr "Moviments de caixa"
 #. module: pos_session_summary
 #: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_order_qty
 msgid "Orders Qty"
-msgstr "Quantitat de comandes "
+msgstr "Quantitat de comandes"
 
 #. module: pos_session_summary
 #: model:ir.model.fields,field_description:pos_session_summary.field_account_bank_statement_total_entry_encoding_sales
@@ -41,17 +42,17 @@ msgstr "Sub-total de transaccions de vendes"
 #. module: pos_session_summary
 #: model:ir.model.fields,help:pos_session_summary.field_account_bank_statement_total_entry_encoding_cash
 msgid "Total of cash inputs or outputs."
-msgstr "Total entrades o sortides d'efectiu "
+msgstr "Total entrades o sortides d'efectiu."
 
 #. module: pos_session_summary
 #: model:ir.model.fields,help:pos_session_summary.field_account_bank_statement_total_entry_encoding_sales
 msgid "Total of sale transaction lines."
-msgstr "Total de línies de transaccions de vendes "
+msgstr "Total de línies de transaccions de vendes."
 
 #. module: pos_session_summary
 #: model:ir.model.fields,field_description:pos_session_summary.field_pos_session_total_amount
 msgid "Transactions Total"
-msgstr "Transaccions totals "
+msgstr "Transaccions totals"
 
 #. module: pos_session_summary
 #: model:ir.model,name:pos_session_summary.model_pos_session
