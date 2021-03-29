@@ -9,35 +9,36 @@ msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 05:50+0000\n"
-"PO-Revision-Date: 2017-03-28 05:50+0000\n"
-"Last-Translator: Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017\n"
+"PO-Revision-Date: 2021-03-29 09:46+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:188
 #, python-format
 msgid "Change Unit Price - Unauthorized function"
-msgstr "Canviar preu unitari - Funció no autoritzada "
+msgstr "Canviar preu unitari - Funció no autoritzada"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
 #, python-format
 msgid "Delete Order - Unauthorized function"
-msgstr "Esborrar comanda - Funció no autoritzada "
+msgstr "Esborrar comanda - Funció no autoritzada"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:181
 #, python-format
 msgid "Discount - Unauthorized function"
-msgstr "Descomptes - Funció no autoritzada "
+msgstr "Descomptes - Funció no autoritzada"
 
 #. module: pos_access_right
 #. openerp-web
@@ -51,7 +52,7 @@ msgstr "Múltiples Comandes - Funció no autoritzada"
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:153
 #, python-format
 msgid "Negative Quantity - Unauthorized function"
-msgstr "Quantitat Negativa - Funció no autoritzada "
+msgstr "Quantitat Negativa - Funció no autoritzada"
 
 #. module: pos_access_right
 #. openerp-web
@@ -67,17 +68,17 @@ msgstr "Si us plau, pregunti al seu administrador per fer-ho."
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_discount_id
 msgid "Point of Sale - Allow Discount"
-msgstr "Punt de Venda - Permetre Descomptes "
+msgstr "Punt de Venda - Permetre Descomptes"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_negative_qty_id
 msgid "Point of Sale - Allow Negative Quantity"
-msgstr "Punt de Venda - Permetre quantitats negatives "
+msgstr "Punt de Venda - Permetre quantitats negatives"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_change_unit_price_id
 msgid "Point of Sale - Allow Unit Price Change"
-msgstr "Punt de Venda - Permetre canviar el preu de venda "
+msgstr "Punt de Venda - Permetre canviar el preu de venda"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config_group_delete_order_id
