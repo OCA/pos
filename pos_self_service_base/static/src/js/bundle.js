@@ -6,7 +6,7 @@ const ipp = require("../lib/ipp");
 window.printZPL = (printerName, zplString) => {
     console.log("Sending print job");
     var printer = ipp.Printer(
-        `http://localhost:8631/printers/${printerName}`
+        "http://localhost:8631/printers/" + printerName
     );
   
     printer.execute(
