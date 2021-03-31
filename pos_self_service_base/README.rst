@@ -19,12 +19,156 @@ Point Of Sale - Self-Service
 
 |badge1| |badge2| |badge3| 
 
-WIP
+This is the base module for the implementation of POS as a self-service weighing station.
+This module handles weighing/container taring and barcode formatting.
+It is aimed to be used by several other modules:
+
+* pos_self_service_print_zpl
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+Setup the self-service POS
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Create a new POS
+2. Enable "Is Self-Service"
+3. Setup hardware proxy
+    * Enable electronic scale
+    * Enable barcode reader
+
+Printer
+~~~~~~~
+
+Browse to the CUPS configuration page to get the name of the printer that will be used: http://localhost:631/printers. Set this name as the printer name in the configuration page.
+
+Center the barcode by trial and error using the label offset and size configuration values.
+
+
+Reverse proxy with nginx
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Install nginx::
+
+    apt install nginx
+
+Start nginx::
+
+    sudo systemctl start nginx.service
+
+Copy this file in::
+
+    /etc/nginx/sites-available/cups
+
+.. code-block::
+
+    upstream cups-reverse-proxy {
+        server 127.0.0.1:631 weight=1 fail_timeout=60s;
+    }
+
+    server {
+        # server port and name
+        listen 8631;
+        listen [::]:8631;
+        server_name _;
+
+        # ssl log files
+        access_log /var/log/nginx/cups-access.log;
+        error_log /var/log/nginx/cups-error.log;
+
+
+        # increase proxy buffer to handle some Odoo web requests
+        proxy_buffers 16 64k;
+        proxy_buffer_size 128k;
+
+        location / {
+            proxy_pass http://cups-reverse-proxy;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $server_name;
+
+            add_header 'Access-Control-Allow-Origin' $http_origin always;
+            add_header 'Access-Control-Allow-Credentials' * always;
+            add_header 'Access-Control-Allow-Methods' * always;
+            add_header 'Access-Control-Allow-Headers' * always;
+            # required to be able to read Authorization header in frontend
+            add_header 'Access-Control-Expose-Headers' * always;
+
+            if ($request_method = 'OPTIONS') {
+                # Tell client that this pre-flight info is valid for 20 days
+                add_header 'Access-Control-Max-Age' 1728000;
+                add_header 'Content-Type' 'text/plain charset=UTF-8';
+                add_header 'Content-Length' 0;
+                add_header 'Access-Control-Allow-Origin' $http_origin always;
+                add_header 'Access-Control-Allow-Credentials' * always;
+                add_header 'Access-Control-Allow-Methods' * always;
+                add_header 'Access-Control-Allow-Headers' * always;
+                # required to be able to read Authorization header in frontend
+                add_header 'Access-Control-Expose-Headers' * always;
+
+                return 204;
+            }
+
+            # by default, do not forward anything
+            proxy_redirect off;
+        }
+    }
+
+Create symbolic link::
+
+    sudo ln -s /etc/nginx/sites-available/cups /etc/nginx/sites-enabled/
+
+Check the syntax is ok::
+
+    sudo nginx -t
+    sudo systemctl restart nginx.service
+
+
+Usage
+=====
+
+This module should be used from a computer accessible to customers.
+In order to limit the risk of unfortunate/malicious actions, you should:
+
+* **Use a dedicated odoo account with the least possible rights**
+* Configure the web browser to be in kiosk mode (cf. "Launch Firefox" section)
+
+Those measures aren't sufficient *per se*, but should lower the risk significantly.
+
+Launch Firefox
+~~~~~~~~~~~~~~
+
+This self-service module can be used in kiosk mode. To launch Firefox in kiosk mode, run this command::
+
+    firefox <url> -foreground --kiosk
+
+Reset a Zebra printer
+~~~~~~~~~~~~~~~~~~~~~
+`Factory reset video <https://www.youtube.com/watch?v=SXvoW3sm6ls>`_
+
+Development
+===========
+
+Generate JavaScript bundle file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This module makes use of the NPM library IPP to send http request to CUPS.
+The NPM library browserify is used to generate a bundle.js file from the print.js file::
+
+    npm -i ipp
+    npm -g browserify
+    browserify static/src/js/print.js -o static/src/js/bundle.js
+
+
+Known issues / Roadmap
+======================
+
+* Label printing using web print
 
 Bug Tracker
 ===========
@@ -42,12 +186,18 @@ Credits
 Authors
 ~~~~~~~
 
-* 
+* Coop IT Easy SCRLfs
 
 Contributors
 ~~~~~~~~~~~~
 
-TODO
+* `Coop IT Easy SCRLfs <https://coopiteasy.be>`_:
+    * Grégoire Leeuwerck <gregoire@coopiteasy.be>
+    * Vincent Van Rossem <vincent@coopiteasy.be>
+* `Le Nid <https://lenid.ch>`_:
+    * François Kawala
+* `SPP <https://la-feve.ch>`_
+* Icons made by Freepik from flaticon.com
 
 Maintainers
 ~~~~~~~~~~~
