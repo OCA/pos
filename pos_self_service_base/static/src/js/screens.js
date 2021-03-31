@@ -56,14 +56,15 @@ odoo.define('pos_self_service_base.screens', function (require) {
         },
         click_print: function (){
             console.log("[SelfServiceLabelScreenWidget] click_print");
-            //TODO if this.scale_weight > 0
-            var weight = this.self_service_scale_widget.get_weight();
-            this.set_barcode(this.format_barcode(weight))
+            if (this.scale_weight > 0){
+                this.set_barcode(this.format_barcode(this.scale_weight))
 
-            var printer_name = this.pos.config.printer_name
-            //TODO : popup if !printer_name
-            var barcode = this.get_ZPL_barcode()
-            window.printZPL(printer_name, barcode)
+                var printer_name = this.pos.config.printer_name
+                //TODO : popup if !printer_name
+                var barcode = this.get_ZPL_barcode()
+                window.printZPL(printer_name, barcode)
+            }
+
         },
         format_barcode: function (weight){
             console.log("[SelfServiceLabelScreenWidget] format_barcode");
