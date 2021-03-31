@@ -161,6 +161,9 @@ odoo.define('pos_self_service_base.chrome', function (require) {
     });
 
     return {
+        define_self_service_action_button: define_self_service_action_button,
+        SelfServiceActionButtonWidget: SelfServiceActionButtonWidget,
+        SelfServiceHomeButton: SelfServiceHomeButton,
         SelfServiceScaleWidget: SelfServiceScaleWidget,
     }
 
