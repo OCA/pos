@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="pos_default_quantity_extension_assets" inherit_id="web.assets_backend">
+          <xpath expr="." position="inside">
+              <script type="text/javascript"
+                      src="/pos_default_quantity/static/src/js/pos.js">
+              </script>
+          </xpath>
+        </template>
+    </data>
+</odoo>
