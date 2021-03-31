@@ -33,7 +33,6 @@ odoo.define('pos_self_service_base.screens', function (require) {
             this._super();
             this.chrome.widget.order_selector.hide();
             this.$('.tare').click(function () {
-                console.log('click')
                 self.click_print();
             });
             this.render_button();
@@ -50,12 +49,10 @@ odoo.define('pos_self_service_base.screens', function (require) {
           this.render_button();
         },
         renderElement(){
-            console.log("[SelfServiceScreenWidget] renderElement")
             var self = this;
             this._super();
         },
         click_print: function (){
-            console.log("[SelfServiceLabelScreenWidget] click_print");
             if (this.scale_weight > 0){
                 this.set_barcode(this.format_barcode(this.scale_weight))
 
@@ -67,7 +64,6 @@ odoo.define('pos_self_service_base.screens', function (require) {
 
         },
         format_barcode: function (weight){
-            console.log("[SelfServiceLabelScreenWidget] format_barcode");
             // We use EAN13 barcode, it looks like `07 00000 12345 x`. First there
             // is the prefix, here 07, that is used to decide which type of
             // barcode we're dealing with. A weight barcode has then two groups
@@ -122,11 +118,9 @@ odoo.define('pos_self_service_base.screens', function (require) {
             return this.barcode_parser.nomenclature.rules;
         },
         get_barcode: function(){
-            console.log("[SelfServiceLabelScreenWidget] get_barcode");
             return this.barcode;
         },
         set_barcode: function(barcode){
-            console.log("[SelfServiceLabelScreenWidget] set_barcode");
             this.barcode = barcode;
         },
         render_button: function(){
