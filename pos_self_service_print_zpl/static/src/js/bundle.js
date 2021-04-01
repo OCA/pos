@@ -8,7 +8,7 @@ window.printZPL = (printerName, zplString) => {
     var printer = ipp.Printer(
         "http://localhost:8631/printers/" + printerName
     );
-  
+
     printer.execute(
         "Print-Job",
         {
@@ -29,25 +29,25 @@ window.printZPL = (printerName, zplString) => {
 var util = require('./lib/ipputil');
 
 module.exports = {
-	parse: require('./lib/parser'),
-	serialize: require('./lib/serializer'),
-	request: require('./lib/request'),
-	Printer: require('./lib/printer'),
-	versions: require('./lib/versions'),
-	attributes: require('./lib/attributes'),
-	keywords: require('./lib/keywords'),
-	enums: require('./lib/enums'),
-	tags: require('./lib/tags'),
-	statusCodes: require('./lib/status-codes')
+    parse: require('./lib/parser'),
+    serialize: require('./lib/serializer'),
+    request: require('./lib/request'),
+    Printer: require('./lib/printer'),
+    versions: require('./lib/versions'),
+    attributes: require('./lib/attributes'),
+    keywords: require('./lib/keywords'),
+    enums: require('./lib/enums'),
+    tags: require('./lib/tags'),
+    statusCodes: require('./lib/status-codes')
 };
 module.exports.operations = module.exports.enums['operations-supported'];
 module.exports.attribute = {
-	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-7
-	groups: util.xref(module.exports.tags.lookup.slice(0x00, 0x0F)),
-	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-8
-	values: util.xref(module.exports.tags.lookup.slice(0x10, 0x1F)),
-	//http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-9
-	syntaxes: util.xref(module.exports.tags.lookup.slice(0x20))
+    //http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-7
+    groups: util.xref(module.exports.tags.lookup.slice(0x00, 0x0F)),
+    //http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-8
+    values: util.xref(module.exports.tags.lookup.slice(0x10, 0x1F)),
+    //http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-9
+    syntaxes: util.xref(module.exports.tags.lookup.slice(0x20))
 }
 
 },{"./lib/attributes":3,"./lib/enums":4,"./lib/ipputil":5,"./lib/keywords":6,"./lib/parser":7,"./lib/printer":8,"./lib/request":9,"./lib/serializer":10,"./lib/status-codes":11,"./lib/tags":12,"./lib/versions":13}],3:[function(require,module,exports){
@@ -139,12 +139,12 @@ function _(arg1, arg2, arg3){
   return args.some(function(a){ return isDeferred(a) }) ? deferred : deferred();
 }
 const createDeferred = function (deferred) {
-	deferred.isDeferred = true;
-	return deferred;
+    deferred.isDeferred = true;
+    return deferred;
 }
 
 const isDeferred = function (type) {
-	return typeof type === "function" && type.isDeferred
+    return typeof type === "function" && type.isDeferred
 }
 
 // In IPP, "1setOf" just means "Array"... but it must 1 or more items
@@ -172,11 +172,11 @@ function collection(group, name){
 
   if(typeof group === "string"){
     return createDeferred(function(){
-	      return {
-	        type: "collection",
-	        tag:tags.begCollection,
-	        members: attributes[group][name].members
-				}
+          return {
+            type: "collection",
+            tag:tags.begCollection,
+            members: attributes[group][name].members
+                }
     });
   }
   var defer = Object.keys(group).some(function(key){
@@ -281,7 +281,7 @@ attributes["Document Description"] = {
   "y-side2-image-shift-actual":                   setof(integer)
 };
 attributes["Document Template"] = {
-	"copies":                                       integer(1,MAX),
+    "copies":                                       integer(1,MAX),
   "cover-back":                                   collection("Job Template","cover-back"),
   "cover-front":                                  collection("Job Template","cover-front"),
   "feed-orientation":                             keyword,
@@ -299,11 +299,11 @@ attributes["Document Template"] = {
   "orientation-requested":                        enumeration,
   "overrides":                                    setof(collection({
     //Any Document Template attribute (TODO)
-		"document-copies":                            setof(rangeOfInteger),
+        "document-copies":                            setof(rangeOfInteger),
     "document-numbers":                           setof(rangeOfInteger),
     "pages":                                      setof(rangeOfInteger)
   })),
-	"page-delivery":                                keyword,
+    "page-delivery":                                keyword,
   "page-order-received":                          keyword,
   "page-ranges":                                  setof(rangeOfInteger(1,MAX)),
   "pdl-init-file":                                setof(collection("Job Template","pdl-init-file")),
@@ -326,11 +326,11 @@ attributes["Document Template"] = {
   "y-side2-image-shift":                          integer
 };
 attributes["Event Notifications"] = {
-	"notify-subscribed-event":                      keyword,
+    "notify-subscribed-event":                      keyword,
   "notify-text":                                  text
 };
 attributes["Job Description"] = {
-	"attributes-charset":                           charset,
+    "attributes-charset":                           charset,
   "attributes-natural-language":                  naturalLanguage,
   "compression-supplied":                         keyword,
   "copies-actual":                                setof(integer(1,MAX)),
@@ -440,18 +440,18 @@ attributes["Job Description"] = {
   "y-side2-image-shift-actual":                   setof(integer)
 };
 attributes["Job Template"] = {
-	"copies":                                       integer(1,MAX),
+    "copies":                                       integer(1,MAX),
   "cover-back":                                   collection({
     "cover-type":                                 keyword,
     "media":                                      _(keyword, name),
     "media-col":                                  collection("Job Template","media-col")
   }),
-	"cover-front":                                  collection({
+    "cover-front":                                  collection({
     "cover-type":                                 keyword,
     "media":                                      _(keyword, name),
     "media-col":                                  collection("Job Template","media-col")
   }),
-	"feed-orientation":                             keyword,
+    "feed-orientation":                             keyword,
   "finishings":                                   setof(enumeration),
   "finishings-col":                               collection({
     "finishing-template":                         name,
@@ -461,7 +461,7 @@ attributes["Job Template"] = {
       "stitching-reference-edge":                 keyword
     })
   }),
-	"font-name-requested":                          name,
+    "font-name-requested":                          name,
   "font-size-requested":                          integer(1,MAX),
   "force-front-side":                             setof(integer(1,MAX)),
   "imposition-template":                          _(keyword, name),
@@ -471,14 +471,14 @@ attributes["Job Template"] = {
     "media":                                      _(keyword, name),
     "media-col":                                  collection("Job Template","media-col")
   })),
-	"job-account-id":                               name,
+    "job-account-id":                               name,
   "job-accounting-sheets":                        collection({
     "job-accounting-output-bin":                  _(keyword, name),
     "job-accounting-sheets-type":                 _(keyword, name),
     "media":                                      _(keyword, name),
     "media-col":                                  collection("Job Template","media-col")
   }),
-	"job-accounting-user-id":                       name,
+    "job-accounting-user-id":                       name,
   "job-copies":                                   integer(1,MAX),
   "job-cover-back":                               collection("Job Template","cover-back"),
   "job-cover-front":                              collection("Job Template","cover-front"),
@@ -491,7 +491,7 @@ attributes["Job Template"] = {
     "media":                                      _(keyword, name),
     "media-col":                                  collection("Job Template","media-col")
   }),
-	"job-finishings":                               setof(enumeration),
+    "job-finishings":                               setof(enumeration),
   "job-finishings-col":                           collection("Job Template","finishings-col"),
   "job-hold-until":                               _(keyword, name),
   "job-hold-until-time":                          dateTime,
@@ -507,14 +507,14 @@ attributes["Job Template"] = {
       "save-name":                                name
     }))
   }),
-	"job-sheet-message":                            text,
+    "job-sheet-message":                            text,
   "job-sheets":                                   _(keyword, name),
   "job-sheets-col":                               collection({
     "job-sheets":                                 _(keyword,name),
     "media":                                      _(keyword,name),
     "media-col":                                  collection("Job Template","media-col")
   }),
-	"media":                                        _(keyword,name),
+    "media":                                        _(keyword,name),
   "media-col":                                    collection({
     "media-back-coating":                         _(keyword,name),
     "media-bottom-margin":                        integer(0,MAX),
@@ -533,7 +533,7 @@ attributes["Job Template"] = {
       "x-dimension":                              integer(0,MAX),
       "y-dimension":                              integer(0,MAX),
     }),
-		"media-size-name":                            _(keyword,name),
+        "media-size-name":                            _(keyword,name),
     "media-source":                               _(keyword,name),
     "media-thickness":                            integer(1,MAX),
     "media-tooth":                                _(keyword,name),
@@ -541,7 +541,7 @@ attributes["Job Template"] = {
     "media-type":                                 _(keyword,name),
     "media-weight-metric":                        integer(0,MAX)
   }),
-	"media-input-tray-check":                       _(keyword, name),
+    "media-input-tray-check":                       _(keyword, name),
   "multiple-document-handling":                   keyword,
   "number-up":                                    integer(1,MAX),
   "orientation-requested":                        enumeration,
@@ -549,11 +549,11 @@ attributes["Job Template"] = {
   "output-device":                                name(127),
   "overrides":                                    setof(collection({
     //Any Job Template attribute (TODO)
-		"document-copies":                            setof(rangeOfInteger),
+        "document-copies":                            setof(rangeOfInteger),
     "document-numbers":                           setof(rangeOfInteger),
     "pages":                                      setof(rangeOfInteger)
   })),
-	"page-delivery":                                keyword,
+    "page-delivery":                                keyword,
   "page-order-received":                          keyword,
   "page-ranges":                                  setof(rangeOfInteger(1,MAX)),
   "pages-per-subset":                             setof(integer(1,MAX)),
@@ -562,7 +562,7 @@ attributes["Job Template"] = {
     "pdl-init-file-location":                     uri,
     "pdl-init-file-name":                         name
   }),
-	"presentation-direction-number-up":             keyword,
+    "presentation-direction-number-up":             keyword,
   "print-color-mode":                             keyword,
   "print-content-optimize":                       keyword,
   "print-quality":                                enumeration,
@@ -573,12 +573,12 @@ attributes["Job Template"] = {
     "media-col":                                  collection("Job Template", "media-col"),
     "proof-print-copies":                         integer(0,MAX)
   }),
-	"separator-sheets":                             collection({
+    "separator-sheets":                             collection({
     "media":                                      _(keyword, name),
     "media-col":                                  collection("Job Template", "media-col"),
     "separator-sheets-type":                      setof(keyword)
   }),
-	"sheet-collate":                                keyword,
+    "sheet-collate":                                keyword,
   "sides":                                        keyword,
   "x-image-position":                             keyword,
   "x-image-shift":                                integer,
@@ -590,7 +590,7 @@ attributes["Job Template"] = {
   "y-side2-image-shift":                          integer
 };
 attributes["Operation"] = {
-	"attributes-charset":                           charset,
+    "attributes-charset":                           charset,
   "attributes-natural-language":                  naturalLanguage,
   "compression":                                  keyword,
   "detailed-status-message":                      text,
@@ -608,7 +608,7 @@ attributes["Operation"] = {
     "document-source-os-name":                    name(40),
     "document-source-os-version":                 text(40)
   })),
-	"document-message":                             text,
+    "document-message":                             text,
   "document-metadata":                            setof(octetString),
   "document-name":                                name,
   "document-natural-language":                    naturalLanguage,
@@ -646,7 +646,7 @@ attributes["Operation"] = {
   "status-message":                               text(255),
   "which-jobs":                                   keyword
 };attributes["Printer Description"] = {
-	"charset-configured":                           charset,
+    "charset-configured":                           charset,
   "charset-supported":                            setof(charset),
   "color-supported":                              boolean,
   "compression-supported":                        setof(keyword),
@@ -746,7 +746,7 @@ attributes["Operation"] = {
   "job-resolvers-supported":                      setof(collection({
     "resolver-name":                              name
   })),
-	"job-settable-attributes-supported":            setof(keyword),
+    "job-settable-attributes-supported":            setof(keyword),
   "job-sheet-message-default":                    text,
   "job-sheet-message-supported":                  boolean,
   "job-sheets-col-default":                       collection("Job Template","job-sheets-col"),
@@ -760,22 +760,22 @@ attributes["Operation"] = {
   "media-bottom-margin-supported":                setof(integer(0,MAX)),
   "media-col-database":                           setof(collection({
     //TODO: Member attributes are the same as the
-		// "media-col" Job Template attribute
-		"media-source-properties":                    collection({
+        // "media-col" Job Template attribute
+        "media-source-properties":                    collection({
       "media-source-feed-direction":              keyword,
       "media-source-feed-orientation":            enumeration
     })
   })),
-	"media-col-default":                            collection("Job Template","media-col"),
+    "media-col-default":                            collection("Job Template","media-col"),
   "media-col-ready":                              setof(collection({
     //TODO: Member attributes are the same as the
-		// "media-col" Job Template attribute
-		"media-source-properties":                    collection({
+        // "media-col" Job Template attribute
+        "media-source-properties":                    collection({
       "media-source-feed-direction":              keyword,
       "media-source-feed-orientation":            enumeration
     })
   })),
-	"media-col-supported":                          setof(keyword),
+    "media-col-supported":                          setof(keyword),
   "media-color-supported":                        setof(_(keyword, name)),
   "media-default":                                _(keyword, name, novalue),
   "media-front-coating-supported":                setof(_(keyword, name)),
@@ -795,7 +795,7 @@ attributes["Operation"] = {
     "x-dimension":                                _(integer(1,MAX),rangeOfInteger(1,MAX)),
     "y-dimension":                                _(integer(1,MAX),rangeOfInteger(1,MAX))
   })),
-	"media-source-supported":                       setof(_(keyword, name)),
+    "media-source-supported":                       setof(_(keyword, name)),
   "media-supported":                              setof(_(keyword, name)),
   "media-thickness-supported":                    rangeOfInteger(1,MAX),
   "media-tooth-supported":                        setof(_(keyword, name)),
@@ -858,7 +858,7 @@ attributes["Operation"] = {
     "xri-authentication":                         name,
     "profile-url":                                uri
   })),
-	"printer-icons":                                setof(uri),
+    "printer-icons":                                setof(uri),
   "printer-info":                                 text(127),
   "printer-is-accepting-jobs":                    boolean,
   "printer-location":                             text(127),
@@ -891,7 +891,7 @@ attributes["Operation"] = {
     "xri-security":                               keyword,
     "xri-uri":                                    uri
   })),
-	"proof-print-default":                          _(collection("Job Template", "proof-print"), novalue),
+    "proof-print-default":                          _(collection("Job Template", "proof-print"), novalue),
   "proof-print-supported":                        setof(keyword),
   "pwg-raster-document-resolution-supported":     setof(resolution),
   "pwg-raster-document-sheet-back":               keyword,
@@ -941,7 +941,7 @@ attributes["Operation"] = {
   "y-side2-image-shift-supported":                rangeOfInteger
 };
 attributes["Subscription Description"] = {
-	"notify-job-id":                                integer(1,MAX),
+    "notify-job-id":                                integer(1,MAX),
   "notify-lease-expiration-time":                 integer(0,MAX),
   "notify-printer-up-time":                       integer(1,MAX),
   "notify-printer-uri":                           uri,
@@ -952,7 +952,7 @@ attributes["Subscription Description"] = {
   "subscription-uuid":                            uri
 };
 attributes["Subscription Template"] = {
-	"notify-attributes":                            setof(keyword),
+    "notify-attributes":                            setof(keyword),
   "notify-attributes-supported":                  setof(keyword),
   "notify-charset":                               charset,
   "notify-events":                                setof(keyword),
@@ -1002,8 +1002,8 @@ var enums = {
     "aborted",                                                        // 0x08
     "completed"                                                       // 0x09
   ]),
-	"finishings": xref([
-	  ,,,                                                               // 0x00 - 0x02
+    "finishings": xref([
+      ,,,                                                               // 0x00 - 0x02
     "none",                                                           // 0x03 http://tools.ietf.org/html/rfc2911#section-4.2.6
     "staple",                                                         // 0x04 http://tools.ietf.org/html/rfc2911#section-4.2.6
     "punch",                                                          // 0x05 http://tools.ietf.org/html/rfc2911#section-4.2.6
@@ -1161,27 +1161,27 @@ module.exports = enums;
 //  things up by key or by value. This little helper just
 //  converts the arrays to objects and tacks on a 'lookup' property.
 function xref(arr){
-	var obj = {};
-	arr.forEach(function(item, index){
-		obj[item] = index;
-	});
-	obj.lookup = arr;
-	return obj;
+    var obj = {};
+    arr.forEach(function(item, index){
+        obj[item] = index;
+    });
+    obj.lookup = arr;
+    return obj;
 }
 
 exports.xref = xref;
 
 exports.extend  = function extend(destination, source) {
-	for(var property in source) {
-		if (source[property] && source[property].constructor === Object) {
-			destination[property] = destination[property] || {};
-			extend(destination[property], source[property]);
-		}
-		else {
-			destination[property] = source[property];
-		}
-	}
-	return destination;
+    for(var property in source) {
+        if (source[property] && source[property].constructor === Object) {
+            destination[property] = destination[property] || {};
+            extend(destination[property], source[property]);
+        }
+        else {
+            destination[property] = source[property];
+        }
+    }
+    return destination;
 };
 
 },{}],6:[function(require,module,exports){
@@ -3424,253 +3424,253 @@ module.exports = keywords;
 
 
 var enums = require('./enums'),
-	operations = enums['operations-supported'],
-	statusCodes = require('./status-codes'),
-	tags = require('./tags'),
-	RS = '\u001e'
+    operations = enums['operations-supported'],
+    statusCodes = require('./status-codes'),
+    tags = require('./tags'),
+    RS = '\u001e'
 ;
 
 module.exports = function(buf) {
-	var obj = {};
-	var position = 0;
-	var encoding = 'utf8';
-	function read1(){
-		return buf[position++];
-	}
-	function read2(){
-		var val = buf.readInt16BE(position, true);
-		position+=2;
-		return val;
-	}
-	function read4(){
-		var val = buf.readInt32BE(position, true);
-		position+=4;
-		return val;
-	}
-	function read(length, enc){
-		if(length==0) return '';
-		return buf.toString(enc||encoding, position, position+=length);
-	}
-	function readGroups(){
-		var group;
-		while(position < buf.length && (group = read1()) !== 0x03){//end-of-attributes-tag
-			readGroup(group);
-		}
-	}
-	function readGroup(group){
-		var name = tags.lookup[group];
-		group={};
-		if(obj[name]){
-			if(!Array.isArray(obj[name]))
-				obj[name] = [obj[name]];
-			obj[name].push(group);
-		}
-		else obj[name] = group;
+    var obj = {};
+    var position = 0;
+    var encoding = 'utf8';
+    function read1(){
+        return buf[position++];
+    }
+    function read2(){
+        var val = buf.readInt16BE(position, true);
+        position+=2;
+        return val;
+    }
+    function read4(){
+        var val = buf.readInt32BE(position, true);
+        position+=4;
+        return val;
+    }
+    function read(length, enc){
+        if(length==0) return '';
+        return buf.toString(enc||encoding, position, position+=length);
+    }
+    function readGroups(){
+        var group;
+        while(position < buf.length && (group = read1()) !== 0x03){//end-of-attributes-tag
+            readGroup(group);
+        }
+    }
+    function readGroup(group){
+        var name = tags.lookup[group];
+        group={};
+        if(obj[name]){
+            if(!Array.isArray(obj[name]))
+                obj[name] = [obj[name]];
+            obj[name].push(group);
+        }
+        else obj[name] = group;
 
-		while(buf[position] >= 0x0F) {// delimiters are between 0x00 to 0x0F
-			readAttr(group);
-		}
-	}
-	function readAttr(group){
-		var tag = read1();
-		//TODO: find a test for this
-		if (tag === 0x7F){//tags.extension
-			tag = read4();
-		}
-		var name = read(read2());
-		group[name] = readValues(tag, name)
-	}
-	function hasAdditionalValue(){
-		var current = buf[position];
-		return current !== 0x4A //tags.memberAttrName
-			&& current !== 0x37 //tags.endCollection
-			&& current !== 0x03 //tags.end-of-attributes-tag
-			&& buf[position+1] === 0x00 && buf[position+2] === 0x00;
-	}
-	function readValues(type, name){
-		var value = readValue(type, name);
-		if(hasAdditionalValue()){
-			value = [value];
-			do{
-				type = read1();
-				read2();//empty name
-				value.push(readValue(type, name));
-			}
-			while(hasAdditionalValue())
-		}
-		return value;
-	}
-	function readValue(tag, name){
-		var length = read2();
-		//http://tools.ietf.org/html/rfc2910#section-3.9
-		switch (tag) {
-			case tags.enum:
-				var val = read4();
-				return (enums[name] && enums[name].lookup[val]) || val;
-			case tags.integer:
-				return read4();
+        while(buf[position] >= 0x0F) {// delimiters are between 0x00 to 0x0F
+            readAttr(group);
+        }
+    }
+    function readAttr(group){
+        var tag = read1();
+        //TODO: find a test for this
+        if (tag === 0x7F){//tags.extension
+            tag = read4();
+        }
+        var name = read(read2());
+        group[name] = readValues(tag, name)
+    }
+    function hasAdditionalValue(){
+        var current = buf[position];
+        return current !== 0x4A //tags.memberAttrName
+            && current !== 0x37 //tags.endCollection
+            && current !== 0x03 //tags.end-of-attributes-tag
+            && buf[position+1] === 0x00 && buf[position+2] === 0x00;
+    }
+    function readValues(type, name){
+        var value = readValue(type, name);
+        if(hasAdditionalValue()){
+            value = [value];
+            do{
+                type = read1();
+                read2();//empty name
+                value.push(readValue(type, name));
+            }
+            while(hasAdditionalValue())
+        }
+        return value;
+    }
+    function readValue(tag, name){
+        var length = read2();
+        //http://tools.ietf.org/html/rfc2910#section-3.9
+        switch (tag) {
+            case tags.enum:
+                var val = read4();
+                return (enums[name] && enums[name].lookup[val]) || val;
+            case tags.integer:
+                return read4();
 
-			case tags.boolean:
-				return !!read1();
+            case tags.boolean:
+                return !!read1();
 
-			case tags.rangeOfInteger:
-				return [read4(), read4()];
+            case tags.rangeOfInteger:
+                return [read4(), read4()];
 
-			case tags.resolution:
-				return [read4(), read4(), read1()===0x03? 'dpi':'dpcm'];
+            case tags.resolution:
+                return [read4(), read4(), read1()===0x03? 'dpi':'dpcm'];
 
-			case tags.dateTime:
-				// http://tools.ietf.org/html/rfc1903 page 17
-				var date = new Date(read2(), read1(), read1(), read1(), read1(), read1(), read1());
-				//silly way to add on the timezone
-				return new Date(date.toISOString().substr(0,23).replace('T',',') +','+ String.fromCharCode(read(1)) + read(1) + ':' + read(1));
+            case tags.dateTime:
+                // http://tools.ietf.org/html/rfc1903 page 17
+                var date = new Date(read2(), read1(), read1(), read1(), read1(), read1(), read1());
+                //silly way to add on the timezone
+                return new Date(date.toISOString().substr(0,23).replace('T',',') +','+ String.fromCharCode(read(1)) + read(1) + ':' + read(1));
 
-			case tags.textWithLanguage:
-			case tags.nameWithLanguage:
-				var lang = read(read2());
-				var subval = read(read2());
-				return lang+RS+subval;
+            case tags.textWithLanguage:
+            case tags.nameWithLanguage:
+                var lang = read(read2());
+                var subval = read(read2());
+                return lang+RS+subval;
 
-			case tags.nameWithoutLanguage:
-			case tags.textWithoutLanguage:
-			case tags.octetString:
-			case tags.memberAttrName:
-				return read(length);
+            case tags.nameWithoutLanguage:
+            case tags.textWithoutLanguage:
+            case tags.octetString:
+            case tags.memberAttrName:
+                return read(length);
 
-			case tags.keyword:
-			case tags.uri:
-			case tags.uriScheme:
-			case tags.charset:
-			case tags.naturalLanguage:
-			case tags.mimeMediaType:
-				return read(length, 'ascii');
+            case tags.keyword:
+            case tags.uri:
+            case tags.uriScheme:
+            case tags.charset:
+            case tags.naturalLanguage:
+            case tags.mimeMediaType:
+                return read(length, 'ascii');
 
-			case tags.begCollection:
-				//the spec says a value could be present- but can be ignored
-				read(length);
-				return readCollection();
+            case tags.begCollection:
+                //the spec says a value could be present- but can be ignored
+                read(length);
+                return readCollection();
 
-			case tags['no-value']:
-			default:
-				debugger;
-				return module.exports.handleUnknownTag(tag, name, length, read)
-		}
-	}
-	function readCollection(){
-		var tag;
-		var collection = {};
+            case tags['no-value']:
+            default:
+                debugger;
+                return module.exports.handleUnknownTag(tag, name, length, read)
+        }
+    }
+    function readCollection(){
+        var tag;
+        var collection = {};
 
-		while((tag = read1()) !== 0x37){//tags.endCollection
-			if(tag !== 0x4A){
-				console.log("unexpected:", tags.lookup[tag]);
-				return;
-			}
-			//read nametag name and discard it
-			read(read2());
-			var name = readValue(0x4A);
-			var values = readCollectionItemValue();
-			collection[name] = values;
-		}
-		//Read endCollection name & value and discard it.
-		//The spec says that they MAY have contents in the
-		// future- so we can't assume they are empty.
-		read(read2());
-		read(read2());
+        while((tag = read1()) !== 0x37){//tags.endCollection
+            if(tag !== 0x4A){
+                console.log("unexpected:", tags.lookup[tag]);
+                return;
+            }
+            //read nametag name and discard it
+            read(read2());
+            var name = readValue(0x4A);
+            var values = readCollectionItemValue();
+            collection[name] = values;
+        }
+        //Read endCollection name & value and discard it.
+        //The spec says that they MAY have contents in the
+        // future- so we can't assume they are empty.
+        read(read2());
+        read(read2());
 
-		return collection;
-	}
-	function readCollectionItemValue(name){
-		var tag = read1();
-		//TODO: find a test for this
-		if (tag === 0x7F){//tags.extension
-			tag = read4();
-		}
-		//read valuetag name and discard it
-		read(read2());
+        return collection;
+    }
+    function readCollectionItemValue(name){
+        var tag = read1();
+        //TODO: find a test for this
+        if (tag === 0x7F){//tags.extension
+            tag = read4();
+        }
+        //read valuetag name and discard it
+        read(read2());
 
-		return readValues(tag, name);
-	}
+        return readValues(tag, name);
+    }
 
-	obj.version = read1() + '.' + read1();
-	var bytes2and3 = read2();
-	//byte[2] and byte[3] are used to define the 'operation' on
-	//requests, but used to hold the statusCode on responses. We
-	//can almost detect if it is a req or a res- but sadly, six
-	//values overlap. In these cases, the parser will give both and
-	//the consumer can ignore (or delete) whichever they don't want.
-	if(bytes2and3 >= 0x02 || bytes2and3 <= 0x3D)
-		obj.operation = operations.lookup[bytes2and3];
+    obj.version = read1() + '.' + read1();
+    var bytes2and3 = read2();
+    //byte[2] and byte[3] are used to define the 'operation' on
+    //requests, but used to hold the statusCode on responses. We
+    //can almost detect if it is a req or a res- but sadly, six
+    //values overlap. In these cases, the parser will give both and
+    //the consumer can ignore (or delete) whichever they don't want.
+    if(bytes2and3 >= 0x02 || bytes2and3 <= 0x3D)
+        obj.operation = operations.lookup[bytes2and3];
 
-	if(bytes2and3 <= 0x0007 || bytes2and3 >= 0x0400)
-		obj.statusCode = statusCodes.lookup[bytes2and3];
-	obj.id = read4();
-	readGroups();
+    if(bytes2and3 <= 0x0007 || bytes2and3 >= 0x0400)
+        obj.statusCode = statusCodes.lookup[bytes2and3];
+    obj.id = read4();
+    readGroups();
 
-	if(position<buf.length)
-		obj.data = buf.toString(encoding, position);
+    if(position<buf.length)
+        obj.data = buf.toString(encoding, position);
 
-	return obj;
+    return obj;
 };
 module.exports.handleUnknownTag = 	function log(tag, name, length, read) {
-	var value = length? read(length) : undefined;
-	console.log("The spec is not clear on how to handle tag " +tag+ ": " +name+ "=" +String(value)+ ". " +
-		"Please open a github issue to help find a solution!");
-	return value;
+    var value = length? read(length) : undefined;
+    console.log("The spec is not clear on how to handle tag " +tag+ ": " +name+ "=" +String(value)+ ". " +
+        "Please open a github issue to help find a solution!");
+    return value;
 };
 
 },{"./enums":4,"./status-codes":11,"./tags":12}],8:[function(require,module,exports){
 
 var request = require('./request'),
-	serialize = require('./serializer'),
-	extend = require('./ipputil').extend,
-	parseurl = require('url').parse
-	;
+    serialize = require('./serializer'),
+    extend = require('./ipputil').extend,
+    parseurl = require('url').parse
+    ;
 
 function Printer(url, opts){
-	if(!(this instanceof Printer)) return new Printer(url, opts);
-	opts = opts || {};
-	this.url = typeof url==="string"? parseurl(url) : url;
-	this.version = opts.version || '2.0';
-	this.uri = opts.uri || 'ipp://' + this.url.host + this.url.path;
-	this.charset = opts.charset || 'utf-8';
-	this.language = opts.language || 'en-us';
+    if(!(this instanceof Printer)) return new Printer(url, opts);
+    opts = opts || {};
+    this.url = typeof url==="string"? parseurl(url) : url;
+    this.version = opts.version || '2.0';
+    this.uri = opts.uri || 'ipp://' + this.url.host + this.url.path;
+    this.charset = opts.charset || 'utf-8';
+    this.language = opts.language || 'en-us';
 }
 Printer.prototype = {
-	_message: function(operation, msg){
-		if(typeof operation === "undefined") operation = 'Get-Printer-Attributes';
+    _message: function(operation, msg){
+        if(typeof operation === "undefined") operation = 'Get-Printer-Attributes';
 
-		var base = {
-			version: this.version,
-			operation: operation,
-			id: null,//will get added by serializer if one isn't given
-			'operation-attributes-tag': {
-				//these are required to be in this order
-				'attributes-charset': this.charset,
-				'attributes-natural-language': this.language,
-				'printer-uri': this.uri
-			}
-		};
-		//these are required to be in this order
-		if(msg && msg['operation-attributes-tag']['job-id'])
-			base['operation-attributes-tag']['job-id'] = msg['operation-attributes-tag']['job-id'];
-		//yes, this gets done in extend()- however, by doing this now, we define the position in the result object.
-		else if(msg && msg['operation-attributes-tag']['job-uri'])
-			base['operation-attributes-tag']['job-uri'] = msg['operation-attributes-tag']['job-uri'];
+        var base = {
+            version: this.version,
+            operation: operation,
+            id: null,//will get added by serializer if one isn't given
+            'operation-attributes-tag': {
+                //these are required to be in this order
+                'attributes-charset': this.charset,
+                'attributes-natural-language': this.language,
+                'printer-uri': this.uri
+            }
+        };
+        //these are required to be in this order
+        if(msg && msg['operation-attributes-tag']['job-id'])
+            base['operation-attributes-tag']['job-id'] = msg['operation-attributes-tag']['job-id'];
+        //yes, this gets done in extend()- however, by doing this now, we define the position in the result object.
+        else if(msg && msg['operation-attributes-tag']['job-uri'])
+            base['operation-attributes-tag']['job-uri'] = msg['operation-attributes-tag']['job-uri'];
 
-		msg = extend(base, msg);
-		if(msg['operation-attributes-tag']['job-uri'])
-			delete msg['operation-attributes-tag']['printer-uri'];
-		return msg;
-	},
-	execute: function(operation, msg, cb){
-		msg = this._message(operation, msg);
-		var buf = serialize(msg);
+        msg = extend(base, msg);
+        if(msg['operation-attributes-tag']['job-uri'])
+            delete msg['operation-attributes-tag']['printer-uri'];
+        return msg;
+    },
+    execute: function(operation, msg, cb){
+        msg = this._message(operation, msg);
+        var buf = serialize(msg);
 //		console.log(buf.toString('hex'));
 //		console.log(JSON.stringify(
 //			require('./parser')(buf), null, 2
 //		));
-		request(this.url, buf, cb);
-	}
+        request(this.url, buf, cb);
+    }
 }
 
 module.exports = Printer;
@@ -3679,69 +3679,69 @@ module.exports = Printer;
 (function (Buffer){(function (){
 
 var http = require('http'),
-	https = require('https'),
-	url = require('url'),
-	parse = require('./parser');
+    https = require('https'),
+    url = require('url'),
+    parse = require('./parser');
 
 module.exports = function(opts, buffer, cb){
-	var streamed = typeof buffer === "function";
-	//All IPP requires are POSTs- so we must have some data.
-	//  10 is just a number I picked- this probably should have something more meaningful
-	if(!Buffer.isBuffer(buffer) || buffer.length<10){
-		return cb(new Error("Data required"));
-	}
-	if(typeof opts === "string")
-		opts = url.parse(opts);
-	if(!opts.port) opts.port = 631;
+    var streamed = typeof buffer === "function";
+    //All IPP requires are POSTs- so we must have some data.
+    //  10 is just a number I picked- this probably should have something more meaningful
+    if(!Buffer.isBuffer(buffer) || buffer.length<10){
+        return cb(new Error("Data required"));
+    }
+    if(typeof opts === "string")
+        opts = url.parse(opts);
+    if(!opts.port) opts.port = 631;
 
-	if(!opts.headers) opts.headers = {};
-	opts.headers['Content-Type'] = 'application/ipp';
-	opts.method = "POST";
-	
-	if(opts.protocol==="ipp:")
-		opts.protocol="http:";
+    if(!opts.headers) opts.headers = {};
+    opts.headers['Content-Type'] = 'application/ipp';
+    opts.method = "POST";
 
-	if(opts.protocol==="ipps:")
-		opts.protocol="https:";
+    if(opts.protocol==="ipp:")
+        opts.protocol="http:";
 
-	var req = (opts.protocol==="https:" ? https : http).request(opts, function(res){
+    if(opts.protocol==="ipps:")
+        opts.protocol="https:";
+
+    var req = (opts.protocol==="https:" ? https : http).request(opts, function(res){
 //		console.log('STATUS: ' + res.statusCode);
 //		console.log('HEADERS: ' + JSON.stringify(res.headers));
-		switch(res.statusCode){
-			case 100:
-				if(opts.headers['Expect'] !== '100-Continue' || typeof opts.continue !== "function"){
-					cb(new IppResponseError(res.statusCode));
-				}
-				return console.log("100 Continue");
-			case 200:
-				return readResponse(res, cb);
-			default:
-				cb(new IppResponseError(res.statusCode));
-				return console.log(res.statusCode, "response");
-		}
-	});
-	req.on('error', function(err) {
-		cb(err);
-	});
-	if(opts.headers['Expect'] === '100-Continue' && typeof opts.continue=== "function"){
-		req.on('continue', function() {
-			opts.continue(req);
-		});
-	}
-	req.write(buffer);
-	req.end();
+        switch(res.statusCode){
+            case 100:
+                if(opts.headers['Expect'] !== '100-Continue' || typeof opts.continue !== "function"){
+                    cb(new IppResponseError(res.statusCode));
+                }
+                return console.log("100 Continue");
+            case 200:
+                return readResponse(res, cb);
+            default:
+                cb(new IppResponseError(res.statusCode));
+                return console.log(res.statusCode, "response");
+        }
+    });
+    req.on('error', function(err) {
+        cb(err);
+    });
+    if(opts.headers['Expect'] === '100-Continue' && typeof opts.continue=== "function"){
+        req.on('continue', function() {
+            opts.continue(req);
+        });
+    }
+    req.write(buffer);
+    req.end();
 };
 function readResponse(res, cb){
-	var chunks = [],length=0;
-	res.on('data', function(chunk){
-		length+=chunk.length;
-		chunks.push(chunk);
-	});
-	res.on('end', function(){
-		var response = parse(Buffer.concat(chunks, length));
-		delete response.operation;
-		cb(null, response);
-	});
+    var chunks = [],length=0;
+    res.on('data', function(chunk){
+        length+=chunk.length;
+        chunks.push(chunk);
+    });
+    res.on('end', function(){
+        var response = parse(Buffer.concat(chunks, length));
+        delete response.operation;
+        cb(null, response);
+    });
 }
 
 function IppResponseError(statusCode, message) {
@@ -3758,269 +3758,269 @@ IppResponseError.prototype.constructor = IppResponseError;
 (function (Buffer){(function (){
 
 var operations = require('./enums')['operations-supported'],
-	tags = require('./tags'),
-	versions = require('./versions'),
-	attributes = require('./attributes'),
-	enums = require('./enums'),
-	keywords = require('./keywords'),
-	statusCodes = require('./status-codes'),
-	RS = '\u001e'
+    tags = require('./tags'),
+    versions = require('./versions'),
+    attributes = require('./attributes'),
+    enums = require('./enums'),
+    keywords = require('./keywords'),
+    statusCodes = require('./status-codes'),
+    RS = '\u001e'
 ;
 function random(){
-	return +Math.random().toString().substr(-8);
+    return +Math.random().toString().substr(-8);
 }
 
 module.exports = function serializer(msg){
-	var buf = new Buffer(10240);
-	var position = 0;
-	function write1(val){
-		checkBufferSize(1);
-		buf.writeUInt8(val, position);
-		position+=1;
-	}
-	function write2(val){
-		checkBufferSize(2);
-		buf.writeUInt16BE(val, position);
-		position+=2;
-	}
-	function write4(val){
-		checkBufferSize(4);
-		buf.writeUInt32BE(val, position);
-		position+=4;
-	}
-	function write(str, enc){
-		var length = Buffer.byteLength(str);
-		write2(length);
-		checkBufferSize(length);
-		buf.write(str, position, length, enc || "utf8");
-		position+=length;
-	}
-	function checkBufferSize(length){
-		if (position + length > buf.length){
-			buf = Buffer.concat([buf], 2 * buf.length);
-		}
-	}
-	var special = {'attributes-charset':1, 'attributes-natural-language':2};
-	var groupmap = {
-		"job-attributes-tag":	               ['Job Template', 'Job Description'],
-		'operation-attributes-tag':          'Operation',
-		'printer-attributes-tag':            'Printer Description',
-		"unsupported-attributes-tag":        '',//??
-		"subscription-attributes-tag":       'Subscription Description',
-		"event-notification-attributes-tag": 'Event Notifications',
-		"resource-attributes-tag":           '',//??
-		"document-attributes-tag":           'Document Description'
-	};
-	function writeGroup(tag){
-		var attrs = msg[tag];
-		if(!attrs) return;
-		var keys = Object.keys(attrs);
-		//'attributes-charset' and 'attributes-natural-language' need to come first- so we sort them to the front
-		if(tag==tags['operation-attributes-tag'])
-			keys = keys.sort(function(a,b){ return (special[a]||3)-(special[b]||3); });
-		var groupname = groupmap[tag];
-		write1(tags[tag]);
-		keys.forEach(function(name){
-			attr(groupname, name, attrs);
-		});
-	}
-	function attr(group, name, obj){
-		var groupName = Array.isArray(group)
-			? group.find( function (grp) { return attributes[grp][name] })
-			: group;
-		if(!groupName) throw "Unknown attribute: " + name;
+    var buf = new Buffer(10240);
+    var position = 0;
+    function write1(val){
+        checkBufferSize(1);
+        buf.writeUInt8(val, position);
+        position+=1;
+    }
+    function write2(val){
+        checkBufferSize(2);
+        buf.writeUInt16BE(val, position);
+        position+=2;
+    }
+    function write4(val){
+        checkBufferSize(4);
+        buf.writeUInt32BE(val, position);
+        position+=4;
+    }
+    function write(str, enc){
+        var length = Buffer.byteLength(str);
+        write2(length);
+        checkBufferSize(length);
+        buf.write(str, position, length, enc || "utf8");
+        position+=length;
+    }
+    function checkBufferSize(length){
+        if (position + length > buf.length){
+            buf = Buffer.concat([buf], 2 * buf.length);
+        }
+    }
+    var special = {'attributes-charset':1, 'attributes-natural-language':2};
+    var groupmap = {
+        "job-attributes-tag":	               ['Job Template', 'Job Description'],
+        'operation-attributes-tag':          'Operation',
+        'printer-attributes-tag':            'Printer Description',
+        "unsupported-attributes-tag":        '',//??
+        "subscription-attributes-tag":       'Subscription Description',
+        "event-notification-attributes-tag": 'Event Notifications',
+        "resource-attributes-tag":           '',//??
+        "document-attributes-tag":           'Document Description'
+    };
+    function writeGroup(tag){
+        var attrs = msg[tag];
+        if(!attrs) return;
+        var keys = Object.keys(attrs);
+        //'attributes-charset' and 'attributes-natural-language' need to come first- so we sort them to the front
+        if(tag==tags['operation-attributes-tag'])
+            keys = keys.sort(function(a,b){ return (special[a]||3)-(special[b]||3); });
+        var groupname = groupmap[tag];
+        write1(tags[tag]);
+        keys.forEach(function(name){
+            attr(groupname, name, attrs);
+        });
+    }
+    function attr(group, name, obj){
+        var groupName = Array.isArray(group)
+            ? group.find( function (grp) { return attributes[grp][name] })
+            : group;
+        if(!groupName) throw "Unknown attribute: " + name;
 
-		var syntax = attributes[groupName][name];
+        var syntax = attributes[groupName][name];
 
-		if(!syntax) throw "Unknown attribute: " + name;
+        if(!syntax) throw "Unknown attribute: " + name;
 
-		var value = obj[name];
-		if(!Array.isArray(value))
-			value = [value];
+        var value = obj[name];
+        if(!Array.isArray(value))
+            value = [value];
 
-		value.forEach(function(value, i){
-			//we need to re-evaluate the alternates every time
-			var syntax2 = Array.isArray(syntax)? resolveAlternates(syntax, name, value) : syntax;
-			var tag = getTag(syntax2, name, value);
-			if(tag===tags.enum)
-				value = enums[name][value];
+        value.forEach(function(value, i){
+            //we need to re-evaluate the alternates every time
+            var syntax2 = Array.isArray(syntax)? resolveAlternates(syntax, name, value) : syntax;
+            var tag = getTag(syntax2, name, value);
+            if(tag===tags.enum)
+                value = enums[name][value];
 
-			write1(tag);
-			if(i==0){
-				write(name);
-			}
-			else {
-				write2(0x0000);//empty name
-			}
+            write1(tag);
+            if(i==0){
+                write(name);
+            }
+            else {
+                write2(0x0000);//empty name
+            }
 
-			writeValue(tag, value, syntax2.members);
-		});
-	}
-	function getTag(syntax, name, value){
-		var tag = syntax.tag;
-		if(!tag){
-			var hasRS = !!~value.indexOf(RS);
-			tag = tags[syntax.type+(hasRS?'With':'Without')+'Language'];
-		}
-		return tag;
-	}
-	function resolveAlternates(array, name, value){
-		switch(array.alts){
-			case 'keyword,name':
-			case 'keyword,name,novalue':
-				if(value===null && array.lookup['novalue']) return array.lookup['novalue'];
-				return ~keywords[name].indexOf(value)? array.lookup.keyword : array.lookup.name;
-			case 'integer,rangeOfInteger':
-				return Array.isArray(value)? array.lookup.rangeOfInteger : array.lookup.integer;
-			case 'dateTime,novalue':
-				return !IsNaN(date.parse(value))? array.lookup.dateTime : array.lookup['novalue'];
-			case 'integer,novalue':
-				return !IsNaN(value)? array.lookup.integer : array.lookup['novalue'];
-			case 'name,novalue':
-				return value!==null? array.lookup.name : array.lookup['novalue'];
-			case 'novalue,uri':
-				return value!==null? array.lookup.uri : array.lookup['novalue'];
-			case 'enumeration,unknown':
-				return enums[name][value]? array.lookup['enumeration'] : array.lookup.unknown;
-			case 'enumeration,novalue':
-				return value!==null? array.lookup['enumeration'] : array.lookup['novalue'];
-			case 'collection,novalue':
-				return value!==null? array.lookup['enumeration'] : array.lookup['novalue'];
-			default:
-				throw "Unknown atlernates";
-		}
-	}
-	function writeValue(tag, value, submembers){
-		switch(tag){
-			case tags.enum:
-				write2(0x0004);
-				return write4(value);
-			case tags.integer:
-				write2(0x0004);
-				return write4(value);
+            writeValue(tag, value, syntax2.members);
+        });
+    }
+    function getTag(syntax, name, value){
+        var tag = syntax.tag;
+        if(!tag){
+            var hasRS = !!~value.indexOf(RS);
+            tag = tags[syntax.type+(hasRS?'With':'Without')+'Language'];
+        }
+        return tag;
+    }
+    function resolveAlternates(array, name, value){
+        switch(array.alts){
+            case 'keyword,name':
+            case 'keyword,name,novalue':
+                if(value===null && array.lookup['novalue']) return array.lookup['novalue'];
+                return ~keywords[name].indexOf(value)? array.lookup.keyword : array.lookup.name;
+            case 'integer,rangeOfInteger':
+                return Array.isArray(value)? array.lookup.rangeOfInteger : array.lookup.integer;
+            case 'dateTime,novalue':
+                return !IsNaN(date.parse(value))? array.lookup.dateTime : array.lookup['novalue'];
+            case 'integer,novalue':
+                return !IsNaN(value)? array.lookup.integer : array.lookup['novalue'];
+            case 'name,novalue':
+                return value!==null? array.lookup.name : array.lookup['novalue'];
+            case 'novalue,uri':
+                return value!==null? array.lookup.uri : array.lookup['novalue'];
+            case 'enumeration,unknown':
+                return enums[name][value]? array.lookup['enumeration'] : array.lookup.unknown;
+            case 'enumeration,novalue':
+                return value!==null? array.lookup['enumeration'] : array.lookup['novalue'];
+            case 'collection,novalue':
+                return value!==null? array.lookup['enumeration'] : array.lookup['novalue'];
+            default:
+                throw "Unknown atlernates";
+        }
+    }
+    function writeValue(tag, value, submembers){
+        switch(tag){
+            case tags.enum:
+                write2(0x0004);
+                return write4(value);
+            case tags.integer:
+                write2(0x0004);
+                return write4(value);
 
-			case tags.boolean:
-				write2(0x0001);
-				return write1(Number(value));
+            case tags.boolean:
+                write2(0x0001);
+                return write1(Number(value));
 
-			case tags.rangeOfInteger:
-				write2(0x0008);
-				write4(value[0]);
-				write4(value[1]);
-				return;
+            case tags.rangeOfInteger:
+                write2(0x0008);
+                write4(value[0]);
+                write4(value[1]);
+                return;
 
-			case tags.resolution:
-				write2(0x0009);
-				write4(value[0]);
-				write4(value[1]);
-				write1(value[2]==='dpi'? 0x03 : 0x04);
-				return;
+            case tags.resolution:
+                write2(0x0009);
+                write4(value[0]);
+                write4(value[1]);
+                write1(value[2]==='dpi'? 0x03 : 0x04);
+                return;
 
-			case tags.dateTime:
-				write2(0x000B);
-				write2(value.getFullYear());
-				write1(value.getMonth());
-				write1(value.getDate());
-				write1(value.getHours());
-				write1(value.getMinutes());
-				write1(value.getSeconds());
-				write1(value.getMilliseconds());
-				var tz = timezone(value);
-				write1(tz[0]);// + or -
-				write1(tz[1]);//hours
-				write1(tz[2]);//minutes
-				return;
+            case tags.dateTime:
+                write2(0x000B);
+                write2(value.getFullYear());
+                write1(value.getMonth());
+                write1(value.getDate());
+                write1(value.getHours());
+                write1(value.getMinutes());
+                write1(value.getSeconds());
+                write1(value.getMilliseconds());
+                var tz = timezone(value);
+                write1(tz[0]);// + or -
+                write1(tz[1]);//hours
+                write1(tz[2]);//minutes
+                return;
 
-			case tags.textWithLanguage:
-			case tags.nameWithLanguage:
-				write2(parts[0].length);
-				write2(parts[0]);
-				write2(parts[1].length);
-				write2(parts[1]);
-				return;
+            case tags.textWithLanguage:
+            case tags.nameWithLanguage:
+                write2(parts[0].length);
+                write2(parts[0]);
+                write2(parts[1].length);
+                write2(parts[1]);
+                return;
 
-			case tags.nameWithoutLanguage:
-			case tags.textWithoutLanguage:
-			case tags.octetString:
-			case tags.memberAttrName:
-				return write(value);
+            case tags.nameWithoutLanguage:
+            case tags.textWithoutLanguage:
+            case tags.octetString:
+            case tags.memberAttrName:
+                return write(value);
 
-			case tags.keyword:
-			case tags.uri:
-			case tags.uriScheme:
-			case tags.charset:
-			case tags.naturalLanguage:
-			case tags.mimeMediaType:
-				return write(value, 'ascii');
+            case tags.keyword:
+            case tags.uri:
+            case tags.uriScheme:
+            case tags.charset:
+            case tags.naturalLanguage:
+            case tags.mimeMediaType:
+                return write(value, 'ascii');
 
-			case tags.begCollection:
-				write2(0);//empty value
-				return writeCollection(value, submembers);
+            case tags.begCollection:
+                write2(0);//empty value
+                return writeCollection(value, submembers);
 
-			case tags["no-value"]:
-				//empty value? I can't find where this is defined in any spec.
-				return write2(0);
+            case tags["no-value"]:
+                //empty value? I can't find where this is defined in any spec.
+                return write2(0);
 
-			default:
-				debugger;
-				console.error(tag, "not handled");
-		}
-	}
-	function writeCollection(value, members){
-		Object.keys(value).forEach(function(key){
-			var subvalue = value[key];
-			var subsyntax = members[key];
+            default:
+                debugger;
+                console.error(tag, "not handled");
+        }
+    }
+    function writeCollection(value, members){
+        Object.keys(value).forEach(function(key){
+            var subvalue = value[key];
+            var subsyntax = members[key];
 
-			if(Array.isArray(subsyntax))
-				subsyntax = resolveAlternates(subsyntax, key, subvalue);
+            if(Array.isArray(subsyntax))
+                subsyntax = resolveAlternates(subsyntax, key, subvalue);
 
-			var tag = getTag(subsyntax, key, subvalue);
-			if(tag===tags.enum)
-				subvalue = enums[key][subvalue];
+            var tag = getTag(subsyntax, key, subvalue);
+            if(tag===tags.enum)
+                subvalue = enums[key][subvalue];
 
-			write1(tags.memberAttrName)
-			write2(0)//empty name
-			writeValue(tags.memberAttrName, key);
-			write1(tag)
-			write2(0)//empty name
-			writeValue(tag, subvalue, subsyntax.members);
-		});
-		write1(tags.endCollection)
-		write2(0)//empty name
-		write2(0)//empty value
-	}
+            write1(tags.memberAttrName)
+            write2(0)//empty name
+            writeValue(tags.memberAttrName, key);
+            write1(tag)
+            write2(0)//empty name
+            writeValue(tag, subvalue, subsyntax.members);
+        });
+        write1(tags.endCollection)
+        write2(0)//empty name
+        write2(0)//empty value
+    }
 
-	write2(versions[msg.version||'2.0']);
-	write2(msg.operation? operations[msg.operation] : statusCodes[msg.statusCode]);
-	write4(msg.id||random());//request-id
+    write2(versions[msg.version||'2.0']);
+    write2(msg.operation? operations[msg.operation] : statusCodes[msg.statusCode]);
+    write4(msg.id||random());//request-id
 
-	writeGroup('operation-attributes-tag');
-	writeGroup('job-attributes-tag');
-	writeGroup('printer-attributes-tag');
-	writeGroup('document-attributes-tag');
-	//TODO... add the others
+    writeGroup('operation-attributes-tag');
+    writeGroup('job-attributes-tag');
+    writeGroup('printer-attributes-tag');
+    writeGroup('document-attributes-tag');
+    //TODO... add the others
 
-	write1(0x03);//end
+    write1(0x03);//end
 
 
-	if(!msg.data)
-		return buf.slice(0, position);
+    if(!msg.data)
+        return buf.slice(0, position);
 
-	if(!Buffer.isBuffer(msg.data))
-		throw "data must be a Buffer"
+    if(!Buffer.isBuffer(msg.data))
+        throw "data must be a Buffer"
 
-	var buf2 = new Buffer(position + msg.data.length);
-	buf.copy(buf2, 0, 0, position);
-	msg.data.copy(buf2, position, 0);
-	return buf2;
+    var buf2 = new Buffer(position + msg.data.length);
+    buf.copy(buf2, 0, 0, position);
+    msg.data.copy(buf2, position, 0);
+    return buf2;
 };
 function timezone(d) {
-	var z = d.getTimezoneOffset();
-	return [
-		z > 0 ? "-" : "+",
-		~~(Math.abs(z) / 60),
-		Math.abs(z) % 60
-	];
+    var z = d.getTimezoneOffset();
+    return [
+        z > 0 ? "-" : "+",
+        ~~(Math.abs(z) / 60),
+        Math.abs(z) % 60
+    ];
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
@@ -6989,534 +6989,534 @@ process.umask = function() { return 0; };
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 ;(function(root) {
 
-	/** Detect free variables */
-	var freeExports = typeof exports == 'object' && exports &&
-		!exports.nodeType && exports;
-	var freeModule = typeof module == 'object' && module &&
-		!module.nodeType && module;
-	var freeGlobal = typeof global == 'object' && global;
-	if (
-		freeGlobal.global === freeGlobal ||
-		freeGlobal.window === freeGlobal ||
-		freeGlobal.self === freeGlobal
-	) {
-		root = freeGlobal;
-	}
+    /** Detect free variables */
+    var freeExports = typeof exports == 'object' && exports &&
+        !exports.nodeType && exports;
+    var freeModule = typeof module == 'object' && module &&
+        !module.nodeType && module;
+    var freeGlobal = typeof global == 'object' && global;
+    if (
+        freeGlobal.global === freeGlobal ||
+        freeGlobal.window === freeGlobal ||
+        freeGlobal.self === freeGlobal
+    ) {
+        root = freeGlobal;
+    }
 
-	/**
-	 * The `punycode` object.
-	 * @name punycode
-	 * @type Object
-	 */
-	var punycode,
+    /**
+     * The `punycode` object.
+     * @name punycode
+     * @type Object
+     */
+    var punycode,
 
-	/** Highest positive signed 32-bit float value */
-	maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
+    /** Highest positive signed 32-bit float value */
+    maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
 
-	/** Bootstring parameters */
-	base = 36,
-	tMin = 1,
-	tMax = 26,
-	skew = 38,
-	damp = 700,
-	initialBias = 72,
-	initialN = 128, // 0x80
-	delimiter = '-', // '\x2D'
+    /** Bootstring parameters */
+    base = 36,
+    tMin = 1,
+    tMax = 26,
+    skew = 38,
+    damp = 700,
+    initialBias = 72,
+    initialN = 128, // 0x80
+    delimiter = '-', // '\x2D'
 
-	/** Regular expressions */
-	regexPunycode = /^xn--/,
-	regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
-	regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
+    /** Regular expressions */
+    regexPunycode = /^xn--/,
+    regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
+    regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
 
-	/** Error messages */
-	errors = {
-		'overflow': 'Overflow: input needs wider integers to process',
-		'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
-		'invalid-input': 'Invalid input'
-	},
+    /** Error messages */
+    errors = {
+        'overflow': 'Overflow: input needs wider integers to process',
+        'not-basic': 'Illegal input >= 0x80 (not a basic code point)',
+        'invalid-input': 'Invalid input'
+    },
 
-	/** Convenience shortcuts */
-	baseMinusTMin = base - tMin,
-	floor = Math.floor,
-	stringFromCharCode = String.fromCharCode,
+    /** Convenience shortcuts */
+    baseMinusTMin = base - tMin,
+    floor = Math.floor,
+    stringFromCharCode = String.fromCharCode,
 
-	/** Temporary variable */
-	key;
+    /** Temporary variable */
+    key;
 
-	/*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
 
-	/**
-	 * A generic error utility function.
-	 * @private
-	 * @param {String} type The error type.
-	 * @returns {Error} Throws a `RangeError` with the applicable error message.
-	 */
-	function error(type) {
-		throw new RangeError(errors[type]);
-	}
+    /**
+     * A generic error utility function.
+     * @private
+     * @param {String} type The error type.
+     * @returns {Error} Throws a `RangeError` with the applicable error message.
+     */
+    function error(type) {
+        throw new RangeError(errors[type]);
+    }
 
-	/**
-	 * A generic `Array#map` utility function.
-	 * @private
-	 * @param {Array} array The array to iterate over.
-	 * @param {Function} callback The function that gets called for every array
-	 * item.
-	 * @returns {Array} A new array of values returned by the callback function.
-	 */
-	function map(array, fn) {
-		var length = array.length;
-		var result = [];
-		while (length--) {
-			result[length] = fn(array[length]);
-		}
-		return result;
-	}
+    /**
+     * A generic `Array#map` utility function.
+     * @private
+     * @param {Array} array The array to iterate over.
+     * @param {Function} callback The function that gets called for every array
+     * item.
+     * @returns {Array} A new array of values returned by the callback function.
+     */
+    function map(array, fn) {
+        var length = array.length;
+        var result = [];
+        while (length--) {
+            result[length] = fn(array[length]);
+        }
+        return result;
+    }
 
-	/**
-	 * A simple `Array#map`-like wrapper to work with domain name strings or email
-	 * addresses.
-	 * @private
-	 * @param {String} domain The domain name or email address.
-	 * @param {Function} callback The function that gets called for every
-	 * character.
-	 * @returns {Array} A new string of characters returned by the callback
-	 * function.
-	 */
-	function mapDomain(string, fn) {
-		var parts = string.split('@');
-		var result = '';
-		if (parts.length > 1) {
-			// In email addresses, only the domain name should be punycoded. Leave
-			// the local part (i.e. everything up to `@`) intact.
-			result = parts[0] + '@';
-			string = parts[1];
-		}
-		// Avoid `split(regex)` for IE8 compatibility. See #17.
-		string = string.replace(regexSeparators, '\x2E');
-		var labels = string.split('.');
-		var encoded = map(labels, fn).join('.');
-		return result + encoded;
-	}
+    /**
+     * A simple `Array#map`-like wrapper to work with domain name strings or email
+     * addresses.
+     * @private
+     * @param {String} domain The domain name or email address.
+     * @param {Function} callback The function that gets called for every
+     * character.
+     * @returns {Array} A new string of characters returned by the callback
+     * function.
+     */
+    function mapDomain(string, fn) {
+        var parts = string.split('@');
+        var result = '';
+        if (parts.length > 1) {
+            // In email addresses, only the domain name should be punycoded. Leave
+            // the local part (i.e. everything up to `@`) intact.
+            result = parts[0] + '@';
+            string = parts[1];
+        }
+        // Avoid `split(regex)` for IE8 compatibility. See #17.
+        string = string.replace(regexSeparators, '\x2E');
+        var labels = string.split('.');
+        var encoded = map(labels, fn).join('.');
+        return result + encoded;
+    }
 
-	/**
-	 * Creates an array containing the numeric code points of each Unicode
-	 * character in the string. While JavaScript uses UCS-2 internally,
-	 * this function will convert a pair of surrogate halves (each of which
-	 * UCS-2 exposes as separate characters) into a single code point,
-	 * matching UTF-16.
-	 * @see `punycode.ucs2.encode`
-	 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-	 * @memberOf punycode.ucs2
-	 * @name decode
-	 * @param {String} string The Unicode input string (UCS-2).
-	 * @returns {Array} The new array of code points.
-	 */
-	function ucs2decode(string) {
-		var output = [],
-		    counter = 0,
-		    length = string.length,
-		    value,
-		    extra;
-		while (counter < length) {
-			value = string.charCodeAt(counter++);
-			if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
-				// high surrogate, and there is a next character
-				extra = string.charCodeAt(counter++);
-				if ((extra & 0xFC00) == 0xDC00) { // low surrogate
-					output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
-				} else {
-					// unmatched surrogate; only append this code unit, in case the next
-					// code unit is the high surrogate of a surrogate pair
-					output.push(value);
-					counter--;
-				}
-			} else {
-				output.push(value);
-			}
-		}
-		return output;
-	}
+    /**
+     * Creates an array containing the numeric code points of each Unicode
+     * character in the string. While JavaScript uses UCS-2 internally,
+     * this function will convert a pair of surrogate halves (each of which
+     * UCS-2 exposes as separate characters) into a single code point,
+     * matching UTF-16.
+     * @see `punycode.ucs2.encode`
+     * @see <https://mathiasbynens.be/notes/javascript-encoding>
+     * @memberOf punycode.ucs2
+     * @name decode
+     * @param {String} string The Unicode input string (UCS-2).
+     * @returns {Array} The new array of code points.
+     */
+    function ucs2decode(string) {
+        var output = [],
+            counter = 0,
+            length = string.length,
+            value,
+            extra;
+        while (counter < length) {
+            value = string.charCodeAt(counter++);
+            if (value >= 0xD800 && value <= 0xDBFF && counter < length) {
+                // high surrogate, and there is a next character
+                extra = string.charCodeAt(counter++);
+                if ((extra & 0xFC00) == 0xDC00) { // low surrogate
+                    output.push(((value & 0x3FF) << 10) + (extra & 0x3FF) + 0x10000);
+                } else {
+                    // unmatched surrogate; only append this code unit, in case the next
+                    // code unit is the high surrogate of a surrogate pair
+                    output.push(value);
+                    counter--;
+                }
+            } else {
+                output.push(value);
+            }
+        }
+        return output;
+    }
 
-	/**
-	 * Creates a string based on an array of numeric code points.
-	 * @see `punycode.ucs2.decode`
-	 * @memberOf punycode.ucs2
-	 * @name encode
-	 * @param {Array} codePoints The array of numeric code points.
-	 * @returns {String} The new Unicode string (UCS-2).
-	 */
-	function ucs2encode(array) {
-		return map(array, function(value) {
-			var output = '';
-			if (value > 0xFFFF) {
-				value -= 0x10000;
-				output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
-				value = 0xDC00 | value & 0x3FF;
-			}
-			output += stringFromCharCode(value);
-			return output;
-		}).join('');
-	}
+    /**
+     * Creates a string based on an array of numeric code points.
+     * @see `punycode.ucs2.decode`
+     * @memberOf punycode.ucs2
+     * @name encode
+     * @param {Array} codePoints The array of numeric code points.
+     * @returns {String} The new Unicode string (UCS-2).
+     */
+    function ucs2encode(array) {
+        return map(array, function(value) {
+            var output = '';
+            if (value > 0xFFFF) {
+                value -= 0x10000;
+                output += stringFromCharCode(value >>> 10 & 0x3FF | 0xD800);
+                value = 0xDC00 | value & 0x3FF;
+            }
+            output += stringFromCharCode(value);
+            return output;
+        }).join('');
+    }
 
-	/**
-	 * Converts a basic code point into a digit/integer.
-	 * @see `digitToBasic()`
-	 * @private
-	 * @param {Number} codePoint The basic numeric code point value.
-	 * @returns {Number} The numeric value of a basic code point (for use in
-	 * representing integers) in the range `0` to `base - 1`, or `base` if
-	 * the code point does not represent a value.
-	 */
-	function basicToDigit(codePoint) {
-		if (codePoint - 48 < 10) {
-			return codePoint - 22;
-		}
-		if (codePoint - 65 < 26) {
-			return codePoint - 65;
-		}
-		if (codePoint - 97 < 26) {
-			return codePoint - 97;
-		}
-		return base;
-	}
+    /**
+     * Converts a basic code point into a digit/integer.
+     * @see `digitToBasic()`
+     * @private
+     * @param {Number} codePoint The basic numeric code point value.
+     * @returns {Number} The numeric value of a basic code point (for use in
+     * representing integers) in the range `0` to `base - 1`, or `base` if
+     * the code point does not represent a value.
+     */
+    function basicToDigit(codePoint) {
+        if (codePoint - 48 < 10) {
+            return codePoint - 22;
+        }
+        if (codePoint - 65 < 26) {
+            return codePoint - 65;
+        }
+        if (codePoint - 97 < 26) {
+            return codePoint - 97;
+        }
+        return base;
+    }
 
-	/**
-	 * Converts a digit/integer into a basic code point.
-	 * @see `basicToDigit()`
-	 * @private
-	 * @param {Number} digit The numeric value of a basic code point.
-	 * @returns {Number} The basic code point whose value (when used for
-	 * representing integers) is `digit`, which needs to be in the range
-	 * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
-	 * used; else, the lowercase form is used. The behavior is undefined
-	 * if `flag` is non-zero and `digit` has no uppercase form.
-	 */
-	function digitToBasic(digit, flag) {
-		//  0..25 map to ASCII a..z or A..Z
-		// 26..35 map to ASCII 0..9
-		return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
-	}
+    /**
+     * Converts a digit/integer into a basic code point.
+     * @see `basicToDigit()`
+     * @private
+     * @param {Number} digit The numeric value of a basic code point.
+     * @returns {Number} The basic code point whose value (when used for
+     * representing integers) is `digit`, which needs to be in the range
+     * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
+     * used; else, the lowercase form is used. The behavior is undefined
+     * if `flag` is non-zero and `digit` has no uppercase form.
+     */
+    function digitToBasic(digit, flag) {
+        //  0..25 map to ASCII a..z or A..Z
+        // 26..35 map to ASCII 0..9
+        return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
+    }
 
-	/**
-	 * Bias adaptation function as per section 3.4 of RFC 3492.
-	 * https://tools.ietf.org/html/rfc3492#section-3.4
-	 * @private
-	 */
-	function adapt(delta, numPoints, firstTime) {
-		var k = 0;
-		delta = firstTime ? floor(delta / damp) : delta >> 1;
-		delta += floor(delta / numPoints);
-		for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
-			delta = floor(delta / baseMinusTMin);
-		}
-		return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
-	}
+    /**
+     * Bias adaptation function as per section 3.4 of RFC 3492.
+     * https://tools.ietf.org/html/rfc3492#section-3.4
+     * @private
+     */
+    function adapt(delta, numPoints, firstTime) {
+        var k = 0;
+        delta = firstTime ? floor(delta / damp) : delta >> 1;
+        delta += floor(delta / numPoints);
+        for (/* no initialization */; delta > baseMinusTMin * tMax >> 1; k += base) {
+            delta = floor(delta / baseMinusTMin);
+        }
+        return floor(k + (baseMinusTMin + 1) * delta / (delta + skew));
+    }
 
-	/**
-	 * Converts a Punycode string of ASCII-only symbols to a string of Unicode
-	 * symbols.
-	 * @memberOf punycode
-	 * @param {String} input The Punycode string of ASCII-only symbols.
-	 * @returns {String} The resulting string of Unicode symbols.
-	 */
-	function decode(input) {
-		// Don't use UCS-2
-		var output = [],
-		    inputLength = input.length,
-		    out,
-		    i = 0,
-		    n = initialN,
-		    bias = initialBias,
-		    basic,
-		    j,
-		    index,
-		    oldi,
-		    w,
-		    k,
-		    digit,
-		    t,
-		    /** Cached calculation results */
-		    baseMinusT;
+    /**
+     * Converts a Punycode string of ASCII-only symbols to a string of Unicode
+     * symbols.
+     * @memberOf punycode
+     * @param {String} input The Punycode string of ASCII-only symbols.
+     * @returns {String} The resulting string of Unicode symbols.
+     */
+    function decode(input) {
+        // Don't use UCS-2
+        var output = [],
+            inputLength = input.length,
+            out,
+            i = 0,
+            n = initialN,
+            bias = initialBias,
+            basic,
+            j,
+            index,
+            oldi,
+            w,
+            k,
+            digit,
+            t,
+            /** Cached calculation results */
+            baseMinusT;
 
-		// Handle the basic code points: let `basic` be the number of input code
-		// points before the last delimiter, or `0` if there is none, then copy
-		// the first basic code points to the output.
+        // Handle the basic code points: let `basic` be the number of input code
+        // points before the last delimiter, or `0` if there is none, then copy
+        // the first basic code points to the output.
 
-		basic = input.lastIndexOf(delimiter);
-		if (basic < 0) {
-			basic = 0;
-		}
+        basic = input.lastIndexOf(delimiter);
+        if (basic < 0) {
+            basic = 0;
+        }
 
-		for (j = 0; j < basic; ++j) {
-			// if it's not a basic code point
-			if (input.charCodeAt(j) >= 0x80) {
-				error('not-basic');
-			}
-			output.push(input.charCodeAt(j));
-		}
+        for (j = 0; j < basic; ++j) {
+            // if it's not a basic code point
+            if (input.charCodeAt(j) >= 0x80) {
+                error('not-basic');
+            }
+            output.push(input.charCodeAt(j));
+        }
 
-		// Main decoding loop: start just after the last delimiter if any basic code
-		// points were copied; start at the beginning otherwise.
+        // Main decoding loop: start just after the last delimiter if any basic code
+        // points were copied; start at the beginning otherwise.
 
-		for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
+        for (index = basic > 0 ? basic + 1 : 0; index < inputLength; /* no final expression */) {
 
-			// `index` is the index of the next character to be consumed.
-			// Decode a generalized variable-length integer into `delta`,
-			// which gets added to `i`. The overflow checking is easier
-			// if we increase `i` as we go, then subtract off its starting
-			// value at the end to obtain `delta`.
-			for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
+            // `index` is the index of the next character to be consumed.
+            // Decode a generalized variable-length integer into `delta`,
+            // which gets added to `i`. The overflow checking is easier
+            // if we increase `i` as we go, then subtract off its starting
+            // value at the end to obtain `delta`.
+            for (oldi = i, w = 1, k = base; /* no condition */; k += base) {
 
-				if (index >= inputLength) {
-					error('invalid-input');
-				}
+                if (index >= inputLength) {
+                    error('invalid-input');
+                }
 
-				digit = basicToDigit(input.charCodeAt(index++));
+                digit = basicToDigit(input.charCodeAt(index++));
 
-				if (digit >= base || digit > floor((maxInt - i) / w)) {
-					error('overflow');
-				}
+                if (digit >= base || digit > floor((maxInt - i) / w)) {
+                    error('overflow');
+                }
 
-				i += digit * w;
-				t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+                i += digit * w;
+                t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
 
-				if (digit < t) {
-					break;
-				}
+                if (digit < t) {
+                    break;
+                }
 
-				baseMinusT = base - t;
-				if (w > floor(maxInt / baseMinusT)) {
-					error('overflow');
-				}
+                baseMinusT = base - t;
+                if (w > floor(maxInt / baseMinusT)) {
+                    error('overflow');
+                }
 
-				w *= baseMinusT;
+                w *= baseMinusT;
 
-			}
+            }
 
-			out = output.length + 1;
-			bias = adapt(i - oldi, out, oldi == 0);
+            out = output.length + 1;
+            bias = adapt(i - oldi, out, oldi == 0);
 
-			// `i` was supposed to wrap around from `out` to `0`,
-			// incrementing `n` each time, so we'll fix that now:
-			if (floor(i / out) > maxInt - n) {
-				error('overflow');
-			}
+            // `i` was supposed to wrap around from `out` to `0`,
+            // incrementing `n` each time, so we'll fix that now:
+            if (floor(i / out) > maxInt - n) {
+                error('overflow');
+            }
 
-			n += floor(i / out);
-			i %= out;
+            n += floor(i / out);
+            i %= out;
 
-			// Insert `n` at position `i` of the output
-			output.splice(i++, 0, n);
+            // Insert `n` at position `i` of the output
+            output.splice(i++, 0, n);
 
-		}
+        }
 
-		return ucs2encode(output);
-	}
+        return ucs2encode(output);
+    }
 
-	/**
-	 * Converts a string of Unicode symbols (e.g. a domain name label) to a
-	 * Punycode string of ASCII-only symbols.
-	 * @memberOf punycode
-	 * @param {String} input The string of Unicode symbols.
-	 * @returns {String} The resulting Punycode string of ASCII-only symbols.
-	 */
-	function encode(input) {
-		var n,
-		    delta,
-		    handledCPCount,
-		    basicLength,
-		    bias,
-		    j,
-		    m,
-		    q,
-		    k,
-		    t,
-		    currentValue,
-		    output = [],
-		    /** `inputLength` will hold the number of code points in `input`. */
-		    inputLength,
-		    /** Cached calculation results */
-		    handledCPCountPlusOne,
-		    baseMinusT,
-		    qMinusT;
+    /**
+     * Converts a string of Unicode symbols (e.g. a domain name label) to a
+     * Punycode string of ASCII-only symbols.
+     * @memberOf punycode
+     * @param {String} input The string of Unicode symbols.
+     * @returns {String} The resulting Punycode string of ASCII-only symbols.
+     */
+    function encode(input) {
+        var n,
+            delta,
+            handledCPCount,
+            basicLength,
+            bias,
+            j,
+            m,
+            q,
+            k,
+            t,
+            currentValue,
+            output = [],
+            /** `inputLength` will hold the number of code points in `input`. */
+            inputLength,
+            /** Cached calculation results */
+            handledCPCountPlusOne,
+            baseMinusT,
+            qMinusT;
 
-		// Convert the input in UCS-2 to Unicode
-		input = ucs2decode(input);
+        // Convert the input in UCS-2 to Unicode
+        input = ucs2decode(input);
 
-		// Cache the length
-		inputLength = input.length;
+        // Cache the length
+        inputLength = input.length;
 
-		// Initialize the state
-		n = initialN;
-		delta = 0;
-		bias = initialBias;
+        // Initialize the state
+        n = initialN;
+        delta = 0;
+        bias = initialBias;
 
-		// Handle the basic code points
-		for (j = 0; j < inputLength; ++j) {
-			currentValue = input[j];
-			if (currentValue < 0x80) {
-				output.push(stringFromCharCode(currentValue));
-			}
-		}
+        // Handle the basic code points
+        for (j = 0; j < inputLength; ++j) {
+            currentValue = input[j];
+            if (currentValue < 0x80) {
+                output.push(stringFromCharCode(currentValue));
+            }
+        }
 
-		handledCPCount = basicLength = output.length;
+        handledCPCount = basicLength = output.length;
 
-		// `handledCPCount` is the number of code points that have been handled;
-		// `basicLength` is the number of basic code points.
+        // `handledCPCount` is the number of code points that have been handled;
+        // `basicLength` is the number of basic code points.
 
-		// Finish the basic string - if it is not empty - with a delimiter
-		if (basicLength) {
-			output.push(delimiter);
-		}
+        // Finish the basic string - if it is not empty - with a delimiter
+        if (basicLength) {
+            output.push(delimiter);
+        }
 
-		// Main encoding loop:
-		while (handledCPCount < inputLength) {
+        // Main encoding loop:
+        while (handledCPCount < inputLength) {
 
-			// All non-basic code points < n have been handled already. Find the next
-			// larger one:
-			for (m = maxInt, j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
-				if (currentValue >= n && currentValue < m) {
-					m = currentValue;
-				}
-			}
+            // All non-basic code points < n have been handled already. Find the next
+            // larger one:
+            for (m = maxInt, j = 0; j < inputLength; ++j) {
+                currentValue = input[j];
+                if (currentValue >= n && currentValue < m) {
+                    m = currentValue;
+                }
+            }
 
-			// Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
-			// but guard against overflow
-			handledCPCountPlusOne = handledCPCount + 1;
-			if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
-				error('overflow');
-			}
+            // Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
+            // but guard against overflow
+            handledCPCountPlusOne = handledCPCount + 1;
+            if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
+                error('overflow');
+            }
 
-			delta += (m - n) * handledCPCountPlusOne;
-			n = m;
+            delta += (m - n) * handledCPCountPlusOne;
+            n = m;
 
-			for (j = 0; j < inputLength; ++j) {
-				currentValue = input[j];
+            for (j = 0; j < inputLength; ++j) {
+                currentValue = input[j];
 
-				if (currentValue < n && ++delta > maxInt) {
-					error('overflow');
-				}
+                if (currentValue < n && ++delta > maxInt) {
+                    error('overflow');
+                }
 
-				if (currentValue == n) {
-					// Represent delta as a generalized variable-length integer
-					for (q = delta, k = base; /* no condition */; k += base) {
-						t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
-						if (q < t) {
-							break;
-						}
-						qMinusT = q - t;
-						baseMinusT = base - t;
-						output.push(
-							stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
-						);
-						q = floor(qMinusT / baseMinusT);
-					}
+                if (currentValue == n) {
+                    // Represent delta as a generalized variable-length integer
+                    for (q = delta, k = base; /* no condition */; k += base) {
+                        t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+                        if (q < t) {
+                            break;
+                        }
+                        qMinusT = q - t;
+                        baseMinusT = base - t;
+                        output.push(
+                            stringFromCharCode(digitToBasic(t + qMinusT % baseMinusT, 0))
+                        );
+                        q = floor(qMinusT / baseMinusT);
+                    }
 
-					output.push(stringFromCharCode(digitToBasic(q, 0)));
-					bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
-					delta = 0;
-					++handledCPCount;
-				}
-			}
+                    output.push(stringFromCharCode(digitToBasic(q, 0)));
+                    bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
+                    delta = 0;
+                    ++handledCPCount;
+                }
+            }
 
-			++delta;
-			++n;
+            ++delta;
+            ++n;
 
-		}
-		return output.join('');
-	}
+        }
+        return output.join('');
+    }
 
-	/**
-	 * Converts a Punycode string representing a domain name or an email address
-	 * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
-	 * it doesn't matter if you call it on a string that has already been
-	 * converted to Unicode.
-	 * @memberOf punycode
-	 * @param {String} input The Punycoded domain name or email address to
-	 * convert to Unicode.
-	 * @returns {String} The Unicode representation of the given Punycode
-	 * string.
-	 */
-	function toUnicode(input) {
-		return mapDomain(input, function(string) {
-			return regexPunycode.test(string)
-				? decode(string.slice(4).toLowerCase())
-				: string;
-		});
-	}
+    /**
+     * Converts a Punycode string representing a domain name or an email address
+     * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
+     * it doesn't matter if you call it on a string that has already been
+     * converted to Unicode.
+     * @memberOf punycode
+     * @param {String} input The Punycoded domain name or email address to
+     * convert to Unicode.
+     * @returns {String} The Unicode representation of the given Punycode
+     * string.
+     */
+    function toUnicode(input) {
+        return mapDomain(input, function(string) {
+            return regexPunycode.test(string)
+                ? decode(string.slice(4).toLowerCase())
+                : string;
+        });
+    }
 
-	/**
-	 * Converts a Unicode string representing a domain name or an email address to
-	 * Punycode. Only the non-ASCII parts of the domain name will be converted,
-	 * i.e. it doesn't matter if you call it with a domain that's already in
-	 * ASCII.
-	 * @memberOf punycode
-	 * @param {String} input The domain name or email address to convert, as a
-	 * Unicode string.
-	 * @returns {String} The Punycode representation of the given domain name or
-	 * email address.
-	 */
-	function toASCII(input) {
-		return mapDomain(input, function(string) {
-			return regexNonASCII.test(string)
-				? 'xn--' + encode(string)
-				: string;
-		});
-	}
+    /**
+     * Converts a Unicode string representing a domain name or an email address to
+     * Punycode. Only the non-ASCII parts of the domain name will be converted,
+     * i.e. it doesn't matter if you call it with a domain that's already in
+     * ASCII.
+     * @memberOf punycode
+     * @param {String} input The domain name or email address to convert, as a
+     * Unicode string.
+     * @returns {String} The Punycode representation of the given domain name or
+     * email address.
+     */
+    function toASCII(input) {
+        return mapDomain(input, function(string) {
+            return regexNonASCII.test(string)
+                ? 'xn--' + encode(string)
+                : string;
+        });
+    }
 
-	/*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
 
-	/** Define the public API */
-	punycode = {
-		/**
-		 * A string representing the current Punycode.js version number.
-		 * @memberOf punycode
-		 * @type String
-		 */
-		'version': '1.4.1',
-		/**
-		 * An object of methods to convert from JavaScript's internal character
-		 * representation (UCS-2) to Unicode code points, and back.
-		 * @see <https://mathiasbynens.be/notes/javascript-encoding>
-		 * @memberOf punycode
-		 * @type Object
-		 */
-		'ucs2': {
-			'decode': ucs2decode,
-			'encode': ucs2encode
-		},
-		'decode': decode,
-		'encode': encode,
-		'toASCII': toASCII,
-		'toUnicode': toUnicode
-	};
+    /** Define the public API */
+    punycode = {
+        /**
+         * A string representing the current Punycode.js version number.
+         * @memberOf punycode
+         * @type String
+         */
+        'version': '1.4.1',
+        /**
+         * An object of methods to convert from JavaScript's internal character
+         * representation (UCS-2) to Unicode code points, and back.
+         * @see <https://mathiasbynens.be/notes/javascript-encoding>
+         * @memberOf punycode
+         * @type Object
+         */
+        'ucs2': {
+            'decode': ucs2decode,
+            'encode': ucs2encode
+        },
+        'decode': decode,
+        'encode': encode,
+        'toASCII': toASCII,
+        'toUnicode': toUnicode
+    };
 
-	/** Expose `punycode` */
-	// Some AMD build optimizers, like r.js, check for specific condition patterns
-	// like the following:
-	if (
-		typeof define == 'function' &&
-		typeof define.amd == 'object' &&
-		define.amd
-	) {
-		define('punycode', function() {
-			return punycode;
-		});
-	} else if (freeExports && freeModule) {
-		if (module.exports == freeExports) {
-			// in Node.js, io.js, or RingoJS v0.8.0+
-			freeModule.exports = punycode;
-		} else {
-			// in Narwhal or RingoJS v0.7.0-
-			for (key in punycode) {
-				punycode.hasOwnProperty(key) && (freeExports[key] = punycode[key]);
-			}
-		}
-	} else {
-		// in Rhino or a web browser
-		root.punycode = punycode;
-	}
+    /** Expose `punycode` */
+    // Some AMD build optimizers, like r.js, check for specific condition patterns
+    // like the following:
+    if (
+        typeof define == 'function' &&
+        typeof define.amd == 'object' &&
+        define.amd
+    ) {
+        define('punycode', function() {
+            return punycode;
+        });
+    } else if (freeExports && freeModule) {
+        if (module.exports == freeExports) {
+            // in Node.js, io.js, or RingoJS v0.8.0+
+            freeModule.exports = punycode;
+        } else {
+            // in Narwhal or RingoJS v0.7.0-
+            for (key in punycode) {
+                punycode.hasOwnProperty(key) && (freeExports[key] = punycode[key]);
+            }
+        }
+    } else {
+        // in Rhino or a web browser
+        root.punycode = punycode;
+    }
 
 }(this));
 
@@ -7778,42 +7778,42 @@ var url = require('url')
 var http = exports
 
 http.request = function (opts, cb) {
-	if (typeof opts === 'string')
-		opts = url.parse(opts)
-	else
-		opts = extend(opts)
+    if (typeof opts === 'string')
+        opts = url.parse(opts)
+    else
+        opts = extend(opts)
 
-	// Normally, the page is loaded from http or https, so not specifying a protocol
-	// will result in a (valid) protocol-relative url. However, this won't work if
-	// the protocol is something else, like 'file:'
-	var defaultProtocol = global.location.protocol.search(/^https?:$/) === -1 ? 'http:' : ''
+    // Normally, the page is loaded from http or https, so not specifying a protocol
+    // will result in a (valid) protocol-relative url. However, this won't work if
+    // the protocol is something else, like 'file:'
+    var defaultProtocol = global.location.protocol.search(/^https?:$/) === -1 ? 'http:' : ''
 
-	var protocol = opts.protocol || defaultProtocol
-	var host = opts.hostname || opts.host
-	var port = opts.port
-	var path = opts.path || '/'
+    var protocol = opts.protocol || defaultProtocol
+    var host = opts.hostname || opts.host
+    var port = opts.port
+    var path = opts.path || '/'
 
-	// Necessary for IPv6 addresses
-	if (host && host.indexOf(':') !== -1)
-		host = '[' + host + ']'
+    // Necessary for IPv6 addresses
+    if (host && host.indexOf(':') !== -1)
+        host = '[' + host + ']'
 
-	// This may be a relative url. The browser should always be able to interpret it correctly.
-	opts.url = (host ? (protocol + '//' + host) : '') + (port ? ':' + port : '') + path
-	opts.method = (opts.method || 'GET').toUpperCase()
-	opts.headers = opts.headers || {}
+    // This may be a relative url. The browser should always be able to interpret it correctly.
+    opts.url = (host ? (protocol + '//' + host) : '') + (port ? ':' + port : '') + path
+    opts.method = (opts.method || 'GET').toUpperCase()
+    opts.headers = opts.headers || {}
 
-	// Also valid opts.auth, opts.mode
+    // Also valid opts.auth, opts.mode
 
-	var req = new ClientRequest(opts)
-	if (cb)
-		req.on('response', cb)
-	return req
+    var req = new ClientRequest(opts)
+    if (cb)
+        req.on('response', cb)
+    return req
 }
 
 http.get = function get (opts, cb) {
-	var req = http.request(opts, cb)
-	req.end()
-	return req
+    var req = http.request(opts, cb)
+    req.end()
+    return req
 }
 
 http.ClientRequest = ClientRequest
@@ -7827,32 +7827,32 @@ http.globalAgent = new http.Agent()
 http.STATUS_CODES = statusCodes
 
 http.METHODS = [
-	'CHECKOUT',
-	'CONNECT',
-	'COPY',
-	'DELETE',
-	'GET',
-	'HEAD',
-	'LOCK',
-	'M-SEARCH',
-	'MERGE',
-	'MKACTIVITY',
-	'MKCOL',
-	'MOVE',
-	'NOTIFY',
-	'OPTIONS',
-	'PATCH',
-	'POST',
-	'PROPFIND',
-	'PROPPATCH',
-	'PURGE',
-	'PUT',
-	'REPORT',
-	'SEARCH',
-	'SUBSCRIBE',
-	'TRACE',
-	'UNLOCK',
-	'UNSUBSCRIBE'
+    'CHECKOUT',
+    'CONNECT',
+    'COPY',
+    'DELETE',
+    'GET',
+    'HEAD',
+    'LOCK',
+    'M-SEARCH',
+    'MERGE',
+    'MKACTIVITY',
+    'MKCOL',
+    'MOVE',
+    'NOTIFY',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PROPFIND',
+    'PROPPATCH',
+    'PURGE',
+    'PUT',
+    'REPORT',
+    'SEARCH',
+    'SUBSCRIBE',
+    'TRACE',
+    'UNLOCK',
+    'UNSUBSCRIBE'
 ]
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./lib/request":30,"./lib/response":31,"builtin-status-codes":17,"url":48,"xtend":51}],29:[function(require,module,exports){
@@ -7868,34 +7868,34 @@ exports.abortController = isFunction(global.AbortController)
 // and assume support for certain features below.
 var xhr
 function getXHR () {
-	// Cache the xhr value
-	if (xhr !== undefined) return xhr
+    // Cache the xhr value
+    if (xhr !== undefined) return xhr
 
-	if (global.XMLHttpRequest) {
-		xhr = new global.XMLHttpRequest()
-		// If XDomainRequest is available (ie only, where xhr might not work
-		// cross domain), use the page location. Otherwise use example.com
-		// Note: this doesn't actually make an http request.
-		try {
-			xhr.open('GET', global.XDomainRequest ? '/' : 'https://example.com')
-		} catch(e) {
-			xhr = null
-		}
-	} else {
-		// Service workers don't have XHR
-		xhr = null
-	}
-	return xhr
+    if (global.XMLHttpRequest) {
+        xhr = new global.XMLHttpRequest()
+        // If XDomainRequest is available (ie only, where xhr might not work
+        // cross domain), use the page location. Otherwise use example.com
+        // Note: this doesn't actually make an http request.
+        try {
+            xhr.open('GET', global.XDomainRequest ? '/' : 'https://example.com')
+        } catch(e) {
+            xhr = null
+        }
+    } else {
+        // Service workers don't have XHR
+        xhr = null
+    }
+    return xhr
 }
 
 function checkTypeSupport (type) {
-	var xhr = getXHR()
-	if (!xhr) return false
-	try {
-		xhr.responseType = type
-		return xhr.responseType === type
-	} catch (e) {}
-	return false
+    var xhr = getXHR()
+    if (!xhr) return false
+    try {
+        xhr.responseType = type
+        return xhr.responseType === type
+    } catch (e) {}
+    return false
 }
 
 // If fetch is supported, then arraybuffer will be supported too. Skip calling
@@ -7912,7 +7912,7 @@ exports.mozchunkedarraybuffer = !exports.fetch && checkTypeSupport('moz-chunked-
 exports.overrideMimeType = exports.fetch || (getXHR() ? isFunction(getXHR().overrideMimeType) : false)
 
 function isFunction (value) {
-	return typeof value === 'function'
+    return typeof value === 'function'
 }
 
 xhr = null // Help gc
@@ -7929,212 +7929,212 @@ var IncomingMessage = response.IncomingMessage
 var rStates = response.readyStates
 
 function decideMode (preferBinary, useFetch) {
-	if (capability.fetch && useFetch) {
-		return 'fetch'
-	} else if (capability.mozchunkedarraybuffer) {
-		return 'moz-chunked-arraybuffer'
-	} else if (capability.msstream) {
-		return 'ms-stream'
-	} else if (capability.arraybuffer && preferBinary) {
-		return 'arraybuffer'
-	} else {
-		return 'text'
-	}
+    if (capability.fetch && useFetch) {
+        return 'fetch'
+    } else if (capability.mozchunkedarraybuffer) {
+        return 'moz-chunked-arraybuffer'
+    } else if (capability.msstream) {
+        return 'ms-stream'
+    } else if (capability.arraybuffer && preferBinary) {
+        return 'arraybuffer'
+    } else {
+        return 'text'
+    }
 }
 
 var ClientRequest = module.exports = function (opts) {
-	var self = this
-	stream.Writable.call(self)
+    var self = this
+    stream.Writable.call(self)
 
-	self._opts = opts
-	self._body = []
-	self._headers = {}
-	if (opts.auth)
-		self.setHeader('Authorization', 'Basic ' + Buffer.from(opts.auth).toString('base64'))
-	Object.keys(opts.headers).forEach(function (name) {
-		self.setHeader(name, opts.headers[name])
-	})
+    self._opts = opts
+    self._body = []
+    self._headers = {}
+    if (opts.auth)
+        self.setHeader('Authorization', 'Basic ' + Buffer.from(opts.auth).toString('base64'))
+    Object.keys(opts.headers).forEach(function (name) {
+        self.setHeader(name, opts.headers[name])
+    })
 
-	var preferBinary
-	var useFetch = true
-	if (opts.mode === 'disable-fetch' || ('requestTimeout' in opts && !capability.abortController)) {
-		// If the use of XHR should be preferred. Not typically needed.
-		useFetch = false
-		preferBinary = true
-	} else if (opts.mode === 'prefer-streaming') {
-		// If streaming is a high priority but binary compatibility and
-		// the accuracy of the 'content-type' header aren't
-		preferBinary = false
-	} else if (opts.mode === 'allow-wrong-content-type') {
-		// If streaming is more important than preserving the 'content-type' header
-		preferBinary = !capability.overrideMimeType
-	} else if (!opts.mode || opts.mode === 'default' || opts.mode === 'prefer-fast') {
-		// Use binary if text streaming may corrupt data or the content-type header, or for speed
-		preferBinary = true
-	} else {
-		throw new Error('Invalid value for opts.mode')
-	}
-	self._mode = decideMode(preferBinary, useFetch)
-	self._fetchTimer = null
+    var preferBinary
+    var useFetch = true
+    if (opts.mode === 'disable-fetch' || ('requestTimeout' in opts && !capability.abortController)) {
+        // If the use of XHR should be preferred. Not typically needed.
+        useFetch = false
+        preferBinary = true
+    } else if (opts.mode === 'prefer-streaming') {
+        // If streaming is a high priority but binary compatibility and
+        // the accuracy of the 'content-type' header aren't
+        preferBinary = false
+    } else if (opts.mode === 'allow-wrong-content-type') {
+        // If streaming is more important than preserving the 'content-type' header
+        preferBinary = !capability.overrideMimeType
+    } else if (!opts.mode || opts.mode === 'default' || opts.mode === 'prefer-fast') {
+        // Use binary if text streaming may corrupt data or the content-type header, or for speed
+        preferBinary = true
+    } else {
+        throw new Error('Invalid value for opts.mode')
+    }
+    self._mode = decideMode(preferBinary, useFetch)
+    self._fetchTimer = null
 
-	self.on('finish', function () {
-		self._onFinish()
-	})
+    self.on('finish', function () {
+        self._onFinish()
+    })
 }
 
 inherits(ClientRequest, stream.Writable)
 
 ClientRequest.prototype.setHeader = function (name, value) {
-	var self = this
-	var lowerName = name.toLowerCase()
-	// This check is not necessary, but it prevents warnings from browsers about setting unsafe
-	// headers. To be honest I'm not entirely sure hiding these warnings is a good thing, but
-	// http-browserify did it, so I will too.
-	if (unsafeHeaders.indexOf(lowerName) !== -1)
-		return
+    var self = this
+    var lowerName = name.toLowerCase()
+    // This check is not necessary, but it prevents warnings from browsers about setting unsafe
+    // headers. To be honest I'm not entirely sure hiding these warnings is a good thing, but
+    // http-browserify did it, so I will too.
+    if (unsafeHeaders.indexOf(lowerName) !== -1)
+        return
 
-	self._headers[lowerName] = {
-		name: name,
-		value: value
-	}
+    self._headers[lowerName] = {
+        name: name,
+        value: value
+    }
 }
 
 ClientRequest.prototype.getHeader = function (name) {
-	var header = this._headers[name.toLowerCase()]
-	if (header)
-		return header.value
-	return null
+    var header = this._headers[name.toLowerCase()]
+    if (header)
+        return header.value
+    return null
 }
 
 ClientRequest.prototype.removeHeader = function (name) {
-	var self = this
-	delete self._headers[name.toLowerCase()]
+    var self = this
+    delete self._headers[name.toLowerCase()]
 }
 
 ClientRequest.prototype._onFinish = function () {
-	var self = this
+    var self = this
 
-	if (self._destroyed)
-		return
-	var opts = self._opts
+    if (self._destroyed)
+        return
+    var opts = self._opts
 
-	var headersObj = self._headers
-	var body = null
-	if (opts.method !== 'GET' && opts.method !== 'HEAD') {
+    var headersObj = self._headers
+    var body = null
+    if (opts.method !== 'GET' && opts.method !== 'HEAD') {
         body = new Blob(self._body, {
             type: (headersObj['content-type'] || {}).value || ''
         });
     }
 
-	// create flattened list of headers
-	var headersList = []
-	Object.keys(headersObj).forEach(function (keyName) {
-		var name = headersObj[keyName].name
-		var value = headersObj[keyName].value
-		if (Array.isArray(value)) {
-			value.forEach(function (v) {
-				headersList.push([name, v])
-			})
-		} else {
-			headersList.push([name, value])
-		}
-	})
+    // create flattened list of headers
+    var headersList = []
+    Object.keys(headersObj).forEach(function (keyName) {
+        var name = headersObj[keyName].name
+        var value = headersObj[keyName].value
+        if (Array.isArray(value)) {
+            value.forEach(function (v) {
+                headersList.push([name, v])
+            })
+        } else {
+            headersList.push([name, value])
+        }
+    })
 
-	if (self._mode === 'fetch') {
-		var signal = null
-		if (capability.abortController) {
-			var controller = new AbortController()
-			signal = controller.signal
-			self._fetchAbortController = controller
+    if (self._mode === 'fetch') {
+        var signal = null
+        if (capability.abortController) {
+            var controller = new AbortController()
+            signal = controller.signal
+            self._fetchAbortController = controller
 
-			if ('requestTimeout' in opts && opts.requestTimeout !== 0) {
-				self._fetchTimer = global.setTimeout(function () {
-					self.emit('requestTimeout')
-					if (self._fetchAbortController)
-						self._fetchAbortController.abort()
-				}, opts.requestTimeout)
-			}
-		}
+            if ('requestTimeout' in opts && opts.requestTimeout !== 0) {
+                self._fetchTimer = global.setTimeout(function () {
+                    self.emit('requestTimeout')
+                    if (self._fetchAbortController)
+                        self._fetchAbortController.abort()
+                }, opts.requestTimeout)
+            }
+        }
 
-		global.fetch(self._opts.url, {
-			method: self._opts.method,
-			headers: headersList,
-			body: body || undefined,
-			mode: 'cors',
-			credentials: opts.withCredentials ? 'include' : 'same-origin',
-			signal: signal
-		}).then(function (response) {
-			self._fetchResponse = response
-			self._connect()
-		}, function (reason) {
-			global.clearTimeout(self._fetchTimer)
-			if (!self._destroyed)
-				self.emit('error', reason)
-		})
-	} else {
-		var xhr = self._xhr = new global.XMLHttpRequest()
-		try {
-			xhr.open(self._opts.method, self._opts.url, true)
-		} catch (err) {
-			process.nextTick(function () {
-				self.emit('error', err)
-			})
-			return
-		}
+        global.fetch(self._opts.url, {
+            method: self._opts.method,
+            headers: headersList,
+            body: body || undefined,
+            mode: 'cors',
+            credentials: opts.withCredentials ? 'include' : 'same-origin',
+            signal: signal
+        }).then(function (response) {
+            self._fetchResponse = response
+            self._connect()
+        }, function (reason) {
+            global.clearTimeout(self._fetchTimer)
+            if (!self._destroyed)
+                self.emit('error', reason)
+        })
+    } else {
+        var xhr = self._xhr = new global.XMLHttpRequest()
+        try {
+            xhr.open(self._opts.method, self._opts.url, true)
+        } catch (err) {
+            process.nextTick(function () {
+                self.emit('error', err)
+            })
+            return
+        }
 
-		// Can't set responseType on really old browsers
-		if ('responseType' in xhr)
-			xhr.responseType = self._mode
+        // Can't set responseType on really old browsers
+        if ('responseType' in xhr)
+            xhr.responseType = self._mode
 
-		if ('withCredentials' in xhr)
-			xhr.withCredentials = !!opts.withCredentials
+        if ('withCredentials' in xhr)
+            xhr.withCredentials = !!opts.withCredentials
 
-		if (self._mode === 'text' && 'overrideMimeType' in xhr)
-			xhr.overrideMimeType('text/plain; charset=x-user-defined')
+        if (self._mode === 'text' && 'overrideMimeType' in xhr)
+            xhr.overrideMimeType('text/plain; charset=x-user-defined')
 
-		if ('requestTimeout' in opts) {
-			xhr.timeout = opts.requestTimeout
-			xhr.ontimeout = function () {
-				self.emit('requestTimeout')
-			}
-		}
+        if ('requestTimeout' in opts) {
+            xhr.timeout = opts.requestTimeout
+            xhr.ontimeout = function () {
+                self.emit('requestTimeout')
+            }
+        }
 
-		headersList.forEach(function (header) {
-			xhr.setRequestHeader(header[0], header[1])
-		})
+        headersList.forEach(function (header) {
+            xhr.setRequestHeader(header[0], header[1])
+        })
 
-		self._response = null
-		xhr.onreadystatechange = function () {
-			switch (xhr.readyState) {
-				case rStates.LOADING:
-				case rStates.DONE:
-					self._onXHRProgress()
-					break
-			}
-		}
-		// Necessary for streaming in Firefox, since xhr.response is ONLY defined
-		// in onprogress, not in onreadystatechange with xhr.readyState = 3
-		if (self._mode === 'moz-chunked-arraybuffer') {
-			xhr.onprogress = function () {
-				self._onXHRProgress()
-			}
-		}
+        self._response = null
+        xhr.onreadystatechange = function () {
+            switch (xhr.readyState) {
+                case rStates.LOADING:
+                case rStates.DONE:
+                    self._onXHRProgress()
+                    break
+            }
+        }
+        // Necessary for streaming in Firefox, since xhr.response is ONLY defined
+        // in onprogress, not in onreadystatechange with xhr.readyState = 3
+        if (self._mode === 'moz-chunked-arraybuffer') {
+            xhr.onprogress = function () {
+                self._onXHRProgress()
+            }
+        }
 
-		xhr.onerror = function () {
-			if (self._destroyed)
-				return
-			self.emit('error', new Error('XHR error'))
-		}
+        xhr.onerror = function () {
+            if (self._destroyed)
+                return
+            self.emit('error', new Error('XHR error'))
+        }
 
-		try {
-			xhr.send(body)
-		} catch (err) {
-			process.nextTick(function () {
-				self.emit('error', err)
-			})
-			return
-		}
-	}
+        try {
+            xhr.send(body)
+        } catch (err) {
+            process.nextTick(function () {
+                self.emit('error', err)
+            })
+            return
+        }
+    }
 }
 
 /**
@@ -8143,67 +8143,67 @@ ClientRequest.prototype._onFinish = function () {
  * accessing it throws an exception in IE8
  */
 function statusValid (xhr) {
-	try {
-		var status = xhr.status
-		return (status !== null && status !== 0)
-	} catch (e) {
-		return false
-	}
+    try {
+        var status = xhr.status
+        return (status !== null && status !== 0)
+    } catch (e) {
+        return false
+    }
 }
 
 ClientRequest.prototype._onXHRProgress = function () {
-	var self = this
+    var self = this
 
-	if (!statusValid(self._xhr) || self._destroyed)
-		return
+    if (!statusValid(self._xhr) || self._destroyed)
+        return
 
-	if (!self._response)
-		self._connect()
+    if (!self._response)
+        self._connect()
 
-	self._response._onXHRProgress()
+    self._response._onXHRProgress()
 }
 
 ClientRequest.prototype._connect = function () {
-	var self = this
+    var self = this
 
-	if (self._destroyed)
-		return
+    if (self._destroyed)
+        return
 
-	self._response = new IncomingMessage(self._xhr, self._fetchResponse, self._mode, self._fetchTimer)
-	self._response.on('error', function(err) {
-		self.emit('error', err)
-	})
+    self._response = new IncomingMessage(self._xhr, self._fetchResponse, self._mode, self._fetchTimer)
+    self._response.on('error', function(err) {
+        self.emit('error', err)
+    })
 
-	self.emit('response', self._response)
+    self.emit('response', self._response)
 }
 
 ClientRequest.prototype._write = function (chunk, encoding, cb) {
-	var self = this
+    var self = this
 
-	self._body.push(chunk)
-	cb()
+    self._body.push(chunk)
+    cb()
 }
 
 ClientRequest.prototype.abort = ClientRequest.prototype.destroy = function () {
-	var self = this
-	self._destroyed = true
-	global.clearTimeout(self._fetchTimer)
-	if (self._response)
-		self._response._destroyed = true
-	if (self._xhr)
-		self._xhr.abort()
-	else if (self._fetchAbortController)
-		self._fetchAbortController.abort()
+    var self = this
+    self._destroyed = true
+    global.clearTimeout(self._fetchTimer)
+    if (self._response)
+        self._response._destroyed = true
+    if (self._xhr)
+        self._xhr.abort()
+    else if (self._fetchAbortController)
+        self._fetchAbortController.abort()
 }
 
 ClientRequest.prototype.end = function (data, encoding, cb) {
-	var self = this
-	if (typeof data === 'function') {
-		cb = data
-		data = undefined
-	}
+    var self = this
+    if (typeof data === 'function') {
+        cb = data
+        data = undefined
+    }
 
-	stream.Writable.prototype.end.call(self, data, encoding, cb)
+    stream.Writable.prototype.end.call(self, data, encoding, cb)
 }
 
 ClientRequest.prototype.flushHeaders = function () {}
@@ -8213,26 +8213,26 @@ ClientRequest.prototype.setSocketKeepAlive = function () {}
 
 // Taken from http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader%28%29-method
 var unsafeHeaders = [
-	'accept-charset',
-	'accept-encoding',
-	'access-control-request-headers',
-	'access-control-request-method',
-	'connection',
-	'content-length',
-	'cookie',
-	'cookie2',
-	'date',
-	'dnt',
-	'expect',
-	'host',
-	'keep-alive',
-	'origin',
-	'referer',
-	'te',
-	'trailer',
-	'transfer-encoding',
-	'upgrade',
-	'via'
+    'accept-charset',
+    'accept-encoding',
+    'access-control-request-headers',
+    'access-control-request-method',
+    'connection',
+    'content-length',
+    'cookie',
+    'cookie2',
+    'date',
+    'dnt',
+    'expect',
+    'host',
+    'keep-alive',
+    'origin',
+    'referer',
+    'te',
+    'trailer',
+    'transfer-encoding',
+    'upgrade',
+    'via'
 ]
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
@@ -8243,207 +8243,207 @@ var inherits = require('inherits')
 var stream = require('readable-stream')
 
 var rStates = exports.readyStates = {
-	UNSENT: 0,
-	OPENED: 1,
-	HEADERS_RECEIVED: 2,
-	LOADING: 3,
-	DONE: 4
+    UNSENT: 0,
+    OPENED: 1,
+    HEADERS_RECEIVED: 2,
+    LOADING: 3,
+    DONE: 4
 }
 
 var IncomingMessage = exports.IncomingMessage = function (xhr, response, mode, fetchTimer) {
-	var self = this
-	stream.Readable.call(self)
+    var self = this
+    stream.Readable.call(self)
 
-	self._mode = mode
-	self.headers = {}
-	self.rawHeaders = []
-	self.trailers = {}
-	self.rawTrailers = []
+    self._mode = mode
+    self.headers = {}
+    self.rawHeaders = []
+    self.trailers = {}
+    self.rawTrailers = []
 
-	// Fake the 'close' event, but only once 'end' fires
-	self.on('end', function () {
-		// The nextTick is necessary to prevent the 'request' module from causing an infinite loop
-		process.nextTick(function () {
-			self.emit('close')
-		})
-	})
+    // Fake the 'close' event, but only once 'end' fires
+    self.on('end', function () {
+        // The nextTick is necessary to prevent the 'request' module from causing an infinite loop
+        process.nextTick(function () {
+            self.emit('close')
+        })
+    })
 
-	if (mode === 'fetch') {
-		self._fetchResponse = response
+    if (mode === 'fetch') {
+        self._fetchResponse = response
 
-		self.url = response.url
-		self.statusCode = response.status
-		self.statusMessage = response.statusText
-		
-		response.headers.forEach(function (header, key){
-			self.headers[key.toLowerCase()] = header
-			self.rawHeaders.push(key, header)
-		})
+        self.url = response.url
+        self.statusCode = response.status
+        self.statusMessage = response.statusText
 
-		if (capability.writableStream) {
-			var writable = new WritableStream({
-				write: function (chunk) {
-					return new Promise(function (resolve, reject) {
-						if (self._destroyed) {
-							reject()
-						} else if(self.push(Buffer.from(chunk))) {
-							resolve()
-						} else {
-							self._resumeFetch = resolve
-						}
-					})
-				},
-				close: function () {
-					global.clearTimeout(fetchTimer)
-					if (!self._destroyed)
-						self.push(null)
-				},
-				abort: function (err) {
-					if (!self._destroyed)
-						self.emit('error', err)
-				}
-			})
+        response.headers.forEach(function (header, key){
+            self.headers[key.toLowerCase()] = header
+            self.rawHeaders.push(key, header)
+        })
 
-			try {
-				response.body.pipeTo(writable).catch(function (err) {
-					global.clearTimeout(fetchTimer)
-					if (!self._destroyed)
-						self.emit('error', err)
-				})
-				return
-			} catch (e) {} // pipeTo method isn't defined. Can't find a better way to feature test this
-		}
-		// fallback for when writableStream or pipeTo aren't available
-		var reader = response.body.getReader()
-		function read () {
-			reader.read().then(function (result) {
-				if (self._destroyed)
-					return
-				if (result.done) {
-					global.clearTimeout(fetchTimer)
-					self.push(null)
-					return
-				}
-				self.push(Buffer.from(result.value))
-				read()
-			}).catch(function (err) {
-				global.clearTimeout(fetchTimer)
-				if (!self._destroyed)
-					self.emit('error', err)
-			})
-		}
-		read()
-	} else {
-		self._xhr = xhr
-		self._pos = 0
+        if (capability.writableStream) {
+            var writable = new WritableStream({
+                write: function (chunk) {
+                    return new Promise(function (resolve, reject) {
+                        if (self._destroyed) {
+                            reject()
+                        } else if(self.push(Buffer.from(chunk))) {
+                            resolve()
+                        } else {
+                            self._resumeFetch = resolve
+                        }
+                    })
+                },
+                close: function () {
+                    global.clearTimeout(fetchTimer)
+                    if (!self._destroyed)
+                        self.push(null)
+                },
+                abort: function (err) {
+                    if (!self._destroyed)
+                        self.emit('error', err)
+                }
+            })
 
-		self.url = xhr.responseURL
-		self.statusCode = xhr.status
-		self.statusMessage = xhr.statusText
-		var headers = xhr.getAllResponseHeaders().split(/\r?\n/)
-		headers.forEach(function (header) {
-			var matches = header.match(/^([^:]+):\s*(.*)/)
-			if (matches) {
-				var key = matches[1].toLowerCase()
-				if (key === 'set-cookie') {
-					if (self.headers[key] === undefined) {
-						self.headers[key] = []
-					}
-					self.headers[key].push(matches[2])
-				} else if (self.headers[key] !== undefined) {
-					self.headers[key] += ', ' + matches[2]
-				} else {
-					self.headers[key] = matches[2]
-				}
-				self.rawHeaders.push(matches[1], matches[2])
-			}
-		})
+            try {
+                response.body.pipeTo(writable).catch(function (err) {
+                    global.clearTimeout(fetchTimer)
+                    if (!self._destroyed)
+                        self.emit('error', err)
+                })
+                return
+            } catch (e) {} // pipeTo method isn't defined. Can't find a better way to feature test this
+        }
+        // fallback for when writableStream or pipeTo aren't available
+        var reader = response.body.getReader()
+        function read () {
+            reader.read().then(function (result) {
+                if (self._destroyed)
+                    return
+                if (result.done) {
+                    global.clearTimeout(fetchTimer)
+                    self.push(null)
+                    return
+                }
+                self.push(Buffer.from(result.value))
+                read()
+            }).catch(function (err) {
+                global.clearTimeout(fetchTimer)
+                if (!self._destroyed)
+                    self.emit('error', err)
+            })
+        }
+        read()
+    } else {
+        self._xhr = xhr
+        self._pos = 0
 
-		self._charset = 'x-user-defined'
-		if (!capability.overrideMimeType) {
-			var mimeType = self.rawHeaders['mime-type']
-			if (mimeType) {
-				var charsetMatch = mimeType.match(/;\s*charset=([^;])(;|$)/)
-				if (charsetMatch) {
-					self._charset = charsetMatch[1].toLowerCase()
-				}
-			}
-			if (!self._charset)
-				self._charset = 'utf-8' // best guess
-		}
-	}
+        self.url = xhr.responseURL
+        self.statusCode = xhr.status
+        self.statusMessage = xhr.statusText
+        var headers = xhr.getAllResponseHeaders().split(/\r?\n/)
+        headers.forEach(function (header) {
+            var matches = header.match(/^([^:]+):\s*(.*)/)
+            if (matches) {
+                var key = matches[1].toLowerCase()
+                if (key === 'set-cookie') {
+                    if (self.headers[key] === undefined) {
+                        self.headers[key] = []
+                    }
+                    self.headers[key].push(matches[2])
+                } else if (self.headers[key] !== undefined) {
+                    self.headers[key] += ', ' + matches[2]
+                } else {
+                    self.headers[key] = matches[2]
+                }
+                self.rawHeaders.push(matches[1], matches[2])
+            }
+        })
+
+        self._charset = 'x-user-defined'
+        if (!capability.overrideMimeType) {
+            var mimeType = self.rawHeaders['mime-type']
+            if (mimeType) {
+                var charsetMatch = mimeType.match(/;\s*charset=([^;])(;|$)/)
+                if (charsetMatch) {
+                    self._charset = charsetMatch[1].toLowerCase()
+                }
+            }
+            if (!self._charset)
+                self._charset = 'utf-8' // best guess
+        }
+    }
 }
 
 inherits(IncomingMessage, stream.Readable)
 
 IncomingMessage.prototype._read = function () {
-	var self = this
+    var self = this
 
-	var resolve = self._resumeFetch
-	if (resolve) {
-		self._resumeFetch = null
-		resolve()
-	}
+    var resolve = self._resumeFetch
+    if (resolve) {
+        self._resumeFetch = null
+        resolve()
+    }
 }
 
 IncomingMessage.prototype._onXHRProgress = function () {
-	var self = this
+    var self = this
 
-	var xhr = self._xhr
+    var xhr = self._xhr
 
-	var response = null
-	switch (self._mode) {
-		case 'text':
-			response = xhr.responseText
-			if (response.length > self._pos) {
-				var newData = response.substr(self._pos)
-				if (self._charset === 'x-user-defined') {
-					var buffer = Buffer.alloc(newData.length)
-					for (var i = 0; i < newData.length; i++)
-						buffer[i] = newData.charCodeAt(i) & 0xff
+    var response = null
+    switch (self._mode) {
+        case 'text':
+            response = xhr.responseText
+            if (response.length > self._pos) {
+                var newData = response.substr(self._pos)
+                if (self._charset === 'x-user-defined') {
+                    var buffer = Buffer.alloc(newData.length)
+                    for (var i = 0; i < newData.length; i++)
+                        buffer[i] = newData.charCodeAt(i) & 0xff
 
-					self.push(buffer)
-				} else {
-					self.push(newData, self._charset)
-				}
-				self._pos = response.length
-			}
-			break
-		case 'arraybuffer':
-			if (xhr.readyState !== rStates.DONE || !xhr.response)
-				break
-			response = xhr.response
-			self.push(Buffer.from(new Uint8Array(response)))
-			break
-		case 'moz-chunked-arraybuffer': // take whole
-			response = xhr.response
-			if (xhr.readyState !== rStates.LOADING || !response)
-				break
-			self.push(Buffer.from(new Uint8Array(response)))
-			break
-		case 'ms-stream':
-			response = xhr.response
-			if (xhr.readyState !== rStates.LOADING)
-				break
-			var reader = new global.MSStreamReader()
-			reader.onprogress = function () {
-				if (reader.result.byteLength > self._pos) {
-					self.push(Buffer.from(new Uint8Array(reader.result.slice(self._pos))))
-					self._pos = reader.result.byteLength
-				}
-			}
-			reader.onload = function () {
-				self.push(null)
-			}
-			// reader.onerror = ??? // TODO: this
-			reader.readAsArrayBuffer(response)
-			break
-	}
+                    self.push(buffer)
+                } else {
+                    self.push(newData, self._charset)
+                }
+                self._pos = response.length
+            }
+            break
+        case 'arraybuffer':
+            if (xhr.readyState !== rStates.DONE || !xhr.response)
+                break
+            response = xhr.response
+            self.push(Buffer.from(new Uint8Array(response)))
+            break
+        case 'moz-chunked-arraybuffer': // take whole
+            response = xhr.response
+            if (xhr.readyState !== rStates.LOADING || !response)
+                break
+            self.push(Buffer.from(new Uint8Array(response)))
+            break
+        case 'ms-stream':
+            response = xhr.response
+            if (xhr.readyState !== rStates.LOADING)
+                break
+            var reader = new global.MSStreamReader()
+            reader.onprogress = function () {
+                if (reader.result.byteLength > self._pos) {
+                    self.push(Buffer.from(new Uint8Array(reader.result.slice(self._pos))))
+                    self._pos = reader.result.byteLength
+                }
+            }
+            reader.onload = function () {
+                self.push(null)
+            }
+            // reader.onerror = ??? // TODO: this
+            reader.readAsArrayBuffer(response)
+            break
+    }
 
-	// The ms-stream case handles end separately in reader.onload()
-	if (self._xhr.readyState === rStates.DONE && self._mode !== 'ms-stream') {
-		self.push(null)
-	}
+    // The ms-stream case handles end separately in reader.onload()
+    if (self._xhr.readyState === rStates.DONE && self._mode !== 'ms-stream') {
+        self.push(null)
+    }
 }
 
 }).call(this)}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)

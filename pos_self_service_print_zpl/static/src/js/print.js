@@ -6,7 +6,7 @@ window.printZPL = (printerName, zplString) => {
     var printer = ipp.Printer(
         "http://localhost:8631/printers/" + printerName
     );
-  
+
     printer.execute(
         "Print-Job",
         {

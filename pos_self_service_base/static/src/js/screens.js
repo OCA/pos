@@ -8,6 +8,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
     var screens = require('point_of_sale.screens');
     var core = require('web.core');
     var QWeb = core.qweb;
+    var _t = core._t
 
 
     /* -------- The Self-Service Screen  -------- */
@@ -26,7 +27,6 @@ odoo.define('pos_self_service_base.screens', function (require) {
             this.self_service_scale_widget = this.pos.chrome.widget.self_service_scale_widget
             this.self_service_scale_widget.add_observer(this);
             this.barcode_parser = this.pos.barcode_reader.barcode_parser;
-            this.barcode = null;
         },
         show: function(){
             var self = this;
@@ -53,19 +53,12 @@ odoo.define('pos_self_service_base.screens', function (require) {
             this._super();
         },
         click_print: function (){
-            var printer_name = this.pos.config.printer_name
-            if (!printer_name){
-                this.gui.show_popup('error',{
-                    'title': _t("Missing Printer Name"),
-                    'body':  _t("Please edit your printer name in POS configuration"),
+            if (this.scale_weight <= 0){
+                this.gui.show_popup('alert', {
+                    title: _t('No Weight'),
+                    body: _t('Please put your container on the scale'),
                 });
             }
-            if (this.scale_weight > 0){
-                this.set_barcode(this.format_barcode(this.scale_weight))
-                var barcode = this.get_ZPL_barcode()
-                window.printZPL(printer_name, barcode)
-            }
-
         },
         format_barcode: function (weight){
             // We use EAN13 barcode, it looks like `07 00000 12345 x`. First there
@@ -80,7 +73,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
             var weight_in_gram = weight * 1e3;
 
             if (weight_in_gram >= Math.pow(10, padding_size)) {
-                throw new RangeError(_t("Maximum tare weight is 99.999kg"));
+                throw new RangeError(_t("Maximum tare weight is 99.999 kg"));
             }
 
             // Weight has to be padded with zeroes.
@@ -96,13 +89,6 @@ odoo.define('pos_self_service_base.screens', function (require) {
             var ean_checksum = this.barcode_parser.ean_checksum(barcode);
             // Replace checksum placeholder by the actual checksum.
             return barcode.substr(0, 12).concat(ean_checksum);
-        },
-        get_ZPL_barcode: function() {
-            return `^XA ^FX
-            ^BY${this.pos.config.label_height},2,${this.pos.config.label_width}
-            ^FO${this.pos.config.label_offset_x},${this.pos.config.label_offset_y}
-            ^BE^FD${this.get_barcode()}^FS
-            ^XZ`
         },
         get_barcode_prefix: function () {
             var barcode_pattern = this.get_barcode_pattern();
@@ -122,10 +108,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
             return this.barcode_parser.nomenclature.rules;
         },
         get_barcode: function(){
-            return this.barcode;
-        },
-        set_barcode: function(barcode){
-            this.barcode = barcode;
+            return this.format_barcode(this.scale_weight)
         },
         render_button: function(){
             this.$('.tare-button-container').html(QWeb.render('TareButton', this.get_tare_button_render_env()));
