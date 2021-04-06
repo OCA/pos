@@ -3,20 +3,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'Point of Sale - Products Sorted by Name',
-    'version': '12.0.1.0.1',
-    'category': 'Point Of Sale',
-    'summary': '''
+    "name": "Point of Sale - Products Sorted by Name",
+    "version": "12.0.1.0.1",
+    "category": "Point Of Sale",
+    "summary": """
         sort the products by name in the point of sale
         instead of sorting them by the sequence field.
-        ''',
-    'author': 'GRAP, Odoo Community Association (OCA)',
-    'website': 'https://github.com/OCA/pos',
-    'license': 'AGPL-3',
-    'depends': [
-        'point_of_sale',
-    ],
-    'data': [
-        'views/assets.xml',
-    ],
+        """,
+    "author": "GRAP, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/pos",
+    "license": "AGPL-3",
+    "depends": ["point_of_sale",],
+    "data": ["views/assets.xml",],
 }
