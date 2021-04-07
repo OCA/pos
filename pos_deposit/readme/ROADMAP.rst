@@ -1,0 +1,1 @@
+- If the screen refreshes or session is reopened, the link between product and container is lost, so the quantities can get out of sync. This is not something that happens often and can be 'repaired' by removing and re-adding a product to the order.

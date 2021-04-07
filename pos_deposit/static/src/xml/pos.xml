@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="PosTicket">
+        <t
+            t-jquery="t[t-esc='orderline.get_product().display_name']"
+            t-operation="before"
+        >
+            <t t-if="orderline.deposit_for">-- </t>
+        </t>
+    </t>
+</templates>
