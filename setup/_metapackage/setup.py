@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-pos Odoo addons",
     version=version,
     install_requires=[
+        'odoo13-addon-pos_default_partner',
         'odoo13-addon-pos_order_mgmt',
         'odoo13-addon-pos_product_sort',
         'odoo13-addon-pos_timeout',
