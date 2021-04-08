@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 Creu Blanca
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="pos_config_view_form">
+        <field name="name">pos.config.form (in pos_default_partner)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='inventory_location']" position="after">
+                <h2>Customers</h2>
+                <div class="row mt16 o_settings_container" id="customers_config">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="default_partner_id" string="Default Customer" />
+                            <div class="text-muted">
+                                Default customer to use if none is set
+                            </div>
+                            <div class="content-group mt16">
+                                <field name="default_partner_id" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
