@@ -17,9 +17,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <attribute name="readonly">1</attribute>
             </field>
 
-            <!-- Hide obsolete Buttons -->
-            <!-- Same name button for opening and closing.. -->
-            <xpath expr="//button[@name='open_cashbox']" position="replace">
+            <xpath expr="//button[@name='open_cashbox']" position="after">
                 <button name="open_cashbox_opening"
                     class="oe_stat_button"
                     attrs="{'invisible':['|', ('cash_control', '=', False), ('state', '!=', 'opening_control')]}"
@@ -28,13 +26,17 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <span class="o_stat_text">Set Opening Balance</span>
                 </button>
             </xpath>
-            <!-- Hide closing button -->
-            <xpath expr="//button[@name='open_cashbox']" position="replace">
+            <!-- Hide obsolete opening and closing button that have same name-->
+            <xpath expr="//button[@name='open_cashbox'][1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='open_cashbox'][2]" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
 
             <!-- Add new session button on closing-->
             <xpath expr="//header" position="inside">
-                <button name="action_pos_session_new_session" type="object" 
+                <button name="action_pos_session_new_session" type="object"
                     string="New Session" class="oe_highlight"
                     attrs="{'invisible' : [('state', '!=', 'closed')]}"/>
             </xpath>
