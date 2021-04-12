@@ -156,7 +156,48 @@ odoo.define('pos_self_service_base.chrome', function (require) {
                 }
                 this.gui.set_startup_screen('selfservice');
                 this.gui.set_default_screen('selfservice');
-            };
+            } else {
+                this._super();
+            }
+        },
+        build_chrome: function() {
+            // workaround to split Chrome in leftpane/rightpane as it doesn't seem possible in QWeb
+            this._super();
+            if(this.pos.config.iface_self_service){
+                var $window = this.$el.find(".window")
+                    $window.remove()
+
+                var $leftpane = $("<div>", {class: "leftpane"});
+                    $leftpane.append(
+                        $("<div>", {class: 'window'}).append(
+                            $("<div>", {class: 'subwindow'}).append(
+                                $("<div>", {class: 'subwindow-container'}).append(
+                                    $("<div>", {class: 'subwindow-container-fix'}).append(
+                                        $("<div>", {class: "placeholder-SelfServiceScaleWidget"})
+                                    )
+                                )
+                            )
+                        ).append(
+                            $("<div>", {class: 'subwindow'}).append(
+                                $("<div>", {class: 'subwindow-container'}).append(
+                                    $("<div>", {class: 'subwindow-container-fix pads'}).append(
+                                        $("<div>", {class: "self-service-control-buttons oe_hidden"})
+                                    )
+                                )
+                            )
+                        )
+                    )
+
+                var $rightpane = $("<div>", {class: "rightpane"});
+                    $rightpane.html($window)
+
+                var $pos_content = this.$el.find(".pos-content")
+                    $pos_content.append($leftpane, $rightpane)
+
+                    //workaround to hide .pos-topheader
+                    // and fully display .pos-content
+                    $pos_content.css('top','0')
+            }
         },
     });
 

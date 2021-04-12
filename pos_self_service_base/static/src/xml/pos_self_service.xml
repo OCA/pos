@@ -1,44 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
 
-    <t t-extend="Chrome" t-if="pos.config.iface_self_service">
-        <!-- split leftpane/rightpane -->
-        <t t-jquery=".window" t-operation="replace">
-            <div class="leftpane">
-                <div class='window'>
-                    <div class='subwindow'>
-                        <div class='subwindow-container'>
-                            <div class='subwindow-container-fix'>
-                                <!-- here goes the scale widget -->
-                                <div class="placeholder-SelfServiceScaleWidget"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="subwindow">
-                        <div class='subwindow-container'>
-                            <div class='subwindow-container-fix pads'>
-                                <!-- here goes the control buttons : back_button and home_button -->
-                                <div class="self-service-control-buttons oe_hidden"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="rightpane">
-                <div class='window'>
-                    <div class='subwindow'>
-                        <div class='subwindow-container'>
-                            <div class='subwindow-container-fix screens'>
-                                <!-- here go the self-service screens -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </t>
-    </t>
-
     <t t-name="SelfServiceScaleWidget">
         <div class="self-service-scale-container">
             <div class="self-service-scale-scroller touch-scrollable">

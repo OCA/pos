@@ -1,10 +1,5 @@
 /* --- POS Self Service Specific CSS --- */
-/*  workaround to hide .pos-topheader
-    and fully display .pos-content
- */
-.pos .pos-content {
-    top: 0;
-}
+
 /*  *** The self-service control buttons *** */
 .pos .self-service-control-buttons {
     display: -webkit-flex;
