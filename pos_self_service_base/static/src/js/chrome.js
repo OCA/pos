@@ -164,41 +164,44 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             // workaround to split Chrome in leftpane/rightpane as it doesn't seem possible in QWeb
             this._super();
             if(this.pos.config.iface_self_service){
-                var $window = this.$el.find(".window")
-                    $window.remove()
+                this.split_content();
+            }
+        },
+        split_content: function () {
+            var $window = this.$el.find(".window")
+                $window.remove()
 
-                var $leftpane = $("<div>", {class: "leftpane"});
-                    $leftpane.append(
-                        $("<div>", {class: 'window'}).append(
-                            $("<div>", {class: 'subwindow'}).append(
-                                $("<div>", {class: 'subwindow-container'}).append(
-                                    $("<div>", {class: 'subwindow-container-fix'}).append(
-                                        $("<div>", {class: "placeholder-SelfServiceScaleWidget"})
-                                    )
+            var $leftpane = $("<div>", {class: "leftpane"});
+                $leftpane.append(
+                    $("<div>", {class: 'window'}).append(
+                        $("<div>", {class: 'subwindow'}).append(
+                            $("<div>", {class: 'subwindow-container'}).append(
+                                $("<div>", {class: 'subwindow-container-fix'}).append(
+                                    $("<div>", {class: "placeholder-SelfServiceScaleWidget"})
                                 )
                             )
-                        ).append(
-                            $("<div>", {class: 'subwindow'}).append(
-                                $("<div>", {class: 'subwindow-container'}).append(
-                                    $("<div>", {class: 'subwindow-container-fix pads'}).append(
-                                        $("<div>", {class: "self-service-control-buttons oe_hidden"})
-                                    )
+                        )
+                    ).append(
+                        $("<div>", {class: 'subwindow'}).append(
+                            $("<div>", {class: 'subwindow-container'}).append(
+                                $("<div>", {class: 'subwindow-container-fix pads'}).append(
+                                    $("<div>", {class: "self-service-control-buttons oe_hidden"})
                                 )
                             )
                         )
                     )
+                )
 
-                var $rightpane = $("<div>", {class: "rightpane"});
-                    $rightpane.html($window)
+            var $rightpane = $("<div>", {class: "rightpane"});
+                $rightpane.html($window)
 
-                var $pos_content = this.$el.find(".pos-content")
-                    $pos_content.append($leftpane, $rightpane)
+            var $pos_content = this.$el.find(".pos-content")
+                $pos_content.append($leftpane, $rightpane)
 
-                    //workaround to hide .pos-topheader
-                    // and fully display .pos-content
-                    $pos_content.css('top','0')
-            }
-        },
+                // workaround to hide .pos-topheader
+                // and fully display .pos-content
+                $pos_content.css('top','0')
+        }
     });
 
     return {
