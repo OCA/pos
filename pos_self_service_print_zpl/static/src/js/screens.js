@@ -9,16 +9,15 @@ odoo.define('pos_self_service_print_zpl.screens', function (require) {
     screens.SelfServiceScreenWidget.include({
         click_print: function (){
             this._super();
-            var printer_name = this.pos.config.printer_name
-            if (!printer_name){
+            if (this.pos.config.printer_name){
+                if (this.scale_weight > 0) {
+                    window.printZPL(printer_name, this.get_ZPL_barcode())
+                }
+            } else {
                 this.gui.show_popup('error',{
                     title: _t("Missing Printer Name"),
                     body:  _t("Please edit your printer name in POS configuration"),
                 });
-            }
-            if (this.scale_weight > 0){
-                var barcode = this.get_ZPL_barcode()
-                window.printZPL(printer_name, barcode)
             }
         },
         get_ZPL_barcode: function() {
