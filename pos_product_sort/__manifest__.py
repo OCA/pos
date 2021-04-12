@@ -4,7 +4,7 @@
 
 {
     "name": "Point of Sale - Products Sorted by Name",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "category": "Point Of Sale",
     "summary": """
         sort the products by name in the point of sale
