@@ -9,7 +9,8 @@ odoo.define('pos_self_service_print_zpl.screens', function (require) {
     screens.SelfServiceScreenWidget.include({
         click_print: function (){
             this._super();
-            if (this.pos.config.printer_name){
+            var printer_name = this.pos.config.printer_name
+            if (printer_name){
                 if (this.scale_weight > 0) {
                     window.printZPL(printer_name, this.get_ZPL_barcode())
                 }
