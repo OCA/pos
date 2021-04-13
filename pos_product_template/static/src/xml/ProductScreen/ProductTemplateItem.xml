@@ -2,9 +2,9 @@
 <!-- Copyright (C) 2014-Today Akretion (https://www.akretion.com)
      @author Sylvain LE GAL (https://twitter.com/legalsylvain)
      @author Raphaël Reverdy (https://akretion.com)
+     @author Kevin Khao (https://www.akretion.com)
      License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
 <template>
-
 
     <t t-name="ProductTemplateItem" owl="1">
         <article
@@ -20,34 +20,11 @@
                     t-att-src="imageUrl"
                     t-att-alt="props.product.template.display_name"
                 />
-                <!-- TODO
-                can be variable
-                <span class="price-tag">
-                    <t t-esc="price" />
-                </span>-->
             </div>
             <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
                 <t t-esc="props.product.template.display_name" />
             </div>
         </article>
     </t>
-    <t t-name="AttributeValueItem" owl="1">
-        <article
-            class="attributeValue"
-            tabindex="0"
-            t-on-keypress="spaceClickProduct"
-            t-on-click="trigger('click-attribute-value', props.attributeValue)"
-            t-att-data-attributeValue-id="props.attributeValue.id"
-            t-attf-aria-labelledby="attribute_value_{{props.attributeValue.id}}"
-        >
-            <div
-                class="attribute-name"
-                t-attf-id="attribute_value_{{props.attributeValue.id}}"
-            >
-                <t t-esc="props.attributeValue.name" />
-            </div>
-        </article>
-    </t>
-
 
 </template>

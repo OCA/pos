@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2014-Today Akretion (https://www.akretion.com)
+     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+     @author Raphaël Reverdy (https://akretion.com)
+     @author Kevin Khao (https://www.akretion.com)
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<template>
+
+    <t t-name="AttributeValueSelector" owl="1">
+        <div class="attribute-selector-container">
+            <div
+                t-att-class="{inactive: !state.active}"
+                t-on-click.stop="clickSelector"
+                class="attribute-selector"
+            >
+                <div class="attribute-button">
+                    <div class="attribute-name">
+                        <t t-esc="config.attribute.name" />
+                    </div>
+                    <div class="attribute-placeholder">
+                        <t t-if="state.selected_option">
+                            <t t-esc="state.selected_option.av.name" />
+                        </t>
+                        <t t-else="">
+                            <div>Select...</div>
+                        </t>
+                    </div>
+                    <div class="attribute-empty" />
+                    <div class="attribute-chevron">
+                        <i
+                            t-if="state.display_options"
+                            class="fa fa-chevron-up"
+                            aria-hidden="true"
+                        />
+                        <i
+                            t-if="!state.display_options"
+                            class="fa fa-chevron-down"
+                            aria-hidden="true"
+                        />
+                    </div>
+                </div>
+                <div t-if="state.display_options" class="attribute-values">
+                    <t t-foreach="config.options" t-as="option" t-key="option.av_id">
+                        <div class="attribute-item">
+                            <div class="empty-spacing-item-right" />
+                            <t t-if="state.selectable_av_ids.includes(option.av.id)">
+                                <div
+                                    class="selectable attribute-value"
+                                    t-on-click.stop="clickOption(option)"
+                                >
+                                    <div t-esc="option.av.name" />
+                                </div>
+                            </t>
+                            <t t-else="">
+                                <div
+                                    t-on-click.stop=""
+                                    class="not_selectable attribute-value"
+                                >
+                                    <div t-esc="option.av.name" />
+                                </div>
+                            </t>
+                            <div class="empty-spacing-item-left" />
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</template>

@@ -22,10 +22,102 @@
 ##############################################################################
 -->
 <odoo>
+    <data noupdate="1">
+        <record id="product_attribute_seat_pillow" model="product.attribute">
+            <field name="name">Seat Pillow</field>
+            <field name="sequence">10</field>
+        </record>
+        <record
+            id="product_attribute_value_seat_pillow_1"
+            model="product.attribute.value"
+        >
+            <field name="name">No pillow</field>
+            <field name="attribute_id" ref="product_attribute_seat_pillow" />
+            <field name="sequence">1</field>
+        </record>
+        <record
+            id="product_attribute_value_seat_pillow_2"
+            model="product.attribute.value"
+        >
+            <field
+                name="name"
+            >Fluffy pillow (example of really long attribute name)</field>
+            <field name="attribute_id" ref="product_attribute_seat_pillow" />
+            <field name="sequence">2</field>
+        </record>
+        <record
+            id="product_attribute_value_seat_pillow_3"
+            model="product.attribute.value"
+        >
+            <field name="name">Hard pillow</field>
+            <field name="attribute_id" ref="product_attribute_seat_pillow" />
+            <field name="sequence">3</field>
+        </record>
+        <record
+            id="product_attribute_value_seat_pillow_4"
+            model="product.attribute.value"
+        >
+            <field name="name">Semi-hard pillow</field>
+            <field name="attribute_id" ref="product_attribute_seat_pillow" />
+            <field name="sequence">4</field>
+        </record>
+        <record
+            id="product_attribute_value_seat_pillow_5"
+            model="product.attribute.value"
+        >
+            <field name="name">Ultra-soft pillow</field>
+            <field name="attribute_id" ref="product_attribute_seat_pillow" />
+            <field name="sequence">5</field>
+        </record>
 
-    <record id="attribute_wifi_extra" model="product.attribute.value">
-        <field name="attribute_id" eval="ref('product.product_attribute_3')" />
-        <field name="name">2.399GHz</field>
-    </record>
+        <record id="product_attribute_wheels" model="product.attribute">
+            <field name="name">Wheels (example long attribute name)</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="product_attribute_value_wheels_1" model="product.attribute.value">
+            <field name="name">No wheels</field>
+            <field name="attribute_id" ref="product_attribute_wheels" />
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_wheels_2" model="product.attribute.value">
+            <field name="name">Steel wheels</field>
+            <field name="attribute_id" ref="product_attribute_wheels" />
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_wheels_3" model="product.attribute.value">
+            <field name="name">Carbon wheels</field>
+            <field name="attribute_id" ref="product_attribute_wheels" />
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_wheels_4" model="product.attribute.value">
+            <field name="name">Adamantium wheels</field>
+            <field name="attribute_id" ref="product_attribute_wheels" />
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_wheels_5" model="product.attribute.value">
+            <field name="name">Plastic wheels</field>
+            <field name="attribute_id" ref="product_attribute_wheels" />
+            <field name="sequence">4</field>
+        </record>
 
+        <record id="product_attribute_backrest" model="product.attribute">
+            <field name="name">Back rest</field>
+            <field name="sequence">10</field>
+        </record>
+        <record id="product_attribute_value_backrest_1" model="product.attribute.value">
+            <field name="name">Hard back rest</field>
+            <field name="attribute_id" ref="product_attribute_backrest" />
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_backrest_2" model="product.attribute.value">
+            <field name="name">Flexible back rest</field>
+            <field name="attribute_id" ref="product_attribute_backrest" />
+            <field name="sequence">4</field>
+        </record>
+        <record id="product_attribute_value_backrest_3" model="product.attribute.value">
+            <field name="name">Semi-flexible back rest</field>
+            <field name="attribute_id" ref="product_attribute_backrest" />
+            <field name="sequence">4</field>
+        </record>
+    </data>
 </odoo>

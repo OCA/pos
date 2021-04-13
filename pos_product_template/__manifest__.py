@@ -13,15 +13,13 @@
         "view/view.xml",
     ],
     "qweb": [
-        "static/src/xml/ppt.xml",
-        "static/src/xml/SelectVariantPopup.xml",
+        "static/src/xml/Popup/AttributeValueSelector.xml",
+        "static/src/xml/Popup/SelectVariantPopup.xml",
+        "static/src/xml/ProductScreen/ProductTemplateItem.xml",
     ],
     "demo": [
         "demo/product_attribute_value.xml",
-        "demo/product_product.xml",
-    ],
-    "images": [
-        "static/src/img/screenshots/pos_product_template.png",
+        "demo/product_template_attribute_line.xml",
     ],
     "installable": True,
 }

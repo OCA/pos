@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright (C) 2014-Today Akretion (https://www.akretion.com)
      @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+     @author Kevin Khao (https://www.akretion.com)
      License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
 <odoo>
     <template
@@ -18,7 +19,7 @@
         <xpath expr="." position="inside">
             <script
                 type="text/javascript"
-                src="/pos_product_template/static/src/js/ppt.js"
+                src="/pos_product_template/static/src/js/db.js"
             />
             <script
                 type="text/javascript"
@@ -26,7 +27,23 @@
             />
             <script
                 type="text/javascript"
-                src="/pos_product_template/static/src/js/SelectVariantPopup.js"
+                src="/pos_product_template/static/src/js/Screens/ProductScreen/ProductScreen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/Screens/ProductScreen/ProductsWidget.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/Screens/ProductScreen/ProductTemplateItem.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/Screens/Popup/AttributeValueSelector.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/Screens/Popup/SelectVariantPopup.js"
             />
         </xpath>
     </template>
