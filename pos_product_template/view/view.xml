@@ -16,9 +16,18 @@
             />
         </xpath>
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_product_template/static/src/js/ppt.js"></script>
-            <script type="text/javascript" src="/pos_product_template/static/src/js/models.js"></script>
-            <script type="text/javascript" src="/pos_product_template/static/src/js/SelectVariantPopup.js"></script>
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/ppt.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template/static/src/js/SelectVariantPopup.js"
+            />
         </xpath>
     </template>
 </odoo>
