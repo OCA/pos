@@ -398,8 +398,17 @@ ul.auto-toc {
 <h1><a class="toc-backref" href="#id1">Configuration</a></h1>
 <div class="section" id="printer">
 <h2><a class="toc-backref" href="#id2">Printer</a></h2>
-<p>Browse to the CUPS configuration page to get the name of the printer that will be used: <a class="reference external" href="http://localhost:631/printers">http://localhost:631/printers</a>. Set this name as the printer name in the configuration page.</p>
-<p>Center the barcode by trial and error using the label offset and size configuration values.</p>
+<p>Add printer to the OS.</p>
+<p>Browse to the CUPS configuration page to get the name of the printer that will be used: <a class="reference external" href="http://localhost:631/printers">http://localhost:631/printers</a>. Set this name as the printer name in the POS self-service configuration page.</p>
+<p>Center the barcode by trial and error using the label offset and size configuration values of the POS self-service configuration page.</p>
+<p>Configure printer to accept several jobs in a row:</p>
+<pre class="literal-block">
+lpadmin -p &lt;PRINTERNAME&gt; -o usb-no-reattach-default=true
+</pre>
+<p>And restart CUPS to apply the new configuration:</p>
+<pre class="literal-block">
+sudo service cups restart
+</pre>
 </div>
 <div class="section" id="reverse-proxy-with-nginx">
 <h2><a class="toc-backref" href="#id3">Reverse proxy with nginx</a></h2>

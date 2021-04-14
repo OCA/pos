@@ -32,9 +32,19 @@ Configuration
 Printer
 ~~~~~~~
 
-Browse to the CUPS configuration page to get the name of the printer that will be used: http://localhost:631/printers. Set this name as the printer name in the configuration page.
+Add printer to the OS.
 
-Center the barcode by trial and error using the label offset and size configuration values.
+Browse to the CUPS configuration page to get the name of the printer that will be used: http://localhost:631/printers. Set this name as the printer name in the POS self-service configuration page.
+
+Center the barcode by trial and error using the label offset and size configuration values of the POS self-service configuration page.
+
+Configure printer to accept several jobs in a row::
+
+    lpadmin -p <PRINTERNAME> -o usb-no-reattach-default=true
+
+And restart CUPS to apply the new configuration::
+
+    sudo service cups restart
 
 
 Reverse proxy with nginx
@@ -116,7 +126,6 @@ Check the syntax is ok::
     sudo nginx -t
     sudo systemctl restart nginx.service
 
-
 Usage
 =====
 
@@ -136,7 +145,6 @@ The NPM library browserify is used to generate a bundle.js file from the print.j
     npm -i ipp
     npm -g browserify
     browserify static/src/js/print.js -o static/src/js/bundle.js
-
 
 Bug Tracker
 ===========
