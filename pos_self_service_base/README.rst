@@ -59,8 +59,6 @@ This self-service module can be used in kiosk mode. To launch Firefox in kiosk m
 
     firefox <url> -foreground --kiosk
 
-
-
 Known issues / Roadmap
 ======================
 
