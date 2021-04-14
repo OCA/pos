@@ -51,9 +51,9 @@ class PosOrder(models.Model):
         if not self.returned_order_id.invoice_id:
             return res
         res.update({
-            'origin': self.returned_order_id.invoice_id.number,
+            'origin': self.returned_order_id.invoice_id.document_number,
             'name': _(
-                'Return of %s' % self.returned_order_id.invoice_id.number),
+                'Return of %s' % self.returned_order_id.invoice_id.document_number),
             'refund_invoice_id': self.returned_order_id.invoice_id.id,
         })
         return res
