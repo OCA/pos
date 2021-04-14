@@ -10,12 +10,8 @@
     "author": "Coop IT Easy SCRLfs, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
-    "depends": ["point_of_sale"],
-    "data": [
-        "data/barcode_rule.xml",
-        "views/templates.xml",
-        "views/pos_config_view.xml",
-    ],
+    "depends": ["point_of_sale", "pos_tare"],
+    "data": ["views/templates.xml", "views/pos_config_view.xml"],
     "qweb": ["static/src/xml/pos_self_service.xml"],
     "installable": True,
 }
