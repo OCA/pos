@@ -9,10 +9,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "point_of_sale",
-    ],
-    "data": [
-        "views/pos_fix_limit.xml",
-    ]
+    "depends": ["point_of_sale"],
+    "data": ["views/pos_fix_limit.xml"],
 }
