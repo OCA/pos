@@ -2,7 +2,7 @@
  * Copyright 2017 RGB Consulting S.L. (https://www.rgbconsulting.com)
  * License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). */
 
-odoo.define("pos_loyalty.loyalty_program", function(require) {
+odoo.define("pos_loyalty.loyalty_program", function (require) {
     "use strict";
 
     var models = require("point_of_sale.models");
@@ -21,20 +21,20 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
         [
             {
                 model: "loyalty.program",
-                condition: function(self) {
+                condition: function (self) {
                     return Boolean(self.config.loyalty_id[0]);
                 },
                 fields: ["name", "pp_currency", "pp_product", "pp_order", "rounding"],
-                domain: function(self) {
+                domain: function (self) {
                     return [["id", "=", self.config.loyalty_id[0]]];
                 },
-                loaded: function(self, loyalties) {
+                loaded: function (self, loyalties) {
                     self.loyalty = loyalties[0];
                 },
             },
             {
                 model: "loyalty.rule",
-                condition: function(self) {
+                condition: function (self) {
                     return Boolean(self.loyalty);
                 },
                 fields: [
@@ -46,10 +46,10 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
                     "pp_product",
                     "pp_currency",
                 ],
-                domain: function(self) {
+                domain: function (self) {
                     return [["loyalty_program_id", "=", self.loyalty.id]];
                 },
-                loaded: function(self, rules) {
+                loaded: function (self, rules) {
                     self.loyalty.rules = rules;
                     self.loyalty.rules_by_product_id = {};
                     self.loyalty.rules_by_category_id = {};
@@ -64,7 +64,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
                         }
                     }
 
-                    _.each(rules, function(rule) {
+                    _.each(rules, function (rule) {
                         if (rule.type === "product")
                             update_rules(
                                 self.loyalty.rules_by_product_id,
@@ -82,7 +82,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
             },
             {
                 model: "loyalty.reward",
-                condition: function(self) {
+                condition: function (self) {
                     return Boolean(self.loyalty);
                 },
                 fields: [
@@ -96,10 +96,10 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
                     "discount_max",
                     "point_product_id",
                 ],
-                domain: function(self) {
+                domain: function (self) {
                     return [["loyalty_program_id", "=", self.loyalty.id]];
                 },
-                loaded: function(self, rewards) {
+                loaded: function (self, rewards) {
                     self.loyalty.rewards = rewards;
                     self.loyalty.rewards_by_id = {};
                     for (var i = 0; i < rewards.length; i++) {
@@ -115,18 +115,18 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
 
     var _orderline_super = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
-        get_reward: function() {
+        get_reward: function () {
             return this.pos.loyalty.rewards_by_id[this.reward_id];
         },
-        set_reward: function(reward) {
+        set_reward: function (reward) {
             this.reward_id = reward.id;
         },
-        export_as_JSON: function() {
+        export_as_JSON: function () {
             var json = _orderline_super.export_as_JSON.apply(this, arguments);
             json.reward_id = this.reward_id;
             return json;
         },
-        init_from_JSON: function(json) {
+        init_from_JSON: function (json) {
             _orderline_super.init_from_JSON.apply(this, arguments);
             this.reward_id = json.reward_id;
         },
@@ -135,7 +135,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
     var _order_super = models.Order.prototype;
     models.Order = models.Order.extend({
         /* The total of points won, excluding the points spent on rewards */
-        get_won_points: function() {
+        get_won_points: function () {
             if (!this.pos.loyalty || !this.get_client()) {
                 return 0;
             }
@@ -229,7 +229,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
         },
 
         /* The total number of points spent on rewards */
-        get_spent_points: function() {
+        get_spent_points: function () {
             if (!this.pos.loyalty || !this.get_client()) {
                 return 0;
             }
@@ -258,7 +258,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
         },
 
         /* The total number of points lost or won after the order is validated */
-        get_new_points: function() {
+        get_new_points: function () {
             if (!this.pos.loyalty || !this.get_client()) {
                 return 0;
             }
@@ -269,7 +269,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
         },
 
         /* The total number of points that the customer will have after this order is validated */
-        get_new_total_points: function() {
+        get_new_total_points: function () {
             if (!this.pos.loyalty || !this.get_client()) {
                 return 0;
             }
@@ -280,12 +280,12 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
         },
 
         /* The number of loyalty points currently owned by the customer */
-        get_current_points: function() {
+        get_current_points: function () {
             return this.get_client() ? this.get_client().loyalty_points : 0;
         },
 
         /* The total number of points spendable on rewards */
-        get_spendable_points: function() {
+        get_spendable_points: function () {
             if (!this.pos.loyalty || !this.get_client()) {
                 return 0;
             }
@@ -295,7 +295,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
             );
         },
 
-        has_discount_reward: function() {
+        has_discount_reward: function () {
             var res = false;
             var lines = this.get_orderlines();
 
@@ -311,7 +311,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
         },
 
         /* The list of rewards that the current customer can get */
-        get_available_rewards: function() {
+        get_available_rewards: function () {
             var client = this.get_client();
             if (!client) {
                 return [];
@@ -340,7 +340,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
             return rewards;
         },
 
-        apply_reward: function(reward) {
+        apply_reward: function (reward) {
             var client = this.get_client();
             if (!client) {
                 return;
@@ -418,7 +418,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
             }
         },
 
-        finalize: function() {
+        finalize: function () {
             var client = this.get_client();
             if (client) {
                 client.loyalty_points = this.get_new_total_points();
@@ -429,7 +429,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
             _order_super.finalize.apply(this, arguments);
         },
 
-        export_for_printing: function() {
+        export_for_printing: function () {
             var json = _order_super.export_for_printing.apply(this, arguments);
             if (this.pos.loyalty && this.get_client()) {
                 json.loyalty = {
@@ -444,7 +444,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
             return json;
         },
 
-        export_as_JSON: function() {
+        export_as_JSON: function () {
             var json = _order_super.export_as_JSON.apply(this, arguments);
             json.loyalty_points = this.get_new_points();
             return json;
@@ -453,7 +453,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
 
     var LoyaltyButton = screens.ActionButtonWidget.extend({
         template: "LoyaltyButton",
-        button_click: function() {
+        button_click: function () {
             var order = this.pos.get_order();
             var client = order.get_client();
             if (!client) {
@@ -482,7 +482,7 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
                 this.gui.show_popup("selection", {
                     title: _t("Please select a reward"),
                     list: list,
-                    confirm: function(reward) {
+                    confirm: function (reward) {
                         order.apply_reward(reward);
                     },
                 });
@@ -493,13 +493,13 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
     screens.define_action_button({
         name: "loyalty",
         widget: LoyaltyButton,
-        condition: function() {
+        condition: function () {
             return this.pos.loyalty && this.pos.loyalty.rewards.length;
         },
     });
 
     screens.OrderWidget.include({
-        update_summary: function() {
+        update_summary: function () {
             this._super();
 
             var order = this.pos.get_order();

@@ -2,7 +2,7 @@
 // Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 // License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
+odoo.define("pos_loyalty.tour.test_pos_loyalty", function (require) {
     "use strict";
 
     // Some of the steps are taken from the pos_basic_order tour in point_of_sale.
@@ -30,7 +30,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "Check if customer " + customer_name + " is added",
                 trigger: '.button.set-customer:contains("' + customer_name + '")',
-                run: function() {},
+                run: function () {},
             },
         ];
     }
@@ -57,7 +57,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "the " + product_name + " have been added to the order",
                 trigger: '.order .product-name:contains("' + product_name + '")',
-                run: function() {},
+                run: function () {},
             },
         ];
     }
@@ -67,7 +67,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "check if " + product_name + " is in order",
                 trigger: '.orderline .product-name:contains("' + product_name + '")',
-                run: function() {},
+                run: function () {},
             },
         ];
     }
@@ -100,7 +100,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "order total contains " + total_str,
                 trigger: '.order .total .value:contains("' + total_str + '")',
-                run: function() {},
+                run: function () {},
             },
         ];
     }
@@ -127,13 +127,13 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "verify that the order is being sent to the backend",
                 trigger: ".js_connecting:visible",
-                run: function() {},
+                run: function () {},
             },
             {
                 content:
                     "verify that the order has been succesfully sent to the backend",
                 trigger: ".js_connected:visible",
-                run: function() {},
+                run: function () {},
             },
             {
                 content: "next order",
@@ -146,7 +146,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "waiting for loading to finish",
             trigger: ".o_main_content:has(.loader:hidden)",
-            run: function() {},
+            run: function () {},
         },
     ];
 
@@ -163,12 +163,12 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "verify tendered",
             trigger: '.col-tendered:contains("12.20")',
-            run: function() {},
+            run: function () {},
         },
         {
             content: "verify change",
             trigger: '.col-change:contains("2.00")',
-            run: function() {},
+            run: function () {},
         },
     ]);
 
@@ -187,7 +187,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "waiting for loading to finish",
             trigger: ".o_main_content:has(.loader:hidden)",
-            run: function() {},
+            run: function () {},
         },
     ];
     steps = steps.concat(add_customer("Agrolait"));
@@ -199,7 +199,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "verify tendered",
             trigger: '.col-tendered:contains("0.00")',
-            run: function() {},
+            run: function () {},
         },
     ]);
     steps = steps.concat(finish_order());
