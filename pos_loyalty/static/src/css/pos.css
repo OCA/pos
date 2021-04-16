@@ -1,16 +1,15 @@
-
-.pos .order .summary .loyalty-points{
+.pos .order .summary .loyalty-points {
     margin-left: 20px;
     float: left;
     padding: 10px;
     max-width: 216px;
     text-align: left;
-    color: #6EC89B;
+    color: #6ec89b;
     background: rgba(110, 200, 155, 0.17);
     border-radius: 3px;
 }
-.pos .order .summary .loyalty-points.negative{
-    color: #C86E6E;
+.pos .order .summary .loyalty-points.negative {
+    color: #c86e6e;
     background: rgba(200, 110, 110, 0.17);
 }
 .pos .order .summary .loyalty-points-total {
