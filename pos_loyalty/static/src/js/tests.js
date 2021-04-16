@@ -30,7 +30,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "Check if customer " + customer_name + " is added",
                 trigger: '.button.set-customer:contains("' + customer_name + '")',
-                run: function() {}, // It's a check
+                run: function() {},
             },
         ];
     }
@@ -57,7 +57,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "the " + product_name + " have been added to the order",
                 trigger: '.order .product-name:contains("' + product_name + '")',
-                run: function() {}, // It's a check
+                run: function() {},
             },
         ];
     }
@@ -67,7 +67,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "check if " + product_name + " is in order",
                 trigger: '.orderline .product-name:contains("' + product_name + '")',
-                run: function() {}, // It's a check
+                run: function() {},
             },
         ];
     }
@@ -95,16 +95,12 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         return generate_keypad_steps(amount_str, ".payment-numpad");
     }
 
-    function generate_product_screen_keypad_steps(amount_str) {
-        return generate_keypad_steps(amount_str, ".numpad");
-    }
-
     function verify_order_total(total_str) {
         return [
             {
                 content: "order total contains " + total_str,
                 trigger: '.order .total .value:contains("' + total_str + '")',
-                run: function() {}, // It's a check
+                run: function() {},
             },
         ];
     }
@@ -131,13 +127,13 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
             {
                 content: "verify that the order is being sent to the backend",
                 trigger: ".js_connecting:visible",
-                run: function() {}, // It's a check
+                run: function() {},
             },
             {
                 content:
                     "verify that the order has been succesfully sent to the backend",
                 trigger: ".js_connected:visible",
-                run: function() {}, // It's a check
+                run: function() {},
             },
             {
                 content: "next order",
@@ -150,7 +146,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "waiting for loading to finish",
             trigger: ".o_main_content:has(.loader:hidden)",
-            run: function() {}, // It's a check
+            run: function() {},
         },
     ];
 
@@ -158,7 +154,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
     steps = steps.concat(add_product_to_order("Peaches"));
     steps = steps.concat(verify_order_total("5.10"));
 
-    steps = steps.concat(add_product_to_order("Peaches")); // Buy another kg of peaches
+    steps = steps.concat(add_product_to_order("Peaches"));
     steps = steps.concat(verify_order_total("10.20"));
     steps = steps.concat(goto_payment_screen_and_select_payment_method());
     steps = steps.concat(generate_payment_screen_keypad_steps("12.20"));
@@ -167,12 +163,12 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "verify tendered",
             trigger: '.col-tendered:contains("12.20")',
-            run: function() {}, // It's a check
+            run: function() {},
         },
         {
             content: "verify change",
             trigger: '.col-change:contains("2.00")',
-            run: function() {}, // It's a check
+            run: function() {},
         },
     ]);
 
@@ -191,7 +187,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "waiting for loading to finish",
             trigger: ".o_main_content:has(.loader:hidden)",
-            run: function() {}, // It's a check
+            run: function() {},
         },
     ];
     steps = steps.concat(add_customer("Agrolait"));
@@ -203,7 +199,7 @@ odoo.define("pos_loyalty.tour.test_pos_loyalty", function(require) {
         {
             content: "verify tendered",
             trigger: '.col-tendered:contains("0.00")',
-            run: function() {}, // It's a check
+            run: function() {},
         },
     ]);
     steps = steps.concat(finish_order());

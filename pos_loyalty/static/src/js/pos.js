@@ -454,7 +454,6 @@ odoo.define("pos_loyalty.loyalty_program", function(require) {
     var LoyaltyButton = screens.ActionButtonWidget.extend({
         template: "LoyaltyButton",
         button_click: function() {
-            var self = this;
             var order = this.pos.get_order();
             var client = order.get_client();
             if (!client) {
