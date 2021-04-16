@@ -20,8 +20,8 @@ class PosOrder(models.Model):
         return res
 
     @api.model
-    def create_from_ui(self, orders):
-        res = super(PosOrder, self).create_from_ui(orders)
+    def create_from_ui(self, orders, draft=False):
+        res = super(PosOrder, self).create_from_ui(orders, draft)
         for order in orders:
             order_partner = order["data"]["partner_id"]
             order_points = order["data"].get("loyalty_points", 0)

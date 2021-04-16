@@ -12,6 +12,7 @@
                             <field name="name" class="oe_inline" />
                         </h1>
                     </div>
+
                     <group>
                         <group>
                             <field name="pp_product" />
@@ -22,6 +23,7 @@
                             <field name="rounding" />
                         </group>
                     </group>
+
                     <separator string="Rules" colspan="4" />
                     <p
                     >Rules define how loyalty points are earned for specific products or categories</p>
@@ -33,6 +35,7 @@
                             <field name="cumulative" />
                         </tree>
                     </field>
+
                     <separator string="Rewards" colspan="4" />
                     <p
                     >Reward the customer with gifts or discounts for loyalty points</p>
@@ -46,6 +49,7 @@
             </form>
         </field>
     </record>
+
     <record id="loyalty_program_tree_view" model="ir.ui.view">
         <field name="name">loyalty.program.tree</field>
         <field name="model">loyalty.program</field>
@@ -55,11 +59,11 @@
             </tree>
         </field>
     </record>
+
     <record id="loyalty_program_action" model="ir.actions.act_window">
         <field name="name">Loyalty Programs</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">loyalty.program</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
             <p class="oe_view_nocontent_create">
@@ -71,6 +75,7 @@
             </p>
         </field>
     </record>
+
     <menuitem
         parent="point_of_sale.menu_point_config_product"
         action="loyalty_program_action"

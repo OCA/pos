@@ -7,6 +7,7 @@ from odoo import fields, models
 
 class LoyaltyProgram(models.Model):
     _name = "loyalty.program"
+    _description = "Loyalty program"
 
     name = fields.Char(
         string="Loyalty Program Name", size=32, index=True, required=True
