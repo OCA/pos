@@ -65,7 +65,7 @@ class TestPOSLoyalty(HttpCase):
 
         # Process an order with 2kg of Peaches which should
         # add 20 loyalty points
-        self.phantom_js(
+        self.browser_js(
             "/pos/web",
             "odoo.__DEBUG__.services['web_tour.tour'].run("
             "'test_pos_loyalty_acquire_points')",
@@ -77,7 +77,7 @@ class TestPOSLoyalty(HttpCase):
         self.assertEqual(customer.loyalty_points, 20)
 
         # Spend 20 loyalty points on "Free Peaches" reward
-        self.phantom_js(
+        self.browser_js(
             "/pos/web",
             "odoo.__DEBUG__.services['web_tour.tour'].run("
             "'test_pos_loyalty_spend_points')",
