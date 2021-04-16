@@ -54,7 +54,6 @@ class LoyaltyReward(models.Model):
         help="Product that represents a point " "that is sold by the customer",
     )
 
-    @api.multi
     @api.constrains("type", "gift_product_id")
     def _check_gift_product(self):
         for reward in self:
@@ -63,7 +62,6 @@ class LoyaltyReward(models.Model):
                     _("Gift product field is mandatory for gift rewards")
                 )
 
-    @api.multi
     @api.constrains("type", "discount_product_id")
     def _check_discount_product(self):
         for reward in self:
@@ -72,7 +70,6 @@ class LoyaltyReward(models.Model):
                     _("Discount product field is " "mandatory for discount rewards")
                 )
 
-    @api.multi
     @api.constrains("type", "point_product_id")
     def _check_point_product(self):
         for reward in self:

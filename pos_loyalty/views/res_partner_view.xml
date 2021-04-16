@@ -11,10 +11,11 @@
                     type="action"
                     name="%(point_of_sale.action_pos_pos_form)d"
                     context="{'search_default_partner_id': active_id,'default_partner_id': active_id}"
-                    attrs="{'invisible': ['|', ('customer', '=', False), ('pos_order_count', '=', 0)]}"
+                    attrs="{'invisible': ['|', ('customer_rank', '=', False), ('pos_order_count', '=', 0)]}"
                     icon="fa-star"
                 >
                     <field name="loyalty_points" widget="statinfo" />
+                    <field name="customer_rank" invisible="1" />
                 </button>
             </button>
         </field>
