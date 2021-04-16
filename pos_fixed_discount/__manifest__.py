@@ -12,13 +12,7 @@
     "license": "LGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "pos_discount",
-    ],
-    "data": [
-        "views/pos_templates.xml",
-    ],
-    "qweb": [
-        'static/src/xml/discount_templates.xml',
-    ]
+    "depends": ["pos_discount"],
+    "data": ["views/pos_templates.xml"],
+    "qweb": ["static/src/xml/discount_templates.xml"],
 }
