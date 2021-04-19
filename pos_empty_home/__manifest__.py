@@ -5,7 +5,7 @@
 
 {
     "name": "Point of Sale - Empty Home",
-    "version": "12.0.1.0.0",
+    "version": "13.0.1.0.0",
     "category": "Point Of Sale",
     "summary": """
         Point of Sale - Hide products at the start of the Point of Sale""",
