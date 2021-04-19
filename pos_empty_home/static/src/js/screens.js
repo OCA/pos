@@ -5,19 +5,18 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
 
-
-odoo.define('pos_empty_home.screens', function (require) {
+odoo.define("pos_empty_home.screens", function(require) {
     "use strict";
 
-    var screens = require('point_of_sale.screens');
+    var screens = require("point_of_sale.screens");
 
     screens.ProductListWidget.include({
-        set_product_list: function(product_list){
+        set_product_list: function(product_list) {
             this._super(product_list);
             if (product_list.length) {
-               $(this.el.querySelector('.product-list-empty-home')).hide();
+                $(this.el.querySelector(".product-list-empty-home")).hide();
             } else {
-                $(this.el.querySelector('.product-list-empty-home')).show();
+                $(this.el.querySelector(".product-list-empty-home")).show();
             }
         },
     });
