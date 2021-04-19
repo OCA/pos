@@ -5,7 +5,7 @@
     "name": "Point Of Sale Default Partner",
     "summary": "Add a default customer in pos order",
     "license": "AGPL-3",
-    "version": "13.0.1.0.1",
+    "version": "14.0.1.0.0",
     "author": "Akretion," "Odoo Community Association (OCA)",
     "maintainer": "Akretion",
     "category": "Point of sale",
