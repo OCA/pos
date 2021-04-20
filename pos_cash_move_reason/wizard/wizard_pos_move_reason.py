@@ -89,22 +89,28 @@ class WizardPosMoveReason(models.TransientModel):
     def apply(self):
         self.ensure_one()
         AccountBankStatementLine = self.env["account.bank.statement.line"]
-        AccountBankStatementLine.create(self._prepare_statement_line())
+        statement_line_id = AccountBankStatementLine.create(
+            self._prepare_statement_line())
+        move_line = self.env['account.move.line'].search(
+            [('statement_line_id', '=', statement_line_id.id)])
+        for line in move_line:
+            if self.move_type == "income":
+                line.account_id = self.move_reason_id.income_account_id.id
+            else:
+                line.account_id = self.move_reason_id.expense_account_id.id
+
 
     def _prepare_statement_line(self):
         self.ensure_one()
         if self.move_type == "income":
-            account = self.move_reason_id.income_account_id
             amount = self.amount
         else:
-            account = self.move_reason_id.expense_account_id
             amount = -self.amount
         return {
             "date": fields.Date.context_today(self),
             "statement_id": self.statement_id.id,
             "journal_id": self.journal_id.id,
             "amount": amount,
-            "account_id": account.id,
             "name": self.name,
-            "ref": self.session_id.name,
+            "payment_ref": self.session_id.name,
         }
