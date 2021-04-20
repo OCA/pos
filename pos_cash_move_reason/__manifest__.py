@@ -4,7 +4,7 @@
     "name": "POS cash in-out reason",
     "summary": """""",
     "author": "ACSONE SA/NV," "GRAP," "Odoo Community Association (OCA)",
-    "website": "https://www.github.com/OCA/pos",
+    "website": "https://github.com/OCA/pos",
     "category": "Point Of sale",
     "version": "13.0.3.0.2",
     "license": "AGPL-3",
