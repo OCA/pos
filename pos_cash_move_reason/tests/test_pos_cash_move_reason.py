@@ -1,7 +1,8 @@
 # © 2015 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests.common import SavepointCase
+from odoo.exceptions import UserError
+from odoo.tests.common import Form, SavepointCase
 
 
 class TestPosCashMoveReason(SavepointCase):
@@ -21,6 +22,12 @@ class TestPosCashMoveReason(SavepointCase):
             ]
         )[0]
         cls.deposit_reason = cls.env.ref("pos_cash_move_reason.bank_out_reason")
+
+    def test_onchange_expense_reason(self):
+        move_reason_form = Form(self.deposit_reason)
+        move_reason_form.is_expense_reason = True
+        move_reason_form.save()
+        self.assertTrue(self.deposit_reason.expense_account_id)
 
     def test_take_money(self):
         # Open New Session
@@ -46,6 +53,7 @@ class TestPosCashMoveReason(SavepointCase):
                 "name": "Test Bank Deposit",
             }
         )
+        wizard.onchange_reason()
         wizard.apply()
         session.action_pos_session_closing_control()
 
@@ -58,4 +66,38 @@ class TestPosCashMoveReason(SavepointCase):
             ]
         )
         # I check the created move line from the cash in
-        self.assertEquals(len(move_line), 1)
+        self.assertEqual(len(move_line), 1)
+
+    def test_take_invalid_amount(self):
+        # Open New Session
+        self.config.open_session_cb()
+        session = self.PosSession.search(
+            [("state", "=", "opened"), ("config_id", "=", self.config.id)]
+        )
+
+        # Get Cash Statement
+        statement = session.statement_ids.filtered(
+            lambda x: x.journal_id == self.cash_journal
+        )
+
+        # Enter Invalid money
+        with self.assertRaises(UserError):
+            self.WizardReason.with_context(
+                active_id=session.id, default_move_type="expense"
+            ).create(
+                {
+                    "move_reason_id": self.deposit_reason.id,
+                    "journal_id": self.cash_journal.id,
+                    "statement_id": statement.id,
+                    "amount": -100,
+                    "name": "Test Deposit",
+                }
+            )
+
+    def test_button_put_money(self):
+        self.config.open_session_cb()
+        session = self.PosSession.search(
+            [("state", "=", "opened"), ("config_id", "=", self.config.id)]
+        )
+        wiz = session.button_move_income()
+        self.assertEqual(wiz["context"]["default_move_type"], "income")
