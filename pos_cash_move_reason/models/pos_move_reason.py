@@ -26,7 +26,6 @@ class PosMoveReason(models.Model):
     journal_ids = fields.Many2many(
         comodel_name="account.journal",
         string="Accounting Journals",
-        domain="[('journal_user', '=', True)]",
         default=_default_journal_ids,
     )
 
