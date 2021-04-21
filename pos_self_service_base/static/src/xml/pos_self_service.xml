@@ -6,7 +6,7 @@
             <div class="self-service-scale-scroller touch-scrollable">
                 <div class="self-service-scale">
                     <div class='weight js-weight'>
-                        <t t-esc="widget.get_weight_string()" />
+                        <t t-esc="widget.get_weight_string()"/>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
     <t t-name="TareButton">
         <div t-attf-class='big-button #{scale_weight &gt; 0 ? "green" : "grey"}'>
             Print container tare
-            <span class='ico foodbox' />
+            <span class='ico foodbox'/>
         </div>
     </t>
 </templates>

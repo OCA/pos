@@ -14,11 +14,11 @@ odoo.define('pos_self_service_base.chrome', function (require) {
     // by pos_self_service extensions modules.
 
     var self_service_action_button_classes = [];
-    var define_self_service_action_button = function(classe, options){
+    var define_self_service_action_button = function (classe, options) {
         options = options || {};
 
         var classes = self_service_action_button_classes;
-        var index   = classes.length;
+        var index = classes.length;
         var i;
 
         if (options.after) {
@@ -35,26 +35,27 @@ odoo.define('pos_self_service_base.chrome', function (require) {
                 }
             }
         }
-        classes.splice(i,0,classe);
+        classes.splice(i, 0, classe);
     };
 
     var SelfServiceActionButtonWidget = PosBaseWidget.extend({
         template: 'SelfServiceActionButtonWidget',
         label: _t('Button'),
-        renderElement: function(){
+        renderElement: function () {
             var self = this;
             this._super();
-            this.$el.click(function(){
+            this.$el.click(function () {
                 self.button_click();
             });
         },
-        button_click: function(){},
-        highlight: function(highlight){
-            this.$el.toggleClass('highlight',!!highlight);
+        button_click: function () {
+        },
+        highlight: function (highlight) {
+            this.$el.toggleClass('highlight', !!highlight);
         },
         // alternative highlight color
-        altlight: function(altlight){
-            this.$el.toggleClass('altlight',!!altlight);
+        altlight: function (altlight) {
+            this.$el.toggleClass('altlight', !!altlight);
         },
     });
 
@@ -83,30 +84,30 @@ odoo.define('pos_self_service_base.chrome', function (require) {
     var SelfServiceScaleWidget = PosBaseWidget.extend({
         template: 'SelfServiceScaleWidget',
 
-        init: function(parent, options) {
-            this._super(parent,options);
+        init: function (parent, options) {
+            this._super(parent, options);
             this.weight = 0;
             this.observers = [];
             this.renderElement()
         },
-        start: function(){
+        start: function () {
             var self = this;
             this._super();
             var queue = this.pos.proxy_queue;
             this.set_weight(0);
             this.renderElement();
 
-            queue.schedule(function(){
-                return self.pos.proxy.scale_read().then(function(weight){
+            queue.schedule(function () {
+                return self.pos.proxy.scale_read().then(function (weight) {
                     self.set_weight(weight.weight);
                     self.notify_all(weight.weight);
                 });
-            },{duration:500, repeat: true});
+            }, {duration: 500, repeat: true});
         },
-        add_observer: function(observer){
-          this.observers.push(observer);
+        add_observer: function (observer) {
+            this.observers.push(observer);
         },
-        notify_all: function(data){
+        notify_all: function (data) {
             var observers = this.observers;
             if (observers.length > 0) {
                 for (var i = 0; i < observers.length; i++) {
@@ -115,14 +116,14 @@ odoo.define('pos_self_service_base.chrome', function (require) {
                 }
             }
         },
-        set_weight: function(weight){
+        set_weight: function (weight) {
             this.weight = weight;
             this.$('.weight').text(this.get_weight_string());
         },
-        get_weight: function(){
+        get_weight: function () {
             return this.weight;
         },
-        get_weight_string: function() {
+        get_weight_string: function () {
             var defaultstr = (this.weight || 0).toFixed(3) + ' kg';
             return defaultstr;
         },
@@ -130,7 +131,7 @@ odoo.define('pos_self_service_base.chrome', function (require) {
 
     // Add the self-service widgets to the Chrome
     chrome.Chrome.include({
-        build_widgets: function(){
+        build_widgets: function () {
             if (this.pos.config.iface_self_service) {
                 // here we add widgets available to all self-service screens
                 this.widgets.push(
@@ -160,47 +161,47 @@ odoo.define('pos_self_service_base.chrome', function (require) {
                 this._super();
             }
         },
-        build_chrome: function() {
+        build_chrome: function () {
             // workaround to split Chrome in leftpane/rightpane as it doesn't seem possible in QWeb
             this._super();
-            if(this.pos.config.iface_self_service){
+            if (this.pos.config.iface_self_service) {
                 this.split_content();
             }
         },
         split_content: function () {
             var $window = this.$el.find(".window")
-                $window.remove()
+            $window.remove()
 
             var $leftpane = $("<div>", {class: "leftpane"});
-                $leftpane.append(
-                    $("<div>", {class: 'window'}).append(
-                        $("<div>", {class: 'subwindow'}).append(
-                            $("<div>", {class: 'subwindow-container'}).append(
-                                $("<div>", {class: 'subwindow-container-fix'}).append(
-                                    $("<div>", {class: "placeholder-SelfServiceScaleWidget"})
-                                )
+            $leftpane.append(
+                $("<div>", {class: 'window'}).append(
+                    $("<div>", {class: 'subwindow'}).append(
+                        $("<div>", {class: 'subwindow-container'}).append(
+                            $("<div>", {class: 'subwindow-container-fix'}).append(
+                                $("<div>", {class: "placeholder-SelfServiceScaleWidget"})
                             )
                         )
-                    ).append(
-                        $("<div>", {class: 'subwindow'}).append(
-                            $("<div>", {class: 'subwindow-container'}).append(
-                                $("<div>", {class: 'subwindow-container-fix pads'}).append(
-                                    $("<div>", {class: "self-service-control-buttons oe_hidden"})
-                                )
+                    )
+                ).append(
+                    $("<div>", {class: 'subwindow'}).append(
+                        $("<div>", {class: 'subwindow-container'}).append(
+                            $("<div>", {class: 'subwindow-container-fix pads'}).append(
+                                $("<div>", {class: "self-service-control-buttons oe_hidden"})
                             )
                         )
                     )
                 )
+            )
 
             var $rightpane = $("<div>", {class: "rightpane"});
-                $rightpane.html($window)
+            $rightpane.html($window)
 
             var $pos_content = this.$el.find(".pos-content")
-                $pos_content.append($leftpane, $rightpane)
+            $pos_content.append($leftpane, $rightpane)
 
-                // workaround to hide .pos-topheader
-                // and fully display .pos-content
-                $pos_content.css('top','0')
+            // workaround to hide .pos-topheader
+            // and fully display .pos-content
+            $pos_content.css('top', '0')
         }
     });
 

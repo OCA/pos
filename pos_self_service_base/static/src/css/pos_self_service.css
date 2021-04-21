@@ -8,6 +8,7 @@
     flex-flow: row wrap;
     padding: 8px 16px 0px 11px;
 }
+
 .pos .self-service-control-button {
     -webkit-flex-grow: 1;
     flex-grow: 1;
@@ -26,29 +27,35 @@
     overflow: hidden;
     transition: all linear 150ms;
 }
+
 .pos .self-service-control-button:hover {
     background: #efefef;
 }
+
 .pos .self-service-control-button:active {
     background: black;
     color: white;
     border-color: black;
 }
-.pos .self-service-control-button .fa{
+
+.pos .self-service-control-button .fa {
     margin-right: 4px;
 }
+
 .pos .self-service-control-button.highlight {
     background: #6EC89B !important;
     border: solid 1px #64AF8A !important;
     color: white !important;
 }
+
 .pos .self-service-control-button.altlight {
     background: #7F82AC !important;
     border: solid 1px #756A99 !important;
     color: white !important;
 }
+
 .pos .self-service-control-button.disabled,
-.pos .self-service-control-button.disabled:active{
+.pos .self-service-control-button.disabled:active {
     background: #e2e2e2;
     border: solid 1px #BEBEBE;
     opacity: 0.5;
@@ -93,11 +100,11 @@
 
 .self-service-screen .green {
     background: rgb(110, 200, 155);
-    border: solid 1px rgb(73,186,130);
+    border: solid 1px rgb(73, 186, 130);
 }
 
 .self-service-screen .green:hover {
-    background: rgb(73,186,130);
+    background: rgb(73, 186, 130);
 }
 
 .self-service-screen .grey {
@@ -110,28 +117,27 @@
 }
 
 
-
 /* ------ Self Service Scale Widget ------- */
 
 .pos .self-service-scale-container {
     position: absolute;
     top: 0px;
-    width:100%;
+    width: 100%;
     height: 100%;
     /*background: white;*/
 }
 
-.pos .self-service-scale-scroller{
-    width:100%;
-    height:100%;
+.pos .self-service-scale-scroller {
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
-.pos .self-service-scale .weight{
-    display:block;
-    position:relative;
+.pos .self-service-scale .weight {
+    display: block;
+    position: relative;
     text-align: center;
     border-style: solid;
     border-color: #787878;
@@ -141,5 +147,5 @@
     font-size: 56px;
     font-family: Inconsolata;
     text-shadow: 0px 2px 0px rgb(210, 210, 210);
-    box-shadow: 0px 2px 0px rgb(225,225,225) inset;
+    box-shadow: 0px 2px 0px rgb(225, 225, 225) inset;
 }

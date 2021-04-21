@@ -1,12 +1,12 @@
 <odoo>
     <template id="assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-              <script type="text/javascript" src="/pos_self_service_base/static/src/js/chrome.js"></script>
-              <script type="text/javascript" src="/pos_self_service_base/static/src/js/models.js"></script>
-              <script type="text/javascript" src="/pos_self_service_base/static/src/js/screens.js"></script>
-         </xpath>
+            <script type="text/javascript" src="/pos_self_service_base/static/src/js/chrome.js"></script>
+            <script type="text/javascript" src="/pos_self_service_base/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/pos_self_service_base/static/src/js/screens.js"></script>
+        </xpath>
         <xpath expr="//link[@id='pos-stylesheet']" position="after">
-          <link rel="stylesheet" href="/pos_self_service_base/static/src/css/pos_self_service.css"/>
+            <link rel="stylesheet" href="/pos_self_service_base/static/src/css/pos_self_service.css"/>
         </xpath>
     </template>
 </odoo>
