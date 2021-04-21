@@ -88,7 +88,7 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             this._super(parent, options);
             this.weight = 0;
             this.observers = [];
-            this.renderElement()
+            this.renderElement();
         },
         start: function () {
             var self = this;
@@ -111,8 +111,8 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             var observers = this.observers;
             if (observers.length > 0) {
                 for (var i = 0; i < observers.length; i++) {
-                    var observer = observers[i]
-                    observer.update(data)
+                    var observer = observers[i];
+                    observer.update(data);
                 }
             }
         },
@@ -169,8 +169,8 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             }
         },
         split_content: function () {
-            var $window = this.$el.find(".window")
-            $window.remove()
+            var $window = this.$el.find(".window");
+            $window.remove();
 
             var $leftpane = $("<div>", {class: "leftpane"});
             $leftpane.append(
@@ -194,14 +194,14 @@ odoo.define('pos_self_service_base.chrome', function (require) {
             )
 
             var $rightpane = $("<div>", {class: "rightpane"});
-            $rightpane.html($window)
+            $rightpane.html($window);
 
-            var $pos_content = this.$el.find(".pos-content")
-            $pos_content.append($leftpane, $rightpane)
+            var $pos_content = this.$el.find(".pos-content");
+            $pos_content.append($leftpane, $rightpane);
 
             // workaround to hide .pos-topheader
             // and fully display .pos-content
-            $pos_content.css('top', '0')
+            $pos_content.css('top', '0');
         }
     });
 

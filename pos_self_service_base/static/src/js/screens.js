@@ -8,7 +8,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
     var screens = require('point_of_sale.screens');
     var core = require('web.core');
     var QWeb = core.qweb;
-    var _t = core._t
+    var _t = core._t;
 
 
     /* -------- The Self-Service Screen  -------- */
@@ -27,7 +27,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
         start: function () {
             var self = this;
             this._super();
-            this.self_service_scale_widget = this.pos.chrome.widget.self_service_scale_widget
+            this.self_service_scale_widget = this.pos.chrome.widget.self_service_scale_widget;
             this.self_service_scale_widget.add_observer(this);
             this.barcode_parser = this.pos.barcode_reader.barcode_parser;
         },
@@ -111,7 +111,7 @@ odoo.define('pos_self_service_base.screens', function (require) {
             return this.barcode_parser.nomenclature.rules;
         },
         get_barcode: function () {
-            return this.format_barcode(this.scale_weight)
+            return this.format_barcode(this.scale_weight);
         },
         render_button: function () {
             this.$('.tare-button-container').html(QWeb.render('TareButton', this.get_tare_button_render_env()));
