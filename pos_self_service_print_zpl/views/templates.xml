@@ -1,8 +1,8 @@
 <odoo>
     <template id="assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-              <script type="text/javascript" src="/pos_self_service_print_zpl/static/src/js/screens.js"></script>
-              <script type="text/javascript" src="/pos_self_service_print_zpl/static/src/js/bundle.js"></script>
-         </xpath>
+            <script type="text/javascript" src="/pos_self_service_print_zpl/static/src/js/screens.js"></script>
+            <script type="text/javascript" src="/pos_self_service_print_zpl/static/src/js/bundle.js"></script>
+        </xpath>
     </template>
 </odoo>
