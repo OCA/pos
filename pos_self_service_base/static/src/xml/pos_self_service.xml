@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-name="SelfServiceScaleWidget">
@@ -6,7 +6,7 @@
             <div class="self-service-scale-scroller touch-scrollable">
                 <div class="self-service-scale">
                     <div class='weight js-weight'>
-                        <t t-esc="widget.get_weight_string()"/>
+                        <t t-esc="widget.get_weight_string()" />
                     </div>
                 </div>
             </div>
@@ -15,14 +15,14 @@
 
     <t t-name="SelfServiceActionButtonWidget">
         <div class='self-service-control-button'>
-            <t t-esc='widget.label'/>
+            <t t-esc='widget.label' />
         </div>
     </t>
 
     <t t-name="SelfServiceHomeButton">
         <div class="self-service-control-button">
             <span class='button home'>
-                <i class='fa fa-home'></i>
+                <i class='fa fa-home' />
                 Home
             </span>
         </div>
@@ -31,13 +31,10 @@
     <t t-name="SelfServiceScreenWidget">
         <div class='self-service-screen screen'>
             <div class="screen-content">
-                <!-- <div class="top-content">
-                    <h1>Self-Service Home Screen</h1>
-                </div> -->
                 <div class="centered touch-scrollable">
                     <!-- Here goes user actions such as label printing, barcode scanning, etc. -->
                     <div class="tare">
-                        <div class='tare-button-container'></div>
+                        <div class='tare-button-container' />
                     </div>
                 </div>
             </div>
@@ -47,7 +44,7 @@
     <t t-name="TareButton">
         <div t-attf-class='big-button #{scale_weight &gt; 0 ? "green" : "grey"}'>
             Print container tare
-            <span class='ico foodbox'/>
+            <span class='ico foodbox' />
         </div>
     </t>
 </templates>

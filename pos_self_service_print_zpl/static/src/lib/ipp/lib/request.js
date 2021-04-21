@@ -26,8 +26,6 @@ module.exports = function(opts, buffer, cb){
 		opts.protocol="https:";
 
 	var req = (opts.protocol==="https:" ? https : http).request(opts, function(res){
-//		console.log('STATUS: ' + res.statusCode);
-//		console.log('HEADERS: ' + JSON.stringify(res.headers));
 		switch(res.statusCode){
 			case 100:
 				if(opts.headers['Expect'] !== '100-Continue' || typeof opts.continue !== "function"){

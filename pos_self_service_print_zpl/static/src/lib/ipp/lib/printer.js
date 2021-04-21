@@ -44,10 +44,6 @@ Printer.prototype = {
 	execute: function(operation, msg, cb){
 		msg = this._message(operation, msg);
 		var buf = serialize(msg);
-//		console.log(buf.toString('hex'));
-//		console.log(JSON.stringify(
-//			require('./parser')(buf), null, 2
-//		));
 		request(this.url, buf, cb);
 	}
 }
