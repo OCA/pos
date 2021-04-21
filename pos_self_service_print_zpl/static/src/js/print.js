@@ -1,11 +1,8 @@
 const ipp = require("../lib/ipp");
 
-
 window.printZPL = (printerName, zplString) => {
     console.log("Sending print job");
-    var printer = ipp.Printer(
-        "http://localhost:8631/printers/" + printerName
-    );
+    var printer = ipp.Printer("http://localhost:8631/printers/" + printerName);
 
     printer.execute(
         "Print-Job",
@@ -15,7 +12,7 @@ window.printZPL = (printerName, zplString) => {
             },
             data: Buffer.from(zplString),
         },
-        function (err, res) {
+        function(err, res) {
             console.log(res);
         }
     );

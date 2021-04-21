@@ -43,21 +43,21 @@
 }
 
 .pos .self-service-control-button.highlight {
-    background: #6EC89B !important;
-    border: solid 1px #64AF8A !important;
+    background: #6ec89b !important;
+    border: solid 1px #64af8a !important;
     color: white !important;
 }
 
 .pos .self-service-control-button.altlight {
-    background: #7F82AC !important;
-    border: solid 1px #756A99 !important;
+    background: #7f82ac !important;
+    border: solid 1px #756a99 !important;
     color: white !important;
 }
 
 .pos .self-service-control-button.disabled,
 .pos .self-service-control-button.disabled:active {
     background: #e2e2e2;
-    border: solid 1px #BEBEBE;
+    border: solid 1px #bebebe;
     opacity: 0.5;
     cursor: default;
     color: inherit;
@@ -115,7 +115,6 @@
 .self-service-screen .grey:hover {
     background: darkgrey;
 }
-
 
 /* ------ Self Service Scale Widget ------- */
 
