@@ -12,6 +12,35 @@ odoo.define('pos_payment_method.screens', function (require) {
 
     screens.PaymentScreenWidget.include({
 
+        // We don't want to perform any of these actions if we are in a transaction with the payment terminal
+        click_numpad: function (button) {
+            if (this.pos.get_order().in_transaction) {
+                return this._cancel_current_transaction_popup();
+            }
+            return this._super.apply(this, arguments);
+        },
+
+        click_paymentmethods: function (id) {
+            if (this.pos.get_order().in_transaction) {
+                return this._cancel_current_transaction_popup();
+            }
+            return this._super.apply(this, arguments);
+        },
+
+        click_set_customer: function () {
+            if (this.pos.get_order().in_transaction) {
+                return this._cancel_current_transaction_popup();
+            }
+            return this._super.apply(this, arguments);
+        },
+
+        order_is_valid: function(force_validation) {
+            if (this.pos.get_order().in_transaction) {
+                return false;
+            }
+            return this._super.apply(this, arguments);
+        },
+
         _get_journal: function (line_cid) {
             var line;
             var order = this.pos.get_order();
@@ -47,6 +76,12 @@ odoo.define('pos_payment_method.screens', function (require) {
             this.journal = this._get_journal(line_cid)
         },
 
+        click_back: function(){
+            // Delete all payment lines, this will cancel any Adyen ongoing transaction
+            $('.delete-button').trigger('click')
+            this._super.apply(this, arguments);
+        },
+
         render_paymentlines : function(){
             this._super.apply(this, arguments);
             var self  = this;
@@ -75,7 +110,26 @@ odoo.define('pos_payment_method.screens', function (require) {
                 this.$('.in_transaction').addClass('oe_hidden');
                 this.$('.payment-terminal-transaction').toggleClass('oe_hidden');
             }
-        }
+        },
+
+        _cancel_current_transaction: function () {
+            this.$('.transaction-cancel').trigger('click');
+        },
+
+        _cancel_current_transaction_popup: function () {
+            var self = this;
+            this.gui.show_popup('confirm',{
+                title: _t('Transaction ongoing'),
+                body:  _t('There is a transaction in progress, would you like to cancel it?'),
+                confirm: function () {
+                    self._cancel_current_transaction()
+                },
+                cancel: function () {
+                    return;
+                }
+            });
+        },
+
     });
 
 });

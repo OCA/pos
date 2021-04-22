@@ -59,12 +59,6 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return this._adyen_cancel();
         },
 
-        click_back: function(){
-            // Delete all payment lines, this will cancel any Adyen ongoing transaction
-            $('.delete-button').trigger('click')
-            this._super.apply(this, arguments);
-        },
-
         // private methods
         _reset_state: function () {
             this.was_cancelled = false;
@@ -341,6 +335,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 if (! ignore_error && data !== true) {
                     self._show_error(_('Cancelling the payment failed. Please cancel it manually on the payment terminal.'));
                 }
+                self.pos.get_order().in_transaction = false;
             });
         },
 
@@ -505,6 +500,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 self._update_shopper_details(additional_response);
             }
 
+            self.pos.get_order().in_transaction = false;
+            self.order_changes();
             self.validate_order();
         },
 
@@ -548,6 +545,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 line.card_receipt = receiptInfo;
             }
 
+            self.pos.get_order().in_transaction = false;
+            self.order_changes();
             self.validate_order();
         },
 
