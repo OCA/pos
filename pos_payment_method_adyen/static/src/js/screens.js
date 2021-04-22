@@ -58,12 +58,10 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             this.was_cancelled = !!this.polling;
             return this._adyen_cancel();
         },
-        close: function () {
-            this._super.apply(this, arguments);
-        },
+
         click_back: function(){
-            // If there is an Adyen transaction ongoing we cancel it before going back
-            this.$('.transaction-cancel').trigger('click');
+            // Delete all payment lines, this will cancel any Adyen ongoing transaction
+            $('.delete-button').trigger('click')
             this._super.apply(this, arguments);
         },
 
