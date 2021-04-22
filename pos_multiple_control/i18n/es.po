@@ -90,12 +90,6 @@ msgid "Automatic solve %s"
 msgstr ""
 
 #. module: pos_multiple_control
-#: code:addons/pos_multiple_control/models/account_bank_statement.py:118
-#, python-format
-msgid "Automatic solve (%s)"
-msgstr ""
-
-#. module: pos_multiple_control
 #: model:ir.model.fields,field_description:pos_multiple_control.field_pos_config__autosolve_limit
 msgid "Autosolve limit"
 msgstr "Límite de resolución automática"
@@ -363,7 +357,6 @@ msgid "Opening Unit Numbers"
 msgstr ""
 
 #. module: pos_multiple_control
-#: code:addons/pos_multiple_control/wizard/wizard_pos_update_statement_balance.py:85
 #: code:addons/pos_multiple_control/wizard/wizard_pos_update_statement_balance.py:197
 #, python-format
 msgid "Out"
@@ -536,7 +529,6 @@ msgid "Validate the balance"
 msgstr ""
 
 #. module: pos_multiple_control
-#: code:addons/pos_multiple_control/models/account_bank_statement.py:124
 #: code:addons/pos_multiple_control/models/account_bank_statement.py:134
 #, python-format
 msgid ""
@@ -603,7 +595,6 @@ msgid "You cannot create two active sessions with the same responsible!"
 msgstr "¡No puedes crear dos sesiones activas con el mismo responsable!"
 
 #. module: pos_multiple_control
-#: code:addons/pos_multiple_control/wizard/wizard_pos_update_statement_balance.py:67
 #: code:addons/pos_multiple_control/wizard/wizard_pos_update_statement_balance.py:131
 #, python-format
 msgid "You cannot start the closing balance for multiple POS sessions"
