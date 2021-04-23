@@ -57,33 +57,33 @@ class PosConfig(models.Model):
     )
 
     def _compute_group_negative_qty_id(self):
-        for config in self:
+        for _config in self:
             self.group_negative_qty_id = self.env.ref(
                 "pos_access_right.group_negative_qty"
             )
 
     def _compute_group_discount_id(self):
-        for config in self:
+        for _config in self:
             self.group_discount_id = self.env.ref("pos_access_right.group_discount")
 
     def _compute_group_change_unit_price_id(self):
-        for config in self:
+        for _config in self:
             self.group_change_unit_price_id = self.env.ref(
                 "pos_access_right.group_change_unit_price"
             )
 
     def _compute_group_multi_order_id(self):
-        for config in self:
+        for _config in self:
             self.group_multi_order_id = self.env.ref(
                 "pos_access_right.group_multi_order"
             )
 
     def _compute_group_delete_order_id(self):
-        for config in self:
+        for _config in self:
             self.group_delete_order_id = self.env.ref(
                 "pos_access_right.group_delete_order"
             )
 
     def _compute_group_payment_id(self):
-        for config in self:
+        for _config in self:
             self.group_payment_id = self.env.ref("pos_access_right.group_payment")

@@ -12,7 +12,6 @@ odoo.define("pos_access_right.pos_access_right", function (require) {
     var models = require("point_of_sale.models");
     var gui = require("point_of_sale.gui");
     var core = require("web.core");
-    var DB = require("point_of_sale.DB");
     var _t = core._t;
 
     // New function 'display_access_right' to display disabled functions
@@ -21,19 +20,19 @@ odoo.define("pos_access_right.pos_access_right", function (require) {
         if (
             this.pos.get_cashier() &&
             this.pos.user &&
-            this.pos.get_cashier().user_id[0] == this.pos.user.id
+            this.pos.get_cashier().user_id[0] === this.pos.user.id
         ) {
             return this.pos.user;
         }
         return _.find(this.pos.users, function (user_id) {
             if (
                 self.pos.get_cashier().user_id &&
-                self.pos.get_cashier().user_id[0] == user_id.id
+                self.pos.get_cashier().user_id[0] === user_id.id
             ) {
                 return user_id;
             }
         });
-    }),
+    })(
         (gui.Gui.prototype.display_access_right = function (user) {
             if (!user.groups_id) {
                 user = this.get_user_groups();
@@ -66,18 +65,19 @@ odoo.define("pos_access_right.pos_access_right", function (require) {
             } else {
                 $(".button.pay").removeClass("pos-disabled-mode");
             }
-        });
+        })
+    );
 
     // Overload 'set_cashier' function to display correctly
     // unauthorized function after cashier changed
     var _set_cashier_ = models.PosModel.prototype.set_cashier;
     models.PosModel.prototype.set_cashier = function (user) {
         var user_groups = user;
-        if (user.user_id && this.user && user.user_id[0] == this.user.id) {
+        if (user.user_id && this.user && user.user_id[0] === this.user.id) {
             user_groups = this.user;
         } else {
             user_groups = _.find(this.users, function (user_id) {
-                if (user.user_id && user.user_id[0] == user_id.id) {
+                if (user.user_id && user.user_id[0] === user_id.id) {
                     return user_id;
                 }
             });
@@ -94,8 +94,6 @@ odoo.define("pos_access_right.pos_access_right", function (require) {
          * @param {HTMLElement | jQuery} $el
          */
         neworder_click_handler: function (event, $el) {
-            var user = [];
-            var self = this;
             var user = this.gui.get_user_groups();
             if (
                 !user ||
