@@ -16,7 +16,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 var order = this.pos.get_order()
                 var selected_paymentline = order.selected_paymentline;
                 var order_amount_taxed = order.get_total_with_tax()
-                if (selected_paymentline.amount > order_amount_taxed) {
+                if (selected_paymentline.amount.toFixed(2) > order_amount_taxed.toFixed(2)) {
                     this._show_error(_('You are not allowed to pay an amount greater than the order amount'));
                     order.in_transaction = false;
                     this.order_changes();
