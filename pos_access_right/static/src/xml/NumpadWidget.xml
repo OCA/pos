@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="NumpadWidget"
+        t-inherit="point_of_sale.NumpadWidget"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="div[hasclass('numpad')]//button[hasclass('numpad-minus')]"
+            position="attributes"
+        >
+            <attribute
+                name="t-att-class"
+            >{'disabled-mode': !hasMinusControlRights}</attribute>
+            <attribute name="t-att-disabled">!hasMinusControlRights</attribute>
+        </xpath>
+    </t>
+
+</templates>

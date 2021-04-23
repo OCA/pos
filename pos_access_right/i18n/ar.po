@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_access_right
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-10-21 18:32+0000\n"
+"Last-Translator: Osoul <baruni@osoul.ly>\n"
+"Language-Team: none\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 3.8\n"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:142
+#, python-format
+msgid "Change Unit Price - Unauthorized function"
+msgstr "تغيير سعر البيع  - ليس لديك صلاحية"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:87
+#, python-format
+msgid "Delete Order - Unauthorized function"
+msgstr "حذف أمر مبيعات  - ليس لديك صلاحية"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:135
+#, python-format
+msgid "Discount - Unauthorized function"
+msgstr "تخفيض  - ليس لديك صلاحية"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:70
+#, python-format
+msgid "Many Orders - Unauthorized function"
+msgstr "تعدد أوامر مبيعات  - ليس لديك صلاحية"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
+#, python-format
+msgid "Negative Quantity - Unauthorized function"
+msgstr "كمية بالسالب - ليس لديك صلاحية"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
+#, python-format
+msgid "Payment - Unauthorized function"
+msgstr "الدفع - ليس لديك صلاحية"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:71
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:88
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:136
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:143
+#: code:addons/pos_access_right/static/src/js/pos_access_right.js:167
+#, python-format
+msgid "Please ask your manager to do it."
+msgstr "قم بطلب مساعدة من المشرف."
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
+msgid "Point of Sale - Allow Discount"
+msgstr "نقاط البيع - السماح بالتخفيض"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_negative_qty_id
+msgid "Point of Sale - Allow Negative Quantity"
+msgstr "نقاط البيع - السماح بالكمية بالسالب"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_change_unit_price_id
+msgid "Point of Sale - Allow Unit Price Change"
+msgstr "نقاط البيع - السماح بتغير سعر البيع"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_delete_order_id
+#: model:res.groups,name:pos_access_right.group_delete_order
+msgid "Point of Sale - Delete Order"
+msgstr "نقاط البيع - السماح بحذف أمر مبيعات"
+
+#. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_discount
+msgid "Point of Sale - Discount"
+msgstr "نقاط البيع - التخفيض"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_multi_order_id
+#: model:res.groups,name:pos_access_right.group_multi_order
+msgid "Point of Sale - Many Orders"
+msgstr "نقاط البيع - تعدد أوامر المبيعات"
+
+#. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_negative_qty
+msgid "Point of Sale - Negative Quantity"
+msgstr "نقاط البيع - الكمية بالسالب"
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
+#: model:res.groups,name:pos_access_right.group_payment
+msgid "Point of Sale - Payment"
+msgstr "نقاط البيع - الدفع"
+
+#. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_change_unit_price
+msgid "Point of Sale - Unit Price Change"
+msgstr "نقاط البيع - تغيير سعر البيع"
+
+#. module: pos_access_right
+#: model:ir.model,name:pos_access_right.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "إعدادات نقاط البيع"
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
+msgid "This field is there to pass the id of the 'PoS - Allow Discount' Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_negative_qty_id
+msgid "This field is there to pass the id of the 'PoS - Allow Negative Quantity' Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_change_unit_price_id
+msgid "This field is there to pass the id of the 'PoS - Allow Unit Price Change' Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_delete_order_id
+msgid "This field is there to pass the id of the 'PoS - Delete Order' Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_multi_order_id
+msgid "This field is there to pass the id of the 'PoS - Many Orders Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
+msgid "This field is there to pass the id of the 'PoS - Payment' Group to the Point of Sale Frontend."
+msgstr ""
