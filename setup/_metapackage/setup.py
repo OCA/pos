@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-pos_default_partner',
         'odoo13-addon-pos_order_mgmt',
+        'odoo13-addon-pos_order_remove_line',
         'odoo13-addon-pos_product_sort',
         'odoo13-addon-pos_timeout',
     ],
