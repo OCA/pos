@@ -1,6 +1,6 @@
 import json
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
@@ -11,7 +11,6 @@ class ProductTemplate(models.Model):
         "Supplier data dict", readonly=True, compute="_compute_supplier_data_json"
     )
 
-    @api.multi
     def _compute_supplier_data_json(self):
         for t in self:
             res = []
