@@ -1,26 +1,26 @@
 import json
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    # technical field used in POS frontend
     supplier_data_json = fields.Char(
-        "Supplier data dict", readonly=True, compute="_compute_supplier_data_json"
+        "Supplier data dict",
+        help="Technical field: Used in POS frontend to search products by supplierinfo",
+        compute="_compute_supplier_data_json",
     )
 
-    @api.multi
     def _compute_supplier_data_json(self):
-        for t in self:
-            res = []
-            for s in t.seller_ids:
-                res.append(
+        for rec in self:
+            rec.supplier_data_json = json.dumps(
+                [
                     {
                         "supplier_name": s.name.display_name,
                         "supplier_product_code": s.product_code or "",
                         "supplier_product_name": s.product_name or "",
                     }
-                )
-            t.supplier_data_json = json.dumps(res)
+                    for s in rec.seller_ids
+                ]
+            )
