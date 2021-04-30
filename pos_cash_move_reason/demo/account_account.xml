@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="bank_deposit_account" model="account.account">
+        <field name="code">101505</field>
+        <field name="name">Cash Awaiting Bank Deposit</field>
+        <field name="user_type_id" ref="account.data_account_type_liquidity" />
+    </record>
+    <record id="gazoline_expense_account" model="account.account">
+        <field name="code">221500</field>
+        <field name="name">Gazoline Expense</field>
+        <field name="user_type_id" ref="account.data_account_type_expenses" />
+    </record>
+</odoo>

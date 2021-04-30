@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2019-Today GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="view_pos_move_reason_tree" model="ir.ui.view">
+        <field name="name">pos.move.reason.tree (in pos_cash_move_reason)</field>
+        <field name="model">pos.move.reason</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="active == 'False'">
+                <field name="name" />
+                <field name="journal_ids" widget="many2many_tags" />
+                <field name="income_account_id" />
+                <field name="expense_account_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="active" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_move_reason_form" model="ir.ui.view">
+        <field name="name">pos.move.reason.form (in pos_cash_move_reason)</field>
+        <field name="model">pos.move.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title oe_left">
+                        <div class="oe_edit_only">
+                            <label for="name" />
+                        </div>
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" />
+                        </h1>
+                    </div>
+                    <div class="oe_right oe_button_box" name="buttons" />
+                    <group col="4" name="description">
+                        <field name="company_id" groups="base.group_multi_company" />
+                        <field name="active" />
+                        <field name="journal_ids" widget="many2many_tags" />
+                    </group>
+                    <group col="4">
+                        <field name="is_income_reason" />
+                        <field
+                            name="income_account_id"
+                            attrs="{
+                            'required': [('is_income_reason', '=', True)],
+                            'invisible': [('is_income_reason', '=', False)]}"
+                        />
+                        <field name="is_expense_reason" />
+                        <field
+                            name="expense_account_id"
+                            attrs="{
+                            'required': [('is_expense_reason', '=', True)],
+                            'invisible': [('is_expense_reason', '=', False)]}"
+                        />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_move_reason" model="ir.actions.act_window">
+        <field name="name">Move Reasons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.move.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_pos_move_reason"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_pos_move_reason"
+        sequence="50"
+    />
+</odoo>
