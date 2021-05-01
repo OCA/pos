@@ -13,6 +13,7 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
     var gui = require("point_of_sale.gui");
     var chrome = require("point_of_sale.chrome");
     var models = require("point_of_sale.models");
+    var field_utils = require('web.field_utils');
 
     var QWeb = core.qweb;
     var ScreenWidget = screens.ScreenWidget;
@@ -262,9 +263,8 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
 
             // Get Date
             if (["print"].indexOf(action) !== -1) {
-                order.formatted_validation_date = moment(order_data.date_order).format(
-                    "YYYY-MM-DD HH:mm:ss"
-                );
+                order.formatted_validation_date = field_utils.format.datetime(
+                    moment(order_data.date_order), {}, {timezone: false});
             }
 
             // Get Payment lines
@@ -276,15 +276,11 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
                     if (line.length === 3) {
                         line = line[2];
                     }
-                    _.each(self.pos.cashregisters, function(cashregister) {
-                        if (cashregister.journal.id === line.journal_id) {
-                            if (line.amount > 0) {
-                                // If it is not change
-                                order.add_paymentline(cashregister);
-                                order.selected_paymentline.set_amount(line.amount);
-                            }
-                        }
-                    });
+                    if ((self.pos.payment_methods_by_id[line.payment_method_id]) && (line.amount > 0)) {
+                        // If it is not change
+                        order.add_paymentline(self.pos.payment_methods_by_id[line.payment_method_id]);
+                        order.selected_paymentline.set_amount(line.amount);
+                    }
                 });
             }
             return order;
