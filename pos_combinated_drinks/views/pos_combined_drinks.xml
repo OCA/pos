@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <template id="enlarge_image index" name="pos_combinated_drinks assets" inherit_id="point_of_sale.index">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_combinated_drinks/static/src/js/pos.js"></script>
+                <link rel="stylesheet" href="/pos_combinated_drinks/static/src/css/pos.css"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="package_product_template_only_form_view" model="ir.ui.view">
+	        <field name="name">package.product.template.form.view</field>
+	        <field name="model">product.template</field>
+	        <field name="inherit_id" ref="product.product_template_form_view"/>
+	        <field name="arch" type="xml">
+
+				<xpath expr="//div[@name='options']" position="inside">
+	                <div>
+	                    <field name="is_combo"/>
+	                    <label for="is_combo"/>
+	                </div>
+				</xpath>
+
+                <xpath expr="//div[@name='pricing']" position="after">
+					<field name="combo_price" class="oe_inline" widget='monetary'
+						   options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+				</xpath>
+
+	            <xpath expr='//page[4]' position="after" >
+	               <page string="Combo" attrs="{'invisible': [('is_combo', '=', False)]}">
+					   <group>
+						   <field name="combo_category_ids" widget="many2many_tags" string="Categories"/>
+					   </group>
+	               </page>
+	            </xpath>
+	        </field>
+	    </record>
+
+    </data>
+</odoo>
