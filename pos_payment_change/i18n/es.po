@@ -67,6 +67,7 @@ msgstr "Creado el"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
+#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:72
 #, python-format
 msgid ""
 "Differences between the two values for the POS Order '%s':\n"

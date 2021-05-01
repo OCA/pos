@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_payment_change
+# 	* pos_payment_change
 #
 msgid ""
 msgstr ""
@@ -67,8 +67,10 @@ msgstr "Erstellt am"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
+#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:72
 #, python-format
-msgid "Differences between the two values for the POS Order '%s':\n"
+msgid ""
+"Differences between the two values for the POS Order '%s':\n"
 "\n"
 " * Total of all the new payments %s;\n"
 " * Total of the POS Order %s;\n"
@@ -145,11 +147,15 @@ msgstr "Richtlinie für Zahlungsänderungen"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
-msgid "Payment Change Policy when users want to change the payment lines of a given PoS Order.\n"
-"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, and create a new PoS Order with the correct payment lines.\n"
+msgid ""
+"Payment Change Policy when users want to change the payment lines of a given "
+"PoS Order.\n"
+"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
+"and create a new PoS Order with the correct payment lines.\n"
 "* 'Update Payments': Odoo will change payment lines.\n"
 "\n"
-"Note : In some countries the 'Update Payments' Option is not allowed by law, because orders history shouldn't not be altered."
+"Note : In some countries the 'Update Payments' Option is not allowed by law, "
+"because orders history shouldn't not be altered."
 msgstr ""
 "Richtlinie für Zahlungsänderungen, wenn Benutzer die Zahlungszeilen eines "
 "bestimmten PoS-Auftrags ändern möchten.\n"
@@ -206,7 +212,9 @@ msgstr "Gesamt"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_config.py:43
 #, python-format
-msgid "Unable to use the 'Update Payments' options for companies that have unalterable accounting."
+msgid ""
+"Unable to use the 'Update Payments' options for companies that have "
+"unalterable accounting."
 msgstr ""
 "Die Optionen 'Zahlungen aktualisieren' können nicht für Firmen mit "
 "unveränderlicher Buchhaltung verwendet werden."
@@ -231,7 +239,9 @@ msgstr "Assistent"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:97
 #, python-format
-msgid "You can not change payments of the POS '%s' because the associated session '%s' has been closed!"
+msgid ""
+"You can not change payments of the POS '%s' because the associated session "
+"'%s' has been closed!"
 msgstr ""
 "Sie können Zahlungen der Kasse '%s' nicht ändern, da die zugehörige Sitzung "
 "'%s' geschlossen wurde!"
