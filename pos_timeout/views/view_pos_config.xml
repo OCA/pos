@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_big_scrollbars']/../.." position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="section_pos_timeout">
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Timeout</span>
+                        <div class="text-muted">PoS Order(s) Timeout</div>
+                        <div class="content-group mt16">
+                            <field name="pos_order_timeout" colspan="4" nolabel="1"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
