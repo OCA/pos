@@ -66,7 +66,6 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
 #: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:72
 #, python-format
 msgid ""
