@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_multi_ean
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_multi_ean
+#: model:ir.model.fields,field_description:pos_multi_ean.field_product_product__multi_ean_json
+msgid "Multi EAN list"
+msgstr "Lista de EAN múltiple"
+
+#. module: pos_multi_ean
+#: model:ir.model,name:pos_multi_ean.model_product_product
+msgid "Product"
+msgstr "Producto"
