@@ -63,6 +63,7 @@ addon | version | summary
 [pos_ticket_logo](pos_ticket_logo/) | 12.0.1.0.0 | Pos Ticket Logo
 [pos_ticket_salesman_firstname](pos_ticket_salesman_firstname/) | 12.0.1.0.0 | Pos Ticket Salesman Firstname
 [pos_ticket_without_price](pos_ticket_without_price/) | 12.0.1.0.0 | Adds receipt ticket without price or taxes
+[pos_timeout](pos_timeout/) | 12.0.1.0.1 | Set the timeout of the point of sale
 [pos_to_weight_by_product_uom](pos_to_weight_by_product_uom/) | 12.0.1.0.0 | Make 'To Weight' default value depending on product UoM settings
 [pos_user_restriction](pos_user_restriction/) | 12.0.1.0.2 | Restrict some users to see and use only certain points of sale
 
