@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import _, api, fields, models
+from odoo.tools import float_is_zero
 from odoo.exceptions import Warning as UserError
 
 
@@ -58,7 +59,9 @@ class PosPaymentChangeWizard(models.TransientModel):
 
         # Check if the total is correct
         total = sum(self.mapped("new_line_ids.amount"))
-        if total != self.amount_total:
+        precision = order.pricelist_id.currency_id.decimal_places
+        if not float_is_zero(
+                self.amount_total - total, precision_digits=precision):
             raise UserError(
                 _(
                     "Differences between the two values for the POS"
