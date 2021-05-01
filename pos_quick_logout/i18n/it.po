@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_quick_logout
+#
+# Translators:
+# Francesco Fresta <franco.fresta@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2018-03-01 02:01+0000\n"
+"Last-Translator: Francesco Fresta <franco.fresta@gmail.com>, 2018\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_quick_logout
+#: model_terms:ir.ui.view,arch_db:pos_quick_logout.view_pos_config_view_form_quick_logout
+msgid "<span class=\"o_form_label\">Logout Timeout</span>"
+msgstr ""
+
+#. module: pos_quick_logout
+#. openerp-web
+#: code:addons/pos_quick_logout/static/src/xml/pos_quick_logout.xml:12
+#, python-format
+msgid "Log Out"
+msgstr "Esci"
+
+#. module: pos_quick_logout
+#: model:ir.model.fields,field_description:pos_quick_logout.field_pos_config__logout_timeout
+msgid "Logout Timeout"
+msgstr ""
+
+#. module: pos_quick_logout
+#: model:ir.model,name:pos_quick_logout.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_quick_logout
+#: model:ir.model.fields,help:pos_quick_logout.field_pos_config__logout_timeout
+msgid "Time out for automatic logout for sessions in this POS"
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
