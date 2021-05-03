@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-extend="ReceiptScreenWidget">
         <t t-jquery=".button.print" t-operation="after">
             <div class="button print_ticket_without_price">
-                <i class='fa fa-print'></i> Print Ticket Without Price
+                <i class='fa fa-print' /> Print Ticket Without Price
             </div>
         </t>
     </t>
@@ -15,8 +15,10 @@
                 TICKET WITHOUT PRICE
             </div>
         </t>
-        <t t-jquery="tr[t-foreach='orderlines'] > td:nth-child(3)"
-           t-operation="attributes">
+        <t
+            t-jquery="tr[t-foreach='orderlines'] > td:nth-child(3)"
+            t-operation="attributes"
+        >
             <attribute name="class">oe_hidden</attribute>
         </t>
         <t t-jquery=".receipt-total" t-operation="attributes">
