@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="partner_property_form_view" model="ir.ui.view">
+        <field name="name">partner.property.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="point_of_sale.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <button name="%(point_of_sale.action_pos_pos_form)d" position="before">
+                <button class="oe_stat_button" type="action" name="%(point_of_sale.action_pos_pos_form)d" 
+                    context="{'search_default_partner_id': active_id,'default_partner_id': active_id}"
+                    attrs="{'invisible': ['|', ('customer', '=', False), ('pos_order_count', '=', 0)]}"
+                    icon="fa-star">
+                    <field name="loyalty_points" widget="statinfo"/>
+                </button>
+            </button>
+        </field>
+    </record>
+</odoo>
