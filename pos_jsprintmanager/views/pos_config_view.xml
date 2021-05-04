@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="view_pos_config_view_form_jsprintmanager" model="ir.ui.view">
+        <field name="name">pos.config.form.jsprintmanager</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="priority" eval="30"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='receipt']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="use_jsprintmanager">
+                    <div class="o_setting_left_pane">
+                        <field name="use_jsprintmanager"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="use_jsprintmanager"/>
+                        <div class="text-muted">
+                            Use JS Print Manager to print receipts
+                        </div>
+                    </div>
+                    <div id='jsprintmanager_default_receipt_printer' class="o_setting_right_pane" attrs="{'invisible' : [('use_jsprintmanager', '=', False)]}">
+                        <span class="o_form_label">Default Printer for Receipts</span>
+                        <div class="content-group mt16">
+                            <field name="jsprintmanager_default_receipt_printer" colspan="4"
+                                nolabel="1"/>
+                        </div>
+                    </div>
+                    <div id='jsprintmanager_output_format' class="o_setting_right_pane" attrs="{'invisible' : [('use_jsprintmanager', '=', False)]}">
+                        <span class="o_form_label">Output format</span>
+                        <div class="content-group mt16">
+                            <field name="jsprintmanager_output_format" colspan="4"
+                                nolabel="1"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
