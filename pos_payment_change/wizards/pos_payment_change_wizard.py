@@ -77,7 +77,7 @@ class PosPaymentChangeWizard(models.TransientModel):
         new_payments = [{
             "journal": line.new_journal_id.id,
             "amount": line.amount,
-            "payment_date": fields.Date.context_today(self),
+            "payment_date": self.order_id.date_order,
         } for line in self.new_line_ids]
 
         orders = order.change_payment(new_payments)
