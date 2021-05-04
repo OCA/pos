@@ -1,19 +1,27 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
-from odoo.tests import Form, tagged
+from odoo.tests import Form, HttpCase, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestUi(TestPointOfSaleHttpCommon):
+class TestUi(HttpCase):
     def setUp(self):
         super().setUp()
-
-        self.promo_programs = self.env["coupon.program"]
-
+        # Use admin user
+        self.env = self.env(
+            user=self.env.ref("base.user_admin"),
+            context=dict(self.env.context, tracking_disable=True),
+        )
+        self.main_company = self.env.ref("base.main_company")
+        self.main_pos_config = self.env.ref("point_of_sale.pos_config_main")
+        self.promo_programs = self.env["sale.coupon.program"]
+        self.whiteboard_pen = self.env.ref("point_of_sale.whiteboard_pen")
+        self.magnetic_board = self.env.ref("point_of_sale.magnetic_board")
+        self.desk_organizer = self.env.ref("point_of_sale.desk_organizer")
+        # adjust prices expected by tests
+        self.whiteboard_pen.list_price = 3.2
         # code promo program -> discount on specific products
-        self.code_promo_program = self.env["coupon.program"].create(
+        self.code_promo_program = self.env["sale.coupon.program"].create(
             {
                 "name": "Promo Code Program - Discount on Specific Products",
                 "program_type": "promotion_program",
@@ -27,10 +35,9 @@ class TestUi(TestPointOfSaleHttpCommon):
             }
         )
         self.promo_programs |= self.code_promo_program
-
         # auto promo program on current order
         #   -> discount on cheapest product
-        self.auto_promo_program_current = self.env["coupon.program"].create(
+        self.auto_promo_program_current = self.env["sale.coupon.program"].create(
             {
                 "name": "Auto Promo Program - Cheapest Product",
                 "program_type": "promotion_program",
@@ -40,10 +47,9 @@ class TestUi(TestPointOfSaleHttpCommon):
             }
         )
         self.promo_programs |= self.auto_promo_program_current
-
         # auto promo program on next order
         #   -> discount on order (global discount)
-        self.auto_promo_program_next = self.env["coupon.program"].create(
+        self.auto_promo_program_next = self.env["sale.coupon.program"].create(
             {
                 "name": "Auto Promo Program - Global Discount",
                 "program_type": "promotion_program",
@@ -54,9 +60,8 @@ class TestUi(TestPointOfSaleHttpCommon):
             }
         )
         self.promo_programs |= self.auto_promo_program_next
-
         # coupon program -> free product
-        self.coupon_program = self.env["coupon.program"].create(
+        self.coupon_program = self.env["sale.coupon.program"].create(
             {
                 "name": "Coupon Program - Buy 3 Take 2 Free Product",
                 "program_type": "coupon_program",
@@ -67,10 +72,9 @@ class TestUi(TestPointOfSaleHttpCommon):
                 "reward_product_quantity": 2,
             }
         )
-
         # Create coupons for the coupon program and change the code
         # to be able to use them in the frontend tour.
-        self.env["coupon.generate.wizard"].with_context(
+        self.env["sale.coupon.generate"].with_context(
             {"active_id": self.coupon_program.id}
         ).create({"nbr_coupons": 4}).generate_coupon()
         (
@@ -86,34 +90,35 @@ class TestUi(TestPointOfSaleHttpCommon):
 
     def test_pos_coupon_tour_basic(self):
         """PoS Coupon Basic Tour"""
-
         # Set the programs to the pos config.
         # Remove fiscal position and pricelist.
         with Form(self.main_pos_config) as pos_config:
             pos_config.tax_regime_selection = False
             pos_config.use_pricelist = False
             pos_config.pricelist_id = self.env["product.pricelist"].create(
-                {"name": "PoS Default Pricelist",}
+                {"name": "PoS Default Pricelist"}
             )
             pos_config.use_coupon_programs = True
             pos_config.coupon_program_ids.add(self.coupon_program)
             for promo_program in self.promo_programs:
                 pos_config.promo_program_ids.add(promo_program)
-
-        self.main_pos_config.open_session_cb(check_coa=False)
-
+        # open pos
+        self.main_pos_config.open_session_cb()
+        # needed because tests are run before the module is marked as
+        # installed. In js web will only load qweb coming from modules
+        # that are returned by the backend in module_boot. Without
+        # this you end up with js, css but no qweb.
+        self.env.ref("base.module_pos_coupon").state = "installed"
         ##
         # Tour Part 1
         # This part will generate coupons for `auto_promo_program_next`
         # that will be used in the second part of the tour.
         #
-
         self.start_tour(
             "/pos/web?config_id=%d" % self.main_pos_config.id,
             "PosCouponTour1",
-            login="accountman",
+            login="admin",
         )
-
         # check coupon usage
         self.assertEqual(
             self.coupon1.state, "used", msg="`1234` coupon should have been used."
@@ -135,12 +140,10 @@ class TestUi(TestPointOfSaleHttpCommon):
         self.assertEqual(
             len(pos_session.order_ids), 5, msg="5 orders were made in tour part1."
         )
-
         ##
         # Tour Part 2
         # The coupons generated in the first part will be used in this tour.
         #
-
         # Manually set the code for some `auto_promo_program_next` coupons
         # to be able to use them in defining the part2 tour.
         (
@@ -154,17 +157,16 @@ class TestUi(TestPointOfSaleHttpCommon):
         promo_coupon2.write({"code": "345678"})
         promo_coupon3.write({"code": "567890"})
         promo_coupon4.write({"code": "098765"})
-
         # use here the generated coupon
         self.start_tour(
             "/pos/web?config_id=%d" % self.main_pos_config.id,
             "PosCouponTour2",
-            login="accountman",
+            login="admin",
         )
         self.assertEqual(self.coupon4.state, "new")
         self.assertEqual(promo_coupon4.state, "new")
         # check pos_order_count in each program
-        self.assertEqual(self.auto_promo_program_current.pos_order_count, 5)
-        self.assertEqual(self.auto_promo_program_next.pos_order_count, 2)
+        self.assertEqual(self.auto_promo_program_current.pos_order_count, 6)
+        self.assertEqual(self.auto_promo_program_next.pos_order_count, 1)
         self.assertEqual(self.code_promo_program.pos_order_count, 2)
         self.assertEqual(self.coupon_program.pos_order_count, 3)

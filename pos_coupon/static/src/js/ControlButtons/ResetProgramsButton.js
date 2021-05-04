@@ -1,31 +1,24 @@
-odoo.define('pos_coupon.ResetProgramsButton', function (require) {
-    'use strict';
+odoo.define("pos_coupon.ResetProgramsButton", function(require) {
+    "use strict";
 
-    const PosComponent = require('point_of_sale.PosComponent');
-    const ProductScreen = require('point_of_sale.ProductScreen');
-    const { useListener } = require('web.custom_hooks');
-    const Registries = require('point_of_sale.Registries');
+    const screens = require("point_of_sale.screens");
+    const ActionButtonWidget = screens.ActionButtonWidget;
 
-    class ResetProgramsButton extends PosComponent {
-        constructor() {
-            super(...arguments);
-            useListener('click', this.onClick);
-        }
-        async onClick() {
-            const order = this.env.pos.get_order();
+    const ResetProgramsButton = ActionButtonWidget.extend({
+        template: "ResetProgramsButton",
+        button_click: function() {
+            const order = this.pos.get_order();
             order.resetPrograms();
-        }
-    }
-    ResetProgramsButton.template = 'ResetProgramsButton';
-
-    ProductScreen.addControlButton({
-        component: ResetProgramsButton,
-        condition: function () {
-            return this.env.pos.config.use_coupon_programs;
         },
     });
 
-    Registries.Component.add(ResetProgramsButton);
+    screens.define_action_button({
+        name: "ResetProgramsButton",
+        widget: ResetProgramsButton,
+        condition: function() {
+            return this.pos.config.use_coupon_programs;
+        },
+    });
 
     return ResetProgramsButton;
 });

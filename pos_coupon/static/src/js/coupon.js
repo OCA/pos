@@ -1,5 +1,6 @@
-odoo.define('pos_coupon.pos', function (require) {
-    'use strict';
+/* eslint-disable */
+odoo.define("pos_coupon.pos", function(require) {
+    "use strict";
 
     /**
      * When pos_coupon is active (`use_coupon_programs == true`), reward lines
@@ -17,19 +18,20 @@ odoo.define('pos_coupon.pos', function (require) {
      * `activePromoProgramIds`
      */
 
-    const models = require('point_of_sale.models');
-    const rpc = require('web.rpc');
-    const session = require('web.session');
-    const concurrency = require('web.concurrency');
-    const { Gui } = require('point_of_sale.Gui');
+    const models = require("point_of_sale.models");
+    const rpc = require("web.rpc");
+    const session = require("web.session");
+    const concurrency = require("web.concurrency");
+    const core = require("web.core");
+    const _t = core._t;
 
     const dp = new concurrency.DropPrevious();
 
     class CouponCode {
         /**
-         * @param {string} code coupon code
-         * @param {number} coupon_id id of coupon.coupon
-         * @param {numnber} program_id id of coupon.program
+         * @param {String} code coupon code
+         * @param {Number} coupon_id id of sale.coupon
+         * @param {numnber} program_id id of sale.coupon.program
          */
         constructor(code, coupon_id, program_id) {
             this.code = code;
@@ -48,9 +50,9 @@ odoo.define('pos_coupon.pos', function (require) {
          * @param {product.product} product product used in creating the reward line
          * @param {number} unit_price unit price of the reward
          * @param {number} quantity
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @param {number[]} tax_ids tax ids
-         * @param {number?} coupon_id id of the coupon.coupon the generates this reward
+         * @param {number?} coupon_id id of the sale.coupon the generates this reward
          * @param {boolean=true} awarded identifies this object as 'awarded' or not.
          * @param {string?} reason reason why this reward is 'unawarded'.
          */
@@ -83,7 +85,7 @@ odoo.define('pos_coupon.pos', function (require) {
          */
         get rewardedProductId() {
             return (
-                this.program.reward_type == 'product' &&
+                this.program.reward_type == "product" &&
                 this.program.reward_product_id &&
                 this.program.reward_product_id[0]
             );
@@ -131,13 +133,16 @@ odoo.define('pos_coupon.pos', function (require) {
             }
         }
         getUnawarded() {
-            return this._getFlattenRewards().filter((reward) => !reward.status.awarded);
+            return this._getFlattenRewards().filter(reward => !reward.status.awarded);
         }
         getAwarded() {
-            return this._getFlattenRewards().filter((reward) => reward.status.awarded);
+            return this._getFlattenRewards().filter(reward => reward.status.awarded);
         }
         _getFlattenRewards() {
-            return Object.values(this._rewards).reduce((flatArr, arr) => [...flatArr, ...arr], []);
+            return Object.values(this._rewards).reduce(
+                (flatArr, arr) => [...flatArr, ...arr],
+                []
+            );
         }
     }
 
@@ -166,53 +171,55 @@ odoo.define('pos_coupon.pos', function (require) {
      *     +------------+--------+--------+      +------------+--------+--------+
      * ```
      *
-     * @param {number} numberItems number of items
-     * @param {number} n items to buy
-     * @param {number} m item for free
-     * @returns {number} number of free items
+     * @param {Number} numberItems number of items
+     * @param {Number} n items to buy
+     * @param {Number} m item for free
+     * @returns {Number} number of free items
      */
     function computeFreeQuantity(numberItems, n, m) {
-        let factor = Math.trunc(numberItems / (n + m));
-        let free = factor * m;
-        let charged = numberItems - free;
-        // adjust the calculated free quantities
-        let x = (factor + 1) * n;
-        let y = x + (factor + 1) * m;
-        let adjustment = x <= charged && charged < y ? charged - x : 0;
+        const factor = Math.trunc(numberItems / (n + m));
+        const free = factor * m;
+        const charged = numberItems - free;
+        // Adjust the calculated free quantities
+        const x = (factor + 1) * n;
+        const y = x + (factor + 1) * m;
+        const adjustment = x <= charged && charged < y ? charged - x : 0;
         return free + adjustment;
     }
 
     // Load the products used for creating program reward lines.
     var existing_models = models.PosModel.prototype.models;
-    var product_index = _.findIndex(existing_models, function (model) {
-        return model.model === 'product.product';
+    var product_index = _.findIndex(existing_models, function(model) {
+        return model.model === "product.product";
     });
     var product_model = existing_models[product_index];
     models.load_models([
         {
-            model: 'coupon.program',
+            model: "sale.coupon.program",
             fields: [],
-            domain: function (self) {
-                return [['id', 'in', self.config.program_ids]];
+            domain: function(self) {
+                return [["id", "in", self.config.program_ids]];
             },
-            loaded: function (self, programs) {
+            loaded: function(self, programs) {
                 self.programs = programs;
                 self.coupon_programs_by_id = {};
                 self.coupon_programs = [];
                 self.promo_programs = [];
-                for (let program of self.programs) {
-                    // index by id
+                for (const program of self.programs) {
+                    // Index by id
                     self.coupon_programs_by_id[program.id] = program;
-                    // separate coupon programs from promo programs
-                    if (program.program_type === 'coupon_program') {
+                    // Separate coupon programs from promo programs
+                    if (program.program_type === "coupon_program") {
                         self.coupon_programs.push(program);
                     } else {
                         self.promo_programs.push(program);
                     }
-                    // cast some arrays to Set for faster membership checking
+                    // Cast some arrays to Set for faster membership checking
                     program.valid_product_ids = new Set(program.valid_product_ids);
                     program.valid_partner_ids = new Set(program.valid_partner_ids);
-                    program.discount_specific_product_ids = new Set(program.discount_specific_product_ids);
+                    program.discount_specific_product_ids = new Set(
+                        program.discount_specific_product_ids
+                    );
                 }
             },
         },
@@ -220,10 +227,14 @@ odoo.define('pos_coupon.pos', function (require) {
             model: product_model.model,
             fields: product_model.fields,
             order: product_model.order,
-            domain: function (self) {
-                const discountLineProductIds = self.programs.map((program) => program.discount_line_product_id[0]);
-                const rewardProductIds = self.programs.map((program) => program.reward_product_id[0]);
-                return [['id', 'in', discountLineProductIds.concat(rewardProductIds)]];
+            domain: function(self) {
+                const discountLineProductIds = self.programs.map(
+                    program => program.discount_line_product_id[0]
+                );
+                const rewardProductIds = self.programs.map(
+                    program => program.reward_product_id[0]
+                );
+                return [["id", "in", discountLineProductIds.concat(rewardProductIds)]];
             },
             context: product_model.context,
             loaded: product_model.loaded,
@@ -232,11 +243,11 @@ odoo.define('pos_coupon.pos', function (require) {
 
     var _posmodel_super = models.PosModel.prototype;
     models.PosModel = models.PosModel.extend({
-        initialize: function () {
+        initialize: function() {
             _posmodel_super.initialize.apply(this, arguments);
             this.ready.then(() => {
-                if (this.get('selectedOrder')) {
-                    this.get('selectedOrder').trigger('update-rewards');
+                if (this.get("selectedOrder")) {
+                    this.get("selectedOrder").trigger("update-rewards");
                 }
             });
         },
@@ -251,89 +262,115 @@ odoo.define('pos_coupon.pos', function (require) {
     models.Order = models.Order.extend({
         // OVERIDDEN METHODS
 
-        initialize: function () {
-            let res = _order_super.initialize.apply(this, arguments);
+        initialize: function() {
+            const res = _order_super.initialize.apply(this, arguments);
             res.on(
-                'update-rewards',
+                "update-rewards",
                 () => {
                     if (!this.pos.config.use_coupon_programs) return;
-                    dp.add(this._getNewRewardLines()).then(([newRewardLines, rewardsContainer]) => {
-                        this.orderlines.remove(this._getRewardLines());
-                        this.orderlines.add(newRewardLines);
-                        // We need this for the rendering of ActivePrograms component.
-                        this.rewardsContainer = rewardsContainer;
-                        // Send a signal that the rewardsContainer are updated.
-                        this.trigger('rewards-updated');
-                    });
+                    dp.add(this._getNewRewardLines()).then(
+                        ([newRewardLines, rewardsContainer]) => {
+                            // BACKPORT NOTE
+                            // This is not required in 15.0, but in 13.0 we want to disable the
+                            // numpad state reset when updating rewards, as it's otherwise called
+                            // when adding / removing reward lines and it makes it impossible to
+                            // type more than 1 digit.
+                            if (this.get_screen_data("screen") === "products") {
+                                this.pos.gui.current_screen.numpad.state._disable_reset = true;
+                            }
+                            this.orderlines.remove(this._getRewardLines());
+                            this.orderlines.add(newRewardLines);
+                            // Re-enable numpad state reset
+                            if (this.get_screen_data("screen") === "products") {
+                                this.pos.gui.current_screen.numpad.state._disable_reset = false;
+                            }
+                            // We need this for the rendering of ActivePrograms component.
+                            this.rewardsContainer = rewardsContainer;
+                            // Send a signal that the rewardsContainer are updated.
+                            this.trigger("rewards-updated");
+                        }
+                    );
                 },
                 res
             );
-            res.on('reset-coupons', res.resetCoupons, res);
+            res.on("reset-coupons", res.resetCoupons, res);
             res._initializePrograms();
             return res;
         },
-        init_from_JSON: function (json) {
+        init_from_JSON: function(json) {
             _order_super.init_from_JSON.apply(this, arguments);
             this.bookedCouponCodes = json.bookedCouponCodes;
             this.activePromoProgramIds = json.activePromoProgramIds;
         },
-        export_as_JSON: function () {
-            let json = _order_super.export_as_JSON.apply(this, arguments);
+        export_as_JSON: function() {
+            const json = _order_super.export_as_JSON.apply(this, arguments);
             return Object.assign(json, {
                 bookedCouponCodes: this.bookedCouponCodes,
                 activePromoProgramIds: this.activePromoProgramIds,
             });
         },
-        set_orderline_options: function (orderline, options) {
-            _order_super.set_orderline_options.apply(this, [orderline, options]);
-            if (options && options.is_program_reward) {
-                orderline.is_program_reward = true;
-                orderline.tax_ids = options.tax_ids;
-                orderline.program_id = options.program_id;
-                orderline.coupon_id = options.coupon_id;
+        /**
+         * BACKPORT NOTE
+         *
+         * In 15.0, this override is not needed, as it overrides
+         * set_orderline_options instead.
+         *
+         * In 13.0 we are not able to do this, so we try to extend
+         * the options here, using the options.extras property.
+         */
+        add_product: function(product, options) {
+            options = options || {};
+            if (options.is_program_reward) {
+                options.extras = options.extras || {};
+                options.extras.is_program_reward = true;
+                options.extras.tax_ids = options.tax_ids;
+                options.extras.program_id = options.program_id;
+                options.extras.coupon_id = options.coupon_id;
             }
+            return _order_super.add_product.apply(this, [product, options]);
         },
         /**
          * This function's behavior is modified so that the reward lines are
          * rendered at the bottom of the orderlines list.
          */
-        get_orderlines: function () {
+        get_orderlines: function() {
             return [...this._getRegularOrderlines(), ...this._getRewardLines()];
         },
-        _getRegularOrderlines: function () {
+        _getRegularOrderlines: function() {
             const orderlines = _order_super.get_orderlines.apply(this, arguments);
-            return orderlines.filter((line) => !line.is_program_reward);
+            return orderlines.filter(line => !line.is_program_reward);
         },
-        _getRewardLines: function () {
+        _getRewardLines: function() {
             const orderlines = _order_super.get_orderlines.apply(this, arguments);
-            return orderlines.filter((line) => line.is_program_reward);
+            return orderlines.filter(line => line.is_program_reward);
         },
-        wait_for_push_order: function () {
+        wait_for_push_order: function() {
             return (
-                (this.programIdsToGenerateCoupons && this.programIdsToGenerateCoupons.length) ||
-                this.get_orderlines().filter((line) => line.is_program_reward).length ||
+                (this.programIdsToGenerateCoupons &&
+                    this.programIdsToGenerateCoupons.length) ||
+                this.get_orderlines().filter(line => line.is_program_reward).length ||
                 _order_super.wait_for_push_order.apply(this, arguments)
             );
         },
-        export_for_printing: function () {
-            let result = _order_super.export_for_printing.apply(this, arguments);
+        export_for_printing: function() {
+            const result = _order_super.export_for_printing.apply(this, arguments);
             result.generated_coupons = this.generated_coupons;
             return result;
         },
-        add_product: function (product, options) {
+        add_product: function(product, options) {
             _order_super.add_product.apply(this, [product, options]);
-            this.trigger('update-rewards');
+            this.trigger("update-rewards");
         },
-        get_last_orderline: function () {
+        get_last_orderline: function() {
             const regularLines = _order_super.get_orderlines
                 .apply(this, arguments)
-                .filter((line) => !line.is_program_reward);
+                .filter(line => !line.is_program_reward);
             return regularLines[regularLines.length - 1];
         },
 
         // NEW METHODS
 
-        _initializePrograms: async function () {
+        _initializePrograms: async function() {
             if (!this.bookedCouponCodes) {
                 /**
                  * This field contains the activated coupons.
@@ -350,52 +387,68 @@ odoo.define('pos_coupon.pos', function (require) {
                 this.activePromoProgramIds = this._getAutomaticPromoProgramIds();
             }
         },
-        resetPrograms: function () {
+        resetPrograms: function() {
             let deactivatedCount = 0;
             if (this.bookedCouponCodes) {
-                const couponIds = Object.values(this.bookedCouponCodes).map((couponCode) => couponCode.coupon_id);
+                const couponIds = Object.values(this.bookedCouponCodes).map(
+                    couponCode => couponCode.coupon_id
+                );
                 if (couponIds.length > 0) {
-                    this.trigger('reset-coupons', couponIds);
+                    this.trigger("reset-coupons", couponIds);
                 }
                 this.bookedCouponCodes = {};
                 deactivatedCount += couponIds.length;
             }
             if (this.activePromoProgramIds) {
-                const codeNeededPromoProgramIds = this.activePromoProgramIds.filter((program_id) => {
-                    return this.pos.coupon_programs_by_id[program_id].promo_code_usage === 'code_needed';
-                });
+                const codeNeededPromoProgramIds = this.activePromoProgramIds.filter(
+                    program_id => {
+                        return (
+                            this.pos.coupon_programs_by_id[program_id]
+                                .promo_code_usage === "code_needed"
+                        );
+                    }
+                );
                 this.activePromoProgramIds = this._getAutomaticPromoProgramIds();
                 deactivatedCount += codeNeededPromoProgramIds.length;
             }
-            if (deactivatedCount > 0) Gui.showNotification('Active coupons and promo codes were deactivated.');
-            this.trigger('update-rewards');
+            if (deactivatedCount > 0)
+                this.pos.gui.show_popup("alert", {
+                    body: _t("Active coupons and promo codes were deactivated."),
+                });
+            this.trigger("update-rewards");
         },
         /**
          * Updates `bookedCouponCodes` or `activePromoProgramIds` depending on which code
          * is scanned.
          *
-         * @param {string} code
+         * @param {String} code
          */
-        activateCode: async function (code) {
+        activateCode: async function(code) {
             const promoProgram = this.pos.promo_programs.find(
-                (program) => program.promo_barcode == code || program.promo_code == code
+                program => program.promo_barcode == code || program.promo_code == code
             );
             if (promoProgram && this.activePromoProgramIds.includes(promoProgram.id)) {
-                Gui.showNotification('That promo code program has already been activated.');
+                this.pos.gui.show_popup("alert", {
+                    body: _t("That promo code program has already been activated."),
+                });
             } else if (promoProgram) {
                 // TODO these two operations should be atomic
                 this.activePromoProgramIds.push(promoProgram.id);
-                this.trigger('update-rewards');
+                this.trigger("update-rewards");
             } else if (code in this.bookedCouponCodes) {
-                Gui.showNotification('That coupon code has already been scanned and activated.');
+                this.pos.gui.show_popup("alert", {
+                    body: _t(
+                        "That coupon code has already been scanned and activated."
+                    ),
+                });
             } else {
-                const programIdsWithScannedCoupon = Object.values(this.bookedCouponCodes).map(
-                    (couponCode) => couponCode.program_id
-                );
+                const programIdsWithScannedCoupon = Object.values(
+                    this.bookedCouponCodes
+                ).map(couponCode => couponCode.program_id);
                 const customer = this.get_client();
-                const { successful, payload } = await rpc.query({
-                    model: 'pos.config',
-                    method: 'use_coupon_code',
+                const {successful, payload} = await rpc.query({
+                    model: "pos.config",
+                    method: "use_coupon_code",
                     args: [
                         [this.pos.config.id],
                         code,
@@ -403,21 +456,28 @@ odoo.define('pos_coupon.pos', function (require) {
                         customer ? customer.id : false,
                         programIdsWithScannedCoupon,
                     ],
-                    kwargs: { context: session.user_context },
+                    kwargs: {context: session.user_context},
                 });
                 if (successful) {
                     // TODO these two operations should be atomic
-                    this.bookedCouponCodes[code] = new CouponCode(code, payload.coupon_id, payload.program_id);
-                    this.trigger('update-rewards');
+                    this.bookedCouponCodes[code] = new CouponCode(
+                        code,
+                        payload.coupon_id,
+                        payload.program_id
+                    );
+                    this.trigger("update-rewards");
                 } else {
-                    Gui.showNotification(payload.error_message);
+                    this.pos.gui.show_popup("alert", {
+                        body: payload.error_message,
+                    });
                 }
             }
         },
+
         /**
          * @returns {[models.Orderline[], RewardsContainer]}
          */
-        _getNewRewardLines: async function () {
+        _getNewRewardLines: async function() {
             const rewardsContainer = await this._calculateRewards();
             // We set the programs that will generate coupons after validation of this order.
             // See `_postPushOrderResolve` in the `PaymentScreen`.
@@ -426,15 +486,15 @@ odoo.define('pos_coupon.pos', function (require) {
             return [this._getLinesToAdd(rewardsContainer), rewardsContainer];
         },
         /**
-         * @param {number[]} couponIds ids of the coupon.coupon records to reset
+         * @param {Number[]} couponIds ids of the sale.coupon records to reset
          */
-        resetCoupons: async function (couponIds) {
+        resetCoupons: async function(couponIds) {
             await rpc.query(
                 {
-                    model: 'coupon.coupon',
-                    method: 'write',
-                    args: [couponIds, { state: 'new' }],
-                    kwargs: { context: session.user_context },
+                    model: "sale.coupon",
+                    method: "write",
+                    args: [couponIds, {state: "new"}],
+                    kwargs: {context: session.user_context},
                 },
                 {}
             );
@@ -442,26 +502,34 @@ odoo.define('pos_coupon.pos', function (require) {
         /**
          * Create orderline rewards based on the `awarded` rewards from `rewardsContainer`.
          *
+         * BACKPORT NOTE: set_orderline_options doesn't exist here, so instead of calling
+         * that method we set the line options manually.
+         *
          * @param {RewardsContainer} rewardsContainer
          * @returns {models.Orderline[]}
          */
-        _getLinesToAdd: function (rewardsContainer) {
+        _getLinesToAdd: function(rewardsContainer) {
             this.assert_editable();
             return rewardsContainer
                 .getAwarded()
-                .map(({ product, unit_price, quantity, program, tax_ids, coupon_id }) => {
-                    const options = {
-                        quantity: quantity,
-                        price: unit_price,
-                        lst_price: unit_price,
-                        is_program_reward: true,
-                        program_id: program.id,
-                        tax_ids: tax_ids,
-                        coupon_id: coupon_id,
-                    };
-                    const line = new models.Orderline({}, { pos: this.pos, order: this, product });
+                .map(({product, unit_price, quantity, program, tax_ids, coupon_id}) => {
+                    const line = new models.Orderline(
+                        {},
+                        {pos: this.pos, order: this, product}
+                    );
                     this.fix_tax_included_price(line);
-                    this.set_orderline_options(line, options);
+                    if (quantity) {
+                        line.set_quantity(quantity);
+                    }
+                    if (unit_price !== undefined) {
+                        line.set_unit_price(unit_price);
+                        this.fix_tax_included_price(line);
+                        line.set_lst_price(unit_price);
+                    }
+                    line.is_program_reward = true;
+                    line.tax_ids = tax_ids;
+                    line.program_id = program.id;
+                    line.coupon_id = coupon_id;
                     return line;
                 });
         },
@@ -472,14 +540,14 @@ odoo.define('pos_coupon.pos', function (require) {
          *
          * @param {RewardsContainer} rewardsContainer
          */
-        _setProgramIdsToGenerateCoupons: async function (rewardsContainer) {
+        _setProgramIdsToGenerateCoupons: async function(rewardsContainer) {
             const programIdsToGenerateCoupons = [];
-            for (let [program] of this._getActiveOnNextPromoPrograms()) {
-                const { successful, reason } = await this._checkProgramRules(program);
+            for (const [program] of this._getActiveOnNextPromoPrograms()) {
+                const {successful, reason} = await this._checkProgramRules(program);
                 if (successful) {
                     programIdsToGenerateCoupons.push(program.id);
                 } else {
-                    const notAwarded = new Reward({ program, reason, awarded: false });
+                    const notAwarded = new Reward({program, reason, awarded: false});
                     rewardsContainer.add([notAwarded]);
                 }
             }
@@ -508,7 +576,7 @@ odoo.define('pos_coupon.pos', function (require) {
          *
          * @returns {RewardsContainer}
          */
-        _calculateRewards: async function () {
+        _calculateRewards: async function() {
             const rewardsContainer = new RewardsContainer();
 
             if (this._getRegularOrderlines().length === 0) {
@@ -525,10 +593,15 @@ odoo.define('pos_coupon.pos', function (require) {
 
             const collectRewards = (validPrograms, rewardGetter) => {
                 const allRewards = [];
-                for (let [program, coupon_id] of validPrograms) {
+                for (const [program, coupon_id] of validPrograms) {
                     const [rewards, reason] = rewardGetter(program, coupon_id);
                     if (reason) {
-                        const notAwarded = new Reward({ awarded: false, reason, program, coupon_id });
+                        const notAwarded = new Reward({
+                            awarded: false,
+                            reason,
+                            program,
+                            coupon_id,
+                        });
                         rewardsContainer.add([notAwarded]);
                     }
                     allRewards.push(...rewards);
@@ -537,29 +610,49 @@ odoo.define('pos_coupon.pos', function (require) {
             };
 
             // - Gather the product rewards
-            const freeProducts = collectRewards(freeProductPrograms, this._getProductRewards.bind(this));
+            const freeProducts = collectRewards(
+                freeProductPrograms,
+                this._getProductRewards.bind(this)
+            );
 
             // - Gather the fixed amount discounts
-            const fixedAmountDiscounts = collectRewards(fixedAmountDiscountPrograms, this._getFixedDiscount.bind(this));
+            const fixedAmountDiscounts = collectRewards(
+                fixedAmountDiscountPrograms,
+                this._getFixedDiscount.bind(this)
+            );
 
             // - Gather the specific discounts
             const specificDiscountGetter = (program, coupon_id) => {
                 return this._getSpecificDiscount(program, coupon_id, freeProducts);
             };
-            const specificDiscounts = collectRewards(onSpecificPrograms, specificDiscountGetter);
+            const specificDiscounts = collectRewards(
+                onSpecificPrograms,
+                specificDiscountGetter
+            );
 
             // - Collect the discounts from on order and on cheapest discount programs.
             const globalDiscounts = [];
             const onOrderDiscountGetter = (program, coupon_id) => {
-                return this._getOnOrderDiscountRewards(program, coupon_id, freeProducts);
+                return this._getOnOrderDiscountRewards(
+                    program,
+                    coupon_id,
+                    freeProducts
+                );
             };
-            globalDiscounts.push(...collectRewards(onOrderPrograms, onOrderDiscountGetter));
-            globalDiscounts.push(...collectRewards(onCheapestPrograms, this._getOnCheapestProductDiscount.bind(this)));
+            globalDiscounts.push(
+                ...collectRewards(onOrderPrograms, onOrderDiscountGetter)
+            );
+            globalDiscounts.push(
+                ...collectRewards(
+                    onCheapestPrograms,
+                    this._getOnCheapestProductDiscount.bind(this)
+                )
+            );
 
             // - Group the discounts by program id.
             const groupedGlobalDiscounts = {};
-            for (let discount of globalDiscounts) {
-                const key = [discount.program.id, discount.coupon_id].join(',');
+            for (const discount of globalDiscounts) {
+                const key = [discount.program.id, discount.coupon_id].join(",");
                 if (!(key in groupedGlobalDiscounts)) {
                     groupedGlobalDiscounts[key] = [discount];
                 } else {
@@ -572,16 +665,21 @@ odoo.define('pos_coupon.pos', function (require) {
             // discount lines. This is because discounts are grouped by tax.
             let currentMaxTotal = 0;
             let currentMaxKey = null;
-            for (let key in groupedGlobalDiscounts) {
+            for (const key in groupedGlobalDiscounts) {
                 const discountRewards = groupedGlobalDiscounts[key];
-                const newTotal = discountRewards.reduce((sum, discReward) => sum + discReward.discountAmount, 0);
+                const newTotal = discountRewards.reduce(
+                    (sum, discReward) => sum + discReward.discountAmount,
+                    0
+                );
                 if (newTotal > currentMaxTotal) {
                     currentMaxTotal = newTotal;
                     currentMaxKey = key;
                 }
             }
             const theOnlyGlobalDiscount = currentMaxKey
-                ? groupedGlobalDiscounts[currentMaxKey].filter((discountReward) => discountReward.discountAmount !== 0)
+                ? groupedGlobalDiscounts[currentMaxKey].filter(
+                      discountReward => discountReward.discountAmount !== 0
+                  )
                 : [];
 
             // - Get the messages for the discarded global_discounts
@@ -589,13 +687,13 @@ odoo.define('pos_coupon.pos', function (require) {
                 const theOnlyGlobalDiscountKey = [
                     theOnlyGlobalDiscount[0].program.id,
                     theOnlyGlobalDiscount[0].coupon_id,
-                ].join(',');
-                for (let [key, discounts] of Object.entries(groupedGlobalDiscounts)) {
+                ].join(",");
+                for (const [key, discounts] of Object.entries(groupedGlobalDiscounts)) {
                     if (key !== theOnlyGlobalDiscountKey) {
                         const notAwarded = new Reward({
                             program: discounts[0].program,
                             coupon_id: discounts[0].coupon_id,
-                            reason: 'Not the greatest global discount.',
+                            reason: "Not the greatest global discount.",
                             awarded: false,
                         });
                         rewardsContainer.add([notAwarded]);
@@ -631,7 +729,7 @@ odoo.define('pos_coupon.pos', function (require) {
          * It only includes the valid programs, those that passes the program rules.
          * This has side-effect of `add`ing unawarded rewards to the given rewardsContainer.
          */
-        _getValidActivePrograms: async function (rewardsContainer) {
+        _getValidActivePrograms: async function(rewardsContainer) {
             const freeProductPrograms = [],
                 fixedAmountDiscountPrograms = [],
                 onSpecificPrograms = [],
@@ -639,38 +737,41 @@ odoo.define('pos_coupon.pos', function (require) {
                 onOrderPrograms = [];
 
             function updateProgramLists(program, coupon_id) {
-                if (program.reward_type === 'product') {
+                if (program.reward_type === "product") {
                     freeProductPrograms.push([program, coupon_id]);
+                } else if (program.discount_type === "fixed_amount") {
+                    fixedAmountDiscountPrograms.push([program, coupon_id]);
+                } else if (program.discount_apply_on === "specific_products") {
+                    onSpecificPrograms.push([program, coupon_id]);
+                } else if (program.discount_apply_on === "cheapest_product") {
+                    onCheapestPrograms.push([program, coupon_id]);
                 } else {
-                    if (program.discount_type === 'fixed_amount') {
-                        fixedAmountDiscountPrograms.push([program, coupon_id]);
-                    } else if (program.discount_apply_on === 'specific_products') {
-                        onSpecificPrograms.push([program, coupon_id]);
-                    } else if (program.discount_apply_on === 'cheapest_product') {
-                        onCheapestPrograms.push([program, coupon_id]);
-                    } else {
-                        onOrderPrograms.push([program, coupon_id]);
-                    }
+                    onOrderPrograms.push([program, coupon_id]);
                 }
             }
 
-            for (let [program, coupon_id] of this._getBookedPromoPrograms()) {
+            for (const [program, coupon_id] of this._getBookedPromoPrograms()) {
                 // Booked coupons from on next order promo programs do not need
                 // checking of rules because checks are done before generating
                 // coupons.
                 updateProgramLists(program, coupon_id);
             }
 
-            for (let [program, coupon_id] of [
+            for (const [program, coupon_id] of [
                 ...this._getBookedCouponPrograms(),
                 ...this._getActiveOnCurrentPromoPrograms(),
             ]) {
-                const { successful, reason } = await this._checkProgramRules(program);
+                const {successful, reason} = await this._checkProgramRules(program);
                 if (successful) {
                     updateProgramLists(program, coupon_id);
                 } else {
-                    // side-effect
-                    const notAwarded = new Reward({ program, coupon_id, reason, awarded: false });
+                    // Side-effect
+                    const notAwarded = new Reward({
+                        program,
+                        coupon_id,
+                        reason,
+                        awarded: false,
+                    });
                     rewardsContainer.add([notAwarded]);
                 }
             }
@@ -683,28 +784,28 @@ odoo.define('pos_coupon.pos', function (require) {
                 onOrderPrograms,
             };
         },
-        _getAutomaticPromoProgramIds: function () {
+        _getAutomaticPromoProgramIds: function() {
             return this.pos.promo_programs
-                .filter((program) => {
-                    return program.promo_code_usage == 'no_code_needed';
+                .filter(program => {
+                    return program.promo_code_usage == "no_code_needed";
                 })
-                .map((program) => program.id);
+                .map(program => program.id);
         },
         /**
          * These are the coupon programs that are activated
          * via coupon codes. RewardsContainer can only be generated if the coupon
          * program rules are satisfied.
          *
-         * @returns {[coupon.program, number][]}
+         * @returns {[sale.coupon.program, Number][]}
          */
-        _getBookedCouponPrograms: function () {
+        _getBookedCouponPrograms: function() {
             return Object.values(this.bookedCouponCodes)
-                .map((couponCode) => [
+                .map(couponCode => [
                     this.pos.coupon_programs_by_id[couponCode.program_id],
                     parseInt(couponCode.coupon_id, 10),
                 ])
                 .filter(([program]) => {
-                    return program.program_type === 'coupon_program';
+                    return program.program_type === "coupon_program";
                 });
         },
         /**
@@ -712,65 +813,65 @@ odoo.define('pos_coupon.pos', function (require) {
          * via coupon codes. RewardsContainer can be generated from this program
          * without checking the constraints.
          *
-         * @returns {[coupon.program, number][]}
+         * @returns {[sale.coupon.program, Number][]}
          */
-        _getBookedPromoPrograms: function () {
+        _getBookedPromoPrograms: function() {
             return Object.values(this.bookedCouponCodes)
-                .map((couponCode) => [
+                .map(couponCode => [
                     this.pos.coupon_programs_by_id[couponCode.program_id],
                     parseInt(couponCode.coupon_id, 10),
                 ])
                 .filter(([program]) => {
-                    return program.program_type === 'promotion_program';
+                    return program.program_type === "promotion_program";
                 });
         },
         /**
          * These are the active on_current_order promo programs that will generate
          * rewards if the program constraints are fully-satisfied.
          *
-         * @returns {[coupon.program, null][]}
+         * @returns {[sale.coupon.program, null][]}
          */
-        _getActiveOnCurrentPromoPrograms: function () {
+        _getActiveOnCurrentPromoPrograms: function() {
             return this.activePromoProgramIds
-                .map((program_id) => [this.pos.coupon_programs_by_id[program_id], null])
+                .map(program_id => [this.pos.coupon_programs_by_id[program_id], null])
                 .filter(([program]) => {
-                    return program.promo_applicability === 'on_current_order';
+                    return program.promo_applicability === "on_current_order";
                 });
         },
         /**
          * These are the active on_next_order promo programs that will generate
          * coupon codes if the program constraints are fully-satisfied.
          *
-         * @returns {[coupon.program, null][]}
+         * @returns {[sale.coupon.program, null][]}
          */
-        _getActiveOnNextPromoPrograms: function () {
+        _getActiveOnNextPromoPrograms: function() {
             return this.activePromoProgramIds
-                .map((program_id) => [this.pos.coupon_programs_by_id[program_id], null])
+                .map(program_id => [this.pos.coupon_programs_by_id[program_id], null])
                 .filter(([program]) => {
-                    return program.promo_applicability === 'on_next_order';
+                    return program.promo_applicability === "on_next_order";
                 });
         },
         /**
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @returns {{ successful: boolean, reason: string | undefined }}
          */
-        _checkProgramRules: async function (program) {
+        _checkProgramRules: async function(program) {
             // Check minimum amount
             const amountToCheck =
-                program.rule_minimum_amount_tax_inclusion === 'tax_included'
+                program.rule_minimum_amount_tax_inclusion === "tax_included"
                     ? this.get_total_with_tax()
                     : this.get_total_without_tax();
             // TODO jcb rule_minimum_amount has to be converted.
             if (!(amountToCheck >= program.rule_minimum_amount)) {
                 return {
                     successful: false,
-                    reason: 'Minimum amount for this program is not satisfied.',
+                    reason: "Minimum amount for this program is not satisfied.",
                 };
             }
 
             // Check minimum quantity
             const validQuantity = this._getRegularOrderlines()
-                .filter((line) => {
+                .filter(line => {
                     return program.valid_product_ids.has(line.product.id);
                 })
                 .reduce((total, line) => total + line.quantity, 0);
@@ -782,7 +883,7 @@ odoo.define('pos_coupon.pos', function (require) {
             }
 
             // Bypass other rules if program is coupon_program
-            if (program.program_type === 'coupon_program') {
+            if (program.program_type === "coupon_program") {
                 return {
                     successful: true,
                 };
@@ -790,7 +891,10 @@ odoo.define('pos_coupon.pos', function (require) {
 
             // Check if valid customer
             const customer = this.get_client();
-            if (program.rule_partners_domain && !program.valid_partner_ids.has(customer ? customer.id : 0)) {
+            if (
+                program.rule_partners_domain &&
+                !program.valid_partner_ids.has(customer ? customer.id : 0)
+            ) {
                 return {
                     successful: false,
                     reason: "Current customer can't avail this program.",
@@ -798,13 +902,17 @@ odoo.define('pos_coupon.pos', function (require) {
             }
 
             // Check rule date
-            const ruleFrom = program.rule_date_from ? new Date(program.rule_date_from) : new Date(-8640000000000000);
-            const ruleTo = program.rule_date_to ? new Date(program.rule_date_to) : new Date(8640000000000000);
+            const ruleFrom = program.rule_date_from
+                ? new Date(program.rule_date_from)
+                : new Date(-8640000000000000);
+            const ruleTo = program.rule_date_to
+                ? new Date(program.rule_date_to)
+                : new Date(8640000000000000);
             const orderDate = new Date();
             if (!(orderDate >= ruleFrom && orderDate <= ruleTo)) {
                 return {
                     successful: false,
-                    reason: 'Program already expired.',
+                    reason: "Program already expired.",
                 };
             }
 
@@ -812,16 +920,16 @@ odoo.define('pos_coupon.pos', function (require) {
             if (program.maximum_use_number !== 0) {
                 const [result] = await rpc
                     .query({
-                        model: 'coupon.program',
-                        method: 'read',
-                        args: [program.id, ['total_order_count']],
-                        kwargs: { context: session.user_context },
+                        model: "sale.coupon.program",
+                        method: "read",
+                        args: [program.id, ["total_order_count"]],
+                        kwargs: {context: session.user_context},
                     })
-                    .catch(() => Promise.resolve([false])); // may happen because offline
+                    .catch(() => Promise.resolve([false])); // May happen because offline
                 if (!result) {
                     return {
                         successful: false,
-                        reason: 'Unable to get the number of usage of the program.',
+                        reason: "Unable to get the number of usage of the program.",
                     };
                 } else if (!(result.total_order_count < program.maximum_use_number)) {
                     return {
@@ -841,13 +949,13 @@ odoo.define('pos_coupon.pos', function (require) {
          * `program` and `coupon_id`.
          * It returns a tuple of rewards and reason if no rewards are created.
          *
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @param {number} coupon_id
          * @returns {[Reward[], string | null]}
          */
-        _getProductRewards: function (program, coupon_id) {
+        _getProductRewards: function(program, coupon_id) {
             const totalQuantity = this._getRegularOrderlines()
-                .filter((line) => {
+                .filter(line => {
                     return program.valid_product_ids.has(line.product.id);
                 })
                 .reduce((quantity, line) => quantity + line.quantity, 0);
@@ -858,39 +966,47 @@ odoo.define('pos_coupon.pos', function (require) {
                 program.reward_product_quantity
             );
             if (freeQuantity === 0) {
-                return [[], 'Zero free product quantity.'];
-            } else {
-                const rewardProduct = this.pos.db.get_product_by_id(program.reward_product_id[0]);
-                const discountLineProduct = this.pos.db.get_product_by_id(program.discount_line_product_id[0]);
-                return [
-                    [
-                        new Reward({
-                            product: discountLineProduct,
-                            unit_price: -rewardProduct.lst_price,
-                            quantity: freeQuantity,
-                            program: program,
-                            tax_ids: rewardProduct.taxes_id,
-                            coupon_id: coupon_id,
-                        }),
-                    ],
-                    null,
-                ];
+                return [[], "Zero free product quantity."];
             }
+            const rewardProduct = this.pos.db.get_product_by_id(
+                program.reward_product_id[0]
+            );
+            const discountLineProduct = this.pos.db.get_product_by_id(
+                program.discount_line_product_id[0]
+            );
+            return [
+                [
+                    new Reward({
+                        product: discountLineProduct,
+                        unit_price: -rewardProduct.lst_price,
+                        quantity: freeQuantity,
+                        program: program,
+                        tax_ids: rewardProduct.taxes_id,
+                        coupon_id: coupon_id,
+                    }),
+                ],
+                null,
+            ];
         },
         /**
          * This method is called via `collectRewards` inside `_calculateRewards`.
          * It returns fixed discount reward based on the given program.
          *
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @param {number} coupon_id
          * @returns {[Reward[], string | null]}
          */
-        _getFixedDiscount: function (program, coupon_id) {
-            const discountAmount = Math.min(program.discount_fixed_amount, program.discount_max_amount || Infinity);
+        _getFixedDiscount: function(program, coupon_id) {
+            const discountAmount = Math.min(
+                program.discount_fixed_amount,
+                program.discount_max_amount || Infinity
+            );
             return [
                 [
                     new Reward({
-                        product: this.pos.db.get_product_by_id(program.discount_line_product_id[0]),
+                        product: this.pos.db.get_product_by_id(
+                            program.discount_line_product_id[0]
+                        ),
                         unit_price: -discountAmount,
                         quantity: 1,
                         program: program,
@@ -907,26 +1023,32 @@ odoo.define('pos_coupon.pos', function (require) {
          * Amounts are grouped based on products tax ids (see `_getGroupKey`).
          * We also adjust the `amountsToDiscount` based on the rewarded products.
          *
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @param {number} coupon_id
          * @param {Reward[]} productRewards
          * @returns {[Reward[], string | null]}
          */
-        _getSpecificDiscount: function (program, coupon_id, productRewards) {
+        _getSpecificDiscount: function(program, coupon_id, productRewards) {
             const productIdsToAccount = new Set();
             const amountsToDiscount = {};
-            for (let line of this._getRegularOrderlines()) {
+            for (const line of this._getRegularOrderlines()) {
                 if (program.discount_specific_product_ids.has(line.get_product().id)) {
                     const key = this._getGroupKey(line);
                     if (!(key in amountsToDiscount)) {
-                        amountsToDiscount[key] = line.get_quantity() * line.get_lst_price();
+                        amountsToDiscount[key] =
+                            line.get_quantity() * line.get_lst_price();
                     } else {
-                        amountsToDiscount[key] += line.get_quantity() * line.get_lst_price();
+                        amountsToDiscount[key] +=
+                            line.get_quantity() * line.get_lst_price();
                     }
                     productIdsToAccount.add(line.get_product().id);
                 }
             }
-            this._considerProductRewards(amountsToDiscount, productIdsToAccount, productRewards);
+            this._considerProductRewards(
+                amountsToDiscount,
+                productIdsToAccount,
+                productRewards
+            );
             return this._createDiscountRewards(program, coupon_id, amountsToDiscount);
         },
         /**
@@ -934,20 +1056,19 @@ odoo.define('pos_coupon.pos', function (require) {
          * It returns a discount reward for the cheapest item in the order. Cheapest
          * item is a single quantity with lowest price.
          *
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @param {number} coupon_id
          * @returns {[Reward[], string | null]}
          */
-        _getOnCheapestProductDiscount: function (program, coupon_id) {
+        _getOnCheapestProductDiscount: function(program, coupon_id) {
             const amountsToDiscount = {};
             const orderlines = this._getRegularOrderlines();
             if (orderlines.length > 0) {
                 const cheapestLine = orderlines.reduce((min_line, line) => {
                     if (line.get_lst_price() < min_line.get_lst_price()) {
                         return line;
-                    } else {
-                        return min_line;
                     }
+                    return min_line;
                 }, orderlines[0]);
                 const key = this._getGroupKey(cheapestLine);
                 amountsToDiscount[key] = cheapestLine.get_lst_price();
@@ -960,74 +1081,99 @@ odoo.define('pos_coupon.pos', function (require) {
          * on products tax ids (see `_getGroupKey`). `amountsToDiscount` is adjusted
          * based on the rewarded products.
          *
-         * @param {coupon.program} program
+         * @param {sale.coupon.program} program
          * @param {number} coupon_id
          * @param {Reward[]} productRewards
          * @returns {[Reward[], string | null]}
          */
-        _getOnOrderDiscountRewards: function (program, coupon_id, productRewards) {
+        _getOnOrderDiscountRewards: function(program, coupon_id, productRewards) {
             const productIdsToAccount = new Set();
             const amountsToDiscount = {};
-            for (let line of this._getRegularOrderlines()) {
+            for (const line of this._getRegularOrderlines()) {
                 const key = this._getGroupKey(line);
                 if (!(key in amountsToDiscount)) {
                     amountsToDiscount[key] = line.get_quantity() * line.get_lst_price();
                 } else {
-                    amountsToDiscount[key] += line.get_quantity() * line.get_lst_price();
+                    amountsToDiscount[key] +=
+                        line.get_quantity() * line.get_lst_price();
                 }
                 productIdsToAccount.add(line.get_product().id);
             }
-            this._considerProductRewards(amountsToDiscount, productIdsToAccount, productRewards);
+            this._considerProductRewards(
+                amountsToDiscount,
+                productIdsToAccount,
+                productRewards
+            );
             return this._createDiscountRewards(program, coupon_id, amountsToDiscount);
         },
         /**
          * Mutates `amountsToDiscount` to take into account the product rewards.
          *
-         * @param {Record<string, number>} amountsToDiscount
-         * @param {Set<number>} productIdsToAccount
+         * @param {Record<String, Number>} amountsToDiscount
+         * @param {Set<Number>} productIdsToAccount
          * @param {Reward[]} productRewards
          */
-        _considerProductRewards: function (amountsToDiscount, productIdsToAccount, productRewards) {
-            for (let reward of productRewards) {
-                if (reward.rewardedProductId && productIdsToAccount.has(reward.rewardedProductId)) {
-                    const key = reward.tax_ids.join(',');
+        _considerProductRewards: function(
+            amountsToDiscount,
+            productIdsToAccount,
+            productRewards
+        ) {
+            for (const reward of productRewards) {
+                if (
+                    reward.rewardedProductId &&
+                    productIdsToAccount.has(reward.rewardedProductId)
+                ) {
+                    const key = reward.tax_ids.join(",");
                     amountsToDiscount[key] += reward.quantity * reward.unit_price;
                 }
             }
         },
-        _getGroupKey: function (line) {
+        _getGroupKey: function(line) {
             return line
                 .get_taxes()
-                .map((tax) => tax.id)
-                .join(',');
+                .map(tax => tax.id)
+                .join(",");
         },
-        _createDiscountRewards: function (program, coupon_id, amountsToDiscount) {
-            const discountRewards = Object.entries(amountsToDiscount).map(([tax_keys, amount]) => {
-                let discountAmount = (amount * program.discount_percentage) / 100.0;
-                discountAmount = Math.min(discountAmount, program.discount_max_amount || Infinity);
-                return new Reward({
-                    product: this.pos.db.get_product_by_id(program.discount_line_product_id[0]),
-                    unit_price: -discountAmount,
-                    quantity: 1,
-                    program: program,
-                    tax_ids: tax_keys !== '' ? tax_keys.split(',').map((val) => parseInt(val, 10)) : [],
-                    coupon_id: coupon_id,
-                });
-            });
-            return [discountRewards, discountRewards.length > 0 ? null : 'No items to discount.'];
+        _createDiscountRewards: function(program, coupon_id, amountsToDiscount) {
+            const discountRewards = Object.entries(amountsToDiscount).map(
+                ([tax_keys, amount]) => {
+                    let discountAmount = (amount * program.discount_percentage) / 100.0;
+                    discountAmount = Math.min(
+                        discountAmount,
+                        program.discount_max_amount || Infinity
+                    );
+                    return new Reward({
+                        product: this.pos.db.get_product_by_id(
+                            program.discount_line_product_id[0]
+                        ),
+                        unit_price: -discountAmount,
+                        quantity: 1,
+                        program: program,
+                        tax_ids:
+                            tax_keys !== ""
+                                ? tax_keys.split(",").map(val => parseInt(val, 10))
+                                : [],
+                        coupon_id: coupon_id,
+                    });
+                }
+            );
+            return [
+                discountRewards,
+                discountRewards.length > 0 ? null : "No items to discount.",
+            ];
         },
     });
 
     var _orderline_super = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
-        export_as_JSON: function () {
+        export_as_JSON: function() {
             var result = _orderline_super.export_as_JSON.apply(this);
             result.is_program_reward = this.is_program_reward;
             result.program_id = this.program_id;
             result.coupon_id = this.coupon_id;
             return result;
         },
-        init_from_JSON: function (json) {
+        init_from_JSON: function(json) {
             if (json.is_program_reward) {
                 this.is_program_reward = json.is_program_reward;
                 this.program_id = json.program_id;
@@ -1036,20 +1182,25 @@ odoo.define('pos_coupon.pos', function (require) {
             }
             _orderline_super.init_from_JSON.apply(this, [json]);
         },
-        set_quantity: function (quantity, keep_price) {
+        set_quantity: function(quantity, keep_price) {
             _orderline_super.set_quantity.apply(this, [quantity, keep_price]);
             // This function removes an order line if we set the quantity to 'remove'
             // We extend its functionality so that if a reward line is removed,
             // other reward lines from the same program are also deleted.
-            if (quantity === 'remove' && this.is_program_reward) {
-                let related_rewards = this.order.orderlines.filter(
-                    (line) => line.is_program_reward && line.program_id === this.program_id
+            if (quantity === "remove" && this.is_program_reward) {
+                const related_rewards = this.order.orderlines.filter(
+                    line =>
+                        line.is_program_reward && line.program_id === this.program_id
                 );
-                for (let line of related_rewards) {
+                for (const line of related_rewards) {
                     line.order.remove_orderline(line);
                 }
                 if (related_rewards.length !== 0) {
-                    Gui.showNotification('Other reward lines from the same program were also removed.');
+                    this.pos.gui.show_popup("alert", {
+                        body: _t(
+                            "Other reward lines from the same program were also removed."
+                        ),
+                    });
                 }
             }
         },

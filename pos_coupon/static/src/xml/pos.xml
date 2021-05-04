@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA
+    License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+    BACKPORT NOTE: This file doesn't exist in the 15.0 module
+-->
+<templates id="template" xml:space="preserve">
+    <!--
+        Originally implemented here:
+        https://github.com/odoo/odoo/blob/54c42ae8365f7f15d4355acc449781f9e1926b72/addons/pos_coupon/static/src/js/Orderline.js#L10
+
+        Using javascript inheritance to add more dynamic classes
+    -->
+    <t t-extend="Orderline">
+        <t t-jquery="li:first">
+            let currentValue = this.attr("t-attf-class");
+            this.attr("t-attf-class", currentValue + " #{ line.is_program_reward ? 'program-reward' : ''}")
+        </t>
+    </t>
+</templates>

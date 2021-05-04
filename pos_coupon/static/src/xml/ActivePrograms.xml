@@ -1,27 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
-    <t t-name="ActivePrograms" owl="1">
+    <t t-name="ActivePrograms">
         <div class="active-programs">
-            <div t-if="currentOrder and renderParams.show">
+            <div t-if="widget.pos.get_order() and widget.renderParams.show">
                 <div class="title">Active Programs</div>
-                <t t-foreach="renderParams.withRewardsPromoPrograms" t-as="program" t-key="program.id">
+                <t
+                    t-foreach="widget.renderParams.withRewardsPromoPrograms"
+                    t-as="program"
+                    t-key="program.id"
+                >
                     <div>
-                        <t t-esc="program.name"/>
+                        <t t-esc="program.name" />
                         <span t-if="program.promo_code !== false">
-                            (<t t-esc="program.promo_code"/>)
+                            (<t t-esc="program.promo_code" />)
                         </span>
                     </div>
                 </t>
-                <t t-foreach="renderParams.withRewardsBookedCoupons" t-as="coupon" t-key="coupon.coupon_code">
+                <t
+                    t-foreach="widget.renderParams.withRewardsBookedCoupons"
+                    t-as="coupon"
+                    t-key="coupon.coupon_code"
+                >
                     <div>
-                        <t t-esc="coupon.program_name"/> (<t t-esc="coupon.coupon_code"/>)
+                        <t t-esc="coupon.program_name" /> (<t
+                            t-esc="coupon.coupon_code"
+                        />)
                     </div>
                 </t>
-                <t t-foreach="renderParams.onNextOrderPromoPrograms" t-as="program" t-key="program.id">
+                <t
+                    t-foreach="widget.renderParams.onNextOrderPromoPrograms"
+                    t-as="program"
+                    t-key="program.id"
+                >
                     <div style="font-style: italic;">
-                        <t t-esc="program.name"/>
+                        <t t-esc="program.name" />
                         <span t-if="program.promo_code !== false">
-                            (<t t-esc="program.promo_code"/>)
+                            (<t t-esc="program.promo_code" />)
                         </span>
                     </div>
                 </t>

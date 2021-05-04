@@ -1,33 +1,35 @@
-odoo.define('pos_coupon.tour.PosCouponTourMethods', function (require) {
-    'use strict';
+/* eslint-disable */
+odoo.define("pos_coupon.tour.PosCouponTourMethods", function(require) {
+    "use strict";
 
-    const { createTourMethods } = require('point_of_sale.tour.utils');
-    const { Do: ProductScreenDo } = require('point_of_sale.tour.ProductScreenTourMethods');
-    const { Do: PaymentScreenDo } = require('point_of_sale.tour.PaymentScreenTourMethods');
-    const { Do: ReceiptScreenDo } = require('point_of_sale.tour.ReceiptScreenTourMethods');
-
-    const ProductScreen = { do: new ProductScreenDo() };
-    const PaymentScreen = { do: new PaymentScreenDo() };
-    const ReceiptScreen = { do: new ReceiptScreenDo() };
+    const {createTourMethods} = require("pos_coupon.tour.utils");
+    const {
+        ProductScreenDo,
+        PaymentScreenDo,
+        ReceiptScreenDo,
+    } = require("pos_coupon.tour.PosCouponTourPosMethods");
+    const ProductScreen = {do: new ProductScreenDo()};
+    const PaymentScreen = {do: new PaymentScreenDo()};
+    const ReceiptScreen = {do: new ReceiptScreenDo()};
 
     class Do {
         selectRewardLine(rewardName) {
             return [
                 {
-                    content: 'select reward line',
+                    content: "select reward line",
                     trigger: `.orderline.program-reward .product-name:contains("${rewardName}")`,
                 },
                 {
-                    content: 'check reward line if selected',
+                    content: "check reward line if selected",
                     trigger: `.orderline.selected.program-reward .product-name:contains("${rewardName}")`,
-                    run: function () {}, // it's a check
+                    run: function() {}, // It's a check
                 },
             ];
         }
         enterCode(code) {
             return [
                 {
-                    content: 'open code input dialog',
+                    content: "open code input dialog",
                     trigger: '.control-button:contains("Enter Code")',
                 },
                 {
@@ -36,15 +38,23 @@ odoo.define('pos_coupon.tour.PosCouponTourMethods', function (require) {
                     run: `text ${code}`,
                 },
                 {
-                    content: 'confirm inputted code',
-                    trigger: '.popup-textinput .button.confirm',
+                    content: "confirm inputted code",
+                    trigger: ".popup-textinput .button.confirm",
+                },
+            ];
+        }
+        closeAlert() {
+            return [
+                {
+                    content: "close alert",
+                    trigger: ".popup-alert .button.cancel",
                 },
             ];
         }
         resetActivePrograms() {
             return [
                 {
-                    content: 'open code input dialog',
+                    content: "open code input dialog",
                     trigger: '.control-button:contains("Reset Programs")',
                 },
             ];
@@ -55,23 +65,23 @@ odoo.define('pos_coupon.tour.PosCouponTourMethods', function (require) {
         hasRewardLine(rewardName, amount) {
             return [
                 {
-                    content: 'check if reward line is there',
+                    content: "check if reward line is there",
                     trigger: `.orderline.program-reward span.product-name:contains("${rewardName}")`,
-                    run: function () {},
+                    run: function() {},
                 },
                 {
-                    content: 'check if the reward price is correct',
+                    content: "check if the reward price is correct",
                     trigger: `.orderline.program-reward span.price:contains("${amount}")`,
-                    run: function () {},
+                    run: function() {},
                 },
             ];
         }
         orderTotalIs(total_str) {
             return [
                 {
-                    content: 'order total contains ' + total_str,
+                    content: "order total contains " + total_str,
                     trigger: '.order .total .value:contains("' + total_str + '")',
-                    run: function () {}, // it's a check
+                    run: function() {}, // It's a check
                 },
             ];
         }
@@ -86,15 +96,20 @@ odoo.define('pos_coupon.tour.PosCouponTourMethods', function (require) {
             return [
                 ...ProductScreen.do.clickPayButton(),
                 ...PaymentScreen.do.clickPaymentMethod(paymentMethod),
-                ...PaymentScreen.do.pressNumpad([...amount].join(' ')),
+                ...PaymentScreen.do.pressNumpad([...amount].join(" ")),
                 ...PaymentScreen.do.clickValidate(),
                 ...ReceiptScreen.do.clickNextOrder(),
+                ...ProductScreen.do.clickHomeCategory(),
             ];
         }
         removeRewardLine(name) {
-            return [...this.do.selectRewardLine(name), ...ProductScreen.do.pressNumpad('Backspace Backspace')];
+            return [
+                ...this.do.selectRewardLine(name),
+                ...ProductScreen.do.pressNumpad("Backspace Backspace"),
+                ...this.do.closeAlert(),
+            ];
         }
     }
 
-    return createTourMethods('PosCoupon', Do, Check, Execute);
+    return createTourMethods("PosCoupon", Do, Check, Execute);
 });

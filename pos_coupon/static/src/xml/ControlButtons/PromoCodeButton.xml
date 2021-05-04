@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
-
     <t t-name="PromoCodeButton" owl="1">
         <span class="control-button">
-            <i class="fa fa-barcode"></i>
+            <i class="fa fa-barcode" />
             <span> </span>
             <span>Enter Code</span>
         </span>
     </t>
-
 </templates>

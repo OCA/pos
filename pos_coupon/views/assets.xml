@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA
+    License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+-->
+<odoo>
+    <template id="point_of_sale_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/PaymentScreen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/ActivePrograms.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/ControlButtons/ResetProgramsButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/ControlButtons/PromoCodeButton.js"
+            />
+            <script type="text/javascript" src="/pos_coupon/static/src/js/models.js" />
+            <script type="text/javascript" src="/pos_coupon/static/src/js/coupon.js" />
+            <script type="text/javascript" src="/pos_coupon/static/src/js/screens.js" />
+        </xpath>
+        <xpath expr="link[last()]" position="after">
+            <link href="/pos_coupon/static/src/css/coupon.css" rel="stylesheet" />
+        </xpath>
+    </template>
+    <template id="assets_tests" inherit_id="web.assets_tests">
+        <xpath expr="script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/tours/PosCoupon.tour.utils.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/tours/PosCouponTourPosMethods.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/tours/PosCouponTourMethods.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/tours/PosCoupon1.tour.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_coupon/static/src/js/tours/PosCoupon2.tour.js"
+            />
+        </xpath>
+    </template>
+</odoo>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data noupdate="1">
-        <record id="15_pc_on_next_order" model="coupon.program">
+        <record id="15_pc_on_next_order" model="sale.coupon.program">
             <field name="name">15% on next order</field>
             <field name="program_type">promotion_program</field>
             <field name="promo_applicability">on_next_order</field>
@@ -12,30 +12,44 @@
             <field name="discount_percentage">15.0</field>
             <field name="validity_duration">0</field>
         </record>
-
         <record id="point_of_sale.pos_config_main" model="pos.config">
             <field name="use_coupon_programs">True</field>
-            <field name="promo_program_ids" eval="[(6,0,[ref('coupon.3_cabinets_plus_1_free'),ref('coupon.10_percent_auto_applied'),ref('pos_coupon.15_pc_on_next_order')])]"/>
-            <field name="coupon_program_ids" eval="[(6,0,[ref('coupon.10_percent_coupon')])]"/>
+            <field
+                name="promo_program_ids"
+                eval="[(6,0,[ref('sale_coupon.3_cabinets_plus_1_free'),ref('sale_coupon.10_percent_auto_applied'),ref('pos_coupon.15_pc_on_next_order')])]"
+            />
+            <field
+                name="coupon_program_ids"
+                eval="[(6,0,[ref('sale_coupon.10_percent_coupon')])]"
+            />
         </record>
-
-        <function name="create" model="coupon.generate.wizard">
-            <value model="coupon.generate.wizard" eval="dict(
+        <function name="create" model="sale.coupon.generate">
+            <value
+                model="sale.coupon.generate"
+                eval="dict(
                 obj().default_get(list(obj().fields_get())),
                 **{
                     'nbr_coupons': 10,
                 }
-            )"/>
+            )"
+            />
         </function>
-
         <!-- Create 10 coupons for the 10% coupon program based on the created record above -->
-        <function name="generate_coupon" model="coupon.generate.wizard">
-            <value model="coupon.generate.wizard" eval="obj().search([('nbr_coupons', '=', 10)]).id"/>
-            <value name="context" eval="{'active_id': ref('coupon.10_percent_coupon')}" />
+        <function name="generate_coupon" model="sale.coupon.generate">
+            <value
+                model="sale.coupon.generate"
+                eval="obj().search([('nbr_coupons', '=', 10)]).id"
+            />
+            <value
+                name="context"
+                eval="{'active_id': ref('sale_coupon.10_percent_coupon')}"
+            />
         </function>
-
-        <function name="unlink" model="coupon.generate.wizard">
-            <value model="coupon.generate.wizard" eval="obj().search([('nbr_coupons', '=', 10)]).id"/>
+        <function name="unlink" model="sale.coupon.generate">
+            <value
+                model="sale.coupon.generate"
+                eval="obj().search([('nbr_coupons', '=', 10)]).id"
+            />
         </function>
     </data>
 </odoo>

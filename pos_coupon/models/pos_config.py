@@ -1,11 +1,6 @@
-# -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-# NOTE Use black to automatically format this code.
-
-from datetime import datetime
-
-from odoo import api, fields, models, _
+from odoo import _, api, fields, models
 from odoo.exceptions import UserError
 
 
@@ -17,21 +12,23 @@ class PosConfig(models.Model):
         help="Use coupon and promotion programs in this PoS configuration.",
     )
     coupon_program_ids = fields.Many2many(
-        "coupon.program",
+        "sale.coupon.program",
         string="Coupon Programs",
-        compute="_filter_programs",
-        inverse="_set_programs",
+        compute="_compute_program_ids",
+        inverse="_inverse_program_ids",
     )
     promo_program_ids = fields.Many2many(
-        "coupon.program",
+        "sale.coupon.program",
         string="Promotion Programs",
-        compute="_filter_programs",
-        inverse="_set_programs",
+        compute="_compute_program_ids",
+        inverse="_inverse_program_ids",
     )
-    program_ids = fields.Many2many("coupon.program", string="Coupons and Promotions")
+    program_ids = fields.Many2many(
+        "sale.coupon.program", string="Coupons and Promotions"
+    )
 
     @api.depends("program_ids")
-    def _filter_programs(self):
+    def _compute_program_ids(self):
         for config in self:
             config.coupon_program_ids = config.program_ids.filtered(
                 lambda program: program.program_type == "coupon_program"
@@ -40,11 +37,11 @@ class PosConfig(models.Model):
                 lambda program: program.program_type == "promotion_program"
             )
 
-    def _set_programs(self):
+    def _inverse_program_ids(self):
         for config in self:
             config.program_ids = config.coupon_program_ids | config.promo_program_ids
 
-    def open_session_cb(self, check_coa=True):
+    def open_session_cb(self):
         # Check validity of programs before opening a new session
         invalid_reward_products_msg = ""
         for program in self.program_ids:
@@ -55,22 +52,22 @@ class PosConfig(models.Model):
                 reward_product = program.reward_product_id
                 invalid_reward_products_msg += "\n\t"
                 invalid_reward_products_msg += _(
-                    "Program: %(name)s (%(type)s), Reward Product: `%(reward_product)s`",
+                    "Program: %(name)s (%(type)s), "
+                    "Reward Product: `%(reward_product)s`",
                     name=program.name,
                     type=program.program_type,
                     reward_product=reward_product.name,
                 )
-
         if invalid_reward_products_msg:
             intro = _(
-                "To continue, make the following reward products to be available in Point of Sale."
+                "To continue, make the following reward products to "
+                "be available in Point of Sale."
             )
             raise UserError(f"{intro}\n{invalid_reward_products_msg}")
-
-        return super(PosConfig, self).open_session_cb(check_coa)
+        return super(PosConfig, self).open_session_cb()
 
     def use_coupon_code(self, code, creation_date, partner_id, reserved_program_ids):
-        coupon_to_check = self.env["coupon.coupon"].search(
+        coupon_to_check = self.env["sale.coupon"].search(
             [("code", "=", code), ("program_id", "in", self.program_ids.ids)]
         )
         # If not unique, we only check the first coupon.
@@ -82,7 +79,7 @@ class PosConfig(models.Model):
                     "error_message": _("This coupon is invalid (%s).") % (code)
                 },
             }
-        message = coupon_to_check._check_coupon_code(
+        message = coupon_to_check._check_coupon_code_generic(
             fields.Date.from_string(creation_date[:11]),
             partner_id,
             reserved_program_ids=reserved_program_ids,
