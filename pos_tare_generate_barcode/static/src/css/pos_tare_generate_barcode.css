@@ -1,0 +1,123 @@
+.pos .print-label.disabled {
+    background: #e2e2e2;
+    border: solid 1px #BEBEBE;
+    opacity: 0.5;
+    cursor: default;
+    color: inherit;
+}
+
+.pos .tare-screen .centered-content {
+    text-align:center;
+}
+
+@media screen {
+    .pos .tare-screen .pos-tare-label-container {
+        width: 300px;
+        background-color: white;
+        margin: 20px;
+        padding: 15px;
+        font-size: 21px;
+        padding-bottom:30px;
+        font-family: "Inconsolata";
+        border: solid 1px rgb(220,220,220);
+        border-radius: 3px;
+        overflow: hidden;
+        text-align: center;
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .pos .tare-screen .pos-tare-label-container img {
+        width: 50mm;
+        height: 45mm;
+    }
+}
+
+.pos .tare-screen .pos-tare-label-container .caption {
+    display: block;
+        text-overflow: ellipsis;
+        flex-basis: 100vw;
+}
+
+.pos .tare-screen .pos-directions-for-user {
+    font-size: 25px;
+    margin: 8px;
+    text-align: center;
+    line-height: 2;
+}
+
+.pos .tare-screen .pos-directions-for-user span {
+    width:100px;
+    height: 50px;
+    background-color: rgb(49,174,218);
+    color: white !important;
+    font-weight: bold;
+    border: solid 1px black;
+    border-radius: 90% 30%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    vertical-align:middle;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pos .tare-screen .centered-content .print-label {
+    text-align: center;
+    font-size: 32px;
+    background: rgb(110,200,155);
+    color: white;
+    border-radius: 3px;
+    padding: 16px;
+    margin: 16px;
+    cursor: pointer;
+}
+
+@media print {
+    body {
+        position: relative !important;
+    }
+
+    .pos .tare-screen header,
+    .pos .tare-screen .top-content,
+    .pos .tare-screen .print-label,
+    .pos .tare-screen .pos-directions-for-user {
+        display: none !important;
+    }
+
+    .pos .tare-screen .screen-content {
+        max-width: unset !important;
+    }
+
+    .pos .tare-screen .centered-content {
+        position: static;
+        text-align: center;
+        border: none;
+        width: 100vw;
+        height: 100vh;
+        margin: 0mm;
+        page-break-inside: avoid;
+        overflow: hidden;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        left: unset !important;
+        right: unset !important;
+    }
+
+    .pos .tare-screen .centered-content .pos-tare-label-container  img {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .pos .tare-screen .centered-content .pos-tare-label-container .caption {
+        text-overflow: ellipsis;
+        font-size: 5vh;
+        flex-basis: 100%;
+    }
+}

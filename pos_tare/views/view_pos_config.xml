@@ -23,6 +23,17 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
+                  <div class="o_setting_left_pane">
+                    <field name="iface_tare_on_scale_screen_method" class="o_light_label"/>
+                  </div>
+                  <div class="o_setting_right_pane">
+                    <label for="iface_tare_on_scale_screen_method" string="Tare on scale screen"/>
+                    <div class="text-muted">
+                      User can input tare directly in scale screen.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="iface_tare_method">
                     <div class="o_setting_right_pane">
                         <label for="iface_tare_uom_id" string="Tare UoM"/>
                         <div class="text-muted">

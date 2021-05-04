@@ -4,10 +4,12 @@ odoo.define('pos_tare.screens', function (require) {
     var core = require('web.core');
     var screens = require('point_of_sale.screens');
     var utils = require('web.utils');
+    var tools = require('pos_tare.tools');
 
     var _t = core._t;
     var round_pr = utils.round_precision;
     var leq_zero_qty = (ol) => ol.get_quantity() <= 0;
+    var convert_mass = tools.convert_mass;
 
     // This configures read action for tare barcode. A tare barcode contains a
     // fake product ID and the weight to be subtracted from the product in the
@@ -18,7 +20,21 @@ odoo.define('pos_tare.screens', function (require) {
                 var order = this.pos.get_order();
                 var selected_order_line = order.get_selected_orderline();
                 var tare_weight = code.value;
-                selected_order_line.set_tare(tare_weight, true);
+                var tare_uom = this.pos.config.iface_tare_uom_id[0];
+                var tare_unit = this.pos.units_by_id[tare_uom];
+                var kilogram_uom = this.pos.units.filter(
+                    function (u) {
+                        return u.name === "kg";
+                    })[0];
+                if (typeof kilogram_uom === 'undefined') {
+                        throw new Error(
+                            _t("You need to setup a kilogram (kg) UOM "+
+                             "this UOM is used to encode the tare mass "+
+                             "in the tare barcode."));
+                }
+                var tare_weight_in_tare_uom = convert_mass(tare_weight,
+                    kilogram_uom, tare_unit);
+                selected_order_line.set_tare(tare_weight_in_tare_uom, true);
             } catch (error) {
                 var title = _t("We can not apply this tare barcode.");
                 var popup = {title: title, body: error.message};
