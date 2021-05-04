@@ -16,3 +16,11 @@ class PosConfig(models.Model):
     meal_voucher_display_product_screen = fields.Boolean(
         string="Display icon before products on screen",
         default=True)
+
+    has_meal_voucher_journal = fields.Boolean(
+        compute="_compute_has_meal_voucher_journal")
+
+    def _compute_has_meal_voucher_journal(self):
+        for config in self:
+            config.has_meal_voucher_journal = len(config.journal_ids.filtered(
+                lambda x: x.meal_voucher_type is not False))

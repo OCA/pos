@@ -53,7 +53,7 @@ odoo.define("pos_meal_voucher.screens", function (require) {
         update_summary: function () {
             this._super.apply(this, arguments);
             var order = this.pos.get_order();
-            if (!order.get_orderlines().length) {
+            if (!order.get_orderlines().length || !this.pos.config.has_meal_voucher_journal) {
                 return;
             }
             this.el.querySelector(".summary .meal-voucher .value").textContent = this.format_currency(order.get_total_meal_voucher_eligible());
@@ -93,7 +93,7 @@ odoo.define("pos_meal_voucher.screens", function (require) {
 
             this._super.apply(this, arguments);
             var order = this.pos.get_order();
-            if (!order) {
+            if (!order || !this.pos.config.has_meal_voucher_journal) {
                 return;
             }
             // Update meal voucher summary
