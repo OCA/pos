@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2019 Coop IT Easy SCRLfs
+    	    Robin Keunen <robin@coopiteasy.be>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <template id="assets_frontend" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link href="/pos_container/static/src/css/container.css" rel="stylesheet"/>
+            <script type="text/javascript" src="/pos_container/static/src/js/models_and_db.js"/>
+            <script type="text/javascript" src="/pos_container/static/src/js/container.js"/>
+            <script type="text/javascript" src="/pos_container/static/src/js/tests.js"/>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,191 @@
+/* firefox seems to ignore the relative positionning of the subwindow-container 
+ * putting this inside subwindow-container fixes it.                            
+ */                                                                             
+.pos .containerlist-screen .window,                                                
+.pos .containerlist-screen .full-content .subwindow{                               
+    display: block;                                                             
+}                                                                               
+.pos .containerlist-screen .full-content .subwindow-container{                     
+    display: block;                                                             
+    height: 100%;                                                               
+}                                                                               
+.pos .containerlist-screen .full-content .subwindow.collapsed,                     
+.pos .containerlist-screen .full-content .subwindow-container.collapsed{           
+    height: auto;                                                               
+} 
+
+/* The Scale Container Screen */
+.pos .scale-screen .add-container{
+    text-align: center;
+    font-size: 32px;
+    background: rgb(110,200,155);
+    color: white;
+    border-radius: 3px;
+    padding: 16px;
+    margin: 16px;
+    cursor: pointer;
+}
+
+.pos .scale-screen .container-name,.container-barcode{
+    text-align: center;
+    font-size: 25px;
+    border-radius: 3px;
+    padding-top: 10px;
+    padding-bottom:10px;
+    margin-top: 5px;
+}
+
+/* e) The Container List Screen */
+
+.pos .containerlist-screen .container-list{
+    font-size: 16px;
+    width: 100%;
+    line-height: 40px;
+}
+.pos .containerlist-screen .container-list th,
+.pos .containerlist-screen .container-list td {
+    padding: 0px 8px;
+}
+.pos .containerlist-screen .container-list tr{
+    transition: all 150ms linear;
+    background: rgb(230,230,230);
+}
+.pos .containerlist-screen .container-list thead > tr,
+.pos .containerlist-screen .container-list tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
+.pos .containerlist-screen .container-list tr.highlight{
+    transition: all 150ms linear;
+    background: rgb(110,200,155) !important;
+    color: white;
+}
+.pos .containerlist-screen .container-list tr.lowlight{
+    transition: all 150ms linear;
+    background: rgb(216, 238, 227);
+}
+.pos .containerlist-screen .container-list tr.lowlight:nth-child(even){
+    transition: all 150ms linear;
+    background: rgb(227, 246, 237);
+}
+.pos .containerlist-screen .container-details{
+    padding: 16px;
+    border-bottom: solid 5px rgb(110,200,155);
+}
+.pos .containerlist-screen .container-picture{
+    height: 64px;
+    width: 64px;
+    border-radius: 32px;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+    margin-right: 16px;
+    background: white;
+    position: relative;
+}
+.pos .containerlist-screen .container-picture > img {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    right: -9999px;
+    left: -9999px;
+    max-height: 64px;
+    margin: auto;
+}
+.pos .containerlist-screen .container-picture > .fa {
+    line-height: 64px;
+    font-size: 32px;
+}
+.pos .containerlist-screen .container-picture .image-uploader {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+.pos .containerlist-screen .container-name {
+    font-size: 32px;
+    line-height: 64px;
+    margin-bottom:16px;
+}
+.pos .containerlist-screen .edit-buttons {
+    position: absolute;
+    right: 16px;
+    top: 10px;
+}
+.pos .containerlist-screen .edit-buttons .button{
+    display: inline-block;
+    margin-left: 16px;
+    color: rgb(128,128,128);
+    cursor: pointer;
+    font-size: 36px;
+}
+.pos .containerlist-screen .container-details-box{
+    position: relative;
+    font-size: 16px;
+}
+.pos .containerlist-screen .container-details-left{
+    width: 50%;
+    float: left;
+}
+.pos .containerlist-screen .container-details-right{
+    width: 50%;
+    float: left;
+}
+.pos .containerlist-screen .container-detail{
+    line-height: 24px;
+}
+.pos .containerlist-screen .container-detail > .label{
+    font-weight: bold;
+    display: inline-block;
+    width: 75px;
+    text-align: right;
+    margin-right: 8px;
+}
+.pos .containerlist-screen .container-details input,
+.pos .containerlist-screen .container-details select
+{
+    padding: 4px;
+    border-radius: 3px;
+    border: solid 1px #cecbcb;
+    margin-bottom: 4px;
+    background: white;
+    font-family: "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+    color: #555555;
+    width: 340px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.pos .containerlist-screen .container-details input.container-name {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 18px 6px;
+    width: 340px;
+}
+.pos .containerlist-screen .container-detail > .empty{
+    opacity: 0.3;
+}
+.pos .containerlist-screen .searchbox{
+    right: auto;
+    margin-left: -90px;
+    margin-top:8px;
+    left: 45%;
+}
+.pos .containerlist-screen .searchbox input{
+    width: 120px;
+}
+.pos .containerlist-screen .button.delete-container {
+    left: 50%;
+    margin-left: 120px;
+}
+
+/* Container Action buttons */
+.pos .control-button.main {
+    width: 75%;
+}
+.pos .control-button.second {
+    width: 15%;
+    flex-grow: 0;
+}

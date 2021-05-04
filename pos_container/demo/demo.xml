@@ -1,0 +1,19 @@
+<odoo>
+    <record id="container_1" model="pos.container">
+        <field name="name">Container 1</field>
+        <field name="barcode">0498765456789</field>
+        <field name="weight">0.123</field>
+    </record>
+
+    <record id="container_2" model="pos.container">
+        <field name="name">Container 2</field>
+        <field name="barcode">0490987654356</field>
+        <field name="weight">0.234</field>
+    </record>
+
+    <record id="container_3" model="pos.container">
+        <field name="name">Container 3</field>
+        <field name="barcode">0490987654398</field>
+        <field name="weight">0.567</field>
+    </record>
+</odoo>
