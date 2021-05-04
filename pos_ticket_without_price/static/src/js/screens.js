@@ -28,8 +28,14 @@ odoo.define('pos_ticket_without_price.screens', function (require) {
             var button_print_ticket_without_price =
                 this.$('.button.print_ticket_without_price');
             button_print_ticket_without_price.click(function () {
-                self.render_ticket_without_price();
-                self.print();
+                console.log("self.pos.config.iface_print_via_proxy")
+                console.log(self.pos.config.iface_print_via_proxy)
+                if (!self.pos.config.iface_print_via_proxy) {
+                    self.render_ticket_without_price();
+                    self.print();
+                } else {
+                    self.proxy_render_ticket_without_price();
+                }
             });
 
         },
@@ -38,6 +44,12 @@ odoo.define('pos_ticket_without_price.screens', function (require) {
             this.$('.pos-receipt-container').html(
                 QWeb.render('PosTicketWithoutPrice',
                     this.get_receipt_render_env()));
+        },
+
+        proxy_render_ticket_without_price: function() {
+            var receipt = QWeb.render('XmlReceiptWithoutPrice', this.get_receipt_render_env());
+            this.pos.proxy.print_receipt(receipt);
+            this.pos.get_order()._printed = true;
         },
 
     });
