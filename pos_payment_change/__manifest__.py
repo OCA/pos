@@ -17,6 +17,7 @@
         "wizards/view_pos_payment_change_wizard.xml",
         "views/view_pos_config.xml",
         "views/view_pos_order.xml",
+        "security/ir.model.access.csv",
     ],
     "installable": True,
 }

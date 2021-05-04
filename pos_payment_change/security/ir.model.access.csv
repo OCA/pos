@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+point_of_sale.access_account_bank_statement_line,account.bank.statement.line,account.model_account_bank_statement_line,point_of_sale.group_pos_user,1,1,1,1
