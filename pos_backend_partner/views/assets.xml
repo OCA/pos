@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets" name="pos partner" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_backend_partner/static/src/js/pos_partner.js"></script>
+        </xpath>
+    </template>
+
+    <template id="assets_backend" name="back partner " inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">  <!-- both back and POS -->
+            <script type="text/javascript" src="/pos_backend_partner/static/src/js/back_partner.js"></script>
+
+            <link rel="stylesheet" href="/pos_backend_partner/static/src/css/pos_backend_partner.css"/>
+
+        </xpath>
+    </template>
+
+</odoo>

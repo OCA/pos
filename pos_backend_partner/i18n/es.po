@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_backend_partner
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2018
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2018-03-01 02:01+0000\n"
+"Last-Translator: enjolras <yo@miguelrevilla.com>, 2018\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_backend_partner
+#: model:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
+msgid "Choose"
+msgstr "Elija"
+
+#. module: pos_backend_partner
+#. openerp-web
+#: code:addons/pos_backend_partner/static/src/js/back_partner.js:12
+#, python-format
+msgid "Choose a customer"
+msgstr "Elija un cliente"
+
+#. module: pos_backend_partner
+#: model:ir.actions.act_window,name:pos_backend_partner.action_select_partner_pos
+msgid "Client"
+msgstr "Cliente"
+
+#. module: pos_backend_partner
+#. openerp-web
+#: code:addons/pos_backend_partner/static/src/js/pos_partner.js:19
+#, python-format
+msgid "Customer set"
+msgstr "Cliente establecido"
+
+#. module: pos_backend_partner
+#: model:ir.model,name:pos_backend_partner.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: pos_backend_partner
+#: model:ir.ui.view,arch_db:pos_backend_partner.view_partner_tree
+msgid "Select as customer in point of sale"
+msgstr "Seleccionar como cliente del TPV"
