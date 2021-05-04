@@ -1,0 +1,54 @@
+.screen .top-content .button.validate {
+    left: 0px;
+    margin-left: 150px;
+}
+
+.pos .orderlist-screen .order-list{
+    font-size: 16px;
+    width: 100%;
+    line-height: 40px;
+}
+.pos .orderlist-screen .order-list th,
+.pos .orderlist-screen .order-list td {
+    padding: 0px 8px;
+}
+.pos .orderlist-screen .order-list tr{
+    transition: all 150ms linear;
+    background: rgb(230,230,230);
+    cursor: pointer;
+}
+.pos .orderlist-screen .order-list thead > tr,
+.pos .orderlist-screen .order-list tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
+.pos .orderlist-screen .order-list tr.highlight{
+    transition: all 150ms linear;
+    background: rgb(110,200,155) !important;
+    color: white;
+}
+.pos .orderlist-screen .order-list tr.lowlight{
+    transition: all 150ms linear;
+    background: rgb(216, 238, 227);
+}
+.pos .orderlist-screen .order-list tr.lowlight:nth-child(even){
+    transition: all 150ms linear;
+    background: rgb(227, 246, 237);
+}
+.pos .orderlist-screen .order-details{
+    padding: 16px;
+    border-bottom: solid 5px rgb(110,200,155);
+}
+
+.pos .orderlist-screen .searchbox{
+    right: auto;
+    margin-left: -90px;
+    margin-top:8px;
+    left: 50%;
+}
+.pos .orderlist-screen .searchbox input{
+    width: 120px;
+}
+
+.pos .order-line .total {
+    text-align: right;
+}

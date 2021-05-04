@@ -1,0 +1,154 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_order_load
+# 
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2016
+# Matjaž Mozetič <m.mozetic@matmoz.si>, 2016
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-02 03:44+0000\n"
+"PO-Revision-Date: 2016-12-02 03:44+0000\n"
+"Last-Translator: Matjaž Mozetič <m.mozetic@matmoz.si>, 2016\n"
+"Language-Team: Slovenian (https://www.transifex.com/oca/teams/23907/sl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:289
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:315
+#, python-format
+msgid "Can not execute this action because the POS is currently offline"
+msgstr "Dejanja ni mogoče izvesti, ker je POS trenutno nedosegljiv."
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:181
+#, python-format
+msgid "Can not load the Selected Order because the POS is currently offline"
+msgstr "Izbranega naloga ni mogoče naložiti, ker je POS trenutno nedosegljiv."
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:28
+#, python-format
+msgid "Cancel"
+msgstr "Preklic"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:180
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:288
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:314
+#, python-format
+msgid "Connection error"
+msgstr "Napaka pri povezavi"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:60
+#, python-format
+msgid "Customer"
+msgstr "Kupec"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:5
+#, python-format
+msgid "Load Draft Order"
+msgstr "Naloži osnutek naloga"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:59
+#, python-format
+msgid "Order"
+msgstr "Nalog"
+
+#. module: pos_order_load
+#: model:ir.model,name:pos_order_load.model_pos_order
+msgid "Point of Sale"
+msgstr "POS Prodajna točka"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:10
+#, python-format
+msgid "Save Current Order"
+msgstr "Shrani trenutni nalog"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:71
+#, python-format
+msgid "Save The current Order ?"
+msgstr "Shrani trenutni nalog?"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:36
+#, python-format
+msgid "Search Orders"
+msgstr "Iskanje nalogov"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:40
+#, python-format
+msgid "Select Order"
+msgstr "Izberi nalog"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:72
+#, python-format
+msgid ""
+"This operation will save the current order in a draft state. You'll have to "
+"mark it as paid after."
+msgstr ""
+"Ta postopek bo shranil trenutni nalog v stanju osnutka. Kasneje ga boste "
+"morali označiti, da je plačan."
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:61
+#, python-format
+msgid "Total Amount"
+msgstr "Skupni znesek"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:267
+#, python-format
+msgid ""
+"Unable to load some order lines because the products are not available in the POS cache.\n"
+"\n"
+"Please check that lines :\n"
+"\n"
+"  * "
+msgstr ""
+"Nekaterih postavk naloga ni bilo mogoče naložiti, ker v predpomnilniku proizvodi niso na voljo.\n"
+"\n"
+"Preverite te postavke :\n"
+"\n"
+"  * "
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/js/pos_order_load.js:266
+#, python-format
+msgid "Unknown Products"
+msgstr "Neznani proizvodi"
+
+#. module: pos_order_load
+#. openerp-web
+#: code:addons/pos_order_load/static/src/xml/pos_order_load.xml:32
+#, python-format
+msgid "Validate"
+msgstr "Overi"
