@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr=".">
+            <link href="/pos_mail_receipt/static/src/css/pos.css" rel="stylesheet"/>
+            <script
+                type="text/javascript"
+                src="/pos_mail_receipt/static/src/js/screens.js"/>
+        </xpath>
+    </template>
+
+     <template id="report_assets_pdf" inherit_id="web.report_assets_pdf">
+         <xpath expr=".">
+            <link href="/pos_mail_receipt/static/src/css/print.css" rel="stylesheet"/>
+        </xpath>
+    </template>
+
+</odoo>

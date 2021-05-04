@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_mail_receipt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-17 14:32+0000\n"
+"PO-Revision-Date: 2019-12-17 15:38+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.2.4\n"
+"Last-Translator: \n"
+"Language: fr\n"
+
+#. module: pos_mail_receipt
+#: model:mail.template,subject:pos_mail_receipt.email_send_ticket
+msgid "${object.pos_reference}"
+msgstr ""
+
+#. module: pos_mail_receipt
+#: model:mail.template,body_html:pos_mail_receipt.email_send_ticket
+msgid ""
+"<p style=\"margin:0px 0 1rem 0;font-size:13px;font-family:&quot;Lucida "
+"Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
+"Your Ticket ${object.pos_reference}\n"
+"            </p>"
+msgstr ""
+"<p style=\"margin:0px 0 1rem 0;font-size:13px;font-family:&quot;Lucida "
+"Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
+"Votre Ticket ${object.pos_reference}\n"
+"            </p>"
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:25
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_mail_receipt
+#: code:addons/pos_mail_receipt/models/pos_order.py:25
+#, python-format
+msgid "Cannot send the ticket, no email address found for the client"
+msgstr ""
+"Impossible d'envoyer le ticket, pas d'adresse mail trouvée pour le "
+"client"
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:82
+#, python-format
+msgid "Check your internet connection and try again."
+msgstr "Vérifiez votre connexion internet et essayez à nouveau."
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:22
+#, python-format
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:28
+#, python-format
+msgid "E-mail address to use"
+msgstr "Adresse mail à utiliser"
+
+#. module: pos_mail_receipt
+#: code:addons/pos_mail_receipt/models/pos_order.py:23
+#, python-format
+msgid "E-mail already sent"
+msgstr "E-mail déjà envoyé"
+
+#. module: pos_mail_receipt
+#: model:ir.model.fields,field_description:pos_mail_receipt.field_pos_order__email_receipt_sent
+msgid "Email Receipt Sent"
+msgstr "Reçu envoyé"
+
+#. module: pos_mail_receipt
+#: code:addons/pos_mail_receipt/models/pos_order.py:21
+#, python-format
+msgid "Error: no order found"
+msgstr "Erreur: pas de commande trouvée"
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:19
+#, python-format
+msgid "Mail"
+msgstr "Mail"
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:8
+#, python-format
+msgid "Mail Receipt"
+msgstr "Reçu"
+
+#. module: pos_mail_receipt
+#: model:ir.model,name:pos_mail_receipt.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: pos_mail_receipt
+#: code:addons/pos_mail_receipt/models/pos_order.py:44
+#, python-format
+msgid "Receipt_{}.pdf"
+msgstr "Recu_{}.pdf"
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:81
+#, python-format
+msgid "The e-mail could not be sent"
+msgstr "L'e-mail n'a pas pu être envoyé"
+
+#. module: pos_mail_receipt
+#: model:mail.template,report_name:pos_mail_receipt.email_send_ticket
+msgid "Ticket ${object.pos_reference}"
+msgstr "Ticket ${object.pos_reference}"
+
+#. module: pos_mail_receipt
+#: model:ir.model,name:pos_mail_receipt.model_report_pos_mail_receipt_pos_receipt_report
+msgid "report.pos_mail_receipt.pos_receipt_report"
+msgstr ""

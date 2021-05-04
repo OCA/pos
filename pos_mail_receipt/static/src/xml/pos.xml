@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ReceiptScreenWidget">
+        <t t-jquery=".button.print" t-operation="after">
+            <div class="button email">
+                <i class='fa fa-at'></i> Mail Receipt
+            </div>
+        </t>
+    </t>
+
+</templates>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="email_send_ticket" model="mail.template">
+            <field name="name">Send Receipt</field>
+            <field name="email_from">${(object.user_id.email and '%s &lt;%s&gt;' % (object.user_id.name, object.user_id.email) or '')|safe}</field>
+            <field name="subject">${object.pos_reference}</field>
+            <field name="model_id" ref="point_of_sale.model_pos_order" />
+            <field name="auto_delete" eval="True" />
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+Your Ticket ${object.pos_reference}
+            ]]></field>
+        </record>
+
+    </data>
+</odoo>
