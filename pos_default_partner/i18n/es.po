@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_default_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_default_partner
+#: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: pos_default_partner
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config__default_partner_id
+#: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
+msgid "Default Customer"
+msgstr "Cliente predeterminado"
+
+#. module: pos_default_partner
+#: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
+msgid "Default customer to use if none is set"
+msgstr "Cliente predeterminado para usar si no se establece ninguno"
+
+#. module: pos_default_partner
+#: model:ir.model,name:pos_default_partner.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_default_partner
+#: model:ir.model,name:pos_default_partner.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos de Punto de Venta"
