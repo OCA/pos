@@ -1,0 +1,11 @@
+/*
+    Copyright (C) 2017-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+*/
+
+.product-list-empty-home {
+    text-align: center;
+    padding: 15%;
+    font-size: x-large;
+}

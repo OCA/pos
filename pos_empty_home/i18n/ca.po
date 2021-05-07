@@ -1,0 +1,31 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_empty_home
+#
+# Translators:
+# Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:08+0000\n"
+"PO-Revision-Date: 2020-03-13 11:13+0000\n"
+"Last-Translator: mtbochaca <mtbochaca@gmail.com>\n"
+"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_empty_home
+#. openerp-web
+#: code:addons/pos_empty_home/static/src/xml/pos_empty_home.xml:13
+#, python-format
+msgid ""
+"To select a product, please scan a barcode or search products by category or "
+"by name"
+msgstr ""
+"Per seleccionar un producte, si us plau llegiu un codi de barres o cerqueu "
+"un producte per categoria o per nom"
