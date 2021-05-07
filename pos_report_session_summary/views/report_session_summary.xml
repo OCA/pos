@@ -102,13 +102,8 @@
                             </tbody>
                         </table>
                         <t t-foreach="o.statement_ids" t-as="statement">
-                            <h4 t-if="statement.line_ids">Statement Details: <span
-                                    t-esc="statement.journal_id.name"
-                                /></h4>
-                            <table
-                                class="table table-sm o_main_table table-small-font"
-                                t-if="statement.line_ids"
-                            >
+                            <h4 t-if="statement.line_ids">Statement Details: <span t-esc="statement.journal_id.name"/></h4>
+                            <table class="table table-sm o_main_table table-small-font" t-if="statement.line_ids">
                                 <thead>
                                     <tr>
                                         <th>Date</th>
@@ -147,23 +142,18 @@
                             </table>
                         </t>
                         <t t-if="o.order_ids">
-                            <h4>Order Details: (<span
-                                    t-esc="o.order_count"
-                                /> Orders)</h4>
+                            <h4>Order Details: (<span t-esc="o.order_count"/> Orders)</h4>
                             <table class="table table-sm o_main_table table-small-font">
                                 <thead>
                                     <tr>
                                         <th>Date / Time</th>
                                         <th>Reference</th>
                                         <th>Partner</th>
+                                        <th>Rechnung</th>
                                         <th class="text-right">Net</th>
                                         <th class="text-right">Gross</th>
-                                        <th
-                                            t-foreach="o.statement_ids"
-                                            t-as="statement"
-                                            class="text-right"
-                                        >
-                                            <span t-field="statement.journal_id.code" />
+                                        <th t-foreach="o.statement_ids" t-as="statement"  class="text-right">
+                                            <span t-field="statement.journal_id.code"/>
                                         </th>
                                     </tr>
                                 </thead>
@@ -178,26 +168,17 @@
                                         <td>
                                             <span t-field="order.partner_id" />
                                         </td>
-                                        <td class="text-right">
-                                            <span
-                                                t-field="order.amount_untaxed"
-                                                t-options='{"widget": "monetary", "display_currency": order.currency_id}'
-                                            />
+                                        <td>
+                                            <span t-field="order.invoice_id.name" />
                                         </td>
                                         <td class="text-right">
-                                            <span
-                                                t-field="order.amount_total"
-                                                t-options='{"widget": "monetary", "display_currency": order.currency_id}'
-                                            />
+                                            <span t-field="order.amount_untaxed" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
                                         </td>
-                                        <td
-                                            t-foreach="o.statement_ids"
-                                            t-as="statement"
-                                            class="text-right"
-                                        >
-                                            <span
-                                                t-raw="order.get_statement_amount(statement.id)"
-                                            />
+                                        <td class="text-right">
+                                            <span t-field="order.amount_total" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                                        </td>
+                                        <td t-foreach="o.statement_ids" t-as="statement" class="text-right">
+                                            <span t-raw="order.get_statement_amount(statement.id)"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -205,25 +186,13 @@
                                             <strong>Summary</strong>
                                         </td>
                                         <td class="text-right">
-                                            <span
-                                                t-feild="o.order_amount_untaxed"
-                                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
-                                            />
+                                            <span t-feild="o.order_amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                         </td>
                                         <td class="text-right">
-                                            <span
-                                                t-field="o.order_amount_total"
-                                                t-options='{"widget": "monetary", "display_currency": o.currency_id}'
-                                            />
+                                            <span t-field="o.order_amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                         </td>
-                                        <td
-                                            t-foreach="o.statement_ids"
-                                            t-as="statement"
-                                            class="text-right"
-                                        >
-                                            <span
-                                                t-raw="o.get_statement_amount(statement.id)"
-                                            />
+                                        <td t-foreach="o.statement_ids" t-as="statement" class="text-right">
+                                            <span t-raw="o.get_statement_amount(statement.id)"/>
                                         </td>
                                     </tr>
                                 </tbody>
