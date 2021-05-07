@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 Akretion (https://www.akretion.com)
+     @author Raphaël Reverdy (https://akretion.com)
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<template>
+    <t t-name="SelectVariantPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-lg pxxopup-select-variant">
+                <header class="title">
+                    <t t-esc="state.template.name" />
+                </header>
+
+                <main class="body select-variant col-lg-4 col-md-6 col-sm-12">
+                    <div class="select-variant-attribute">
+                        <div class='attribute-list-container'>
+                            <div class="attribute-list-scroller touch-scrollable">
+                                <div t-foreach="state.attributes" t-as="attribute" t-key="attribute.id"  class="attribute">
+                                    <div class="attribute-name button selected" t-att-data-attribute-id="attribute.id">
+                                        <t t-esc="attribute.name"/>
+                                    </div>
+                                    <div class='value-list-container'>
+                                        <div class="value-list" t-foreach="attribute.ptav" t-as="value" t-key="value.id">
+                                            <AttributeValueItem attributeValue="value" t-att-class="{selected: state.ptav_id_selected[value.id]}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="placeholder-ScrollbarWidget" />
+                        <div class="select-variant-products">
+                            <t t-foreach="state.products" t-as="product" t-key="product.id">
+                                <ProductItem product="product" forceVariant="true" />
+                            </t>
+                        </div>
+                    </div>
+                </main>
+
+                <footer class="footer">
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</template>
