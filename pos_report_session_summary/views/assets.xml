@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_report" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link
+                href="/pos_report_session_summary/static/src/css/report.css"
+                rel="stylesheet"
+            />
+        </xpath>
+    </template>
+</odoo>
