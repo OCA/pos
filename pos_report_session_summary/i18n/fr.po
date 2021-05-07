@@ -1,0 +1,144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_report_session_summary
+#
+# Translators:
+# Clo <clo@odoo.com>, 2015
+# invitu <contact@invitu.com>, 2016
+# David Bertha <development@fonteynethekitchen.be>, 2016
+# Fabien Pinckaers <fp@openerp.com>, 2015
+# Florian Hatat, 2015
+# Loic <loic.richard2@gmail.com>, 2015
+# Martin Trigaux, 2015-2017
+# Maxime Chambreuil <mchambreuil@ursainfosystems.com>, 2015-2016
+# Melanie Bernard <mbe@odoo.com>, 2015
+# Olivier Dony <odo@odoo.com>, 2016
+# Quentin THEURET <odoo@kerpeo.com>, 2016
+# Shark McGnark <peculiarcheese@gmail.com>, 2016
+# Sylvain LE GAL <sylvain.legal@grap.coop>, 2015
+# Xavier Symons <xsy@openerp.com>, 2015
+# user 2 odoo <user2odoo@gmail.com>, 2015
+# zoe <yann.hoareau@migs.re>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-03 10:07+0000\n"
+"PO-Revision-Date: 2018-02-07 11:23+0000\n"
+"Last-Translator: Pierrick Brun\n"
+"Language-Team: French (http://www.transifex.com/odoo/odoo-9/language/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Closing Date</strong>:<br/>"
+msgstr "<strong>Date de clôture</strong> :<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Currency</strong>"
+msgstr "<strong>Devise</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Difference</strong>"
+msgstr "<strong>Différence</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Ending Balance</strong>"
+msgstr "<strong>Solde final</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Journal</strong>"
+msgstr "<strong>Journal</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Opening Date</strong>:<br/>"
+msgstr "<strong>Date d'ouverture</strong> :<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Point of Sale</strong>:<br/>"
+msgstr "<strong>Point de vente</strong> :<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Reference</strong>"
+msgstr "Référence"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Responsible</strong>:<br/>"
+msgstr "<strong>Responsable</strong>:<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Starting Balance</strong>"
+msgstr "<strong>Solde de départ</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Status</strong>"
+msgstr "<strong>Statut</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Total Transactions</strong>"
+msgstr "<strong>Total des transactions</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Account"
+msgstr "Compte"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Amount"
+msgstr "Montant"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Date"
+msgstr "Date"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Description"
+msgstr "Description"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Reference"
+msgstr "Référence"
+
+#. module: pos_report_session_summary
+#: model:ir.actions.report,name:pos_report_session_summary.action_report_pos_session_summary
+msgid "Session Summary"
+msgstr "Résumé de la session"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Session Summary:"
+msgstr "Résumé de la session :"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Statement Details:"
+msgstr "Détails du Relevé"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Statement Summary"
+msgstr "Résumé du relevé"
