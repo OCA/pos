@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo13-addon-pos_default_partner',
+        'odoo13-addon-pos_empty_home',
         'odoo13-addon-pos_fixed_discount',
         'odoo13-addon-pos_order_mgmt',
         'odoo13-addon-pos_order_remove_line',
