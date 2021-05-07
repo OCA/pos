@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_session_pay_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid "<span class=\"o_stat_text\">Collect Payment</span>\n"
+"                        <span class=\"o_stat_text\">from Invoice</span>"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid "<span class=\"o_stat_text\">Pay</span>\n"
+"                        <span class=\"o_stat_text\">Invoice</span>"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:52
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:49
+#, python-format
+msgid "Bank Statement was not found"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
+msgid "Collect Payment from Invoice"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
+msgid "Pay invoice"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
+msgid "Summary"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:23
+#, python-format
+msgid "There is no cash register for this Pos session"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
+msgid "cash.invoice.in"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_out
+msgid "cash.invoice.out"
+msgstr ""
+
