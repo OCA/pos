@@ -1,0 +1,6 @@
+.pos_backend_communication .o_sub_menu {
+    display: none !important;
+}
+.pos_backend_communication #oe_main_menu_navbar {
+    display: none !important;
+}
