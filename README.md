@@ -21,6 +21,7 @@ addon | version | summary
 --- | --- | ---
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.0.0 | Point of sale: support generic payment terminal
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 | sort the products by name in the point of sale instead of sorting them by the sequence field.
+[pos_require_product_quantity](pos_require_product_quantity/) | 14.0.1.0.0 | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 | Point of sale: show pos config name
 
 [//]: # (end addons)
