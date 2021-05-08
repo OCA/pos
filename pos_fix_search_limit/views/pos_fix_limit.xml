@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="assets"
+        name="pos_fix_search_limit assets"
+        inherit_id="point_of_sale.assets"
+        priority="1"
+    >
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_fix_search_limit/static/src/js/pos_fix_search_limit.js"
+            />
+        </xpath>
+    </template>
+</odoo>
