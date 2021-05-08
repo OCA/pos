@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_require_product_quantity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_require_product_quantity
+#. openerp-web
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:30
+#, python-format
+msgid "Missing quantities"
+msgstr ""
+
+#. module: pos_require_product_quantity
+#. openerp-web
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:32
+#, python-format
+msgid "No quantity set for products:"
+msgstr ""
+
+#. module: pos_require_product_quantity
+#: model:ir.model,name:pos_require_product_quantity.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_require_product_quantity
+#: model:ir.model.fields,field_description:pos_require_product_quantity.field_pos_config__require_product_quantity
+msgid "Require product quantity in POS"
+msgstr ""
+
+#. module: pos_require_product_quantity
+#: model_terms:ir.ui.view,arch_db:pos_require_product_quantity.view_pos_config_form
+msgid "Show pop-up when product quantity is set to 0 for one or more order lines when clicking on \"Payment\" button."
+msgstr ""
+
