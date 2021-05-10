@@ -23,4 +23,3 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_journal_image.field_account_journal__pos_image
 msgid "PoS Image"
 msgstr ""
-
