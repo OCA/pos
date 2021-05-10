@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!-- Disable empty home on pos_config_main, because it can affect test tours  -->
+        <record id="point_of_sale.pos_config_main" model="pos.config">
+            <field name="iface_empty_home" eval="False" />
+        </record>
+    </data>
+</odoo>
