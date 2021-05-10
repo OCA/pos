@@ -7,10 +7,12 @@
 -->
 <templates id="template" xml:space="preserve">
     <t t-extend="ProductListWidget">
-        <t t-jquery=".product-list" t-operation="before">
-            <div class="product-list-empty-home">
+        <t t-jquery=".product-list-empty t[t-else=''] p" t-operation="after">
+            <p
+                t-if="widget.product_list.length == 0 &amp;&amp; (!widget.category || widget.category.id == 0)"
+            >
                 To select a product, please scan a barcode or search products by category or by name
-            </div>
+            </p>
         </t>
     </t>
 </templates>

@@ -7,18 +7,8 @@
 -->
 <odoo>
     <template id="assets_frontend" inherit_id="point_of_sale.assets">
-        <xpath expr="." position="inside">
+        <xpath expr="//script[last()]" position="after">
             <script type="text/javascript" src="/pos_empty_home/static/src/js/db.js" />
-            <script
-                type="text/javascript"
-                src="/pos_empty_home/static/src/js/screens.js"
-            />
-        </xpath>
-        <xpath expr="//link[@id='pos-stylesheet']" position="after">
-            <link
-                rel="stylesheet"
-                href="/pos_empty_home/static/src/css/pos_empty_home.css"
-            />
         </xpath>
     </template>
 </odoo>
