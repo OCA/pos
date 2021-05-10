@@ -21,6 +21,9 @@ odoo.define("pos_fix_search_limit.product_list", function(require) {
             // (db.limit has been increased to return more results)
             // (but we still want to limit the display)
             // And make use of document fragment, because better perfs
+            if (!this.product_list.length) {
+                return this._super.apply(this, arguments);
+            }
             var i = 0;
             var len = Math.min(this.product_list.length, this.displayLimit);
             var frag = document.createDocumentFragment();
