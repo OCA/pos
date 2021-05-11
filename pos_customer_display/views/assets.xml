@@ -7,6 +7,7 @@
             <script type="text/javascript" src="/pos_customer_display/static/src/js/screens.js" />
             <script type="text/javascript" src="/pos_customer_display/static/src/js/gui.js" />
             <script type="text/javascript" src="/pos_customer_display/static/src/js/devices.js" />
+            <script type="text/javascript" src="/pos_customer_display/static/src/js/chrome.js" />
             <script type="text/javascript" src="/pos_customer_display/static/src/js/customer_display_2_20.js" />
         </xpath>
     </template>
