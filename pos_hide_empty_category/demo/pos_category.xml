@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="empty_main_category" model="pos.category">
+        <field name="name">Empty Main Category</field>
+        <field name="sequence">99</field>
+    </record>
+
+    <record id="empty_child_category" model="pos.category">
+        <field name="name">Empty Child Category</field>
+        <field name="parent_id" ref="empty_main_category"/>
+        <field name="sequence">100</field>
+    </record>
+
+</odoo>
