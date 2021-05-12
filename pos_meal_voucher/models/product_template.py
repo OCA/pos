@@ -14,6 +14,14 @@ class ProductTemplate(models.Model):
     )
 
     @api.onchange("categ_id")
-    def onchange_categ_id(self):
+    def onchange_categ_id_pos_meal_voucher(self):
         for template in self:
             template.meal_voucher_ok = template.categ_id.meal_voucher_ok
+
+    @api.model
+    def create(self, vals):
+        if "meal_voucher_ok" not in vals and "categ_id" in vals:
+            # Guess meal_voucher_ok if not present, based on the category
+            categ = self.env["product.category"].browse(vals.get("categ_id"))
+            vals["meal_voucher_ok"] = categ.meal_voucher_ok
+        return super().create(vals)
