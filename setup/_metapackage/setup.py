@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-pos_product_sort',
         'odoo14-addon-pos_require_product_quantity',
         'odoo14-addon-pos_show_config_name',
+        'odoo14-addon-pos_timeout',
     ],
     classifiers=[
         'Programming Language :: Python',
