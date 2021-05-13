@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -26,6 +26,21 @@ msgid ""
 " If not defined, the default Odoo value will be used: 30 seconds.\n"
 " If the call contains more than one order (after a long disconnection period for example, or if the previous call raised the timeout),\n"
 " the effective timeout value applied will be equal to the defined timeout value multiplied by the number of orders.\n"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: pos_timeout
