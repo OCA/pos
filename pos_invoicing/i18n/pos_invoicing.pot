@@ -45,6 +45,7 @@ msgid "Point of Sale Session"
 msgstr ""
 
 #. module: pos_invoicing
+#: code:addons/pos_invoicing/models/account_invoice.py:37
 #: code:addons/pos_invoicing/models/account_invoice.py:38
 #, python-format
 msgid "You can not realize this action on the invoice(s) %s because there are pending payments in the Point of Sale."
