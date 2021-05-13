@@ -12,7 +12,7 @@ class AccountInvoice(models.Model):
 
     pos_pending_payment = fields.Boolean(
         string='PoS - Pending Payment', readonly=True,
-        oldname='forbid_payment',
+        copy=False, oldname='forbid_payment',
         help="Indicates an invoice for which there are pending payments in the"
         " Point of Sale. \nThe invoice will be marked as paid when the session"
         " will be closed.")
@@ -21,11 +21,10 @@ class AccountInvoice(models.Model):
     @api.multi
     def action_cancel(self):
         self._check_pos_pending_payment()
-        return super(AccountInvoice, self).action_cancel()
+        return super().action_cancel()
 
-    @api.multi
+    @api.one
     def _get_outstanding_info_JSON(self):
-        self.ensure_one()
         if self.pos_pending_payment:
             return
         else:
@@ -38,4 +37,4 @@ class AccountInvoice(models.Model):
             raise UserError(_(
                 "You can not realize this action on the invoice(s) %s because"
                 " there are pending payments in the Point of Sale.") % (
-                    ', '.join(invoices.mapped('name'))))
+                    ', '.join(invoices.mapped('number'))))
