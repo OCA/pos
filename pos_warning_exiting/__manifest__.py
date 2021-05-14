@@ -6,7 +6,7 @@
     "name": "Point Of Sale - Warning on Exiting",
     "summary": "Add warning at exiting the PoS front office UI"
     " if there are pending draft orders",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Point Of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
