@@ -6,7 +6,7 @@
     "name": "Point Of Sale - Correct Opening Balance",
     "summary": "Handle correctly opening balance in a multi point of sale"
     " context with Cash control enabled.",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "category": "Point of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
