@@ -16,6 +16,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:29
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:31
 #, python-format
 msgid "(Dematerialized)"
 msgstr ""
@@ -83,6 +84,11 @@ msgid "Food"
 msgstr ""
 
 #. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__has_meal_voucher_journal
+msgid "Has Meal Voucher Journal"
+msgstr ""
+
+#. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
 msgid "If checked, an icon will be displayed on the screen, before each product that can be paid with meal vouchers."
 msgstr ""
@@ -110,6 +116,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:52
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:55
 #, python-format
 msgid "Max Amount"
 msgstr ""
@@ -123,6 +130,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:39
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:42
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_product__meal_voucher_ok
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_template__meal_voucher_ok
@@ -149,6 +157,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:16
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:17
 #, python-format
 msgid "Meal Voucher:"
 msgstr ""
@@ -224,6 +233,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:44
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:47
 #, python-format
 msgid "Total Eligible"
 msgstr ""
@@ -231,6 +241,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:60
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:63
 #, python-format
 msgid "Total Received"
 msgstr ""
