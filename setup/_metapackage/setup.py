@@ -62,6 +62,7 @@ setuptools.setup(
         'odoo12-addon-pos_timeout',
         'odoo12-addon-pos_to_weight_by_product_uom',
         'odoo12-addon-pos_user_restriction',
+        'odoo12-addon-pos_warning_exiting',
     ],
     classifiers=[
         'Programming Language :: Python',
