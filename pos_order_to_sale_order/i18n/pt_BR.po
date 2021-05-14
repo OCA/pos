@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_order_to_sale_order
+# 	* pos_order_to_sale_order
 #
 msgid ""
 msgstr ""
@@ -26,6 +26,7 @@ msgstr "Voltar"
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/screens.js:146
+#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:150
 #, python-format
 msgid "Check your internet connection and try again."
 msgstr "Verifique sua conexão com a internet e tente novamente."
@@ -77,6 +78,7 @@ msgstr "Criar Ordem de Venda"
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/screens.js:98
+#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:102
 #, python-format
 msgid "Create Sale Order and discard the current PoS Order?"
 msgstr "Criar Pedido de Venda e descartar o Pedido de PDV atual?"
@@ -88,15 +90,20 @@ msgstr "Criar Ordem de Venda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
-msgid "If checked, the cashier will have the possibility to create a confirmed Sale Order, based on the current draft PoS Order."
+msgid ""
+"If checked, the cashier will have the possibility to create a confirmed Sale "
+"Order, based on the current draft PoS Order."
 msgstr ""
 "Se marcado, o caixa terá a possibilidade de criar um pedido de venda "
 "confirmado, com base no atual rascunho do pedido do PDV."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
-msgid "If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
-" the according picking will be marked as delivered. Only invoices process will be possible."
+msgid ""
+"If checked, the cashier will have the possibility to create a confirmed sale "
+"Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered. Only invoices process "
+"will be possible."
 msgstr ""
 "Se marcado, o caixa terá a possibilidade de criar um pedido de venda "
 "confirmado, com base no rascunho do pedido de PDV atual. O picking "
@@ -105,7 +112,9 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
-msgid "If checked, the cashier will have the possibility to create a draft Sale Order, based on the current draft PoS Order."
+msgid ""
+"If checked, the cashier will have the possibility to create a draft Sale "
+"Order, based on the current draft PoS Order."
 msgstr ""
 "Se marcado, o caixa terá a possibilidade de criar um rascunho de pedido de "
 "venda, com base no rascunho atual de pedido de PDV."
@@ -146,6 +155,7 @@ msgstr "Linha da Ordem de Venda"
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/screens.js:145
+#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:149
 #, python-format
 msgid "The order could not be sent"
 msgstr "A ordem não pôde ser enviada"
@@ -153,8 +163,11 @@ msgstr "A ordem não pôde ser enviada"
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/screens.js:101
+#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:105
 #, python-format
-msgid "This operation will permanently discard the current PoS Order and create a Sale Order, based on the current order lines."
+msgid ""
+"This operation will permanently discard the current PoS Order and create a "
+"Sale Order, based on the current order lines."
 msgstr ""
 "Esta operação descartará permanentemente o Pedido PDV atual e criará um "
 "Pedido de Venda, com base nas linhas de pedidos atuais."
