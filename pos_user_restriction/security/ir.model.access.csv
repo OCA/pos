@@ -7,6 +7,7 @@ access_stock_warehouse_pos_user,stock.warehouse pos_user,stock.model_stock_wareh
 access_stock_move_pos_user,stock.move pos_user,stock.model_stock_move,group_assigned_points_of_sale_user,1,1,1,1
 access_report_pos_order,report.pos.order,point_of_sale.model_report_pos_order,group_assigned_points_of_sale_user,1,1,1,1
 access_account_journal_pos_user,account.journal pos_user,account.model_account_journal,group_assigned_points_of_sale_user,1,0,0,0
+access_account_payment_method_pos_user,account.payment.method pos_user,account.model_account_payment_method,group_assigned_points_of_sale_user,1,0,0,0
 access_account_bank_statement,account.bank.statement,account.model_account_bank_statement,group_assigned_points_of_sale_user,1,1,1,0
 access_account_bank_statement_line,account.bank.statement.line,account.model_account_bank_statement_line,group_assigned_points_of_sale_user,1,1,1,0
 access_product_product,product.product,product.model_product_product,group_assigned_points_of_sale_user,1,0,0,0
@@ -22,3 +23,7 @@ access_barcode_rule_pos_user,barcode.rule.pos.user,barcodes.model_barcode_rule,g
 access_bank_statement_cashbox_user,account.bank.statement.cashbox user,account.model_account_bank_statement_cashbox,group_assigned_points_of_sale_user,1,1,1,0
 access_account_cashbox_line_user,account.cashbox.line user,account.model_account_cashbox_line,group_assigned_points_of_sale_user,1,1,1,0
 access_account_cash_rounding_pos_user,account.cash.rounding.pos.user,account.model_account_cash_rounding,group_assigned_points_of_sale_user,1,0,0,0
+access_pos_payment_method_user,pos.payment.method user,point_of_sale.model_pos_payment_method,group_assigned_points_of_sale_user,1,0,0,0
+access_decimal_precision_user,decimal.precision,base.model_decimal_precision,group_assigned_points_of_sale_user,1,0,0,0
+access_money_in_out_wizard,access.money.in.out.wizard,point_of_sale.model_cash_box_out,group_assigned_points_of_sale_user,1,1,1,0
+access_pos_payment_user,pos.payment user,point_of_sale.model_pos_payment,group_assigned_points_of_sale_user,1,1,1,1

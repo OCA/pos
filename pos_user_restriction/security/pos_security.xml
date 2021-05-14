@@ -2,10 +2,11 @@
 <odoo>
     <record id="group_assigned_points_of_sale_user" model="res.groups">
         <field name="name">User: Assigned POS Only</field>
-        <field name="category_id" ref="base.module_category_point_of_sale" />
+        <field name="category_id" ref="base.module_category_sales_point_of_sale" />
         <field
             name="comment"
         >The user will have access to her assigned points of sale.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
     </record>
     <record id="point_of_sale.group_pos_user" model="res.groups">
         <field
@@ -20,7 +21,7 @@
         <field ref="point_of_sale.model_pos_config" name="model_id" />
         <field
                 name="domain_force"
-            >['|',('assigned_user_ids','in',user.id),('assigned_user_ids','=',False)]</field>
+            >['|',('assigned_user_ids','in',user.id),('assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
         <field name="groups" eval="[(4, ref('group_assigned_points_of_sale_user'))]" />
     </record>
     <record id="pos_session_assigned_users" model="ir.rule">
@@ -28,7 +29,7 @@
         <field ref="point_of_sale.model_pos_session" name="model_id" />
         <field
                 name="domain_force"
-            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False)]</field>
+            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
         <field name="groups" eval="[(4, ref('group_assigned_points_of_sale_user'))]" />
     </record>
     <record id="pos_order_assigned_users" model="ir.rule">
@@ -36,7 +37,7 @@
         <field ref="point_of_sale.model_pos_order" name="model_id" />
         <field
                 name="domain_force"
-            >['|',('session_id.config_id.assigned_user_ids','in',user.id),('session_id.config_id.assigned_user_ids','=',False)]</field>
+            >['|',('session_id.config_id.assigned_user_ids','in',user.id),('session_id.config_id.assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
         <field name="groups" eval="[(4, ref('group_assigned_points_of_sale_user'))]" />
     </record>
 
