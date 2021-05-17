@@ -62,6 +62,13 @@ msgid "Credit"
 msgstr "Crédit"
 
 #. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_res_partner__credit_line_ids
+#: model:ir.model.fields,field_description:pos_payment_credit.field_res_users__credit_line_ids
+#: model_terms:ir.ui.view,arch_db:pos_payment_credit.view_partner_property_form_inherit
+msgid "Credit History"
+msgstr "Historique de crédit"
+
+#. module: pos_payment_credit
 #. openerp-web
 #: code:addons/pos_payment_credit/static/src/js/screen.js:42
 #, python-format

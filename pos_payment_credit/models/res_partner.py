@@ -29,3 +29,23 @@ class ResPartner(models.Model):
         digits=0,
         readonly=True,
     )
+    credit_line_ids = fields.Many2many(
+        comodel_name="account.bank.statement.line",
+        string="Credit History",
+        compute="_compute_credit_line"
+    )
+
+    def _compute_credit_line(self):
+        credit_journals = self.env['account.journal'].search([
+            ('is_credit', '=', True)
+        ])
+        for partner in self:
+            lines = ABSLine= self.env['account.bank.statement.line']
+            if credit_journals:
+                args = [
+                    ('partner_id', '=', partner.id),
+                    ('journal_id', 'in', credit_journals.ids)
+                ]
+                lines = ABSLine.search(args)
+            partner.credit_line_ids = lines
+
