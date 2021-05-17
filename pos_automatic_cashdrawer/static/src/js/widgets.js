@@ -144,6 +144,7 @@ odoo.define('pos_automatic_cashdrawer.widgets', function (require) {
             }).then(function () {
                 self.gui.show_popup('cashdrawer_cash_in', {
                     allow_cancel: true,
+                    payment: false,
                     title: _t('Add cash'),
                     confirm: function (value) {
                         self.pos.action_put_money_in(value, _t('Manual: put money in')).then(function (st_line) {
@@ -382,13 +383,23 @@ odoo.define('pos_automatic_cashdrawer.widgets', function (require) {
             this.closed = false;
             this.inputbuffer = 0.00;
             framework.blockUI();
-            this.pos.proxy.automatic_cashdrawer_start_add_change().then(function (res) {
-                self.update_counter();
-            }).fail(function (err) {
-                self.close();
-            }).always(function () {
-                framework.unblockUI();
-            });
+            if (options.payment) {
+                this.pos.proxy.automatic_cashdrawer_start_acceptance().then(function (res) {
+                    self.update_counter();
+                    }).fail(function (err) {
+                        self.close();
+                        }).always(function () {
+                            framework.unblockUI();
+                            });
+            } else {
+                this.pos.proxy.automatic_cashdrawer_start_add_change().then(function (res) {
+                    self.update_counter();
+                    }).fail(function (err) {
+                        self.close();
+                        }).always(function () {
+                            framework.unblockUI();
+                            });
+            }
         },
 
         close: function (options) {
@@ -415,16 +426,22 @@ odoo.define('pos_automatic_cashdrawer.widgets', function (require) {
         click_confirm: function () {
             var self = this;
             this.pos.proxy.automatic_cashdrawer_stop_acceptance().then(function (value) {
-                if (self.options.to_collect && value > self.options.to_collect) {
+                if (self.options.to_collect && value >= self.options.to_collect) {
                     var change = utils.round_precision(value - self.options.to_collect, self.pos.currency.rounding);
-                    self.pos.proxy.automatic_cashdrawer_dispense(change).then(function (res) {
+                    if (change > 0) { // more was collected, we dispense
+                        self.pos.proxy.automatic_cashdrawer_dispense(change).then(function (res) {
+                            if (self.options.confirm) {
+                                self.options.confirm.call(self, value - change, value, change);
+                            }
+                        });
+                    } else { // exact amount was collected
                         if (self.options.confirm) {
-                            self.options.confirm.call(self, value - change, value, change);
+                            self.options.confirm.call(self, value, value, 0);
                         }
-                    });
-                } else {
+                    }
+                } else { // not enough was collected
                     if (self.options.confirm) {
-                        self.options.confirm.call(self, value);
+                        self.options.confirm.call(self, self.options.to_collect, value, 0);
                     }
                 }
                 self.gui.close_popup();

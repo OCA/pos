@@ -64,6 +64,7 @@ odoo.define('pos_automatic_cashdrawer.screens', function (require) {
                     to_collect: amount,
                     auto_accept: true,
                     allow_cancel: true,
+                    payment: true,
                     confirm: function (amount, amountIn, amountOut) {
                         var amountFormatted = self.format_currency_no_symbol(amountIn);
                         line.set_amount(amountIn);
