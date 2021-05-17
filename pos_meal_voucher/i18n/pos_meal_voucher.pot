@@ -200,6 +200,11 @@ msgid "Priced Product (Computed Weight)"
 msgstr ""
 
 #. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_product_category
 msgid "Product Category"
 msgstr ""
