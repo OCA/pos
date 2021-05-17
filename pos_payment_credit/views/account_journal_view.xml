@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_form_inherit" model="ir.ui.view">
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <field name="type" position="after">
+                <field name="is_credit"/>
+            </field>
+            <field name="default_credit_account_id" position="attributes">
+                <attribute name="attrs">{'required': [('is_credit', '=', True)]}</attribute>
+            </field>
+            <field name="default_debit_account_id" position="attributes">
+                <attribute name="attrs">{'required': [('is_credit', '=', True)]}</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>

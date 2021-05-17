@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="credit_journal" model="account.journal">
+        <field name="name">Credit</field>
+        <field name="code">CRD</field>
+        <field name="type">bank</field>
+        <field name="journal_user" eval="True"/>
+        <field name="is_credit" eval="True"/>
+        <field name="sequence">100</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+</odoo>
