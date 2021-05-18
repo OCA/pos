@@ -45,6 +45,11 @@ odoo.define('pos_automatic_validation.pos_automatic_validation', function (requi
         render_paymentlines: function() {
             this._super();
             var self = this;
+            this.setup_auto_validation_timer();
+        },
+
+        setup_auto_validation_timer: function() {
+            var self = this;
             var order = this.pos.get_order();
             var selected_line = order.selected_paymentline;
             if (selected_line) {
@@ -58,6 +63,7 @@ odoo.define('pos_automatic_validation.pos_automatic_validation', function (requi
                 }, 1000);
             }
         },
+
         check_auto_validation: function() {
             var self = this;
             var order = this.pos.get_order();
