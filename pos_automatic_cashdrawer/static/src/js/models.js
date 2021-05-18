@@ -75,10 +75,7 @@ odoo.define('pos_automatic_cashdrawer.models', function (require) {
             var done = rpc.query({
                 model: 'pos.session',
                 method: 'action_set_balance',
-                args: [[this.pos_session.id], {
-                    inventory: inventory,
-                    balance: balance
-                }]
+                args: [[this.pos_session.id], inventory, balance]
             });
             done.fail(function (error) {
                 self.gui.show_popup('error-traceback', {
@@ -106,10 +103,7 @@ odoo.define('pos_automatic_cashdrawer.models', function (require) {
             return rpc.query({
                 model: 'pos.session',
                 method: 'action_put_money_in',
-                args: [[this.pos_session.id], {
-                    'amount': amount,
-                    'reason': reason,  
-                }]
+                args: [[this.pos_session.id], amount, reason]
             });
         },
 
@@ -120,10 +114,7 @@ odoo.define('pos_automatic_cashdrawer.models', function (require) {
             return rpc.query({
                 model: 'pos.session',
                 method: 'action_take_money_out',
-                args: [[this.pos_session.id], {
-                    'amount': amount,
-                    'reason': reason,  
-                }]
+                args: [[this.pos_session.id], amount, reason]
             });
         },
     });
