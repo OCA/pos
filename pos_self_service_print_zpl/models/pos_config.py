@@ -31,3 +31,9 @@ class PosConfig(models.Model):
     printer_name = fields.Char(
         string="Printer Name", help="Find in CUPS at localhost:631/printers"
     )
+    darkness = fields.Integer(
+        string="Darkness",
+        required=True,
+        default=20,
+        help="ZPL ~SD (set darkness) command. 0 to 30."
+    )

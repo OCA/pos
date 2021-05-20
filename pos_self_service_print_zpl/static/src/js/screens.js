@@ -21,7 +21,8 @@ odoo.define("pos_self_service_print_zpl.screens", function(require) {
             }
         },
         get_ZPL_barcode: function() {
-            return `^XA ^FX
+            return `~SD${this.pos.config.darkness}
+            ^XA ^FX
             ^BY${this.pos.config.label_height},2,${this.pos.config.label_width}
             ^FO${this.pos.config.label_offset_x},${this.pos.config.label_offset_y}
             ^BE^FD${this.get_barcode()}^FS

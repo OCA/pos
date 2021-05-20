@@ -30,6 +30,10 @@
                         <label for="label_height" class="col-lg-3 o_light_label" />
                         <field name="label_height" />
                     </div>
+                    <div class="row">
+                        <label for="darkness" class="col-lg-3 o_light_label"/>
+                        <field name="darkness"/>
+                    </div>
                 </div>
             </xpath>
         </field>
