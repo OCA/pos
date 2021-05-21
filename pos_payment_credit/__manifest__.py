@@ -5,7 +5,7 @@
 
 {
     'name': 'Point of Sale Payment Credit',
-    'version': '12.0.1.0.1',
+    'version': '12.0.1.0.2',
     'category': 'Point Of Sale',
     'author': 'Trobz',
     'license': 'AGPL-3',

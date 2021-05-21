@@ -2,7 +2,7 @@
 <odoo noupdate="1">
 
     <record id="credit_journal" model="account.journal">
-        <field name="name">Credit</field>
+        <field name="name">Avoir</field>
         <field name="code">CRD</field>
         <field name="type">bank</field>
         <field name="journal_user" eval="True"/>
