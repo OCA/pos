@@ -5,6 +5,7 @@
             <script type="text/javascript" src="/pos_tare/static/src/js/tools.js"></script>
             <script type="text/javascript" src="/pos_tare/static/src/js/models.js"></script>
             <script type="text/javascript" src="/pos_tare/static/src/js/screens.js"></script>
+            <script type="text/javascript" src="/pos_tare/static/src/js/db.js"></script>
         </xpath>
     </template>
 </odoo>

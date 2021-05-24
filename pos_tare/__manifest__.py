@@ -16,10 +16,14 @@
         "views/templates.xml",
         "views/view_pos_config.xml",
         "views/view_pos_order.xml",
+        "views/view_product_template.xml",
         "data/barcode_rule.xml",
     ],
     "qweb": [
         "static/src/xml/pos_tare.xml",
+    ],
+    "demo": [
+        "demo/product_product.xml",
     ],
     "installable": True,
 }
