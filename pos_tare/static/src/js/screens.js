@@ -45,9 +45,12 @@ odoo.define('pos_tare.screens', function (require) {
         // /////////////////////////////
 
         show: function () {
-            this.tare = 0.0;
-            this.gross_weight = 0.0;
             this._super();
+            this.tare = this.get_product().tare_weight;
+            if (this.tare) {
+                this.$("#input_weight_tare")[0].value = this.tare;
+            }
+            this.gross_weight = 0.0;
             var self = this;
             this.$('#input_weight_tare').keyup(function (event) {
                 self.onchange_tare(event);
