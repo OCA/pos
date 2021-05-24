@@ -11,9 +11,7 @@ class PosPaymentChangeWizard(models.TransientModel):
     _description = "PoS Payment Change Wizard"
 
     # Column Section
-    order_id = fields.Many2one(
-        comodel_name="pos.order", string="Order", readonly=True
-    )
+    order_id = fields.Many2one(comodel_name="pos.order", string="Order", readonly=True)
 
     old_line_ids = fields.One2many(
         comodel_name="pos.payment.change.wizard.old.line",
@@ -38,16 +36,23 @@ class PosPaymentChangeWizard(models.TransientModel):
         order = PosOrder.browse(self._context.get("active_id"))
         old_lines_vals = []
         for statement_line in order.statement_ids:
-            old_lines_vals.append((0, 0, {
-                "old_journal_id": statement_line.statement_id.journal_id.id,
-                "amount": statement_line.amount
-                }
-            ))
-        res.update({
-            "order_id": order.id,
-            "amount_total": order.amount_total,
-            "old_line_ids": old_lines_vals,
-        })
+            old_lines_vals.append(
+                (
+                    0,
+                    0,
+                    {
+                        "old_journal_id": statement_line.statement_id.journal_id.id,
+                        "amount": statement_line.amount,
+                    },
+                )
+            )
+        res.update(
+            {
+                "order_id": order.id,
+                "amount_total": order.amount_total,
+                "old_line_ids": old_lines_vals,
+            }
+        )
         return res
 
     # View section
@@ -71,11 +76,14 @@ class PosPaymentChangeWizard(models.TransientModel):
             )
 
         # Change payment
-        new_payments = [{
-            "journal": line.new_journal_id.id,
-            "amount": line.amount,
-            "payment_date": fields.Date.context_today(self),
-        } for line in self.new_line_ids]
+        new_payments = [
+            {
+                "journal": line.new_journal_id.id,
+                "amount": line.amount,
+                "payment_date": fields.Date.context_today(self),
+            }
+            for line in self.new_line_ids
+        ]
 
         orders = order.change_payment(new_payments)
 
@@ -87,12 +95,10 @@ class PosPaymentChangeWizard(models.TransientModel):
 
         if len(orders) == 1:
             # if policy is 'update', only close the pop up
-            action = {'type': 'ir.actions.act_window_close'}
+            action = {"type": "ir.actions.act_window_close"}
         else:
             # otherwise (refund policy), displays the 3 orders
-            action = self.env.ref(
-                "point_of_sale.action_pos_pos_form"
-            ).read()[0]
-            action['domain'] = [('id', 'in', orders.ids)]
+            action = self.env.ref("point_of_sale.action_pos_pos_form").read()[0]
+            action["domain"] = [("id", "in", orders.ids)]
 
         return action
