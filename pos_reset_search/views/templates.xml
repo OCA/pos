@@ -7,7 +7,7 @@
             <xpath expr="." position="inside">
             <script
                 type="text/javascript"
-                src="/pos_reset_search/static/src/js/reset.js"
+                src="/pos_reset_search/static/src/js/ProductScreen.js"
             />
             </xpath>
     </template>
