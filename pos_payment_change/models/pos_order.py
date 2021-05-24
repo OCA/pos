@@ -6,8 +6,8 @@
 from datetime import datetime
 
 from odoo import _, api, fields, models
-from odoo.tools import float_is_zero
 from odoo.exceptions import Warning as UserError
+from odoo.tools import float_is_zero
 
 
 class PosOrder(models.Model):
@@ -28,15 +28,17 @@ class PosOrder(models.Model):
         # Removing zero lines
         precision = self.pricelist_id.currency_id.decimal_places
         payment_lines = [
-            x for x in payment_lines if not float_is_zero(
-                x["amount"], precision_digits=precision)
+            x
+            for x in payment_lines
+            if not float_is_zero(x["amount"], precision_digits=precision)
         ]
 
         self._check_payment_change_allowed()
 
         comment = _(
             "The payments of the Order %s (Ref: %s) has been changed"
-            " by %s at %s." % (
+            " by %s at %s."
+            % (
                 self.name,
                 self.pos_reference,
                 self.env.user.name,
@@ -58,26 +60,28 @@ class PosOrder(models.Model):
             refund_order = self.browse(refund_result["res_id"])
 
             for statement in self.statement_ids:
-                refund_order.add_payment({
-                    "journal": statement.journal_id.id,
-                    "amount": - statement.amount,
-                    "payment_date": fields.Date.context_today(self),
-                })
+                refund_order.add_payment(
+                    {
+                        "journal": statement.journal_id.id,
+                        "amount": -statement.amount,
+                        "payment_date": fields.Date.context_today(self),
+                    }
+                )
             refund_order.action_pos_order_paid()
 
             # Resale order and mark it as paid
             # with the new payment
-            resale_order = self.copy(
-                default={"pos_reference": self.pos_reference}
-            )
+            resale_order = self.copy(default={"pos_reference": self.pos_reference})
 
             for line in payment_lines:
                 resale_order.add_payment(line)
             resale_order.action_pos_order_paid()
 
             orders += refund_order + resale_order
-            comment += _(" (Refund Order: %s ; Resale Order: %s)" % (
-                refund_order.name, resale_order.name))
+            comment += _(
+                " (Refund Order: %s ; Resale Order: %s)"
+                % (refund_order.name, resale_order.name)
+            )
         for order in orders:
             order.note = "%s\n%s" % (order.note or "", comment)
         return orders

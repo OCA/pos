@@ -10,7 +10,8 @@ class PosPaymentChangeWizardLine(models.TransientModel):
     _description = "PoS Payment Change Wizard New Line"
 
     wizard_id = fields.Many2one(
-        comodel_name="pos.payment.change.wizard", required=True,
+        comodel_name="pos.payment.change.wizard",
+        required=True,
     )
 
     new_journal_id = fields.Many2one(
@@ -21,24 +22,26 @@ class PosPaymentChangeWizardLine(models.TransientModel):
     )
 
     company_currency_id = fields.Many2one(
-        comodel_name='res.currency', store=True,
-        related='new_journal_id.currency_id',
-        string="Company Currency", readonly=True,
-        help='Utility field to express amount currency'
+        comodel_name="res.currency",
+        store=True,
+        related="new_journal_id.currency_id",
+        string="Company Currency",
+        readonly=True,
+        help="Utility field to express amount currency",
     )
 
     amount = fields.Monetary(
         string="Amount",
-        required=True, default=0.0,
-        currency_field='company_currency_id'
+        required=True,
+        default=0.0,
+        currency_field="company_currency_id",
     )
 
     @api.model
     def _domain_new_journal_id(self):
         PosOrder = self.env["pos.order"]
         order = PosOrder.browse(self.env.context.get("active_id"))
-        return [("id", "in", order.mapped(
-            "session_id.statement_ids.journal_id").ids)]
+        return [("id", "in", order.mapped("session_id.statement_ids.journal_id").ids)]
 
     # View Section
     @api.model
@@ -48,9 +51,8 @@ class PosPaymentChangeWizardLine(models.TransientModel):
             return res
         balance = self._context.get("amount_total", 0.0)
         for line in self.wizard_id.resolve_2many_commands(
-                "new_line_ids",
-                self._context["new_line_ids"],
-                fields=["amount"]):
+            "new_line_ids", self._context["new_line_ids"], fields=["amount"]
+        ):
             balance -= line.get("amount")
-        res.update({'amount': balance})
+        res.update({"amount": balance})
         return res
