@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import fields
-from odoo.tests.common import TransactionCase
 from odoo.exceptions import UserError
+from odoo.tests.common import TransactionCase
 
 
 class TestModule(TransactionCase):
@@ -15,7 +15,7 @@ class TestModule(TransactionCase):
         self.PosSession = self.env["pos.session"]
         self.PosOrder = self.env["pos.order"]
         self.AccountJournal = self.env["account.journal"]
-        self.PosMakePayment = self.env['pos.make.payment']
+        self.PosMakePayment = self.env["pos.make.payment"]
         self.PosPaymentChangeWizard = self.env["pos.payment.change.wizard"]
         self.PosPaymentChangeWizardNewLine = self.env[
             "pos.payment.change.wizard.new.line"
@@ -25,16 +25,20 @@ class TestModule(TransactionCase):
 
     def _initialize_journals_open_session(self):
 
-        self.check_journal = self.AccountJournal.create({
-            "name": "Demo Check Journal",
-            "type": "bank",
-            "journal_user": True,
-        })
-        self.cash_journal = self.AccountJournal.create({
-            "name": "Demo Cash Journal",
-            "type": "cash",
-            "journal_user": True,
-        })
+        self.check_journal = self.AccountJournal.create(
+            {
+                "name": "Demo Check Journal",
+                "type": "bank",
+                "journal_user": True,
+            }
+        )
+        self.cash_journal = self.AccountJournal.create(
+            {
+                "name": "Demo Cash Journal",
+                "type": "cash",
+                "journal_user": True,
+            }
+        )
 
         # create new session and open it
         self.pos_config.journal_ids = [
@@ -60,40 +64,42 @@ class TestModule(TransactionCase):
             "price_subtotal": price,
             "price_subtotal_incl": price,
         }
-        order = self.PosOrder.create({
-            "session_id": self.session.id,
-            "amount_tax": 0,
-            "amount_total": price,
-            "amount_paid": price,
-            "amount_return": 0,
-            "lines": [[0, False, line_vals]],
-        })
-        order.add_payment({
-            'amount': price_1,
-            'payment_date': fields.Date.today(),
-            'payment_name': "Demo",
-            'journal': journal_1.id,
-            })
+        order = self.PosOrder.create(
+            {
+                "session_id": self.session.id,
+                "amount_tax": 0,
+                "amount_total": price,
+                "amount_paid": price,
+                "amount_return": 0,
+                "lines": [[0, False, line_vals]],
+            }
+        )
+        order.add_payment(
+            {
+                "amount": price_1,
+                "payment_date": fields.Date.today(),
+                "payment_name": "Demo",
+                "journal": journal_1.id,
+            }
+        )
         if journal_2:
-            order.add_payment({
-                'amount': price_2,
-                'payment_date': fields.Date.today(),
-                'payment_name': "Demo",
-                'journal': journal_2.id,
-            })
+            order.add_payment(
+                {
+                    "amount": price_2,
+                    "payment_date": fields.Date.today(),
+                    "payment_name": "Demo",
+                    "journal": journal_2.id,
+                }
+            )
         order.action_pos_order_paid()
         return order
 
     def _change_payment(
-            self, order, journal_1, amount_1, journal_2=False, amount_2=0.0
+        self, order, journal_1, amount_1, journal_2=False, amount_2=0.0
     ):
         # Switch to check journal
-        wizard = self.PosPaymentChangeWizard.with_context(
-            active_id=order.id
-        ).create({})
-        self.PosPaymentChangeWizardNewLine.with_context(
-            active_id=order.id
-        ).create(
+        wizard = self.PosPaymentChangeWizard.with_context(active_id=order.id).create({})
+        self.PosPaymentChangeWizardNewLine.with_context(active_id=order.id).create(
             {
                 "wizard_id": wizard.id,
                 "new_journal_id": journal_1.id,
@@ -101,9 +107,7 @@ class TestModule(TransactionCase):
             }
         )
         if journal_2:
-            self.PosPaymentChangeWizardNewLine.with_context(
-                active_id=order.id
-            ).create(
+            self.PosPaymentChangeWizardNewLine.with_context(active_id=order.id).create(
                 {
                     "wizard_id": wizard.id,
                     "new_journal_id": journal_2.id,
@@ -124,11 +128,9 @@ class TestModule(TransactionCase):
 
         with self.assertRaises(UserError):
             # Should not work if total is not correct
-            self._change_payment(
-                order, self.cash_journal, 10, self.check_journal, 10)
+            self._change_payment(order, self.cash_journal, 10, self.check_journal, 10)
 
-        self._change_payment(
-            order, self.cash_journal, 10, self.check_journal, 90)
+        self._change_payment(order, self.cash_journal, 10, self.check_journal, 90)
 
         # check Session
         self.assertEqual(
@@ -147,8 +149,7 @@ class TestModule(TransactionCase):
         self.assertEqual(
             order_qty,
             len(self.PosOrder.search([])),
-            "In 'Update' mode, changing payment should not create"
-            " other PoS Orders",
+            "In 'Update' mode, changing payment should not create" " other PoS Orders",
         )
 
     def test_02_payment_change_policy_refund(self):
@@ -160,13 +161,11 @@ class TestModule(TransactionCase):
 
         order_qty = len(self.PosOrder.search([]))
 
-        self._change_payment(
-            order, self.cash_journal, 50, self.check_journal, 50)
+        self._change_payment(order, self.cash_journal, 50, self.check_journal, 50)
 
         # Check Order quantity
         self.assertEqual(
             order_qty + 2,
             len(self.PosOrder.search([])),
-            "In 'Refund' mode, changing payment should generate"
-            " two new PoS Orders",
+            "In 'Refund' mode, changing payment should generate" " two new PoS Orders",
         )
