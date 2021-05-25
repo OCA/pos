@@ -5,6 +5,6 @@ from odoo import fields, models
 
 
 class PosOrderLine(models.Model):
-    _inherit = 'pos.order.line'
+    _inherit = "pos.order.line"
 
-    note = fields.Char(string='Note')
+    note = fields.Char(string="Note")
