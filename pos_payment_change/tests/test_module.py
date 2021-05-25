@@ -14,7 +14,8 @@ class TestModule(TransactionCase):
         super().setUp()
         self.PosSession = self.env["pos.session"]
         self.PosOrder = self.env["pos.order"]
-        self.AccountJournal = self.env["account.journal"]
+        self.PosPaymentMethod = self.env["pos.payment.method"]
+        self.PosPayment = self.env["pos.payment"]
         self.PosMakePayment = self.env["pos.make.payment"]
         self.PosPaymentChangeWizard = self.env["pos.payment.change.wizard"]
         self.PosPaymentChangeWizardNewLine = self.env[
@@ -24,37 +25,30 @@ class TestModule(TransactionCase):
         self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
 
     def _initialize_journals_open_session(self):
-
-        self.check_journal = self.AccountJournal.create(
+        account_id = self.env.company.account_default_pos_receivable_account_id
+        self.bank_payment_method = self.PosPaymentMethod.create(
             {
-                "name": "Demo Check Journal",
-                "type": "bank",
-                "journal_user": True,
+                "name": "Bank",
+                "receivable_account_id": account_id.id,
             }
         )
-        self.cash_journal = self.AccountJournal.create(
+        self.cash_payment_method = self.PosPaymentMethod.create(
             {
-                "name": "Demo Cash Journal",
-                "type": "cash",
-                "journal_user": True,
+                "name": "Cash",
+                "is_cash_count": True,
+                "receivable_account_id": account_id.id,
             }
         )
 
         # create new session and open it
-        self.pos_config.journal_ids = [
-            self.check_journal.id,
-            self.cash_journal.id,
+        self.pos_config.payment_method_ids = [
+            self.bank_payment_method.id,
+            self.cash_payment_method.id,
         ]
         self.pos_config.open_session_cb()
         self.session = self.pos_config.current_session_id
-        self.check_statement = self.session.statement_ids.filtered(
-            lambda x: x.journal_id == self.check_journal
-        )
-        self.cash_statement = self.session.statement_ids.filtered(
-            lambda x: x.journal_id == self.cash_journal
-        )
 
-    def _sale(self, journal_1, price_1, journal_2=False, price_2=0.0):
+    def _sale(self, payment_method_1, price_1, payment_method_2=False, price_2=0.0):
         price = price_1 + price_2
         line_vals = {
             "name": "OL/0001",
@@ -76,41 +70,41 @@ class TestModule(TransactionCase):
         )
         order.add_payment(
             {
+                "pos_order_id": order.id,
                 "amount": price_1,
                 "payment_date": fields.Date.today(),
-                "payment_name": "Demo",
-                "journal": journal_1.id,
+                "payment_method_id": payment_method_1.id,
             }
         )
-        if journal_2:
+        if payment_method_2:
             order.add_payment(
                 {
+                    "pos_order_id": order.id,
                     "amount": price_2,
                     "payment_date": fields.Date.today(),
-                    "payment_name": "Demo",
-                    "journal": journal_2.id,
+                    "payment_method_id": payment_method_2.id,
                 }
             )
         order.action_pos_order_paid()
         return order
 
     def _change_payment(
-        self, order, journal_1, amount_1, journal_2=False, amount_2=0.0
+        self, order, payment_method_1, amount_1, payment_method_2=False, amount_2=0.0
     ):
         # Switch to check journal
         wizard = self.PosPaymentChangeWizard.with_context(active_id=order.id).create({})
         self.PosPaymentChangeWizardNewLine.with_context(active_id=order.id).create(
             {
                 "wizard_id": wizard.id,
-                "new_journal_id": journal_1.id,
+                "new_payment_method_id": payment_method_1.id,
                 "amount": amount_1,
             }
         )
-        if journal_2:
+        if payment_method_2:
             self.PosPaymentChangeWizardNewLine.with_context(active_id=order.id).create(
                 {
                     "wizard_id": wizard.id,
-                    "new_journal_id": journal_2.id,
+                    "new_payment_method_id": payment_method_2.id,
                     "amount": amount_2,
                 }
             )
@@ -122,25 +116,35 @@ class TestModule(TransactionCase):
 
         self._initialize_journals_open_session()
         # Make a sale with 35 in cash journal and 65 in check
-        order = self._sale(self.cash_journal, 35, self.check_journal, 65)
+        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
         order_qty = len(self.PosOrder.search([]))
 
         with self.assertRaises(UserError):
             # Should not work if total is not correct
-            self._change_payment(order, self.cash_journal, 10, self.check_journal, 10)
+            self._change_payment(
+                order, self.cash_payment_method, 10, self.cash_payment_method, 10
+            )
 
-        self._change_payment(order, self.cash_journal, 10, self.check_journal, 90)
+        self._change_payment(
+            order, self.cash_payment_method, 10, self.bank_payment_method, 90
+        )
 
+        self.bank_payment = self.session.order_ids.mapped("payment_ids").filtered(
+            lambda x: x.payment_method_id == self.bank_payment_method
+        )
+        self.cash_payment = self.session.order_ids.mapped("payment_ids").filtered(
+            lambda x: x.payment_method_id == self.cash_payment_method
+        )
         # check Session
         self.assertEqual(
-            self.cash_statement.balance_end,
+            self.cash_payment.amount,
             10,
             "Bad recompute of the balance for the statement cash",
         )
 
         self.assertEqual(
-            self.check_statement.balance_end,
+            self.bank_payment.amount,
             90,
             "Bad recompute of the balance for the statement check",
         )
@@ -157,11 +161,13 @@ class TestModule(TransactionCase):
 
         self._initialize_journals_open_session()
         # Make a sale with 35 in cash journal and 65 in check
-        order = self._sale(self.cash_journal, 35, self.check_journal, 65)
+        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
         order_qty = len(self.PosOrder.search([]))
 
-        self._change_payment(order, self.cash_journal, 50, self.check_journal, 50)
+        self._change_payment(
+            order, self.cash_payment_method, 50, self.bank_payment_method, 50
+        )
 
         # Check Order quantity
         self.assertEqual(
