@@ -14,17 +14,17 @@ class PosPaymentChangeWizardLine(models.TransientModel):
         required=True,
     )
 
-    new_journal_id = fields.Many2one(
-        comodel_name="account.journal",
-        string="Journal",
+    new_payment_method_id = fields.Many2one(
+        comodel_name="pos.payment.method",
+        string="Payment Method",
         required=True,
-        domain=lambda s: s._domain_new_journal_id(),
+        domain=lambda s: s._domain_new_payment_method_id(),
     )
 
     company_currency_id = fields.Many2one(
         comodel_name="res.currency",
         store=True,
-        related="new_journal_id.currency_id",
+        related="new_payment_method_id.company_id.currency_id",
         string="Company Currency",
         readonly=True,
         help="Utility field to express amount currency",
@@ -38,10 +38,10 @@ class PosPaymentChangeWizardLine(models.TransientModel):
     )
 
     @api.model
-    def _domain_new_journal_id(self):
+    def _domain_new_payment_method_id(self):
         PosOrder = self.env["pos.order"]
         order = PosOrder.browse(self.env.context.get("active_id"))
-        return [("id", "in", order.mapped("session_id.statement_ids.journal_id").ids)]
+        return [("id", "in", order.mapped("session_id.payment_method_ids").ids)]
 
     # View Section
     @api.model
@@ -50,9 +50,7 @@ class PosPaymentChangeWizardLine(models.TransientModel):
         if "new_line_ids" not in self._context:
             return res
         balance = self._context.get("amount_total", 0.0)
-        for line in self.wizard_id.resolve_2many_commands(
-            "new_line_ids", self._context["new_line_ids"], fields=["amount"]
-        ):
+        for line in self.wizard_id.old_line_ids:
             balance -= line.get("amount")
         res.update({"amount": balance})
         return res
