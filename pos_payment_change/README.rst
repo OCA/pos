@@ -14,13 +14,13 @@ Point Of Sale - Change Payments
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/12.0/pos_payment_change
+    :target: https://github.com/OCA/pos/tree/14.0/pos_payment_change
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_payment_change
+    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_payment_change
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :target: https://runbot.odoo-community.org/runbot/184/14.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -52,7 +52,7 @@ Two options are available:
 
 * 'Update Payments': Odoo will change payment lines.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_payment_change/static/description/pos_config_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_payment_change/static/description/pos_config_form.png
 
 
 **Note**
@@ -71,12 +71,12 @@ Usage
 
 * Click on the button 'Change Payments'
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_payment_change/static/description/pos_order_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_payment_change/static/description/pos_order_form.png
 
 * In the pop up wizard, select the real payment(s) that have been
   used to pay the order
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png
 
 * Then click on the button 'Change Payments'
 
@@ -85,7 +85,7 @@ Usage
 If the option 'Refund and Resale' is selected, changing the payments will
 display the three PoS orders. the oringal one, the refund one, and the new one.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_payment_change/static/description/pos_order_tree.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_payment_change/static/description/pos_order_tree.png
 
 Bug Tracker
 ===========
@@ -93,7 +93,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_change%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_change%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -110,6 +110,7 @@ Contributors
 
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
 * Julien WESTE
+* Foram Shah <foram.shah@initos.com>
 
 Other credits
 ~~~~~~~~~~~~~
@@ -140,6 +141,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_payment_change>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_payment_change>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

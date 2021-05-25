@@ -14,9 +14,9 @@ class PosPaymentChangeWizardOldLine(models.TransientModel):
         required=True,
     )
 
-    old_journal_id = fields.Many2one(
-        comodel_name="account.journal",
-        string="Journal",
+    old_payment_method_id = fields.Many2one(
+        comodel_name="pos.payment.method",
+        string="Payment Method",
         required=True,
         readonly=True,
     )
@@ -24,7 +24,7 @@ class PosPaymentChangeWizardOldLine(models.TransientModel):
     company_currency_id = fields.Many2one(
         comodel_name="res.currency",
         store=True,
-        related="old_journal_id.currency_id",
+        related="old_payment_method_id.company_id.currency_id",
         string="Company Currency",
         readonly=True,
         help="Utility field to express amount currency",
