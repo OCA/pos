@@ -15,7 +15,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <field name="amount_total" invisible="1" />
                     <field name="old_line_ids" colspan="4">
                         <tree>
-                            <field name="old_journal_id" />
+                            <field name="old_payment_method_id" />
                             <field name="amount" sum="Total" />
                         </tree>
                     </field>
@@ -27,7 +27,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     >
                         <tree editable="bottom">
                             <field
-                                name="new_journal_id"
+                                name="new_payment_method_id"
                                 options="{'no_open': True, 'no_create_edit': True}"
                             />
                             <field name="amount" sum="Total" />
@@ -50,7 +50,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     <record id="action_pos_payment_change_wizard" model="ir.actions.act_window">
         <field name="name">Change Payments</field>
         <field name="res_model">pos.payment.change.wizard</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
