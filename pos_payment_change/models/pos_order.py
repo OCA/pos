@@ -5,7 +5,7 @@
 
 from datetime import datetime
 
-from odoo import _, api, fields, models
+from odoo import _, fields, models
 from odoo.exceptions import Warning as UserError
 from odoo.tools import float_is_zero
 
@@ -13,7 +13,6 @@ from odoo.tools import float_is_zero
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
-    @api.multi
     def change_payment(self, payment_lines):
         """
         Change payment of a given order.
@@ -47,7 +46,7 @@ class PosOrder(models.Model):
         )
 
         if self.config_id.payment_change_policy == "update":
-            self.statement_ids.with_context().unlink()
+            self.payment_ids.with_context().unlink()
 
             # Create new payment
             for line in payment_lines:
@@ -58,22 +57,23 @@ class PosOrder(models.Model):
             # with same payment method as the original one
             refund_result = self.refund()
             refund_order = self.browse(refund_result["res_id"])
-
-            for statement in self.statement_ids:
+            for payment in self.payment_ids:
                 refund_order.add_payment(
                     {
-                        "journal": statement.journal_id.id,
-                        "amount": -statement.amount,
+                        "pos_order_id": refund_order.id,
+                        "payment_method_id": payment.payment_method_id.id,
+                        "amount": -payment.amount,
                         "payment_date": fields.Date.context_today(self),
                     }
                 )
+
             refund_order.action_pos_order_paid()
 
             # Resale order and mark it as paid
             # with the new payment
             resale_order = self.copy(default={"pos_reference": self.pos_reference})
-
             for line in payment_lines:
+                line.update({"pos_order_id": resale_order.id})
                 resale_order.add_payment(line)
             resale_order.action_pos_order_paid()
 
@@ -86,7 +86,6 @@ class PosOrder(models.Model):
             order.note = "%s\n%s" % (order.note or "", comment)
         return orders
 
-    @api.multi
     def _check_payment_change_allowed(self):
         """Return True if the user can change the payment of a POS, depending
         of the state of the current session."""

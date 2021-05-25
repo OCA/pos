@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import _, api, fields, models
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 
 
 class PosPaymentChangeWizard(models.TransientModel):
@@ -35,14 +35,14 @@ class PosPaymentChangeWizard(models.TransientModel):
         res = super().default_get(fields)
         order = PosOrder.browse(self._context.get("active_id"))
         old_lines_vals = []
-        for statement_line in order.statement_ids:
+        for payment in order.payment_ids:
             old_lines_vals.append(
                 (
                     0,
                     0,
                     {
-                        "old_journal_id": statement_line.statement_id.journal_id.id,
-                        "amount": statement_line.amount,
+                        "old_payment_method_id": payment.payment_method_id.id,
+                        "amount": payment.amount,
                     },
                 )
             )
@@ -56,7 +56,6 @@ class PosPaymentChangeWizard(models.TransientModel):
         return res
 
     # View section
-    @api.multi
     def button_change_payment(self):
         self.ensure_one()
         order = self.order_id
@@ -78,7 +77,8 @@ class PosPaymentChangeWizard(models.TransientModel):
         # Change payment
         new_payments = [
             {
-                "journal": line.new_journal_id.id,
+                "pos_order_id": order.id,
+                "payment_method_id": line.new_payment_method_id.id,
                 "amount": line.amount,
                 "payment_date": fields.Date.context_today(self),
             }
