@@ -6,9 +6,9 @@ from odoo import fields, models
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
     pos_allow_negative_qty = fields.Boolean(
-        string='Allow Negative Quantity on PoS',
+        string="Allow Negative Quantity on PoS",
         default=True,
     )
