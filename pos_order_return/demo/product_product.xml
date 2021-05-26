@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
     <record id="product_product_returnable_bottle" model="product.product">
@@ -10,7 +10,11 @@
         <field name="available_in_pos" eval="True" />
         <field name="pos_allow_negative_qty" eval="True" />
         <field name="list_price" eval="0.20" />
-        <field name="image" type="base64" file="pos_order_return/static/img/product_returnable_bottle-image.jpg"/>
+        <field
+            name="image"
+            type="base64"
+            file="pos_order_return/static/img/product_returnable_bottle-image.jpg"
+        />
     </record>
 
 </odoo>
