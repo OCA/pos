@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_view_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='title']" position="after">
+                <div class="row mt16 o_settings_container" id="iface_self_service">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_self_service" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_self_service" />
+                            <div class="text-muted" id="iface_self_service_text">
+                                Use your PoS as Self-Service
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

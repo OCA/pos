@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="SelfServiceScaleWidget">
+        <div class="self-service-scale-container">
+            <div class="self-service-scale-scroller touch-scrollable">
+                <div class="self-service-scale">
+                    <div class='weight js-weight'>
+                        <t t-esc="widget.get_weight_string()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceActionButtonWidget">
+        <div class='self-service-control-button'>
+            <t t-esc='widget.label' />
+        </div>
+    </t>
+
+    <t t-name="SelfServiceHomeButton">
+        <div class="self-service-control-button">
+            <span class='button home'>
+                <i class='fa fa-home' />
+                Home
+            </span>
+        </div>
+    </t>
+
+    <t t-name="SelfServiceScreenWidget">
+        <div class='self-service-screen screen'>
+            <div class="screen-content">
+                <div class="centered touch-scrollable">
+                    <!-- Here goes user actions such as label printing, barcode scanning, etc. -->
+                    <div class="tare">
+                        <div class='tare-button-container' />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="TareButton">
+        <div t-attf-class='big-button #{scale_weight &gt; 0 ? "green" : "grey"}'>
+            Print container tare
+            <span class='ico foodbox' />
+        </div>
+    </t>
+</templates>

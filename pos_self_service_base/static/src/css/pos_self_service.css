@@ -1,0 +1,150 @@
+/* --- POS Self Service Specific CSS --- */
+
+/*  *** The self-service control buttons *** */
+.pos .self-service-control-buttons {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    padding: 8px 16px 0px 11px;
+}
+
+.pos .self-service-control-button {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    background: #e2e2e2;
+    border: solid 1px #bfbfbf;
+    display: inline-block;
+    line-height: 76px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0px 10px;
+    font-size: 36px;
+    margin-left: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all linear 150ms;
+}
+
+.pos .self-service-control-button:hover {
+    background: #efefef;
+}
+
+.pos .self-service-control-button:active {
+    background: black;
+    color: white;
+    border-color: black;
+}
+
+.pos .self-service-control-button .fa {
+    margin-right: 4px;
+}
+
+.pos .self-service-control-button.highlight {
+    background: #6ec89b !important;
+    border: solid 1px #64af8a !important;
+    color: white !important;
+}
+
+.pos .self-service-control-button.altlight {
+    background: #7f82ac !important;
+    border: solid 1px #756a99 !important;
+    color: white !important;
+}
+
+.pos .self-service-control-button.disabled,
+.pos .self-service-control-button.disabled:active {
+    background: #e2e2e2;
+    border: solid 1px #bebebe;
+    opacity: 0.5;
+    cursor: default;
+    color: inherit;
+}
+
+/* ------ Self Service Screen Widget -------*/
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.big-button {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 45%;
+    font-size: 55px;
+    cursor: pointer;
+    transition: background-color, border-color, color 150ms linear;
+}
+
+.big-button .ico {
+    display: flex;
+    background-size: contain;
+    width: 170px;
+    height: 170px;
+    order: 2;
+}
+
+.foodbox {
+    background-image: url("../../img/blue/empty_foodbox_on_scale.svg");
+}
+
+.self-service-screen .green {
+    background: rgb(110, 200, 155);
+    border: solid 1px rgb(73, 186, 130);
+}
+
+.self-service-screen .green:hover {
+    background: rgb(73, 186, 130);
+}
+
+.self-service-screen .grey {
+    background: lightgrey;
+    border: solid 1px darkgrey;
+}
+
+.self-service-screen .grey:hover {
+    background: darkgrey;
+}
+
+/* ------ Self Service Scale Widget ------- */
+
+.pos .self-service-scale-container {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    /*background: white;*/
+}
+
+.pos .self-service-scale-scroller {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.pos .self-service-scale .weight {
+    display: block;
+    position: relative;
+    text-align: center;
+    border-style: solid;
+    border-color: #787878;
+    border-width: 0 0 3px 0;
+    background: white;
+    padding: 40px;
+    font-size: 56px;
+    font-family: Inconsolata;
+    text-shadow: 0px 2px 0px rgb(210, 210, 210);
+    box-shadow: 0px 2px 0px rgb(225, 225, 225) inset;
+}
