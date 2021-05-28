@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_view_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='iface_self_service_text']" position="after">
+                <div
+                    class="content-group"
+                    attrs="{'invisible' : [('iface_self_service', '=', False)]}"
+                >
+                    <div class="row mt16">
+                        <label for="printer_name" class="col-lg-3 o_light_label" />
+                        <field name="printer_name" />
+                    </div>
+                    <div class="row">
+                        <label for="label_offset_x" class="col-lg-3 o_light_label" />
+                        <field name="label_offset_x" />
+                    </div>
+                    <div class="row">
+                        <label for="label_offset_y" class="col-lg-3 o_light_label" />
+                        <field name="label_offset_y" />
+                    </div>
+                    <div class="row">
+                        <label for="label_width" class="col-lg-3 o_light_label" />
+                        <field name="label_width" />
+                    </div>
+                    <div class="row">
+                        <label for="label_height" class="col-lg-3 o_light_label" />
+                        <field name="label_height" />
+                    </div>
+                    <div class="row">
+                        <label for="darkness" class="col-lg-3 o_light_label"/>
+                        <field name="darkness"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
