@@ -33,6 +33,34 @@
                                 nolabel="1"/>
                         </div>
                     </div>
+                    <div id='jsprintmanager_page_width' class="o_setting_right_pane" attrs="{'invisible' : [('use_jsprintmanager', '=', False)]}" groups="base.group_no_one">
+                        <span class="o_form_label">Page Width</span>
+                        <div class="content-group mt16">
+                            <field name="jsprintmanager_page_width" colspan="4"
+                                nolabel="1"/>
+                        </div>
+                    </div>
+                    <div id='jsprintmanager_qty_width' class="o_setting_right_pane" attrs="{'invisible' : [('use_jsprintmanager', '=', False)]}" groups="base.group_no_one">
+                        <span class="o_form_label">Qty Width</span>
+                        <div class="content-group mt16">
+                            <field name="jsprintmanager_qty_width" colspan="4"
+                                nolabel="1"/>
+                        </div>
+                    </div>
+                    <div id='jsprintmanager_price_width' class="o_setting_right_pane" attrs="{'invisible' : [('use_jsprintmanager', '=', False)]}" groups="base.group_no_one">
+                        <span class="o_form_label">Price Width</span>
+                        <div class="content-group mt16">
+                            <field name="jsprintmanager_price_width" colspan="4"
+                                nolabel="1"/>
+                        </div>
+                    </div>
+                    <div id='jsprintmanager_totals_width' class="o_setting_right_pane" attrs="{'invisible' : [('use_jsprintmanager', '=', False)]}" groups="base.group_no_one">
+                        <span class="o_form_label">Totals Width</span>
+                        <div class="content-group mt16">
+                            <field name="jsprintmanager_totals_width" colspan="4"
+                                nolabel="1"/>
+                        </div>
+                    </div>
                 </div>
             </xpath>
         </field>

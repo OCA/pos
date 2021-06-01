@@ -47,10 +47,10 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
             this.esc = '\x1B'; //ESC byte in hex notation
             this.line_feed = '\x0A'; //LF byte in hex notation
 
-            this.page_width = 48;
-            this.qty_width = 12;
-            this.price_width = 12;
-            this.totals_width = 24;
+            this.page_width = this.pos.config.jsprintmanager_page_width;
+            this.qty_width =  this.pos.config.jsprintmanager_qty_width;
+            this.price_width = this.pos.config.jsprintmanager_price_width;
+            this.totals_width = this.pos.config.jsprintmanager_totals_width;
             this.name_width = this.page_width - this.qty_width - this.price_width;
 
         },
