@@ -63,26 +63,36 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
         right_align_string: function(s, width) {
             return s.padStart(width, ' ');
         },
+        init_escpos_receipt: function () {
+            var cmds = '';
+            //Initializes the printer (ESC @)
+            cmds += this.esc + "@";
+            cmds += this.esc + "\x70" + "\x00"; // Drawer kick, pin 2 (first drawer)
+            cmds += this.esc + "1\x02" // Codepage 850
+
+            return cmds;
+        },
+        get_escpos_receipt_cmds_header: function () {
+            var cmds = '';
+            var order = this.pos.get_order();
+            var receipt = order.export_for_printing();
+
+            // Header of receipt with Company data
+            cmds += receipt.company.contact_address ? receipt.company.contact_address + this.line_feed : "";
+            cmds += receipt.company.vat ? _t("VAT: ") + receipt.company.vat + this.line_feed : "";
+            cmds += this.line_feed;
+            cmds += receipt.company.website ? _t("Visit us online at: ") + receipt.company.website + this.line_feed : "";
+            cmds += receipt.company.phone ? _t("Customer hotline: ") + receipt.company.phone + this.line_feed : "";
+            cmds += this.line_feed + this.line_feed;
+
+            return cmds;
+        },
         get_escpos_receipt_cmds: function() {
             var cmds = '';
             var order = this.pos.get_order();
             var receipt = order.export_for_printing();
             var orderlines = order.get_orderlines();
             var paymentlines = order.get_paymentlines();
-
-            //Initializes the printer (ESC @)
-            cmds += this.esc + "@";
-            cmds += this.esc + "\x70" + "\x00"; // Drawer kick, pin 2 (first drawer)
-            cmds += this.esc + "1\x02" // Codepage 850
-
-            // Header of receipt with Company data
-            cmds += receipt.company.contact_address ? receipt.company.contact_address + this.line_feed : "";
-            cmds += receipt.company.phone ? _t("Tel: ") + receipt.company.phone + this.line_feed : "";
-            cmds += receipt.company.vat ? _t("VAT: ") + receipt.company.vat + this.line_feed : "";
-            cmds += receipt.company.email ? receipt.company.email + this.line_feed : "";
-            cmds += receipt.company.website ? receipt.company.website + this.line_feed : "";
-            cmds += receipt.company.header ? receipt.company.header + this.line_feed : "";
-            cmds += this.line_feed + this.line_feed;
 
             // Date and Order ID
             cmds += this.center_align_string(
@@ -189,6 +199,8 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
                     //Set content to print...
                     //Create ESP/POS commands for sample label
                     var cmds = [
+                        this.init_escpos_receipt(),
+                        this.get_escpos_receipt_cmds_header(),
                         this.get_escpos_receipt_cmds(),
                         this.get_escpos_card_receipt_cmds(),
                         this.get_escpos_receipt_cmds_footer()
