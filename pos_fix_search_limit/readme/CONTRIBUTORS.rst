@@ -2,3 +2,4 @@
 * David Alonso <david.alonso@solvos.es>
 * Dhara Solanki <dhara.solanki@initos.com>
 * Iván Todorovich <ivan.todorovich@gmail.com>
+* Foram Shah <foram.shah@initos.com>
