@@ -1,6 +1,6 @@
 /* Copyright 2018 Akretion - Raphaël Reverdy
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
-odoo.define("pos_fix_search_limit.db", function(require) {
+odoo.define("pos_fix_search_limit.db", function (require) {
     "use strict";
     var PosDB = require("point_of_sale.DB");
     PosDB.include({
@@ -8,7 +8,7 @@ odoo.define("pos_fix_search_limit.db", function(require) {
     });
 });
 
-odoo.define("pos_fix_search_limit.product_list", function(require) {
+odoo.define("pos_fix_search_limit.product_list", function (require) {
     "use strict";
     var screens = require("point_of_sale.screens");
     var core = require("web.core");
@@ -16,7 +16,7 @@ odoo.define("pos_fix_search_limit.product_list", function(require) {
 
     screens.ProductListWidget.include({
         displayLimit: 100, // Number of elements displayed
-        renderElement: function() {
+        renderElement: function () {
             // Limit the number of elements to displayLimit (instead of db.limit)
             // (db.limit has been increased to return more results)
             // (but we still want to limit the display)

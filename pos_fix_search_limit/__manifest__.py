@@ -5,6 +5,7 @@
     "summary": "Increase search in the PoS",
     "version": "13.0.1.0.1",
     "category": "Point of Sale",
+    "website": "https://github.com/OCA/pos",
     "author": "Akretion, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
