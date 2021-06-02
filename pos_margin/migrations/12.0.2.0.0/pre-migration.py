@@ -4,11 +4,15 @@
 
 
 def migrate(cr, version):
-    cr.execute("""
+    cr.execute(
+        """
         ALTER TABLE pos_config
         ADD COLUMN iface_display_margin bool;
-    """)
-    cr.execute("""
+    """
+    )
+    cr.execute(
+        """
         UPDATE pos_config
         SET iface_display_margin = false;
-    """)
+    """
+    )

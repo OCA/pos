@@ -4,8 +4,6 @@
 
 from odoo import api, fields, models
 
-import odoo.addons.decimal_precision as dp
-
 
 class PosOrder(models.Model):
     _inherit = "pos.order"
@@ -15,7 +13,7 @@ class PosOrder(models.Model):
         "Margin",
         compute="_compute_margin",
         store=True,
-        digits=dp.get_precision("Product Price"),
+        digits="Product Price",
         help="It gives profitability by calculating the difference between"
         " the Unit Price and the cost price.",
     )

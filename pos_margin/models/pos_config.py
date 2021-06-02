@@ -6,10 +6,10 @@ from odoo import fields, models
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     iface_display_margin = fields.Boolean(
-        string='Diplay Margin',
-        help='Display Margin and Margin Rate in the frontend',
+        string="Diplay Margin",
+        help="Display Margin and Margin Rate in the frontend",
         default=True,
     )

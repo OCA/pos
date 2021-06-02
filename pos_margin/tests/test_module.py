@@ -25,6 +25,7 @@ class TestModule(TransactionCase):
 
     def _create_order(self):
         # Create order
+        account_id = self.env.user.partner_id.property_account_receivable_id.id
         order_data = {
             "id": u"0006-001-0010",
             "to_invoice": False,
@@ -58,7 +59,7 @@ class TestModule(TransactionCase):
                             ].id,
                             "amount": 18.0,
                             "name": fields.Datetime.now(),
-                            "account_id": self.env.user.partner_id.property_account_receivable_id.id,
+                            "account_id": account_id,
                             "session_id": self.pos_config.current_session_id.id,
                         },
                     ]

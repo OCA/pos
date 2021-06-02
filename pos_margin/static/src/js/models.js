@@ -6,22 +6,22 @@ odoo.define("pos_margin.models", function (require) {
     "use strict";
 
     var models = require("point_of_sale.models");
+    var field_utils = require("web.field_utils");
 
     // /////////////////////////////
     // Overload models.Order
     // /////////////////////////////
     var OrderMargin = models.Order.extend({
-
-        get_margin: function() {
+        get_margin: function () {
             return this.get_orderlines().reduce(
-                (margin, line) => margin += line.get_margin(), 0
-            )
-            return margin;
+                (margin, line) => (margin += line.get_margin()),
+                0
+            );
         },
 
-        get_margin_rate: function(){
+        get_margin_rate: function () {
             var priceWithoutTax = this.get_total_without_tax();
-            return priceWithoutTax ? ((this.get_margin()) / priceWithoutTax) * 100 : 0;
+            return priceWithoutTax ? (this.get_margin() / priceWithoutTax) * 100 : 0;
         },
     });
 
@@ -31,32 +31,27 @@ odoo.define("pos_margin.models", function (require) {
     // Overload models.OrderLine
     // /////////////////////////////
     var OrderLineMargin = models.Orderline.extend({
-
         get_purchase_price: function () {
             // Overload the function to use another field that the default standard_price
             return this.product.standard_price;
         },
 
         get_margin: function () {
-            return this.get_all_prices().priceWithoutTax - (
+            return (
+                this.get_all_prices().priceWithoutTax -
                 this.quantity * this.get_purchase_price()
             );
         },
 
         get_margin_rate: function () {
             var priceWithoutTax = this.get_all_prices().priceWithoutTax;
-            return priceWithoutTax ? ((this.get_margin()) / priceWithoutTax) * 100 : 0;
+            return priceWithoutTax ? (this.get_margin() / priceWithoutTax) * 100 : 0;
         },
 
-        get_margin_rate_str: function() {
-            return this.pos.chrome.format_pr(this.get_margin_rate(), 0.01)  + "%";
+        get_margin_rate_str: function () {
+            return field_utils.format.float(this.get_margin_rate()) + "%";
         },
-
     });
 
     models.Orderline = OrderLineMargin;
-
 });
-
-
-
