@@ -7,12 +7,12 @@
     "name": "Point of Sale - Empty Home",
     "version": "13.0.1.0.0",
     "category": "Point Of Sale",
-    "summary": """
-        Point of Sale - Hide products at the start of the Point of Sale""",
+    "summary": "Point of Sale - Hide products if no category is selected",
     "author": "La Louve, GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/assets.xml"],
+    "data": ["views/assets.xml", "views/pos_config.xml"],
     "qweb": ["static/src/xml/pos_empty_home.xml"],
+    "demo": ["demo/pos_empty_home.xml"],
 }
