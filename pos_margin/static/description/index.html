@@ -403,9 +403,6 @@ Price and Cost Price.</p>
 </div>
 <div class="section" id="known-issues-roadmap">
 <h1><a class="toc-backref" href="#id3">Known issues / Roadmap</a></h1>
-<p>This module depends on <tt class="docutils literal">sale_margin</tt> module to reuse algorithm present in the
-function <tt class="docutils literal">_get_purchase_price</tt> of the model <tt class="docutils literal">sale.order.line</tt> to
-compute correctly purchase price, in a multicurrency context.</p>
 <p>This dependency can be removed, when Odoo Core will be correctly refactored,
 moving this <tt class="docutils literal">&#64;api.model</tt> function in a more generic module (<tt class="docutils literal">account</tt>
 for exemple).</p>
