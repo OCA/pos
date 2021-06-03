@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="view_event_registration_ticket_form" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event_sale.view_event_registration_ticket_form" />
+        <field name="arch" type="xml">
+            <field name="sale_order_line_id" position="after">
+                <field
+                    name="pos_order_id"
+                    attrs="{'invisible': [('pos_order_id', '=', False)]}"
+                />
+                <field
+                    name="pos_order_line_id"
+                    attrs="{'invisible': [('pos_order_line_id', '=', False)]}"
+                    groups="base.group_no_one"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
