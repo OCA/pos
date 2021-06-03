@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="point_of_sale_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/web/static/lib/fullcalendar/js/fullcalendar.js"
+            />
+            <script type="text/javascript" src="/pos_event_sale/static/src/js/db.js" />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/models/PosModel.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/models/Order.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/models/Orderline.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/screens.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/popups/EventSelectorPopup.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/popups/EventTicketsPopup.js"
+            />
+        </xpath>
+        <xpath expr="link[last()]" position="after">
+            <link
+                rel="stylesheet"
+                type="text/css"
+                href="/web/static/lib/fullcalendar/css/fullcalendar.css"
+            />
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/pos_event_sale/static/src/css/pos_event_sale.scss"
+            />
+        </xpath>
+    </template>
+    <template id="assets_tests" inherit_id="web.assets_tests">
+        <xpath expr="script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/tours/tour.utils.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_event_sale/static/src/js/tours/TourBasic.js"
+            />
+        </xpath>
+    </template>
+</odoo>
