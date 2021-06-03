@@ -4,11 +4,8 @@
 
 from openupgradelib import openupgrade
 
-
 column_renames = {
-    'account_journal': [
-        ('pos_image', None),
-    ],
+    "account_journal": [("pos_image", None),],
 }
 
 

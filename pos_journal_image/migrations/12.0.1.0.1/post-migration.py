@@ -2,14 +2,10 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openupgradelib import openupgrade
-from openupgradelib import openupgrade_90
-
+from openupgradelib import openupgrade, openupgrade_90
 
 attachment_fields = {
-    'account.journal': [
-        ('pos_image', None),
-    ],
+    "account.journal": [("pos_image", None),],
 }
 
 
