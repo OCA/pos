@@ -5,15 +5,12 @@ Copyright (C) 2019-Today GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
-
     <t t-extend="PaymentScreen-Paymentmethods">
-        <t t-jquery="[t-esc='cashregister.journal_id[1]']" t-operation="before">
+        <t t-jquery="[t-esc='payment_method.name']" t-operation="before">
             <img
-                t-att-src="widget.journal_icon_url(cashregister.journal_id[0])"
-                class="journal-image"
+                t-att-src="widget.payment_method_icon_url(payment_method.id)"
+                class="payment_method-image"
             />
         </t>
-
     </t>
-
 </templates>

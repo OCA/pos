@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class AccountJournal(models.Model):
-    _inherit = "account.journal"
+class PosPaymentMethod(models.Model):
+    _inherit = "pos.payment.method"
 
-    pos_image = fields.Binary(string="PoS Image", attachment=True)
+    pos_image = fields.Image("PoS Image", attachment=True)
