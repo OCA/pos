@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="EventSelectorPopup">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-event-selector">
+                <header class="title">
+                    <t t-esc=" widget.options.title || '' " />
+                </header>
+                <main>
+                    <section class="left-content">
+                        <div class="o_calendar_widget" />
+                    </section>
+                    <section class="right-content touch-scrollable scrollable-y">
+                        <div class="event-selector" />
+                    </section>
+                </main>
+                <footer class="footer">
+                    <div class="button cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+    <t t-name="EventSelectorList">
+        <ul t-if="events.length" class="event-list">
+            <!-- Populated by renderEventSelector -->
+        </ul>
+        <p t-else="">
+            There aren't events on these dates.
+        </p>
+    </t>
+    <t t-name="EventSelectorListItem">
+        <li
+            t-att-data-id="event.id"
+            t-attf-class="event-list-item #{seats_available &lt;= 0 ? 'disabled' : ''}"
+        >
+            <div class="event-list-item-container">
+                <div class="event-title">
+                    <span class="event-name" t-esc="event.name" />
+                </div>
+                <div class="event-subtitle">
+                    <span
+                        class="event-country"
+                        t-if="event.country_id.length"
+                        t-esc="event.country_id[1]"
+                    />
+                </div>
+                <div class="event-info">
+                    <div class="event-date-begin">
+                        <b>
+                            <i class="fa fa-clock-o" />
+                            <span>From</span>
+                        </b>
+                        <t t-esc="moment(event.date_begin).format('lll')" />
+                    </div>
+                    <div class="event-date-end">
+                        <b>
+                            <i class="fa fa-clock-o" />
+                            <span>To</span>
+                        </b>
+                        <t t-esc="moment(event.date_end).format('lll')" />
+                    </div>
+                </div>
+                <!-- Availability indicator -->
+                <t t-call="EventAvailabilityBadge" />
+            </div>
+        </li>
+    </t>
+</templates>
