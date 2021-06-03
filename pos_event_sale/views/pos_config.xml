@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//div[@id='category_reference']//ancestor::div[hasclass('o_settings_container')]"
+                position="inside"
+            >
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="iface_event_sale" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="iface_event_sale" />
+                        <div
+                            class="content-group mt16"
+                            attrs="{'invisible': [('iface_event_sale', '=', False)]}"
+                        >
+                            <div class="mt8">
+                                <label
+                                    for="iface_event_seats_available_warning"
+                                    string="Display a warning when available seats is below"
+                                    class="o_light_label"
+                                />
+                                <field
+                                    name="iface_event_seats_available_warning"
+                                    class="oe_inline"
+                                />
+                            </div>
+                            <div class="mt8" groups="base.group_no_one">
+                                <label
+                                    class="o_light_label"
+                                    for="iface_load_past_events"
+                                />
+                                <field
+                                    name="iface_load_past_events"
+                                    widget="boolean_toggle"
+                                />
+                            </div>
+                            <div class="row mt8">
+                                <label
+                                    class="col-lg-3 o_light_label"
+                                    for="iface_available_event_type_ids"
+                                />
+                                <field
+                                    name="iface_available_event_type_ids"
+                                    widget="many2many_tags"
+                                />
+                            </div>
+                            <div class="mt16">
+                                <button
+                                    name="%(event.action_event_type)d"
+                                    icon="fa-arrow-right"
+                                    type="action"
+                                    string="Event Types"
+                                    class="btn-link"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
