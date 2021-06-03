@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="AddEventButton">
+        <div class="control-button">
+            <i class="fa fa-ticket" /> Add Event
+        </div>
+    </t>
+</templates>

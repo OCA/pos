@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <data noupdate="0">
+        <record id="point_of_sale.group_pos_user" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('event.group_event_user'))]" />
+        </record>
+    </data>
+</odoo>

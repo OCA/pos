@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="EventAvailabilityBadge">
+        <t t-if="seats_available &lt; 0">
+            <span class="status-tag bg-danger">Oversold</span>
+        </t>
+        <t t-if="seats_available == 0">
+            <span class="status-tag bg-danger">Sold out</span>
+        </t>
+        <t t-if="seats_available &gt; 0 and window.Number.isFinite(seats_available)">
+            <t
+                t-set="warning_threshold"
+                t-value="widget.pos.config.iface_event_seats_available_warning"
+            />
+            <t t-if="!warning_threshold or seats_available &lt;= warning_threshold">
+                <span class="status-tag bg-warning">
+                    <t t-esc="_.str.sprintf(_t('%s remaining'), seats_available)" />
+                </span>
+            </t>
+        </t>
+    </t>
+</templates>
