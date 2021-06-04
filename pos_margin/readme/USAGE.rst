@@ -10,4 +10,3 @@ To use this module, you need to:
 
 .. figure:: ../static/description/pos_order_form.png
    :width: 800px
-
