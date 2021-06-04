@@ -4,8 +4,6 @@
 
 from odoo import api, fields, models
 
-import odoo.addons.decimal_precision as dp
-
 
 class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
@@ -15,25 +13,24 @@ class PosOrderLine(models.Model):
         string="Margin",
         compute="_compute_multi_margin",
         store=True,
-        digits=dp.get_precision("Product Price"),
+        digits="Product Price",
     )
 
     margin_percent = fields.Float(
         string="Margin (%)",
         compute="_compute_multi_margin",
         store=True,
-        digits=dp.get_precision("Product Price"),
+        digits="Product Price",
     )
 
     purchase_price = fields.Float(
         string="Cost Price",
         compute="_compute_multi_margin",
         store=True,
-        digits=dp.get_precision("Product Price"),
+        digits="Product Price",
     )
 
     # Compute Section
-    @api.multi
     @api.depends("product_id", "qty", "price_subtotal")
     def _compute_multi_margin(self):
         for line in self.filtered("product_id"):
