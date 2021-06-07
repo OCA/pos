@@ -16,13 +16,15 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: pos_journal_image
-#: model:ir.model,name:pos_journal_image.model_account_journal
-msgid "Journal"
-msgstr "Journal"
-
-#. module: pos_journal_image
-#: model:ir.model.fields,field_description:pos_journal_image.field_account_bank_statement_import_journal_creation__pos_image
-#: model:ir.model.fields,field_description:pos_journal_image.field_account_journal__pos_image
+#. module: pos_payment_method_image
+#: model:ir.model.fields,field_description:pos_payment_method_image.field_pos_payment_method__pos_image
 msgid "PoS Image"
 msgstr "Image PdV"
+
+#. module: pos_payment_method_image
+#: model:ir.model,name:pos_payment_method_image.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#~ msgid "Journal"
+#~ msgstr "Journal"
