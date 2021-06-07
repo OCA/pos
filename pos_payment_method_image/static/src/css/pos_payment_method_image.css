@@ -1,0 +1,6 @@
+.paymentmethods img.payment_method-image {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 20px;
+    vertical-align: middle;
+}

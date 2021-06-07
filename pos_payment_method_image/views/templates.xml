@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2019 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_payment_method_image/static/src/js/pos_payment_method_image.js"
+            />
+            <link
+                rel="stylesheet"
+                href="/pos_payment_method_image/static/src/css/pos_payment_method_image.css"
+            />
+        </xpath>
+    </template>
+</odoo>
