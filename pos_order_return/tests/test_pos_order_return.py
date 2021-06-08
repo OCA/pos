@@ -2,12 +2,11 @@
 # Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.tests import common
+from odoo.tests import common, tagged
 
 
-@common.at_install(False)
-@common.post_install(True)
-class TestPOSOrderReturn(common.HttpCase):
+@tagged("post_install", "-at_install")
+class TestPOSOrderReturn(common.SavepointCase):
     def setUp(self):
         super(TestPOSOrderReturn, self).setUp()
         self.pricelist = self.env["product.pricelist"].create(
@@ -52,12 +51,6 @@ class TestPOSOrderReturn(common.HttpCase):
         )
         self.PosOrder = self.env["pos.order"]
         self.pos_config = self.env.ref("point_of_sale.pos_config_main")
-        self.pos_config.write(
-            {
-                "available_pricelist_ids": [(6, 0, self.pricelist.ids)],
-                "pricelist_id": self.pricelist.id,
-            }
-        )
         self.pos_config.open_session_cb()
         self.pos_order = self.PosOrder.create(
             {
@@ -119,9 +112,9 @@ class TestPOSOrderReturn(common.HttpCase):
             .create({})
         )
         pos_make_payment.with_context(active_id=self.pos_order.id).check()
-        self.pos_order.create_picking()
+        self.pos_order._create_order_picking()
         res = self.pos_order.action_pos_order_invoice()
-        self.invoice = self.env["account.invoice"].browse(res["res_id"])
+        self.invoice = self.env["account.move"].browse(res["res_id"])
 
     def test_pos_order_full_refund(self):
         self.pos_order.refund()
@@ -138,11 +131,11 @@ class TestPOSOrderReturn(common.HttpCase):
             .create({})
         )
         pos_make_payment.with_context(active_id=refund_order.id).check()
-        refund_invoice = refund_order.invoice_id
-        self.assertEqual(refund_invoice.refund_invoice_id, self.invoice)
+        refund_invoice = refund_order.account_move
+        refund_order.action_pos_order_invoice()
+        self.assertEqual(refund_invoice.reversed_entry_id, self.invoice)
         # Partner balance is 0
         self.assertEqual(sum(self.partner.mapped("invoice_ids.amount_total_signed")), 0)
-        self.assertEqual(self.pos_order.picking_id.state, "done")
 
     def test_pos_order_partial_refund(self):
         partial_refund = (
@@ -178,4 +171,3 @@ class TestPOSOrderReturn(common.HttpCase):
         self.assertEqual(
             sum(self.partner.mapped("invoice_ids.amount_total_signed")), 1350
         )
-        self.assertEqual(self.pos_order.picking_id.state, "done")
