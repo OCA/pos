@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_partial_return_wizard,pos_partial_return_wizard,model_pos_partial_return_wizard,base.group_user,1,1,1,1
+access_pos_partial_return_wizard_line,pos_partial_return_wizard_line,model_pos_partial_return_wizard_line,base.group_user,1,1,1,1
