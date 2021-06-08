@@ -41,11 +41,6 @@ Configuration
 Go to Point of Sale's settings page and select a default customer for a
 specific PoS configuration.
 
-Known issues / Roadmap
-======================
-
-Set the default customer also on the PoS UI.
-
 Bug Tracker
 ===========
 
@@ -73,8 +68,8 @@ Contributors
 * Foram Shah <foram.shah@initos.com>
 
 * `Sygel <https://www.sygel.es>`_:
-
   * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+  * Manuel Regidor <manuel.regidor@sygel.es>
 
 Maintainers
 ~~~~~~~~~~~

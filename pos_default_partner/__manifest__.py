@@ -11,6 +11,9 @@
     "category": "Point of sale",
     "depends": ["point_of_sale"],
     "data": ["views/pos_config.xml"],
+    "assets": {
+        "point_of_sale.assets": ["/pos_default_partner/static/src/js/models.js"],
+    },
     "website": "https://github.com/OCA/pos",
     "installable": True,
 }
