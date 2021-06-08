@@ -48,15 +48,15 @@ class PosOrder(models.Model):
         new_order.lines.unlink()
         return new_order
 
-    def _prepare_invoice(self):
-        res = super(PosOrder, self)._prepare_invoice()
-        if not self.returned_order_id.invoice_id:
+    def _prepare_invoice_vals(self):
+        res = super()._prepare_invoice_vals()
+        if not self.returned_order_id.account_move:
             return res
         res.update(
             {
-                "origin": self.returned_order_id.invoice_id.number,
-                "name": _("Return of %s" % self.returned_order_id.invoice_id.number),
-                "refund_invoice_id": self.returned_order_id.invoice_id.id,
+                "invoice_origin": self.returned_order_id.account_move.name,
+                "name": _("Return of %s" % self.returned_order_id.account_move.name),
+                "reversed_entry_id": self.returned_order_id.account_move.id,
             }
         )
         return res
@@ -64,8 +64,7 @@ class PosOrder(models.Model):
     def _action_pos_order_invoice(self):
         """Wrap common process"""
         self.action_pos_order_invoice()
-        self.invoice_id.sudo().action_invoice_open()
-        self.account_move = self.invoice_id.move_id
+        self.action_view_invoice()
 
     def refund(self):
         # Call super to use original refund algorithm (session management, ...)
@@ -105,14 +104,14 @@ class PosOrder(models.Model):
         return res
 
     def action_pos_order_paid(self):
-        res = super(PosOrder, self).action_pos_order_paid()
-        if self.returned_order_id and self.returned_order_id.invoice_id:
+        res = super().action_pos_order_paid()
+        if self.returned_order_id and self.returned_order_id.account_move:
             self._action_pos_order_invoice()
         return res
 
     def _create_picking_return(self):
         self.ensure_one()
-        picking = self.returned_order_id.picking_id
+        picking = self.returned_order_id.picking_ids
         ctx = dict(self.env.context, active_ids=picking.ids, active_id=picking.id)
         wizard = self.env["stock.return.picking"].with_context(ctx).create({})
         # Discard not returned lines
@@ -130,18 +129,17 @@ class PosOrder(models.Model):
             to_return[move.product_id] -= move.quantity
         return wizard
 
-    def create_picking(self):
+    def _create_order_picking(self):
         """Odoo bases return picking if the quantities are negative, but it's
         not linked to the original one"""
         orders = self.filtered(
-            lambda x: not x.returned_order_id or not x.returned_order_id.picking_id
+            lambda x: not x.returned_order_id or not x.returned_order_id.picking_ids
         )
-        res = super(PosOrder, orders).create_picking()
+        res = super()._create_order_picking()
         for order in self - orders:
             wizard = order._create_picking_return()
             res = wizard.create_returns()
-            order.write({"picking_id": res["res_id"]})
-            order._force_picking_done(order.picking_id)
+            order.write({"picking_ids": (6, 0, [res["res_id"]])})
         return res
 
 

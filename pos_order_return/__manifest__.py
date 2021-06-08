@@ -5,7 +5,7 @@
 
 {
     "name": "Point of Sale Order Return",
-    "version": "12.0.1.0.3",
+    "version": "14.0.1.0.0",
     "category": "Point Of Sale",
     "author": "La Louve, "
     "GRAP, "
@@ -18,6 +18,7 @@
         "point_of_sale",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "wizard/pos_partial_return_wizard_view.xml",
         "views/pos_order_view.xml",
         "views/product_product_view.xml",
