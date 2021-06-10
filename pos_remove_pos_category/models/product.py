@@ -1,7 +1,7 @@
 # Copyright (C) 2015-TODAY Akretion (<http://www.akretion.com>).
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models, tools
+from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
