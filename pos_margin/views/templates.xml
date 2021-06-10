@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/pos_margin/static/src/css/pos_margin.css"/>
+            <script type="text/javascript" src="/pos_margin/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/pos_margin/static/src/js/screens.js"></script>
+        </xpath>
+    </template>
+</odoo>

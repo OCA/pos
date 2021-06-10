@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Orderline">
+        <t t-jquery="span.price:first" t-operation="after">
+            <t t-if="widget.pos.config.iface_display_margin">
+                <span t-att-class="'price order-line-margin ' + (line.get_margin_rate() &lt; 0 ? 'margin-negative' : '')">
+                    (<t t-esc="line.get_margin_rate_str()"/>)
+                </span>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="OrderWidget">
+        <t t-jquery="div.summary:first" t-operation="after">
+            <t t-if="widget.pos.config.iface_display_margin">
+                <div class="summary clearfix">
+                    <div class="line">
+                        <div class="subentry order-margin">
+                            <span>Margin: </span><span class="value-margin">0.00 €</span>
+                            (<span class="value-margin-rate">0.00 %</span>)
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </t>
+
+</templates>
