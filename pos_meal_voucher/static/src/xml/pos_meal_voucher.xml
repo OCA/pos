@@ -11,10 +11,14 @@
     </t>
 
     <t t-extend="OrderWidget">
-        <t t-jquery="div.line" t-operation="append">
+        <t t-jquery="div.summary:first" t-operation="after">
             <t t-if="widget.pos.config.has_meal_voucher_journal">
-                <div class="meal-voucher">
-                    (<span>Meal Voucher: </span> <span class="value">0.00 €</span>)
+                <div class="summary clearfix">
+                    <div class="line">
+                        <div class="subentry meal-voucher">
+                            <span>Meal Voucher: </span> <span class="value">0.00 €</span>
+                        </div>
+                    </div>
                 </div>
             </t>
         </t>

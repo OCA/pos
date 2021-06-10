@@ -1,11 +1,3 @@
-.pos .order .summary .line .meal-voucher{
-    font-size: 16px;
-    font-weight: normal;
-    text-align: center;
-    font-style:italic;
-    color: #999;
-}
-
 .pos .paymentline .is-meal-voucher{
     cursor: pointer;
     text-align: center;
