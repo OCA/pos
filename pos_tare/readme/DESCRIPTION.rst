@@ -8,3 +8,8 @@ selected order
 The net weight is displayed in the order with the tare value below.
 
 .. figure:: ../static/description/order.png
+
+
+All informations will be available on the ticket.
+
+.. figure:: ../static/description/pos_ticket.png
