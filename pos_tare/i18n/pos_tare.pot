@@ -15,13 +15,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/xml/pos_tare.xml:34
-#, python-format
-msgid "(Gross Weight:"
-msgstr ""
-
-#. module: pos_tare
-#. openerp-web
 #: code:addons/pos_tare/static/src/xml/pos_tare.xml:36
 #, python-format
 msgid "- Tare:"
@@ -84,7 +77,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:182
 #: code:addons/pos_tare/static/src/js/screens.js:185
 #, python-format
 msgid "Feature Disabled"
@@ -119,7 +111,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:88
 #: code:addons/pos_tare/static/src/js/screens.js:91
 #, python-format
 msgid "Incorrect Gross Weight Value"
@@ -127,7 +118,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:82
 #: code:addons/pos_tare/static/src/js/screens.js:85
 #, python-format
 msgid "Incorrect Tare Value"
@@ -175,7 +165,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:89
 #: code:addons/pos_tare/static/src/js/screens.js:92
 #, python-format
 msgid "Please set a numeric value in the gross weight field."
@@ -183,7 +172,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:83
 #: code:addons/pos_tare/static/src/js/screens.js:86
 #, python-format
 msgid "Please set a numeric value in the tare field, or let empty."
@@ -230,7 +218,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:94
 #: code:addons/pos_tare/static/src/js/screens.js:97
 #, python-format
 msgid "Quantity lower or equal to zero"
@@ -291,7 +278,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:95
 #: code:addons/pos_tare/static/src/js/screens.js:98
 #, python-format
 msgid "The quantity is lower or equal to zero. Are you sure you want to continue ?"
@@ -326,7 +312,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:191
 #: code:addons/pos_tare/static/src/js/screens.js:194
 #, python-format
 msgid "We can not apply this tare."
@@ -346,7 +331,6 @@ msgstr ""
 
 #. module: pos_tare
 #. openerp-web
-#: code:addons/pos_tare/static/src/js/screens.js:183
 #: code:addons/pos_tare/static/src/js/screens.js:186
 #, python-format
 msgid "You can not set the tare. To be able to set the tare manually you have to change the tare input method in the POS configuration."
