@@ -36,6 +36,11 @@ The net weight is displayed in the order with the tare value below.
 
 .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_tare/static/description/order.png
 
+
+All informations will be available on the ticket.
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_tare/static/description/pos_ticket.png
+
 **Table of contents**
 
 .. contents::
@@ -50,6 +55,10 @@ Install this add-on and configure your point of sale. To enable this addon, go t
 - "both", you can both of the above.
 
 To generate a tare barcode you need to use the default barcode nomenclature. The default barcode pattern is `0700000{NNDDD}`. Using that pattern, the barcode for a tare of 0.1kg is `0700000001006`. The `pos_tare_barcode_generator` allows you to create tare labels right from the POS.
+
+you can define a default tare on the product form view, if you always use the same type of packaging (or container) for a given product.
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_tare/static/description/product_template.png
 
 Bug Tracker
 ===========
