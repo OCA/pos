@@ -60,7 +60,7 @@ addon | version | summary
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 12.0.1.0.0 | POS Stock Picking Invoice Link
 [pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 12.0.1.0.0 | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 12.0.1.0.1 | Search products by supplier data
-[pos_tare](pos_tare/) | 12.0.1.0.2 | Manage Tare in Point Of Sale module
+[pos_tare](pos_tare/) | 12.0.1.0.3 | Manage Tare in Point Of Sale module
 [pos_ticket_logo](pos_ticket_logo/) | 12.0.1.0.0 | Pos Ticket Logo
 [pos_ticket_salesman_firstname](pos_ticket_salesman_firstname/) | 12.0.1.0.0 | Pos Ticket Salesman Firstname
 [pos_ticket_without_price](pos_ticket_without_price/) | 12.0.1.0.0 | Adds receipt ticket without price or taxes
