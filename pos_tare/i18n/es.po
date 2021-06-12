@@ -53,6 +53,12 @@ msgid "Cashier"
 msgstr "Cajero"
 
 #. module: pos_tare
+#: model:product.product,name:pos_tare.cheese
+#: model:product.template,name:pos_tare.cheese_product_template
+msgid "Cheese by the Slice"
+msgstr ""
+
+#. module: pos_tare
 #: selection:barcode.rule,type:0
 msgid "Client"
 msgstr "Cliente"
@@ -82,6 +88,7 @@ msgstr "Producto con descuento"
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:182
+#: code:addons/pos_tare/static/src/js/screens.js:185
 #, python-format
 msgid "Feature Disabled"
 msgstr ""
@@ -108,7 +115,15 @@ msgstr "Método de ingreso del peso bruto"
 
 #. module: pos_tare
 #. openerp-web
+#: code:addons/pos_tare/static/src/xml/pos_tare.xml:34
+#, python-format
+msgid "Gross Weight:"
+msgstr ""
+
+#. module: pos_tare
+#. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:88
+#: code:addons/pos_tare/static/src/js/screens.js:91
 #, python-format
 msgid "Incorrect Gross Weight Value"
 msgstr ""
@@ -116,6 +131,7 @@ msgstr ""
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:82
+#: code:addons/pos_tare/static/src/js/screens.js:85
 #, python-format
 msgid "Incorrect Tare Value"
 msgstr "Valor de tara incorrecto"
@@ -163,6 +179,7 @@ msgstr "Paquete"
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:89
+#: code:addons/pos_tare/static/src/js/screens.js:92
 #, python-format
 msgid "Please set a numeric value in the gross weight field."
 msgstr ""
@@ -170,6 +187,7 @@ msgstr ""
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:83
+#: code:addons/pos_tare/static/src/js/screens.js:86
 #, python-format
 msgid "Please set a numeric value in the tare field, or let empty."
 msgstr "Establezca un valor numérico en el campo de tara o déjelo vacío."
@@ -202,6 +220,11 @@ msgid "Priced Product (Computed Weight)"
 msgstr "Producto con precio (precio calculado)"
 
 #. module: pos_tare
+#: model:ir.model,name:pos_tare.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/xml/pos_tare.xml:82
 #, python-format
@@ -211,6 +234,7 @@ msgstr "Cantidad"
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:94
+#: code:addons/pos_tare/static/src/js/screens.js:97
 #, python-format
 msgid "Quantity lower or equal to zero"
 msgstr "Cantidad menor o igual a cero"
@@ -235,6 +259,14 @@ msgstr ""
 "seleccionada;\n"
 "* 'both': los métodos de entrada manual y de código de barras están "
 "habilitados;"
+
+#. module: pos_tare
+#: model:ir.model.fields,help:pos_tare.field_product_product__tare_weight
+#: model:ir.model.fields,help:pos_tare.field_product_template__tare_weight
+msgid ""
+"Set here Constant tare weight for the given product. This tare will be "
+"substracted when the product is weighted"
+msgstr ""
 
 #. module: pos_tare
 #. openerp-web
@@ -265,8 +297,15 @@ msgid "Tare UoM"
 msgstr "Tara UdM"
 
 #. module: pos_tare
+#: model:ir.model.fields,field_description:pos_tare.field_product_product__tare_weight
+#: model:ir.model.fields,field_description:pos_tare.field_product_template__tare_weight
+msgid "Tare Weight"
+msgstr ""
+
+#. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:95
+#: code:addons/pos_tare/static/src/js/screens.js:98
 #, python-format
 msgid ""
 "The quantity is lower or equal to zero. Are you sure you want to continue ?"
@@ -302,6 +341,7 @@ msgstr "No podemos aplicar este código de barras de tara."
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:191
+#: code:addons/pos_tare/static/src/js/screens.js:194
 #, python-format
 msgid "We can not apply this tare."
 msgstr "No podemos aplicar esta tara."
@@ -321,6 +361,7 @@ msgstr "Producto ponderado"
 #. module: pos_tare
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:183
+#: code:addons/pos_tare/static/src/js/screens.js:186
 #, python-format
 msgid ""
 "You can not set the tare. To be able to set the tare manually you have to "
@@ -328,6 +369,14 @@ msgid ""
 msgstr ""
 "No se puede establecer la tara. Para poder establecer la tara manualmente, "
 "debe cambiar el método de entrada de tara en la configuración de PdV."
+
+#. module: pos_tare
+#: model:product.product,uom_name:pos_tare.cheese
+#: model:product.product,weight_uom_name:pos_tare.cheese
+#: model:product.template,uom_name:pos_tare.cheese_product_template
+#: model:product.template,weight_uom_name:pos_tare.cheese_product_template
+msgid "kg"
+msgstr ""
 
 #~ msgid ""
 #~ "The quantity for \"%s\" is lower or equal to zero. Call for help unless "
