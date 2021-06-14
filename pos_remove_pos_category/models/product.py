@@ -32,7 +32,7 @@ class ProductTemplate(models.Model):
 class ProductCategory(models.Model):
     _inherit = "product.category"
 
-    image_128 = fields.Image("Image", max_width=128, max_height=128)
+    image_128 = fields.Image("Image 128", max_width=128, max_height=128)
 
     available_in_pos = fields.Boolean(
         string="Available in the Point of Sale",
