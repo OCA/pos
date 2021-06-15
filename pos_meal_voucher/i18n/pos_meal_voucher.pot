@@ -16,6 +16,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:31
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:35
 #, python-format
 msgid "(Dematerialized)"
 msgstr ""
@@ -115,6 +116,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:55
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:59
 #, python-format
 msgid "Max Amount"
 msgstr ""
@@ -128,6 +130,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:42
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:46
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_product__meal_voucher_ok
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_template__meal_voucher_ok
@@ -154,6 +157,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:17
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:19
 #, python-format
 msgid "Meal Voucher:"
 msgstr ""
@@ -234,6 +238,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:47
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:51
 #, python-format
 msgid "Total Eligible"
 msgstr ""
@@ -241,6 +246,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #. openerp-web
 #: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:63
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:67
 #, python-format
 msgid "Total Received"
 msgstr ""
