@@ -36,8 +36,26 @@ Price and Cost Price.
 .. contents::
    :local:
 
+Configuration
+=============
+
+* If you want to disable the display of the margin, in the front-office UI, you can
+  uncheck the check box in the ``pos.config`` form:
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_margin/static/description/pos_config_form.png
+
 Usage
 =====
+
+**In the PoS Front Office**
+
+* Make an order. Each time a line is added, updated, or deleted, the margin and the margin rate
+  will be updated.
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_margin/static/description/pos_front_end.png
+   :width: 800px
+
+**In the PoS Back Office**
 
 To use this module, you need to:
 
