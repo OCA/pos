@@ -95,7 +95,9 @@ msgstr "Cliente"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:89
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:93
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:98
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:102
 #, python-format
 msgid "DUPLICATE"
 msgstr "DUPLICATO"
@@ -152,6 +154,7 @@ msgstr "Stampare un duplicato di quest'ordine"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:83
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:87
 #, python-format
 msgid "Rectifies:"
 msgstr "Rettifica:"
@@ -208,6 +211,7 @@ msgstr "Reso"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:74
+#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:76
 #, python-format
 msgid "Returned order:"
 msgstr "Reso:"
