@@ -1,11 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_margin
+#   * pos_margin
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-11 14:57+0000\n"
+"PO-Revision-Date: 2021-06-11 14:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +18,17 @@ msgstr ""
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__purchase_price
 msgid "Cost Price"
+msgstr ""
+
+#. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_config__iface_display_margin
+msgid "Diplay Margin"
+msgstr ""
+
+#. module: pos_margin
+#: model:ir.model.fields,help:pos_margin.field_pos_config__iface_display_margin
+#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_config_form
+msgid "Display Margin and Margin Rate in the frontend"
 msgstr ""
 
 #. module: pos_margin
@@ -43,6 +56,18 @@ msgstr ""
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_total
 msgid "Margin Total"
+msgstr ""
+
+#. module: pos_margin
+#. openerp-web
+#: code:addons/pos_margin/static/src/xml/pos_margin.xml:26
+#, python-format
+msgid "Margin:"
+msgstr ""
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_config
+msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_margin

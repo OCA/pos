@@ -69,9 +69,13 @@
     </t>
 
     <t t-extend="OrderWidget">
-        <t t-jquery=".summary" t-operation="after">
-            <div class="order-returned-warning" t-if="order.returned_order_id">
-                <span>Returned order: </span><t name="returned-order-reference" t-esc="order.returned_order_reference"></t>
+        <t t-jquery="div.summary:first" t-operation="after">
+            <div class="summary clearfix">
+                <div class="line">
+                    <div class="subentry" t-if="order.returned_order_id">
+                        <span>Returned order: </span><t name="returned-order-reference" t-esc="order.returned_order_reference"></t>
+                    </div>
+                </div>
             </div>
         </t>
     </t>

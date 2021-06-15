@@ -5,7 +5,7 @@
 {
     'name': 'PoS Order Margin',
     'summary': 'Margin on PoS Order',
-    'version': '12.0.1.0.0',
+    'version': '12.0.2.0.0',
     'category': 'Point Of Sale',
     'author': "GRAP,"
               "Odoo Community Association (OCA)",
@@ -17,7 +17,12 @@
         'sale_margin',
     ],
     'data': [
+        'views/templates.xml',
+        'views/view_pos_config.xml',
         'views/view_pos_order.xml',
+    ],
+    'qweb': [
+        'static/src/xml/pos_margin.xml',
     ],
     'installable': True,
 }
