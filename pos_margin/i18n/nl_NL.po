@@ -25,6 +25,17 @@ msgid "Cost Price"
 msgstr "Kostprijs"
 
 #. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_config__iface_display_margin
+msgid "Diplay Margin"
+msgstr ""
+
+#. module: pos_margin
+#: model:ir.model.fields,help:pos_margin.field_pos_config__iface_display_margin
+#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_config_form
+msgid "Display Margin and Margin Rate in the frontend"
+msgstr ""
+
+#. module: pos_margin
 #: model:ir.model.fields,help:pos_margin.field_pos_order__margin
 msgid ""
 "It gives profitability by calculating the difference between the Unit Price "
@@ -55,6 +66,18 @@ msgstr "Marge"
 #, fuzzy
 msgid "Margin Total"
 msgstr "Marge"
+
+#. module: pos_margin
+#. openerp-web
+#: code:addons/pos_margin/static/src/xml/pos_margin.xml:26
+#, python-format
+msgid "Margin:"
+msgstr ""
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order_line
