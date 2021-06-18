@@ -4,7 +4,7 @@
 
 {
     "name": "Point of Sale - Hide Empty Categories",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Point Of Sale",
     "summary": """Hide PoS categories that doesn't have any products""",
     "author": "La GRAP, Odoo Community Association (OCA)",
