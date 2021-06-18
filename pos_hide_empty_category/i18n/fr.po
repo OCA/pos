@@ -1,0 +1,9 @@
+#. module: pos_hide_empty_category
+#: model:pos.category,name:pos_hide_empty_category.empty_child_category
+msgid "Empty Child Category"
+msgstr ""
+
+#. module: pos_hide_empty_category
+#: model:pos.category,name:pos_hide_empty_category.empty_main_category
+msgid "Empty Main Category"
+msgstr ""
