@@ -26,7 +26,7 @@ addon | version | summary
 [pos_fix_search_limit](pos_fix_search_limit/) | 12.0.1.0.0 | Increase search in the PoS
 [pos_fixed_discount](pos_fixed_discount/) | 12.0.1.0.1 | Allow to apply discounts with fixed amount
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 12.0.1.0.0 | Hide useless Banknote buttons in the PoS (+10, +20, +50)
-[pos_hide_empty_category](pos_hide_empty_category/) | 12.0.1.0.0 | Hide PoS categories that doesn't have any products
+[pos_hide_empty_category](pos_hide_empty_category/) | 12.0.1.0.1 | Hide PoS categories that doesn't have any products
 [pos_invoice_send_mail](pos_invoice_send_mail/) | 12.0.1.0.0 | Send invoices by email from the POS
 [pos_invoicing](pos_invoicing/) | 12.0.3.0.1 | Handle invoicing from Point Of Sale
 [pos_journal_image](pos_journal_image/) | 12.0.1.0.0 | Add images on Account Journals available in the PoS
