@@ -14,8 +14,10 @@ odoo.define("pos_margin.screens", function (require) {
             if (!order.get_orderlines().length) {
                 return;
             }
-            this.el.querySelector(".summary .order-margin .value-margin-rate").textContent = this.format_pr(order.get_margin_rate(), 0.01) + "%";
-            this.el.querySelector(".summary .order-margin .value-margin").textContent = this.format_currency(order.get_margin());
+            if (this.pos.config.iface_display_margin) {
+                this.el.querySelector(".summary .order-margin .value-margin-rate").textContent = this.format_pr(order.get_margin_rate(), 0.01) + "%";
+                this.el.querySelector(".summary .order-margin .value-margin").textContent = this.format_currency(order.get_margin());
+            }
         },
     });
 
