@@ -94,6 +94,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
                 buttonText: {today: _t("Today")},
                 selectable: true,
                 unselectAuto: false,
+                longPressDelay: 0,
                 height: "auto",
                 select: this.selectDates.bind(this),
                 dayRender: function(date, cell) {
