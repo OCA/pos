@@ -28,8 +28,7 @@
                                 <tree editable="bottom">
                                     <field name="currency_id" invisible="1"/>
                                     <field name="balance_moment" invisible="1"/>
-                                    <field name="coin_value" 
-                                        widget="numeric_step" options="{'step': 0.05, 'min': 0}"/>
+                                    <field name="coin_value"/>
                                     <field name="number"
                                         widget="numeric_step" options="{'step': 1, 'min': 0}"/>
                                     <field name="subtotal" sum="Balance total"
