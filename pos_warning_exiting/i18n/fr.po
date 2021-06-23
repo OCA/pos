@@ -1,0 +1,70 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_warning_exiting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-22 12:43+0000\n"
+"PO-Revision-Date: 2021-01-22 12:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/gui.js:32
+#, python-format
+msgid " - Table: "
+msgstr ""
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/gui.js:40
+#, python-format
+msgid "Draft Orders"
+msgstr "Ventes en brouillon"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/gui.js:74
+#, python-format
+msgid ""
+"It seems that you do not have a network connection at the moment. If you "
+"close this window, it will not be possible to re-sell until you get your "
+"connection back."
+msgstr ""
+"Il semble que vous n'ayez pas de connexion au réseau actuellement. Si vous "
+"fermez cette fenêtre, il ne vous sera pas possible de refaire des ventes "
+"avant d'avoir retrouver votre connexion."
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/gui.js:73
+#, python-format
+msgid "Network Connection Lost"
+msgstr "Connexion au réseau perdu"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/gui.js:28
+#, python-format
+msgid "Order #"
+msgstr "Vente #"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/gui.js:41
+#, python-format
+msgid ""
+"You have some draft unpaid orders. You can exit temporarily the Point of "
+"Sale, but you will loose that orders if you close the session: "
+msgstr ""
+"Vous avez une ou plusieurs ventes en brouillon non payées. Vous pouvez "
+"fermer temporairement le point de vente, mais vous perdrez ces ventes en "
+"brouillon si vous fermez la session : "
