@@ -4,7 +4,7 @@
 {
     "name": "POS Ticket Without Price",
     "summary": "Adds receipt ticket without price or taxes",
-    "version": "12.0.1.0.0",
+    "version": "14.0.1.0.0",
     "author": "Odoo Community Association (OCA), Solvos",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
