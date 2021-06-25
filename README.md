@@ -33,7 +33,7 @@ addon | version | summary
 [pos_margin](pos_margin/) | 12.0.2.0.1 | Margin on PoS Order
 [pos_meal_voucher](pos_meal_voucher/) | 12.0.1.0.5 | Handle meal vouchers in Point of Sale with eligible amount and max amount
 [pos_multi_ean](pos_multi_ean/) | 12.0.1.0.1 | Search products by multiple EAN
-[pos_multiple_control](pos_multiple_control/) | 12.0.1.2.0 | Allow user to control each statement and add extra checks
+[pos_multiple_control](pos_multiple_control/) | 12.0.1.2.1 | Allow user to control each statement and add extra checks
 [pos_order_line_no_unlink](pos_order_line_no_unlink/) | 12.0.1.0.1 | Prevent to unlink Confirmed or Invoiced Order Lines
 [pos_order_line_note](pos_order_line_note/) | 12.0.1.0.2 | Store Order Line Note field in Database
 [pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.3 | Manage old POS Orders from the frontend
