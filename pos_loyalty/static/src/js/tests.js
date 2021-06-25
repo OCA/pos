@@ -2,7 +2,7 @@
 // Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 // License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
+odoo.define('pos_loyalty.tour.test_pos_loyalty', function(require) {
     "use strict";
 
     // Some of the steps are taken from the pos_basic_order tour in point_of_sale.
@@ -23,7 +23,7 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
         }, {
             content: 'Check if customer ' + customer_name + ' is added',
             trigger: '.button.set-customer:contains("' + customer_name + '")',
-            run: function () {}, // it's a check
+            run: function() {}, // it's a check
         }];
     }
 
@@ -44,7 +44,7 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
         }, {
             content: 'the ' + product_name + ' have been added to the order',
             trigger: '.order .product-name:contains("' + product_name + '")',
-            run: function () {}, // it's a check
+            run: function() {}, // it's a check
         }];
     }
 
@@ -52,12 +52,13 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
         return [{
             content: 'check if ' + product_name + ' is in order',
             trigger: '.orderline .product-name:contains("' + product_name + '")',
-            run: function () {}, // it's a check
+            run: function() {}, // it's a check
         }]
     }
 
     function generate_keypad_steps(amount_str, keypad_selector) {
-        var i, steps = [], current_char;
+        var i, steps = [],
+            current_char;
         for (i = 0; i < amount_str.length; ++i) {
             current_char = amount_str[i];
             steps.push({
@@ -81,7 +82,7 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
         return [{
             content: 'order total contains ' + total_str,
             trigger: '.order .total .value:contains("' + total_str + '")',
-            run: function () {}, // it's a check
+            run: function() {}, // it's a check
         }];
     }
 
@@ -102,11 +103,11 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
         }, {
             content: "verify that the order is being sent to the backend",
             trigger: ".js_connecting:visible",
-            run: function () {}, // it's a check
+            run: function() {}, // it's a check
         }, {
             content: "verify that the order has been succesfully sent to the backend",
             trigger: ".js_connected:visible",
-            run: function () {}, // it's a check
+            run: function() {}, // it's a check
         }, {
             content: "next order",
             trigger: '.button.next:visible',
@@ -114,10 +115,10 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
     }
 
     var steps = [{
-            content: 'waiting for loading to finish',
-            trigger: '.o_main_content:has(.loader:hidden)',
-            run: function () {}, // it's a check
-        }];
+        content: 'waiting for loading to finish',
+        trigger: '.o_main_content:has(.loader:hidden)',
+        run: function() {}, // it's a check
+    }];
 
     steps = steps.concat(add_customer('Agrolait'));
     steps = steps.concat(add_product_to_order('Peaches'));
@@ -131,21 +132,24 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
     steps = steps.concat([{
         content: "verify tendered",
         trigger: '.col-tendered:contains("12.20")',
-        run: function () {}, // it's a check
+        run: function() {}, // it's a check
     }, {
         content: "verify change",
         trigger: '.col-change:contains("2.00")',
-        run: function () {}, // it's a check
+        run: function() {}, // it's a check
     }]);
 
     steps = steps.concat(finish_order());
 
-    Tour.register('test_pos_loyalty_acquire_points', { test: true, url: '/pos/web' }, steps);
+    Tour.register('test_pos_loyalty_acquire_points', {
+        test: true,
+        url: '/pos/web'
+    }, steps);
 
     steps = [{
         content: 'waiting for loading to finish',
         trigger: '.o_main_content:has(.loader:hidden)',
-        run: function () {}, // it's a check
+        run: function() {}, // it's a check
     }];
     steps = steps.concat(add_customer('Agrolait'));
     steps = steps.concat(add_reward('Free Peaches'));
@@ -155,9 +159,12 @@ odoo.define('pos_loyalty.tour.test_pos_loyalty', function (require) {
     steps = steps.concat([{
         content: "verify tendered",
         trigger: '.col-tendered:contains("0.00")',
-        run: function () {}, // it's a check
+        run: function() {}, // it's a check
     }]);
     steps = steps.concat(finish_order());
 
-    Tour.register('test_pos_loyalty_spend_points', { test: true, url: '/pos/web' }, steps);
+    Tour.register('test_pos_loyalty_spend_points', {
+        test: true,
+        url: '/pos/web'
+    }, steps);
 })

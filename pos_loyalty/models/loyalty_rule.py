@@ -9,6 +9,8 @@ from odoo import fields, models
 class LoyaltyRule(models.Model):
     _name = 'loyalty.rule'
 
+    _description = 'Loyalty Rule OCA'
+
     name = fields.Char(string='Rule Name', size=32, index=True, required=True)
     type = fields.Selection(selection=[('product', 'Product'),
                                        ('category', 'Category')],

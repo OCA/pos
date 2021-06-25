@@ -9,6 +9,6 @@ class PosConfig(models.Model):
     _inherit = 'pos.config'
 
     loyalty_id = fields.Many2one(comodel_name='loyalty.program',
-                                 string='Loyalty Program',
+                                 string='Loyalty Program OCA',
                                  help='The loyalty program used by this '
                                       'Point of Sale')

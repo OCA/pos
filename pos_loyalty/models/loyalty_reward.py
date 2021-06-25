@@ -10,6 +10,8 @@ from odoo.exceptions import ValidationError
 class LoyaltyReward(models.Model):
     _name = 'loyalty.reward'
 
+    _description = 'Loyalty Reward OCA'
+
     name = fields.Char(string='Reward Name', size=32, index=True,
                        required=True)
     type = fields.Selection(selection=[('gift', 'Gift'),
