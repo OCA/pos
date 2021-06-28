@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <template>
 
     <t t-name="CreateSaleOrderButtonWidget">
-        <span class="control-button order-split" t-att-style='widget.is_visible() ? "display: block;" : "display: none;"'>
-            <i class="fa fa-download"></i>Create Sale Order
+        <span
+            class="control-button order-split"
+            t-att-style='widget.is_visible() ? "display: block;" : "display: none;"'
+        >
+            <i class="fa fa-download" />Create Sale Order
         </span>
     </t>
 
@@ -12,21 +15,30 @@
             <div class="screen-content">
                 <div class="top-content">
                     <span class='button back'>
-                        <i class='fa fa-angle-double-left'></i>
+                        <i class='fa fa-angle-double-left' />
                         Back
                     </span>
                     <h1>Create Sale Order</h1>
                 </div>
                 <div class="centered-content">
                     <div class="paymentmethods">
-                        <div class="button paymentmethod"
-                                id="button-create-draft-order" action="draft">
+                        <div
+                            class="button paymentmethod"
+                            id="button-create-draft-order"
+                            action="draft"
+                        >
                             Create Draft Sale Order
-                        </div><div class="button paymentmethod"
-                                id="button-create-confirmed-order" action="confirmed">
+                        </div><div
+                            class="button paymentmethod"
+                            id="button-create-confirmed-order"
+                            action="confirmed"
+                        >
                             Create Confirmed Sale Order
-                        </div><div class="button paymentmethod"
-                                id="button-create-delivered-order" action="delivered">
+                        </div><div
+                            class="button paymentmethod"
+                            id="button-create-delivered-order"
+                            action="delivered"
+                        >
                             Create Delivered Sale Order
                         </div>
                     </div>
