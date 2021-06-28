@@ -11,7 +11,8 @@ class PosConfig(models.Model):
     iface_create_sale_order = fields.Boolean(
         string="Create Sale Orders",
         compute="_compute_iface_create_sale_order",
-        store=True)
+        store=True,
+    )
 
     iface_create_draft_sale_order = fields.Boolean(
         string="Create Draft Sale Orders",
@@ -43,8 +44,10 @@ class PosConfig(models.Model):
     )
     def _compute_iface_create_sale_order(self):
         for config in self:
-            config.iface_create_sale_order = any([
-                config.iface_create_draft_sale_order,
-                config.iface_create_confirmed_sale_order,
-                config.iface_create_delivered_sale_order,
-            ])
+            config.iface_create_sale_order = any(
+                [
+                    config.iface_create_draft_sale_order,
+                    config.iface_create_confirmed_sale_order,
+                    config.iface_create_delivered_sale_order,
+                ]
+            )

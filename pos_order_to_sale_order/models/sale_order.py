@@ -37,9 +37,9 @@ class SaleOrder(models.Model):
         for order_line_data in order_data["lines"]:
             # Create Sale order lines
             order_line_vals = SaleOrderLine._prepare_from_pos(
-                sale_order, order_line_data[2])
-            sale_order_line = SaleOrderLine.create(
-                order_line_vals.copy())
+                sale_order, order_line_data[2]
+            )
+            sale_order_line = SaleOrderLine.create(order_line_vals.copy())
             sale_order_line.product_id_change()
             # we rewrite data, because onchange could alter some
             # data (like quantity, or price)
@@ -52,8 +52,7 @@ class SaleOrder(models.Model):
         # mark picking as delivered
         if action == "delivered":
             # Mark all moves are delivered
-            for move in sale_order.mapped(
-                    "picking_ids.move_ids_without_package"):
+            for move in sale_order.mapped("picking_ids.move_ids_without_package"):
                 move.quantity_done = move.product_uom_qty
             sale_order.mapped("picking_ids").button_validate()
 
