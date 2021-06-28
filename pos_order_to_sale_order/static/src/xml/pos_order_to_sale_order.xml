@@ -4,9 +4,10 @@
     <t t-name="CreateSaleOrderButtonWidget">
         <span
             class="control-button order-split"
-            t-att-style='widget.is_visible() ? "display: block;" : "display: none;"'
+            id="pos_new_sale_order"
+            t-att-style='widget.is_visible() ? "display: block;" : "display: none"'
         >
-            <i class="fa fa-download" />Create Sale Order
+            <i class="fa fa-download" />Order
         </span>
     </t>
 
