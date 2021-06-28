@@ -14,4 +14,5 @@
     "website": "https://github.com/OCA/pos",
     "data": ["views/view_pos_config.xml", "views/assets.xml"],
     "qweb": ["static/src/xml/pos_order_to_sale_order.xml"],
+    "installable": True,
 }

@@ -36,10 +36,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
         },
 
         is_visible: function() {
-            if (this.pos.get_order()) {
-                return this.pos.get_order().orderlines.length > 0;
-            }
-            return false;
+            return this.pos.get_order().orderlines.length > 0;
         },
     });
 
@@ -117,7 +114,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
                         .then(function() {
                             self.hook_create_sale_order_success();
                         })
-                        .fail(function(error, event) {
+                        .catch(function(error, event) {
                             self.hook_create_sale_order_error(error, event);
                         });
                 },
