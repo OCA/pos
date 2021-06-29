@@ -96,7 +96,7 @@ odoo.define("pos_jsprintmanager.screen", function (require) {
 
             // Date and Order ID
             cmds += this.center_align_string(
-                receipt.date.localestring + ' ' + receipt.name,
+                order.formatted_validation_date + ' ' + receipt.name,
                 this.page_width
             );
             cmds += this.line_feed + this.line_feed;
