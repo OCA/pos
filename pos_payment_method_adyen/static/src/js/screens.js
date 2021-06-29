@@ -167,7 +167,8 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             var self = this;
             this.card_acquisition_transaction = true;
             var partner = this.pos.get_client();
-            this.shopperReference = partner.id + Math.floor(Math.random() * Math.pow(2, 64)).toString();
+            var newReference = partner.id + Math.floor(Math.random() * Math.pow(2, 64)).toString();
+            this.shopperReference = partner.pos_adyen_shopper_reference ? partner.pos_adyen_shopper_reference : newReference;
 
             var data = this._adyen_card_acquisition_data();
 
