@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 Manuel Regidor <manuel.regidor@sygel.es>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="pos_default_partner_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="//script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/pos_default_partner/static/src/js/models.js"
+            />
+        </xpath>
+    </template>
+</odoo>
