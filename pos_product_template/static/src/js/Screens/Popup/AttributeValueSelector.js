@@ -9,11 +9,9 @@
 odoo.define("pos_product_template.AttributeValueSelector", function (require) {
     "use strict";
 
-    const ppt_models = require("pos_product_template.models");
     const Registries = require("point_of_sale.Registries");
     const PosComponent = require("point_of_sale.PosComponent");
-    const {useState, useExternalListener} = owl.hooks;
-    const {useListener} = require("web.custom_hooks");
+    const {useState, useExternalListener} = owl.hooks; // eslint-disable-line no-undef
 
     // Widget used for each individual attribute
     // Allows selection of one specific attribute value
@@ -42,12 +40,15 @@ odoo.define("pos_product_template.AttributeValueSelector", function (require) {
             // saves us some performance calculation (we can access ptav_product_variant_ids)
             var options = [];
             for (const av_id of this.config.attribute.value_ids) {
-                options.push({
-                    av: this.env.pos.db.product_attribute_value_by_id[av_id],
-                    ptav: Object.values(this.config.ptav).filter(function (ptav) {
-                        return ptav.product_attribute_value_id[0] === av_id;
-                    })[0],
-                });
+                const ptav = Object.values(this.config.ptav).filter(function (item) {
+                    return item.product_attribute_value_id[0] === av_id;
+                })[0];
+                if (ptav !== undefined) {
+                    options.push({
+                        av: this.env.pos.db.product_attribute_value_by_id[av_id],
+                        ptav: ptav,
+                    });
+                }
             }
             this.config.options = options;
         }
@@ -99,7 +100,7 @@ odoo.define("pos_product_template.AttributeValueSelector", function (require) {
 
         // Events
 
-        clickSelector(event) {
+        clickSelector() {
             if (this.state.active) {
                 this.trigger("collapse-other-selectors");
                 this.state.display_options = !this.state.display_options;
