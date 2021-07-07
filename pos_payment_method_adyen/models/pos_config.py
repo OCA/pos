@@ -28,6 +28,28 @@ class PosConfig(models.Model):
     adyen_automated_payment = fields.Boolean(
         string="Enable Adyen online payment with stored token",
     )
+    adyen_latest_response = fields.Char(
+        help='Technical field used to buffer the latest asynchronous '
+             'notification from Adyen.',
+        copy=False,
+        groups='base.group_erp_manager'
+    )
+    adyen_latest_diagnosis = fields.Char(
+        help='Technical field used to determine if the terminal is still '
+             'connected.',
+        copy=False,
+        groups='base.group_erp_manager'
+    )
+
+    def get_pos_config_from_adyen_terminal(self, terminal_identifier):
+        return self.env['pos.config'].sudo().search([
+            ('adyen_terminal_identifier', '=', terminal_identifier)], limit=1)
+
+    def _is_write_forbidden(self, fields):
+        whitelisted_fields = {
+            'adyen_latest_response', 'adyen_latest_diagnosis'
+        }
+        return super()._is_write_forbidden(fields - whitelisted_fields)
 
     @api.constrains('adyen_terminal_identifier')
     def _check_adyen_terminal_identifier(self):

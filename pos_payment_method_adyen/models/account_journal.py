@@ -33,24 +33,6 @@ class AccountJournal(models.Model):
     adyen_test_mode = fields.Boolean(
         help='Run transactions in the test environment.'
     )
-    adyen_latest_response = fields.Char(
-        help='Technical field used to buffer the latest asynchronous '
-             'notification from Adyen.',
-        copy=False,
-        groups='base.group_erp_manager'
-    )
-    adyen_latest_diagnosis = fields.Char(
-        help='Technical field used to determine if the terminal is still '
-             'connected.',
-        copy=False,
-        groups='base.group_erp_manager'
-    )
-
-    def _is_write_forbidden(self, fields):
-        whitelisted_fields = {
-            'adyen_latest_response', 'adyen_latest_diagnosis'
-        }
-        return super()._is_write_forbidden(fields - whitelisted_fields)
 
     def _adyen_diagnosis_request_data(self, pos_config_name, terminal_identifier):
         service_id = ''.join(random.sample(string.ascii_letters + string.digits, k=10))
@@ -83,20 +65,21 @@ class AccountJournal(models.Model):
         # notification we received. This is done so we can quickly
         # notify the user if the terminal is no longer reachable due
         # to connectivity issues.
+        pos_config = self.env["pos.config"].get_pos_config_from_adyen_terminal(
+            terminal_identifier
+        )
         self.proxy_adyen_request(self._adyen_diagnosis_request_data(
             pos_config_name, terminal_identifier), test_mode, api_key)
-
         _logger.info('payment method id: %s', payment_method_id)
-        payment_method = self.sudo().browse(payment_method_id)
-        latest_response = payment_method.adyen_latest_response
+        latest_response = pos_config.adyen_latest_response
         latest_response = json.loads(latest_response) if latest_response else False
         _logger.info('latest response:\n%s', latest_response)
         # avoid handling old responses multiple times
-        payment_method.adyen_latest_response = ''
+        pos_config.adyen_latest_response = ''
 
         return {
             'latest_response': latest_response,
-            'last_received_diagnosis_id': payment_method.adyen_latest_diagnosis,
+            'last_received_diagnosis_id': pos_config.adyen_latest_diagnosis,
         }
 
     @api.model
