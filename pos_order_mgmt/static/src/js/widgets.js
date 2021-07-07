@@ -225,6 +225,12 @@ odoo.define('pos_order_mgmt.widgets', function (require) {
                     this.pos.db.get_partner_by_id(order_data.partner_id));
             }
 
+            // Get pricelist, if it is available in the current Point of Sale
+            order.set_pricelist(
+                _.findWhere(
+                    this.pos.pricelists, {'id': order_data.pricelist_id}
+                ) || this.pos.default_pricelist);
+
             // Get fiscal position
             if (order_data.fiscal_position && this.pos.fiscal_positions) {
                 var fiscal_positions = this.pos.fiscal_positions;
