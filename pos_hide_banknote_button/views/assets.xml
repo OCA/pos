@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <template id="index" inherit_id="point_of_sale.index">
+        <xpath expr="//head" position="inside">
+            <link
+                rel="stylesheet"
+                href="/pos_hide_banknote_button/static/src/css/pos_hide_banknote_button.css"
+            />
+        </xpath>
+    </template>
+
+</odoo>
