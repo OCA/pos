@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo14-addon-pos_access_right',
         'odoo14-addon-pos_default_partner',
+        'odoo14-addon-pos_hide_banknote_button',
         'odoo14-addon-pos_payment_terminal',
         'odoo14-addon-pos_product_sort',
         'odoo14-addon-pos_require_product_quantity',
