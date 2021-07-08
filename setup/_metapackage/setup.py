@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo13-addon-pos_fixed_discount',
         'odoo13-addon-pos_order_mgmt',
         'odoo13-addon-pos_order_remove_line',
+        'odoo13-addon-pos_order_to_sale_order',
         'odoo13-addon-pos_payment_method_image',
         'odoo13-addon-pos_payment_terminal',
         'odoo13-addon-pos_product_sort',
