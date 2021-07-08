@@ -21,6 +21,7 @@ addon | version | summary
 --- | --- | ---
 [pos_access_right](pos_access_right/) | 14.0.1.0.1 | Point of Sale - Extra Access Right for certain actions
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 | Add a default customer in pos order
+[pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.0 | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.0.0 | Point of sale: support generic payment terminal
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_require_product_quantity](pos_require_product_quantity/) | 14.0.1.0.0 | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
