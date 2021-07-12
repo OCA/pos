@@ -58,7 +58,9 @@ msgstr "esquena"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:368
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:374
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:423
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:429
 #, fuzzy, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
@@ -67,7 +69,9 @@ msgstr ""
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:367
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:373
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:422
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:428
 #, python-format
 msgid "Connection error"
 msgstr "Error de connexió"
@@ -172,6 +176,7 @@ msgstr "Referència de la comanda retornada"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:245
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:251
 #, python-format
 msgid "Refund "
 msgstr "Devolució "
@@ -223,6 +228,7 @@ msgstr "Ordre de cerca"
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:385
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:391
 #, python-format
 msgid ""
 "Unable to load some order lines because the products are not available in "
@@ -242,6 +248,7 @@ msgstr ""
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:384
+#: code:addons/pos_order_mgmt/static/src/js/widgets.js:390
 #, python-format
 msgid "Unknown Products"
 msgstr "Productes desconeguts"
