@@ -120,6 +120,7 @@ class PosOrder(models.Model):
             'name': self.name,
             'partner_id': self.partner_id.id,
             'fiscal_position': self.fiscal_position_id.id,
+            'pricelist_id': self.pricelist_id.id,
             'line_ids': order_lines,
             'statement_ids': payment_lines,
             'to_invoice': bool(self.invoice_id),
