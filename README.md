@@ -36,7 +36,7 @@ addon | version | summary
 [pos_multiple_control](pos_multiple_control/) | 12.0.1.2.1 | Allow user to control each statement and add extra checks
 [pos_order_line_no_unlink](pos_order_line_no_unlink/) | 12.0.1.0.1 | Prevent to unlink Confirmed or Invoiced Order Lines
 [pos_order_line_note](pos_order_line_note/) | 12.0.1.0.2 | Store Order Line Note field in Database
-[pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.3 | Manage old POS Orders from the frontend
+[pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.4 | Manage old POS Orders from the frontend
 [pos_order_remove_line](pos_order_remove_line/) | 12.0.1.0.0 | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 12.0.1.0.3 | Point of Sale Order Return
 [pos_order_return_traceability](pos_order_return_traceability/) | 12.0.1.0.0 | Adds full return traceability to POS frontend
