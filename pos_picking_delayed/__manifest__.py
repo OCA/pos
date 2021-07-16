@@ -15,6 +15,8 @@
         'queue_job',
     ],
     'data': [
+        'data/queue_job_channel.xml',
+        'data/queue_job_function.xml',
         'views/view_pos_config.xml',
         'views/view_pos_order.xml',
     ],
