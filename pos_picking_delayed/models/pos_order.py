@@ -2,7 +2,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
-from odoo.addons.queue_job.job import job
 
 
 class PosOrder(models.Model):
@@ -43,7 +42,8 @@ class PosOrder(models.Model):
 
     # Custom Section
     @api.multi
-    @job(default_channel='root.pos_picking_delayed')
     def _create_delayed_picking(self):
-        super(PosOrder, self).create_picking()
-        self.write({'has_picking_delayed': False})
+        # make the function idempotent
+        orders = self.filtered(lambda x: x.has_picking_delayed)
+        super(PosOrder, orders).create_picking()
+        orders.write({'has_picking_delayed': False})
