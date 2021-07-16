@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Copyright 2021 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).-->
+
+<odoo>
+
+    <record id="job_function_create_delayed_picking" model="queue.job.function">
+        <field name="model_id" ref="point_of_sale.model_pos_order" />
+        <field name="method">_create_delayed_picking</field>
+        <field name="channel_id" ref="channel_pos_picking_delayed"/>
+    </record>
+
+</odoo>
