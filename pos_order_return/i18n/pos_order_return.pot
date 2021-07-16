@@ -1,0 +1,221 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_order_return
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_product_product__pos_allow_negative_qty
+#: model:ir.model.fields,field_description:pos_order_return.field_product_template__pos_allow_negative_qty
+msgid "Allow Negative Quantity on PoS"
+msgstr ""
+
+#. module: pos_order_return
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line__max_returnable_qty
+msgid "Compute maximum quantity that can be returned for this line, depending of the quantity of the line and other possible refunds."
+msgstr ""
+
+#. module: pos_order_return
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+msgid "Confirm"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__create_date
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__display_name
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_order_return
+#: code:addons/pos_order_return/models/pos_order.py:195
+#, python-format
+msgid "For legal and traceability reasons, you can not set a negative quantity (%d %s of %s), without using return wizard."
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__initial_qty
+msgid "Initial Quantity"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard____last_update
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__write_date
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__pos_order_line_id
+msgid "Line To Return"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__line_ids
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+msgid "Lines to Return"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__order_id
+msgid "Order to Return"
+msgstr ""
+
+#. module: pos_order_return
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
+msgid "Partial Return"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.actions.act_window,name:pos_order_return.action_pos_partial_return_wizard
+#: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard
+msgid "Partial Return Wizard"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
+msgid "Partial Return Wizard Line"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model,name:pos_order_return.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model,name:pos_order_return.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model,name:pos_order_return.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line__initial_qty
+msgid "Quantity of Product initially sold"
+msgstr ""
+
+#. module: pos_order_return
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
+#: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_line_form
+msgid "Refund"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_line_ids
+msgid "Refund Lines"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_ids
+msgid "Refund Orders"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_qty
+msgid "Refund Orders Quantity"
+msgstr ""
+
+#. module: pos_order_return
+#: code:addons/pos_order_return/models/pos_order.py:55
+#, python-format
+msgid "Return of %s"
+msgstr ""
+
+#. module: pos_order_return
+#: model:product.product,name:pos_order_return.product_product_returnable_bottle
+#: model:product.template,name:pos_order_return.product_product_returnable_bottle_product_template
+msgid "Returnable Bottle"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__max_returnable_qty
+msgid "Returnable Quantity"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__returned_order_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__returned_line_id
+msgid "Returned Order"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__qty
+msgid "Returned Quantity"
+msgstr ""
+
+#. module: pos_order_return
+#: model:product.product,uom_name:pos_order_return.product_product_returnable_bottle
+#: model:product.template,uom_name:pos_order_return.product_product_returnable_bottle_product_template
+msgid "Unit(s)"
+msgstr ""
+
+#. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: pos_order_return
+#: code:addons/pos_order_return/models/pos_order.py:184
+#, python-format
+msgid "You can not return %d %s of %s because some refunds have already been done.\n"
+" Maximum quantity allowed : %d %s."
+msgstr ""
+
+#. module: pos_order_return
+#: code:addons/pos_order_return/models/pos_order.py:175
+#, python-format
+msgid "You can not return %d %s of %s because the original Order line only mentions %d %s."
+msgstr ""
+
+#. module: pos_order_return
+#: model:product.product,weight_uom_name:pos_order_return.product_product_returnable_bottle
+#: model:product.template,weight_uom_name:pos_order_return.product_product_returnable_bottle_product_template
+msgid "kg"
+msgstr ""
+
