@@ -14,13 +14,13 @@ Point of Sale Order Return
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/12.0/pos_order_return
+    :target: https://github.com/OCA/pos/tree/14.0/pos_order_return
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_order_return
+    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_order_return
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :target: https://runbot.odoo-community.org/runbot/184/14.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -48,7 +48,7 @@ products like returnable products, etc.
 
 In that case, a checkbox is possible on Product Form View to allow such case
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_return/static/description/product_returnable_bottle.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/product_returnable_bottle.png
 
 Usage
 =====
@@ -57,7 +57,7 @@ Select an PoS Order an choose either *Return Products* (full return of the
 order) or *Partial Return*. In this case, a wizard allows to select just some
 products and quantities to return:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_return/static/description/partial_return_wizard.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/partial_return_wizard.png
 
 Register the refund payment to finish the return. If the original order was
 invoiced, a refund invoice will be made.
@@ -66,16 +66,16 @@ invoiced, a refund invoice will be made.
 
 * User can not return more products than the initial quantity:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_return/static/description/returned_qty_over_initial.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/returned_qty_over_initial.png
 
 * If a line has been partially refund, only a reduced quantity can be returned:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_return/static/description/sum_returned_qty_over_initial.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/sum_returned_qty_over_initial.png
 
 * It is not possible to set a negative quantity if the initial Pos Order is
   not indicated:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_order_return/static/description/initial_pos_order_required.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/initial_pos_order_required.png
 
 Known issues / Roadmap
 ======================
@@ -90,7 +90,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_return%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_return%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -112,6 +112,7 @@ Contributors
 * David Vidal <david.vidal@tecnativa.com>
 * Kiril Vangelovski <kiril@lambda-is.com>
 * Druidoo <https://www.druidoo.io>
+* Dhara Solanki <dhara.solanki@initos.com>
 
 Other credits
 ~~~~~~~~~~~~~
@@ -137,6 +138,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_order_return>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_order_return>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
