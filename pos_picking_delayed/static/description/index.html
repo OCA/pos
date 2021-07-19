@@ -407,6 +407,16 @@ for more information.</p>
 configuration to works properly. Make sure your config file is correctly set.
 See <a class="reference external" href="https://github.com/OCA/queue/tree/12.0/queue_job">https://github.com/OCA/queue/tree/12.0/queue_job</a></li>
 </ul>
+<p>You should update your <tt class="docutils literal">odoo.cfg</tt> file to add a new channel named
+<tt class="docutils literal">root.pos_picking_delayed</tt>:</p>
+<pre class="code literal-block">
+[queue_job]
+channels = root:2,root.pos_picking_delayed:1
+</pre>
+<p>Otherwise, you’ll have a non blocking warning in your log, like this one.</p>
+<pre class="code literal-block">
+WARNING ? odoo.addons.queue_job.jobrunner.channels: unknown channel root.pos_picking_delayed, using root channel for job 23f6b872-1d2c-4003-bd38-a8486bbec664
+</pre>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#id2">Usage</a></h1>
