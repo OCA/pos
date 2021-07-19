@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+
+    <t t-name="OrderSummaryMargin" owl="1">
+        <div class="summary clearfix">
+            <div class="line">
+                <div class="subentry order-margin">
+                    <span>Margin: </span><span class="value-margin">0.00 €</span>
+                    (<span class="value-margin-rate">0.00 %</span>)
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
+        <xpath expr="//div/div/t[@t-else='']" position="inside">
+            <OrderSummaryMargin />
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//ul/t/li" position="inside">
+            <t t-if="env.pos.config.iface_display_margin">
+                <span
+                    t-att-class="'price order-line-margin ' + (props.line.get_margin_rate() &lt; 0 ? 'margin-negative' : '')"
+                >
+                    (<t t-esc="props.line.get_margin_rate_str()" />)
+                </span>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

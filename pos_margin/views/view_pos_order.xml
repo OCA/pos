@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_order_form" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <field name="amount_total" position="after">
+                    <field name="margin" widget="monetary" />
+            </field>
+            <xpath
+                expr="//field[@name='lines']/tree/field[@name='price_unit']"
+                position="after"
+            >
+                <field name="purchase_price" widget="monetary" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree" />
+        <field name="arch" type="xml">
+            <field name="amount_total" position="before">
+                    <field name="margin" widget="monetary" sum="Margin Total" />
+            </field>
+        </field>
+    </record>
+
+</odoo>
