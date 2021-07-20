@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_cash_move_reason
+# 	* pos_cash_move_reason
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,13 +15,15 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Put</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Put</span>\n"
 "                        <span class=\"o_stat_text\">Money In</span>"
 msgstr ""
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Take</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Take</span>\n"
 "                        <span class=\"o_stat_text\">Money Out</span>"
 msgstr ""
 
@@ -95,6 +97,7 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__display_name
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__display_name
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__display_name
 msgid "Display Name"
 msgstr ""
@@ -111,6 +114,7 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__id
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__id
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__id
 msgid "ID"
 msgstr ""
@@ -121,7 +125,7 @@ msgid "Income Account"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:67
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "Invalid Amount"
 msgstr ""
@@ -143,6 +147,7 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason____last_update
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session____last_update
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -198,7 +203,7 @@ msgid "Point of Sale Session"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__income
 msgid "Put Money In"
 msgstr ""
 
@@ -208,7 +213,7 @@ msgid "Reason"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
 msgstr ""
 
@@ -216,4 +221,3 @@ msgstr ""
 #: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
 msgid "Use Old PoS 'Put or Take Money' Actions"
 msgstr ""
-
