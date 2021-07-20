@@ -20,6 +20,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [pos_access_right](pos_access_right/) | 14.0.1.0.1 | Point of Sale - Extra Access Right for certain actions
+[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.0.0 | POS cash in-out reason
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 | Add a default customer in pos order
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_margin](pos_margin/) | 14.0.1.0.0 | Margin on PoS Order
