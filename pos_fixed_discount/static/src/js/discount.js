@@ -1,4 +1,4 @@
-odoo.define("pos_fixed_discount.pos_fixed_discount", function(require) {
+odoo.define("pos_fixed_discount.pos_fixed_discount", function (require) {
     "use strict";
 
     var core = require("web.core");
@@ -8,17 +8,17 @@ odoo.define("pos_fixed_discount.pos_fixed_discount", function(require) {
 
     var FixedDiscountButton = screens.ActionButtonWidget.extend({
         template: "FixedDiscountButton",
-        button_click: function() {
+        button_click: function () {
             var self = this;
             this.gui.show_popup("number", {
                 title: _t("Discount Amount"),
                 value: 0,
-                confirm: function(val) {
+                confirm: function (val) {
                     self.apply_discount(val);
                 },
             });
         },
-        apply_discount: function(amount) {
+        apply_discount: function (amount) {
             var order = this.pos.get_order();
             var lines = order.get_orderlines();
             var product = this.pos.db.get_product_by_id(
@@ -62,7 +62,7 @@ odoo.define("pos_fixed_discount.pos_fixed_discount", function(require) {
     screens.define_action_button({
         name: "fixed_discount",
         widget: FixedDiscountButton,
-        condition: function() {
+        condition: function () {
             return (
                 this.pos.config.module_pos_discount &&
                 this.pos.config.discount_product_id
