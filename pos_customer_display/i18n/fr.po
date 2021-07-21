@@ -43,6 +43,14 @@ msgid "Deleting Line ..."
 msgstr "Suppression de la ligne ..."
 
 #. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/chrome.js:27
+#: code:addons/pos_customer_display/static/src/js/chrome.js:29
+#, python-format
+msgid "Display"
+msgstr ""
+
+#. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__iface_customer_display
 msgid "Display data on the customer display"
 msgstr "Afficher les données sur l'afficheur client"
@@ -100,6 +108,13 @@ msgstr "Client suivant (ligne 2)"
 #, python-format
 msgid "No Customer Account"
 msgstr "Client non défini"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/chrome.js:29
+#, python-format
+msgid "Offline"
+msgstr ""
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
