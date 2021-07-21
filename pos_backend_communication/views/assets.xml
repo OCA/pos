@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_backend" name="backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">  <!-- both back and POS -->
+            <script
+                type="text/javascript"
+                src="/pos_backend_communication/static/src/js/common.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_backend_communication/static/src/js/back.js"
+            />
+            <link
+                rel="stylesheet"
+                href="/pos_backend_communication/static/src/css/pos_backend_communication.css"
+            />
+        </xpath>
+    </template>
+</odoo>
