@@ -125,4 +125,15 @@ odoo.define('pos_customer_display.models', function (require) {
 
     });
 
+    var _config = _.findWhere(
+        models.PosModel.prototype.models,
+        {model: "pos.config"}
+    );
+    var old_loaded = _config.loaded
+    _config.loaded = function (self, configs) {
+        old_loaded(self, configs);
+        if (self.config.iface_customer_display){
+            self.config.use_proxy = true;
+        }
+    }
 });
