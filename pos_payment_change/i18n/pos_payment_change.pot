@@ -1,12 +1,12 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_payment_change
+# 	* pos_payment_change
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: <>\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:79
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid " (Refund Order: %s ; Resale Order: %s)"
 msgstr ""
@@ -63,9 +63,10 @@ msgid "Created on"
 msgstr ""
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
+#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:0
 #, python-format
-msgid "Differences between the two values for the POS Order '%s':\n"
+msgid ""
+"Differences between the two values for the POS Order '%s':\n"
 "\n"
 " * Total of all the new payments %s;\n"
 " * Total of the POS Order %s;\n"
@@ -74,6 +75,8 @@ msgid "Differences between the two values for the POS Order '%s':\n"
 msgstr ""
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_order__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__display_name
@@ -81,6 +84,8 @@ msgid "Display Name"
 msgstr ""
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_order__id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__id
@@ -88,12 +93,8 @@ msgid "ID"
 msgstr ""
 
 #. module: pos_payment_change
-#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_journal_id
-#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_journal_id
-msgid "Journal"
-msgstr ""
-
-#. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_order____last_update
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard____last_update
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line____last_update
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line____last_update
@@ -136,11 +137,18 @@ msgstr ""
 
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
-msgid "Payment Change Policy when users want to change the payment lines of a given PoS Order.\n"
+msgid ""
+"Payment Change Policy when users want to change the payment lines of a given PoS Order.\n"
 "* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, and create a new PoS Order with the correct payment lines.\n"
 "* 'Update Payments': Odoo will change payment lines.\n"
 "\n"
 "Note : In some countries the 'Update Payments' Option is not allowed by law, because orders history shouldn't not be altered."
+msgstr ""
+
+#. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_payment_method_id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_payment_method_id
+msgid "Payment Method"
 msgstr ""
 
 #. module: pos_payment_change
@@ -169,12 +177,12 @@ msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_payment_change
-#: selection:pos.config,payment_change_policy:0
+#: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__refund
 msgid "Refund and Resale"
 msgstr ""
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:43
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid "The payments of the Order %s (Ref: %s) has been changed by %s at %s."
 msgstr ""
@@ -186,13 +194,15 @@ msgid "Total"
 msgstr ""
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_config.py:43
+#: code:addons/pos_payment_change/models/pos_config.py:0
 #, python-format
-msgid "Unable to use the 'Update Payments' options for companies that have unalterable accounting."
+msgid ""
+"Unable to use the 'Update Payments' options for companies that have "
+"unalterable accounting."
 msgstr ""
 
 #. module: pos_payment_change
-#: selection:pos.config,payment_change_policy:0
+#: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__update
 msgid "Update Payments"
 msgstr ""
 
@@ -209,8 +219,9 @@ msgid "Wizard"
 msgstr ""
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:97
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
-msgid "You can not change payments of the POS '%s' because the associated session '%s' has been closed!"
+msgid ""
+"You can not change payments of the POS '%s' because the associated session "
+"'%s' has been closed!"
 msgstr ""
-
