@@ -9,11 +9,11 @@
             <link
                 rel="stylesheet"
                 type="text/scss"
-                href="/pos_order_remove_line/static/src/css/order_line.scss"
+                href="/pos_order_remove_line/static/src/css/orderline.scss"
             />
             <script
                 type="text/javascript"
-                src="/pos_order_remove_line/static/src/js/order_line.js"
+                src="/pos_order_remove_line/static/src/js/orderline.js"
             />
         </xpath>
     </template>
