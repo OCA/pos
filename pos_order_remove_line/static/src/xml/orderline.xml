@@ -3,11 +3,11 @@
   ~ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
   -->
 <templates id="template" xml:space="preserve">
-    <t t-extend="Orderline">
-        <t t-jquery=".price" t-operation="before">
-            <button class="remove-line-button">
+  <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+    <xpath expr="//span[hasclass('price')]" position="before">
+            <button class="remove-line-button" t-on-click="removeLine">
                 <i class="fa fa-trash-o" />
             </button>
-        </t>
-    </t>
+    </xpath>
+  </t>
 </templates>

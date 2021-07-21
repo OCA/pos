@@ -8,9 +8,9 @@
     "website": "https://github.com/OCA/pos",
     "category": "Point of Sale",
     "maintainers": ["robyf70"],
-    "version": "13.0.1.1.0",
+    "version": "14.0.1.0.0",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
     "data": ["views/assets.xml"],
-    "qweb": ["static/src/xml/order_line.xml"],
+    "qweb": ["static/src/xml/orderline.xml"],
 }
