@@ -8,14 +8,17 @@ from odoo.exceptions import Warning as UserError
 
 
 class AccountInvoice(models.Model):
-    _inherit = 'account.invoice'
+    _inherit = "account.invoice"
 
     pos_pending_payment = fields.Boolean(
-        string='PoS - Pending Payment', readonly=True,
-        copy=False, oldname='forbid_payment',
+        string="PoS - Pending Payment",
+        readonly=True,
+        copy=False,
+        oldname="forbid_payment",
         help="Indicates an invoice for which there are pending payments in the"
         " Point of Sale. \nThe invoice will be marked as paid when the session"
-        " will be closed.")
+        " will be closed.",
+    )
 
     # Overload Section
     @api.multi
@@ -34,7 +37,10 @@ class AccountInvoice(models.Model):
     def _check_pos_pending_payment(self):
         invoices = self.filtered(lambda x: x.pos_pending_payment)
         if invoices:
-            raise UserError(_(
-                "You can not realize this action on the invoice(s) %s because"
-                " there are pending payments in the Point of Sale.") % (
-                    ', '.join(invoices.mapped('number'))))
+            raise UserError(
+                _(
+                    "You can not realize this action on the invoice(s) %s because"
+                    " there are pending payments in the Point of Sale."
+                )
+                % (", ".join(invoices.mapped("number")))
+            )

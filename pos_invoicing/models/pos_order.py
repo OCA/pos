@@ -7,11 +7,13 @@ from odoo import models
 
 
 class PosOrder(models.Model):
-    _inherit = 'pos.order'
+    _inherit = "pos.order"
 
     def _prepare_invoice(self):
         res = super()._prepare_invoice()
-        res.update({
-            'pos_pending_payment': True,
-        })
+        res.update(
+            {
+                "pos_pending_payment": True,
+            }
+        )
         return res

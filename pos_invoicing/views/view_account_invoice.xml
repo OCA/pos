@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 Copyright (C) 2013 - Today: GRAP (http://www.grap.coop)
 @author Julien WESTE
@@ -9,10 +9,10 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <record id="view_account_invoice_form" model="ir.ui.view">
         <field name="model">account.invoice</field>
-        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="inherit_id" ref="account.invoice_form" />
         <field name="arch" type="xml">
             <field name="reference" position="after">
-                <field name="pos_pending_payment"/>
+                <field name="pos_pending_payment" />
             </field>
         </field>
     </record>
