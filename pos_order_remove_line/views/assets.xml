@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2019 LevelPrime
+  ~ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+  -->
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link
+                rel="stylesheet"
+                type="text/scss"
+                href="/pos_order_remove_line/static/src/css/orderline.scss"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_order_remove_line/static/src/js/orderline.js"
+            />
+        </xpath>
+    </template>
+</odoo>
