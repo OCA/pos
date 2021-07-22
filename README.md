@@ -25,6 +25,7 @@ addon | version | summary
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 | Add a default customer in pos order
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_margin](pos_margin/) | 14.0.1.0.0 | Margin on PoS Order
+[pos_order_remove_line](pos_order_remove_line/) | 14.0.1.0.0 | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 14.0.1.0.0 | Point of Sale Order Return
 [pos_payment_change](pos_payment_change/) | 14.0.1.0.0 | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.0.0 | Point of sale: support generic payment terminal
