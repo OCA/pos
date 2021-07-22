@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo14-addon-pos_default_partner',
         'odoo14-addon-pos_hide_banknote_button',
         'odoo14-addon-pos_margin',
+        'odoo14-addon-pos_order_remove_line',
         'odoo14-addon-pos_order_return',
         'odoo14-addon-pos_payment_change',
         'odoo14-addon-pos_payment_terminal',
