@@ -1,0 +1,74 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_margin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2019-11-24 13:35+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.8\n"
+
+#. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__purchase_price
+msgid "Cost Price"
+msgstr "Preço de Custo"
+
+#. module: pos_margin
+#: model:ir.model.fields,help:pos_margin.field_pos_order__margin
+msgid ""
+"It gives profitability by calculating the difference between the Unit Price "
+"and the cost price."
+msgstr ""
+"Fornece a rentabilidade pelo cálculo da diferença entre os preços de venda e "
+"de custo."
+
+#. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__margin
+msgid "Margin"
+msgstr "Margem"
+
+#. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin_percent
+#: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__margin_percent
+#, fuzzy
+msgid "Margin (%)"
+msgstr "Margem"
+
+#. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_rate
+msgid "Margin Rate"
+msgstr "Margem Percentual"
+
+#. module: pos_margin
+#: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_total
+msgid "Margin Total"
+msgstr "Margem Total"
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Linhas de Pedidos do Ponto de Venda"
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos do Ponto de Venda"
+
+#. module: pos_margin
+#: model:ir.model,name:pos_margin.model_report_pos_order
+msgid "Point of Sale Orders Report"
+msgstr "Relatório de Pedidos do Ponto de Venda"
+
+#. module: pos_margin
+#: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
+msgid "Total"
+msgstr ""
