@@ -9,8 +9,8 @@ from odoo import models
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
-    def _prepare_invoice(self):
-        res = super()._prepare_invoice()
+    def _prepare_invoice_vals(self):
+        res = super()._prepare_invoice_vals()
         res.update(
             {
                 "pos_pending_payment": True,

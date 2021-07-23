@@ -47,7 +47,7 @@ class TestModule(TransactionCase):
 
     # Private Section
     def register_payment(self, invoice_id=False):
-        journal = self.pos_config.journal_ids[0]
+        journal = self.pos_config.journal_id
         return self.AccountPayment.create(
             {
                 "invoice_ids": invoice_id and [(4, invoice_id.id, None)] or False,
@@ -63,6 +63,7 @@ class TestModule(TransactionCase):
 
     def _create_order(self):
         # Create order
+        user = self.env.user
         order_data = {
             "id": u"0006-001-0010",
             "to_invoice": True,
@@ -91,10 +92,10 @@ class TestModule(TransactionCase):
                         0,
                         0,
                         {
-                            "journal_id": self.pos_config.journal_ids[0].id,
+                            "journal_id": self.pos_config.journal_id.id,
                             "amount": 0.9,
                             "name": fields.Datetime.now(),
-                            "account_id": self.env.user.partner_id.property_account_receivable_id.id,
+                            "account_id": user.partner_id.property_account_receivable_id.id,
                             "statement_id": self.pos_config.current_session_id.statement_ids[
                                 0
                             ].id,

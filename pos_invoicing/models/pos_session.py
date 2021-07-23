@@ -5,7 +5,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -13,7 +13,6 @@ _logger = logging.getLogger(__name__)
 class PosSession(models.Model):
     _inherit = "pos.session"
 
-    @api.multi
     def action_pos_session_close(self):
         res = super().action_pos_session_close()
         orders = self.mapped("order_ids").filtered(lambda x: x.invoice_id)

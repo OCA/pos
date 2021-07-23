@@ -5,7 +5,7 @@
 {
     "name": "Point Of Sale - Invoicing",
     "summary": "Handle invoicing from Point Of Sale",
-    "version": "12.0.3.0.1",
+    "version": "14.0.1.0.0",
     "category": "Point of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
@@ -14,7 +14,7 @@
         "point_of_sale",
     ],
     "data": [
-        "views/view_account_invoice.xml",
+        "views/account_move_views.xml",
     ],
     "installable": True,
 }
