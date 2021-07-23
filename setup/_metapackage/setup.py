@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo13-addon-pos_empty_home',
         'odoo13-addon-pos_fix_search_limit',
         'odoo13-addon-pos_fixed_discount',
+        'odoo13-addon-pos_margin',
         'odoo13-addon-pos_order_mgmt',
         'odoo13-addon-pos_order_remove_line',
         'odoo13-addon-pos_order_to_sale_order',
