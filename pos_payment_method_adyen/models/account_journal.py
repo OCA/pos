@@ -118,11 +118,7 @@ class AccountJournal(models.Model):
                     'message': req.text
                 }
             }
-
-        if req.text == 'ok':
-            return True
-
-        return req.json()
+        return True
 
     @api.model
     def adyen_make_payment_request(self, data, test_mode, api_key):
