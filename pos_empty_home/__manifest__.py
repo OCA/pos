@@ -5,7 +5,7 @@
 
 {
     "name": "Point of Sale - Empty Home",
-    "version": "13.0.1.1.0",
+    "version": "14.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of Sale - Hide products if no category is selected",
     "author": "La Louve, GRAP, Odoo Community Association (OCA)",

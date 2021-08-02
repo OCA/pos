@@ -6,13 +6,14 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
-    <t t-extend="ProductListWidget">
-        <t t-jquery=".product-list-empty t[t-else=''] p" t-operation="after">
+    <t t-inherit="point_of_sale.ProductList" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-list-empty')]" position="after">
             <p
-                t-if="widget.product_list.length == 0 &amp;&amp; (!widget.category || widget.category.id == 0)"
+                t-if="props.products.length == 0 &amp;&amp; (!props.category || props.category.id == 0)"
             >
+
                 To select a product, please scan a barcode or search products by category or by name
             </p>
-        </t>
+        </xpath>
     </t>
 </templates>
