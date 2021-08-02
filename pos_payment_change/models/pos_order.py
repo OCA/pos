@@ -45,7 +45,7 @@ class PosOrder(models.Model):
         )
 
         if self.config_id.payment_change_policy == "update":
-            self.statement_ids.with_context().unlink()
+            self.sudo().statement_ids.with_context().unlink()
 
             # Create new payment
             for line in payment_lines:
