@@ -17,7 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:79
 #: code:addons/pos_payment_change/models/pos_order.py:84
 #, python-format
 msgid " (Refund Order: %s ; Resale Order: %s)"
@@ -237,7 +236,6 @@ msgid "Wizard"
 msgstr "Assistent"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:97
 #: code:addons/pos_payment_change/models/pos_order.py:102
 #, python-format
 msgid ""
