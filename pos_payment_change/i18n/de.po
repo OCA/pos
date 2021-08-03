@@ -18,6 +18,7 @@ msgstr ""
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:79
+#: code:addons/pos_payment_change/models/pos_order.py:84
 #, python-format
 msgid " (Refund Order: %s ; Resale Order: %s)"
 msgstr " (Rückerstattungsauftrag: %s ; Wiederverkaufsauftrag: %s)"
@@ -237,6 +238,7 @@ msgstr "Assistent"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:97
+#: code:addons/pos_payment_change/models/pos_order.py:102
 #, python-format
 msgid ""
 "You can not change payments of the POS '%s' because the associated session "
