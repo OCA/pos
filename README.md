@@ -5,9 +5,9 @@
 
 <!-- /!\ do not modify above this line -->
 
-# pos
+# Point of Sale
 
-TODO: add repo description.
+This project aims to deal with Odoo modules related to the Point of Sale.
 
 <!-- /!\ do not modify below this line -->
 
