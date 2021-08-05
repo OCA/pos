@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2017-Today: La Louve (<http://www.lalouve.net/>)
+    Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductList" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('product-list-empty')]" position="after">
+            <p
+                t-if="props.products.length == 0 &amp;&amp; (!props.category || props.category.id == 0)"
+            >
+
+                To select a product, please scan a barcode or search products by category or by name
+            </p>
+        </xpath>
+    </t>
+</templates>
