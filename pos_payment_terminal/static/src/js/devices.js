@@ -24,6 +24,9 @@ odoo.define('pos_payment_terminal.devices', function (require) {
                 var paymentwidget = self.pos.chrome.screens.payment;
                 var drivers = status.newValue.drivers;
                 var order = self.pos.get_order();
+                if(!order) {
+                    return;
+                }
                 var in_transaction = false;
                 Object.keys(drivers).forEach(function(driver_name) {
                     if (drivers[driver_name].hasOwnProperty("in_transaction")) {
