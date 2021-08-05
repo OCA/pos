@@ -43,7 +43,7 @@ addon | version | summary
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 12.0.1.0.3 | PoS Order To Sale Order
 [pos_partner_firstname](pos_partner_firstname/) | 12.0.1.1.1 | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 12.0.1.0.5 | Allow cashier to change order payments, as long as the session is not closed.
-[pos_payment_terminal](pos_payment_terminal/) | 12.0.0.1.3 | Manage Payment Terminal device from POS front end
+[pos_payment_terminal](pos_payment_terminal/) | 12.0.0.1.4 | Manage Payment Terminal device from POS front end
 [pos_picking_delayed](pos_picking_delayed/) | 12.0.2.0.0 | Delay the creation of the picking when PoS order is created
 [pos_picking_load](pos_picking_load/) | 12.0.1.0.2 | Load and confirm stock pickings via Point Of Sale
 [pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.1 | Improve load of picking in PoS by partner name
