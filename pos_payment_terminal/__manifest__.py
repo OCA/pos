@@ -4,7 +4,7 @@
 
 {
     'name': 'POS Payment Terminal',
-    'version': '12.0.0.1.3',
+    'version': '12.0.0.1.4',
     'category': 'Point Of Sale',
     'summary': 'Manage Payment Terminal device from POS front end',
     'author': "Aurélien DUMAINE,GRAP,Akretion,"
