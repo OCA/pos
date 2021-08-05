@@ -23,6 +23,7 @@ addon | version | summary
 [pos_backend_communication](pos_backend_communication/) | 14.0.1.0.0 | Communicate with odoo's backend from POS.
 [pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.0.0 | POS cash in-out reason
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 | Add a default customer in pos order
+[pos_empty_home](pos_empty_home/) | 14.0.1.0.0 | Point of Sale - Hide products if no category is selected
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_margin](pos_margin/) | 14.0.1.0.0 | Margin on PoS Order
 [pos_order_remove_line](pos_order_remove_line/) | 14.0.1.0.0 | Add button to remove POS order line.
