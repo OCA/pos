@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="pos_discount.DiscountButton">
+        <t t-jquery="span[class='control-button js_discount']" t-operation="replace">
+            <span class="control-button js_discount">
+                <i class="fa fa-tag" />
+                <span> </span>
+                <span>Discount (%)</span>
+            </span>
+        </t>
+    </t>
+
+    <t t-name="FixedDiscountButton" owl="1">
+        <span class="control-button js_fixed_discount">
+            <i class="fa fa-tag" />
+            <span> </span>
+            <span>Discount (Amount)</span>
+        </span>
+    </t>
+
+</templates>
