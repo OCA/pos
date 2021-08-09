@@ -16,8 +16,14 @@ POS Cache - Restrict users
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
     :target: https://github.com/OCA/pos/tree/12.0/pos_cache_user_restriction
     :alt: OCA/pos
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_cache_user_restriction
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| 
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 Allow User: Assigned POS Only group to access Pos Cache model
 
