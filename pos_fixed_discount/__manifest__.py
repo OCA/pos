@@ -3,7 +3,7 @@
 {
     "name": "Point of Sale Fixed Discounts",
     "summary": "Allow to apply discounts with fixed amount",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "development_status": "Beta",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
