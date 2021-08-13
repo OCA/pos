@@ -8,6 +8,7 @@
     'category': 'Point Of Sale',
     'summary': 'Hide useless Banknote buttons in the PoS (+10, +20, +50)',
     'author': 'GRAP, Odoo Community Association (OCA)',
+    'maintainers': ['legalsylvain'],
     'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
