@@ -7,7 +7,8 @@
     "version": "12.0.1.0.1",
     "category": "Point Of Sale",
     "summary": """Hide PoS categories that doesn't have any products""",
-    "author": "La GRAP, Odoo Community Association (OCA)",
+    "author": "GRAP, Odoo Community Association (OCA)",
+    "maintainers": ["legalsylvain"],
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": [
