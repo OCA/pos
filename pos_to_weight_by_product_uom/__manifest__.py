@@ -4,7 +4,7 @@
     "name": "Pos to weight by product uom",
     "summary": "Make 'To Weight' default value"
     " depending on product UoM settings",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "website": "https://github.com/OCA/pos",
     "author": "GRAP, Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
