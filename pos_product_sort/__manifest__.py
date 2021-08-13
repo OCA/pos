@@ -11,6 +11,7 @@
         instead of sorting them by the sequence field.
         ''',
     'author': 'GRAP, Odoo Community Association (OCA)',
+    'maintainers': ['legalsylvain'],
     'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
