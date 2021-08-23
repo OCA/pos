@@ -5,7 +5,7 @@
     <record id="email_send_pos_receipt" model="mail.template">
         <field name="name">Send Received</field>
         <field name="email_from">ticket@${object.user_id.company_id.email.split('@')[1] or ''|safe}</field>
-        <field name="subject">${object.user_id.company_id.name} Received ${object.pos_reference.split(' ')[1]}</field>
+        <field name="subject">${object.user_id.company_id.name} Received ${object.pos_reference and object.pos_reference.split(' ')[1] or ''}</field>
         <field name="partner_to">${object.partner_id.id}</field>
         <field name="model_id" ref="point_of_sale.model_pos_order" />
         <field name="auto_delete" eval="True" />
@@ -14,7 +14,7 @@
         <field name="lang">${object.partner_id.lang}</field>
         <field name="body_html"><![CDATA[
             <p>Thank you for your visit !</p>
-            <p>You will find your receipt ${object.pos_reference.split(' ')[1]} attached.<p/>
+            <p>You will find your receipt ${object.pos_reference and object.pos_reference.split(' ')[1] or ''} attached.<p/>
             <p>Sincerely,</p>
             <p>The team of the cooperative</p>
                         ]]>
