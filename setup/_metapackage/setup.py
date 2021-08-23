@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo13-addon-pos_payment_terminal',
         'odoo13-addon-pos_product_sort',
         'odoo13-addon-pos_quick_logout',
+        'odoo13-addon-pos_report_session_summary',
         'odoo13-addon-pos_timeout',
     ],
     classifiers=[
