@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="bank_out_reason" model="pos.move.reason">
+        <field name="name">Bank Deposit</field>
+        <field name="is_income_reason" eval="False" />
+        <field name="is_expense_reason" eval="True" />
+        <field name="expense_account_id" ref="bank_deposit_account" />
+        <field
+            name="journal_ids"
+            model="account.journal"
+            search="[
+            ('type', '=', 'cash'),
+            ('company_id', '=', obj().env.ref('base.main_company').id),
+        ]"
+        />
+        <field name="company_id" ref="base.main_company" />
+    </record>
+    <record id="gasoline_out_reason" model="pos.move.reason">
+        <field name="name">Gazoline Expense</field>
+        <field name="is_income_reason" eval="False" />
+        <field name="is_expense_reason" eval="True" />
+        <field name="expense_account_id" ref="gazoline_expense_account" />
+        <field
+            name="journal_ids"
+            model="account.journal"
+            search="[
+            ('type', '=', 'cash'),
+            ('company_id', '=', obj().env.ref('base.main_company').id),
+        ]"
+        />
+        <field name="company_id" ref="base.main_company" />
+    </record>
+</odoo>

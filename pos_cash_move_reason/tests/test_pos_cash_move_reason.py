@@ -1,14 +1,30 @@
 # © 2015 ACSONE SA/NV (<http://acsone.eu>)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+from odoo import tools
 from odoo.exceptions import UserError
+from odoo.modules.module import get_module_resource
 from odoo.tests.common import Form, SavepointCase
+
+
+def load_file(cr, module, *args):
+    tools.convert_file(
+        cr,
+        "pos_cash_move_reason",
+        get_module_resource(module, *args),
+        {},
+        "init",
+        False,
+        "test",
+    )
 
 
 class TestPosCashMoveReason(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        load_file(cls.cr, "pos_cash_move_reason", "tests/data/", "account_account.xml")
+        load_file(cls.cr, "pos_cash_move_reason", "tests/data/", "pos_move_reason.xml")
         cls.env = cls.env(context=dict(cls.env.context, tracking_disable=True))
         cls.PosSession = cls.env["pos.session"]
         cls.WizardReason = cls.env["wizard.pos.move.reason"]
