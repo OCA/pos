@@ -21,7 +21,7 @@
             </t>
         </t>
     </t>
-    <t t-name="CustomerFacingDisplayOrderLines">
+    <t t-extend="CustomerFacingDisplayOrderLines">
         <t t-jquery="t[t-esc='orderline.product.display_name']" t-operation="after">
             <t t-if="orderline.get_event_ticket()">
                 <br />
