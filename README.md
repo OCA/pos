@@ -34,6 +34,7 @@ addon | version | maintainers | summary
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.0.0 |  | Point of sale: support generic payment terminal
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 |  | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_require_product_quantity](pos_require_product_quantity/) | 14.0.1.0.0 |  | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
+[pos_reset_search](pos_reset_search/) | 14.0.1.0.0 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 |  | Point of sale: show pos config name
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 14.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier data
 [pos_timeout](pos_timeout/) | 14.0.1.0.0 |  | Set the timeout of the point of sale
