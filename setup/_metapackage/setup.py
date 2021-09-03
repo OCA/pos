@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo14-addon-pos_payment_terminal',
         'odoo14-addon-pos_product_sort',
         'odoo14-addon-pos_require_product_quantity',
+        'odoo14-addon-pos_reset_search',
         'odoo14-addon-pos_show_config_name',
         'odoo14-addon-pos_supplierinfo_search',
         'odoo14-addon-pos_timeout',
