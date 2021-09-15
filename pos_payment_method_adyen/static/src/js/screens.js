@@ -66,6 +66,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             this.was_cancelled = false;
             this.last_diagnosis_service_id = false;
             this.remaining_polls = 3;
+            this.allowed_failures = 3;
             clearTimeout(this.polling);
         },
 
@@ -570,8 +571,11 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 timeout: 5000,
                 shadow: true,
             }).fail(function (data) {
-                reject();
-                return self._handle_odoo_connection_failure(data);
+                self.allowed_failures--;
+                if (self.allowed_failures <= 0) {
+                    reject();
+                    return self._handle_odoo_connection_failure(data);
+                }
             }).then(function (status) {
                 var notification = status.latest_response;
                 var last_diagnosis_service_id = status.last_received_diagnosis_id;
