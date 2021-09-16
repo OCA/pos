@@ -1,0 +1,92 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+    <!-- Attributes position xpath only apply to first match for some reason: -->
+    <!-- https://github.com/odoo/odoo/issues/23862 -->
+    <!-- Simple price -->
+    <xpath expr="//t[@t-if='isSimple(line)']/div/span" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <!-- Extended discounts -->
+    <xpath expr="//t[@t-else='']/t[@t-if]/div" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//t[@t-elif='line.discount !== 0']/*" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//t[@t-if='line.discount !== 0']/*" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <!-- Quantity x price -->
+    <xpath expr="//t[@t-else='']/div[last()]" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//t[@t-else='']/div[last()]" position="after">
+      <t t-if="priceHidden">
+        <div class="pos-receipt-left-padding">
+          x
+          <t
+                        t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
+                    />
+          <t t-if="!line.is_in_unit" t-esc="line.unit_name" />
+        </div>
+      </t>
+    </xpath>
+
+    <!-- Tax included -->
+    <xpath expr="//t[@t-if='!isTaxIncluded']/div[1]" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//t[@t-if='!isTaxIncluded']/div[2]" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//t[@t-if='!isTaxIncluded']/t/div" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+
+    <!-- Separator -->
+    <xpath expr="//div[3]" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+
+
+    <!-- Total -->
+    <xpath expr="//div[hasclass('pos-receipt-amount')]" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath
+            expr="//t[@t-if='receipt.total_rounded != receipt.total_with_tax']/div[1]"
+            position="attributes"
+        >
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath
+            expr="//t[@t-if='receipt.total_rounded != receipt.total_with_tax']/div[2]"
+            position="attributes"
+        >
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+
+    <!-- Payment -->
+    <xpath expr="//t[@t-foreach='receipt.paymentlines']/*" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+
+    <!-- Change -->
+    <xpath expr="//div[hasclass('receipt-change')]" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+
+    <!-- Total discount -->
+    <xpath expr="//t[@t-if='receipt.total_discount']/div" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+
+    <!-- Total Taxes -->
+    <xpath expr="//t[@t-foreach='receipt.tax_details']/div" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//t[@t-if='isTaxIncluded']/div" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
+  </t>
+</templates>
