@@ -23,6 +23,16 @@ odoo.define("pos_payment_terminal.payment", function(require) {
             return this._oca_payment_terminal_pay();
         },
 
+        send_payment_cancel: function() {
+            this._super.apply(this, arguments);
+            this._show_tip(
+                _t(
+                    "Cancel the transaction by pressing the red button on the payment terminal."
+                )
+            );
+            return Promise.resolve();
+        },
+
         _oca_payment_terminal_pay: function() {
             var order = this.pos.get_order();
             var pay_line = order.selected_paymentline;
@@ -169,10 +179,19 @@ odoo.define("pos_payment_terminal.payment", function(require) {
         },
 
         _show_error: function(msg, title) {
-            this.pos.gui.show_popup("error", {
-                title: title || _t("Payment Terminal Error"),
-                body: msg,
-            });
+            if (!_.isEmpty(this.pos.gui.popup_instances))
+                this.pos.gui.show_popup("error", {
+                    title: title || _t("Payment Terminal Error"),
+                    body: msg,
+                });
+        },
+
+        _show_tip: function(msg, title) {
+            if (!_.isEmpty(this.pos.gui.popup_instances))
+                this.pos.gui.show_popup("alert", {
+                    title: title || _t("Payment Terminal"),
+                    body: msg,
+                });
         },
     });
     return OCAPaymentTerminal;
