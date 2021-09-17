@@ -6,7 +6,7 @@
     "summary": "Allows to view and edit the partner language.",
     "category": "Point of sale",
     "license": "AGPL-3",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.0.1",
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "maintainers": ["ivantodorovich"],
