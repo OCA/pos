@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="point_of_sale_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="script[last()]" position="after">
+            <script
+                type="text/javascript"
+                src="/pos_partner_lang/static/src/js/models.js"
+            />
+        </xpath>
+    </template>
+</odoo>

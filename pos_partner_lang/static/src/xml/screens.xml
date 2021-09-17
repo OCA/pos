@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA - Iván Todorovich
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="ClientDetails">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div class="client-detail">
+                <span class="label">Language</span>
+                <span
+                    t-if="partner.lang and widget.pos.db.languages_by_code[partner.lang]"
+                    class="detail lang"
+                >
+                    <t t-esc="widget.pos.db.languages_by_code[partner.lang].name" />
+                </span>
+                <span t-else="" class="detail lang empty">N/A</span>
+            </div>
+        </t>
+    </t>
+
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery=".client-details-right" t-operation="append">
+            <div class="client-detail">
+                <span class="label">Language</span>
+                <select class="detail client-lang needsclick" name="lang">
+                    <option value="" />
+                    <t t-foreach="widget.pos.db.languages" t-as="lang">
+                        <option
+                            t-att-value="lang.code"
+                            t-att-selected="partner.lang == lang.code ? true : undefined"
+                        >
+                            <t t-esc="lang.name" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+        </t>
+    </t>
+
+</templates>
