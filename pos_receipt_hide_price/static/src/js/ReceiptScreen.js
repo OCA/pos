@@ -9,13 +9,13 @@ odoo.define("pos_receipt_hide_price.ReceiptScreen", function (require) {
         class extends ReceiptScreen {
             constructor() {
                 super(...arguments);
-                this.hpState = useState({priceHidden: false});
+                this.hidePriceState = useState({priceHidden: false});
             }
             hidePrice() {
-                this.hpState.priceHidden = !this.hpState.priceHidden;
+                this.hidePriceState.priceHidden = !this.hidePriceState.priceHidden;
             }
             get priceHidden() {
-                return this.hpState.priceHidden;
+                return this.hidePriceState.priceHidden;
             }
         };
     Registries.Component.extend(ReceiptScreen, HidePriceReceiptScreen);
