@@ -4,7 +4,7 @@
       <t t-call="pos_receipt_hide_price.hide_price" />
     </xpath>
     <xpath expr="//OrderReceipt" position="attributes">
-      <attribute name="hpState">hpState</attribute>
+      <attribute name="hidePriceState">hidePriceState</attribute>
     </xpath>
   </t>
 </templates>
