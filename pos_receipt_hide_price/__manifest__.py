@@ -5,7 +5,7 @@
     "author": "Akretion, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "category": "Point of Sale",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
     "data": ["views/assets.xml"],
