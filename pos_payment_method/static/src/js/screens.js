@@ -76,6 +76,10 @@ odoo.define('pos_payment_method.screens', function (require) {
             this.journal = this._get_journal(line_cid)
         },
 
+        refresh_payment_status: function (line_cid) {
+            this.journal = this._get_journal(line_cid)
+        },
+
         click_back: function(){
             // Delete all payment lines, this will cancel any Adyen ongoing transaction
             $('.delete-button').trigger('click')
@@ -95,6 +99,11 @@ odoo.define('pos_payment_method.screens', function (require) {
                 self.order_changes();
                 // Call specific function
                 self.cancel_payment_terminal($(this).data('cid'));
+            }).on('click', '.transaction-refresh', function(event){
+                self.pos.get_order().in_transaction = true;
+                self.order_changes();
+                // Call specific function
+                self.refresh_payment_status($(this).data('cid'));
             });
         },
 
