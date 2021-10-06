@@ -17,7 +17,7 @@
                         title="Cancel transaction">
                     <i class="fa fa-ban" />
                 </button>
-                    <button class="payment-terminal-transaction transaction-start" t-att-data-cid="line.cid"
+                <button class="payment-terminal-transaction transaction-start" t-att-data-cid="line.cid"
                         title="Start transaction">
                     <i class="fa fa-credit-card" />
                 </button>
