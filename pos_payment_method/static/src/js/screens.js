@@ -89,18 +89,22 @@ odoo.define('pos_payment_method.screens', function (require) {
         render_paymentlines : function(){
             this._super.apply(this, arguments);
             var self  = this;
+            var order = self.pos.get_order();
             this.$('.paymentlines-container').unbind('click').on('click', '.transaction-start', function(event){
-                self.pos.get_order().in_transaction = true;
+                order.in_transaction = true;
+                order.status = "processing";
                 self.order_changes();
                 // Call specific function
                 self.process_payment_terminal($(this).data('cid'));
             }).on('click', '.transaction-cancel', function(event){
-                self.pos.get_order().in_transaction = false;
+                order.in_transaction = false;
+                order.status = "cancelled";
                 self.order_changes();
                 // Call specific function
                 self.cancel_payment_terminal($(this).data('cid'));
             }).on('click', '.transaction-refresh', function(event){
-                self.pos.get_order().in_transaction = true;
+                order.in_transaction = true;
+                order.status = "synchronizing";
                 self.order_changes();
                 // Call specific function
                 self.refresh_payment_status($(this).data('cid'));
@@ -114,10 +118,18 @@ odoo.define('pos_payment_method.screens', function (require) {
                 return;
             } else if (order.in_transaction) {
                 this.$('.in_transaction').removeClass('oe_hidden');
-                this.$('.payment-terminal-transaction').toggleClass('oe_hidden');
+                this.$('.transaction-cancel').removeClass('oe_hidden');
+                this.$('.transaction-start').addClass('oe_hidden');
             } else {
                 this.$('.in_transaction').addClass('oe_hidden');
-                this.$('.payment-terminal-transaction').toggleClass('oe_hidden');
+                this.$('.transaction-cancel').addClass('oe_hidden');
+                this.$('.transaction-start').removeClass('oe_hidden');
+            }
+            // If the order status is error we show the refresh button
+            if (order.status == "error") {
+                this.$('.payment-terminal-sync').removeClass('oe_hidden');
+            } else {
+                this.$('.payment-terminal-sync').addClass('oe_hidden');
             }
         },
 

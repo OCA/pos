@@ -27,6 +27,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 } else {
                     this._show_error(_('You are not allowed to pay an amount greater than the order amount'));
                     order.in_transaction = false;
+                    order.status = "draft";
                     this.order_changes();
                 }
             }
@@ -38,6 +39,15 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                 this.adyen_send_payment_cancel();
             }
         },
+
+        refresh_payment_status: function (line_cid) {
+            this._super.apply(this, arguments);
+            if (this.journal.use_payment_terminal == "adyen") {
+                this.adyen_send_payment_status_update();
+            }
+        },
+
+        // Methods to handle adyen requests (payment, refund, cancel, update)
 
         adyen_send_payment_request: function () {
             var self = this;
@@ -57,6 +67,9 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             // set only if we are polling
             this.was_cancelled = !!this.polling;
             return this._adyen_cancel();
+        },
+        adyen_send_payment_status_update: function (order, cid) {
+            return this._adyen_update_payment_status();
         },
 
         // private methods
@@ -103,10 +116,32 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
         _handle_odoo_connection_failure: function (data) {
             // handle timeout
-            var line = this.pos.get_order().selected_paymentline;
+            var order = this.pos.get_order()
+            var line = order.selected_paymentline;
             this._show_error(_('Could not connect to the Odoo server, please check your internet connection and try again.'));
 
+            order.in_transaction = false;
+            order.status = "error";
+            this.order_changes();
+
             return Promise.reject(data); // prevent subsequent onFullFilled's from being called
+        },
+
+        _call_adyen_sync: function (data) {
+            var self = this;
+            return rpc.query({
+                model: 'account.journal',
+                method: 'proxy_adyen_request_sync',
+                args: [data, this.journal.adyen_test_mode, this.journal.adyen_api_key],
+            }, {
+                // When a payment terminal is disconnected it takes Adyen
+                // a while to return an error (~6s). So wait 10 seconds
+                // before concluding Odoo is unreachable.
+                timeout: 10000,
+                shadow: true,
+            }).fail(function () {
+                self._handle_odoo_connection_failure.bind(self)
+            });
         },
 
         _call_adyen: function (data) {
@@ -345,7 +380,66 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     self._show_error(_('Cancelling the payment failed. Please cancel it manually on the payment terminal.'));
                 }
                 self.pos.get_order().in_transaction = false;
+                self.pos.get_order().status == "draft";
                 self.order_changes();
+            });
+        },
+
+        // ADYEN Update Payment Status
+
+        _adyen_update_payment_status: function (retry) {
+            var self = this;
+            var previous_service_id = this.most_recent_service_id;
+            var data = {
+                'SaleToPOIRequest': {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                        'MessageCategory': 'TransactionStatus',
+                    }),
+                    'TransactionStatusRequest': {
+                        'ReceiptReprintFlag': true,
+                        'DocumentQualifier': [
+                            'CashierReceipt',
+                            'CustomerReceipt'
+                        ],
+                    },
+                    'MessageReference': {
+                        'SaleID': this._adyen_get_sale_id(),
+                        'ServiceID': this.previous_service_id,
+                        'MessageCategory': 'Payment'
+                    }
+                }
+            }
+
+            return this._call_adyen_sync(data).then(function (resp) {
+                if (resp.SaleToPOIResponse && resp.SaleToPOIResponse.TransactionStatusResponse) {
+                    var transactionStatusResponse = resp.SaleToPOIResponse.TransactionStatusResponse;
+                    var response = transactionStatusResponse.Response;
+                    var result = response.Result;
+                    if (result == 'Success') {
+                        var repeatedMessageResponse = transactionStatusResponse.RepeatedMessageResponse;
+                        var paymentResponse = repeatedMessageResponse.RepeatedResponseMessageBody.PaymentResponse;
+                        if (paymentResponse) {
+                            self._manage_adyen_transaction_response(paymentResponse);
+                        }
+                    } else {
+                        if (response.ErrorCondition != "InProgress" || retry) {
+                            var message = response.AdditionalResponse;
+                            self._show_error(_.str.sprintf(_t('Message from Adyen: %s'), message));
+                            self.pos.get_order().in_transaction = false;
+                            self.pos.get_order().status = "draft";
+                            self.order_changes();
+                        } else {
+                            setTimeout(function () {
+                                self._adyen_update_payment_status(true)
+                            }, 2000);
+                        }
+                    }
+                } else {
+                    self._show_error(_('Could not connect to the Odoo server, check your internet connection and try again please.'));
+                    self.pos.get_order().in_transaction = false;
+                    self.pos.get_order().status = "error";
+                    self.order_changes();
+                }
             });
         },
 
@@ -628,6 +722,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     self._show_error(_t('The connection to your payment terminal failed. Please check if it is still connected to the internet.'));
                     self._adyen_cancel();
                     self.pos.get_order().in_transaction = false;
+                    self.pos.get_order().status = "error"
                     self.order_changes();
                     resolve(false);
                 }
@@ -678,7 +773,9 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
         },
 
         _post_process_response: function () {
-            this.pos.get_order().in_transaction = false;
+            var order = this.pos.get_order();
+            order.in_transaction = false;
+            order.status = "done";
             this.order_changes();
             this.validate_order();
         },

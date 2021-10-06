@@ -21,7 +21,7 @@
                         title="Start transaction">
                     <i class="fa fa-credit-card" />
                 </button>
-                <button class="payment-terminal-transaction transaction-refresh" t-att-data-cid="line.cid"
+                <button class="payment-terminal-sync transaction-refresh oe_hidden" t-att-data-cid="line.cid"
                         title="Refresh transaction status">
                     <i class="fa fa-refresh" />
                 </button>

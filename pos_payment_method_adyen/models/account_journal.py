@@ -121,6 +121,35 @@ class AccountJournal(models.Model):
         return True
 
     @api.model
+    def proxy_adyen_request_sync(self, data, test_mode, api_key):
+        TIMEOUT = 10
+        endpoint = 'https://terminal-api-live.adyen.com/sync'
+        if test_mode:
+            endpoint = 'https://terminal-api-test.adyen.com/sync'
+
+        _logger.info('request to adyen\n%s', pprint.pformat(data))
+        headers = {
+            'x-api-key': api_key,
+            'Content-Type': 'application/json'
+        }
+        req = requests.post(
+            endpoint, data=json.dumps(data), headers=headers, timeout=TIMEOUT)
+        _logger.info(
+            'response from adyen (HTTP status %s):\n%s',
+            req.status_code, req.text
+        )
+
+        # Authentication error doesn't return JSON
+        if req.status_code == 401:
+            return {
+                'error': {
+                    'status_code': req.status_code,
+                    'message': req.text
+                }
+            }
+        return req.json()
+
+    @api.model
     def adyen_make_payment_request(self, data, test_mode, api_key):
         TIMEOUT = 10
         endpoint = 'https://checkout-adyen.adyen.com/v66/payments'
