@@ -31,7 +31,7 @@ addon | version | maintainers | summary
 [pos_invoice_send_mail](pos_invoice_send_mail/) | 12.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Send invoices by email from the POS
 [pos_invoicing](pos_invoicing/) | 12.0.3.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Handle invoicing from Point Of Sale
 [pos_journal_image](pos_journal_image/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add images on Account Journals available in the PoS
-[pos_margin](pos_margin/) | 12.0.2.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
+[pos_margin](pos_margin/) | 12.0.2.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_meal_voucher](pos_meal_voucher/) | 12.0.1.0.6 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Handle meal vouchers in Point of Sale with eligible amount and max amount
 [pos_multi_ean](pos_multi_ean/) | 12.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by multiple EAN
 [pos_multiple_control](pos_multiple_control/) | 12.0.1.2.1 |  | Allow user to control each statement and add extra checks
