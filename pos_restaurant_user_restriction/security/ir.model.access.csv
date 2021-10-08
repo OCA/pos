@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_restaurant_floor,pos.restaurant.floor,pos_restaurant.model_restaurant_floor,pos_user_restriction.group_assigned_points_of_sale_user,1,0,0,0
+access_pos_restaurant_table,pos.restaurant.table,pos_restaurant.model_restaurant_table,pos_user_restriction.group_assigned_points_of_sale_user,1,0,0,0
+access_pos_restaurant_printer,pos.restaurant.printer,pos_restaurant.model_restaurant_printer,pos_user_restriction.group_assigned_points_of_sale_user,1,0,0,0
