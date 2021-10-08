@@ -58,6 +58,7 @@ addon | version | maintainers | summary
 [pos_report_session_summary](pos_report_session_summary/) | 12.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
 [pos_require_product_quantity](pos_require_product_quantity/) | 12.0.0.2.0 |  | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
 [pos_reset_search](pos_reset_search/) | 12.0.1.0.0 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
+[pos_restaurant_user_restriction](pos_restaurant_user_restriction/) | 12.0.1.0.0 | [![GSLabIt](https://github.com/GSLabIt.png?size=30px)](https://github.com/GSLabIt) | Allow access pos restaurant to restricted users
 [pos_session_closing_stock_error](pos_session_closing_stock_error/) | 12.0.1.0.1 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Prevent closing PoS Sessions that have stock errors
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 12.0.1.0.1 |  | Pay and receive invoices from PoS Session
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 12.0.1.0.0 |  | POS Stock Picking Invoice Link
