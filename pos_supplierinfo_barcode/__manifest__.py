@@ -3,7 +3,7 @@
 {
     "name": "Point of sale - Supplier barcodes",
     "summary": "Search products by supplier barcode",
-    "version": "12.0.1.0.0",
+    "version": "14.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
@@ -13,7 +13,6 @@
     "application": False,
     "installable": True,
     "auto_install": True,
-    "preloadable": True,
     "depends": [
         "product_supplierinfo_barcode",
         "point_of_sale",
