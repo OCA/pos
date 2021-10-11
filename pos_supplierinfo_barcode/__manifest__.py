@@ -21,6 +21,5 @@
     "data": [
         "views/assets.xml",
     ],
-    "demo": [
-    ],
+    "demo": [],
 }
