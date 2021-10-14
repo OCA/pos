@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [pos_disable_change_cashier](pos_disable_change_cashier/) | 12.0.1.0.1 |  | Disable the feature that allow to change cashier in the PoS
 [pos_empty_home](pos_empty_home/) | 12.0.1.0.0 |  | Point of Sale - Hide products at the start of the Point of Sale
 [pos_fix_search_limit](pos_fix_search_limit/) | 12.0.1.0.0 |  | Increase search in the PoS
-[pos_fixed_discount](pos_fixed_discount/) | 12.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
+[pos_fixed_discount](pos_fixed_discount/) | 12.0.1.0.2 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_hide_empty_category](pos_hide_empty_category/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Hide PoS categories that doesn't have any products
 [pos_invoice_send_mail](pos_invoice_send_mail/) | 12.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Send invoices by email from the POS
