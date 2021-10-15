@@ -69,7 +69,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return this._adyen_cancel();
         },
         adyen_send_payment_status_update: function (order, cid) {
-            return this._adyen_update_payment_status();
+            return this._adyen_update_payment_status(false);
         },
 
         // private methods
@@ -166,16 +166,20 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             return _.str.sprintf('%s (ID: %s)', config.display_name, config.id);
         },
 
-        _adyen_common_message_header: function () {
+        _adyen_common_message_header: function (storeServiceId) {
             var ranID = Math.floor(Math.random() * Math.pow(2, 64)).toString(); // random ID to identify request/response pairs
-            this.most_recent_service_id = ranID.substring(0, 10); // max length is 10
+            var serviceId = ranID.substring(0, 10); // max length is 10
+
+            if (storeServiceId) {
+                this.most_recent_service_id = serviceId
+            }
 
             return {
                 'ProtocolVersion': '3.0',
                 'MessageClass': 'Service',
                 'MessageType': 'Request',
                 'SaleID': this._adyen_get_sale_id(),
-                'ServiceID': this.most_recent_service_id,
+                'ServiceID': serviceId,
                 'POIID': this.pos.config.adyen_terminal_identifier
             };
         },
@@ -187,7 +191,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             var line = order.selected_paymentline;
             var data = {
                 'SaleToPOIRequest': {
-                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(true), {
                         'MessageCategory': 'CardAcquisition',
                     }),
                     'CardAcquisitionRequest': {
@@ -230,7 +234,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             var line = order.selected_paymentline;
             var data = {
                 'SaleToPOIRequest': {
-                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(true), {
                         'MessageCategory': 'Payment',
                     }),
                     'PaymentRequest': {
@@ -315,7 +319,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
             var line = order.selected_paymentline;
             var data = {
                 'SaleToPOIRequest': {
-                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(true), {
                         'MessageCategory': 'Payment',
                     }),
                     'PaymentRequest': {
@@ -355,10 +359,9 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
         _adyen_cancel: function (ignore_error) {
             var self = this;
-            var previous_service_id = this.most_recent_service_id;
             var data = {
                 'SaleToPOIRequest': {
-                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(false), {
                         'MessageCategory': 'Abort',
                     }),
                     'AbortRequest': {
@@ -366,7 +369,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                         'MessageReference': {
                             'MessageCategory': 'Payment',
                             'SaleID': this._adyen_get_sale_id(),
-                            'ServiceID': previous_service_id,
+                            'ServiceID': this.most_recent_service_id,
                         }
                     },
                 }
@@ -389,10 +392,9 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
 
         _adyen_update_payment_status: function (retry) {
             var self = this;
-            var previous_service_id = this.most_recent_service_id;
             var data = {
                 'SaleToPOIRequest': {
-                    'MessageHeader': _.extend(this._adyen_common_message_header(), {
+                    'MessageHeader': _.extend(this._adyen_common_message_header(false), {
                         'MessageCategory': 'TransactionStatus',
                     }),
                     'TransactionStatusRequest': {
@@ -404,7 +406,7 @@ odoo.define('pos_payment_method_adyen.screens', function (require) {
                     },
                     'MessageReference': {
                         'SaleID': this._adyen_get_sale_id(),
-                        'ServiceID': this.previous_service_id,
+                        'ServiceID': this.most_recent_service_id,
                         'MessageCategory': 'Payment'
                     }
                 }
