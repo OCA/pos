@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="iso-8859-1" ?>
 <odoo>
     <record model="ir.actions.report" id="action_report_pos_session_summary">
             <field name="name">Session Summary</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="report_name">pos_report_session_summary.report_session_summary</field>
+            <field
+            name="report_name"
+        >pos_report_session_summary.report_session_summary</field>
             <field name="model">pos.session</field>
         </record>
 </odoo>
