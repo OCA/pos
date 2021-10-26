@@ -4,7 +4,7 @@
 import hashlib
 
 from odoo import api, models, _, fields
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 class HrEmployee(models.Model):
 

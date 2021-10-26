@@ -45,7 +45,7 @@ odoo.define('pos_hr.chrome', function (require) {
             return this._super();
         },
         _show_hide_close_button: function(){
-            if (this.pos.get('cashier').role == 'manager') {
+            if (this.pos.get('cashier').role === 'manager') {
                 this.show();
             } else {
                 this.hide();

@@ -11,4 +11,4 @@ class PosConfig(models.Model):
     employee_ids = fields.Many2many(
         'hr.employee', string="Employees with access",
         help='If left empty, all employees can log in to the PoS session')
-    module_pos_hr = fields.Boolean(help="Show employee login screen")
+    module_pos_hr = fields.Boolean(help="Use employee credentials to log in to the PoS session and switch cashier")

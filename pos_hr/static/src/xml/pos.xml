@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
+
+    <t t-extend="HeaderButtonWidget">
+        <t t-jquery="div[class='header-button']" t-operation="replace">
+            <div class="header-button">
+                <t t-if="!widget.icon">
+                    <t t-esc="widget.label"/>
+                </t>
+                <t t-else="">
+                    <i class='fa fa-fw' role="img"/>
+                </t>
+            </div>
+        </t>
+    </t>
+
     <t t-name="LoginScreenWidget">
         <div class="login-overlay">
             <div class="screen-login">
@@ -25,34 +39,4 @@
         </div>
     </t>
 
-    <t t-extend="Chrome">
-        <t t-jquery="div[class='pos-topheader']" t-operation="replace">
-            <div class="pos-topheader">
-                <div class="pos-branding">
-                    <img class="pos-logo" src="/point_of_sale/static/src/img/logo.png"
-                         alt="Logo"/>
-                </div>
-                <div class="pos-rightheader">
-                    <span class="placeholder-OrderSelectorWidget"></span>
-                    <!-- here goes header buttons -->
-                    <div class="oe_status">
-                        <span class="placeholder-UsernameWidget"></span>
-                    </div>
-                </div>
-            </div>
-        </t>
-    </t>
-
-    <t t-extend="HeaderButtonWidget">
-        <t t-jquery="div[class='header-button']" t-operation="replace">
-            <div class="header-button">
-                <t t-if="!widget.icon">
-                    <t t-esc="widget.label"/>
-                </t>
-                <t t-else="">
-                    <i class='fa fa-fw' role="img"/>
-                </t>
-            </div>
-        </t>
-    </t>
 </templates>
