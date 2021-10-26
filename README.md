@@ -34,7 +34,7 @@ addon | version | maintainers | summary
 [pos_margin](pos_margin/) | 12.0.2.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_meal_voucher](pos_meal_voucher/) | 12.0.1.0.6 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Handle meal vouchers in Point of Sale with eligible amount and max amount
 [pos_multi_ean](pos_multi_ean/) | 12.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by multiple EAN
-[pos_multiple_control](pos_multiple_control/) | 12.0.1.2.1 |  | Allow user to control each statement and add extra checks
+[pos_multiple_control](pos_multiple_control/) | 12.0.1.2.2 |  | Allow user to control each statement and add extra checks
 [pos_order_line_no_unlink](pos_order_line_no_unlink/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Prevent to unlink Confirmed or Invoiced Order Lines
 [pos_order_line_note](pos_order_line_note/) | 12.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Store Order Line Note field in Database
 [pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.4 |  | Manage old POS Orders from the frontend
