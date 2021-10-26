@@ -10,7 +10,7 @@
     "version": "12.0.1.2.1",
     "category": "Point of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
-    "website": "http://www.grap.coop",
+    "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
