@@ -21,7 +21,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_access_right](pos_access_right/) | 14.0.1.0.1 |  | Point of Sale - Extra Access Right for certain actions
 [pos_backend_communication](pos_backend_communication/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Communicate with odoo's backend from POS.
-[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.0.0 |  | POS cash in-out reason
+[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.0.1 |  | POS cash in-out reason
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 |  | Add a default customer in pos order
 [pos_empty_home](pos_empty_home/) | 14.0.1.0.0 |  | Point of Sale - Hide products if no category is selected
 [pos_escpos_status](pos_escpos_status/) | 14.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
