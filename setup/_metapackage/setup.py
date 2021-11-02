@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo13-addon-pos_default_partner',
         'odoo13-addon-pos_empty_home',
+        'odoo13-addon-pos_event_sale',
         'odoo13-addon-pos_fix_search_limit',
         'odoo13-addon-pos_fixed_discount',
         'odoo13-addon-pos_margin',
