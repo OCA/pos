@@ -1,0 +1,234 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_event_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/pos.xml:0
+#, python-format
+msgid "!product.event_ok"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/screens.xml:0
+#, python-format
+msgid "Add Event"
+msgstr ""
+
+#. module: pos_event_sale
+#: model_terms:ir.ui.view,arch_db:pos_event_sale.view_pos_pos_form
+msgid "Attendees"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_available_event_type_ids
+msgid "Available Event Types"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventSelectorPopup.xml:0
+#, python-format
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventTicketsPopup.xml:0
+#, python-format
+msgid "Close"
+msgstr ""
+
+#. module: pos_event_sale
+#: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
+msgid "Display a warning when available seats is below"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_event_seats_available_warning
+msgid "Display a warning when available seats is below this quantity."
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__event_id
+#: model:ir.model.fields,field_description:pos_event_sale.field_report_pos_order__event_id
+msgid "Event"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model,name:pos_event_sale.model_event_registration
+msgid "Event Registration"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_order__event_registrations_count
+msgid "Event Registration Count"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_order__event_registration_ids
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__event_registration_ids
+msgid "Event Registrations"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_event_seats_available_warning
+msgid "Event Seats Available Warning"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__event_ticket_id
+#: model:ir.model.fields,field_description:pos_event_sale.field_report_pos_order__event_ticket_id
+msgid "Event Ticket"
+msgstr ""
+
+#. module: pos_event_sale
+#: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
+msgid "Event Types"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventSelectorPopup.xml:0
+#, python-format
+msgid "From"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_load_past_events
+msgid "If not enabled, only events that haven't finished will be loaded."
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_available_event_type_ids
+msgid "Leave empty to load all events"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_load_past_events
+msgid "Load Past Events"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/models/Order.js:0
+#, python-format
+msgid "No available seats"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/models/Order.js:0
+#, python-format
+msgid "Not enough available seats for ticket %s (%s)"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/popups.xml:0
+#, python-format
+msgid "Oversold"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_event_registration__pos_order_line_id
+msgid "PoS Order Line"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model,name:pos_event_sale.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model,name:pos_event_sale.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model,name:pos_event_sale.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model,name:pos_event_sale.model_report_pos_order
+msgid "Point of Sale Orders Report"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventTicketsPopup.xml:0
+#, python-format
+msgid "Product image"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_event_sale
+msgid "Sell Events"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/popups.xml:0
+#, python-format
+msgid "Sold out"
+msgstr ""
+
+#. module: pos_event_sale
+#: model:ir.model.fields,field_description:pos_event_sale.field_event_registration__pos_order_id
+msgid "Source PoS Order"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventTicketsPopup.xml:0
+#, python-format
+msgid "There are no event tickets for this event"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventSelectorPopup.xml:0
+#, python-format
+msgid "There aren't events on these dates."
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/xml/EventSelectorPopup.xml:0
+#, python-format
+msgid "To"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/popups/EventSelectorPopup.js:0
+#, python-format
+msgid "Today"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/models/Order.js:0
+#, python-format
+msgid ""
+"Unable to check event tickets availability. Please check your internet "
+"connection"
+msgstr ""
+
+#. module: pos_event_sale
+#: model_terms:ir.ui.view,arch_db:pos_event_sale.view_pos_pos_form
+msgid "View Event Attendees"
+msgstr ""
