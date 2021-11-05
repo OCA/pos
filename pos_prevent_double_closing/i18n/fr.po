@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_prevent_double_closing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-05 12:03+0000\n"
+"PO-Revision-Date: 2021-11-05 12:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_prevent_double_closing
+#: model:ir.model,name:pos_prevent_double_closing.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#. module: pos_prevent_double_closing
+#: code:addons/pos_prevent_double_closing/models/pos_session.py:24
+#, python-format
+msgid "You can not close a closed session."
+msgstr "Vous ne pouvez pas clôturer une session qui l'est déjà."
+
