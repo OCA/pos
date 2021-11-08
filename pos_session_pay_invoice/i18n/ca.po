@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_session_pay_invoice
+# 	* pos_session_pay_invoice
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Collect Payment</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Collect Payment</span>\n"
 "                        <span class=\"o_stat_text\">from Invoice</span>"
 msgstr ""
 "<span class = \"o_stat_text\"> Cobrar pagaments </span>\n"
@@ -26,15 +27,16 @@ msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Pay</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Pay</span>\n"
 "                        <span class=\"o_stat_text\">Invoice</span>"
 msgstr ""
 "<span class = \"o_stat_text\"> Paga </span>\n"
 "                         <span class = \"o_stat_text\"> Factura </span>"
 
 #. module: pos_session_pay_invoice
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:53
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:50
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:52
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:49
 #, python-format
 msgid "Bank Statement was not found"
 msgstr "No s'ha trobat l'extracte bancari"
@@ -55,7 +57,7 @@ msgid "Summary"
 msgstr "Resum"
 
 #. module: pos_session_pay_invoice
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:24
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:23
 #, python-format
 msgid "There is no cash register for this Pos session"
 msgstr "No hi ha cap caixa registradora per a aquesta sessió de TPV"
