@@ -18,8 +18,7 @@ class PosSession(models.Model):
     def write(self, vals):
         if self.env.context.get("action_pos_session_close", False):
             closed_sessions = self.filtered(lambda x: x.state == "closed")
-            if ("state" in vals and vals["state"] == "closed"
-                    and closed_sessions):
+            if (vals.get("state") == "closed" and closed_sessions):
                 raise ValidationError(
                     _("You can not close a closed session.")
                 )
