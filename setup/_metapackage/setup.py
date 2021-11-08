@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo11-addon-pos_cashier_login',
         'odoo11-addon-pos_config_show_accounting',
+        'odoo11-addon-pos_default_payment_method',
         'odoo11-addon-pos_fix_search_limit',
         'odoo11-addon-pos_lot_selection',
         'odoo11-addon-pos_loyalty',
