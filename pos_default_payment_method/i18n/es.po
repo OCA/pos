@@ -24,7 +24,7 @@ msgid "Default payment method"
 msgstr "Forma de pago predeterminada"
 
 #. module: pos_default_payment_method
-#: code:addons/pos_default_payment_method/models/pos_config.py:25
+#: code:addons/pos_default_payment_method/models/pos_config.py:24
 #, python-format
 msgid "The default payment journal is not enabled on this configuration."
 msgstr ""
