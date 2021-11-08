@@ -26,8 +26,8 @@ msgid "<span class=\"o_stat_text\">Pay</span>\n"
 msgstr ""
 
 #. module: pos_session_pay_invoice
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:53
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:50
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:52
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_out.py:49
 #, python-format
 msgid "Bank Statement was not found"
 msgstr ""
@@ -48,7 +48,7 @@ msgid "Summary"
 msgstr ""
 
 #. module: pos_session_pay_invoice
-#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:24
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:23
 #, python-format
 msgid "There is no cash register for this Pos session"
 msgstr ""
