@@ -37,6 +37,7 @@ addon | version | maintainers | summary
 [pos_require_product_quantity](pos_require_product_quantity/) | 14.0.1.0.0 |  | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
 [pos_reset_search](pos_reset_search/) | 14.0.1.0.0 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 |  | Point of sale: show pos config name
+[pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 14.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 14.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier data
 [pos_ticket_without_price](pos_ticket_without_price/) | 14.0.1.0.0 |  | Adds receipt ticket without price or taxes
 [pos_timeout](pos_timeout/) | 14.0.1.0.0 |  | Set the timeout of the point of sale
