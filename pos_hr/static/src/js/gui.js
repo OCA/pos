@@ -71,4 +71,9 @@ gui.Gui.include({
         return prom;
     },
 });
+
+return {
+    Gui: gui.Gui,
+}
+
 });
