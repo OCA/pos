@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2021-11-12 08:36+0000\n"
+"Last-Translator: Dorin Hongu <dhongu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -14,13 +15,14 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_warning_exiting
 #. openerp-web
 #: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
-#, python-format
+#, fuzzy, python-format
 msgid " - Table: "
-msgstr ""
+msgstr " - Table: "
 
 #. module: pos_warning_exiting
 #. openerp-web
@@ -31,27 +33,29 @@ msgid ""
 "close this window, it will not be possible to re-sell until you get your "
 "connection back."
 msgstr ""
+"Se pare că nu aveți o conexiune la rețea momentan. Dacă închideți această "
+"fereastră, nu va fi posibilă revânarea până când nu vă recuperați conexiunea."
 
 #. module: pos_warning_exiting
 #. openerp-web
 #: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid "Network Connection Lost"
-msgstr ""
+msgstr "Conexiune la rețea pierdută"
 
 #. module: pos_warning_exiting
 #. openerp-web
 #: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid "Offline Orders"
-msgstr ""
+msgstr "Comenzi offline"
 
 #. module: pos_warning_exiting
 #. openerp-web
 #: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid "Order #"
-msgstr ""
+msgstr "Comenzi"
 
 #. module: pos_warning_exiting
 #. openerp-web
@@ -61,3 +65,5 @@ msgid ""
 "You have some draft unpaid orders. You can exit temporarily the Point of "
 "Sale, but you will loose that orders if you close the session: "
 msgstr ""
+"Aveți câteva comenzi neplătite. Puteți părăsi temporar punctul de vânzare, "
+"dar veți pierde acele comenzi dacă închideți sesiunea: "
