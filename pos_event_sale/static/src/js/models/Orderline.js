@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.Orderline", function(require) {
+odoo.define("pos_event_sale.Orderline", function (require) {
     "use strict";
 
     const models = require("point_of_sale.models");
@@ -15,7 +15,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @returns the event.ticket object
          */
-        get_event_ticket: function() {
+        get_event_ticket: function () {
             if (this.event_ticket_id) {
                 return this.pos.db.get_event_ticket_by_id(this.event_ticket_id);
             }
@@ -24,7 +24,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @returns the event object related to this line event.ticket
          */
-        get_event: function() {
+        get_event: function () {
             if (this.event_ticket_id) {
                 const ticket = this.get_event_ticket();
                 return ticket.event_id;
@@ -34,7 +34,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @override
          */
-        get_lst_price: function() {
+        get_lst_price: function () {
             if (this.event_ticket_id) {
                 return this.get_event_ticket().price;
             }
@@ -44,7 +44,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @override
          */
-        set_lst_price: function(price) {
+        set_lst_price: function (price) {
             if (this.event_ticket_id) {
                 this.order.assert_editable();
                 this.get_event_ticket().price = round_di(
@@ -64,7 +64,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
          *
          * @override
          */
-        can_be_merged_with: function(orderline) {
+        can_be_merged_with: function (orderline) {
             if (this.event_ticket_id !== orderline.event_ticket_id) {
                 return false;
             }
@@ -93,7 +93,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @override
          */
-        init_from_JSON: function(json) {
+        init_from_JSON: function (json) {
             OrderlineSuper.init_from_JSON.apply(this, arguments);
             this.event_ticket_id = json.event_ticket_id;
             // This line can be removed if https://github.com/odoo/odoo/pull/60462 gets merged
@@ -103,7 +103,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @override
          */
-        export_as_JSON: function() {
+        export_as_JSON: function () {
             const res = OrderlineSuper.export_as_JSON.apply(this, arguments);
             res.event_ticket_id = this.event_ticket_id;
             // This line can be removed if https://github.com/odoo/odoo/pull/60462 gets merged
@@ -114,7 +114,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
         /**
          * @override
          */
-        export_for_printing: function() {
+        export_for_printing: function () {
             const res = OrderlineSuper.export_for_printing.apply(this, arguments);
             if (this.event_ticket_id) {
                 res.event = this.get_event();
@@ -139,7 +139,7 @@ odoo.define("pos_event_sale.Orderline", function(require) {
          * @param {Number} maxLength
          * @returns Array of truncated strings
          */
-        _generate_wrapped_string: function(str, maxLength) {
+        _generate_wrapped_string: function (str, maxLength) {
             // 40 * line ratio of .6 = 24
             if (!maxLength) maxLength = 24;
             var wrapped = [];
