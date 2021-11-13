@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.Order", function(require) {
+odoo.define("pos_event_sale.Order", function (require) {
     "use strict";
 
     const models = require("point_of_sale.models");
@@ -15,9 +15,9 @@ odoo.define("pos_event_sale.Order", function(require) {
          * @returns Quantity of event tickets ordered in this order.
          *          {ticket_id: qty}
          */
-        getOrderedEventTickets: function() {
+        getOrderedEventTickets: function () {
             return this.get_orderlines()
-                .filter(line => line.event_ticket_id)
+                .filter((line) => line.event_ticket_id)
                 .reduce((map, line) => {
                     map[line.event_ticket_id] = map[line.event_ticket_id] || 0;
                     map[line.event_ticket_id] += line.quantity;
@@ -31,21 +31,21 @@ odoo.define("pos_event_sale.Order", function(require) {
          *
          * @returns Promise that resolves if all is ok.
          */
-        updateAndCheckEventAvailability: function() {
+        updateAndCheckEventAvailability: function () {
             const tickets = _.unique(
                 this.pos
                     .get_order()
                     .get_orderlines()
-                    .filter(line => line.event_ticket_id)
-                    .map(line => line.get_event_ticket())
+                    .filter((line) => line.event_ticket_id)
+                    .map((line) => line.get_event_ticket())
             );
             const limitedTickets = tickets.filter(
-                ticket =>
+                (ticket) =>
                     ticket.seats_availability !== "unlimited" ||
                     ticket.event_id.seats_availability !== "unlimited"
             );
             const limitedEventIds = _.unique(
-                limitedTickets.map(ticket => ticket.event_id.id)
+                limitedTickets.map((ticket) => ticket.event_id.id)
             );
             // Nothing to check!
             if (!limitedEventIds.length) {
@@ -77,7 +77,7 @@ odoo.define("pos_event_sale.Order", function(require) {
                         }
                         return resolve();
                     })
-                    .catch(error => {
+                    .catch((error) => {
                         return reject({
                             error: "exception",
                             title: "Exception",

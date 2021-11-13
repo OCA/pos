@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.models", function(require) {
+odoo.define("pos_event_sale.models", function (require) {
     "use strict";
 
     const models = require("point_of_sale.models");
@@ -24,10 +24,10 @@ odoo.define("pos_event_sale.models", function(require) {
                 "seats_availability",
                 "seats_available",
             ],
-            condition: function(self) {
+            condition: function (self) {
                 return self.config.iface_event_sale;
             },
-            domain: function(self) {
+            domain: function (self) {
                 const domain = [
                     ["state", "=", "confirm"],
                     "|",
@@ -46,7 +46,7 @@ odoo.define("pos_event_sale.models", function(require) {
                 }
                 return domain;
             },
-            loaded: function(self, records) {
+            loaded: function (self, records) {
                 self.db.add_events(records);
             },
         },
@@ -62,11 +62,11 @@ odoo.define("pos_event_sale.models", function(require) {
                 "seats_availability",
                 "seats_available",
             ],
-            condition: function(self) {
+            condition: function (self) {
                 return self.config.iface_event_sale;
             },
-            domain: function(self) {
-                const event_ids = Object.keys(self.db.event_by_id).map(id =>
+            domain: function (self) {
+                const event_ids = Object.keys(self.db.event_by_id).map((id) =>
                     Number(id)
                 );
                 return [
@@ -75,7 +75,7 @@ odoo.define("pos_event_sale.models", function(require) {
                     ["event_id", "in", event_ids],
                 ];
             },
-            loaded: function(self, records) {
+            loaded: function (self, records) {
                 self.db.add_event_tickets(records);
             },
         },
