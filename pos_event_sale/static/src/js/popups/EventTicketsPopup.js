@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
+odoo.define("pos_event_sale.EventTicketsPopup", function (require) {
     "use strict";
 
     const PopupWidget = require("point_of_sale.popups");
@@ -20,7 +20,7 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
         /**
          * @override
          */
-        init: function() {
+        init: function () {
             this._super.apply(this, arguments);
             this.tickets = [];
         },
@@ -28,7 +28,7 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
         /**
          * @override
          */
-        show: function(options) {
+        show: function (options) {
             this.tickets = [];
             if (options.event) {
                 this.tickets = options.event.event_ticket_ids;
@@ -39,14 +39,14 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
         /**
          * @override
          */
-        renderElement: function() {
+        renderElement: function () {
             this._super.apply(this, arguments);
             if (this.tickets.length) {
                 this.renderTickets();
             }
         },
 
-        getProductImageURL: function(product_id) {
+        getProductImageURL: function (product_id) {
             return (
                 window.location.origin +
                 "/web/image?model=product.product&field=image_128&id=" +
@@ -54,7 +54,7 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
             );
         },
 
-        renderTickets: function() {
+        renderTickets: function () {
             const $ticketsList = this.$(".product-list");
             $ticketsList.empty();
             for (const ticket of this.tickets) {
@@ -70,7 +70,7 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
             }
         },
 
-        click_ticket: function(ev) {
+        click_ticket: function (ev) {
             const $el = $(ev.currentTarget);
             const ticket_id = $el.data("id");
             const ticket = this.pos.db.get_event_ticket_by_id(ticket_id);

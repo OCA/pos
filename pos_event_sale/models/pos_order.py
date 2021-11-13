@@ -8,7 +8,8 @@ class PosOrder(models.Model):
     _inherit = "pos.order"
 
     event_registrations_count = fields.Integer(
-        string="Event Registration Count", compute="_compute_event_registrations_count",
+        string="Event Registration Count",
+        compute="_compute_event_registrations_count",
     )
     event_registration_ids = fields.One2many(
         "event.registration",

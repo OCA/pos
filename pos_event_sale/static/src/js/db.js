@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.db", function(require) {
+odoo.define("pos_event_sale.db", function (require) {
     "use strict";
 
     const PosDB = require("point_of_sale.DB");
@@ -12,7 +12,7 @@ odoo.define("pos_event_sale.db", function(require) {
         /**
          * @override
          */
-        init: function() {
+        init: function () {
             this._super.apply(this, arguments);
             this.events = [];
             this.event_by_id = {};
@@ -25,7 +25,7 @@ odoo.define("pos_event_sale.db", function(require) {
          * This method is called on startup, and when updating the event availability.
          * It keeps access map up-to-date, and computes some fields.
          */
-        add_events: function(events) {
+        add_events: function (events) {
             if (!events instanceof Array) {
                 events = [events];
             }
@@ -59,7 +59,7 @@ odoo.define("pos_event_sale.db", function(require) {
             }
         },
 
-        add_event_tickets: function(tickets) {
+        add_event_tickets: function (tickets) {
             if (!tickets instanceof Array) {
                 tickets = [tickets];
             }
@@ -94,20 +94,20 @@ odoo.define("pos_event_sale.db", function(require) {
             }
         },
 
-        get_event_by_id: function(id) {
+        get_event_by_id: function (id) {
             return this.event_by_id[id];
         },
 
-        get_event_ticket_by_id: function(id) {
+        get_event_ticket_by_id: function (id) {
             return this.event_ticket_by_id[id];
         },
 
-        get_events_by_product_id: function(product_id) {
+        get_events_by_product_id: function (product_id) {
             const tickets = this.get_event_tickets_by_product_id(product_id);
-            return _.unique(tickets.map(ticket => ticket.event_id));
+            return _.unique(tickets.map((ticket) => ticket.event_id));
         },
 
-        get_event_tickets_by_product_id: function(product_id) {
+        get_event_tickets_by_product_id: function (product_id) {
             return this.event_ticket_by_product_id[product_id] || [];
         },
     });

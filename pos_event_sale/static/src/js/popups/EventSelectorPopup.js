@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
+odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
     "use strict";
 
     const PopupWidget = require("point_of_sale.popups");
@@ -21,7 +21,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
         /**
          * @override
          */
-        init: function() {
+        init: function () {
             this._super.apply(this, arguments);
             this.events = [];
             this.eventsByDate = {};
@@ -30,7 +30,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
         /**
          * @override
          */
-        show: function(options) {
+        show: function (options) {
             // If there's a product, get all events related to this product
             // If not, show all available events (use case: Add Event button)
             if (options.product) {
@@ -42,11 +42,11 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
             this.eventsByDate = this._getEventsByDate(this.events);
             // Optional update of available seats. Fails silently if no internet connection.
             // A final availability check is done before paying the order anyways.
-            const event_ids = this.events.map(event => event.id);
+            const event_ids = this.events.map((event) => event.id);
             const _super = this._super;
             this.pos
                 .updateEventSeatsAvailable(event_ids, {timeout: 1000, shadow: true})
-                .catch(error => console.debug(error))
+                .catch((error) => console.debug(error))
                 .finally(() => {
                     // Show
                     _super.apply(this, arguments);
@@ -57,7 +57,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
         /**
          * @override
          */
-        renderElement: function() {
+        renderElement: function () {
             this._super.apply(this, arguments);
             this.$(".button.cancel").click(this.click_cancel.bind(this));
             this.$calendar = this.$(".o_calendar_widget");
@@ -67,7 +67,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
         /**
          * @override
          */
-        close: function() {
+        close: function () {
             if (this.$calendar) {
                 this.$calendar.fullCalendar("destroy");
             }
@@ -77,7 +77,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
         /**
          * @returns fullcalendar options
          */
-        _getCalendarOptions: function() {
+        _getCalendarOptions: function () {
             const self = this;
             // This seems like a workaround but apparently passing the locale
             // in the options is not enough. We should initialize it beforehand
@@ -97,7 +97,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
                 longPressDelay: 0,
                 height: "auto",
                 select: this.selectDates.bind(this),
-                dayRender: function(date, cell) {
+                dayRender: function (date, cell) {
                     const datekey = date.format("YYYY-MM-DD");
                     if (self.eventsByDate[datekey]) {
                         cell.addClass("has-events");
@@ -108,7 +108,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
             };
         },
 
-        selectDates: function(start, end) {
+        selectDates: function (start, end) {
             const localStartDate = start.local();
             const localEndDate = end.local().subtract(1, "seconds");
             const dates = this._getDatesInRange(localStartDate, localEndDate);
@@ -123,7 +123,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
             this.renderEventSelector(events);
         },
 
-        renderEventSelector: function(events) {
+        renderEventSelector: function (events) {
             // Render container
             const $eventList = $(
                 QWeb.render("EventSelectorList", {events: events, widget: this})
@@ -144,7 +144,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
             this.$(".event-selector").html($eventList);
         },
 
-        click_event: function(ev) {
+        click_event: function (ev) {
             const $el = $(ev.currentTarget);
             const event_id = $el.data("id");
             const event = this.pos.db.get_event_by_id(event_id);
@@ -152,7 +152,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
             // A final availability check is done before paying the order.
             this.pos
                 .updateEventSeatsAvailable([event_id], {timeout: 1000, shadow: true})
-                .catch(error => console.debug(error))
+                .catch((error) => console.debug(error))
                 .finally(() => {
                     this.gui.close_popup();
                     this.gui.show_popup("event-tickets", {
@@ -168,12 +168,10 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
          * @param {moment} endDate
          * @returns Array of dates between startDate and endDate in YYYY-MM-DD format
          */
-        _getDatesInRange: function(startDate, endDate) {
+        _getDatesInRange: function (startDate, endDate) {
             const days = endDate.diff(startDate, "days") + 1;
-            return [...Array(days).keys()].map(dayn =>
-                moment(startDate)
-                    .add(dayn, "days")
-                    .format("YYYY-MM-DD")
+            return [...Array(days).keys()].map((dayn) =>
+                moment(startDate).add(dayn, "days").format("YYYY-MM-DD")
             );
         },
 
@@ -181,7 +179,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
          * @param {eventsData} Array of events
          * @returns Object mapping events by date string YYYY-MM-DD
          */
-        _getEventsByDate: function(events) {
+        _getEventsByDate: function (events) {
             const res = {};
             for (const event of events) {
                 const eventDates = this._getDatesInRange(
@@ -203,9 +201,9 @@ odoo.define("pos_event_sale.EventSelectorPopup", function(require) {
          * @param {eventsByDate} Object mapping events by date string YYYY-MM-DD
          * @returns array of fullcalendar events for this event
          */
-        _getFullCalendarEvents: function(eventsByDate) {
+        _getFullCalendarEvents: function (eventsByDate) {
             return Object.keys(eventsByDate).map(
-                date => new Object({date: date, events: eventsByDate[date]})
+                (date) => new Object({date: date, events: eventsByDate[date]})
             );
         },
     });
