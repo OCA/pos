@@ -1,0 +1,47 @@
+/*
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+*/
+
+@media print {
+    .pos .pos-receipt-container > div {
+        display: block !important;
+        page-break-before: always !important;
+    }
+}
+
+.pos-receipt {
+    &.event-registration-receipt {
+        .pos-receipt-event-registration {
+            text-align: center;
+
+            .event-info {
+                margin: 1rem 1.5rem;
+                text-align: left;
+
+                & > div {
+                    margin-bottom: 0.5rem;
+                }
+
+                i.fa {
+                    margin-right: 0.25rem;
+
+                    & + span {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+
+            .event-registration-barcode > div {
+                margin-top: 3rem;
+                margin-bottom: 1rem;
+                text-align: center;
+
+                .barcode {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

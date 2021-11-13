@@ -1,5 +1,6 @@
-# Copyright 2021 Camptocamp SA - Iván Todorovich
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2021 Camptocamp (https://www.camptocamp.com).
+# @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import fields, models
 
@@ -29,15 +30,23 @@ class PosOrder(models.Model):
             rec.event_registrations_count = count_map.get(rec.id, 0)
 
     def action_open_event_registrations(self):
-        self.ensure_one()
-        res = self.env["ir.actions.act_window"].for_xml_id(
-            "event", "act_event_registration_from_event"
+        action = self.env["ir.actions.actions"]._for_xml_id(
+            "event.event_registration_action_tree"
         )
-        res.pop("context", None)
-        res["domain"] = [("pos_order_id", "=", self.id)]
-        return res
+        action["domain"] = [("pos_order_id", "in", self.ids)]
+        return action
 
     def action_pos_order_paid(self):
         res = super().action_pos_order_paid()
-        self.mapped("lines.event_registration_ids").confirm_registration()
+        self.event_registration_ids.action_confirm()
+        self.event_registration_ids._action_set_paid()
         return res
+
+    def action_pos_order_cancel(self):
+        res = super().action_pos_order_cancel()
+        self.event_registration_ids.action_cancel()
+        return res
+
+    def unlink(self):
+        self.event_registration_ids.unlink()
+        return super().unlink()

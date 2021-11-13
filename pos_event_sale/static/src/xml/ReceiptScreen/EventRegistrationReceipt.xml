@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventRegistrationReceipt" owl="1">
+        <div class="pos-receipt event-registration-receipt">
+
+            <!-- Header -->
+
+            <t t-if="receipt.company.logo">
+                <img
+                    class="pos-receipt-logo"
+                    t-att-src="receipt.company.logo"
+                    alt="Logo"
+                />
+                <br />
+            </t>
+            <t t-if="!receipt.company.logo">
+                <h2 class="pos-receipt-center-align">
+                    <t t-esc="receipt.company.name" />
+                </h2>
+                <br />
+            </t>
+
+            <!-- Registration -->
+
+            <div class="pos-receipt-event-registration">
+                <div class="event-title">
+                    <strong class="event-name" t-esc="event.name" />
+                </div>
+                <div class="event-info">
+                    <div class="event-date-begin">
+                        <b>
+                            <i class="fa fa-clock-o" />
+                            <span>From</span>
+                        </b>
+                        <t t-esc="formatDate(event.date_begin)" />
+                    </div>
+                    <div class="event-date-end">
+                        <b>
+                            <i class="fa fa-clock-o" />
+                            <span>To</span>
+                        </b>
+                        <t t-esc="formatDate(event.date_end)" />
+                    </div>
+                </div>
+                <br />
+                <div class="event-ticket">
+                    <t t-esc="eventTicket.name" />
+                </div>
+                <div class="event-registration-barcode">
+                    <!--
+                        Lazy dependency with enterprise `event_barcode` module.
+                    -->
+                    <div t-if="registration.barcode">
+                        <img
+                            class="barcode"
+                            t-attf-src="/report/barcode/?type=Code128&amp;value=#{registration.barcode}&amp;width=300&amp;height=75&amp;humanreadable=1"
+                            alt="Barcode"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+
+            <br />
+            <div class="pos-receipt-order-data">
+                <div><t t-esc="receipt.name" /></div>
+                <t t-if="receipt.date.localestring">
+                    <div><t t-esc="receipt.date.localestring" /></div>
+                </t>
+                <t t-else="">
+                    <div><t t-esc="receipt.date.validation_date" /></div>
+                </t>
+            </div>
+
+        </div>
+    </t>
+
+</templates>
