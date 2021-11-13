@@ -7,8 +7,8 @@ generate_requirements_txt: true
 include_wkhtmltopdf: false
 odoo_version: 15.0
 rebel_module_groups: []
-repo_description: 'TODO: add repo description.'
-repo_name: pos
+repo_description: Odoo modules for Point of Sale.
+repo_name: Point of Sale
 repo_slug: pos
 travis_apt_packages: []
 travis_apt_sources: []
