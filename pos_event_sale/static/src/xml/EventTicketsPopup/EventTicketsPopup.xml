@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventTicketsPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text event-tickets-popup">
+                <header class="title" t-esc="title" />
+                <main>
+                    <EventTicketList eventTickets="eventTicketsToDisplay" />
+                </main>
+                <footer class="footer">
+                    <div class="button cancel" t-on-click="cancel">
+                        Close
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>

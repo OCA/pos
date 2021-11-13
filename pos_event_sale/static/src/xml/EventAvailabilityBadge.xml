@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventAvailabilityBadge" owl="1">
+        <span
+            class="event-availability-tag"
+            t-att-class="renderInfo.addedClasses"
+            t-esc="renderInfo.label"
+        />
+    </t>
+
+</templates>
