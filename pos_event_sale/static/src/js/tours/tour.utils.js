@@ -3,21 +3,21 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 /* eslint-disable */
-odoo.define("pos_event_sale.tour_utils", function(require) {
+odoo.define("pos_event_sale.tour_utils", function (require) {
     "use strict";
 
     const tour_utils = {
-        startSteps: function() {
+        startSteps: function () {
             return [
                 {
                     content: "wait for loading to finish",
                     trigger: "body:has(.loader:hidden)",
-                    run: function() {}, // It's a check
+                    run: function () {}, // It's a check
                 },
             ];
         },
 
-        clickHomeCategory: function() {
+        clickHomeCategory: function () {
             return [
                 {
                     content: "click Home subcategory",
@@ -26,7 +26,7 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
             ];
         },
 
-        clickProduct: function(productName) {
+        clickProduct: function (productName) {
             return [
                 {
                     content: `click product '${productName}'`,
@@ -35,7 +35,7 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
             ];
         },
 
-        clickEvent: function(eventName) {
+        clickEvent: function (eventName) {
             return [
                 {
                     content: `click event '${eventName}'`,
@@ -44,7 +44,7 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
             ];
         },
 
-        clickEventTicket: function(eventTicketName) {
+        clickEventTicket: function (eventTicketName) {
             return [
                 {
                     content: `click event ticket '${eventTicketName}'`,
@@ -53,7 +53,7 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
             ];
         },
 
-        closePopup: function() {
+        closePopup: function () {
             return [
                 {
                     content: "click Close button",
@@ -62,7 +62,7 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
             ];
         },
 
-        generate_keypad_steps: function(amount_str, keypad_selector) {
+        generate_keypad_steps: function (amount_str, keypad_selector) {
             var i,
                 steps = [],
                 current_char;
@@ -80,17 +80,17 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
             return steps;
         },
 
-        verifyOrderTotal: function(amount) {
+        verifyOrderTotal: function (amount) {
             return [
                 {
                     content: `order total contains ${amount}`,
                     trigger: `.order .total .value:contains("${amount}")`,
-                    run: function() {}, // It's a check
+                    run: function () {}, // It's a check
                 },
             ];
         },
 
-        finishOrder: function(paymentMethod, amount) {
+        finishOrder: function (paymentMethod, amount) {
             return [
                 // Go to Payment Screen and Select payment method
                 {
@@ -116,13 +116,13 @@ odoo.define("pos_event_sale.tour_utils", function(require) {
                 {
                     content: "verify that the order is being sent to the backend",
                     trigger: ".js_connecting:visible",
-                    run: function() {}, // It's a check
+                    run: function () {}, // It's a check
                 },
                 {
                     content:
                         "verify that the order has been successfully sent to the backend",
                     trigger: ".js_connected:visible",
-                    run: function() {}, // It's a check
+                    run: function () {}, // It's a check
                 },
                 {
                     content: "next order",

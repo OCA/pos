@@ -7,7 +7,10 @@ from odoo import fields, models
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    iface_event_sale = fields.Boolean("Sell Events", default=True,)
+    iface_event_sale = fields.Boolean(
+        "Sell Events",
+        default=True,
+    )
     iface_available_event_type_ids = fields.Many2many(
         "event.type",
         string="Available Event Types",

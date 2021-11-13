@@ -3,7 +3,7 @@ Copyright 2021 Camptocamp SA - Iván Todorovich
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 */
 
-odoo.define("pos_event_sale.PosModel", function(require) {
+odoo.define("pos_event_sale.PosModel", function (require) {
     "use strict";
 
     const models = require("point_of_sale.models");
@@ -13,7 +13,7 @@ odoo.define("pos_event_sale.PosModel", function(require) {
         /**
          * @returns Quantity of event tickets ordered in unsaved paid orders.
          */
-        getOrderedEventTickets: function() {
+        getOrderedEventTickets: function () {
             const orders = [...this.db.get_orders(), this.get_order()];
             return orders.reduce((map, order) => {
                 const orderedByTicketID = order.getOrderedEventTickets();
@@ -35,7 +35,7 @@ odoo.define("pos_event_sale.PosModel", function(require) {
          * @param {event.event} event
          * @returns Number of available seats
          */
-        getEventSeatsAvailable: function(event) {
+        getEventSeatsAvailable: function (event) {
             // Ordered quantities
             const orderedByTicketID = this.getOrderedEventTickets();
             const eventOrdered = event.event_ticket_ids.reduce(
@@ -67,7 +67,7 @@ odoo.define("pos_event_sale.PosModel", function(require) {
          * @param {event.ticket} ticket
          * @returns Number of available seats
          */
-        getEventTicketSeatsAvailable: function(ticket) {
+        getEventTicketSeatsAvailable: function (ticket) {
             const event = ticket.event_id;
             // Ordered quantities
             const orderedByTicketID = this.getOrderedEventTickets();
@@ -85,14 +85,14 @@ odoo.define("pos_event_sale.PosModel", function(require) {
         /**
          * @returns List of event.event fields to read during availability checks.
          */
-        _seats_available_update_fields_event_event: function() {
+        _seats_available_update_fields_event_event: function () {
             return ["id", "seats_availability", "seats_available"];
         },
 
         /**
          * @returns List of event.event.ticket fields to read during availability checks.
          */
-        _seats_available_update_fields_event_ticket: function() {
+        _seats_available_update_fields_event_ticket: function () {
             return ["id", "seats_availability", "seats_available"];
         },
 
@@ -104,7 +104,7 @@ odoo.define("pos_event_sale.PosModel", function(require) {
          * @param {Object} options passed to rpc.query. Optional
          * @returns A promise
          */
-        updateEventSeatsAvailable: function(event_ids, options) {
+        updateEventSeatsAvailable: function (event_ids, options) {
             // Update event.event seats_available
             const d1 = rpc
                 .query(
@@ -118,7 +118,7 @@ odoo.define("pos_event_sale.PosModel", function(require) {
                     },
                     options
                 )
-                .then(events => this.db.add_events(events));
+                .then((events) => this.db.add_events(events));
             // Update event.event.ticket seats_available
             const d2 = rpc
                 .query(
@@ -132,7 +132,7 @@ odoo.define("pos_event_sale.PosModel", function(require) {
                     },
                     options
                 )
-                .then(tickets => this.db.add_event_tickets(tickets));
+                .then((tickets) => this.db.add_event_tickets(tickets));
             // Resolve when both finish
             return Promise.all([d1, d2]);
         },
