@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('pos-receipt-container')]" position="inside">
+            <t t-if="currentOrder.event_registrations">
+                <EventRegistrationReceipt
+                    t-foreach="currentOrder.event_registrations"
+                    t-as="registration"
+                    order="currentOrder"
+                    registration="registration"
+                    t-ref="event-registration-receipt"
+                />
+            </t>
+        </xpath>
+    </t>
+
+</templates>

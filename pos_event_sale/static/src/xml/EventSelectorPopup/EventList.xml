@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventList" owl="1">
+        <div class="event-list-container">
+            <div class="touch-scrollable scrollable-y">
+                <div t-if="props.events.length != 0" class="event-list">
+                    <t t-foreach="props.events" t-as="event" t-key="event.id">
+                        <EventItem event="event" />
+                    </t>
+                </div>
+                <div t-else="" class="event-list-empty">
+                    <p>There are no events on these dates.</p>
+                    <p class="alert-debug" t-if="env.isDebug()">
+                        Besides the Event filters on the Point of Sale configuration,
+                        make sure products related to the event tickets are also available
+                        for this Point of Sale, otherwise they won't be shown here.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>
