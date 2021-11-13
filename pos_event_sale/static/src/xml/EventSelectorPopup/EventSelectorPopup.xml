@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventSelectorPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text event-selector-popup">
+                <header class="title">Add Event</header>
+                <main class="body">
+                    <div class="event-selector">
+                        <section>
+                            <EventCalendar eventsByDate="eventsByDate" />
+                        </section>
+                        <section>
+                            <EventList events="eventsToDisplay" />
+                        </section>
+                    </div>
+                </main>
+                <footer class="footer">
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>

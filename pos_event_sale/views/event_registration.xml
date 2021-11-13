@@ -1,13 +1,26 @@
 <?xml version="1.0" ?>
 <!--
-    Copyright 2021 Camptocamp SA - Iván Todorovich
-    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+    Copyright 2021 Camptocamp (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 -->
 <odoo>
-    <record id="view_event_registration_ticket_form" model="ir.ui.view">
+
+    <record id="event_registration_ticket_view_form" model="ir.ui.view">
         <field name="model">event.registration</field>
-        <field name="inherit_id" ref="event_sale.view_event_registration_ticket_form" />
+        <field name="inherit_id" ref="event_sale.event_registration_ticket_view_form" />
         <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    name="action_view_pos_order"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-usd"
+                    string="POS Order"
+                    groups="point_of_sale.group_pos_user"
+                    attrs="{'invisible': [('pos_order_id', '=', False)]}"
+                />
+            </div>
             <field name="sale_order_line_id" position="after">
                 <field
                     name="pos_order_id"
@@ -21,4 +34,15 @@
             </field>
         </field>
     </record>
+
+    <record id="view_event_registration_ticket_tree" model="ir.ui.view">
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event_sale.view_event_registration_ticket_tree" />
+        <field name="arch" type="xml">
+            <field name="sale_order_id" position="after">
+                <field name="pos_order_id" optional="hide" />
+            </field>
+        </field>
+    </record>
+
 </odoo>

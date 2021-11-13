@@ -1,67 +1,90 @@
-# Copyright 2021 Camptocamp SA - Iván Todorovich
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+# @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
 
 from odoo import fields
-from odoo.tests import HttpCase, tagged
+from odoo.tests import tagged
+
+from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
 
 
 @tagged("post_install", "-at_install")
-class TestUi(HttpCase):
-    def setUp(self):
-        super().setUp()
-        # Use admin user
-        self.env = self.env(
-            user=self.env.ref("base.user_admin"),
-            context=dict(self.env.context, tracking_disable=True),
-        )
-        # Configure pos.config.
-        self.main_pos_config = self.env.ref("point_of_sale.pos_config_main")
-        self.main_pos_config.iface_event_sale = True
+class TestUi(TestPointOfSaleHttpCommon):
+    @classmethod
+    def setUpClass(cls, **kwargs):
+        super().setUpClass(**kwargs)
+        cls.env.user.groups_id += cls.env.ref("event.group_event_user")
+        cls.main_pos_config.iface_event_sale = True
         # Configure product
-        self.product_event = self.env.ref("event_sale.product_product_event")
-        self.product_event.available_in_pos = True
+        cls.product_event = cls.env.ref("event_sale.product_product_event")
+        cls.product_event.active = True
+        cls.product_event.available_in_pos = True
         # Create event
-        self.event = self.env["event.event"].create(
+        cls.event = cls.env["event.event"].create(
             {
-                "name": "Test PoS Event",
-                "event_type_id": self.env.ref("event_sale.event_type_data_sale").id,
+                "name": "Les Misérables",
+                "event_type_id": cls.env.ref("event.event_type_0").id,
                 "date_begin": datetime.combine(
                     fields.Date.today(), datetime.min.time()
                 ),
                 "date_end": datetime.combine(fields.Date.today(), datetime.max.time()),
+                "stage_id": cls.env.ref("event.event_stage_booked").id,
+                "seats_limited": True,
+                "seats_max": 10,
             }
         )
-        self.ticket = self.env["event.event.ticket"].create(
+        cls.ticket_kids = cls.env["event.event.ticket"].create(
             {
-                "name": "Test PoS Ticket",
-                "product_id": self.product_event.id,
-                "event_id": self.event.id,
-                "price": 15.00,
+                "name": "Kids",
+                "product_id": cls.product_event.id,
+                "event_id": cls.event.id,
+                "price": 0.0,
+                "seats_limited": True,
+                "seats_max": 5,
             }
         )
-        self.event.button_confirm()
-        # Open Point of Sale
-        self.main_pos_config.open_session_cb()
-        # needed because tests are run before the module is marked as
-        # installed. In js web will only load qweb coming from modules
-        # that are returned by the backend in module_boot. Without
-        # this you end up with js, css but no qweb.
-        self.env.ref("base.module_pos_event_sale").state = "installed"
+        cls.ticket_regular = cls.env["event.event.ticket"].create(
+            {
+                "name": "Standard",
+                "product_id": cls.product_event.id,
+                "event_id": cls.event.id,
+                "price": 15.0,
+            }
+        )
 
     def test_pos_event_sale_basic_tour(self):
-        """PoS Events Basic Tour"""
+        self.main_pos_config.open_session_cb(check_coa=False)
         self.start_tour(
-            "/pos/web?config_id=%d" % self.main_pos_config.id,
-            "PosEventTourBasic",
-            login="admin",
+            f"/pos/ui?config_id={self.main_pos_config.id}",
+            "EventSaleTour",
+            login="accountman",
         )
-        # Check PoS Order (last created order)
+        # Check POS Order (last created order)
         pos_order = self.env["pos.order"].search([], order="id desc", limit=1)
         # Check registrations
         self.assertEqual(pos_order.event_registrations_count, 3)
-        self.assertEqual(pos_order.event_registration_ids[0].state, "open")
+        for reg in pos_order.event_registration_ids:
+            self.assertEqual(reg.state, "open")
         # Check action open registrations
         action = pos_order.action_open_event_registrations()
         self.assertEqual(action["type"], "ir.actions.act_window")
+        # Total sold amount for the event
+        self.assertEqual(self.event.pos_price_subtotal, 30.0)
+        action = self.event.action_view_pos_orders()
+        self.assertEqual(self.env["pos.order"].search(action["domain"]), pos_order)
+        # Refund the order
+        pos_order.refund()
+        for reg in pos_order.event_registration_ids:
+            self.assertEqual(reg.state, "cancel")
+
+    def test_pos_event_sale_availability_tour(self):
+        self.event.seats_max = 5
+        self.ticket_kids.seats_max = 3
+        self.main_pos_config.open_session_cb(check_coa=False)
+        self.start_tour(
+            f"/pos/ui?config_id={self.main_pos_config.id}",
+            "EventSaleAvailabilityTour",
+            login="accountman",
+        )
