@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/pos_hamburger_menu/static/src/css/pos_hamburger_menu.css"/>
+                <script type="text/javascript" src="/pos_hamburger_menu/static/src/js/chrome.js"/>
+                <script type="text/javascript" src="/pos_hamburger_menu/static/src/js/widget.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

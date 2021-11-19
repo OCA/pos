@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Chrome">
+        <t t-jquery=".pos-logo" t-operation="after">
+            <span class="placeholder-ShowHamburgerMenuWidget"/>
+        </t>
+    </t>
+
+    <t t-name="ShowHamburgerMenuWidget">
+        <div class="dropdown">
+            <button class="dropbtn">
+                <i class="fa fa-bars fa-2x"/>
+            </button>
+            <div class="dropdown-content"/>
+        </div>
+    </t>
+
+</templates>
