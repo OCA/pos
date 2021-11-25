@@ -1,0 +1,11 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+    <xpath expr="//button[hasclass('remove-line-button')]" position="attributes">
+            <attribute name="t-att-class">
+            {'disabled-mode': !hasDeleteOrderLineControlRights}</attribute>
+            <attribute
+                name="t-att-disabled"
+            >!hasDeleteOrderLineControlRights</attribute>
+    </xpath>
+  </t>
+</templates>
