@@ -10,10 +10,7 @@
     "author": "Aurélien DUMAINE,GRAP,Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": [
-        "views/assets.xml",
-        "views/view_pos_config.xml",
-    ],
+    "data": ["views/assets.xml", "views/view_pos_config.xml",],
     "demo": ["demo/pos_config.xml"],
     "installable": True,
 }

@@ -14,14 +14,15 @@ class PosConfig(models.Model):
     ]
 
     iface_customer_display = fields.Boolean(
-        string="LED Customer Display",
-        help="Display data on the customer display"
+        string="LED Customer Display", help="Display data on the customer display"
     )
 
     customer_display_format = fields.Selection(
         selection=_CUSTOMER_DISPLAY_FORMAT_SELECTION,
         string="Customer Display Format",
-        default="2_20", required=True)
+        default="2_20",
+        required=True,
+    )
 
     customer_display_line_length = fields.Integer(
         string="Line Length",
@@ -69,7 +70,8 @@ class PosConfig(models.Model):
     def _compute_customer_display_line_length(self):
         for config in self:
             config.customer_display_line_length = int(
-                config.customer_display_format.split("_")[1])
+                config.customer_display_format.split("_")[1]
+            )
 
     @api.constrains(
         "iface_customer_display",
@@ -83,8 +85,7 @@ class PosConfig(models.Model):
         for config in self.filtered(lambda x: x.customer_display_line_length):
             maxsize = config.customer_display_line_length
             fields_to_check = [
-                x for x in self._fields.keys()
-                if 'customer_display_msg_' in x
+                x for x in self._fields.keys() if "customer_display_msg_" in x
             ]
             for field_name in fields_to_check:
                 value = getattr(config, field_name)
@@ -95,8 +96,5 @@ class PosConfig(models.Model):
                             "long: it has %d chars whereas the maximum "
                             "is %d chars."
                         )
-                        % (
-                            self._fields[field_name].string,
-                            len(value),
-                            maxsize)
+                        % (self._fields[field_name].string, len(value), maxsize)
                     )
