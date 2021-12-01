@@ -1,97 +1,88 @@
 /*
-Copyright (C) 2015-Today GRAP (http://www.grap.coop)
-@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+    Copyright 2015-Today GRAP (http://www.grap.coop)
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
 
 odoo.define("pos_customer_display.devices", function(require) {
     "use strict";
 
-    var devices = require("point_of_sale.devices");
+    const devices = require("point_of_sale.devices");
+    const CustomerDisplay_2_20 = require("pos_customer_display.CustomerDisplay_2_20");
 
-    var customer_display_2_20 = require("pos_customer_display.customer_display_2_20");
-
-    var ProxyDeviceSuper = devices.ProxyDevice;
-
-    devices.ProxyDevice = devices.ProxyDevice.extend({
-        init: function(parent, options) {
-            var res = ProxyDeviceSuper.prototype.init.call(this, parent, options);
-            this.customer_display_proxy = false;
-            return res;
+    devices.ProxyDevice.include({
+        /**
+         * @override
+         */
+        init: function() {
+            this._super.apply(this, arguments);
+            // This property is used to temporarily disable the sending of messages
+            // to the display.
+            // As we're hooking into order changes to display events in the display,
+            // we don't want them to be triggered when the order is initialized from
+            // JSON, for example.
+            this._customer_display_update = true;
         },
-
-        load_customer_display_format_file: function() {
+        loadCustomerDisplayFormatter: function() {
+            // Prepare the customer display formatter
             if (this.pos.config.customer_display_format == "2_20") {
-                this.customer_display_proxy = new customer_display_2_20.CustomerDisplay_2_20(
-                    this
-                );
+                this._customer_display_formatter = new CustomerDisplay_2_20(this.pos);
             } else {
-                console.warn(
-                    "No Javascript file found for the Customer Display format" +
-                        this.config.customer_display_format
+                console.error(
+                    "Unknown customer display format: " +
+                        this.pos.config.customer_display_format
                 );
             }
         },
-
-        send_text_customer_display: function(data) {
-            if (this.customer_display_proxy) {
+        /**
+         * @returns true if the display should be updated
+         */
+        shouldUpdateCustomerDisplay: function() {
+            return (
+                this.pos.config.iface_customer_display && this._customer_display_update
+            );
+        },
+        /**
+         * Calls a function with the customer display disabled.
+         *
+         * Similarily to how contextmanagers work on Python, this will disable
+         * any calls to the display, and re-enable it when the function is done.
+         *
+         * As we're hooking into order changes to display events in the display,
+         * we don't want them to be triggered when the order is initialized from
+         * JSON, for example.
+         *
+         * @param {Function} fn         The function to call.
+         * @param {Object} thisArg      `this` argument for the function.
+         * @param {Array} argsArray     `arguments` array for the function.
+         */
+        withoutCustomerDisplayUpdate: function(fn, thisArg, argsArray) {
+            const prevValue = this._customer_display_update;
+            this._customer_display_update = false;
+            const res = fn.apply(thisArg, argsArray);
+            this._customer_display_update = prevValue;
+            return res;
+        },
+        /**
+         * Prints the text to the customer display.
+         */
+        sendToCustomerDisplay: function(message) {
+            if (this.shouldUpdateCustomerDisplay()) {
                 return this.message("send_text_customer_display", {
-                    text_to_display: JSON.stringify(data),
+                    text_to_display: JSON.stringify(message),
                 });
             }
         },
-
-        _prepare_line: function(left_part, right_part) {
-            if (left_part === false) {
-                left_part = "";
-            }
-            if (right_part === false) {
-                right_part = "";
-            }
-            var line_length = this.pos.config.customer_display_line_length;
-            var max_left_length = line_length;
-            if (right_part.length !== 0) {
-                max_left_length -= right_part.length;
-            }
-            var result = left_part.substring(0, max_left_length - 1);
-            result = result.padEnd(max_left_length);
-            if (right_part.length !== 0) {
-                result += right_part.padStart(line_length - result.length);
-            }
-            return result;
-        },
-
-        prepare_message_orderline: function(order_line, action) {
-            if (this.customer_display_proxy) {
-                return this.customer_display_proxy._prepare_message_orderline(
-                    order_line,
-                    action
-                );
-            }
-        },
-
-        prepare_message_payment: function(action) {
-            if (this.customer_display_proxy) {
-                return this.customer_display_proxy._prepare_message_payment(action);
-            }
-        },
-
-        prepare_message_welcome: function() {
-            if (this.customer_display_proxy) {
-                return this.customer_display_proxy._prepare_message_welcome();
-            }
-        },
-
-        prepare_message_close: function() {
-            if (this.customer_display_proxy) {
-                return this.customer_display_proxy._prepare_message_close();
-            }
-        },
-
-        prepare_message_client: function(client) {
-            if (this.customer_display_proxy) {
-                return this.customer_display_proxy._prepare_message_client(client);
-            }
+        /**
+         * Prepares a message to be printed, using the configured display formatted.
+         */
+        prepareCustomerDisplayMessage: function(messageType, argsArray) {
+            return this._customer_display_formatter.prepareMessage(
+                messageType,
+                argsArray
+            );
         },
     });
 });

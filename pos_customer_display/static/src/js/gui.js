@@ -7,14 +7,16 @@ Copyright (C) 2020-Today GRAP (http://www.grap.coop)
 odoo.define("pos_customer_display.gui", function(require) {
     "use strict";
 
-    var gui = require("point_of_sale.gui");
+    const gui = require("point_of_sale.gui");
 
     gui.Gui.include({
         close: function() {
-            this.pos.proxy.send_text_customer_display(
-                this.pos.proxy.prepare_message_close()
-            );
-            return this._super();
+            if (this.pos.proxy.shouldUpdateCustomerDisplay()) {
+                this.pos.proxy.sendCustomerDisplayText(
+                    this.pos.proxy.prepareCustomerDisplayMessage("close")
+                );
+            }
+            return this._super.apply(this, arguments);
         },
     });
 });

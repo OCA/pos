@@ -25,7 +25,11 @@
             />
             <script
                 type="text/javascript"
-                src="/pos_customer_display/static/src/js/customer_display_2_20.js"
+                src="/pos_customer_display/static/src/js/formatters/AbstractFormatter.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/formatters/CustomerDisplay_2_20.js"
             />
         </xpath>
     </template>

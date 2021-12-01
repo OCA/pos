@@ -9,21 +9,15 @@ from odoo.exceptions import ValidationError
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    _CUSTOMER_DISPLAY_FORMAT_SELECTION = [
-        ("2_20", "2 Lines of 20 Characters"),
-    ]
-
     iface_customer_display = fields.Boolean(
         string="LED Customer Display", help="Display data on the customer display"
     )
-
     customer_display_format = fields.Selection(
-        selection=_CUSTOMER_DISPLAY_FORMAT_SELECTION,
+        selection=[("2_20", "2 Lines of 20 Characters")],
         string="Customer Display Format",
         default="2_20",
         required=True,
     )
-
     customer_display_line_length = fields.Integer(
         string="Line Length",
         compute="_compute_customer_display_line_length",
@@ -82,13 +76,13 @@ class PosConfig(models.Model):
         "customer_display_msg_closed_l2",
     )
     def _check_customer_display_length(self):
-        for config in self.filtered(lambda x: x.customer_display_line_length):
+        fields_to_check = [
+            x for x in self._fields.keys() if "customer_display_msg_" in x
+        ]
+        for config in self.filtered("customer_display_line_length"):
             maxsize = config.customer_display_line_length
-            fields_to_check = [
-                x for x in self._fields.keys() if "customer_display_msg_" in x
-            ]
             for field_name in fields_to_check:
-                value = getattr(config, field_name)
+                value = config[field_name]
                 if value and len(value) > maxsize:
                     raise ValidationError(
                         _(

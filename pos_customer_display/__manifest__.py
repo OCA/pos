@@ -4,13 +4,12 @@
 
 {
     "name": "Point of Sale - LED Customer Display",
-    "version": "12.0.1.1.0",
+    "version": "13.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Manage LED Customer Display device from POS front end",
     "author": "Aurélien DUMAINE,GRAP,Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/assets.xml", "views/view_pos_config.xml",],
+    "data": ["views/assets.xml", "views/view_pos_config.xml"],
     "demo": ["demo/pos_config.xml"],
-    "installable": True,
 }

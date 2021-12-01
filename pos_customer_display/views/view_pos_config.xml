@@ -10,7 +10,7 @@
                     <label
                         string="LED Customer Display"
                         for="iface_customer_display"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="iface_customer_display" />
                 </div>
@@ -22,7 +22,7 @@
                     <label
                         string="Customer Display Format"
                         for="customer_display_format"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="customer_display_format" />
                 </div>
@@ -34,7 +34,7 @@
                     <label
                         string="Line Length"
                         for="customer_display_line_length"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="customer_display_line_length" />
                 </div>
@@ -46,7 +46,7 @@
                     <label
                         string="Next Customer (Line 1)"
                         for="customer_display_msg_next_l1"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="customer_display_msg_next_l1" />
                 </div>
@@ -57,7 +57,7 @@
                     <label
                         string="Next Customer (Line 2)"
                         for="customer_display_msg_next_l2"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="customer_display_msg_next_l2" />
                 </div>
@@ -69,7 +69,7 @@
                     <label
                         string="PoS Closed (Line 1)"
                         for="customer_display_msg_closed_l1"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="customer_display_msg_closed_l1" />
                 </div>
@@ -80,7 +80,7 @@
                     <label
                         string="PoS Closed (Line 2)"
                         for="customer_display_msg_closed_l2"
-                        class="col-lg-3 o_light_label"
+                        class="col-lg-4 o_light_label"
                     />
                     <field name="customer_display_msg_closed_l2" />
                 </div>

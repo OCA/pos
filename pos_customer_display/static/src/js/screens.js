@@ -10,42 +10,60 @@ odoo.define("pos_customer_display.screens", function(require) {
     var screens = require("point_of_sale.screens");
 
     screens.PaymentScreenWidget.include({
+        /**
+         * @override
+         */
         render_paymentlines: function() {
+            // Render_paymentlines is called before the proxy connection is made
+            // so we check if it's already connected before attempting to send a message
             if (
-                !this.pos.get_order() ||
-                (this.pos.get_order() &&
-                    this.pos.get_order().get_total_with_tax() === 0)
+                this.pos.proxy.connection &&
+                this.pos.proxy.shouldUpdateCustomerDisplay()
             ) {
-                // Render payment is called each time a new order is created
-                // (and so when lauching the PoS)
-                // in that case, we display the welcome message
-                this.pos.proxy.send_text_customer_display(
-                    this.pos.proxy.prepare_message_welcome()
-                );
-            } else {
-                this.pos.proxy.send_text_customer_display(
-                    this.pos.proxy.prepare_message_payment()
-                );
+                const order = this.pos.get_order();
+                if (!order || (order && order.get_total_with_tax() === 0)) {
+                    // Render payment is called each time a new order is created
+                    // (and so when lauching the PoS)
+                    // in that case, we display the welcome message
+                    this.pos.proxy.sendToCustomerDisplay(
+                        this.pos.proxy.prepareCustomerDisplayMessage("welcome")
+                    );
+                } else {
+                    this.pos.proxy.sendToCustomerDisplay(
+                        this.pos.proxy.prepareCustomerDisplayMessage("payment")
+                    );
+                }
             }
-            return this._super();
+            return this._super.apply(this, arguments);
         },
     });
 
     screens.ClientListScreenWidget.include({
+        /**
+         * @override
+         */
         save_changes: function() {
+            if (!this.pos.proxy.shouldUpdateCustomerDisplay()) {
+                return this._super.apply(this, arguments);
+            }
             if (this.has_client_changed()) {
-                this.pos.proxy.send_text_customer_display(
-                    this.pos.proxy.prepare_message_client(this.new_client)
+                this.pos.proxy.sendToCustomerDisplay(
+                    this.pos.proxy.prepareCustomerDisplayMessage("client", [
+                        this.new_client,
+                    ])
                 );
             }
             // We disable the send of message, during the call of _super()
             // because when selecting customer, all lines are recomputed
             // and so a message is sent for each lines
             // causing useless flashes
-            this.pos.send_message_customer_display = false;
-            var res = this._super();
-            this.pos.send_message_customer_display = true;
-            return res;
+            return this.pos.proxy.withoutCustomerDisplayUpdate(
+                this._super,
+                this,
+                arguments
+            );
         },
     });
+
+    return screens;
 });
