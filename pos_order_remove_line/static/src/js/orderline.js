@@ -13,6 +13,7 @@ odoo.define("pos_order_remove_line.Orderline", function (require) {
         class extends Orderline {
             removeLine() {
                 this.props.line.set_quantity("remove");
+                this.trigger("change");
             }
         };
     Registries.Component.extend(Orderline, PosOrderline);
