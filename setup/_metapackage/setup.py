@@ -33,6 +33,7 @@ setuptools.setup(
         'odoo12-addon-pos_order_line_no_unlink',
         'odoo12-addon-pos_order_line_note',
         'odoo12-addon-pos_order_mgmt',
+        'odoo12-addon-pos_order_picking_link',
         'odoo12-addon-pos_order_remove_line',
         'odoo12-addon-pos_order_return',
         'odoo12-addon-pos_order_return_traceability',
