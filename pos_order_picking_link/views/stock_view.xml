@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_picking_form" model="ir.ui.view">
+        <field name="name">stock_picking_invoice_link.stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <field name="pos_order_ids" invisible="1"/>
+                <button name="action_view_pos_orders"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-dollar"
+                    attrs="{'invisible': [('pos_order_ids', '=', [])]}" groups="base.group_user">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_text">POS Orders</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+
+</odoo>
