@@ -7,7 +7,7 @@ class ResConfigSettings(models.TransientModel):
     pos_debranding_title = fields.Char(
         "POS Debranding Title",
         config_parameter="pos_debranding_title",
-        default="My Title"
+        default="My Title",
     )
 
     @api.model
