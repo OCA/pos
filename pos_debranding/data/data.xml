@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.config_parameter" id="pos_debranding_title">
+            <field name="key">pos_debranding_title</field>
+            <field name="value">My Title</field>
+        </record>
+    </data>
+</odoo>

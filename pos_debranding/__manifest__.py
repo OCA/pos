@@ -1,0 +1,20 @@
+{
+    "name": "POS Debranding",
+    "summary": "POS Debranding",
+    "version": "14.0.1.0.0",
+    "license": "LGPL-3",
+    "category": "Debranding",
+    'author': 'Ooops',
+    "website": "https://www.ooops404.com",
+    "depends": ["point_of_sale"],
+    "data": [
+        "views/templates.xml",
+        "views/res_config_settings_views.xml",
+        "views/pos.xml",
+        "data/data.xml",
+    ],
+    "qweb": ["static/src/xml/Chrome.xml"],
+    "application": False,
+    "auto_install": False,
+    "installable": True,
+}
