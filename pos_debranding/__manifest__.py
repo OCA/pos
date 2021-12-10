@@ -4,8 +4,8 @@
     "version": "14.0.1.0.0",
     "license": "LGPL-3",
     "category": "Debranding",
-    'author': 'Ooops',
-    "website": "https://www.ooops404.com",
+    "author": "Ooops",
+    "website": "https://github.com/OCA/pos",
     "depends": ["point_of_sale"],
     "data": [
         "views/templates.xml",
