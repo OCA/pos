@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="Product">
+        <t t-jquery="[t-att-src='image_url']" t-operation="before">
+            <span t-if="product.default_code" class="product-default-code">[<t t-esc="product.default_code"/>]</span>
+        </t>
+    </t>
+
+</templates>
