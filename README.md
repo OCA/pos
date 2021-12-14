@@ -52,6 +52,7 @@ addon | version | maintainers | summary
 [pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Improve load of picking in PoS by partner name
 [pos_place](pos_place/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Define places on PoS orders
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.0 |  | Compute weight based on barcodes with prices
+[pos_product_default_code](pos_product_default_code/) | 12.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Show Internal Reference in POS products list
 [pos_product_sort](pos_product_sort/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.0 |  | Allow PoS user to logout quickly after user changed
 [pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.0 |  | POS Remove POS Category
