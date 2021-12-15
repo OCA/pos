@@ -4,7 +4,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import fields
-from odoo.exceptions import Warning as UserError
 from odoo.tests.common import TransactionCase
 
 
@@ -29,43 +28,19 @@ class TestModule(TransactionCase):
     def test_order_invoice(self):
         order = self._create_order()
 
-        # Check if invoice is correctly set
-        self.assertEquals(order.invoice_id.pos_pending_payment, True)
+        order.action_pos_order_invoice()
 
-        # Try to register payment should fail on this invoice should fail
-        with self.assertRaises(UserError):
-            payment = self.register_payment(order.invoice_id)
-            payment.post()
-
-        # Try to register a payment not linked to this invoice should be ok
-        payment = self.register_payment()
-        payment.post()
+        self.assertEqual(order.account_move.pos_pending_payment, True)
 
         # Once closed check if the invoice is correctly set
         self.pos_config.current_session_id.action_pos_session_closing_control()
-        self.assertEquals(order.invoice_id.pos_pending_payment, False)
-
-    # Private Section
-    def register_payment(self, invoice_id=False):
-        journal = self.pos_config.journal_id
-        return self.AccountPayment.create(
-            {
-                "invoice_ids": invoice_id and [(4, invoice_id.id, None)] or False,
-                "payment_type": "inbound",
-                "partner_type": "customer",
-                "payment_date": fields.Datetime.now(),
-                "partner_id": self.partner.id,
-                "amount": 0.9,
-                "journal_id": journal.id,
-                "payment_method_id": journal.inbound_payment_method_ids[0].id,
-            }
-        )
+        self.assertEqual(order.account_move.pos_pending_payment, False)
 
     def _create_order(self):
         # Create order
         user = self.env.user
         order_data = {
-            "id": u"0006-001-0010",
+            "id": "0006-001-0010",
             "to_invoice": True,
             "data": {
                 "pricelist_id": self.pricelist.id,
@@ -99,6 +74,9 @@ class TestModule(TransactionCase):
                             "statement_id": self.pos_config.current_session_id.statement_ids[
                                 0
                             ].id,
+                            "payment_method_id": self.pos_config.payment_method_ids[
+                                0
+                            ].id,
                         },
                     ]
                 ],
@@ -113,5 +91,5 @@ class TestModule(TransactionCase):
         }
 
         result = self.PosOrder.create_from_ui([order_data])
-        order = self.PosOrder.browse(result[0])
+        order = self.PosOrder.browse(result[0]["id"])
         return order

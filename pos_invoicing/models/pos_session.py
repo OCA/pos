@@ -15,6 +15,6 @@ class PosSession(models.Model):
 
     def action_pos_session_close(self):
         res = super().action_pos_session_close()
-        orders = self.mapped("order_ids").filtered(lambda x: x.invoice_id)
-        orders.mapped("invoice_id").write({"pos_pending_payment": False})
+        orders = self.mapped("order_ids").filtered(lambda x: x.account_move)
+        orders.mapped("account_move").write({"pos_pending_payment": False})
         return res
