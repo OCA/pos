@@ -18,6 +18,7 @@ addon | version | maintainers | summary
 [pos_cache_user_restriction](pos_cache_user_restriction/) | 12.0.1.0.0 | [![GSLabIt](https://github.com/GSLabIt.png?size=30px)](https://github.com/GSLabIt) | Allow access to pos cache to restricted users
 [pos_cash_control_multiple_config](pos_cash_control_multiple_config/) | 12.0.1.0.2 |  | Handle correctly opening balance in a multi point of sale context with Cash control enabled.
 [pos_cash_move_reason](pos_cash_move_reason/) | 12.0.3.0.2 |  | POS cash in-out reason
+[pos_check_session_state](pos_check_session_state/) | 12.0.1.0.0 |  | Check if the session state is still opened
 [pos_customer_display](pos_customer_display/) | 12.0.1.1.0 |  | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 12.0.1.0.1 |  | Point of Sale Require Customer
 [pos_default_empty_image](pos_default_empty_image/) | 12.0.1.1.0 |  | Optimize loading time for products without image
