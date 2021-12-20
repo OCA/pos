@@ -10,5 +10,7 @@
         <field
             name="report_file"
         >pos_report_session_summary.report_session_summary</field>
+        <field name="binding_model_id" ref="point_of_sale.model_pos_session" />
+        <field name="binding_type">report</field>
     </record>
 </odoo>
