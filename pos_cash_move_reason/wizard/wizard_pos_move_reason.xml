@@ -10,14 +10,16 @@
                 <separator string="Describe why you take money from the cash register"
                     attrs="{'invisible': [('move_type', '=', 'income')]}"/>
                 <group>
-                    <field name="move_type" invisible="1"/>
-                    <field name="session_id"/>
-                    <field name="move_reason_id" />
-                    <field name="journal_id" attrs="{'invisible': [('move_reason_id', '=', False)]}" />
-                    <field name="statement_id" invisible="1"/>
-                    <field name="journal_ids" invisible="1"/>
-                    <field name="name"/>
-                    <field name="amount"/>
+                    <group colspan="2" name="setting">
+                        <field name="move_type" invisible="1"/>
+                        <field name="session_id"/>
+                        <field name="move_reason_id" />
+                        <field name="journal_id" attrs="{'invisible': [('move_reason_id', '=', False)]}" />
+                        <field name="statement_id" invisible="1"/>
+                        <field name="journal_ids" invisible="1"/>
+                        <field name="name"/>
+                        <field name="amount"/>
+                    </group>
                 </group>
 
                 <footer>
