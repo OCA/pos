@@ -26,12 +26,12 @@ odoo.define("pos_payment_terminal.payment", function (require) {
 
         send_payment_cancel: function () {
             this._super.apply(this, arguments);
-            this._show_tip(
+            this._show_error(
                 _t(
-                    "Cancel the transaction by pressing the red button on the payment terminal."
+                    "Please press the red button on the payment terminal to cancel the transaction."
                 )
             );
-            return Promise.resolve();
+            return Promise.reject();
         },
 
         _oca_payment_terminal_pay: function () {
@@ -182,13 +182,6 @@ odoo.define("pos_payment_terminal.payment", function (require) {
         _show_error: function (msg, title) {
             Gui.showPopup("ErrorPopup", {
                 title: title || _t("Payment Terminal Error"),
-                body: msg,
-            });
-        },
-
-        _show_tip: function (msg, title) {
-            Gui.showPopup("ErrorPopup", {
-                title: title || _t("Payment Terminal"),
                 body: msg,
             });
         },
