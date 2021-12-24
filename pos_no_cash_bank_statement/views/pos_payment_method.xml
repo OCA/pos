@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright 2021 Akretion France (http://www.akretion.com/)
+  @author: Alexis de Lattre <alexis.delattre@akretion.com>
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+<record id="pos_payment_method_view_form" model="ir.ui.view">
+    <field name="model">pos.payment.method</field>
+    <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+    <field name="arch" type="xml">
+        <field name="cash_journal_id" position="before">
+            <field name="journal_type_domain" invisible="1" />
+            <field
+                    name="bank_statement"
+                    attrs="{'invisible': [('is_cash_count', '=', True)]}"
+                />
+        </field>
+        <field name="cash_journal_id" position="attributes">
+            <attribute
+                    name="attrs"
+                >{'invisible': [('is_cash_count', '=', False), ('bank_statement', '=', False)], 'required': ['|', ('is_cash_count', '=', True), ('bank_statement', '=', True)]}</attribute>
+            <attribute
+                    name="domain"
+                >[('company_id', '=', company_id), ('type', '=', journal_type_domain)]</attribute>
+        </field>
+    </field>
+</record>
+
+</odoo>
