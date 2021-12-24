@@ -28,6 +28,8 @@ class TestPosCashMoveReason(common.TransactionCase):
             ('config_id', '=', self.config.id),
         ])
 
+        self.assertEquals(session.move_reason_statement_line_qty, 0)
+
         # Get Cash Statement
         statement = session.statement_ids.filtered(
             lambda x: x.journal_id == self.cash_journal)
@@ -43,6 +45,9 @@ class TestPosCashMoveReason(common.TransactionCase):
                 'name': 'Test Bank Deposit',
             })
         wizard.apply()
+
+        self.assertEquals(session.move_reason_statement_line_qty, 1)
+
         session.action_pos_session_closing_control()
 
         # I get all move lines of this statement
