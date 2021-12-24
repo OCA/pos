@@ -37,6 +37,22 @@
             <xpath expr="//button[@name='%(point_of_sale.action_pos_box_out)d']" position="attributes">
                 <attribute name="groups">pos_cash_move_reason.group_pos_old_actions</attribute>
             </xpath>
+
+            <field name="statement_ids" position="after">
+                <group string="Cash Moves"
+                        attrs="{'invisible': [('move_reason_statement_line_qty', '=', 0)]}">
+                    <field name="move_reason_statement_line_ids" nolabel="1" colspan="4">
+                        <tree decoration-danger="amount &lt; 0">
+                            <field name="date"/>
+                            <field name="journal_id"/>
+                            <field name="account_id"/>
+                            <field name="name"/>
+                            <field name="amount"/>
+                        </tree>
+                    </field>
+                    <field name="move_reason_statement_line_qty" invisible="1"/>
+                </group>
+            </field>
         </field>
     </record>
 

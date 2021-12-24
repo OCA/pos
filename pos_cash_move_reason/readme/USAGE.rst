@@ -9,6 +9,11 @@
 
 .. figure:: ../static/description/wizard_pos_move_reason_form.png
 
+Once done, the list of cash moves are displayed on the session,
+after the summary by payment Methods.
+
+.. figure:: ../static/description/pos_session_move_list_form.png
+
 * When closing the session, an account move will be created, with two lines,
   one with the default journal account, and one with the expense / income
   reason account.
