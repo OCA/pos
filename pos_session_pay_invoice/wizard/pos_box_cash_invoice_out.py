@@ -13,7 +13,9 @@ class CashInvoiceOut(models.TransientModel):
     session_id = fields.Many2one("pos.session", required=True)
     amount = fields.Float(string="Amount", digits=0, required=True)
     move_id = fields.Many2one(
-        comodel_name="account.move", string="Invoice", required=True,
+        comodel_name="account.move",
+        string="Invoice",
+        required=True,
     )
     name = fields.Char(related="move_id.name", readonly=True, string="Reason")
     company_id = fields.Many2one(
@@ -39,7 +41,8 @@ class CashInvoiceOut(models.TransientModel):
         default=lambda self: self._default_payment_method(),
     )
     payment_method_count = fields.Integer(
-        compute="_compute_payment_method_count", readonly=True,
+        compute="_compute_payment_method_count",
+        readonly=True,
     )
 
     @api.depends("payment_method_ids")

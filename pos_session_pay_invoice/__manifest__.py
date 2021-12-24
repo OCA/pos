@@ -3,7 +3,7 @@
 
 {
     "name": "POS Session Pay invoice",
-    "version": "13.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Point Of Sale",
     "author": "Creu Blanca, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
