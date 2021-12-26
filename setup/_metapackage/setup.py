@@ -50,6 +50,7 @@ setuptools.setup(
         'odoo12-addon-pos_price_to_weight',
         'odoo12-addon-pos_product_default_code',
         'odoo12-addon-pos_product_sort',
+        'odoo12-addon-pos_product_template',
         'odoo12-addon-pos_quick_logout',
         'odoo12-addon-pos_remove_pos_category',
         'odoo12-addon-pos_report_order_payment',
