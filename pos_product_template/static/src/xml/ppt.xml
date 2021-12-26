@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014-Today Akretion (https://www.akretion.com)
+     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<template>
+
+<!-- Pop Up Widget -->
+    <t t-name="SelectVariantPopupWidget">
+        <div class="modal-dialog">
+            <div class="popup popup-select-variant">
+                <div class="variant-title">
+                    Variant Selection of <span id="variant-title-name" />
+                    <span id="variant-popup-cancel" class="button">
+                        Cancel
+                    </span>
+                    
+                </div>
+                <div class="content-container container-attribute-list">
+                    <span class="placeholder-AttributeListWidget" />
+                </div>
+                <div class="content-container container-variant-list">
+                    <span class="placeholder-VariantListWidget" />
+                </div>
+            </div>
+        </div>
+    </t>
+
+<!-- Product Template Widget -->
+<!-- This code come from Odoo Project -->
+<!-- Changes:
+    * Display 'name' field instead of display_name field;
+    * Display variant quantity instead of price;
+-->
+    <t t-name="Template">
+        <span class='product' t-att-data-product-id="product.id">
+            <div class="product-img">
+                <img t-att-src='image_url' /> 
+                <span class="price-tag">
+                    <t t-esc="product.product_variant_count"/> Variants
+                </span>
+            </div>
+            <div class="product-name">
+                <t t-esc="product.name"/>
+            </div>
+        </span>
+    </t>
+
+<!-- Attribute and Attributes list Widgets -->
+    <t t-name="AttributeListWidget">
+        <div class='attribute-list-container'>
+            <div class="attribute-list-scroller touch-scrollable">
+                <div class="attribute-list">
+                </div>
+            </div>
+            <span class="placeholder-ScrollbarWidget" />
+        </div>
+    </t>
+
+    <t t-name="AttributeWidget">
+        <span class='attribute' t-att-data-attribute-id="attribute.id">
+            <div class="attribute-name button selected" t-att-data-attribute-id="attribute.id">
+                <t t-esc="attribute.name"/>
+            </div>
+            <div class='value-list-container'>
+                <div class="value-list">
+                </div>
+
+            </div>
+        </span>
+    </t>
+
+    <t t-name="AttributeValueWidget">
+        <span class='attribute-value' t-att-data-attribute-id="value.attribute_id[0]" t-att-data-attribute-value-id="value.id">
+            <div class="button">
+                <div class="attribute-value-header">
+                    <span class="variant-quantity">
+                        <t t-esc="variant_qty"/> Variants
+                    </span>
+                </div>
+                <div class="attribute-value-name">
+                    <t t-esc="value.name"/>
+                </div>
+            </div>
+        </span>
+    </t>
+
+
+<!-- Variant and Variants List Widgets -->
+    <t t-name="VariantListWidget">
+        <div class='variant-list-container'>
+            <div class="variant-list-scroller touch-scrollable">
+                <div class="variant-list">
+                </div>
+            </div>
+            <span class="placeholder-ScrollbarWidget" />
+        </div>
+    </t>
+
+    <t t-name="VariantWidget">
+        <span class='variant' t-att-data-variant-id="variant.id">
+            <div class="variant-header">
+                <t t-if="!variant.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(variant.get_price(pricelist, 1), 'Product Price')"/>
+                    </span>
+                </t>
+                <t t-if="variant.to_weight">
+                    <span class="price-tag">
+                        <t t-esc="widget.format_currency(variant.get_price(pricelist, 1), 'Product Price')+'/Kg'"/>
+                    </span>
+                </t>
+            </div>
+            <div class="variant-name">
+                <t t-esc="variant.display_name"/>
+            </div>
+        </span>
+    </t>
+
+</template>
