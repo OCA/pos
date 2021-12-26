@@ -55,6 +55,7 @@ addon | version | maintainers | summary
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.0 |  | Compute weight based on barcodes with prices
 [pos_product_default_code](pos_product_default_code/) | 12.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Show Internal Reference in POS products list
 [pos_product_sort](pos_product_sort/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | sort the products by name in the point of sale instead of sorting them by the sequence field.
+[pos_product_template](pos_product_template/) | 12.0.1.0.0 |  | Manage Product Template in Front End Point Of Sale
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.0 |  | Allow PoS user to logout quickly after user changed
 [pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.0 |  | POS Remove POS Category
 [pos_report_order_payment](pos_report_order_payment/) | 12.0.1.0.1 |  | Analyze point of sale payments
