@@ -2,12 +2,13 @@
 # Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests import HttpCase
+from odoo.tests.common import HttpCase
 
 
 class TestPOSLoyalty(HttpCase):
 
     def test_pos_loyalty(self):
+        env = self.env(user=self.env.ref('base.user_admin'))
         main_pos_config = self.env.ref('point_of_sale.pos_config_main')
         target_product = self.env.ref('point_of_sale.letter_tray')
         free_product = self.env.ref('point_of_sale.desk_organizer')
@@ -21,13 +22,13 @@ class TestPOSLoyalty(HttpCase):
                 'pp_product': 10,
             })],
             'reward_ids': [(0, 0, {
-                'name': 'Free Peaches',
+                'name': 'Free Letter Tray',
                 'type': 'gift',
                 'gift_product_id': target_product.id,
                 'point_cost': 20,
                 'minimum_points': 20,
             }), (0, 0, {
-                'name': 'Free Onions',
+                'name': 'Free Desk Organizer',
                 'type': 'gift',
                 'gift_product_id': free_product.id,
                 'point_cost': 20,
