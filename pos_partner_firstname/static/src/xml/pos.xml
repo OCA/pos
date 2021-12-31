@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-extend="ClientDetails">
@@ -6,9 +6,14 @@
             <div class="client-details-box clearfix">
                 <div class="client-detail">
                     <span class='label'>Company</span>
-                    <input type='checkbox' class='detail is_company' name='is_company'
-                           t-att-checked="partner.is_company ? 'checked' : null" disabled="disabled"
-                           t-att-value="partner.is_company"/>
+                    <input
+                        type='checkbox'
+                        class='detail is_company'
+                        name='is_company'
+                        t-att-checked="partner.is_company ? 'checked' : null"
+                        disabled="disabled"
+                        t-att-value="partner.is_company"
+                    />
                 </div>
             </div>
         </t>
@@ -17,13 +22,17 @@
                 <div t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
                     <div class="client-detail">
                         <span class='label'>Name</span>
-                        <span class='detail firstname'><t t-esc='partner.firstname or ""'/></span>
+                        <span class='detail firstname'><t
+                                t-esc='partner.firstname or ""'
+                            /></span>
                     </div>
                 </div>
                 <div t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
                     <div class="client-detail">
                         <span class='label'>Surname</span>
-                        <span class='detail lastname'><t t-esc='partner.lastname or ""'/></span>
+                        <span class='detail lastname'><t
+                                t-esc='partner.lastname or ""'
+                            /></span>
                     </div>
                 </div>
             </t>
@@ -35,23 +44,41 @@
             <div class="client-details-box clearfix">
                 <div class="client-detail">
                     <span class='label'>Company</span>
-                    <input type='checkbox' class='detail o_checkbox checkbox is_company'
-                           name='is_company' t-att-checked="partner.is_company ? 'checked' : null"
-                           t-att-value="partner.is_company"/>
+                    <input
+                        type='checkbox'
+                        class='detail o_checkbox checkbox is_company'
+                        name='is_company'
+                        t-att-checked="partner.is_company ? 'checked' : null"
+                        t-att-value="partner.is_company"
+                    />
                 </div>
             </div>
         </t>
         <t t-jquery=".client-details-left" t-operation="prepend">
-            <div class="is_person" t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
+            <div
+                class="is_person"
+                t-attf-style="display: #{!partner.is_company ? 'block': 'none'};"
+            >
                 <div class='client-detail'>
                     <span class='label'>Name</span>
-                    <input class='detail firstname person' name="firstname" t-att-value='partner.firstname or ""'/>
+                    <input
+                        class='detail firstname person'
+                        name="firstname"
+                        t-att-value='partner.firstname or ""'
+                    />
                 </div>
             </div>
-            <div class="is_person" t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
+            <div
+                class="is_person"
+                t-attf-style="display: #{!partner.is_company ? 'block': 'none'};"
+            >
                 <div class='client-detail'>
                     <span class='label'>Surname</span>
-                    <input class='detail lastname person' name="lastname" t-att-value='partner.lastname or ""'/>
+                    <input
+                        class='detail lastname person'
+                        name="lastname"
+                        t-att-value='partner.lastname or ""'
+                    />
                 </div>
             </div>
         </t>
