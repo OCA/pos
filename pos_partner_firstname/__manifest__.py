@@ -18,10 +18,8 @@
         "point_of_sale",
         "partner_firstname",
     ],
-    'qweb': [
-        'static/src/xml/pos.xml'
-    ],
-    'data': [
-        'views/assets.xml',
+    "qweb": ["static/src/xml/pos.xml"],
+    "data": [
+        "views/assets.xml",
     ],
 }
