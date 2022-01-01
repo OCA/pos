@@ -12,4 +12,17 @@
             </xpath>
         </field>
     </record>
+
+    <record id="pos_order_tree_view" model="ir.ui.view">
+        <field name="name">pos.order.tree</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="after">
+                <field name="loyalty_points" string="Points" sum="Total" widget="monetary"/> 
+            </xpath>
+        </field>
+
+    </record>
+
 </odoo>
