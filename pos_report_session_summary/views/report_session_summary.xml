@@ -122,11 +122,26 @@
                             </thead>
                             <tbody>
                                 <tr t-foreach="statement.line_ids" t-as="line">
-                                    <td><span t-field="line.date" /></td>
-                                    <td><span t-field="line.name" /></td>
-                                    <td><span t-field="line.ref" /></td>
-                                    <td><span t-field="line.partner_id" /></td>
-                                    <td><span t-field="line.account_id" /></td>
+                                    <td><span
+                                                t-if="'date' in line"
+                                                t-field="line.date"
+                                            /></td>
+                                    <td><span
+                                                t-if="'name' in line"
+                                                t-field="line.name"
+                                            /></td>
+                                    <td><span
+                                                t-if="'ref' in line"
+                                                t-field="line.ref"
+                                            /></td>
+                                    <td><span
+                                                t-if="'partner_id' in line"
+                                                t-field="line.partner_id"
+                                            /></td>
+                                    <td><span
+                                                t-if="'account_id' in line"
+                                                t-field="line.account_id"
+                                            /></td>
                                     <td class="text-right">
                                         <span
                                                 t-field="line.amount"
