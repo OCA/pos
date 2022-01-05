@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-name="OrderListButton">
+        <span class="control-button pos_order_list_button">
+            <i class="fa fa-shopping-cart"></i>
+            View Orders
+        </span>
+    </t>
+
+    <t t-name="PosOrderScreenWidget">
+        <div class="pos_order_screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'/>
+                        Back
+                    </span>
+                    <span class='searchbox'>
+                        <input placeholder='Search Order'/>
+                        <span class='search-clear'/>
+                    </span>
+                    <span class='button refresh'>
+                        <i class="fa fa-refresh"/>
+                    </span>
+                </section>
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <div class='subwindow-container-fix touch-scrollable scrollable-y'>
+                                    <table class='order-list'>
+                                        <thead>
+                                            <tr>
+                                                <th>Order Reference</th>
+                                                <th>Partner Name</th>
+                                                <th>Date</th>
+                                                <th>Total Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class='order-list-contents'>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PosOrderLine">
+        <tr class='order-line' t-att-data-id='order.id'>
+            <td><t t-esc='order.name' /></td>
+            <td><t t-esc='order.partner_id[1]'/></td>
+            <td><t t-esc='order.date_order' /></td>
+            <td><t t-esc='order.amount_total' /></td>
+        </tr>
+    </t>
+
+</template>
