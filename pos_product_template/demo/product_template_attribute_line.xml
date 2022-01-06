@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+##############################################################################
+#
+#    Point Of Sale - Product Template module for Odoo
+#    Copyright (C) 2014-Today Akretion (http://www.akretion.com)
+#    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU Affero General Public License as
+#    published by the Free Software Foundation, either version 3 of the
+#    License, or (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU Affero General Public License for more details.
+#
+#    You should have received a copy of the GNU Affero General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+##############################################################################
+-->
+<odoo>
+<data noupdate="1">
+    <record
+            id="conference_chair_attribute_pillow_attribute_line"
+            model="product.template.attribute.line"
+        >
+        <field
+                name="product_tmpl_id"
+                ref="product.product_product_11_product_template"
+            />
+        <field name="attribute_id" ref="product_attribute_seat_pillow" />
+        <field
+                name="value_ids"
+                eval="[
+            (6, 0, [
+                    ref('product_attribute_value_seat_pillow_1'),
+                    ref('product_attribute_value_seat_pillow_2'),
+                    ref('product_attribute_value_seat_pillow_3'),
+                    ref('product_attribute_value_seat_pillow_4'),
+                ]
+            )
+        ]"
+            />
+    </record>
+
+    <record
+            id="conference_chair_attribute_wheels_attribute_line"
+            model="product.template.attribute.line"
+        >
+        <field
+                name="product_tmpl_id"
+                ref="product.product_product_11_product_template"
+            />
+        <field name="attribute_id" ref="product_attribute_wheels" />
+        <field
+                name="value_ids"
+                eval="[
+            (6, 0, [
+                    ref('product_attribute_value_wheels_1'),
+                    ref('product_attribute_value_wheels_2'),
+                    ref('product_attribute_value_wheels_3'),
+                    ref('product_attribute_value_wheels_4'),
+                ]
+            )
+        ]"
+            />
+    </record>
+
+    <record
+            id="conference_chair_attribute_backrest_attribute_line"
+            model="product.template.attribute.line"
+        >
+        <field
+                name="product_tmpl_id"
+                ref="product.product_product_11_product_template"
+            />
+        <field name="attribute_id" ref="product_attribute_backrest" />
+        <field
+                name="value_ids"
+                eval="[
+            (6, 0, [
+                    ref('product_attribute_value_backrest_1'),
+                    ref('product_attribute_value_backrest_2'),
+                ]
+            )
+        ]"
+            />
+    </record>
+</data>
+</odoo>

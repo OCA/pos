@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2020 Akretion (https://www.akretion.com)
+     @author Raphaël Reverdy (https://akretion.com)
+     @author Kevin Khao (https://www.akretion.com)
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<template>
+    <t t-name="SelectVariantPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-lg popup-template">
+                <header class="title">
+                    <t t-esc="config.template.name" />
+                </header>
+
+                <main class="body select-variant col-lg-4 col-md-6 col-sm-12">
+                    <div class="touch-scrollable">
+                        <t t-set="level" t-value="0" />
+                        <div
+                            t-foreach="config.attributes"
+                            t-as="attribute"
+                            t-key="attribute.id"
+                            class="attribute-section"
+                        >
+<!--                            <div-->
+<!--                                class="attribute-name attribute-button"-->
+<!--                                t-att-data-attribute-id="attribute.id"-->
+<!--                            >-->
+<!--                                <t t-esc="attribute.name" />-->
+<!--                            </div>-->
+                            <div class="empty-spacing-left" />
+                            <AttributeValueSelector
+                                attribute="attribute"
+                                level="level"
+                                template="config.template"
+                            />
+                            <div class="empty-spacing-right" />
+                            <t t-set="level" t-value="level + 1" />
+                        </div>
+                    </div>
+                    <span class="placeholder-ScrollbarWidget" />
+                </main>
+
+                <footer class="footer">
+                   <t t-if="state.button_confirm_clickable">
+                        <div
+                            class="button confirm selectable highlight"
+                            t-on-click="trigger('click-confirm')"
+                        >
+                            Confirm
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="confirm not_selectable button">
+                            Confirm
+                        </div>
+                    </t>
+                    <div class="cancel button" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+</template>
