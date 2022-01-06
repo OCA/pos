@@ -40,12 +40,9 @@
                 </main>
 
                 <footer class="footer">
-                    <div class="cancel button" t-on-click="cancel">
-                        Cancel
-                    </div>
-                    <t t-if="state.button_confirm_clickable">
+                   <t t-if="state.button_confirm_clickable">
                         <div
-                            class="button confirm selectable"
+                            class="button confirm selectable highlight"
                             t-on-click="trigger('click-confirm')"
                         >
                             Confirm
@@ -56,6 +53,9 @@
                             Confirm
                         </div>
                     </t>
+                    <div class="cancel button" t-on-click="cancel">
+                        Cancel
+                    </div>
                 </footer>
             </div>
         </div>
