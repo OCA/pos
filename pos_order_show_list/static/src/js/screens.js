@@ -1,4 +1,4 @@
-odoo.define('point_of_sale.pos_orders', function(require) {
+odoo.define('pos_order_show_list.screens', function(require) {
 "use strict";
 
 var screens = require('point_of_sale.screens');
@@ -159,5 +159,10 @@ models.Order = models.Order.extend({
         });
     },
 });
+
+return {
+    PosOrderScreenWidget: PosOrderScreenWidget,
+    OrderListButton: OrderListButton
+};
 
 });
