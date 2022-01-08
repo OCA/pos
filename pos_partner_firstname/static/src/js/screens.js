@@ -1,49 +1,61 @@
 odoo.define("pos_partner_firstname.screens", function (require) {
     "use strict";
+    const {parse} = require("web.field_utils");
+    const PosComponent = require("point_of_sale.PosComponent");
+    const Registries = require("point_of_sale.Registries");
+    const ClientDetailsEdit = require("point_of_sale.ClientDetailsEdit");
 
-    var Screens = require("point_of_sale.screens");
-
-    Screens.ClientListScreenWidget.include({
-        partner_names_order: "last_first",
-
-        init: function (parent, options) {
-            var self = this;
-            this._super(parent, options);
-            this._rpc({
-                model: "res.partner",
-                method: "get_names_order",
-                args: [],
-            }).then(function (partner_names_order) {
-                if (partner_names_order != false) {
-                    self.partner_names_order = partner_names_order;
-                }
-            });
-        },
-
-        _update_client_name: function (checked) {
-            if (!checked) {
-                var lastname = $(".lastname").val() || "";
-                var firstname = $(".firstname").val() || "";
-                var name = null;
-                if (this.partner_names_order === "last_first_comma") {
-                    name = lastname + ", " + firstname;
-                } else if (this.partner_names_order === "first_last") {
-                    name = firstname + " " + lastname;
-                } else {
-                    name = lastname + " " + firstname;
-                }
-                $(".client-name").val(name);
+    const ClientDetailsEditFirstname = (ClientDetailsEdit) =>
+        class extends ClientDetailsEdit {
+            constructor() {
+                super(...arguments);
+                var self = this;
+                this.rpc({
+                    model: "res.partner",
+                    method: "get_names_order",
+                    args: [],
+                }).then(function (partner_names_order) {
+                    if (partner_names_order != false) {
+                        self.partner_names_order = "last_first";
+                    }
+                });
             }
-        },
 
-        display_client_details: function (visibility, partner, clickpos) {
-            var self = this;
-            this._super.apply(self, arguments);
-            if (visibility === "edit") {
+            mounted() {
+                this.display_client_details(this.props.partner);
+                super.mounted(...arguments);
+            }
+            willUnmount() {
+                this.display_client_details(this.props.partner);
+                super.willUnmount(...arguments);
+            }
+
+            _update_client_name(checked) {
+                if (!checked) {
+                    var lastname = $(".lastname").val() || "";
+                    var firstname = $(".firstname").val() || "";
+                    var name = null;
+                    if (this.partner_names_order === "last_first_comma") {
+                        name = lastname + ", " + firstname;
+                    } else if (this.partner_names_order === "first_last") {
+                        name = firstname + " " + lastname;
+                    } else {
+                        name = lastname + " " + firstname;
+                    }
+                    $(".client-name").val(name);
+                }
+            }
+
+            updatePerson() {
+                this.display_client_details(this.props.partner);
+            }
+
+            display_client_details(partner) {
+                var self = this;
                 if (!$(".is_company").is(":checked")) {
                     $(".client-name").attr("readonly", true);
                 }
-                this.$(".person")
+                $(".person")
                     .off("keyup")
                     .on("keyup", function (event) {
                         var checked = $(".is_company").is(":checked");
@@ -52,7 +64,7 @@ odoo.define("pos_partner_firstname.screens", function (require) {
                             self._update_client_name(checked);
                         }
                     });
-                this.$(".checkbox")
+                $(".is_company")
                     .off("change")
                     .on("change", function (event) {
                         this.value = this.checked;
@@ -74,6 +86,9 @@ odoo.define("pos_partner_firstname.screens", function (require) {
                         }
                     });
             }
-        },
-    });
+        };
+
+    Registries.Component.extend(ClientDetailsEdit, ClientDetailsEditFirstname);
+
+    return ClientDetailsEdit;
 });
