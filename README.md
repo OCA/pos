@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [pos_fixed_discount](pos_fixed_discount/) | 14.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 |  | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_margin](pos_margin/) | 14.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
-[pos_no_cash_bank_statement](pos_no_cash_bank_statement/) | 14.0.1.0.1 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Generate bank statements for all payment methods, not only cash
+[pos_no_cash_bank_statement](pos_no_cash_bank_statement/) | 14.0.1.0.2 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Generate bank statements for all payment methods, not only cash
 [pos_order_remove_line](pos_order_remove_line/) | 14.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 14.0.1.0.0 |  | Point of Sale Order Return
 [pos_payment_change](pos_payment_change/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
