@@ -25,8 +25,13 @@ class PosPaymentMethod(models.Model):
         "sale journal entry.",
     )
 
+    @api.model
+    def _get_allowed_journal_types(self):
+        return ["cash"]
+
     @api.constrains("is_cash_count", "cash_journal_id", "bank_statement")
     def _check_journal_config(self):
+        allowed_cash_types = self._get_allowed_journal_types()
         for method in self:
             if method.is_cash_count:
                 if not method.cash_journal_id:
@@ -34,13 +39,19 @@ class PosPaymentMethod(models.Model):
                         _("Missing cash journal on cash payment method '%s'.")
                         % method.display_name
                     )
-                if method.cash_journal_id.type != "cash":
+                if method.cash_journal_id.type not in allowed_cash_types:
+                    labels = [
+                        dict(method.cash_journal_id._fields.get("type").selection).get(
+                            t
+                        )
+                        for t in allowed_cash_types
+                    ]
                     raise ValidationError(
                         _(
                             "The journal configured on the cash payment method '%s' "
-                            "should be a cash journal."
+                            "should one of these types:\n- %s."
                         )
-                        % method.display_name
+                        % (method.display_name, "\n- ".join(labels))
                     )
             elif method.bank_statement:
                 if not method.cash_journal_id:
