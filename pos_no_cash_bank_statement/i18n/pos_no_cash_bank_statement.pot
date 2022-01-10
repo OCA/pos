@@ -82,8 +82,8 @@ msgstr ""
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid ""
-"The journal configured on the cash payment method '%s' should be a cash "
-"journal."
+"The journal configured on the cash payment method '%s' should one of these types:\n"
+"- %s."
 msgstr ""
 
 #. module: pos_no_cash_bank_statement
