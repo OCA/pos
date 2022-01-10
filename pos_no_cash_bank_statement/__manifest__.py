@@ -4,7 +4,7 @@
 
 {
     "name": "POS No Cash Bank Statement",
-    "version": "14.0.1.0.1",
+    "version": "14.0.1.0.2",
     "category": "Sales/Point of Sale",
     "license": "AGPL-3",
     "summary": "Generate bank statements for all payment methods, not only cash",
