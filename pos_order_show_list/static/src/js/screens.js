@@ -18,7 +18,7 @@ models.load_models({
     model:  'pos.order',
     fields: ['name', 'partner_id','date_order','amount_total','pos_reference','lines','state','session_id','company_id'],
     loaded: function(self, orders){
-        self.orders = orders;
+        self.paid_orders = orders;
         }
     });
 
@@ -45,8 +45,8 @@ var PosOrderScreenWidget = ScreenWidget.extend({
         this.$('.back').click(function(){
             self.gui.show_screen('products');
         });
-        var orders = this.get_orders();
-        this.render_list(orders);
+
+        this.render_list(self.pos.paid_orders);
 
         var search_timeout = null;
 
@@ -67,7 +67,7 @@ var PosOrderScreenWidget = ScreenWidget.extend({
         });
         this.$('.refresh').click(function(){
             models.Order.prototype.push_new_order_list();
-            self.render_list(self.pos.orders);
+            self.render_list(self.pos.paid_orders);
         });
     },
 
@@ -94,12 +94,12 @@ var PosOrderScreenWidget = ScreenWidget.extend({
             orders = this.search_order(query);
             this.render_list(orders);
         }else{
-            orders = this.pos.orders;
+            orders = this.pos.paid_orders;
             this.render_list(orders);
         }
     },
     clear_search: function(){
-        var orders = this.pos.orders;
+        var orders = this.pos.paid_orders;
         this.render_list(orders);
         this.$('.searchbox input')[0].value = '';
         this.$('.searchbox input').focus();
@@ -112,10 +112,10 @@ var PosOrderScreenWidget = ScreenWidget.extend({
             return [];
         }
         var results = [];
-        for (var order_id in this.pos.orders){
-            var r = re.exec(this.pos.orders[order_id]['name']+ '|'+ this.pos.orders[order_id]['partner_id'][1]);
+        for (var order_id in this.pos.paid_orders){
+            var r = re.exec(this.pos.paid_orders[order_id]['name']+ '|'+ this.pos.paid_orders[order_id]['partner_id'][1]);
             if(r){
-            results.push(this.pos.orders[order_id]);
+            results.push(this.pos.paid_orders[order_id]);
             }
         }
         return results;
@@ -128,7 +128,7 @@ gui.define_screen({name:'order_list', widget: PosOrderScreenWidget});
 var OrderListButton = screens.ActionButtonWidget.extend({
     template: 'OrderListButton',
     button_click: function(){
-        var orders = this.pos.orders;
+        var orders = this.pos.paid_orders;
         this.gui.show_screen('order_list',{orders:orders});
     }
 });
@@ -155,7 +155,7 @@ models.Order = models.Order.extend({
             args: [[], fields],
             limit: 40,
         }).then(function (orders){
-            posmodel.orders = orders;
+            posmodel.paid_orders = orders;
         });
     },
 });
