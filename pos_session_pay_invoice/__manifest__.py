@@ -11,6 +11,7 @@
     "license": "LGPL-3",
     "depends": ["point_of_sale", "account_cash_invoice"],
     "data": [
+        "security/ir.model.access.csv",
         "wizard/pos_box_cash_invoice_out.xml",
         "wizard/pos_box_cash_invoice_in.xml",
         "wizard/cash_invoice_in.xml",
