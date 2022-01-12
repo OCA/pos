@@ -9,15 +9,16 @@ from odoo import fields, models
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
-    require_customer = fields.Selection([
-        ('no', 'Optional'),
-        ('payment', 'Required before paying'),
-        ('order', 'Required before starting the order'),
+    require_customer = fields.Selection(
+        [
+            ("no", "Optional"),
+            ("payment", "Required before paying"),
+            ("order", "Required before starting the order"),
         ],
-        string='Require Customer',
-        default='no',
+        string="Require Customer",
+        default="no",
         help="Require customer for orders in this point of sale:\n"
         "* 'Optional' (customer is optional);\n"
         "* 'Required before paying';\n"
