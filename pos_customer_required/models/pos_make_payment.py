@@ -1,17 +1,17 @@
-# Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
-# Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
-# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2016 La Louve - Sylvain LE GAL <https://twitter.com/legalsylvain>
+# Copyright 2019 Druidoo - (https://www.druidoo.io)
+# Copyright 2022 NuoBiT - Eric Antones <eantones@nuobit.com>
+# Copyright 2022 NuoBiT - Kilian Niubo <kniubo@nuobit.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 
-from odoo import _, api, models
+from odoo import _, models
 from odoo.exceptions import UserError
 
 
 class PosMakePayment(models.TransientModel):
     _inherit = "pos.make.payment"
 
-    @api.multi
     def check(self):
         # Load current order
         order_obj = self.env["pos.order"]

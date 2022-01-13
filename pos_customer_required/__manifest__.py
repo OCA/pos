@@ -1,23 +1,23 @@
-# Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
-# Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
-# Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
-# @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
-# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html
+# Copyright 2004 apertoso NV - Jos DE GRAEVE <Jos.DeGraeve@apertoso.be>
+# Copyright 2016 La Louve - Sylvain LE GAL <https://twitter.com/legalsylvain>
+# Copyright 2019 Druidoo - (https://www.druidoo.io)
+# Copyright 2022 NuoBiT - Eric Antones <eantones@nuobit.com>
+# Copyright 2022 NuoBiT - Kilian Niubo <kniubo@nuobit.com>
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 {
     "name": "Point of Sale Require Customer",
-    "version": "12.0.1.0.1",
+    "version": "14.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of Sale Require Customer",
-    "author": "Apertoso NV, La Louve, Odoo Community Association (OCA)",
+    "author": "Apertoso NV, La Louve, NuoBiT, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
     ],
     "data": [
-        "static/src/xml/templates.xml",
+        "views/assets.xml",
         "views/pos_config_view.xml",
         "views/pos_order_view.xml",
     ],

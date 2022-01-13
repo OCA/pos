@@ -15,32 +15,32 @@ msgstr ""
 
 #. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:25
+#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
 #, python-format
 msgid "An anonymous order cannot be confirmed"
 msgstr ""
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_make_payment.py:23
+#: code:addons/pos_customer_required/models/pos_make_payment.py:0
 #, python-format
 msgid "An anonymous order cannot be confirmed.\n"
 "Please select a customer for this order."
 msgstr ""
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_order.py:22
+#: code:addons/pos_customer_required/models/pos_order.py:0
 #, python-format
 msgid "Customer is required for this order and is missing."
 msgstr ""
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__no
 msgid "Optional"
 msgstr ""
 
 #. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:26
+#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
 #, python-format
 msgid "Please select a customer for this order."
 msgstr ""
@@ -77,12 +77,12 @@ msgid "Require customer for orders in this point of sale:\n"
 msgstr ""
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__payment
 msgid "Required before paying"
 msgstr ""
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__order
 msgid "Required before starting the order"
 msgstr ""
 
