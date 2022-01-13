@@ -21,13 +21,13 @@ msgstr ""
 
 #. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:25
+#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
 #, python-format
 msgid "An anonymous order cannot be confirmed"
 msgstr "Una comanda anònima no pot ser confirmada"
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_make_payment.py:23
+#: code:addons/pos_customer_required/models/pos_make_payment.py:0
 #, python-format
 msgid ""
 "An anonymous order cannot be confirmed.\n"
@@ -37,19 +37,19 @@ msgstr ""
 "Si us plau seleccioneu un client per a aquesta comanda."
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_order.py:22
+#: code:addons/pos_customer_required/models/pos_order.py:0
 #, python-format
 msgid "Customer is required for this order and is missing."
 msgstr "En necessari que hi hagi un client per a aquesta comanda i no hi és."
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__no
 msgid "Optional"
 msgstr "Opcional"
 
 #. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:26
+#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
 #, python-format
 msgid "Please select a customer for this order."
 msgstr "Si us plau seleccioneu un client per a aquesta comanda."
@@ -93,24 +93,11 @@ msgstr ""
 "* 'Requerit abans d'entrar la comanda';"
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__payment
 msgid "Required before paying"
 msgstr "Requerit abans de pagar"
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__order
 msgid "Required before starting the order"
 msgstr "Requerit abans d'entrar la comanda"
-
-#~ msgid "Require customer"
-#~ msgstr "Client requerit "
-
-#~ msgid ""
-#~ "True if a customer is required to begin the order.\n"
-#~ "See the PoS Config to change this setting"
-#~ msgstr ""
-#~ "Veritable si un client es demanat per començar la comanda.\n"
-#~ "Mireu la configuració del TPV per canviar aquest paràmetre "
-
-#~ msgid "pos.config"
-#~ msgstr "pos.config"

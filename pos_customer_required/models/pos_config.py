@@ -1,9 +1,7 @@
-# Copyright (C) 2004-Today Apertoso NV (<http://www.apertoso.be>)
-# Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
-# Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
-# @author: Jos DE GRAEVE (<Jos.DeGraeve@apertoso.be>)
-# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+# Copyright 2004 apertoso NV - Jos DE GRAEVE <Jos.DeGraeve@apertoso.be>
+# Copyright 2016 La Louve - Sylvain LE GAL <https://twitter.com/legalsylvain>
+# Copyright 2019 Druidoo - (https://www.druidoo.io)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 from odoo import fields, models
 
