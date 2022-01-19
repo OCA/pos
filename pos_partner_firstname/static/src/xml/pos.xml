@@ -1,87 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-extend="ClientDetails">
-        <t t-jquery=".client-name" t-operation="after">
-            <div class="client-details-box clearfix">
-                <div class="client-detail">
-                    <span class='label'>Company</span>
-                    <input
-                        type='checkbox'
-                        class='detail is_company'
-                        name='is_company'
-                        t-att-checked="partner.is_company ? 'checked' : null"
-                        disabled="disabled"
-                        t-att-value="partner.is_company"
-                    />
-                </div>
-            </div>
-        </t>
-        <t t-jquery=".client-details-left" t-operation="prepend">
-            <t t-if="partner.is_company == false">
-                <div t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
-                    <div class="client-detail">
-                        <span class='label'>Name</span>
-                        <span class='detail firstname'><t
-                                t-esc='partner.firstname or ""'
-                            /></span>
+    <t t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension">
+        <xpath expr="//input[@name='name']" position="attributes">
+            <attribute name="t-att-readonly">!props.partner.is_company</attribute>
+        </xpath>
+        <xpath expr="//div[@class='client-details-left']/div[1]" position="before">
+            <div class="client-detail">
+                <span class='label'>Company</span>
+                <input
+                    type='checkbox'
+                    class='detail o_checkbox checkbox is_company'
+                    name='is_company'
+                    t-att-checked="props.partner.is_company ? 'checked' : null"
+                    t-on-change="captureChange"
+                    t-att-value="props.partner.is_company"
+                />
+                <div
+                    class="is_person"
+                    t-on-change="captureChange"
+                    t-attf-style="display: {{!props.partner.is_company ? 'block': 'none'}};"
+                >
+                    <div class='client-detail'>
+                        <span class='label'>Last Name</span>
+                        <input
+                            class='detail lastname person'
+                            name="lastname"
+                            t-on-change="captureChange"
+                            t-att-value="props.partner.lastname || ''"
+                            placeholder="LastName"
+                        />
                     </div>
                 </div>
-                <div t-attf-style="display: #{!partner.is_company ? 'block': 'none'};">
-                    <div class="client-detail">
-                        <span class='label'>Surname</span>
-                        <span class='detail lastname'><t
-                                t-esc='partner.lastname or ""'
-                            /></span>
-                    </div>
-                </div>
-            </t>
-        </t>
-    </t>
-
-    <t t-extend="ClientDetailsEdit">
-        <t t-jquery=".client-name" t-operation="append">
-            <div class="client-details-box clearfix">
-                <div class="client-detail">
-                    <span class='label'>Company</span>
-                    <input
-                        type='checkbox'
-                        class='detail o_checkbox checkbox is_company'
-                        name='is_company'
-                        t-att-checked="partner.is_company ? 'checked' : null"
-                        t-att-value="partner.is_company"
-                    />
-                </div>
             </div>
-        </t>
-        <t t-jquery=".client-details-left" t-operation="prepend">
-            <div
+                <div
                 class="is_person"
-                t-attf-style="display: #{!partner.is_company ? 'block': 'none'};"
+                t-on-change="captureChange"
+                t-attf-style="display: {{!props.partner.is_company ? 'block': 'none'}};"
             >
-                <div class='client-detail'>
-                    <span class='label'>Name</span>
-                    <input
+                    <div class='client-detail'>
+                        <span class='label'>First Name</span>
+                        <input
                         class='detail firstname person'
                         name="firstname"
-                        t-att-value='partner.firstname or ""'
+                        t-on-change="captureChange"
+                        t-att-value="props.partner.firstname || ''"
+                        placeholder="FirstName"
                     />
+                    </div>
                 </div>
-            </div>
-            <div
-                class="is_person"
-                t-attf-style="display: #{!partner.is_company ? 'block': 'none'};"
-            >
-                <div class='client-detail'>
-                    <span class='label'>Surname</span>
-                    <input
-                        class='detail lastname person'
-                        name="lastname"
-                        t-att-value='partner.lastname or ""'
-                    />
-                </div>
-            </div>
-        </t>
+        </xpath>
     </t>
 
 </templates>
