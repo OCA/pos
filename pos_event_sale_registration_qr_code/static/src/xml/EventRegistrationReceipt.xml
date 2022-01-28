@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Iván Todorovich <ivan.todorovich@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="pos_event_sale.EventRegistrationReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('event-registration-barcode')]" position="inside">
+            <div t-if="registration.qr_code">
+                <img
+                    class="qrcode"
+                    t-attf-src="/report/barcode/?type=QR&amp;value={{registration.qr_code}}&amp;width=164&amp;height=164&amp;humanreadable=0"
+                    alt="QR Code"
+                />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
