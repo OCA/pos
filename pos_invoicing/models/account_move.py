@@ -19,13 +19,12 @@ class AccountMove(models.Model):
         " will be closed.",
     )
 
-    # Overload Section
     def button_cancel(self):
         self._check_pos_pending_payment()
         return super().button_cancel()
 
     def _check_pos_pending_payment(self):
-        invoices = self.filtered(lambda x: x.pos_pending_payment)
+        invoices = self.filtered("pos_pending_payment")
         if invoices:
             raise UserError(
                 _(

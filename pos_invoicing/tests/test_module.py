@@ -4,33 +4,56 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import fields
-from odoo.tests.common import TransactionCase
+from odoo.exceptions import UserError
+from odoo.tests import Form
+from odoo.tests.common import SavepointCase
 
 
-class TestModule(TransactionCase):
-    def setUp(self):
-        super(TestModule, self).setUp()
+class TestModule(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestModule, cls).setUpClass()
 
         # Get Registry
-        self.PosOrder = self.env["pos.order"]
-        self.AccountPayment = self.env["account.payment"]
+        cls.PosOrder = cls.env["pos.order"]
+        cls.AccountPayment = cls.env["account.payment.register"]
 
         # Get Object
-        self.pos_product = self.env.ref("point_of_sale.whiteboard_pen")
-        self.pricelist = self.env.ref("product.list0")
-        self.partner = self.env.ref("base.res_partner_12")
+        cls.pos_product = cls.env.ref("point_of_sale.whiteboard_pen")
+        cls.pricelist = cls.env.ref("product.list0")
+        cls.partner = cls.env.ref("base.res_partner_12")
 
         # Create a new pos config and open it
-        self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
-        self.pos_config.open_session_cb()
+        cls.pos_config = cls.env.ref("point_of_sale.pos_config_main").copy()
+        cls.pos_config.open_session_cb()
 
-    # Test Section
     def test_order_invoice(self):
         order = self._create_order()
 
         order.action_pos_order_invoice()
 
         self.assertEqual(order.account_move.pos_pending_payment, True)
+
+        with self.assertRaises(UserError):
+            account_move = order.account_move
+            account_move.button_draft()
+            account_move.button_cancel()
+
+        with self.assertRaises(UserError):
+            account_move = order.account_move
+            account_move.action_register_payment()
+            action_data = account_move.action_register_payment()
+            wizard = Form(
+                self.env["account.payment.register"].with_context(action_data)
+            ).save()
+            wizard.action_create_payments()
+
+        self.register_payment(order.account_move.id)
+        action_data = order.account_move.action_register_payment()
+        wizard = Form(
+            self.env["account.payment.register"].with_context(action_data["context"])
+        ).save()
+        wizard.action_create_payments()
 
         # Once closed check if the invoice is correctly set
         self.pos_config.current_session_id.action_pos_session_closing_control()
@@ -80,10 +103,10 @@ class TestModule(TransactionCase):
                         },
                     ]
                 ],
-                "creation_date": u"2018-09-27 15:51:03",
+                "creation_date": "2018-09-27 15:51:03",
                 "amount_tax": 0,
                 "fiscal_position_id": False,
-                "uid": u"00001-001-0001",
+                "uid": "00001-001-0001",
                 "amount_return": 0,
                 "sequence_number": 1,
                 "amount_total": 0.9,
@@ -93,3 +116,23 @@ class TestModule(TransactionCase):
         result = self.PosOrder.create_from_ui([order_data])
         order = self.PosOrder.browse(result[0]["id"])
         return order
+
+    def register_payment(self, invoice_id=False):
+        journal = self.pos_config.payment_method_ids[0]
+        payment_id = self.AccountPayment.with_context(
+            active_model="account.move", active_ids=invoice_id
+        ).create(
+            {
+                "payment_type": "inbound",
+                "partner_type": "customer",
+                "payment_date": fields.Datetime.now(),
+                "partner_id": self.partner.id,
+                "amount": 0.9,
+                "journal_id": journal.id,
+                "payment_method_id": journal.cash_journal_id.inbound_payment_method_ids[
+                    0
+                ].id,
+            }
+        )
+
+        return payment_id

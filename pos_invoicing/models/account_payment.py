@@ -22,14 +22,3 @@ class AccountPaymentRegister(models.TransientModel):
                 % (", ".join(account_move.mapped("name")))
             )
         return super().action_create_payments()
-
-    def action_post(self):
-        if self.move_id.pos_pending_payment:
-            raise UserError(
-                _(
-                    "You can not realize this action on the payments(s) %s because"
-                    " there are pending payments in the Point of Sale."
-                )
-                % (", ".join(self.move_id.mapped("communication")))
-            )
-        return super().action_post()
