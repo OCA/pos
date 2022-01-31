@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_pos_invoice_in_control">
+        <field name="name">Pay invoice</field>
+        <field name="res_model">cash.invoice.in</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

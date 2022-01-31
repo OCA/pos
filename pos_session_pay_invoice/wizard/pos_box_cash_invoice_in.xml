@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_pos_invoice_in">
+        <field name="name">Pay invoice</field>
+        <field name="res_model">pos.box.cash.invoice.in</field>
+        <field name="view_mode">form</field>
+    </record>
+    <record id="cash_invoice_in_form" model="ir.ui.view">
+        <field name="name">cash_invoice_in_form</field>
+        <field name="model">pos.box.cash.invoice.in</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="session_id" invisible="1" />
+                    <field name="company_id" invisible="1" />
+                    <field name="payment_method_ids" invisible="1" />
+                    <field name="payment_method_count" invisible="1" />
+                    <field
+                        name="payment_method_id"
+                        class="oe_inline"
+                        domain="[('id', 'in', payment_method_ids)]"
+                        options="{'no_create': True, 'no_open':True}"
+                        attrs="{'invisible':[('payment_method_count', '&lt;', 2)]}"
+                    />
+                    <field
+                        name="move_id"
+                        class="oe_inline"
+                        domain="[('company_id', '=', company_id),
+                           ('state', '=', 'posted'),
+                           ('currency_id', '=', currency_id),
+                           ('amount_residual_signed', '!=', 0),
+                           ('move_type', 'in', ['out_refund'])]"
+                        options="{'no_create': True, 'no_open':True}"
+                        context="{'tree_view_ref': 'account.view_invoice_tree', 'default_type': 'out_refund'}"
+                    />
+                    <label for="amount" />
+                    <div>
+                        <field name="amount" class="oe_inline" />
+                        <field
+                            name="currency_id"
+                            class="oe_inline"
+                            groups="base.group_multi_currency"
+                        />
+                    </div>
+                </group>
+                <footer>
+                    <button
+                        name="run"
+                        string="Register"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button special="cancel" string="Cancel" class="btn-default" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
