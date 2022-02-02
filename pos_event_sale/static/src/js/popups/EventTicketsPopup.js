@@ -54,6 +54,19 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
             );
         },
 
+        getTicketFinalPrice: function(ticket) {
+            const pricelist = _.findWhere(self.posmodel.pricelists, {
+                name: this.pos.get_order().pricelist.name,
+            });
+            const product = this.pos.db.get_product_by_id(ticket.product_id[0]);
+            // When we sell events in pos, sales price is set at the ticket level and not in the product.
+            // We set product.lst_price with the price of the ticket. Like that, standard method get_price
+            // will be able to apply the discount on the top of ticket price.
+            // See get_price method: https://github.com/odoo/odoo/blob/44f7754af4fc82228f4f12d3f0b59a2cfe7ecab5/addons/point_of_sale/static/src/js/models.js#L1543
+            product.lst_price = ticket.price;
+            return product.get_price(pricelist, 1);
+        },
+
         renderTickets: function() {
             const $ticketsList = this.$(".product-list");
             $ticketsList.empty();
@@ -63,6 +76,7 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
                         widget: this,
                         ticket: ticket,
                         product: this.pos.db.get_product_by_id(ticket.product_id[0]),
+                        ticket_final_price: this.getTicketFinalPrice(ticket),
                         image_url: this.getProductImageURL(ticket.product_id[0]),
                         seats_available: this.pos.getEventTicketSeatsAvailable(ticket),
                     })
@@ -75,9 +89,10 @@ odoo.define("pos_event_sale.EventTicketsPopup", function(require) {
             const ticket_id = $el.data("id");
             const ticket = this.pos.db.get_event_ticket_by_id(ticket_id);
             const product = this.pos.db.get_product_by_id(ticket.product_id[0]);
+            const ticket_final_price = this.getTicketFinalPrice(ticket);
             this.pos.get_order().add_product(product, {
                 quantity: 1,
-                price: ticket.price,
+                price: ticket_final_price,
                 extras: {
                     event_ticket_id: ticket.id,
                     price_manually_set: true,

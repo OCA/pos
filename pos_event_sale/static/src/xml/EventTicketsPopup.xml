@@ -37,7 +37,9 @@
             <div class="product-img">
                 <img t-att-src="image_url" alt="Product image" />
                 <span class="price-tag">
-                    <t t-esc="widget.format_currency(ticket.price, 'Product Price')" />
+                    <t
+                        t-esc="widget.format_currency(ticket_final_price, 'Product Price')"
+                    />
                 </span>
                 <!-- Availability indicator -->
                 <t t-call="EventAvailabilityBadge" />
