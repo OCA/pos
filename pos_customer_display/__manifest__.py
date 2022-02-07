@@ -10,6 +10,7 @@
     "summary": "Manage LED Customer Display device from POS front end",
     "author": "Aurélien DUMAINE,GRAP,Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
+    "website": "https://github.com/OCA/pos",
     "depends": ["point_of_sale"],
     "data": [
         "views/assets.xml",
