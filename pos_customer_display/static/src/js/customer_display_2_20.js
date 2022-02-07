@@ -38,7 +38,7 @@ odoo.define("pos_customer_display.customer_display_2_20", function (require) {
                 .toFixed(currency_rounding);
             var qty = order_line.get_quantity();
             // Only display decimals when qty is not an integer
-            if (qty.toFixed(0) == qty) {
+            if (qty.toFixed(0) === qty) {
                 qty = qty.toFixed(0);
             }
             var discount = order_line.get_discount();
@@ -67,7 +67,7 @@ odoo.define("pos_customer_display.customer_display_2_20", function (require) {
             }
         };
 
-        this._prepare_message_payment = function (action) {
+        this._prepare_message_payment = function () {
             var currency_rounding = this.pos.currency.decimals;
             var order = this.pos.get_order();
             var total = order.get_total_with_tax().toFixed(currency_rounding);
