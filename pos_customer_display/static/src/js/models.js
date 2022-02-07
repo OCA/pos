@@ -77,7 +77,7 @@ odoo.define("pos_customer_display.models", function (require) {
     models.Orderline = models.Orderline.extend({
         set_quantity: function (quantity, keep_price) {
             var send_message = this.pos.send_message_customer_display;
-            var message;
+            var message = false;
             this.pos.send_message_customer_display = false;
 
             // In the current Odoo design, set_quantity is call to remove line

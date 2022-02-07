@@ -70,9 +70,9 @@ odoo.define("pos_customer_display.devices", function (require) {
             }
         },
 
-        prepare_message_payment: function (action) {
+        prepare_message_payment: function () {
             if (this.customer_display_proxy) {
-                return this.customer_display_proxy._prepare_message_payment(action);
+                return this.customer_display_proxy._prepare_message_payment();
             }
         },
 
