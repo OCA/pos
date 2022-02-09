@@ -5,7 +5,7 @@
 {
     "name": "PoS Order Margin",
     "summary": "Margin on PoS Order",
-    "version": "13.0.2.0.1",
+    "version": "13.0.2.0.2",
     "category": "Point Of Sale",
     "author": "GRAP," "Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
