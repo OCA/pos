@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="pos_show_order_hamburger_menu" inherit_id="pos_order_show_list.pos_order_show_template">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_show_order_hamburger_menu/static/src/js/screens.js"/>
+                <script type="text/javascript" src="/pos_show_order_hamburger_menu/static/src/js/widget.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

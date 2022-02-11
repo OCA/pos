@@ -1,0 +1,66 @@
+/* The Quotation List Screen */
+
+.pos_order_screen .order-list{
+    font-size: 16px;
+    width: 100%;
+    line-height: 40px;
+}
+.pos_order_screen .order-list th,
+.pos_order_screen .order-list td {
+    padding: 0px 8px;
+}
+.pos_order_screen .order-list tr{
+    transition: all 150ms linear;
+    background: rgb(230,230,230);
+}
+.pos_order_screen .order-list thead > tr,
+.pos_order_screen .order-list tr:nth-child(even) {
+    background: rgb(247,247,247);
+}
+.pos_order_screen .order-list tr.highlight{
+    transition: all 150ms linear;
+    background: rgb(110,200,155) !important;
+    color: white;
+}
+.pos_order_screen .order-list td tr.lowlight{
+    transition: all 150ms linear;
+    background: rgb(216, 238, 227);
+}
+.pos_order_screen .order-list tr.lowlight:nth-child(even){
+    transition: all 150ms linear;
+    background: rgb(227, 246, 237);
+}
+
+.pos_order_screen .searchbox{
+    right: auto;
+    margin-left: -90px;
+    margin-top:8px;
+    left: 50%;
+}
+.pos_order_screen .searchbox input{
+    width: 120px;
+}
+.pos_order_details{
+    width:700px !important;
+    height:525px !important;
+}
+.pos_order_details .title{
+    background-color:#6EC89B!important;
+    border-bottom: solid 1px #40B379 !important;
+}
+.pos_order_details .selection{
+    line-height: 40px!important;
+    max-height: 400px!important;
+    font-size: 13px !important;
+}
+.pos_order_details .footer{
+    background-color:#6EC89B;
+    border-top: solid 1px #40B379 !important;
+}
+.pos_order_details .footer .button{
+    background-color: rgb(240, 238, 238) !important;
+}
+
+.screen .top-content .button.refresh {
+    left: 80%;
+}
