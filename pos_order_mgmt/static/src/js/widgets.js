@@ -276,8 +276,8 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
                     if (line.length === 3) {
                         line = line[2];
                     }
-                    _.each(self.pos.cashregisters, function(cashregister) {
-                        if (cashregister.journal.id === line.journal_id) {
+                    _.each(self.pos.payment_methods, function(cashregister) {
+                        if (cashregister.id === line.payment_method_id) {
                             if (line.amount > 0) {
                                 // If it is not change
                                 order.add_paymentline(cashregister);

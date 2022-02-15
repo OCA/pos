@@ -140,6 +140,7 @@ class PosOrder(models.Model):
         return {
             "journal_id": payment_line.pos_order_id.sale_journal,
             "amount": payment_line.amount,
+            "payment_method_id": payment_line.payment_method_id.id,
         }
 
     def load_done_order_for_pos(self):
