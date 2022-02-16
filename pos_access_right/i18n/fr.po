@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-02 11:49+0000\n"
-"PO-Revision-Date: 2016-11-02 11:49+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2022-02-16 18:32+0000\n"
+"Last-Translator: Khalid Hazam <k.hazam@badep.ma>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_access_right
 #. openerp-web
@@ -54,10 +55,9 @@ msgstr "Quantité négative - Fonctionnalité non autorisée"
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
-#, fuzzy, python-format
-#| msgid "Discount - Unauthorized function"
+#, python-format
 msgid "Payment - Unauthorized function"
-msgstr "Remise - Fonctionnalité non autorisée"
+msgstr "Paiement - Fonctionnalité non autorisée"
 
 #. module: pos_access_right
 #. openerp-web
@@ -111,10 +111,8 @@ msgstr "Point de Vente - Quantité négative"
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
 #: model:res.groups,name:pos_access_right.group_payment
-#, fuzzy
-#| msgid "Point of Sale - Discount"
 msgid "Point of Sale - Payment"
-msgstr "Point de Vente - Remise"
+msgstr "Point de Vente - Paiement"
 
 #. module: pos_access_right
 #: model:res.groups,name:pos_access_right.group_change_unit_price
@@ -123,9 +121,8 @@ msgstr "Point de Vente - Changer de prix"
 
 #. module: pos_access_right
 #: model:ir.model,name:pos_access_right.model_pos_config
-#, fuzzy
 msgid "Point of Sale Configuration"
-msgstr "Point de Vente - Remise"
+msgstr "Point de Vente - Configuration"
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
@@ -174,16 +171,12 @@ msgstr ""
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
-#, fuzzy
-#| msgid ""
-#| "This field is there to pass the id of the 'PoS - Many Orders Group to the "
-#| "Point of Sale Frontend."
 msgid ""
 "This field is there to pass the id of the 'PoS - Payment' Group to the Point "
 "of Sale Frontend."
 msgstr ""
-"Ce champs existe pour passer l'ID du groupe 'PdV - Plusieurs commandes' au "
-"sein du point de vente tactile."
+"Ce champs existe pour passer l'ID du groupe 'PdV - Paiement' au sein du "
+"point de vente tactile."
 
 #~ msgid "pos.config"
 #~ msgstr "pos.config"
