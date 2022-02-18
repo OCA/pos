@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_form_view_inherit" model="ir.ui.view">
+        <field name="name">pos.config.form.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='module_pos_restaurant']" position='after'>
+                <div class="o_setting_left_pane" title="Employees can scan their badge or enter a PIN to log in to a PoS session. These credentials are configurable in the *HR Settings* tab of the employee form.">
+                    <field name="module_pos_hr"/>
+                </div>
+                <div class="o_setting_right_pane" id="login_with_employees">
+                    <span class="o_form_label">Allowed Employees </span>
+                    <div class="content-group mt16">
+                        <div
+                            attrs="{'invisible': [('module_pos_hr', '=', False)]}">
+                            <span class="oe_edit_only">Authorized Employees</span>
+                            <field name="employee_ids" widget="many2many_tags"
+                                   domain="[('company_id', '=', company_id)]"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
