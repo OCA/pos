@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <!-- Copyright 2018 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).-->
-
 <odoo>
 
     <record id="view_pos_config_form" model="ir.ui.view">
@@ -12,10 +11,10 @@
             <xpath expr="//div[@id='inventory_location']" position="inside">
                 <div class="col-12 col-lg-6 o_setting_box">
                     <div class="o_setting_left_pane">
-                        <field name="picking_creation_delayed"/>
+                        <field name="picking_creation_delayed" />
                     </div>
                     <div class="o_setting_right_pane">
-                        <label for="picking_creation_delayed"/>
+                        <label for="picking_creation_delayed" />
                         <div class="text-muted">
                             Delay the creation of the picking created by the PoS orders
                         </div>
