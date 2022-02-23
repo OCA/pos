@@ -34,10 +34,20 @@ class TestPointOfSaleStockPickingInvoiceLink(common.HttpCase):
         )
         self.PosOrder = self.env["pos.order"]
         self.pos_config = self.env.ref("point_of_sale.pos_config_main")
+        journal = self.env["account.journal"].create(
+            {
+                "name": "Test journal sale",
+                "code": "TST-JRNL-S",
+                "type": "sale",
+                "company_id": self.env.company.id,
+            }
+        )
         self.pos_config.write(
             {
                 "available_pricelist_ids": [(6, 0, self.pricelist.ids)],
                 "pricelist_id": self.pricelist.id,
+                "module_account": True,
+                "invoice_journal_id": journal.id,
             }
         )
 
@@ -106,7 +116,7 @@ class TestPointOfSaleStockPickingInvoiceLink(common.HttpCase):
         pos_make_payment.with_context(context_payment).check()
         pos_order.create_picking()
         res = pos_order.action_pos_order_invoice()
-        invoice = self.env["account.invoice"].browse(res["res_id"])
+        invoice = self.env["account.move"].browse(res["res_id"])
         self.assertTrue(invoice.picking_ids)
         for line in invoice.invoice_line_ids:
             self.assertEqual(len(line.move_line_ids), 1)

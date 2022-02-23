@@ -1,6 +1,6 @@
 # Copyright 2019 Tecnativa - David Vidal
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class StockMove(models.Model):
@@ -10,7 +10,6 @@ class StockMove(models.Model):
         comodel_name="pos.order.line", string="Related POS Order Line",
     )
 
-    @api.model
     def create(self, vals):
         """We're creating the move in pos.order context
            so we search the line uid"""
@@ -20,7 +19,6 @@ class StockMove(models.Model):
                 vals["pos_order_line_id"] = line.id
         return super().create(vals)
 
-    @api.model
     def _prepare_merge_moves_distinct_fields(self):
         distinct_fields = super()._prepare_merge_moves_distinct_fields()
         distinct_fields.append("pos_order_line_id")

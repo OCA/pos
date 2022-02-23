@@ -10,19 +10,15 @@ class PosOrder(models.Model):
         self_ctx = self.with_context(merge_pos_order_line=True)
         return super(PosOrder, self_ctx).create_picking()
 
-    def _prepare_invoice(self):
-        res = super()._prepare_invoice()
-        res.update(
-            {"picking_ids": [(6, 0, self.picking_id.ids)]}
-        )
+    def _prepare_invoice_vals(self):
+        res = super()._prepare_invoice_vals()
+        res.update({"picking_ids": [(6, 0, self.picking_id.ids)]})
         return res
 
-    def _action_create_invoice_line(self, line=False, invoice_id=False):
-        invoice_line = super()._action_create_invoice_line(line, invoice_id)
-        if not line:
-            return invoice_line
-        invoice_line.move_line_ids |= line.stock_move_ids
-        return invoice_line
+    def _prepare_invoice_line(self, order_line):
+        res = super()._prepare_invoice_line(order_line)
+        res["move_line_ids"] = [(6, 0, order_line.stock_move_ids.ids)]
+        return res
 
 
 class PosOrderLine(models.Model):
