@@ -4,7 +4,7 @@ from odoo import fields, models
 
 
 class PosOrder(models.Model):
-    _inherit = 'pos.order'
+    _inherit = "pos.order"
 
     def create_picking(self):
         self_ctx = self.with_context(merge_pos_order_line=True)
@@ -12,9 +12,9 @@ class PosOrder(models.Model):
 
     def _prepare_invoice(self):
         res = super()._prepare_invoice()
-        res.update({
-            'picking_ids': [(6, 0, self.picking_id.ids)],
-        })
+        res.update(
+            {"picking_ids": [(6, 0, self.picking_id.ids)]}
+        )
         return res
 
     def _action_create_invoice_line(self, line=False, invoice_id=False):
@@ -26,10 +26,10 @@ class PosOrder(models.Model):
 
 
 class PosOrderLine(models.Model):
-    _inherit = 'pos.order.line'
+    _inherit = "pos.order.line"
 
     stock_move_ids = fields.One2many(
-        comodel_name='stock.move',
-        inverse_name='pos_order_line_id',
-        string='Related Stock Moves',
+        comodel_name="stock.move",
+        inverse_name="pos_order_line_id",
+        string="Related Stock Moves",
     )
