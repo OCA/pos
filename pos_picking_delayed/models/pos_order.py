@@ -15,7 +15,7 @@ class PosOrder(models.Model):
 
     # Overload Section
     @api.model
-    def create_from_ui(self, orders):
+    def create_from_ui(self, orders, draft=False):
         PosSession = self.env["pos.session"]
         for order_data in orders:
             session_id = order_data.get("data").get("pos_session_id")
@@ -24,7 +24,7 @@ class PosOrder(models.Model):
                 "has_picking_delayed"
             ] = session.config_id.picking_creation_delayed
         return super(PosOrder, self.with_context(create_from_ui=True)).create_from_ui(
-            orders
+            orders, draft=draft
         )
 
     def create_picking(self):
@@ -45,7 +45,6 @@ class PosOrder(models.Model):
         return res
 
     # Custom Section
-    @api.multi
     def _create_delayed_picking(self):
         # make the function idempotent
         orders = self.filtered(lambda x: x.has_picking_delayed)
