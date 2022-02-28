@@ -29,7 +29,6 @@ class TestModule(TransactionCase):
                 "currency_id": self.currency.id,
             }
         )
-
         # Create a new pos config and open it
         self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy(
             {
@@ -38,11 +37,11 @@ class TestModule(TransactionCase):
                 "currency_id": self.currency.id,
             }
         )
-        self.pos_config.open_session_cb()
 
     def test_01_picking_delayed_enabled(self):
         # Enable feature
         self.pos_config.picking_creation_delayed = True
+        self.pos_config.open_session_cb()
 
         order = self._create_order()
 
@@ -61,6 +60,7 @@ class TestModule(TransactionCase):
     def test_02_picking_delayed_disabled(self):
         # Disable feature
         self.pos_config.picking_creation_delayed = False
+        self.pos_config.open_session_cb()
 
         order = self._create_order()
 
@@ -80,6 +80,7 @@ class TestModule(TransactionCase):
         # Create order
         account_id = self.env.user.partner_id.property_account_receivable_id
         statement_id = self.pos_config.current_session_id.statement_ids[0]
+        payment_methods = self.pos_config.current_session_id.payment_method_ids
         order_data = {
             "id": u"0006-001-0010",
             "to_invoice": False,
@@ -108,11 +109,15 @@ class TestModule(TransactionCase):
                         0,
                         0,
                         {
-                            "journal_id": self.pos_config.journal_ids[0].id,
+                            "journal_id": self.pos_config.journal_id.id,
                             "amount": 0.9,
                             "name": fields.Datetime.now(),
                             "account_id": account_id.id,
                             "statement_id": statement_id.id,
+                            "payment_method_id": payment_methods.filtered(
+                                lambda pm: pm.is_cash_count
+                                and not pm.split_transactions
+                            )[0].id,
                         },
                     ]
                 ],
@@ -127,5 +132,5 @@ class TestModule(TransactionCase):
         }
 
         result = self.PosOrder.create_from_ui([order_data])
-        order = self.PosOrder.browse(result[0])
+        order = self.PosOrder.browse(result[0]["id"])
         return order
