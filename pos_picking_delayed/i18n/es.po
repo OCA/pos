@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_picking_delayed
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_picking_delayed
+#: model:ir.model.fields,help:pos_picking_delayed.field_pos_config__picking_creation_delayed
+msgid "Check this box if you want to delay the creation of the picking created by the PoS orders. If checked, the pickings will be created later, by a cron task."
+msgstr ""
+"Marque esta casilla si desea retrasar la creación de la selección creada por "
+"los pedidos PdV. Si está marcada, las selecciones se crearán más tarde, por "
+"una tarea cron."
+
+#. module: pos_picking_delayed
+#: model_terms:ir.ui.view,arch_db:pos_picking_delayed.view_pos_config_form
+msgid "Delay the creation of the picking created by the PoS orders"
+msgstr "Retrasar la creación del picking creado por los pedidos PdV"
+
+#. module: pos_picking_delayed
+#: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_order__has_picking_delayed
+msgid "Has Picking Delayed"
+msgstr "Ha retrasado el picking"
+
+#. module: pos_picking_delayed
+#: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_config__picking_creation_delayed
+msgid "Picking Creation Delayed"
+msgstr "Creación de picking retrasada"
+
+#. module: pos_picking_delayed
+#: model:ir.model,name:pos_picking_delayed.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_picking_delayed
+#: model:ir.model,name:pos_picking_delayed.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos de Punto de Venta"
+
+#. module: pos_picking_delayed
+#: model:ir.model.fields,help:pos_picking_delayed.field_pos_order__has_picking_delayed
+msgid "This checkbox is checked if the generation of the picking has been delayed. The picking will be created by cron."
+msgstr ""
+"Esta casilla de verificación se marca si la generación del picking se ha "
+"retrasado. La selección será creada por cron."
