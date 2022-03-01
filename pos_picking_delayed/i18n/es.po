@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_picking_delayed
+# 	* pos_picking_delayed
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,10 @@ msgstr ""
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_config__picking_creation_delayed
-msgid "Check this box if you want to delay the creation of the picking created by the PoS orders. If checked, the pickings will be created later, by a cron task."
+msgid ""
+"Check this box if you want to delay the creation of the picking created by "
+"the PoS orders. If checked, the pickings will be created later, by a cron "
+"task."
 msgstr ""
 "Marque esta casilla si desea retrasar la creación de la selección creada por "
 "los pedidos PdV. Si está marcada, las selecciones se crearán más tarde, por "
@@ -51,7 +54,9 @@ msgstr "Pedidos de Punto de Venta"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_order__has_picking_delayed
-msgid "This checkbox is checked if the generation of the picking has been delayed. The picking will be created by cron."
+msgid ""
+"This checkbox is checked if the generation of the picking has been delayed. "
+"The picking will be created by cron."
 msgstr ""
 "Esta casilla de verificación se marca si la generación del picking se ha "
 "retrasado. La selección será creada por cron."
