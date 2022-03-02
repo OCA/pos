@@ -74,12 +74,27 @@ var PosOrderScreenWidget = ScreenWidget.extend({
     get_orders: function(){
         return this.gui.get_current_screen_param('orders');
     },
-
+    add_zero_to_date: function(number) {
+        if (number <= 9)
+            return "0" + number;
+        else
+            return number;
+    },
     render_list: function(orders){
         var contents = this.$el[0].querySelector('.order-list-contents');
         contents.innerHTML = "";
         for(var i = 0, len = Math.min(orders.length,1000); i < len; i++){
             var order   = orders[i];
+            order.amount_total = order.amount_total.toFixed(2);
+            var date = new Date(order.date_order);
+            var new_date = this.add_zero_to_date(date.getDate()) + '/' + this.add_zero_to_date(date.getMonth() + 1) + '/' + this.add_zero_to_date(date.getFullYear()) + ' ' + this.add_zero_to_date((date.getHours()-3)) + ':' + this.add_zero_to_date(date.getMinutes()) + ':' + this.add_zero_to_date(date.getSeconds())
+            order.date_order = new_date;
+            var myHashStates = {
+                'paid': 'Pago',
+                'done': 'Pago',
+                'cancel': 'Cancelado'
+            };
+            order.state = myHashStates[order.state];
             var order_line_html = QWeb.render('PosOrderLine',{widget: this, order:order});
             var order_line = document.createElement('tbody');
             order_line.innerHTML = order_line_html;
@@ -152,11 +167,11 @@ models.Order = models.Order.extend({
         rpc.query({
             model: 'pos.order',
             method: 'search_read',
-            args: [[], fields],
+            args: [[['state', 'in', ['paid', 'invoiced', 'cancel', 'done']]], fields],
             limit: 40,
         }).then(function (orders){
             posmodel.paid_orders = orders;
-        });
+        })
     },
 });
 

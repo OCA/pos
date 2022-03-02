@@ -30,7 +30,7 @@
                                 <div class='subwindow-container-fix touch-scrollable scrollable-y'>
                                     <table class='order-list'>
                                         <thead>
-                                            <tr>
+                                            <tr style="font-size: 13px">
                                                 <th>Order Reference</th>
                                                 <th>Partner Name</th>
                                                 <th>Date</th>
@@ -50,8 +50,8 @@
     </t>
 
     <t t-name="PosOrderLine">
-        <tr class='order-line' t-att-data-id='order.id'>
-            <td><t t-esc='order.name' /></td>
+        <tr style="font-size: 12px;" class='order-line' t-att-data-id='order.id' t-att-data-chave='order.document_key' t-att-data-xml='order.document_file'>
+            <td><t t-esc='order.pos_reference' /></td>
             <td><t t-esc='order.partner_id[1]'/></td>
             <td><t t-esc='order.date_order' /></td>
             <td><t t-esc='order.amount_total' /></td>
