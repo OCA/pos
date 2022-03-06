@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+     <record id="view_wizard_pos_move_reason_form" model="ir.ui.view">
+        <field name="model">wizard.pos.move.reason</field>
+        <field name="inherit_id" ref="pos_cash_move_reason.view_wizard_pos_move_reason_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='setting']" position="after">
+                <group colspan="2" col="4" name="group_control_difference" attrs="{'invisible': [('journal_id', '=', False)]}" >
+                    <field name="current_control_difference"/>
+                    <field name="new_control_difference"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
