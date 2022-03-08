@@ -9,6 +9,7 @@ from odoo.exceptions import ValidationError
 
 class LoyaltyReward(models.Model):
     _name = 'loyalty.reward'
+    _description = "Loyalty reward"
 
     name = fields.Char(string='Reward Name', size=32, index=True,
                        required=True)
@@ -23,7 +24,7 @@ class LoyaltyReward(models.Model):
     point_cost = fields.Float(string='Point Cost',
                               help='Cost of the reward per monetary unit '
                                    'discounted')
-    discount = fields.Float(help='The discount percentage')
+    discount = fields.Float(help='The discount factor (set 0.1 for 10%)')
     discount_max = fields.Float(string='Discount limit',
                                 help='Maximum discounted amount allowed for'
                                      'this discount reward')
