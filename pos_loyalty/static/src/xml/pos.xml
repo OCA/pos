@@ -27,7 +27,7 @@
     </t>
 
     <t t-extend='OrderWidget'>
-        <t t-jquery='.summary' t-operation='prepend'>
+        <t t-jquery='div.summary:first' t-operation='prepend'>
             <div class='loyalty-points oe_hidden'>.</div>
         </t>
     </t>
