@@ -17,14 +17,3 @@ class PosOrder(models.Model):
         res = super(PosOrder, self)._order_fields(ui_order)
         res['loyalty_points'] = ui_order.get('loyalty_points', 0)
         return res
-
-    @api.model
-    def create_from_ui(self, orders):
-        res = super(PosOrder, self).create_from_ui(orders)
-        for order in orders:
-            order_partner = order['data']['partner_id']
-            order_points = order['data'].get('loyalty_points', 0)
-            if order_points != 0 and order_partner:
-                partner = self.env['res.partner'].browse(order_partner)
-                partner.loyalty_points += order_points
-        return res
