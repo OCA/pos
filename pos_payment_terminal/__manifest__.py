@@ -16,7 +16,6 @@
         'views/account_journal.xml',
         'views/assets.xml',
         ],
-    'demo': ['demo/pos_config.xml'],
     'qweb': ['static/src/xml/pos_payment_terminal.xml'],
     'installable': True,
 }
