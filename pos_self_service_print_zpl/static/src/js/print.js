@@ -12,7 +12,7 @@ window.printZPL = (printerName, zplString) => {
             },
             data: Buffer.from(zplString),
         },
-        function(err, res) {
+        function (err, res) {
             console.log(res);
         }
     );

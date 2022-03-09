@@ -35,5 +35,5 @@ class PosConfig(models.Model):
         string="Darkness",
         required=True,
         default=20,
-        help="ZPL ~SD (set darkness) command. 0 to 30."
+        help="ZPL ~SD (set darkness) command. 0 to 30.",
     )

@@ -1,4 +1,4 @@
-odoo.define("pos_self_service_base.screens", function(require) {
+odoo.define("pos_self_service_base.screens", function (require) {
     "use strict";
     // This file contains the base screen where user actions will be included.
     // Those actions will be defined in seperated modules.
@@ -17,33 +17,34 @@ odoo.define("pos_self_service_base.screens", function(require) {
         scale_weight: 0,
 
         // Ignore products, discounts, and client barcodes
-        barcode_product_action: function(code) {},
-        barcode_discount_action: function(code) {},
-        barcode_client_action: function(code) {},
-        start: function() {
+        barcode_product_action: function (code) {},
+        barcode_discount_action: function (code) {},
+        barcode_client_action: function (code) {},
+        start: function () {
             var self = this;
             this._super();
-            this.self_service_scale_widget = this.pos.chrome.widget.self_service_scale_widget;
+            this.self_service_scale_widget =
+                this.pos.chrome.widget.self_service_scale_widget;
             this.self_service_scale_widget.add_observer(this);
             this.barcode_parser = this.pos.barcode_reader.barcode_parser;
         },
-        show: function() {
+        show: function () {
             var self = this;
             this._super();
             this.chrome.widget.order_selector.hide();
-            this.$(".tare").click(function() {
+            this.$(".tare").click(function () {
                 self.click_print();
             });
             this.render_button();
         },
-        get_tare_button_render_env: function() {
+        get_tare_button_render_env: function () {
             return {
                 widget: this,
                 pos: this.pos,
                 scale_weight: this.scale_weight,
             };
         },
-        update: function(data) {
+        update: function (data) {
             this.scale_weight = data;
             this.render_button();
         },
@@ -51,7 +52,7 @@ odoo.define("pos_self_service_base.screens", function(require) {
             var self = this;
             this._super();
         },
-        click_print: function() {
+        click_print: function () {
             if (this.scale_weight <= 0) {
                 this.gui.show_popup("alert", {
                     title: _t("No Weight"),
@@ -59,7 +60,7 @@ odoo.define("pos_self_service_base.screens", function(require) {
                 });
             }
         },
-        format_barcode: function(weight) {
+        format_barcode: function (weight) {
             // We use EAN13 barcode, it looks like `07 00000 12345 x`. First there
             // is the prefix, here 07, that is used to decide which type of
             // barcode we're dealing with. A weight barcode has then two groups
@@ -89,26 +90,26 @@ odoo.define("pos_self_service_base.screens", function(require) {
             // Replace checksum placeholder by the actual checksum.
             return barcode.substr(0, 12).concat(ean_checksum);
         },
-        get_barcode_prefix: function() {
+        get_barcode_prefix: function () {
             var barcode_pattern = this.get_barcode_pattern();
             return barcode_pattern.substr(0, 2);
         },
-        get_barcode_pattern: function() {
+        get_barcode_pattern: function () {
             var rules = this.get_nomenclature_rules();
-            var rule = rules.filter(function(r) {
+            var rule = rules.filter(function (r) {
                 // We select the first (smallest sequence ID) barcode rule
                 // with the expected type.
                 return r.type === "tare";
             })[0];
             return rule.pattern;
         },
-        get_nomenclature_rules: function() {
+        get_nomenclature_rules: function () {
             return this.barcode_parser.nomenclature.rules;
         },
-        get_barcode: function() {
+        get_barcode: function () {
             return this.format_barcode(this.scale_weight);
         },
-        render_button: function() {
+        render_button: function () {
             this.$(".tare-button-container").html(
                 QWeb.render("TareButton", this.get_tare_button_render_env())
             );
@@ -119,7 +120,7 @@ odoo.define("pos_self_service_base.screens", function(require) {
     gui.define_screen({
         name: "selfservice",
         widget: SelfServiceScreenWidget,
-        condition: function() {
+        condition: function () {
             return this.pos.config.iface_self_service;
         },
     });
