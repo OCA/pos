@@ -10,6 +10,19 @@ class TestPOSLoyalty(odoo.tests.HttpCase):
         env = self.env(user=self.env.ref('base.user_admin'))
 
         main_pos_config = env.ref('point_of_sale.pos_config_main')
+
+        # Disabile "use_proxy", see point_of_sale/static/src/js/models.js
+        main_pos_config.iface_payment_terminal = False
+        main_pos_config.iface_electronic_scale = False
+        main_pos_config.iface_print_via_proxy = False
+        main_pos_config.iface_scan_via_proxy = False
+        main_pos_config.iface_cashdrawer = False
+        main_pos_config.iface_customer_facing_display = False
+
+        # module pos_customer_display
+        if hasattr(main_pos_config, 'iface_customer_display'):
+            main_pos_config.iface_customer_display = False
+
         target_product = env.ref('point_of_sale.letter_tray')
         free_product = env.ref('point_of_sale.desk_organizer')
         customer = env.ref('base.res_partner_2')
