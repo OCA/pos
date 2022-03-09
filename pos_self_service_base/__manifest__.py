@@ -8,7 +8,7 @@
     "version": "12.0.1.0.0",
     "category": "Point of Sale",
     "author": "Coop IT Easy SCRLfs, Odoo Community Association (OCA)",
-    "website": "https://github.com/OCA/pos",
+    "website": "https://coopiteasy.be",
     "license": "AGPL-3",
     "depends": ["point_of_sale", "pos_tare"],
     "data": ["views/templates.xml", "views/pos_config_view.xml"],
