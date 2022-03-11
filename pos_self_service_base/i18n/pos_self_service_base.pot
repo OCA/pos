@@ -1,0 +1,77 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_self_service_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_self_service_base
+#. openerp-web
+#: code:addons/pos_self_service_base/static/src/js/chrome.js:43
+#, python-format
+msgid "Button"
+msgstr ""
+
+#. module: pos_self_service_base
+#. openerp-web
+#: code:addons/pos_self_service_base/static/src/xml/pos_self_service.xml:25
+#, python-format
+msgid "Home"
+msgstr ""
+
+#. module: pos_self_service_base
+#: model:ir.model.fields,field_description:pos_self_service_base.field_pos_config__iface_self_service
+msgid "Is Self-Service"
+msgstr ""
+
+#. module: pos_self_service_base
+#. openerp-web
+#: code:addons/pos_self_service_base/static/src/js/screens.js:76
+#, python-format
+msgid "Maximum tare weight is 99.999 kg"
+msgstr ""
+
+#. module: pos_self_service_base
+#. openerp-web
+#: code:addons/pos_self_service_base/static/src/js/screens.js:58
+#, python-format
+msgid "No Weight"
+msgstr ""
+
+#. module: pos_self_service_base
+#. openerp-web
+#: code:addons/pos_self_service_base/static/src/js/screens.js:59
+#, python-format
+msgid "Please put your container on the scale"
+msgstr ""
+
+#. module: pos_self_service_base
+#: model:ir.model,name:pos_self_service_base.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_self_service_base
+#. openerp-web
+#: code:addons/pos_self_service_base/static/src/xml/pos_self_service.xml:45
+#, python-format
+msgid "Print container tare"
+msgstr ""
+
+#. module: pos_self_service_base
+#: model:ir.model.fields,help:pos_self_service_base.field_pos_config__iface_self_service
+msgid "Use that POS as self-service point"
+msgstr ""
+
+#. module: pos_self_service_base
+#: model_terms:ir.ui.view,arch_db:pos_self_service_base.pos_config_view_form
+msgid "Use your PoS as Self-Service"
+msgstr ""
+
