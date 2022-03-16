@@ -12,6 +12,9 @@ var Backbone = window.Backbone;
 var QWeb = core.qweb;
 var _t = core._t;
 
+const utils = require("web.utils");
+const round_pr = utils.round_precision;
+
 var PosModelSuper = models.PosModel;
 
 models.load_models({
@@ -65,8 +68,8 @@ var PosOrderScreenWidget = ScreenWidget.extend({
         this.$('.searchbox .search-clear').click(function(){
             self.clear_search();
         });
-        this.$('.refresh').click(function(){
-            models.Order.prototype.push_new_order_list();
+        this.$('.refresh').click(async function(){
+            await models.Order.prototype.push_new_order_list();
             self.render_list(self.pos.paid_orders);
         });
     },
@@ -83,18 +86,10 @@ var PosOrderScreenWidget = ScreenWidget.extend({
     render_list: function(orders){
         var contents = this.$el[0].querySelector('.order-list-contents');
         contents.innerHTML = "";
+        const rounding = this.pos.currency.rounding;
         for(var i = 0, len = Math.min(orders.length,1000); i < len; i++){
             var order   = orders[i];
-            order.amount_total = order.amount_total.toFixed(2);
-            var date = new Date(order.date_order);
-            var new_date = this.add_zero_to_date(date.getDate()) + '/' + this.add_zero_to_date(date.getMonth() + 1) + '/' + this.add_zero_to_date(date.getFullYear()) + ' ' + this.add_zero_to_date((date.getHours()-3)) + ':' + this.add_zero_to_date(date.getMinutes()) + ':' + this.add_zero_to_date(date.getSeconds())
-            order.date_order = new_date;
-            var myHashStates = {
-                'paid': 'Pago',
-                'done': 'Pago',
-                'cancel': 'Cancelado'
-            };
-            order.state = myHashStates[order.state];
+            order.amount_total = round_pr(order.amount_total, rounding);
             var order_line_html = QWeb.render('PosOrderLine',{widget: this, order:order});
             var order_line = document.createElement('tbody');
             order_line.innerHTML = order_line_html;
@@ -159,19 +154,25 @@ models.Order = models.Order.extend({
         this.push_new_order_list();
         _super_order.finalize.apply(this, arguments);
     },
-    push_new_order_list: function(){
+    push_new_order_list: async function(){
         var self = this;
-        var order_screen = posmodel.gui.screen_instances.order_list;
-        var fields = _.find(posmodel.models,function(model){ return model.model === 'pos.order'; }).fields;
-        var line_fields = _.find(posmodel.models,function(model){ return model.model === 'pos.order.line'; }).fields;
-        rpc.query({
-            model: 'pos.order',
-            method: 'search_read',
-            args: [[['state', 'in', ['paid', 'invoiced', 'cancel', 'done']]], fields],
-            limit: 40,
-        }).then(function (orders){
-            posmodel.paid_orders = orders;
-        })
+        return new Promise(function (resolve, reject) {
+            var order_screen = posmodel.gui.screen_instances.order_list;
+            var fields = _.find(posmodel.models,function(model){ return model.model === 'pos.order'; }).fields;
+            var line_fields = _.find(posmodel.models,function(model){ return model.model === 'pos.order.line'; }).fields;
+            rpc.query({
+                model: 'pos.order',
+                method: 'search_read',
+                args: [[['state', 'in', ['paid', 'invoiced', 'cancel', 'done']]], fields],
+                limit: 40,
+            }).then(function (orders){
+                posmodel.paid_orders = orders;
+                resolve(true);
+            },
+            (error) => {
+                reject(error);
+            })
+        });
     },
 });
 
