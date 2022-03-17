@@ -5,7 +5,7 @@
     'name': "POS Order Remove Line",
     'summary': "Add button to remove POS order line.",
     'author': "Roberto Fichera, Odoo Community Association (OCA)",
-    'website': 'https://www.github.com/OCA/pos',
+    'website': 'https://github.com/OCA/pos',
     'category': 'Point of Sale',
     "maintainers": ["robyf70"],
     'version': '12.0.1.1.0',
