@@ -18,6 +18,10 @@ odoo.define('pos_order_show_list.widgets', function (require) {
                 var orders = self.pos.orders;
                 self.gui.show_screen('order_list',{orders: orders});
             });
+            self.add_menu("reload-pos", "Reload POS");
+            this.$('#reload-pos').click(function(){
+                location.reload(true);
+            });
         },
     });
 
