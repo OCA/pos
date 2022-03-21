@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Pierre Verkest <pierreverkest84@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_order_zipcode/static/src/js/models.js"/>
+            <script
+                type="text/javascript"
+                src="/pos_order_zipcode/static/src/js/screens.js"></script>
+            <link
+                rel="stylesheet"
+                href="/pos_order_zipcode/static/src/css/pos.css"/>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Pierre Verkest <pierreverkest84@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="ZipCodeScreenWidget">
+        <div class="clientlist-screen screen">
+            <div class="screen-content">
+                <section class="top-content">
+                    <span class='button back'>
+                        <i class='fa fa-angle-double-left'></i>
+                        Cancel
+                    </span>
+                    <span class='button next highlight'>
+                        Validate
+                        <i class='fa fa-angle-double-right'></i>
+                    </span>
+                </section>
+                <section class="full-content">
+                    <div class='window'>
+                        <section class='subwindow'>
+                            <div class='subwindow-container'>
+                                <span class='zipcode'>
+                                    <input placeholder='ZIP Code' />
+                                    <i class='fa fa-remove fa-3x clear-zipcode' role="img" aria-label="Clear Zip Code" title="Clear ZIP Code"/>
+                                </span>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </t>
+    <t t-extend="PaymentScreenWidget">
+        <t t-jquery="div.js_set_customer" t-operation="after">
+            <div t-attf-class="button js_set_order_zipcode #{(!widget.pos.config.pos_order_zipcode_zip_required || widget.pos.get_order().get_zipcode()) ? '' : 'highlight'}">
+                <i class='fa fa-map' role="img" aria-label="ZIP Code" title="ZIP Code"/>
+                <span class="js_zipcode">
+                    <t t-if="widget.pos.get_order() and widget.pos.get_order().get_zipcode()">
+                        <t t-esc="widget.pos.get_order().get_zipcode()" />
+                    </t>
+                    <t t-else="">
+                        ZIP Code
+                    </t>
+                </span>
+            </div>
+        </t>
+    </t>
+
+</templates>

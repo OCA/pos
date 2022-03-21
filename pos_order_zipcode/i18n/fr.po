@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_order_zipcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_zipcode
+#. openerp-web
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:13
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_order_zipcode
+#: model:ir.model.fields,field_description:pos_order_zipcode.field_pos_config__pos_order_zipcode_zip_required
+msgid "Catchment area info required"
+msgstr "Code postal requis"
+
+#. module: pos_order_zipcode
+#. openerp-web
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:27
+#, python-format
+msgid "Clear ZIP Code"
+msgstr "Effacer le code postal"
+
+#. module: pos_order_zipcode
+#. openerp-web
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:27
+#, python-format
+msgid "Clear Zip Code"
+msgstr "Effacer le code postal"
+
+#. module: pos_order_zipcode
+#: model:ir.model,name:pos_order_zipcode.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_order_zipcode
+#: model:ir.model,name:pos_order_zipcode.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commande de point de vente"
+
+#. module: pos_order_zipcode
+#. openerp-web
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:16
+#, python-format
+msgid "Validate"
+msgstr "Valider"
+
+#. module: pos_order_zipcode
+#: model_terms:ir.ui.view,arch_db:pos_order_zipcode.view_pos_config_form
+msgid ""
+"When checked Zip code is required to validate payment and print ticket\n"
+"                                in order to use that information for the "
+"catchment area."
+msgstr ""
+"Lorsque cette case est coché le caissier devra obligatoirement saisir le "
+"code postal du client pour pouvoir valider le paiement."
+
+#. module: pos_order_zipcode
+#: model:ir.model.fields,help:pos_order_zipcode.field_pos_config__pos_order_zipcode_zip_required
+msgid "When checked Zip code is required to validate payment and print ticket."
+msgstr ""
+"Si la valeur est VRAI le caissier devra obligatoirement saisir le code "
+"postal du client pour pouvoir valider le paiement."
+
+#. module: pos_order_zipcode
+#. openerp-web
+#: code:addons/pos_order_zipcode/static/src/js/screens.js:52
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:26
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:39
+#: code:addons/pos_order_zipcode/static/src/xml/pos.xml:44
+#, python-format
+msgid "ZIP Code"
+msgstr "Code postal"
+
+#. module: pos_order_zipcode
+#: model:ir.model.fields,field_description:pos_order_zipcode.field_pos_order__zipcode
+msgid "Zip"
+msgstr "Code postal"
