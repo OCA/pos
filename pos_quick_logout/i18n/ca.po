@@ -9,38 +9,40 @@ msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 05:50+0000\n"
-"PO-Revision-Date: 2017-03-28 05:50+0000\n"
-"Last-Translator: Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017\n"
+"PO-Revision-Date: 2022-03-21 14:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_quick_logout
 #: model_terms:ir.ui.view,arch_db:pos_quick_logout.view_pos_config_view_form_quick_logout
 msgid "<span class=\"o_form_label\">Logout Timeout</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Temps d'espera de tancament</span>"
 
 #. module: pos_quick_logout
 #. openerp-web
 #: code:addons/pos_quick_logout/static/src/xml/pos_quick_logout.xml:0
 #, python-format
 msgid "Log Out"
-msgstr "Sortida "
+msgstr "Sortida"
 
 #. module: pos_quick_logout
 #: model:ir.model.fields,field_description:pos_quick_logout.field_pos_config__logout_timeout
 msgid "Logout Timeout"
-msgstr ""
+msgstr "Temps d'espera de tancament de sessió"
 
 #. module: pos_quick_logout
 #: model:ir.model,name:pos_quick_logout.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuració del punt de venda"
 
 #. module: pos_quick_logout
 #: model:ir.model.fields,help:pos_quick_logout.field_pos_config__logout_timeout
 msgid "Timeout (sec) for automatic session logout in this POS"
 msgstr ""
+"Temps d'espera (s) per al tancament automàtic de la sessió en aquest TPV"
