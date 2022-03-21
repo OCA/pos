@@ -19,9 +19,9 @@ odoo.define('pos_unavailable_product_friendly_error.model', function (require) {
             var product = this.pos.db.get_product_by_id(json.product_id);
             if (!product) {
                 alert(_t(
-                    "Unable to load the point of sale, because a product is not available." +
-                    " When confirming this popup, you'll be redirected to the product form" +
-                    " to make it again available." +
+                    "Unable to load the point of sale, because a product on a pending order " +
+                    "is not available. When confirming this popup, you'll be redirected" +
+                    " to the product form to make it again available." +
                     " Once done, you can resume the session of the Point of Sale."
                 ));
                 var url = "/web#action=point_of_sale.product_product_action&view_type=form&id=" + json.product_id;

@@ -15,5 +15,8 @@
     "data": [
         "views/templates.xml",
     ],
+    "images": [
+        "static/description/pos_front_end_popup.png",
+    ],
     "installable": True,
 }
