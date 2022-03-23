@@ -9,31 +9,31 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 03:08+0000\n"
-"PO-Revision-Date: 2020-03-13 11:13+0000\n"
-"Last-Translator: mtbochaca <mtbochaca@gmail.com>\n"
+"PO-Revision-Date: 2022-03-23 12:17+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_empty_home
 #: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__iface_empty_home
 msgid "Empty Home"
-msgstr ""
+msgstr "Casa buida"
 
 #. module: pos_empty_home
 #: model:ir.model.fields,help:pos_empty_home.field_pos_config__iface_empty_home
 #: model_terms:ir.ui.view,arch_db:pos_empty_home.view_pos_config_form
 msgid "Hide products if no category is selected."
-msgstr ""
+msgstr "Amaga els productes si no s'ha seleccionat cap categoria."
 
 #. module: pos_empty_home
 #: model:ir.model,name:pos_empty_home.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuració del punt de venda"
 
 #. module: pos_empty_home
 #. openerp-web
