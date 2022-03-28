@@ -6,7 +6,7 @@ cache:
     - $HOME/.cache/pip
 
 python:
-  - "3.5"
+  - "3.7"
 
 addons:
   postgresql: "9.6"
