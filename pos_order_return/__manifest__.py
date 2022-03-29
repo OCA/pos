@@ -14,6 +14,7 @@
     "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/pos",
+    "development_status": "Alpha",
     "depends": [
         "point_of_sale",
     ],
