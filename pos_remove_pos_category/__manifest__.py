@@ -9,7 +9,7 @@
     'depends': [
         'point_of_sale',
     ],
-    'website': 'https://github.com/OCA/pos/',
+    'website': 'https://github.com/OCA/pos',
     'data': [
         'views/assets.xml',
         'views/pos_view.xml',
