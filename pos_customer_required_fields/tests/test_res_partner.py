@@ -2,7 +2,6 @@
 # @author Pierre Verkest <pierreverkest84@gmail.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import odoo
-from odoo import fields
 from odoo.exceptions import ValidationError
 
 from odoo.addons.point_of_sale.tests.common import TestPointOfSaleCommon
