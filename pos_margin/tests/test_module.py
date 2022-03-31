@@ -27,7 +27,7 @@ class TestModule(TransactionCase):
         # Create order
         account_id = self.env.user.partner_id.property_account_receivable_id.id
         order_data = {
-            "id": u"0006-001-0010",
+            "id": "0006-001-0010",
             "to_invoice": False,
             "data": {
                 "pricelist_id": self.pricelist.id,
@@ -64,10 +64,10 @@ class TestModule(TransactionCase):
                         },
                     ]
                 ],
-                "creation_date": u"2018-09-27 15:51:03",
+                "creation_date": "2018-09-27 15:51:03",
                 "amount_tax": 0,
                 "fiscal_position_id": False,
-                "uid": u"00001-001-0001",
+                "uid": "00001-001-0001",
                 "amount_return": 0,
                 "sequence_number": 1,
                 "amount_total": 18.0,
