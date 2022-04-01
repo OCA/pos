@@ -5,7 +5,7 @@
 
 {
     "name": "Point of Sale Order Return",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Point Of Sale",
     "author": "La Louve, "
     "GRAP, "
