@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_customer_required_fields
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_customer_required_fields
+#: model:ir.model,name:pos_customer_required_fields.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: pos_customer_required_fields
+#: code:addons/pos_customer_required_fields/models/res_partner.py:24
+#, python-format
+msgid "Following required field(s) is/are not set: %s."
+msgstr "Le(s) champ(s) requis suivant n'est/ne sont pas renseigné(s) : %s."
+
+#. module: pos_customer_required_fields
+#: model:ir.model.fields,help:pos_customer_required_fields.field_pos_config__res_partner_required_fields_ids
+msgid "List of fields that are required while creating or updating a res partner from the point of sale."
+msgstr ""
+"Champs obligatoire lors de la création/modification d'un contact depuis "
+"le point de vente (choisir uniquement parmis les champs disponible dans l'interface)."
+
+#. module: pos_customer_required_fields
+#: model:ir.model.fields,field_description:pos_customer_required_fields.field_pos_config__res_partner_required_fields_ids
+msgid "Partner required fields"
+msgstr "Contact (client): champs requis"
+
+#. module: pos_customer_required_fields
+#: model:ir.model.fields,field_description:pos_customer_required_fields.field_pos_config__res_partner_required_fields_names
+msgid "Partner required fields name"
+msgstr "Nom technique des champs requis"
+
+#. module: pos_customer_required_fields
+#: model:ir.model,name:pos_customer_required_fields.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramètrage du point de vente"
+
+#. module: pos_customer_required_fields
+#: model:ir.model.fields,help:pos_customer_required_fields.field_pos_config__res_partner_required_fields_names
+msgid "Technical fields to avoid adding ir.model.fields in pos model"
+msgstr "Champ technique utilisé dans l'interface du point de vente"
+
+#. module: pos_customer_required_fields
+#: model_terms:ir.ui.view,arch_db:pos_customer_required_fields.pos_config_view_form
+msgid "This ensure following fields are set in partner while\n"
+"                            creating from the pos order.\n"
+"\n"
+"                            Also if user pick an existing partner created in the\n"
+"                            backend without that field, user will be prompt to\n"
+"                            add that information."
+msgstr ""
+"Permet de verifier que l'ensemble des champs suivant sont définis "
+"sur les clients des commandes de point de vente ainsi qu'à l'édition "
+"ou création des clients depuis le point de vente."
