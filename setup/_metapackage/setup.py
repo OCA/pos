@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo12-addon-pos_check_session_state',
         'odoo12-addon-pos_customer_display',
         'odoo12-addon-pos_customer_required',
+        'odoo12-addon-pos_customer_required_fields',
         'odoo12-addon-pos_default_empty_image',
         'odoo12-addon-pos_default_partner',
         'odoo12-addon-pos_disable_change_cashier',
