@@ -3,7 +3,7 @@
     @author Pierre Verkest <pierreverkest84@gmail.com>
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
  */
-odoo.define('pos_order_zipcode.screens', function (require) {
+odoo.define('pos_customers_required_fields.screens', function (require) {
     "use strict";
 
     var screens = require('point_of_sale.screens');
@@ -11,7 +11,7 @@ odoo.define('pos_order_zipcode.screens', function (require) {
     screens.PaymentScreenWidget.include({
         missing_customer_fields: function(){
             const customer = this.pos.get_order().get_client();
-            if(!customer){
+            if(!customer || this.pos.config.res_partner_required_fields_names === ""){
                 // In case customer is not required there are no missing fields
                 // there are some other check that ensure if customer is
                 // required or not, it's not the intent of this method to decide
