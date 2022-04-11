@@ -1,0 +1,116 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_customer_required
+#
+# Translators:
+# Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-28 05:50+0000\n"
+"PO-Revision-Date: 2020-02-12 19:13+0000\n"
+"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
+"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_customer_required
+#. openerp-web
+#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:25
+#, python-format
+msgid "An anonymous order cannot be confirmed"
+msgstr "Una comanda anònima no pot ser confirmada"
+
+#. module: pos_customer_required
+#: code:addons/pos_customer_required/models/pos_make_payment.py:23
+#, python-format
+msgid ""
+"An anonymous order cannot be confirmed.\n"
+"Please select a customer for this order."
+msgstr ""
+"Una comanda anònima no pot ser confirmada.\n"
+"Si us plau seleccioneu un client per a aquesta comanda."
+
+#. module: pos_customer_required
+#: code:addons/pos_customer_required/models/pos_order.py:22
+#, python-format
+msgid "Customer is required for this order and is missing."
+msgstr "En necessari que hi hagi un client per a aquesta comanda i no hi és."
+
+#. module: pos_customer_required
+#: selection:pos.config,require_customer:0
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: pos_customer_required
+#. openerp-web
+#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:26
+#, python-format
+msgid "Please select a customer for this order."
+msgstr "Si us plau seleccioneu un client per a aquesta comanda."
+
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_config
+#, fuzzy
+msgid "Point of Sale Configuration"
+msgstr "Pagament del Punt de Venda "
+
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_order
+#, fuzzy
+msgid "Point of Sale Orders"
+msgstr "Punt de Venda "
+
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_make_payment
+msgid "Point of Sale Payment"
+msgstr "Pagament del Punt de Venda"
+
+#. module: pos_customer_required
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__require_customer
+#: model_terms:ir.ui.view,arch_db:pos_customer_required.view_pos_config_form
+msgid "Require Customer"
+msgstr "Client requerit"
+
+#. module: pos_customer_required
+#: model:ir.model.fields,help:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_pos_order__require_customer
+msgid ""
+"Require customer for orders in this point of sale:\n"
+"* 'Optional' (customer is optional);\n"
+"* 'Required before paying';\n"
+"* 'Required before starting the order';"
+msgstr ""
+"Requerir client per a comandes en aquest punt de venda:\n"
+"* 'Opcional' (el client és opcional);\n"
+"* 'Requerit abans de pagar';\n"
+"* 'Requerit abans d'entrar la comanda';"
+
+#. module: pos_customer_required
+#: selection:pos.config,require_customer:0
+msgid "Required before paying"
+msgstr "Requerit abans de pagar"
+
+#. module: pos_customer_required
+#: selection:pos.config,require_customer:0
+msgid "Required before starting the order"
+msgstr "Requerit abans d'entrar la comanda"
+
+#~ msgid "Require customer"
+#~ msgstr "Client requerit "
+
+#~ msgid ""
+#~ "True if a customer is required to begin the order.\n"
+#~ "See the PoS Config to change this setting"
+#~ msgstr ""
+#~ "Veritable si un client es demanat per començar la comanda.\n"
+#~ "Mireu la configuració del TPV per canviar aquest paràmetre "
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"

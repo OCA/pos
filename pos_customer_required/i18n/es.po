@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_customer_required
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-02-12 19:13+0000\n"
+"Last-Translator: Carles Antoli <carlesantoli@hotmail.com>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_customer_required
+#. openerp-web
+#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:25
+#, python-format
+msgid "An anonymous order cannot be confirmed"
+msgstr "Un pedido anónimo no puede ser confirmado"
+
+#. module: pos_customer_required
+#: code:addons/pos_customer_required/models/pos_make_payment.py:23
+#, python-format
+msgid "An anonymous order cannot be confirmed.\n"
+"Please select a customer for this order."
+msgstr ""
+"Un pedido anónimo no puede ser confirmado.\n"
+"Por favor seleccione un cliente para este pedido."
+
+#. module: pos_customer_required
+#: code:addons/pos_customer_required/models/pos_order.py:22
+#, python-format
+msgid "Customer is required for this order and is missing."
+msgstr ""
+"En necesario que haya un cliente para este pedido y no está seleccionado."
+
+#. module: pos_customer_required
+#: selection:pos.config,require_customer:0
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: pos_customer_required
+#. openerp-web
+#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:26
+#, python-format
+msgid "Please select a customer for this order."
+msgstr "Por favor seleccione un cliente para este pedido."
+
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del punto de venta"
+
+#. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_make_payment
+msgid "Point of Sale Payment"
+msgstr "Pago del punto de venta"
+
+#. module: pos_customer_required
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__require_customer
+#: model_terms:ir.ui.view,arch_db:pos_customer_required.view_pos_config_form
+msgid "Require Customer"
+msgstr "Cliente requerido"
+
+#. module: pos_customer_required
+#: model:ir.model.fields,help:pos_customer_required.field_pos_config__require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_pos_order__require_customer
+msgid "Require customer for orders in this point of sale:\n"
+"* 'Optional' (customer is optional);\n"
+"* 'Required before paying';\n"
+"* 'Required before starting the order';"
+msgstr ""
+"Requerir cliente para pedidos en este punto de venta:\n"
+"* 'Opcional' (el cliente es opcional);\n"
+"* 'Requerido antes de pagar';\n"
+"* 'Requerido antes de comenzar el pedido';"
+
+#. module: pos_customer_required
+#: selection:pos.config,require_customer:0
+msgid "Required before paying"
+msgstr "Requerido antes de pagar"
+
+#. module: pos_customer_required
+#: selection:pos.config,require_customer:0
+msgid "Required before starting the order"
+msgstr "Requerido antes de comenzar el pedido"
