@@ -22,7 +22,7 @@ addon | version | maintainers | summary
 [pos_check_session_state](pos_check_session_state/) | 12.0.1.0.0 |  | Check if the session state is still opened
 [pos_customer_display](pos_customer_display/) | 12.0.1.1.0 |  | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 12.0.1.0.1 |  | Point of Sale Require Customer
-[pos_customer_required_fields](pos_customer_required_fields/) | 12.0.1.0.0 | [![petrus-v](https://github.com/petrus-v.png?size=30px)](https://github.com/petrus-v) | Define customer required field used in PoS order.
+[pos_customer_required_fields](pos_customer_required_fields/) | 12.0.1.0.1 | [![petrus-v](https://github.com/petrus-v.png?size=30px)](https://github.com/petrus-v) | Define customer required field used in PoS order.
 [pos_default_empty_image](pos_default_empty_image/) | 12.0.1.1.0 |  | Optimize loading time for products without image
 [pos_default_partner](pos_default_partner/) | 12.0.1.0.1 |  | Add a default customer in pos order
 [pos_disable_change_cashier](pos_disable_change_cashier/) | 12.0.1.0.1 |  | Disable the feature that allow to change cashier in the PoS
