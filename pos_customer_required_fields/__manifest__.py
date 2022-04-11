@@ -4,7 +4,7 @@
 {
     "name": "Point Of Sale - Customer required fields",
     "summary": "Define customer required field used in PoS order.",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Point of Sale",
     "author": "Pierre Verkest, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
