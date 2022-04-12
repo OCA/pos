@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_partner_firstname
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:8
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:37
+#, python-format
+msgid "Company"
+msgstr ""
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:19
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:47
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:25
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:53
+#, python-format
+msgid "Surname"
+msgstr ""
+
