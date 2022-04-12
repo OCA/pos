@@ -20,6 +20,7 @@ setuptools.setup(
         'odoo14-addon-pos_no_cash_bank_statement',
         'odoo14-addon-pos_order_remove_line',
         'odoo14-addon-pos_order_return',
+        'odoo14-addon-pos_partner_firstname',
         'odoo14-addon-pos_payment_change',
         'odoo14-addon-pos_payment_terminal',
         'odoo14-addon-pos_product_sort',
