@@ -33,6 +33,7 @@ addon | version | maintainers | summary
 [pos_no_cash_bank_statement](pos_no_cash_bank_statement/) | 14.0.1.0.2 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Generate bank statements for all payment methods, not only cash
 [pos_order_remove_line](pos_order_remove_line/) | 14.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 14.0.1.0.1 |  | Point of Sale Order Return
+[pos_partner_firstname](pos_partner_firstname/) | 14.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.0.0 |  | Point of sale: support generic payment terminal
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 |  | sort the products by name in the point of sale instead of sorting them by the sequence field.
