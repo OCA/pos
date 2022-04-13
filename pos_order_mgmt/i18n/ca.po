@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-11-06 13:08+0000\n"
-"Last-Translator: brendapaniagua <brenda.paniagua@qubiq.es>\n"
+"PO-Revision-Date: 2022-04-13 13:05+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
@@ -59,7 +59,7 @@ msgstr "esquena"
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:374
 #: code:addons/pos_order_mgmt/static/src/js/widgets.js:429
-#, fuzzy, python-format
+#, python-format
 msgid "Can not execute this action because the POS is currently offline"
 msgstr ""
 "No es pot executar aquesta acció perquè actualment el POS està fora de línia"
