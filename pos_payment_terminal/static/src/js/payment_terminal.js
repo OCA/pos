@@ -28,20 +28,20 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             var order = this.pos.get_order();
             var pay_line = order.selected_paymentline;
             var currency = this.pos.currency;
-            if (pay_line.amount <= 0) {
-                // TODO check if it's possible or not
+            if (pay_line.amount == 0) {
                 this._show_error(
-                    _t("Cannot process transactions with zero or negative amount.")
+                    _t("Cannot process transactions with zero amount.")
                 );
                 return Promise.resolve();
             }
             var data = {
-                amount: pay_line.amount,
+                amount: Math.abs(pay_line.amount),
                 currency_iso: currency.name,
                 currency_decimals: currency.decimals,
                 payment_mode: this.payment_method.oca_payment_terminal_mode,
                 payment_id: pay_line.cid,
                 order_id: order.name,
+                refund: pay_line.amount < 0,
             };
             if (this.payment_method.oca_payment_terminal_id) {
                 data.terminal_id = this.payment_method.oca_payment_terminal_id;
