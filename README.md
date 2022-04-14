@@ -20,7 +20,7 @@ addon | version | maintainers | summary
 [pos_cash_move_reason](pos_cash_move_reason/) | 12.0.3.1.0 |  | POS cash in-out reason
 [pos_cash_move_reason_multiple_control](pos_cash_move_reason_multiple_control/) | 12.0.3.1.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Glue module between pos_cash_move_reason and pos_multiple_control
 [pos_check_session_state](pos_check_session_state/) | 12.0.1.0.0 |  | Check if the session state is still opened
-[pos_customer_display](pos_customer_display/) | 12.0.1.1.0 |  | Manage LED Customer Display device from POS front end
+[pos_customer_display](pos_customer_display/) | 12.0.1.1.1 |  | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 12.0.1.0.1 |  | Point of Sale Require Customer
 [pos_customer_required_fields](pos_customer_required_fields/) | 12.0.1.0.1 | [![petrus-v](https://github.com/petrus-v.png?size=30px)](https://github.com/petrus-v) | Define customer required field used in PoS order.
 [pos_default_empty_image](pos_default_empty_image/) | 12.0.1.1.0 |  | Optimize loading time for products without image
@@ -49,7 +49,7 @@ addon | version | maintainers | summary
 [pos_partner_firstname](pos_partner_firstname/) | 12.0.1.1.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 12.0.1.1.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 12.0.1.0.0 |  | Allows to pay with CashDro Terminals on the Point of Sale
-[pos_payment_terminal](pos_payment_terminal/) | 12.0.0.1.4 |  | Manage Payment Terminal device from POS front end
+[pos_payment_terminal](pos_payment_terminal/) | 12.0.0.1.5 |  | Manage Payment Terminal device from POS front end
 [pos_picking_delayed](pos_picking_delayed/) | 12.0.2.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Delay the creation of the picking when PoS order is created
 [pos_picking_load](pos_picking_load/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Load and confirm stock pickings via Point Of Sale
 [pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Improve load of picking in PoS by partner name
