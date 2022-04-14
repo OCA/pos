@@ -20,7 +20,6 @@ class PosConfig(models.Model):
 
     customer_display_format = fields.Selection(
         selection=_CUSTOMER_DISPLAY_FORMAT_SELECTION,
-        string="Customer Display Format",
         default="2_20",
         required=True,
     )
@@ -93,9 +92,8 @@ class PosConfig(models.Model):
                 if value and len(value) > maxsize:
                     raise ValidationError(
                         _(
-                            "The message for customer display '%s' is too "
-                            "long: it has %d chars whereas the maximum "
-                            "is %d chars."
-                        )
-                        % (self._fields[field_name].string, len(value), maxsize)
+                            "The message for customer display '{}' is too "
+                            "long: it has {:d} chars whereas the maximum "
+                            "is {:d} chars."
+                        ).format(self._fields[field_name].string, len(value), maxsize)
                     )

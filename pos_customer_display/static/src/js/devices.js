@@ -22,9 +22,8 @@ odoo.define("pos_customer_display.devices", function (require) {
 
         load_customer_display_format_file: function () {
             if (this.pos.config.customer_display_format == "2_20") {
-                this.customer_display_proxy = new customer_display_2_20.CustomerDisplay_2_20(
-                    this
-                );
+                this.customer_display_proxy =
+                    new customer_display_2_20.CustomerDisplay_2_20(this);
             } else {
                 console.warn(
                     "No Javascript file found for the Customer Display format" +
