@@ -14,6 +14,5 @@
         "views/assets.xml",
         "views/view_pos_config.xml",
     ],
-    "demo": ["demo/pos_config.xml"],
     "installable": True,
 }
