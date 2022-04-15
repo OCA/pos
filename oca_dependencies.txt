@@ -1,4 +1,5 @@
 account-payment
+margin-analysis
 queue
 partner-contact
 stock-logistics-barcode
