@@ -8,16 +8,24 @@ odoo.define("pos_reset_search.ProductScreen", function (require) {
         class extends ProductScreen {
             async _clickProduct(event) {
                 const ProductScreenChildren = this.__owl__.children;
-
-                const ProductWidget = ProductScreenChildren.find(
-                    (child) => child.el.className === "products-widget"
-                );
+                var ProductWidget = null;
+                for (const key in ProductScreenChildren) {
+                    if (ProductScreenChildren[key].el.className === "products-widget") {
+                        ProductWidget = ProductScreenChildren[key];
+                    }
+                }
                 if (ProductWidget) {
                     const ProductWidgetChildren = ProductWidget.__owl__.children;
 
-                    const ProductsWidgetControlPanel = ProductWidgetChildren.find(
-                        (child) => child.el.className === "products-widget-control"
-                    );
+                    var ProductsWidgetControlPanel = null;
+                    for (const key in ProductWidgetChildren) {
+                        if (
+                            ProductWidgetChildren[key].el.className ===
+                            "products-widget-control"
+                        ) {
+                            ProductWidget = ProductWidgetChildren[key];
+                        }
+                    }
                     if (ProductsWidgetControlPanel) {
                         ProductsWidgetControlPanel.clearSearch();
                     }
