@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 15.0.1.0.0 |  | Hide Cost and Margin on PoS
+[pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 15.0.1.0.1 |  | Hide Cost and Margin on PoS
 
 [//]: # (end addons)
 
