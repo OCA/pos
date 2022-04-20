@@ -17,7 +17,11 @@ Odoo modules for Point of Sale.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 15.0.1.0.0 |  | Hide Cost and Margin on PoS
 
 [//]: # (end addons)
 
