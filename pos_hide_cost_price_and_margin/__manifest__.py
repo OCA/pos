@@ -4,7 +4,7 @@
 {
     "name": "PoS Hide Cost and Margin",
     "summary": "Hide Cost and Margin on PoS",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "category": "Point Of Sale",
     "author": "CampToCamp, Odoo Community Association (OCA)",
     "maintainers": [],
