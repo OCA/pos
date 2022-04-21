@@ -28,7 +28,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             var order = this.pos.get_order();
             var pay_line = order.selected_paymentline;
             var currency = this.pos.currency;
-            if (pay_line.amount == 0) {
+            if (pay_line.amount === 0) {
                 this._show_error(
                     _t("Cannot process transactions with zero amount.")
                 );
