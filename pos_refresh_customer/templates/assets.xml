@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright 2022 Coop IT Easy SCRLfs
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr=".">
+            <script
+                type="text/javascript"
+                src="/pos_refresh_customer/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_refresh_customer/static/src/js/screens.js"
+            />
+        </xpath>
+    </template>
+</odoo>
