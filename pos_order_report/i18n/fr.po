@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_order_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-07 10:55+0000\n"
+"PO-Revision-Date: 2022-04-07 10:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_report
+#: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: pos_order_report
+#: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
+msgid "Export"
+msgstr "Exporter"
+
+#. module: pos_order_report
+#: model:ir.actions.act_window,name:pos_order_report.action_pos_order_report_wizard
+msgid "Export Pos Order Report"
+msgstr "Commandes xlsx"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__domain
+#: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
+msgid "Filters"
+msgstr "Filtres"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__horizontal_axis_id
+msgid "Horizontal Axis"
+msgstr "Axe Horizontal"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__measure_ids
+#: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
+msgid "Measure"
+msgstr "Mesures"
+
+#. module: pos_order_report
+#: model:ir.ui.menu,name:pos_order_report.open_pos_order_report_wizard
+msgid "Order report xlsx"
+msgstr "Commandes xlsx"
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__output_file
+msgid "Output File"
+msgstr ""
+
+#. module: pos_order_report
+#: code:addons/pos_order_report/wizard/pos_order_report_wizard.py:64
+#, python-format
+msgid "Point of Sale Analysis"
+msgstr ""
+
+#. module: pos_order_report
+#: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
+msgid "Pos Order"
+msgstr "Commandes"
+
+#. module: pos_order_report
+#: model:ir.model,name:pos_order_report.model_pos_order_report_wizard
+msgid "Pos Order Report Wizard"
+msgstr ""
+
+#. module: pos_order_report
+#: code:addons/pos_order_report/wizard/pos_order_report_wizard.py:55
+#: code:addons/pos_order_report/wizard/pos_order_report_wizard.py:178
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: pos_order_report
+#: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__vertical_axis_id
+msgid "Vertical Axis"
+msgstr "Axe Vertical"
+
+#. module: pos_order_report
+#: code:addons/pos_order_report/wizard/pos_order_report_wizard.py:348
+#, python-format
+msgid "There are too many values for the Horizontal Axis which cause the number of column over the limit (256), please use Vertical Axis instead."
+msgstr "Il y a trop de valeurs sur l'axe horizontal, d'où un nombre de colonnes supérieur à la limite (256). Merci de privilégier l'axe vertical."
