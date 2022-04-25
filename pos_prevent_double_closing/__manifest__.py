@@ -4,7 +4,7 @@
 
 {
     "name": "Point of Sale - Prevent Double Closing Sessions",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "category": "Point Of Sale",
     "summary": "Prevent user to generate duplicates of accounting sale"
     " entries, when double closing sessions.",
