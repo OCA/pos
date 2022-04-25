@@ -49,6 +49,7 @@ setuptools.setup(
         'odoo12-addon-pos_picking_load',
         'odoo12-addon-pos_picking_load_partner_name',
         'odoo12-addon-pos_place',
+        'odoo12-addon-pos_prevent_double_closing',
         'odoo12-addon-pos_price_to_weight',
         'odoo12-addon-pos_product_default_code',
         'odoo12-addon-pos_product_sort',
