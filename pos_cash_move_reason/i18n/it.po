@@ -70,6 +70,17 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__move_reason_statement_line_ids
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
+msgid "Cash Moves"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__move_reason_statement_line_qty
+msgid "Cash Moves Quantity"
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__company_id
 msgid "Company"
 msgstr "Azienda"
