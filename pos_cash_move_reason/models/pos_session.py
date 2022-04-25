@@ -14,6 +14,15 @@ class PosSession(models.Model):
     display_move_reason_expense = fields.Boolean(
         compute='_compute_display_move_reason')
 
+    move_reason_statement_line_ids = fields.One2many(
+        string="Cash Moves",
+        comodel_name="account.bank.statement.line",
+        compute="_compute_move_reason_statement_ids")
+
+    move_reason_statement_line_qty = fields.Integer(
+        string="Cash Moves Quantity",
+        compute="_compute_move_reason_statement_ids")
+
     @api.multi
     def _compute_display_move_reason(self):
         MoveReason = self.env['pos.move.reason']
@@ -25,6 +34,18 @@ class PosSession(models.Model):
                 reasons.filtered(lambda x: x.is_income_reason))
             session.display_move_reason_expense = len(
                 reasons.filtered(lambda x: x.is_expense_reason))
+
+    @api.depends("statement_ids.line_ids")
+    def _compute_move_reason_statement_ids(self):
+        for session in self:
+            session.move_reason_statement_line_ids = [
+                (4, line.id) for line in session.mapped(
+                    "statement_ids.line_ids"
+                ).filtered(lambda x: not x.pos_statement_id)
+            ]
+            session.move_reason_statement_line_qty = len(
+                session.move_reason_statement_line_ids
+            )
 
     def button_move_income(self):
         return self._button_move_reason('income')

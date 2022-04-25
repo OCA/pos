@@ -6,33 +6,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 15:07+0000\n"
-"PO-Revision-Date: 2019-08-23 17:14+0200\n"
+"POT-Creation-Date: 2021-12-24 11:00+0000\n"
+"PO-Revision-Date: 2021-12-24 11:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
-msgid ""
-"<span class=\"o_stat_text\">Put</span>\n"
+msgid "<span class=\"o_stat_text\">Put</span>\n"
 "                        <span class=\"o_stat_text\">Money In</span>"
-msgstr ""
-"<span class=\"o_stat_text\">Mettre</span>\n"
+msgstr "<span class=\"o_stat_text\">Mettre</span>\n"
 "                        <span class=\"o_stat_text\">de l'argent</span>"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
-msgid ""
-"<span class=\"o_stat_text\">Take</span>\n"
+msgid "<span class=\"o_stat_text\">Take</span>\n"
 "                        <span class=\"o_stat_text\">Money Out</span>"
-msgstr ""
-"<span class=\"o_stat_text\">Retirer</span>\n"
+msgstr "<span class=\"o_stat_text\">Retirer</span>\n"
 "                        <span class=\"o_stat_text\">de l'argent</span>"
 
 #. module: pos_cash_move_reason
@@ -67,6 +61,17 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__move_reason_statement_line_ids
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
+msgid "Cash Moves"
+msgstr "Mouvements de caisse"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__move_reason_statement_line_qty
+msgid "Cash Moves Quantity"
+msgstr "Nombre de mouvements de caisse"
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__company_id
 msgid "Company"
 msgstr "Société"
@@ -91,8 +96,7 @@ msgstr "Session en cours"
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
 msgid "Describe why you take money from the cash register"
-msgstr ""
-"Veuillez indiquer le motif pour lequel vous retirez de l'argent de la caisse"
+msgstr "Veuillez indiquer le motif pour lequel vous retirez de l'argent de la caisse"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__display_move_reason_expense
@@ -124,7 +128,7 @@ msgstr "Remplir ce formulaire si vous mettez de l'argent dans la caisse"
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__id
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__income_account_id
@@ -150,7 +154,7 @@ msgstr "Est un motif d'entrée"
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__journal_id
 msgid "Journal"
-msgstr "Journal"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason____last_update
@@ -226,5 +230,4 @@ msgstr "Retirer de l'argent"
 #. module: pos_cash_move_reason
 #: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
 msgid "Use Old PoS 'Put or Take Money' Actions"
-msgstr ""
-"Utiliser la fonctionnalité obsolète du PdV Mettre ou Prendre de l'argent"
+msgstr "Utiliser la fonctionnalité obsolète du PdV Mettre ou Prendre de l'argent"

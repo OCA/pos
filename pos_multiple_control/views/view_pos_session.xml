@@ -71,7 +71,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <field name="statement_ids" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
-            <field name="statement_ids" position="after">
+            <field name="statement_ids" position="before">
                 <field name="summary_statement_ids" nolabel="1" colspan="4"
                         attrs="{'invisible': [('state', 'in', ['opening_control'])], 'readonly': 1}">
                     <tree decoration-muted="is_pos_control == False and state != 'closed'" decoration-danger="is_pos_control == True and control_difference != 0">
