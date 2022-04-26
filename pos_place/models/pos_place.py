@@ -9,11 +9,9 @@ class PosPlace(models.Model):
     _name = 'pos.place'
     _description = 'Point of Sale Places'
 
-    # Default section
     def _default_company_id(self):
         return self.env.user.company_id.id
 
-    # Columns section
     code = fields.Char(required=True, size=6)
 
     name = fields.Char(required=True)
