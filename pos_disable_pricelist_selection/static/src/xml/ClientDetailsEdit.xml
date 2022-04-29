@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ClientDetailsEdit"
+        t-inherit="point_of_sale.ClientDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//div[@t-if='env.pos.pricelists.length gt 1']"
+            position="attributes"
+        >
+            <attribute
+                name="t-if"
+            >env.pos.pricelists.length gt 1 and !env.pos.config.hide_pricelist_button</attribute>
+        </xpath>
+    </t>
+
+</templates>
