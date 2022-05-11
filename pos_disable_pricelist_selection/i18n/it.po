@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_disable_pricelist_selection
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__hide_pricelist_button
+#: model_terms:ir.ui.view,arch_db:pos_disable_pricelist_selection.pos_config_view_form
+msgid "Hide Pricelist Button"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model,name:pos_disable_pricelist_selection.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#. openerp-web
+#: code:addons/pos_disable_pricelist_selection/static/src/xml/ClientDetailsEdit.xml:0
+#, python-format
+msgid ""
+"env.pos.pricelists.length gt 1 and !env.pos.config.hide_pricelist_button"
+msgstr ""
