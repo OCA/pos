@@ -10,7 +10,9 @@ odoo.define("pos_backend_partner.ProductScreen", function (require) {
     var PaymentScreen = require("point_of_sale.PaymentScreen");
     var tools = require("pos_backend_communication.tools");
 
+    // eslint-disable-next-line no-unused-vars
     var pos_instance = undefined;
+    // eslint-disable-next-line no-unused-vars
     var _t = undefined;
     var action_url = undefined;
 
@@ -32,23 +34,6 @@ odoo.define("pos_backend_partner.ProductScreen", function (require) {
             tools.open_page(url, msg, "partner");
         });
     }
-
-    function set_client(message) {
-        var data = message.data;
-        var partner_info = {
-            id: parseInt(data.partner_id, 10),
-            name: data.name,
-            lang: data.lang,
-            property_account_position_id: data.property_account_position_id,
-            property_product_pricelist: data.property_product_pricelist,
-            country_id: [],
-        };
-        pos_instance.get("selectedOrder").set_client(partner_info);
-        pos_instance.db.add_partners([partner_info]);
-        pos_instance.get("selectedOrder").updatePricelist(partner_info);
-        alert(_t("Customer set")); // Try to get the focus back
-    }
-    tools.callbacks["partner.partner_selected"] = set_client;
 
     const PBPProductScreen = (ProductScreen) =>
         class PBPProductScreen extends ProductScreen {

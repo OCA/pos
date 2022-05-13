@@ -4,6 +4,10 @@
         <xpath expr="." position="inside">
             <script
                 type="text/javascript"
+                src="/pos_backend_partner/static/src/js/tools.js"
+            />
+            <script
+                type="text/javascript"
                 src="/pos_backend_partner/static/src/js/pos_partner.js"
             />
         </xpath>
