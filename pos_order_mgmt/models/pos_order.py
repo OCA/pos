@@ -9,7 +9,9 @@ class PosOrder(models.Model):
     _inherit = "pos.order"
 
     returned_order_id = fields.Many2one(
-        comodel_name="pos.order", string="Returned Order", readonly=True,
+        comodel_name="pos.order",
+        string="Returned Order",
+        readonly=True,
     )
 
     returned_order_reference = fields.Char(
@@ -25,7 +27,8 @@ class PosOrder(models.Model):
     )
 
     refund_order_qty = fields.Integer(
-        compute="_compute_refund_order_qty", string="Refund Orders Quantity",
+        compute="_compute_refund_order_qty",
+        string="Refund Orders Quantity",
     )
 
     @api.depends("refund_order_ids")
