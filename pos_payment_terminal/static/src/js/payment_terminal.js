@@ -24,6 +24,16 @@ odoo.define("pos_payment_terminal.payment", function (require) {
             return this._oca_payment_terminal_pay();
         },
 
+        send_payment_cancel: function () {
+            this._super.apply(this, arguments);
+            this._show_error(
+                _t(
+                    "Please press the red button on the payment terminal to cancel the transaction."
+                )
+            );
+            return Promise.reject();
+        },
+
         _oca_payment_terminal_pay: function () {
             var order = this.pos.get_order();
             var pay_line = order.selected_paymentline;
