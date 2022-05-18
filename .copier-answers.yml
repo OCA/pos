@@ -1,5 +1,5 @@
 # Do NOT update manually; changes here will be overwritten by Copier
-_commit: v1.5.2
+_commit: v1.7.0
 _src_path: gh:oca/oca-addons-repo-template
 ci: GitHub
 dependency_installation_mode: PIP
@@ -10,10 +10,9 @@ org_name: Odoo Community Association (OCA)
 org_slug: OCA
 rebel_module_groups: []
 repo_description: This project aims to deal with Odoo modules related to the Point
-    of Sale.
+  of Sale.
 repo_name: Point of Sale
 repo_slug: pos
 repo_website: https://github.com/OCA/pos
 travis_apt_packages: []
 travis_apt_sources: []
-
