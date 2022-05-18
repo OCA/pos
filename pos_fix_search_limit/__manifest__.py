@@ -3,7 +3,7 @@
 {
     "name": "Pos Fix Search Limit",
     "summary": "Increase search in the PoS",
-    "version": "13.0.1.0.1",
+    "version": "13.0.1.0.2",
     "category": "Point of Sale",
     "author": "Akretion, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
