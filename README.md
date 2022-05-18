@@ -33,7 +33,7 @@ addon | version | maintainers | summary
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 13.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_partner_lang](pos_partner_lang/) | 13.0.1.0.1 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Allows to view and edit the partner language.
 [pos_payment_method_image](pos_payment_method_image/) | 13.0.1.0.2 |  | Add images on Payment Method available in the PoS
-[pos_payment_terminal](pos_payment_terminal/) | 13.0.1.0.0 |  | Point of sale: support generic payment terminal
+[pos_payment_terminal](pos_payment_terminal/) | 13.0.1.1.0 |  | Point of sale: support generic payment terminal
 [pos_picking_delayed](pos_picking_delayed/) | 13.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Delay the creation of the picking when PoS order is created
 [pos_product_sort](pos_product_sort/) | 13.0.1.0.1 |  | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_quick_logout](pos_quick_logout/) | 13.0.1.0.0 |  | Allow PoS user to logout quickly after user changed
