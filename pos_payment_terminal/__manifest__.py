@@ -5,7 +5,7 @@
 
 {
     "name": "POS Payment Terminal",
-    "version": "13.0.1.0.0",
+    "version": "13.0.1.1.0",
     "category": "Point Of Sale",
     "summary": "Point of sale: support generic payment terminal",
     "author": (
