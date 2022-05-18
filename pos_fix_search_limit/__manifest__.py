@@ -6,6 +6,7 @@
     "version": "13.0.1.0.1",
     "category": "Point of Sale",
     "author": "Akretion, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
