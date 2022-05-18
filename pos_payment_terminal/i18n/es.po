@@ -80,6 +80,15 @@ msgid "Payment Terminal Error"
 msgstr ""
 
 #. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Please press the red button on the payment terminal to cancel the "
+"transaction."
+msgstr ""
+
+#. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
 msgstr ""
