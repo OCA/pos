@@ -32,11 +32,6 @@ Disable Pricelist selection button in POS
 .. contents::
    :local:
 
-Configuration
-=============
-
-* No configuration is required
-
 Usage
 =====
 
