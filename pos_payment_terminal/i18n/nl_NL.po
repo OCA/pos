@@ -20,58 +20,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,help:pos_payment_terminal.field_pos_config__iface_payment_terminal
-msgid "A payment terminal is available on the Proxy"
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Cannot process transactions with zero or negative amount."
 msgstr ""
 
 #. module: pos_payment_terminal
-#: selection:account.journal,pos_terminal_payment_mode:0
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__card
 msgid "Card"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: selection:account.journal,pos_terminal_payment_mode:0
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__check
 msgid "Check"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model,name:pos_payment_terminal.model_account_journal
-msgid "Journal"
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Failed to send the amount to pay to the payment terminal. Press the red "
+"button on the payment terminal and try again."
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_config__iface_payment_terminal
-#: model_terms:ir.ui.view,arch_db:pos_payment_terminal.view_pos_config_form
-msgid "Payment Terminal"
+#: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
+#, python-format
+msgid "OCA Payment Terminal"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model,name:pos_payment_terminal.model_pos_config
-msgid "Point of Sale Configuration"
-msgstr ""
-
-#. module: pos_payment_terminal
-#: model:ir.model,name:pos_payment_terminal.model_pos_order
-msgid "Point of Sale Orders"
-msgstr ""
-
-#. module: pos_payment_terminal
-#: model:ir.model.fields,help:pos_payment_terminal.field_account_bank_statement_import_journal_creation__pos_terminal_payment_mode
-#: model:ir.model.fields,help:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
-msgid "Select the payment mode sent to the payment terminal"
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_mode
+msgid "Payment Mode"
 msgstr ""
 
 #. module: pos_payment_terminal
 #. openerp-web
-#: code:addons/pos_payment_terminal/static/src/xml/pos_payment_terminal.xml:17
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
-msgid "Start transaction"
+msgid "Payment Terminal Error"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_bank_statement_import_journal_creation__pos_terminal_payment_mode
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_account_journal__pos_terminal_payment_mode
-msgid "Terminal Payment Mode"
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Please press the red button on the payment terminal to cancel the "
+"transaction."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid "Terminal identifier"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid ""
+"The identifier of the terminal as known by the hardware proxy. Leave empty "
+"if the proxy has only one terminal connected."
 msgstr ""
 
 #~ msgid "pos.config"
