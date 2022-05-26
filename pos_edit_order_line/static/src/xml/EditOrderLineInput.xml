@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EditOrderLineInput" owl="1">
+        <tr t-attf-class="order-line" t-att-data-id="props.item.id">
+            <td>
+                <t t-esc="props.item.name" />
+            </td>
+            <td>
+                <input
+                    t-model="state.quantityInput"
+                    t-on-blur="onBlur"
+                    t-on-focus="onFocus"
+                    type="number"
+                    name="quantity"
+                />
+            </td>
+            <td>
+                <t t-esc="props.item.uom" />
+            </td>
+            <td>
+                 <input
+                    t-model="state.priceInput"
+                    t-on-blur="onBlur"
+                    t-on-focus="onFocus"
+                    type="number"
+                    name="price"
+                />
+            </td>
+            <td t-if="env.pos.config.manual_discount">
+                 <input
+                    t-model="state.discountInput"
+                    t-on-blur="onBlur"
+                    t-on-focus="onFocus"
+                    type="number"
+                    name="discount"
+                />
+            </td>
+        </tr>
+    </t>
+
+</templates>
