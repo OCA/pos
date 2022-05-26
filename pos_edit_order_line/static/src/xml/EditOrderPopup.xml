@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EditOrderPopup" owl="1">
+        <div role="dialog" class="modal-dialog edit-order-popup">
+            <div class="popup popup-text">
+                <header class="title">
+                    <t t-esc="props.title" />
+                </header>
+                <main class="full-content">
+                    <div class="order-line-window">
+                        <section class="subwindow list">
+                            <div class="subwindow-container">
+                                <div class="subwindow-container-fix scrollable-y">
+                                    <table class="order-line-list">
+                                        <thead>
+                                            <tr>
+                                                <th>Product</th>
+                                                <th>Quantity</th>
+                                                <th>UoM</th>
+                                                <th>Price</th>
+                                                <th
+                                                    t-if="env.pos.config.manual_discount"
+                                                >Discount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody
+                                            class="order-line-list-contents"
+                                            t-on-onchange="_onchange"
+                                        >
+                                            <t
+                                                t-foreach="state.array"
+                                                t-as="item"
+                                                t-key="item._id"
+                                            >
+                                                <EditOrderLineInput item="item" />
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </main>
+                <footer class="footer">
+                    <div class="button confirm" t-on-click="confirm">
+                        <t t-esc="props.confirmText" />
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>
