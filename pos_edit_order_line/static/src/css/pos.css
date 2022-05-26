@@ -1,0 +1,61 @@
+/* The Edit Order Line Popup */
+.pos .edit-order-popup .popup {
+    max-width: 600px;
+}
+
+.pos .edit-order-popup .full-content {
+    overflow: auto;
+}
+
+.pos .edit-order-popup .order-line-list {
+    font-size: 16px;
+    width: 100%;
+}
+
+.pos .edit-order-popup .order-line-list th,
+.pos .edit-order-popup .order-line-list td {
+    padding: 12px 8px;
+}
+
+.pos .edit-order-popup .order-line-list tr {
+    transition: all 150ms linear;
+    background: rgb(230, 230, 230);
+}
+
+.pos .edit-order-popup .order-line-list thead > tr,
+.pos .edit-order-popup .order-line-list tr:nth-child(even) {
+    background: rgb(247, 247, 247);
+}
+
+.pos .edit-order-popup .order-line-list tr.highlight {
+    transition: all 150ms linear;
+    background: rgb(110, 200, 155) !important;
+    color: white;
+}
+
+.pos .edit-order-popup .order-line-list tr.lowlight {
+    transition: all 150ms linear;
+    background: rgb(216, 238, 227);
+}
+
+.pos .edit-order-popup .order-line-list tr.lowlight:nth-child(even) {
+    transition: all 150ms linear;
+    background: rgb(227, 246, 237);
+}
+
+.pos .edit-order-popup .subwindow .subwindow-container {
+    height: 250px;
+    display: list-item;
+}
+
+.pos .edit-order-popup input.required {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px red;
+}
+
+@media screen and (max-width: 768px) {
+    .pos .edit-order-popup .order-line-list td {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
