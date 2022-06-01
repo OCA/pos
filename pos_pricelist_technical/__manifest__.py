@@ -3,8 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Point of Sale - Technical Pricelists",
-    "summary": "Prevent to display technical pricelist in the"
-    " point of sale front end UI.",
+    "summary": "Prevent technical pricelists from being displayed in the Point of Sale front-end UI",
     "version": "12.0.1.0.1",
     "category": "Point of Sale",
     "author": "GRAP,Odoo Community Association (OCA)",
