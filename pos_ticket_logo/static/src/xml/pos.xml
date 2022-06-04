@@ -8,6 +8,13 @@
                 <img t-att-src="widget.pos.company_logo_base64"/><br />
             </div>
         </t>
+
+        <t t-jquery="[t-esc='widget.pos.company.name']" t-operation="before">
+            <t t-if="order.get_client()">
+                Customer: <t t-esc="order.get_client().name"/><br />
+            </t>
+        </t>
+
     </t>
 
 </templates>
