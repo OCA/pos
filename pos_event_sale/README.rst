@@ -14,13 +14,13 @@ Point of Sale Events
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/13.0/pos_event_sale
+    :target: https://github.com/OCA/pos/tree/15.0/pos_event_sale
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-13-0/pos-13-0-pos_event_sale
+    :target: https://translation.odoo-community.org/projects/pos-15-0/pos-15-0-pos_event_sale
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/13.0
+    :target: https://runbot.odoo-community.org/runbot/184/15.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -50,29 +50,22 @@ Usage
 
 - Click on the Add Event button, or on any Event product.
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/13.0/pos_event_sale/static/description/add_event_button.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_event_sale/static/description/add_event_button.png
 
 - Use the calendar widget to filter the events, and click on one.
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/13.0/pos_event_sale/static/description/event_calendar.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_event_sale/static/description/event_calendar.png
 
 - Add as many Tickets as you want
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/13.0/pos_event_sale/static/description/ticket_selector.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_event_sale/static/description/ticket_selector.png
 
 Known issues / Roadmap
 ======================
 
 
-* Add more test tours, specially ones that check availabilities.
-
 * Handle event registration details. It could be another popup right
   before going to payment (similar to core `event_sale` workflow).
-
-* Cancel registrations when the PoS order are refunded, possibly in a separate
-  module depending on `pos_order_return` to get the reference of the `refunded_order_id`.
-
-* Possibly add an option to print the event badges from the Point of Sale.
 
 Bug Tracker
 ===========
@@ -80,7 +73,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_event_sale%0Aversion:%2013.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_event_sale%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -98,6 +91,10 @@ Contributors
 * `Camptocamp <https://www.camptocamp.com>`_
 
   * Iván Todorovich <ivan.todorovich@gmail.com>
+
+* `Moka Tourisme <https://www.mokatourisme.fr>`_
+
+  * Grégory Schreiner <gregory@mokatourisme.fr>
 
 Maintainers
 ~~~~~~~~~~~
@@ -120,6 +117,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-ivantodorovich| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/13.0/pos_event_sale>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/15.0/pos_event_sale>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
