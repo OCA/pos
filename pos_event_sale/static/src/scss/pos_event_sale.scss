@@ -1,0 +1,210 @@
+/*
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+*/
+
+.pos {
+    .modal-dialog .popup.event-selector-popup {
+        width: 90%;
+        height: 90%;
+        min-width: 600px;
+        max-width: 1000px;
+        min-height: 600px;
+        max-height: 800px;
+
+        .body {
+            height: calc(100% - 160px);
+        }
+
+        .event-selector {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+
+            section {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-basis: 100%;
+                flex: 1;
+
+                &:not(:last-child) {
+                    border-right: dashed 1px rgb(215, 215, 215);
+                }
+            }
+        }
+
+        .o_calendar_widget {
+            font-size: 0.8rem;
+            padding: 20px;
+
+            .has-events {
+                background-color: #fff;
+                box-shadow: inset 2px 2px 0px 0px #6ec89b,
+                    inset -2px 0px 0px 0px #6ec89b, inset 0px -2px 0px 0px #6ec89b;
+            }
+
+            .fc-highlight {
+                background-color: #6ec89b;
+                opacity: 0.5;
+            }
+
+            .fc-day-number {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .fc-widget-header {
+                padding: 2px 0;
+            }
+
+            .fc-bg td:not(.fc-other-month):not(.has-events) {
+                background-color: #d9d9d9;
+            }
+        }
+
+        .event-list-container {
+            padding: 5px;
+            font-size: 0.8rem;
+            font-weight: normal;
+            height: 100%;
+
+            .scrollable-y {
+                height: 100%;
+            }
+
+            article.event {
+                position: relative;
+                vertical-align: top;
+                text-align: left;
+                font-size: 1rem;
+                margin: 8px !important;
+                padding: 1rem;
+                background: #fff;
+                border: 1px solid #e2e2e2;
+                border-radius: 3px;
+                border-bottom-width: 3px;
+                cursor: pointer;
+
+                &.disabled {
+                    opacity: 0.5;
+                    cursor: default;
+                }
+
+                .event-title {
+                    font-weight: bold;
+                }
+
+                .event-subtitle {
+                    color: gray;
+                }
+
+                .event-info {
+                    margin-top: 0.5rem;
+                    font-size: 0.75rem;
+                    line-height: 1.1rem;
+
+                    i,
+                    span {
+                        margin-right: 0.25rem;
+                    }
+                }
+
+                .event-availability-tag {
+                    position: absolute;
+                    top: 2px;
+                    right: 2px;
+                }
+            }
+        }
+
+        .alert-debug {
+            padding: 0.75em;
+            margin: 0.75em;
+            border-radius: 0.25em;
+            background: #2c3e50;
+            color: white;
+        }
+    }
+
+    .modal-dialog .popup.event-tickets-popup {
+        width: 600px;
+        font-weight: normal;
+
+        main {
+            max-height: 600px;
+        }
+
+        article.event-ticket {
+            vertical-align: top;
+            position: relative;
+            font-size: 0.8rem;
+            text-align: left;
+            margin: 8px !important;
+            height: 3rem;
+            padding: 0.75rem;
+            padding-left: 6rem;
+            padding-right: 100px;
+            background: #fff;
+            border: 1px solid #e2e2e2;
+            border-radius: 3px;
+            border-bottom-width: 3px;
+            cursor: pointer;
+
+            img.ticket-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+            }
+
+            .ticket-name {
+                font-weight: bold;
+            }
+
+            &.disabled {
+                opacity: 0.5;
+                cursor: default;
+            }
+
+            .event-availability-tag {
+                position: absolute;
+                top: 22px;
+                left: 2px;
+            }
+
+            .price-tag {
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                vertical-align: top;
+                color: white;
+                background: #7f82ac;
+                font-size: 0.75rem;
+                padding: 2px 5px;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .event-availability-tag {
+        vertical-align: top;
+        font-size: 0.75rem;
+        color: white;
+        line-height: 13px;
+        padding: 2px 5px;
+        border-radius: 2px;
+        background: black;
+
+        &.bg-danger {
+            background: red;
+        }
+
+        &.bg-warning {
+            background: orange;
+        }
+    }
+}

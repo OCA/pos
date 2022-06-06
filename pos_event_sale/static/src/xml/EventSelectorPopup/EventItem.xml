@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventItem" owl="1">
+        <article
+            class="event"
+            tabindex="0"
+            t-att-class="addedClasses"
+            t-on-click="clickEvent"
+            t-att-data-event-id="props.event.id"
+            t-attf-aria-labelledby="article_event_{{props.event.id}}"
+        >
+            <div class="event-title">
+                <span
+                    class="event-name"
+                    t-esc="props.event.name"
+                    t-attf-id="article_event_{{props.event.id}}"
+                />
+            </div>
+            <div class="event-subtitle">
+                <span
+                    class="event-country"
+                    t-if="props.event.country_id.length"
+                    t-esc="props.event.country_id[1]"
+                />
+            </div>
+            <div class="event-info">
+                <div class="event-date-begin">
+                    <b>
+                        <i class="fa fa-clock-o" />
+                        <span>From</span>
+                    </b>
+                    <t t-esc="formatDate(props.event.date_begin)" />
+                </div>
+                <div class="event-date-end">
+                    <b>
+                        <i class="fa fa-clock-o" />
+                        <span>To</span>
+                    </b>
+                    <t t-esc="formatDate(props.event.date_end)" />
+                </div>
+            </div>
+            <EventAvailabilityBadge seatsAvailable="state.seatsAvailable" />
+        </article>
+    </t>
+
+</templates>
