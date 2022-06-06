@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-pos Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-pos_event_sale>=15.0dev,<15.1dev',
         'odoo-addon-pos_hide_cost_price_and_margin>=15.0dev,<15.1dev',
     ],
     classifiers=[
