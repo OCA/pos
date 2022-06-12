@@ -171,7 +171,9 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                         }
                     })
                     .catch(() => {
-                        console.error("Error querying terminal driver status");
+                        let err_func = console.error;
+                        if (self.pos.test_no_console_error) err_func = console.log;
+                        err_func("Error querying terminal driver status");
                         // We could not query the transaction status so we
                         // won't know the transaction result: we let the user
                         // enter the outcome manually. This is done by

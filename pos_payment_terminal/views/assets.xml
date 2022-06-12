@@ -14,4 +14,17 @@
       </xpath>
     </template>
 
+    <template
+        id="qunit_suite"
+        name="pos_payment_terminal tests"
+        inherit_id="point_of_sale.qunit_suite_tests"
+    >
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_payment_terminal/static/tests/pos_payment_terminal_tests.js"
+            />
+        </xpath>
+    </template>
+
 </odoo>
