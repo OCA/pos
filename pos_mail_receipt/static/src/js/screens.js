@@ -23,18 +23,18 @@ odoo.define("pos_mail_receipt.screens", function (require) {
             this._super();
             this.$('.button.email').removeClass("highlight");
         },
-        email: function() {
+        email: async function() {
             var self = this;
             var email = false;
             var body_from_ui = this.$('.pos-receipt-container').html()
             if( this.pos.get_order().get_client() && this.pos.get_order().get_client().email ) {
-                self._send_email_server(this.pos.get_order().name, {"email": this.pos.get_order().get_client().email, "body_from_ui": body_from_ui});
+                self._send_email_server(this.pos.get_order().name, {"email": this.pos.get_order().get_client().email, "body_from_ui": body_from_ui}).resolve();
             } else {
                 this.gui.show_popup('textinput', {
                     'title':_t('E-mail address to use'),
                     'value': '',
                     'confirm': function(value) {
-                        self._send_email_server(self.pos.get_order().name, {"email": value, "body_from_ui": body_from_ui});
+                        self._send_email_server(self.pos.get_order().name, {"email": value, "body_from_ui": body_from_ui}).resolve();
                     }
                 });
             }
