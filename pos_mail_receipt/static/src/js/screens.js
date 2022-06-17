@@ -55,7 +55,7 @@ odoo.define("pos_mail_receipt.screens", function (require) {
                     return
                 }
             }, timeout_db_sync);
-
+            self.lock_screen(true);
             return rpc.query({
                     model: 'pos.order',
                     method: 'send_mail_receipt',
@@ -94,6 +94,8 @@ odoo.define("pos_mail_receipt.screens", function (require) {
                         });
                          self.$('.button.email').removeClass("highlight");
                     }
+                }).always(function(){
+                    self.lock_screen(false);
                 });
         },
     });
