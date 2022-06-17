@@ -28,13 +28,13 @@ odoo.define("pos_mail_receipt.screens", function (require) {
             var email = false;
             var body_from_ui = this.$('.pos-receipt-container').html()
             if( this.pos.get_order().get_client() && this.pos.get_order().get_client().email ) {
-                self._send_email_server(this.pos.get_order().name, {"email": this.pos.get_order().get_client().email, "body_from_ui": body_from_ui}).resolve();
+                self._send_email_server(this.pos.get_order().name, {"email": this.pos.get_order().get_client().email, "body_from_ui": body_from_ui});
             } else {
                 this.gui.show_popup('textinput', {
                     'title':_t('E-mail address to use'),
                     'value': '',
                     'confirm': function(value) {
-                        self._send_email_server(self.pos.get_order().name, {"email": value, "body_from_ui": body_from_ui}).resolve();
+                        self._send_email_server(self.pos.get_order().name, {"email": value, "body_from_ui": body_from_ui});
                     }
                 });
             }
@@ -48,13 +48,17 @@ odoo.define("pos_mail_receipt.screens", function (require) {
             var self = this;
             options = options || {};
             var timeout = typeof options.timeout === 'number' ? options.timeout : 7500;
-            var timeout_db_sync = typeof options.timeout_db_sync === 'number' ? options.timeout : 500;
-            setTimeout(function () {
-                if (self.pos.get("synch").state != "connected") {
+            var timeout_db_sync = typeof options.timeout_db_sync === 'number' ? options.timeout : 5000;
+            var i = 0
+            var waiting_interval = 1000
+            while (self.pos.get("synch").state == "connecting") {
+                await sleep(waiting_interval);
+                i = i + waiting_interval
+                if (i >= timeout_db_sync){
                     self.gui.show_popup('error', _t('Timeout syncronising the database'));
                     return
                 }
-            }, timeout_db_sync);
+            }
             self.lock_screen(true);
             return rpc.query({
                     model: 'pos.order',
@@ -64,6 +68,7 @@ odoo.define("pos_mail_receipt.screens", function (require) {
                     timeout: timeout,
                 })
                 .then(function (result) {
+                    self.$('.button.email').addClass("highlight");
                     return true
                 }).fail(function (type, error){
                     var connection_problem = true;
@@ -85,15 +90,14 @@ odoo.define("pos_mail_receipt.screens", function (require) {
                             'title': error.data.message,
                             'body':  error.data.debug
                         });
-                         self.$('.button.email').removeClass("highlight");
                     }
                     if(connection_problem){
                         self.gui.show_popup('error',{
                             'title': _t('The e-mail could not be sent'),
                             'body': _t('The e-mail could not be sent to ') + options["email"] + _t('. Check your internet connection and try again.'),
                         });
-                         self.$('.button.email').removeClass("highlight");
                     }
+                    self.gui.show_popup('error', _t('Error sending the mail receipt'));
                 }).always(function(){
                     self.lock_screen(false);
                 });
