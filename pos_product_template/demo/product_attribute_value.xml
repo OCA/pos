@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 ##############################################################################
 #
@@ -24,7 +24,7 @@
 <odoo>
 
     <record id="attribute_wifi_extra" model="product.attribute.value">
-        <field name="attribute_id"  eval="ref('product.product_attribute_3')"/>
+        <field name="attribute_id" eval="ref('product.product_attribute_3')" />
         <field name="name">2.399GHz</field>
     </record>
 
