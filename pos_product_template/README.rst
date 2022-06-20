@@ -36,7 +36,7 @@ You will see one article instead of all the variants.
 Known issues / Roadmap
 ======================
 
-* Templates with lot of variants are not shown. See https://github.com/OCA/pos/pull/135 
+* Templates with lot of variants are not shown. See https://github.com/OCA/pos/pull/135
 
 
 Bug Tracker
@@ -63,7 +63,6 @@ Contributors
 * Damendieta (https://github.com/damendieta)
 * Raphaël Reverdy (https://akretion.com)
 * Pedro Guirao (https://ingenieriacloud.com)
-
 
 Do not contact contributors directly about support or help with technical issues.
 
