@@ -7,6 +7,14 @@ odoo.define("pos_product_multi_barcode.db", function (require) {
     models.load_fields("product.product", ["barcodes_json"]);
 
     PosDB.include({
+        _product_search_string: function (product) {
+            var str = this._super(product);
+            if (product.barcodes_json) {
+                const barcodes = JSON.parse(product.barcodes_json).join(",");
+                str = str.replace("\n", "|" + barcodes) + "\n";
+            }
+            return str;
+        },
         add_products: function (products) {
             var res = this._super(products);
             var self = this;
