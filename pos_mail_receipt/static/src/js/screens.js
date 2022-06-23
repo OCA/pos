@@ -52,7 +52,7 @@ odoo.define("pos_mail_receipt.screens", function (require) {
             while (self.pos.get("synch").state == "connecting") {
                 await sleep(1000);
             }
-
+            self.lock_screen(true);
             return rpc.query({
                     model: 'pos.order',
                     method: 'send_mail_receipt',
@@ -61,6 +61,7 @@ odoo.define("pos_mail_receipt.screens", function (require) {
                     timeout: timeout,
                 })
                 .then(function (result) {
+                    self.$('.button.email').addClass("highlight");
                     return true
                 }).fail(function (type, error){
                     var connection_problem = true;
@@ -82,15 +83,16 @@ odoo.define("pos_mail_receipt.screens", function (require) {
                             'title': error.data.message,
                             'body':  error.data.debug
                         });
-                         self.$('.button.email').removeClass("highlight");
                     }
                     if(connection_problem){
                         self.gui.show_popup('error',{
                             'title': _t('The e-mail could not be sent'),
                             'body': _t('The e-mail could not be sent to ') + options["email"] + _t('. Check your internet connection and try again.'),
                         });
-                         self.$('.button.email').removeClass("highlight");
                     }
+                    self.gui.show_popup('error', _t('Error sending the mail receipt'));
+                }).always(function(){
+                    self.lock_screen(false);
                 });
         },
     });
