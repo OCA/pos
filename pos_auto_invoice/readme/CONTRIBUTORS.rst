@@ -1,3 +1,3 @@
-* `Coop IT Easy SCRLfs <https://coopiteasy.be>`_:
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
 
   * Carmen Bianca Bakker
