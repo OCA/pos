@@ -54,7 +54,7 @@ addon | version | maintainers | summary
 [pos_picking_delayed](pos_picking_delayed/) | 12.0.2.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Delay the creation of the picking when PoS order is created
 [pos_picking_load](pos_picking_load/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Load and confirm stock pickings via Point Of Sale
 [pos_picking_load_partner_name](pos_picking_load_partner_name/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Improve load of picking in PoS by partner name
-[pos_place](pos_place/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Define places on PoS orders
+[pos_place](pos_place/) | 12.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Define places on PoS orders
 [pos_prevent_double_closing](pos_prevent_double_closing/) | 12.0.1.0.2 |  | Prevent user to generate duplicates of accounting sale entries, when double closing sessions.
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.0 |  | Compute weight based on barcodes with prices
 [pos_product_default_code](pos_product_default_code/) | 12.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Show Internal Reference in POS products list
