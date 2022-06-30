@@ -19,7 +19,7 @@
         "views/pos_config.xml",
         "views/assets.xml",
     ],
-    'assets': {
+    "assets": {
         'point_of_sale.assets': [
             'pos_require_product_quantity/static/src/js/screens.js'
             ],
