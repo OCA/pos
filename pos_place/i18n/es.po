@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_place
+# 	* pos_place
 #
 msgid ""
 msgstr ""
@@ -53,6 +53,11 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_place
+#: model:ir.model,name:pos_place.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: pos_place
 #: model:ir.model.fields,field_description:pos_place.field_pos_place____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
@@ -81,6 +86,7 @@ msgstr "Nombre"
 #. module: pos_place
 #. openerp-web
 #: code:addons/pos_place/static/src/js/widget.js:41
+#: model:ir.model.fields,field_description:pos_place.field_account_invoice__place_id
 #: model:ir.model.fields,field_description:pos_place.field_pos_order__place_id
 #: model:ir.model.fields,field_description:pos_place.field_report_pos_order__place_id
 #, python-format
@@ -140,7 +146,9 @@ msgstr "Selecciona un lugar"
 
 #. module: pos_place
 #: model:ir.model.fields,help:pos_place.field_pos_config__group_pos_place_user_id
-msgid "This field is there to pass the id of the pos place user group to the point of sale client."
+msgid ""
+"This field is there to pass the id of the pos place user group to the point "
+"of sale client."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo de usuarios del "
 "lugar PdV al cliente del punto de venta."
