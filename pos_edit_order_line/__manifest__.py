@@ -5,7 +5,7 @@
 
 {
     "name": "POS Edit Order Line",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "summary": "POS Edit Order Line",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "contributors": "Cetmix",
