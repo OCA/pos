@@ -13,6 +13,7 @@ setuptools.setup(
         'odoo14-addon-pos_cash_move_reason',
         'odoo14-addon-pos_default_partner',
         'odoo14-addon-pos_disable_pricelist_selection',
+        'odoo14-addon-pos_edit_order_line',
         'odoo14-addon-pos_empty_home',
         'odoo14-addon-pos_escpos_status',
         'odoo14-addon-pos_fixed_discount',
