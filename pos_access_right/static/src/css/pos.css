@@ -5,12 +5,6 @@
     cursor: not-allowed;
 }
 
-.pos .ticket-screen .order-row:hover {
-    background: rgb(230, 230, 230);
-    color: white;
-    cursor: not-allowed;
-}
-
 .pos .ticket-screen .controls button.highlight.disabled-mode:hover {
     background: #c7c7c7;
     border: solid 1px rgb(220, 220, 220);
@@ -20,9 +14,4 @@
 
 .pos .ticket-screen .pointer.disabled-mode:hover {
     cursor: not-allowed;
-}
-
-.col.center.very-narrow.delete-button {
-    cursor: not-allowed;
-    color: #a5a1a1;
 }
