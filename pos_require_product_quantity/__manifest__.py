@@ -20,7 +20,9 @@
         "views/assets.xml",
     ],
     'assets': {
-        'point_of_sale.assets': ['pos_require_product_quantity/static/src/js/screens.js'],
+        'point_of_sale.assets': [
+            'pos_require_product_quantity/static/src/js/screens.js'
+            ],
     },
     "installable": True,
 }
