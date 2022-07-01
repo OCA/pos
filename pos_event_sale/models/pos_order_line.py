@@ -58,12 +58,21 @@ class PosOrderLine(models.Model):
         return res
 
     def _create_event_registrations(self):
+        """Create the missing event.registrations for this order line"""
+        registrations = self.env["event.registration"]
         for line in self:
-            if not line.event_ticket_id or line.qty <= 0:
+            if not line.event_ticket_id:  # pragma: no cover
+                continue
+            qty_existing = len(
+                line.event_registration_ids.filtered(lambda r: r.state != "cancel")
+            )
+            qty_to_create = max(0, int(line.qty) - qty_existing)
+            if not qty_to_create:  # pragma: no cover
                 continue
             vals = line._prepare_event_registration_vals()
-            vals_list = [vals.copy() for __ in range(0, int(line.qty))]
-            self.env["event.registration"].create(vals_list)
+            vals_list = [vals.copy() for __ in range(0, qty_to_create)]
+            registrations += self.env["event.registration"].create(vals_list)
+        return registrations
 
     def _cancel_refunded_event_registrations(self):
         """Cancel refunded event registrations"""
