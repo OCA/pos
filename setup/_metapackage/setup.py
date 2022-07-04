@@ -27,6 +27,7 @@ setuptools.setup(
         'odoo14-addon-pos_payment_terminal',
         'odoo14-addon-pos_product_multi_barcode',
         'odoo14-addon-pos_product_sort',
+        'odoo14-addon-pos_product_template',
         'odoo14-addon-pos_receipt_hide_price',
         'odoo14-addon-pos_report_session_summary',
         'odoo14-addon-pos_require_product_quantity',
