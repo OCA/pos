@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Pierre Verkest <pierreverkest84@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <!-- used in pos browser-->
+    <t t-extend="PosTicket">
+        <t t-jquery="table.receipt-change" t-operation="after">
+            <div class="pos-center-align" t-if="widget.pos.config.pos_ticket_static_qrcode">
+                <img t-att-src="'data:image/png;base64,' + widget.pos.config.pos_ticket_static_qrcode"/><br />
+                <div><t t-esc='widget.pos.config.pos_ticket_static_qrcode_message' /></div>
+            </div>
+        </t>
+    </t>
+
+    <!-- used to send to the printer -->
+    <t t-extend="XmlReceipt">
+        <t t-jquery="div.before-footer" t-operation="after">
+            <div t-if="widget.pos.config.pos_ticket_static_qrcode">
+                <img t-att-src="'data:image/png;base64,' + widget.pos.config.pos_ticket_static_qrcode"/><br />
+                <div><t t-esc='widget.pos.config.pos_ticket_static_qrcode_message' /></div>
+            </div>
+        </t>
+    </t>
+</templates>

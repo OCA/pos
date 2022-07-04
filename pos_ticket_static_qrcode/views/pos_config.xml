@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2022 Moka Tourisme
+    @author Pierre Verkest <pierreverkest84@gmail.com>
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//div[@id='category_reference']//ancestor::div[hasclass('o_settings_container')]"
+                position="inside"
+            >
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="pos_ticket_static_qrcode_value"
+                        />
+                        <div class="text-muted">
+                            QR Code to display on ticket to give the
+                            opportunity to customer to interact with
+                            its ticket. To visit site web, ask support, rate
+                            service.
+                            If you provide a QRCode value it's recomanded
+                            to add a short message to invit and tell why
+                            to scan the QRCode (ie: SCAN TO RATE).
+                        </div>
+                        <div class="content-group">
+                            <field
+                                name="pos_ticket_static_qrcode_value"
+                            />
+                        </div>
+                        <field
+                            name="pos_ticket_static_qrcode"
+                            widget="image"
+                            attrs="{'invisible': [('pos_ticket_static_qrcode_value', '=', False)]}"
+                        />
+                        <div class="content-group">
+                            <label
+                                attrs="{'invisible': [('pos_ticket_static_qrcode_value', '=', False)]}"
+                                class="col-lg-3 o_light_label"
+                                for="pos_ticket_static_qrcode_message"
+                                string="Message :"
+                            />
+                            <field 
+                                attrs="{'invisible': [('pos_ticket_static_qrcode_value', '=', False)]}"
+                                name="pos_ticket_static_qrcode_message"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
