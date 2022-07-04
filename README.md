@@ -75,6 +75,7 @@ addon | version | maintainers | summary
 [pos_tare](pos_tare/) | 12.0.1.0.3 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Manage Tare in Point Of Sale module
 [pos_ticket_logo](pos_ticket_logo/) | 12.0.1.0.0 |  | Pos Ticket Logo
 [pos_ticket_salesman_firstname](pos_ticket_salesman_firstname/) | 12.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Pos Ticket Salesman Firstname
+[pos_ticket_static_qrcode](pos_ticket_static_qrcode/) | 12.0.1.0.0 |  | PoS Ticket Static QrCode
 [pos_ticket_without_price](pos_ticket_without_price/) | 12.0.1.0.0 |  | Adds receipt ticket without price or taxes
 [pos_timeout](pos_timeout/) | 12.0.1.0.1 |  | Set the timeout of the point of sale
 [pos_to_weight_by_product_uom](pos_to_weight_by_product_uom/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Make 'To Weight' default value depending on product UoM settings
