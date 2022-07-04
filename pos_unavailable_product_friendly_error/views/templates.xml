@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+    Copyright 2022 - Today Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <template id="assets_backend" name="pos_unavailable_product_friendly_error" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_unavailable_product_friendly_error/static/src/js/models.js"></script>
+        </xpath>
+    </template>
+</odoo>
