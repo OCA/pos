@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-12-03 13:36+0000\n"
+"PO-Revision-Date: 2022-07-04 12:05+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -100,13 +100,13 @@ msgstr "Ultima modifica il"
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__write_uid
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__write_uid
 msgid "Last Updated by"
-msgstr "Ultimo Aggiornamento da"
+msgstr "Ultimo aggiornamento di"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__write_date
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__write_date
 msgid "Last Updated on"
-msgstr "Ultimo Aggiornamento il"
+msgstr "Ultimo aggiornamento il"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__pos_order_line_id
