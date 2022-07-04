@@ -79,6 +79,7 @@ addon | version | maintainers | summary
 [pos_ticket_without_price](pos_ticket_without_price/) | 12.0.1.0.0 |  | Adds receipt ticket without price or taxes
 [pos_timeout](pos_timeout/) | 12.0.1.0.1 |  | Set the timeout of the point of sale
 [pos_to_weight_by_product_uom](pos_to_weight_by_product_uom/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Make 'To Weight' default value depending on product UoM settings
+[pos_unavailable_product_friendly_error](pos_unavailable_product_friendly_error/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Point of Sale - Friendly Error when product is not available
 [pos_user_restriction](pos_user_restriction/) | 12.0.1.0.2 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Restrict some users to see and use only certain points of sale
 [pos_warning_exiting](pos_warning_exiting/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add warning at exiting the PoS front office UI if there are pending draft orders
 
