@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_event_sale](pos_event_sale/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell events from Point of Sale
+[pos_event_sale](pos_event_sale/) | 15.0.1.0.1 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell events from Point of Sale
 [pos_event_sale_registration_qr_code](pos_event_sale_registration_qr_code/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Print registration QR codes on Point of Sale receipts
 [pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 15.0.1.0.1 |  | Hide Cost and Margin on PoS
 
