@@ -86,6 +86,10 @@
     background-color: white;
 }
 
+.attributeValue.unavailable {
+    color: grey;
+}
+
 .attributeValue.selected {
     color: red;
 }
