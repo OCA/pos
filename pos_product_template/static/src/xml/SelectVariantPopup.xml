@@ -35,7 +35,7 @@
                                         >
                                             <AttributeValueItem
                                                 attributeValue="value"
-                                                t-att-class="{selected: state.ptav_id_selected[value.id]}"
+                                                t-att-class="{selected: state.ptav_id_selected[value.id], unavailable: state.ptav_unavailable_ids.includes(value.id)}"
                                             />
                                         </div>
                                     </div>
