@@ -1,5 +1,5 @@
 # Copyright 2019-2020 Coop IT Easy SCRLfs
-# 	    Robin Keunen <robin@coopiteasy.be>
+# @author Robin Keunen <robin@coopiteasy.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Require Product Quantity in POS",
