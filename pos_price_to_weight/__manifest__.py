@@ -9,7 +9,7 @@
     'category': 'Point Of Sale',
     'summary': 'Compute weight based on barcodes with prices',
     'author': 'La Louve, GRAP, Odoo Community Association (OCA)',
-    'website': 'http://www.lalouve.net/',
+    'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',
