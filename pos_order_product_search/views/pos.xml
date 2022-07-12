@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="pos_order_list_select_inherit" model="ir.ui.view">
+        <field name="name">pos.order.list.select.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_filter" />
+        <field name="arch" type="xml">
+            <filter name="invoiced" position="after">
+                <field
+                    name="lines"
+                    string="Product"
+                    filter_domain="[('lines.product_id', 'ilike', self)]"
+                />
+                <field
+                    name="lines"
+                    string="Product Barcode"
+                    filter_domain="[('lines.product_id.barcode', 'ilike', self)]"
+                />
+                <field
+                    name="lines"
+                    string="Product Reference"
+                    filter_domain="[('lines.product_id.default_code', 'ilike', self)]"
+                />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
