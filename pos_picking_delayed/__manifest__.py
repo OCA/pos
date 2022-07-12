@@ -10,7 +10,7 @@
               'Odoo Community Association (OCA)',
     'maintainers': ['legalsylvain'],
     'license': 'AGPL-3',
-    'website': 'https://www.github.com/OCA/pos',
+    'website': 'https://github.com/OCA/pos',
     'depends': [
         'point_of_sale',
         'queue_job',

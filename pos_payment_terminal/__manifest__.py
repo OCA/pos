@@ -9,6 +9,7 @@
     'summary': 'Manage Payment Terminal device from POS front end',
     'author': "Aurélien DUMAINE,GRAP,Akretion,"
               "Odoo Community Association (OCA)",
+    'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': ['point_of_sale'],
     'data': [

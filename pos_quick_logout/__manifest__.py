@@ -9,7 +9,7 @@
     'summary': 'Allow PoS user to logout quickly after user changed',
     'license': 'AGPL-3',
     'author': 'La Louve, Odoo Community Association (OCA)',
-    'website': 'http://www.lalouve.net',
+    'website': 'https://github.com/OCA/pos',
     'depends': [
         'point_of_sale',
     ],

@@ -6,7 +6,7 @@
     'version': '12.0.1.0.0',
     'category': 'Point of Sale',
     'author': 'KMEE, Odoo Community Association (OCA)',
-    'website': 'https://github.com/oca/pos',
+    'website': 'https://github.com/OCA/pos',
     'license': 'LGPL-3',
     'depends': ['point_of_sale'],
     'data': [
