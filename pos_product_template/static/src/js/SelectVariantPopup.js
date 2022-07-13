@@ -22,6 +22,7 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                 products: [],
                 ptav_id_selected: {},
                 ptav_unavailable_ids: [],
+                all_attributes_chosen: false,
             });
             var ptav = Array.from(
                 new Set(
@@ -97,6 +98,9 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
 
             this.state.products = this.refreshProducts();
             var self = this;
+            var selected_ptav_ids = Object.keys(self.state.ptav_id_selected).filter(
+                (x) => self.state.ptav_id_selected[x]
+            );
             this.state.ptav_unavailable_ids = this.state.ptav
                 .filter(function (value) {
                     // Remove ptav if no available product corresponds
@@ -110,9 +114,6 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                         // Do not remove ptav if there is already a ptav chosen for the
                         // attribute and there are products if changed
                         // This allows to show the possible modifications of choices
-                        var selected_ptav_ids = Object.keys(
-                            self.state.ptav_id_selected
-                        ).filter((x) => self.state.ptav_id_selected[x]);
                         selected_ptav_ids.forEach(function (selected_ptav_id) {
                             const selected_ptav = self.all_ptav[selected_ptav_id];
                             if (
@@ -144,6 +145,16 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                 .map(function (value) {
                     return value.id;
                 });
+            this.state.all_attributes_chosen =
+                selected_ptav_ids.length === this.state.attributes.length &&
+                this.state.products.length === 1;
+        }
+        async click_confirm() {
+            if (this.state.all_attributes_chosen !== true) {
+                throw "You can only confirm when all attributes are chosen and there is a variant available";
+            }
+            this.product_selected = this.state.products[0];
+            return this.confirm();
         }
         async getPayload() {
             return this.product_selected;
