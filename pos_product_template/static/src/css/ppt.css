@@ -212,6 +212,14 @@
     padding-top: 15px;
 }
 
+.pos .button.disabled {
+    background: #e2e2e2 !important;
+    border: solid 1px #bebebe !important;
+    color: grey !important;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /*.pos .variant-list-scroller{*/
 /*    -webkit-box-sizing: border-box;*/
 /*       -moz-box-sizing: border-box;*/
