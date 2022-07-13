@@ -10,7 +10,8 @@
         "point_of_sale",
     ],
     "data": [
-        "view/view.xml",
+        "views/assets.xml",
+        "views/pos_config_view.xml",
     ],
     "qweb": [
         "static/src/xml/ppt.xml",
