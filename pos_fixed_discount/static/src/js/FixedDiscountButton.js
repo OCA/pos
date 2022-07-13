@@ -5,6 +5,8 @@ odoo.define("pos_fixed_discount.FixedDiscountButton", function (require) {
     const ProductScreen = require("point_of_sale.ProductScreen");
     const {useListener} = require("web.custom_hooks");
     const Registries = require("point_of_sale.Registries");
+    var utils = require("web.utils");
+    var round_pr = utils.round_precision;
 
     class FixedDiscountButton extends PosComponent {
         constructor() {
@@ -17,8 +19,7 @@ odoo.define("pos_fixed_discount.FixedDiscountButton", function (require) {
                 startingValue: 0,
             });
             if (confirmed) {
-                var val = Math.round(Math.max(0, Math.min(100, parseFloat(payload))));
-                this.apply_discount(val);
+                this.apply_discount(parseFloat(payload.replace(",", ".")));
             }
         }
 
@@ -52,7 +53,7 @@ odoo.define("pos_fixed_discount.FixedDiscountButton", function (require) {
                     order.get_total_with_tax();
                 }
             }
-            var discount = -amount;
+            var discount = -round_pr(amount, this.env.pos.currency.rounding);
 
             if (discount < 0) {
                 order.add_product(product, {
