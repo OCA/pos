@@ -17,6 +17,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
     var OCAPaymentTerminal = PaymentInterface.extend({
         init: function () {
             this._super.apply(this, arguments);
+            this.global_timeout = 300;
         },
 
         send_payment_request: function () {
@@ -65,7 +66,11 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                     );
                     // There was an error, let the user retry.
                     return false;
-                } else if (response instanceof Object && "transaction_id" in response) {
+                } else if (
+                    response instanceof Object &&
+                    "transaction_id" in response &&
+                    response.transaction_id
+                ) {
                     // The response has a terminal transaction identifier:
                     // return a promise that polls for transaction status.
                     pay_line.set_payment_status("waitingCard");
@@ -94,7 +99,18 @@ odoo.define("pos_payment_terminal.payment", function (require) {
         },
 
         _oca_poll_for_transaction_status: function (pay_line, resolve, reject) {
+            var retries = 0;
+            var self = this;
             var timerId = setInterval(() => {
+                ++retries;
+                if (retries > self.global_timeout) {
+                    // If the total card payment flow takes more than 5 minutes,
+                    // consider it a dead end and don't keep polling (prevent endless polls)
+                    clearInterval(timerId);
+                    pay_line.set_payment_status("force_done");
+                    reject();
+                    return;
+                }
                 // Query the driver status more frequently than the regular POS
                 // proxy, to get faster feedback when the transaction is
                 // complete on the terminal.
@@ -102,11 +118,24 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 if (this.payment_method.oca_payment_terminal_id) {
                     status_params.terminal_id = this.payment_method.oca_payment_terminal_id;
                 }
+                // If a user action already updated the transaction status, stop checking status
+                if (
+                    pay_line.payment_status === "done" ||
+                    pay_line.payment_status === "retry"
+                ) {
+                    clearInterval(timerId);
+                    reject();
+                    return;
+                }
+                // Otherwise check status
                 this.pos.proxy.connection
-                    .rpc("/hw_proxy/status_json", status_params, {
-                        shadow: true,
-                        timeout: 1000,
-                    })
+                    .rpc(
+                        // The parameter is just so that it stands out over the other network transactions
+                        "/hw_proxy/status_json?for_transaction=" +
+                            pay_line.terminal_transaction_id,
+                        status_params,
+                        {shadow: true, timeout: 1000}
+                    )
                     .then((drivers_status) => {
                         for (var driver_name in drivers_status) {
                             // Look for a driver that is a payment terminal and has
@@ -128,7 +157,10 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                                         transaction
                                     );
                                     if (
-                                        pay_line.terminal_transaction_success !== null
+                                        pay_line.terminal_transaction_success !==
+                                            null &&
+                                        pay_line.terminal_transaction_success !==
+                                            undefined
                                     ) {
                                         resolve(pay_line.terminal_transaction_success);
                                         // Stop the loop
