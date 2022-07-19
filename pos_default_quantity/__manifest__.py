@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Set Default Product Quantity in POS",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "author": "Coop IT Easy SC",
     "website": "https://coopiteasy.be",
     "license": "AGPL-3",
