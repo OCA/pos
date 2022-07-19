@@ -1,4 +1,4 @@
-# © 2016 Robin Keunen, Coop IT Easy SCRL fs
+# © 2016 Robin Keunen, Coop IT Easy SC
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
