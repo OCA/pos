@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo14-addon-pos_empty_home',
         'odoo14-addon-pos_escpos_status',
         'odoo14-addon-pos_fixed_discount',
+        'odoo14-addon-pos_global_discount_in_line',
         'odoo14-addon-pos_hide_banknote_button',
         'odoo14-addon-pos_margin',
         'odoo14-addon-pos_no_cash_bank_statement',
