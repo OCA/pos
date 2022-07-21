@@ -7,9 +7,9 @@ odoo.define("pos_pwa_oca.webclient", function (require) {
     var PWAManager = require("pos_pwa_oca.PWAManager");
 
     chrome.Chrome.include({
-        start: function () {
-            this.pwa_manager = new PWAManager(this);
-            return this._super.apply(this, arguments);
-        },
-      });
+      start: function () {
+        this.pwa_manager = new PWAManager(this);
+        return this._super.apply(this, arguments);
+      },
+    });
 });

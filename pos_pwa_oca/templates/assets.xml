@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="pos_layout_pwa" name="POS PWA" inherit_id="point_of_sale.index">
-        <xpath expr="//meta[@name='apple-mobile-web-app-capable']" position="before">
+        <xpath expr="//head/title" position="after">
             <!-- Add link rel manifest -->
             <link rel="manifest" t-attf-href="/pos_pwa_oca/manifest.webmanifest"/>
             <!-- Add iOS meta tags and icons -->
@@ -15,8 +15,8 @@
     </template>
     <template id="assets_backend" name="pos service worker assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_pwa_oca/static/src/js/pwa_manager.js"></script>
-            <script type="text/javascript" src="/pos_pwa_oca/static/src/js/webclient.js"></script>
+            <script type="text/javascript" src="/pos_pwa_oca/static/src/js/pwa_manager.js"/>
+            <script type="text/javascript" src="/pos_pwa_oca/static/src/js/webclient.js"/>
         </xpath>
     </template>
 </odoo>
