@@ -15,7 +15,7 @@ class PWA(Controller):
             "/pos_pwa_oca/static/src/js/worker/jquery-sw-compat.js",
             "/web/static/src/js/boot.js",
             "/web/static/src/js/core/class.js",
-            "/pos_pwa_oca/static/src/js/worker/pwa.js",
+            "/pos_pwa_oca/static/src/js/worker/pwa.js"
         ]
 
     @route("/service-worker.js", type="http", auth="public")

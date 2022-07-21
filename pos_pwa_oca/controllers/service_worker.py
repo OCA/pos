@@ -25,18 +25,66 @@ class ServiceWorker(PWA):
         }});
     """
 
+    JS_PWA_CACHE = """
+        self.importScripts(...['https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js']);
+    """
+
+    JS_PWA_CACHE_CONFIRMATION = """
+        if (workbox) {{
+          console.log('Yay! Workbox is loaded!');
+        }} else {{
+          console.log("Boo! Workbox didn't load!");
+        }}
+        
+        workbox.loadModule('workbox-strategies');   
+    """
+
+    JS_PWA_CACHE_REGISTRATION = """
+        self.addEventListener('fetch', async (event) => {
+          if (event.request.method === 'POST') {
+            console.log('Teste POST!');
+          }
+        });
+    
+        workbox.core.setCacheNameDetails({prefix: 'pos-cache'});
+        workbox.routing.registerRoute(/\.(?:js|css|png|woff)$/, new workbox.strategies.StaleWhileRevalidate({cacheName: 'pos-cache-scripts'}));
+        workbox.routing.registerRoute(new RegExp('.*/web.*|.*/webclient.*'),
+            new workbox.strategies.StaleWhileRevalidate({
+                cacheName: 'pos-cache-page',
+                cacheExpiration: {
+                    maxEntries: 50,
+                    maxAgeSeconds: 300
+                },
+                cacheableResponse: {statuses: [0, 200]}
+            })
+        );
+        workbox.routing.registerRoute(new RegExp('.*/dataset/.*'),
+            async ({
+                event
+              }) => {
+                console.log("EVENT!" + event);
+              },
+            'POST'
+        );
+    """
+
     JS_PWA_MAIN = """
         self.importScripts(...{pwa_scripts});
-
+        {pwa_cache}
+        
         odoo.define("pos_pwa_oca.ServiceWorker", function (require) {{
             "use strict";
-
+            
+            {pwa_cache_confirmation}
+            
             {pwa_requires}
 
             {pwa_init}
             {pwa_core_event_install}
             {pwa_core_event_activate}
             {pwa_core_event_fetch}
+
+            {pwa_cache_registration}
         }});
     """
 
@@ -80,7 +128,11 @@ class ServiceWorker(PWA):
                 self._get_js_pwa_core_event_activate_impl()),
             'pwa_core_event_fetch': self.JS_PWA_CORE_EVENT_FETCH.format(
                 self._get_js_pwa_core_event_fetch_impl()),
+            'pwa_cache': self.JS_PWA_CACHE,
+            'pwa_cache_confirmation': self.JS_PWA_CACHE_CONFIRMATION,
+            'pwa_cache_registration': self.JS_PWA_CACHE_REGISTRATION
         })
+
         return request.make_response(
             sw_code,
             [('Content-Type', "text/javascript;charset=utf-8"),
