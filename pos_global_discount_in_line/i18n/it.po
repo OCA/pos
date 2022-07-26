@@ -6,42 +6,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2022-07-26 12:06+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__global_discount_in_line
 msgid "Add Discount in Line"
-msgstr ""
+msgstr "Aggiungi sconto sulla riga"
 
 #. module: pos_global_discount_in_line
 #. openerp-web
 #: code:addons/pos_global_discount_in_line/static/src/js/GlobalLineDiscount.js:0
 #, python-format
 msgid "Discount Percentage"
-msgstr ""
+msgstr "Percentuale sconto"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model,name:pos_global_discount_in_line.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
