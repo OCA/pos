@@ -22,7 +22,7 @@ class ServiceWorkerCache(ServiceWorker):
     JS_PWA_CACHE_REGISTRATION = """
         workbox.core.setCacheNameDetails({{prefix: 'pos-cache'}});
         workbox.routing.registerRoute(/\.(?:js|css|png|woff)$/, new workbox.strategies.StaleWhileRevalidate({{cacheName: 'pos-cache-scripts'}}));
-        workbox.routing.registerRoute(new RegExp('.*/web.*|.*/webclient.*'),
+        workbox.routing.registerRoute(new RegExp('.*/web.*|.*/static/.*|.*/binary/.*|.*/webclient.*'),
             new workbox.strategies.StaleWhileRevalidate({{
                 cacheName: 'pos-cache-page',
                 cacheExpiration: {{
@@ -33,8 +33,7 @@ class ServiceWorkerCache(ServiceWorker):
             }})
         );
         
-        {post_requests}
-        
+        {post_requests} 
     """
 
     JS_PWA_MAIN = """
@@ -58,12 +57,80 @@ class ServiceWorkerCache(ServiceWorker):
     """
 
     def _get_post_resquests(self):
-        return ""
+        return """
+            self.addEventListener('fetch', async (event) => {
+              if (event.request.method === 'POST') {
+                event.respondWith(staleWhileRevalidate(event));
+              }
+            });
+            
+            async function staleWhileRevalidate(event) {
+              let promise = null;
+              let cachedResponse = await getCache(event.request.clone());
+              let fetchResponse = null;
+              try {
+                fetchResponse = await fetch(event.request.clone());
+                setCache(event.request.clone(), fetchResponse.clone());
+              } catch (err) {
+                fetchResponse = null
+              }
+
+              return fetchResponse ? fetchResponse : Promise.resolve(cachedResponse);
+            }
+            
+            async function serializeResponse(response) {
+              let serializedHeaders = {};
+              for (var entry of response.headers.entries()) {
+                serializedHeaders[entry[0]] = entry[1];
+              }
+              let serialized = {
+                headers: serializedHeaders,
+                status: response.status,
+                statusText: response.statusText
+              };
+              serialized.body = await response.json();
+              return serialized;
+            }
+            
+            async function setCache(request, response) {
+              let body = await request.json();
+              let id = CryptoJS.MD5(request.url + body.query).toString();
+              
+              var entry = {
+                query: body.query,
+                response: await serializeResponse(response),
+                timestamp: Date.now()
+              };
+              
+              localforage.setItem(id, entry).then(function (value) {
+                console.log('Save at cache! ' + value);
+              });
+            }
+            
+            async function getCache(request) {
+              try {
+                let body = await request.json();
+                let id = CryptoJS.MD5(request.url + body.query).toString();
+                console.log(`Load response from cache.`);
+                let reponseCache = null
+                try {
+                    reponseCache = await localforage.getItem(id);
+                } catch (err) {
+                    return null;
+                }
+                return new Response(JSON.stringify(reponseCache.response.body), reponseCache.response);
+              } catch (err) {
+                return null;
+              }
+            }
+        """
 
     def _get_pwa_cache_scripts(self):
         """Scripts to be imported in the service worker (Order is important)"""
         return [
+            "/pos_pwa_cache_oca/static/src/js/aes.js",
             "/pos_pwa_cache_oca/static/src/js/workbox-sw.js",
+            "/pos_pwa_cache_oca/static/src/js/localforage.min.js",
         ]
 
     def _get_sw_code(self):
