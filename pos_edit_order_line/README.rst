@@ -29,7 +29,7 @@ This module adds a button "Edit order lines" in main POS interface to allow an e
 
 On button click, a popup with order lines allows user to input a clear value for each field, instead of having to use the default process of selecting which field to edit, which is not very intuitive and error-prone.
 
-.. image:: https://raw.githubusercontent.com/pos_edit_order_line/static/description/pos_edit_order_line.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_edit_order_line/static/description/pos_edit_order_line.png
   :alt: Display Edit Order Line Popup
 
 **Table of contents**
