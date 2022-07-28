@@ -36,8 +36,10 @@ class PosSession(models.Model):
         return self._button_move_reason("expense")
 
     def _button_move_reason(self, move_type):
-        action = self.env.ref(
-            "pos_cash_move_reason.action_wizard_pos_move_reason"
-        ).read()[0]
+        action = (
+            self.env.ref("pos_cash_move_reason.action_wizard_pos_move_reason")
+            .sudo()
+            .read()[0]
+        )
         action["context"] = {"default_move_type": move_type}
         return action
