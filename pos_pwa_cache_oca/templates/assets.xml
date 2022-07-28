@@ -2,6 +2,8 @@
 <odoo>
     <template id="assets_backend" name="pos service worker cache assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_pwa_cache_oca/static/src/js/ajax.js"/>
+            <script type="text/javascript" src="/pos_pwa_cache_oca/static/src/js/models.js"/>
             <script type="text/javascript" src="/pos_pwa_cache_oca/static/src/js/aes.js"/>
             <script type="text/javascript" src="/pos_pwa_cache_oca/static/src/js/localforage.min.js"/>
             <script type="text/javascript" src="/pos_pwa_cache_oca/static/src/js/workbox-sw.js"/>

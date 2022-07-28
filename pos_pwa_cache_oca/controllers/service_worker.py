@@ -40,7 +40,7 @@ class ServiceWorkerCache(ServiceWorker):
         self.importScripts(...{pwa_scripts});
         {pwa_cache}
         
-        odoo.define("pos_pwa_oca.ServiceWorker", function (require) {{
+        odoo.define("pos_pwa_oca_cache.ServiceWorker", function (require) {{
             "use strict";
             
             {pwa_cache_confirmation}
@@ -59,11 +59,10 @@ class ServiceWorkerCache(ServiceWorker):
     def _get_post_resquests(self):
         return """
             self.addEventListener('fetch', async (event) => {
-              if (event.request.method === 'POST') {
+              if (event.request.method === 'POST' && !event.request.url.split('/').includes('create_from_ui')) {
                 event.respondWith(staleWhileRevalidate(event));
               }
             });
-            
             async function staleWhileRevalidate(event) {
               let promise = null;
               let cachedResponse = await getCache(event.request.clone());
@@ -130,7 +129,7 @@ class ServiceWorkerCache(ServiceWorker):
         return [
             "/pos_pwa_cache_oca/static/src/js/aes.js",
             "/pos_pwa_cache_oca/static/src/js/workbox-sw.js",
-            "/pos_pwa_cache_oca/static/src/js/localforage.min.js",
+            "/pos_pwa_cache_oca/static/src/js/localforage.min.js"
         ]
 
     def _get_sw_code(self):
