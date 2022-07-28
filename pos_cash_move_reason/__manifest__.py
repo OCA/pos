@@ -6,7 +6,7 @@
     "author": "ACSONE SA/NV," "GRAP," "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "category": "Point Of sale",
-    "version": "14.0.1.0.2",
+    "version": "14.0.1.0.3",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
     "data": [
