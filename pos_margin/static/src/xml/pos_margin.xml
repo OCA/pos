@@ -9,12 +9,14 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <t t-name="OrderSummaryMargin" owl="1">
         <div class="summary clearfix">
-            <div class="line">
-                <div class="subentry order-margin">
-                    <span>Margin: </span><span class="value-margin">0.00 €</span>
-                    (<span class="value-margin-rate">0.00 %</span>)
+            <t t-if="env.pos.config.iface_display_margin">
+                <div class="line">
+                    <div class="subentry order-margin">
+                        <span>Margin: </span><span class="value-margin">0.00 €</span>
+                        (<span class="value-margin-rate">0.00 %</span>)
+                    </div>
                 </div>
-            </div>
+            </t>
         </div>
     </t>
 
