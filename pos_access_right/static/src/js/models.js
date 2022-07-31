@@ -7,9 +7,14 @@ odoo.define("pos_access_right.models", function (require) {
     models.PosModel = models.PosModel.extend({
         get_cashier: function () {
             const pos_cashier = posmodel_super.get_cashier.apply(this);
-            const cashier = this.env.pos.users.find(
-                (user) => user.id === pos_cashier.user_id[0]
-            );
+            try {
+                const cashier = this.env.pos.users.find(
+                    (user) => user.id === pos_cashier.user_id[0]
+                );
+            }
+            catch (err) {
+                return pos_cashier;
+            }
             pos_cashier.hasGroupPayment =
                 cashier &&
                 cashier.groups_id.includes(this.env.pos.config.group_payment_id[0]);
