@@ -4,51 +4,51 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
     var screens = require("point_of_sale.screens");
     var core = require("web.core");
 
-
     screens.PaymentScreenWidget.include({
-
-        render_paymentlines : function(){
+        render_paymentlines: function () {
             this._super.apply(this, arguments);
             var _this = this;
-            this.$(".paymentlines-container").unbind("click").on(
-                "click", ".cashdro-transaction-start",
-                function (ev) {
+            this.$(".paymentlines-container")
+                .unbind("click")
+                .on("click", ".cashdro-transaction-start", function (ev) {
                     _this.pos.get_order().in_cashdro_transaction = true;
                     _this.order_changes();
-                    _this.journal = _this._get_journal($(this).data('cid'));
+                    _this.journal = _this._get_journal($(this).data("cid"));
                     _this.cashdro_send_payment_request().done(function () {
                         _this.pos.get_order().in_cashdro_transaction = false;
                         var amount = _this.pos.get_order().selected_paymentline.amount;
                         _this.order_changes();
                         _this.render_paymentlines();
-                        _this.$('.paymentline.selected .edit').text(_this.format_currency_no_symbol(amount));
+                        _this
+                            .$(".paymentline.selected .edit")
+                            .text(_this.format_currency_no_symbol(amount));
                     });
-            }).on(
-                "click", ".cashdro-transaction-cancel",
-                function (ev) {
-                _this.pos.get_order().in_cashdro_transaction = false;
-                _this.order_changes();
-                _this.journal = _this._get_journal($(this).data('cid'));
-            	_this.cashdro_finish_operation(_this.pos.get_order().cashdro_operation);
-                }
-            );
+                })
+                .on("click", ".cashdro-transaction-cancel", function (ev) {
+                    _this.pos.get_order().in_cashdro_transaction = false;
+                    _this.order_changes();
+                    _this.journal = _this._get_journal($(this).data("cid"));
+                    _this.cashdro_finish_operation(
+                        _this.pos.get_order().cashdro_operation
+                    );
+                });
         },
 
-        order_changes: function(){
+        order_changes: function () {
             this._super.apply(this, arguments);
             var order = this.pos.get_order();
             if (!order) {
                 return;
             } else if (order.in_cashdro_transaction) {
-                this.$('.next').addClass('oe_hidden');
-                this.$('.in_cashdro_transaction').removeClass('oe_hidden');
-                this.$('.cashdro-transaction-start').addClass('oe_hidden');
-                this.$('.cashdro-transaction-cancel').removeClass('oe_hidden');
+                this.$(".next").addClass("oe_hidden");
+                this.$(".in_cashdro_transaction").removeClass("oe_hidden");
+                this.$(".cashdro-transaction-start").addClass("oe_hidden");
+                this.$(".cashdro-transaction-cancel").removeClass("oe_hidden");
             } else {
-                this.$('.next').removeClass('oe_hidden');
-                this.$('.in_cashdro_transaction').addClass('oe_hidden');
-                this.$('.cashdro-transaction-start').removeClass('oe_hidden');
-                this.$('.cashdro-transaction-cancel').addClass('oe_hidden');
+                this.$(".next").removeClass("oe_hidden");
+                this.$(".in_cashdro_transaction").addClass("oe_hidden");
+                this.$(".cashdro-transaction-start").removeClass("oe_hidden");
+                this.$(".cashdro-transaction-cancel").addClass("oe_hidden");
             }
         },
 
@@ -63,13 +63,13 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
             //    finished) we'll get the response and fill the tendered money
             //    for the payment line.
             var _this = this;
-            var order = this.pos.get_order()
+            var order = this.pos.get_order();
             var payment_line = order.selected_paymentline;
             // Cashdro treats decimals as positions in an integer we also have
             // to deal with floating point computing to avoid decimals at the
             // end or the drawer will reject our request.
             var amount = parseInt(order.get_due(payment_line).toFixed(2) * 100);
-            var url = this._cashdro_payment_url({"amount": amount});
+            var url = this._cashdro_payment_url({amount: amount});
             var operation_id = "";
             var request = this._cashdro_request(url)
                 .then(function (res) {
@@ -96,23 +96,24 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
                     payment_line.cashdro_operation_data = data;
                     _this.pos.get_order().in_cashdro_transaction = false;
                     var tendered = data.operation.totalin / 100;
-                    payment_line.set_amount(tendered)
+                    payment_line.set_amount(tendered);
                 });
             return request;
         },
 
         cashdro_finish_operation: function (operation) {
             // Finish the Cashdro running operation
-            var _this = this
-            var order = this.pos.get_order()
+            var _this = this;
+            var order = this.pos.get_order();
             if (operation) {
-                this._cashdro_request(this._cashdro_finish_url(operation))
-                .then(function () {
-                    order.in_cashdro_transaction = false;
-                    order.cashdro_operation = false;
-                    order.in_cashdro_transaction = false;
-                    _this.order_changes();
-                });
+                this._cashdro_request(this._cashdro_finish_url(operation)).then(
+                    function () {
+                        order.in_cashdro_transaction = false;
+                        order.cashdro_operation = false;
+                        order.in_cashdro_transaction = false;
+                        _this.order_changes();
+                    }
+                );
             }
         },
 
@@ -131,9 +132,9 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
             return url;
         },
 
-        _cashdro_payment_url: function(parameters) {
+        _cashdro_payment_url: function (parameters) {
             // Compose the url for a sale report to Cashdro
-            var url = this._cashdro_url()
+            var url = this._cashdro_url();
             url += "&operation=startOperation&type=4";
             url += "&posid=pos-" + this.pos.pos_session.name;
             url += "&posuser=" + this.pos.get_cashier().id;
@@ -141,25 +142,25 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
             return url;
         },
 
-        _cashdro_ack_url: function(operation_id) {
+        _cashdro_ack_url: function (operation_id) {
             // Compose the url for a sale report to Cashdro
-            var url = this._cashdro_url()
+            var url = this._cashdro_url();
             url += "&operation=acknowledgeOperationId";
             url += "&operationId=" + operation_id;
             return url;
         },
 
-        _cashdro_ask_url: function(operation_id) {
+        _cashdro_ask_url: function (operation_id) {
             // Compose the url for to report a sale to Cashdro
-            var url = this._cashdro_url()
+            var url = this._cashdro_url();
             url += "&operation=askOperation";
             url += "&operationId=" + operation_id;
             return url;
         },
 
-        _cashdro_finish_url: function(operation_id) {
+        _cashdro_finish_url: function (operation_id) {
             // Compose the url for a sale report to Cashdro
-            var url = this._cashdro_url()
+            var url = this._cashdro_url();
             url += "&operation=finishOperation&type=2";
             url += "&operationId=" + operation_id;
             return url;
@@ -173,7 +174,7 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
                 async: true,
                 success: function (response) {
                     return response;
-                }
+                },
             });
         },
 
@@ -182,32 +183,31 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
             // until we get the *finished* state that will give us the amount
             // received in the cashdrawer.
             var def = $.Deferred();
-            var _request_payment = function(url) {
-              $.ajax({
-                  url: url,
-                  method: "GET",
-                  success: function (response) {
-                      var data = JSON.parse(response.data);
-                      if (data.operation.state === "F") {
-                          def.resolve(response);
-                      } else {
-                          _request_payment(url);
-                      }
-                  }
-              });
-            }
+            var _request_payment = function (url) {
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    success: function (response) {
+                        var data = JSON.parse(response.data);
+                        if (data.operation.state === "F") {
+                            def.resolve(response);
+                        } else {
+                            _request_payment(url);
+                        }
+                    },
+                });
+            };
             _request_payment(url);
             return def;
         },
 
-
         _show_error: function (msg, title) {
             if (!title) {
-                title =  _t("CashDro Error");
+                title = _t("CashDro Error");
             }
             this.pos.gui.show_popup("error", {
-                "title": title,
-                "body": msg,
+                title: title,
+                body: msg,
             });
         },
 
@@ -217,27 +217,27 @@ odoo.define("pos_payment_method_cashdro.screens", function (require) {
             var line;
             var order = this.pos.get_order();
             var lines = order.get_paymentlines();
-            for ( var i = 0; i < lines.length; i++ ) {
+            for (var i = 0; i < lines.length; i++) {
                 if (lines[i].cid === line_cid) {
                     line = lines[i];
                 }
             }
-            return line.cashregister.journal
+            return line.cashregister.journal;
         },
         _cancel_current_transaction_popup: function () {
             var self = this;
-            this.gui.show_popup("confirm",{
+            this.gui.show_popup("confirm", {
                 title: _t("Transaction ongoing"),
-                body:  _t("There is a transaction in progress, would you like to cancel it?"),
+                body: _t(
+                    "There is a transaction in progress, would you like to cancel it?"
+                ),
                 confirm: function () {
-                    self._cancel_current_transaction()
+                    self._cancel_current_transaction();
                 },
                 cancel: function () {
                     return;
-                }
+                },
             });
         },
-
     });
-
 });
