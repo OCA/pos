@@ -14,13 +14,13 @@ PoS Payment Method CashDro
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/12.0/pos_payment_method_cashdro
+    :target: https://github.com/OCA/pos/tree/14.0/pos_payment_method_cashdro
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_payment_method_cashdro
+    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_payment_method_cashdro
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :target: https://runbot.odoo-community.org/runbot/184/14.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -36,10 +36,11 @@ on the Point of Sale frontend.
 Configuration
 =============
 
-To configure this module, you need to:
+To add a Cashdro payment terminal:
 
-#. Go to a Point of Sale cash payment method or create a new one.
-#. In the Point of Sale tab, set *Cashdro Payment Terminal* on.
+#. Go to *Point of Sale > Configuration > Payment Methods*
+#. Choose a cash payment method or create a new one.
+#. Select *Cashdro* in the *Use a Payment Terminal* field.
 #. Configure the Cashdro terminal hostname and credentials.
 #. Configure the desired, Cashdro terminal in the proper PoS configurations.
 
@@ -53,11 +54,10 @@ With the proper configuration made:
 
 #. Make a new PoS order and choose the cash payment method configured with the Cashdro
    settings.
-#. In the payment line, tap on the Cashdro request button (the one with a bill icon).
-#. The request is sent to the Cashdro terminal that will ask the customer for the amount
-   to pay.
-#. In this moment, a button with a ban icon will appear. It allows the cashier to cancel
-   the request before the payment is made.
+#. Click on *Send* to send the request to the Cashdro terminal that will ask the
+   customer for the amount to pay.
+#. The cashier can cancel the amount request discarding the line clicking on the (x)
+   symbol.
 #. When the customer pays the sale amount in the terminal, the Cashdro reports the
    amount received and change delivered back.
 #. The Point of Sale reflects it in the payment line and thus the order can be validated
@@ -81,7 +81,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_method_cashdro%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_method_cashdro%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -117,6 +117,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_payment_method_cashdro>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_payment_method_cashdro>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
