@@ -1,7 +1,8 @@
-To configure this module, you need to:
+To add a Cashdro payment terminal:
 
-#. Go to a Point of Sale cash payment method or create a new one.
-#. In the Point of Sale tab, set *Cashdro Payment Terminal* on.
+#. Go to *Point of Sale > Configuration > Payment Methods*
+#. Choose a cash payment method or create a new one.
+#. Select *Cashdro* in the *Use a Payment Terminal* field.
 #. Configure the Cashdro terminal hostname and credentials.
 #. Configure the desired, Cashdro terminal in the proper PoS configurations.
 

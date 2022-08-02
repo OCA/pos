@@ -3,15 +3,20 @@
 from odoo import fields, models
 
 
-class AccountJournal(models.Model):
-    _inherit = "account.journal"
-    # TODO: In 13.0 this fields should be moved to `pos.payment.method`
-    # and be addod to the payment terminal selection
+class PosPaymentMethod(models.Model):
+    _inherit = "pos.payment.method"
 
-    cashdro_payment_terminal = fields.Boolean()
+    def _get_payment_terminal_selection(self):
+        return super()._get_payment_terminal_selection() + [("cashdro", "Cashdro")]
+
     cashdro_host = fields.Char(
         string="Cashdro Terminal Host Name or IP address",
         help="It must be reachable by the PoS in the store",
     )
     cashdro_user = fields.Char(string="Cashdro User")
     cashdro_password = fields.Char(string="Cashdro Password")
+
+    def _onchange_is_cash_count(self):
+        if self.use_payment_terminal == "cashdro":
+            return
+        return super()._onchange_is_cash_count()
