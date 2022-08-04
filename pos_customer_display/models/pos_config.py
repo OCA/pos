@@ -18,6 +18,13 @@ class PosConfig(models.Model):
         string="LED Customer Display", help="Display data on the customer display"
     )
 
+    epos_customer_display = fields.Boolean(
+        string="LED Customer Display (Epson ePOS)",
+        help="Activate if you use an Epson LCD connected via USB "
+        "(DM-D30, DM-D110 or DM-D210) to your Epson printer defined above "
+        "that support the ePOS protocol.",
+    )
+
     customer_display_format = fields.Selection(
         selection=_CUSTOMER_DISPLAY_FORMAT_SELECTION,
         string="Customer Display Format",
@@ -74,8 +81,20 @@ class PosConfig(models.Model):
                 config.customer_display_format.split("_")[1]
             )
 
+    @api.constrains("iface_customer_display", "epos_customer_display")
+    def _check_posbox_or_epos(self):
+        for config in self:
+            if config.iface_customer_display and config.epos_customer_display:
+                raise ValidationError(
+                    _(
+                        "On '%s', you activated the LED Customer Display both "
+                        "via the IoTbox and via Direct Devices. You can only "
+                        "select one of the two options."
+                    )
+                    % config.display_name
+                )
+
     @api.constrains(
-        "iface_customer_display",
         "customer_display_format",
         "customer_display_msg_next_l1",
         "customer_display_msg_next_l2",
@@ -99,3 +118,13 @@ class PosConfig(models.Model):
                         )
                         % (self._fields[field_name].string, len(value), maxsize)
                     )
+
+    @api.onchange("other_devices")
+    def other_devices_change_customer_display(self):
+        if not self.other_devices and self.epos_customer_display:
+            self.epos_customer_display = False
+
+    @api.onchange("is_posbox")
+    def is_posbox_change_customer_display(self):
+        if not self.is_posbox and self.iface_customer_display:
+            self.iface_customer_display = False

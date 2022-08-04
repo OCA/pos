@@ -51,7 +51,7 @@ odoo.define("pos_customer_display.customer_display_2_20", function (require) {
                     "update_discount",
                 ].indexOf(action) !== -1
             ) {
-                var second_line = String(qty) + " * " + unit_price_str;
+                var second_line = String(qty) + " x " + unit_price_str;
                 if (discount) {
                     discount_str = " -" + String(discount) + "%";
                 }

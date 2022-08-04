@@ -35,10 +35,83 @@ odoo.define("pos_customer_display.devices", function (require) {
 
         send_text_customer_display: function (data) {
             if (this.customer_display_proxy) {
-                return this.message("send_text_customer_display", {
-                    text_to_display: JSON.stringify(data),
-                });
+                if (this.pos.config.iface_customer_display) {
+                    return this.message("send_text_customer_display", {
+                        text_to_display: JSON.stringify(data),
+                    });
+                } else if (
+                    this.pos.config.epos_customer_display &&
+                    this.pos.config.epson_printer_ip
+                ) {
+                    return this._epos_send_display_soap_request(
+                        this.pos.config.epson_printer_ip,
+                        data
+                    );
+                }
             }
+        },
+
+        _epos_send_display_soap_request: function (epos_printer_ip, data) {
+            /* I could use the JS lib 'epos-2.12.0.js' supplied by the module
+               'pos_epson_printer' in Odoo v14
+               but this JS lib is not supplied any more in Odoo v15, so this module will be
+               easier to port to newer versions of Odoo if we don't use that JS lib */
+            var body_xml =
+                '<epos-display xmlns="http://www.epson-pos.com/schemas/2012/09/epos-display">';
+            body_xml += "<reset/>";
+            body_xml += '<cursor type="none"/>';
+            body_xml += '<text x="1" y="1" lang="mul">' + data[0] + "</text>";
+            body_xml += '<text x="1" y="2" lang="mul">' + data[1] + "</text>";
+            body_xml += "</epos-display>";
+            // Config params in header
+            var header_xml =
+                '<parameter xmlns="http://www.epson-pos.com/schemas/2012/09/epos-display">';
+            header_xml += "<devid>local_display</devid>";
+            header_xml += "<timeout>1000</timeout>";
+            header_xml += "</parameter>";
+            // Build the full XML
+            var entire_xml =
+                '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">';
+            entire_xml += "<s:Header>" + header_xml + "</s:Header>";
+            entire_xml += "<s:Body>" + body_xml + "</s:Body></s:Envelope>";
+            // Build the URL
+            var url =
+                window.location.protocol +
+                "//" +
+                epos_printer_ip +
+                "/cgi-bin/eposDisp/service.cgi";
+            // Prepare the SOAP request to the ePOS printer
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            // Set HTTP headers
+            xhr.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+            xhr.setRequestHeader("SOAPAction", '""');
+            // Define the callback function
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        // Get XML answer to my SOAP request
+                        var answer = xhr.responseXML;
+                        var xml_response = answer
+                            .getElementsByTagName("response")[0]
+                            .getAttribute("success");
+                        // If it fails, log a warning
+                        if (!/^(1|true)$/.test(xml_response)) {
+                            console.warn(
+                                "pos_customer_display: ePOS local_display error. xml_response = " +
+                                    xml_response
+                            );
+                        }
+                    } else {
+                        console.warn(
+                            "pos_customer_display: ePOS local_display error. HTTP error code = " +
+                                xhr.status
+                        );
+                    }
+                }
+            };
+            // Fire SOAP request to Epson ePOS Printer
+            xhr.send(entire_xml);
         },
 
         _prepare_line: function (left_part, right_part) {

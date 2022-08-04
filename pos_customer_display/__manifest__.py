@@ -11,11 +11,10 @@
     "author": "Aurélien DUMAINE,GRAP,Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "website": "https://github.com/OCA/pos",
-    "depends": ["point_of_sale"],
+    "depends": ["pos_epson_printer"],
     "data": [
         "views/assets.xml",
         "views/view_pos_config.xml",
     ],
-    "demo": ["demo/pos_config.xml"],
     "installable": True,
 }
