@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Require Product Quantity in POS",
-    "version": "12.0.0.2.0",
+    "version": "12.0.0.2.1",
     "author": "Coop IT Easy SCRLfs, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
