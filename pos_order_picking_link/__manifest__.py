@@ -3,7 +3,7 @@
 
 {
     'name': 'POS Order Picking Link',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'category': 'Point of Sale',
     'author': 'KMEE, Odoo Community Association (OCA)',
     'website': 'https://github.com/OCA/pos',
