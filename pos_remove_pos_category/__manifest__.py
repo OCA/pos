@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     'name': 'POS Remove POS Category',
-    'version': '12.0.2.0.0',
+    'version': '12.0.2.0.1',
     'author': 'Akretion, Camptocamp SA, ACSONE SA/NV, '
               'Odoo Community Association (OCA)',
     'category': 'Point of Sale',
