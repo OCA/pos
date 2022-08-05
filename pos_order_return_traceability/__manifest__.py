@@ -4,7 +4,7 @@
 {
     "name": "POS frontend return traceability",
     "summary": "Adds full return traceability to POS frontend",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "author": "Odoo Community Association (OCA), Solvos",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
