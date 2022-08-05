@@ -575,10 +575,6 @@ msgid ""
 "\n"
 "- %s"
 msgstr ""
-"Vous ne pouvez pas fermer cette session car le relevé %s a une différence "
-"non nulle : \n"
-"\n"
-"- %s"
 
 #. module: pos_multiple_control
 #: code:addons/pos_multiple_control/models/pos_session.py:174

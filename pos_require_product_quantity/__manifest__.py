@@ -5,7 +5,7 @@
     "name": "Require Product Quantity in POS",
     "version": "12.0.0.2.0",
     "author": "Coop IT Easy SCRLfs, Odoo Community Association (OCA)",
-    "website": "https://www.coopiteasy.be",
+    "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "category": "Point of Sale",
     "summary": """

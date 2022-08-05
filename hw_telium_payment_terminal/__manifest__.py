@@ -6,7 +6,7 @@
     'license': 'AGPL-3',
     'summary': 'Adds support for Payment Terminals using Telium protocol',
     'author': "Akretion,Odoo Community Association (OCA)",
-    'website': 'http://www.github.com/OCA/pos',
+    'website': 'https://github.com/OCA/pos',
     'depends': ['hw_proxy'],
     'external_dependencies': {
         'python': ['serial', 'pycountry'],
