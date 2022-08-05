@@ -4,7 +4,7 @@
 {
     'name': 'Point of Sale - Note Field',
     'summary': "Store Order Line Note field in Database",
-    'version': '12.0.1.0.3',
+    'version': '12.0.1.0.4',
     'category': 'Point of Sale',
     'author': 'GRAP,Odoo Community Association (OCA)',
     'maintainers': ['legalsylvain'],
