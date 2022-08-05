@@ -11,7 +11,7 @@
     "maintainers": ["legalsylvain"],
     "website": "https://github.com/OCA/pos",
     "category": "Point Of sale",
-    "version": "12.0.3.1.0",
+    "version": "12.0.3.1.1",
     "license": "AGPL-3",
     "depends": [
         "pos_cash_move_reason",
