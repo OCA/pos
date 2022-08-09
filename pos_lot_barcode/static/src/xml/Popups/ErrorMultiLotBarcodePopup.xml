@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ErrorMultiLotBarcodePopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <Draggable>
+                <div class="popup popup-barcode">
+                    <header class="title drag-handle">
+                        <span>Multiple Products Matching Barcode</span>
+                        <br />
+                        <span class="barcode">
+                            <t t-esc="props.code" />
+                        </span>
+                    </header>
+                    <main class="body">
+                        <p><t t-esc="translatedMessage" /></p>
+                        <ul>
+                            <t t-foreach="props.products" t-as="prod">
+                                <li><t t-esc="prod" /></li>
+                            </t>
+                        </ul>
+
+                    </main>
+                    <footer class="footer">
+                        <div class="button cancel" t-on-click="confirm">
+                            Ok
+                        </div>
+                    </footer>
+                </div>
+            </Draggable>
+        </div>
+    </t>
+
+</templates>
