@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="name">pos.config.form.view.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <div id="inventory_location" position="inside">
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    attrs="{'invisible' : [('limited_products_loading', '=', False)]}"
+                >
+                    <div class="o_setting_left_pane">
+                        <field name="limited_lots_loading" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="limited_lots_loading"
+                            string="Limited Lots Loading"
+                        />
+                        <div class="text-muted">
+                            Only load most common lots at the opening of the PoS.
+                        </div>
+                        <div
+                            class="content-group mt16"
+                            attrs="{'invisible' : [('limited_lots_loading', '=', False)]}"
+                        >
+                            <div groups="base.group_no_one">
+                                <label
+                                    for="limited_lots_amount"
+                                    string="Number of Lots Loaded"
+                                />
+                                <field name="limited_lots_amount" class="oe_inline" />
+                            </div>
+                            <div>
+                                <field name="lot_load_background" class="oe_inline" />
+                                <label
+                                    for="lot_load_background"
+                                    string="Load all remaining lots in the background"
+                                    class="oe_inline"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
