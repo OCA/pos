@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_form_view">
+        <field name="name">pos.config.form (in pos_openreplay)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@name='order']" position="before">
+
+                <h2 name="openreplay_h2">Open Replay</h2>
+                    <div class="row mt16 o_settings_container" id="open_replay_div">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <field name="open_replay_active" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="open_replay_active" string="Open Replay" />
+                                <div class="text-muted">
+                                    OpenReplay is an open-source session replay stack that helps developers build delightful products.
+                                </div>
+                                <div
+                                class="content-group"
+                                attrs="{'invisible' : [('open_replay_active', '=', False)]}"
+                            >
+                                    <div class="row mt16">
+                                        <label
+                                        string="Server Address"
+                                        for="open_replay_ingest_point"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                        <field name="open_replay_ingest_point" />
+                                    </div>
+
+                                    <div class="row">
+                                        <label
+                                        string="Project Key"
+                                        for="open_replay_project_key"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                        <field name="open_replay_project_key" />
+                                    </div>
+
+                                    <div class="row">
+                                        <label
+                                        string="Input Mode"
+                                        for="open_replay_default_input_mode"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                        <field name="open_replay_default_input_mode" />
+                                    </div>
+                                    <div class="row">
+                                        <label
+                                        string="Do not record any numeric text"
+                                        for="open_replay_obscure_text_numbers"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                        <field
+                                        name="open_replay_obscure_text_numbers"
+                                    />
+                                    </div>
+                                    <div class="row">
+                                        <label
+                                        string="Do not record email addresses"
+                                        for="open_replay_obscure_text_emails"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                        <field name="open_replay_obscure_text_emails" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>
