@@ -53,8 +53,9 @@ odoo.define("pos_crm.models", function (require) {
                 !this.is_pos_crm_checked &&
                 this.pos.config.pos_crm_question === screen
             ) {
-                const result = await component.showPopup("TextInputPopup", {
-                    title: _t("Customer code or Tax ID?"),
+                const result = await component.showPopup("TaxIdPopup", {
+                    title: _t("CPF/CNPJ"),
+                    startingValue: 0,
                 });
                 this.set_is_pos_crm_checked(true);
                 if (result.confirmed) {

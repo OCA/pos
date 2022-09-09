@@ -24,6 +24,6 @@ class PosConfig(models.Model):
 
     pos_crm_auto_create_partner = fields.Boolean(
         string="Auto Create Partner",
-        default="no",
+        default=False,
         help="Automatic create Partner:\n" "* 'Name' will be the VAT number;\n",
     )
