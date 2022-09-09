@@ -17,5 +17,7 @@
         # Templates
         "views/pos_template.xml",
     ],
-    "qweb": [],
+    "qweb": [
+        "static/src/xml/Popups/TaxIdPopup.xml",
+    ],
 }

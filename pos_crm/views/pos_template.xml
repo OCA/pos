@@ -18,6 +18,10 @@
                     type="text/javascript"
                     src="/pos_crm/static/src/js/ProductScreen.js"
                 />
+                <script
+                    type="text/javascript"
+                    src="/pos_crm/static/src/js/Popups/TaxIdPopup.js"
+                />
             </xpath>
         </template>
 
