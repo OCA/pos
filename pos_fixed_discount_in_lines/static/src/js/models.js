@@ -2,7 +2,6 @@ odoo.define("pos_fixed_discount_in_lines.POSModels", function (require) {
     "use strict";
 
     var models = require("point_of_sale.models");
-    var utils = require("web.utils");
     var field_utils = require("web.field_utils");
 
     var _super_orderline = models.Orderline.prototype;
@@ -24,7 +23,19 @@ odoo.define("pos_fixed_discount_in_lines.POSModels", function (require) {
                     : field_utils.parse.float(String(discount));
             var disc = Math.min(Math.max(parsed_discount || 0, 0), 100);
             this.manual_discount = disc;
-            this.discount = this.manual_discount + this.fixed_discount; // + fixed disc + % disc
+            // This.discount = this.manual_discount + this.fixed_discount; // + fixed disc + % disc
+            this.discount = 0;
+            if (this.fixed_discount > 0 && this.manual_discount > 0) {
+                this.discount =
+                    100 -
+                    (1 - this.manual_discount / 100) *
+                        (1 - this.fixed_discount / 100) *
+                        100;
+            } else if (this.fixed_discount > 0) {
+                this.discount = this.fixed_discount;
+            } else if (this.manual_discount > 0) {
+                this.discount = this.manual_discount;
+            }
             this.discountStr = String(this.discount);
             this.trigger("change", this);
         },
