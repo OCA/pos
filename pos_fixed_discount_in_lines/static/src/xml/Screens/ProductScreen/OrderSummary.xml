@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderSummary" t-inherit-mode="extension" owl="1">
+        <xpath expr="//span[hasclass('badge')]" position="before">
+            <div t-if="props.fixed_discount" class="subentry">
+                Subtotal:
+                <span class="value">
+                    <t t-esc="props.subtotal" />
+                </span>
+            </div>
+            <div t-if="props.fixed_discount" class="subentry">
+                Discount:
+                <span class="value">
+                    <t t-esc="props.fixed_discount" />
+                </span>
+            </div>
+        </xpath>
+    </t>
+</templates>
