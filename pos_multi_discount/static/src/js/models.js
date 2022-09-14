@@ -2,7 +2,6 @@ odoo.define("pos_multi_discount.POSModels", function (require) {
     "use strict";
 
     var models = require("point_of_sale.models");
-    var utils = require("web.utils");
     var field_utils = require("web.field_utils");
 
     var _super_orderline = models.Orderline.prototype;
