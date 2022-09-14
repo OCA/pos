@@ -11,14 +11,9 @@
     ],
     "data": [
         "views/pos_templates.xml",
-        # "views/pos_discount_views.xml",
         "views/pos_views.xml",
-        # "data/product.xml",
     ],
     "qweb": [
         "static/src/xml/Screens/ProductScreen/Orderline.xml",
-        # "static/src/xml/Screens/ProductScreen/OrderWidget.xml",
-        # "static/src/xml/Screens/PaymentScreen/PaymentScreen.xml",
-        # "static/src/xml/Screens/PaymentScreen/PaymentScreenStatus.xml",
     ],
 }

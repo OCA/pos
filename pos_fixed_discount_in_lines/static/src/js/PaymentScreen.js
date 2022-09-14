@@ -17,12 +17,12 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                     fixed_discount: 0,
                 });
                 useListener("update-fixed-discount", this._updateFixedDiscount);
-                // This.remove_fixed_discount();
+                this.remove_fixed_discount();
             }
             willUnmount() {
                 // Var order = this.env.pos.get_order();
-                this.disable_fixed_discount_mode();
-                // If (!order.finalized) {
+                // this.disable_fixed_discount_mode();
+                // if (!order.finalized) {
                 //     this.remove_fixed_discount();
                 //     var lines = order.paymentlines.models;
                 //     for (var i = 0; i < lines.length; i++) {
@@ -75,10 +75,18 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                     order.fixed_discount = amount;
                     var discount = (100 * amount) / (total + current_discount);
                     // Truncate to 3 decimals
-                    discount = Math.trunc(discount * 1000) / 1000;
+                    discount = Math.trunc(discount * 100) / 100;
                     for (const ind in lines) {
                         if (amount > 0) {
-                            lines[ind].fixed_discount = discount;
+                            if (lines[ind].manual_discount > 0) {
+                                discount =
+                                    Math.trunc(((100 * amount) / total) * 100) / 100;
+                                if (discount > 0) {
+                                    lines[ind].fixed_discount = discount;
+                                }
+                            } else {
+                                lines[ind].fixed_discount = discount;
+                            }
                             lines[ind].set_discount(lines[ind].manual_discount);
                         } else {
                             lines[ind].fixed_discount = 0;

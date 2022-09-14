@@ -20,14 +20,6 @@ odoo.define("pos_fixed_discount_in_lines.PosOrderWidgetMod", function (require) 
 
             _updateSummary() {
                 super._updateSummary(...arguments);
-                // Const fixed_discount = this.order ? this.order.get_fixed_discount() : 0;
-                // this.state.fixed_discount = this.env.pos.format_currency(
-                //     fixed_discount
-                // );
-                // this.state.subtotal = this.env.pos.format_currency(
-                //     this.order.get_total_without_tax() + fixed_discount
-                // );
-                // this.render();
             }
         };
     Registries.Component.extend(OrderWidget, PosOrderWidgetMod);
