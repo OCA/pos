@@ -3,7 +3,6 @@ odoo.define("pos_multi_discount.POSModels", function (require) {
 
     var models = require("point_of_sale.models");
     var utils = require("web.utils");
-    var round_pr = utils.round_precision;
     var field_utils = require("web.field_utils");
 
     var _super_orderline = models.Orderline.prototype;
