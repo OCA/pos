@@ -1,41 +1,91 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-name="TaxIdPopup" owl="1">
         <div role="dialog" class="modal-dialog">
             <Draggable>
-                <div class="popup popup-number" t-att-class="{ 'popup-password': props.isPassword }">
+                <div
+                    class="popup popup-number"
+                    t-att-class="{ 'popup-password': props.isPassword }"
+                >
                     <header class="title drag-handle">
                         <t t-esc="props.title" />
                     </header>
-                    <main class="body traceback">
-                        <t t-esc="props.body" />
-                    </main>
                     <div class="popup-input value active">
                         <t t-esc="inputBuffer" />
                     </div>
                     <div class="popup-numpad">
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('1')">1</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('2')">2</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('3')">3</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('1')"
+                        >1</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('2')"
+                        >2</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('3')"
+                        >3</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('/')"
+                        >/</button>
                         <br />
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('4')">4</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('5')">5</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('6')">6</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('/')">/</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('4')"
+                        >4</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('5')"
+                        >5</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('6')"
+                        >6</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('.')"
+                        >.</button>
                         <br />
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('7')">7</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('8')">8</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('9')">9</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('-')">-</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('7')"
+                        >7</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('8')"
+                        >8</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('9')"
+                        >9</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('-')"
+                        >-</button>
                         <br />
-                        <button class="input-button numpad-char" t-on-mousedown.prevent="sendInput('Delete')">C</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('0')">0</button>
-                        <button class="input-button number-char" t-on-mousedown.prevent="sendInput('-')">.</button>
-                        <button class="input-button numpad-backspace" t-on-mousedown.prevent="sendInput('Backspace')">
-                            <img style="pointer-events: none;"
-                                 src="/point_of_sale/static/src/img/backspace.png" width="24"
-                                 height="21" alt="Backspace" />
+                        <button
+                            class="input-button numpad-char"
+                            t-on-mousedown.prevent="sendInput('Delete')"
+                        >C</button>
+                        <button
+                            class="input-button number-char"
+                            t-on-mousedown.prevent="sendInput('0')"
+                        >0</button>
+                        <button
+                            class="input-button numpad-backspace"
+                            t-on-mousedown.prevent="sendInput('Backspace')"
+                            style="width: 107px"
+                        >
+                            <img
+                                style="pointer-events: none;"
+                                src="/point_of_sale/static/src/img/backspace.png"
+                                width="24"
+                                height="21"
+                                alt="Backspace"
+                            />
                         </button>
                         <br />
                     </div>
