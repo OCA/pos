@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_multi_discount/static/src/js/models.js"
+            />
+<!--            <script-->
+<!--                type="text/javascript"-->
+<!--                src="/pos_fixed_discount_in_lines/static/src/js/OrderWidget.js"-->
+<!--            />-->
+<!--            <script-->
+<!--                type="text/javascript"-->
+<!--                src="/pos_fixed_discount_in_lines/static/src/js/PaymentScreen.js"-->
+<!--            />-->
+<!--            <link-->
+<!--                rel="stylesheet"-->
+<!--                href="/pos_fixed_discount_in_lines/static/src/css/pos.css"-->
+<!--                id="pos-stylesheet"-->
+<!--            />-->
+        </xpath>
+    </template>
+</odoo>
