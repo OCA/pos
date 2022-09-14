@@ -20,15 +20,15 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                 this.remove_fixed_discount();
             }
             willUnmount() {
-                // Var order = this.env.pos.get_order();
-                // this.disable_fixed_discount_mode();
-                // if (!order.finalized) {
-                //     this.remove_fixed_discount();
-                //     var lines = order.paymentlines.models;
-                //     for (var i = 0; i < lines.length; i++) {
-                //         order.remove_paymentline(lines[i]);
-                //     }
-                // }
+                var order = this.env.pos.get_order();
+                this.disable_fixed_discount_mode();
+                if (!order.finalized) {
+                    this.remove_fixed_discount();
+                    var lines = order.paymentlines.models;
+                    for (var i = 0; i < lines.length; i++) {
+                        order.remove_paymentline(lines[i]);
+                    }
+                }
             }
             toggleDiscountEnabled() {
                 // Click js_fixed_discount
