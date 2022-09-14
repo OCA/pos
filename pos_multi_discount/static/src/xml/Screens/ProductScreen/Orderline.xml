@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath
+            expr="//t[@t-esc='props.line.get_discount_str()']/../../.."
+            position="after"
+        >
+            <t t-if="props.line.get_manual_discount() !== 0">
+                <li class="info" id="pos_line_manual_discount">
+                    Manual discount
+                    <em>
+                        <t t-esc="props.line.get_manual_discount()" />%
+                    </em>
+                </li>
+            </t>
+            <t t-if="props.line.get_discount_str() !== '0'">
+                <li class="info">
+                    Total Discount
+                    <em>
+                        <t t-esc="props.line.get_discount_str()" />%
+                    </em>
+                </li>
+            </t>
+        </xpath>
+        <xpath
+            expr="//t[@t-esc='props.line.get_discount_str()']/../../.."
+            position="replace"
+        >
+        </xpath>
+
+    </t>
+</templates>
