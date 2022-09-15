@@ -13,7 +13,9 @@
                     </em>
                 </li>
             </t>
-            <t t-if="props.line.get_discount_str() !== '0'">
+            <t
+                t-if="props.line.get_discount_str() !== '0' and props.line.get_show_total_discount_line()"
+            >
                 <li class="info">
                     Total Discount
                     <em>

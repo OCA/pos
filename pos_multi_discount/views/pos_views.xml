@@ -10,6 +10,7 @@
                 position='before'
             >
                 <field name="manual_discount" />
+                <field name="manual_amount" optional="hide" />
             </xpath>
         </field>
     </record>
