@@ -6,7 +6,7 @@ class PosOrderLine(models.Model):
 
     manual_discount = fields.Float("Manual Disc.%")
     manual_amount = fields.Monetary(
-        "Manual Discount Rel.",
+        "Manual Disc. Amount",
         compute="_compute_relative_discounts",
         help="Based on product price",
     )
