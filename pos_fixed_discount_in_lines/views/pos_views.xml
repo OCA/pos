@@ -13,7 +13,7 @@
                 position='before'
             >
                 <field name="fixed_discount" invisible="1" />
-                <field name="fixed_discount_relative_amount" optional="hide" />
+                <field name="fixed_discount_relative_amount" optional="show" />
                 <field
                     name="fixed_discount_relative"
                     string="Fixed Disc.%"
