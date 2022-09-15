@@ -27,6 +27,13 @@ odoo.define("pos_multi_discount.POSModels", function (require) {
             this.discountStr = String(disc);
             this.trigger("change", this);
         },
+        get_show_total_discount_line: function () {
+            var mode = this.pos.env.isDebug();
+            if (mode === "assets" || mode === "1") {
+                return true;
+            }
+            return false;
+        },
         get_manual_discount: function () {
             return this.manual_discount;
         },

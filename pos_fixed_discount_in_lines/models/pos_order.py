@@ -17,3 +17,20 @@ class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
 
     fixed_discount = fields.Float("Fixed Discount")
+    fixed_discount_relative = fields.Float(
+        "Fixed Discount Rel.", help="Based on product price"
+    )
+    fixed_discount_relative_amount = fields.Monetary(
+        "Fixed Discount Rel. Amount", help="Based on product price"
+    )
+
+    @api.depends("qty", "price_unit", "manual_discount", "fixed_discount")
+    def _compute_relative_discounts(self):
+        super(PosOrderLine, self)._compute_relative_discounts()
+        for rec in self:
+            rec.fixed_discount_relative_amount = (
+                rec.qty * rec.price_unit - rec.manual_amount
+            ) - rec.price_subtotal
+            rec.fixed_discount_relative = (
+                100 * rec.fixed_discount_relative_amount / (rec.qty * rec.price_unit)
+            )
