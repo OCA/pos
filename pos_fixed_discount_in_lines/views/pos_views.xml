@@ -12,9 +12,19 @@
                 expr="//field[@name='lines']//tree//field[@name='discount']"
                 position='before'
             >
-                <field name="fixed_discount" />
+                <field name="fixed_discount" invisible="1" />
                 <field name="fixed_discount_relative_amount" optional="hide" />
-                <field name="fixed_discount_relative" optional="hide" />
+                <field
+                    name="fixed_discount_relative"
+                    string="Fixed Disc.%"
+                    optional="hide"
+                />
+            </xpath>
+            <xpath
+                expr="//field[@name='lines']//tree//field[@name='discount']"
+                position='attributes'
+            >
+                <attribute name="string">Total Discount %</attribute>
             </xpath>
         </field>
     </record>

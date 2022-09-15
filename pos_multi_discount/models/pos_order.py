@@ -4,7 +4,7 @@ from odoo import api, fields, models
 class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
 
-    manual_discount = fields.Float("Manual Discount")
+    manual_discount = fields.Float("Manual Disc.%")
     manual_amount = fields.Monetary(
         "Manual Discount Rel.",
         compute="_compute_relative_discounts",
