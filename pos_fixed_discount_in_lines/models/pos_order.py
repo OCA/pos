@@ -21,7 +21,7 @@ class PosOrderLine(models.Model):
         "Fixed Discount Rel.", help="Based on product price"
     )
     fixed_discount_relative_amount = fields.Monetary(
-        "Fixed Discount Rel. Amount", help="Based on product price"
+        "Fixed Disc. Amount", help="Based on product price"
     )
 
     @api.depends("qty", "price_unit", "manual_discount", "fixed_discount")
