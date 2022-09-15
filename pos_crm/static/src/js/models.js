@@ -25,6 +25,9 @@ odoo.define("pos_crm.models", function (require) {
             _super_order.init_from_JSON.apply(this, arguments);
             this.is_pos_crm_checked = json.is_pos_crm_checked || null;
             this.partner_vat = json.partner_vat || null;
+            if (json.partner_id) {
+                this.partner_vat = this.pos.db.get_partner_by_id(json.partner_id).vat;
+            }
         },
         export_for_printing: function () {
             var json = _super_order.export_for_printing.apply(this, arguments);
