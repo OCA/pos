@@ -22,6 +22,14 @@
                     type="text/javascript"
                     src="/pos_crm/static/src/js/Popups/TaxIdPopup.js"
                 />
+                <script
+                    type="text/javascript"
+                    src="/pos_crm/static/src/js/Screens/OrderManagementControlPanel.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_crm/static/src/js/Screens/OrderFetcher.js"
+                />
             </xpath>
         </template>
 
