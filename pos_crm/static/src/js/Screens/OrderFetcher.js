@@ -9,9 +9,10 @@ odoo.define("pos_crm.OrderFetcher", function (require) {
             searchWord = searchWord.toLowerCase();
             switch (field) {
                 case "partner_vat":
-                    return order.partner_vat
-                        ? order.partner_vat.includes(searchWord)
-                        : false;
+                    const partner_vat = order.partner_vat
+                        ? order.partner_vat.replace(/[./-]/g, "")
+                        : "";
+                    return partner_vat.includes(searchWord.replace(/[./-]/g, ""));
                 case "pos_reference":
                     return order.name.toLowerCase().includes(searchWord);
                 case "partner_id.display_name":
