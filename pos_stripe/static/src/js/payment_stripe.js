@@ -5,7 +5,6 @@ odoo.define('pos_stripe.payment', function (require) {
 const core = require('web.core');
 const rpc = require('web.rpc');
 const PaymentInterface = require('point_of_sale.PaymentInterface');
-const { Gui } = require('point_of_sale.Gui');
 
 const _t = core._t;
 
@@ -104,23 +103,18 @@ let PaymentStripe = PaymentInterface.extend({
         } else {
             line.set_payment_status('waitingCapture');
             let processPayment = await this.terminal.processPayment(collectPaymentMethod.paymentIntent);
-            line.transaction_id = collectPaymentMethod.paymentIntent.id;
             if (processPayment.error) {
                 this._showError(processPayment.error.message, processPayment.error.code);
                 line.set_payment_status('retry');
                 return false;
             } else if (processPayment.paymentIntent) {
                 line.set_payment_status('waitingCapture');
-                await this.captureAfterPayment(processPayment, line);
+                let capturePayment = await this.capturePayment(processPayment.paymentIntent.id);
                 line.set_payment_status('done');
+                line.transaction_id = (capturePayment.id);
                 return true;
             }
         }
-    },
-
-    captureAfterPayment: async function (processPayment, line) {
-        let capturePayment = await this.capturePayment(processPayment.paymentIntent.id);
-        line.transaction_id = capturePayment.id;
     },
 
     capturePayment: function (paymentIntentId) {
@@ -130,6 +124,7 @@ let PaymentStripe = PaymentInterface.extend({
             method: 'stripe_capture_payment',
             args: [paymentIntentId],
         }, {
+            timeout: 5000,
             silent: true,
         }).catch(function (error) {
             self._showError(_t('error'));
@@ -143,6 +138,7 @@ let PaymentStripe = PaymentInterface.extend({
             method: 'stripe_payment_intent',
             args: [[payment_method.id], amount],
         }, {
+            timeout: 5000,
             silent: true,
         }).catch(function (error) {
             self._showError(_t('error'));
@@ -193,14 +189,17 @@ let PaymentStripe = PaymentInterface.extend({
 
     // private methods
 
+    /**
+     * Display error popup
+     * @param {String} msg
+     * @param {String} [title]
+     * @private
+     */
     _showError: function (msg, title) {
-        if (!title) {
-            title =  _t('Stripe Error');
-        }
-        Gui.showPopup('ErrorPopup',{
-            'title': title,
-            'body': msg,
-        });
+        this.pos.gui.show_popup('error', {
+            title: title ? title : _t('Stripe Error'),
+            body: msg
+        })
     },
 });
 

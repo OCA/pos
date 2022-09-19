@@ -13,10 +13,5 @@
     ],
     'depends': ['point_of_sale', 'payment_stripe'],
     'installable': True,
-    'assets': {
-        'point_of_sale.assets': [
-            'pos_stripe/static/**/*',
-        ],
-    },
     'license': 'LGPL-3',
 }
