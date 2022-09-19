@@ -20,15 +20,15 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                 this.remove_fixed_discount();
             }
             willUnmount() {
-                var order = this.env.pos.get_order();
-                this.disable_fixed_discount_mode();
-                if (!order.finalized) {
-                    this.remove_fixed_discount();
-                    var lines = order.paymentlines.models;
-                    for (var i = 0; i < lines.length; i++) {
-                        order.remove_paymentline(lines[i]);
-                    }
-                }
+                // Var order = this.env.pos.get_order();
+                // this.disable_fixed_discount_mode();
+                // if (!order.finalized) {
+                //     this.remove_fixed_discount();
+                //     var lines = order.paymentlines.models;
+                //     for (var i = 0; i < lines.length; i++) {
+                //         order.remove_paymentline(lines[i]);
+                //     }
+                // }
             }
             toggleDiscountEnabled() {
                 // Click js_fixed_discount
@@ -75,12 +75,12 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                     order.fixed_discount = amount;
                     var discount = (100 * amount) / (total + current_discount);
                     // Truncate to 3 decimals
-                    discount = Math.trunc(discount * 100) / 100;
+                    // discount = Math.trunc(discount * 10000000) / 10000000;
                     for (const ind in lines) {
                         if (amount > 0) {
                             if (lines[ind].manual_discount > 0) {
-                                discount =
-                                    Math.trunc(((100 * amount) / total) * 100) / 100;
+                                // Discount = Math.trunc(((100 * amount) / total) * 100) / 100;
+                                discount = (100 * amount) / total;
                                 if (discount > 0) {
                                     lines[ind].fixed_discount = discount;
                                 }
@@ -101,7 +101,13 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                     if (amount > 0 && total - amount !== new_total) {
                         var diff = round_pr(new_total - (total - amount), 0.01);
                         if (diff !== 0) {
-                            this.apply_discount_with_product(-diff);
+                            if (
+                                (diff < 0 &&
+                                    this.env.pos.config.only_positive_discount) ||
+                                !this.env.pos.config.only_positive_discount
+                            ) {
+                                this.apply_discount_with_product(-diff);
+                            }
                         }
                     }
                     order.select_orderline(lines[0]);
