@@ -13,6 +13,9 @@ class PosConfig(models.Model):
         domain="[('sale_ok', '=', True)]",
         help="The product used for rounding.",
     )
+    only_positive_discount = fields.Boolean(
+        string="Allow Only Positive Discount", default=False
+    )
 
     @api.onchange("company_id", "split_fixed_discount")
     def _default_discount_product_id(self):
