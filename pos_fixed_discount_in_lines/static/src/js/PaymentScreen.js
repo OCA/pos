@@ -59,7 +59,7 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                     var order = this.env.pos.get_order();
                     var lines = order.get_orderlines();
                     var total = order.get_total_without_tax();
-                    var current_discount = order.get_total_discount();
+                    // Var current_discount = order.get_total_discount();
                     var product = this.env.pos.db.get_product_by_id(
                         this.env.pos.config.rounding_product_id[0]
                     );
@@ -73,7 +73,8 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                         return;
                     }
                     order.fixed_discount = amount;
-                    var discount = (100 * amount) / (total + current_discount);
+                    // Var discount = (100 * amount) / (total + current_discount);
+                    var discount = (100 * amount) / total;
                     // Truncate to 3 decimals
                     // discount = Math.trunc(discount * 10000000) / 10000000;
                     for (const ind in lines) {
