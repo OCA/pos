@@ -26,13 +26,15 @@ odoo.define("pos_fixed_discount_in_lines.POSModels", function (require) {
             // This.discount = this.manual_discount + this.fixed_discount; // + fixed disc + % disc
             this.discount = 0;
             if (this.fixed_discount > 0 && this.manual_discount > 0) {
-                this.discount =
+                discount =
                     100 -
                     (1 - this.manual_discount / 100) *
                         (1 - this.fixed_discount / 100) *
                         100;
+                this.discount = Number(Math.round(discount + 'e2')+'e-2');
             } else if (this.fixed_discount > 0) {
-                this.discount = this.fixed_discount;
+                discount = this.fixed_discount;
+                this.discount = Number(Math.round(discount + 'e2')+'e-2');
             } else if (this.manual_discount > 0) {
                 this.discount = this.manual_discount;
             }

@@ -77,17 +77,18 @@ odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
                     var discount = (100 * amount) / total;
                     // Truncate to 3 decimals
                     // discount = Math.trunc(discount * 10000000) / 10000000;
+                    discount = Number(Math.round(discount+'e2')+'e-2');
                     for (const ind in lines) {
                         if (amount > 0) {
-                            if (lines[ind].manual_discount > 0) {
-                                // Discount = Math.trunc(((100 * amount) / total) * 100) / 100;
-                                discount = (100 * amount) / total;
-                                if (discount > 0) {
-                                    lines[ind].fixed_discount = discount;
-                                }
-                            } else {
+                            // if (lines[ind].manual_discount > 0) {
+                            //     // Discount = Math.trunc(((100 * amount) / total) * 100) / 100;
+                            //     // discount = (100 * amount) / total;
+                            //     if (discount > 0) {
+                            //         lines[ind].fixed_discount = discount;
+                            //     }
+                            // } else {
                                 lines[ind].fixed_discount = discount;
-                            }
+                            // }
                             lines[ind].set_discount(lines[ind].manual_discount);
                         } else {
                             lines[ind].fixed_discount = 0;
