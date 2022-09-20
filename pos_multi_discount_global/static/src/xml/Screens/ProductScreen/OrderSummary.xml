@@ -14,6 +14,12 @@
                     <t t-esc="props.fixed_discount" />
                 </span>
             </div>
+            <div t-if="props.fixed_discount" class="subentry">
+                Percent Discount:
+                <span class="value">
+                    <t t-esc="props.percent_discount" />
+                </span>
+            </div>
         </xpath>
     </t>
 </templates>

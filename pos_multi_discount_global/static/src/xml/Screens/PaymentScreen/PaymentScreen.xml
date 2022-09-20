@@ -13,6 +13,15 @@
                     <i class="fa fa-tag" />
                     Discount (fixed)
                 </div>
+                <div
+                    t-if="env.pos.config.split_fixed_discount"
+                    class="button js_percent_discount"
+                    t-att-class="{ highlight: currentOrder.get_percent_discount_enabled() }"
+                    t-on-click="togglePercentDiscountEnabled"
+                >
+                    <i class="fa fa-tag" />
+                    Discount (percentage)
+                </div>
             </div>
         </xpath>
         <xpath
@@ -22,6 +31,7 @@
             <PaymentScreenStatus
                 paymentLines="paymentLines"
                 fixed_discount="state.fixed_discount"
+                percent_discount="state.percent_discount"
             />
         </xpath>
     </t>
