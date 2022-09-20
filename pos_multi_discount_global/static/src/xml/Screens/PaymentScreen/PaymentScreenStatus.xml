@@ -9,10 +9,19 @@
                     <t t-esc="props.fixed_discount" />
                 </span>
             </div>
+            <div t-if="props.percent_discount">
+                <span class="fixed_discount_label">Percent Discount</span>
+                <span class="fixed_discount_amount">
+                    <t t-esc="props.percent_discount" />
+                </span>
+            </div>
         </xpath>
         <xpath expr="//div[hasclass('total')]" position="after">
             <div t-if="props.fixed_discount" class="fixed_discount_line">
                 Fixed discount applied: <t t-esc="props.fixed_discount" />
+            </div>
+            <div t-if="props.percent_discount" class="fixed_discount_line">
+                Percent discount applied: <t t-esc="props.percent_discount" />%
             </div>
         </xpath>
     </t>
