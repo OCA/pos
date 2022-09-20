@@ -4,19 +4,19 @@
         <xpath expr="." position="inside">
             <script
                 type="text/javascript"
-                src="/pos_fixed_discount_in_lines/static/src/js/models.js"
+                src="/pos_multi_discount_global/static/src/js/models.js"
             />
             <script
                 type="text/javascript"
-                src="/pos_fixed_discount_in_lines/static/src/js/OrderWidget.js"
+                src="/pos_multi_discount_global/static/src/js/OrderWidget.js"
             />
             <script
                 type="text/javascript"
-                src="/pos_fixed_discount_in_lines/static/src/js/PaymentScreen.js"
+                src="/pos_multi_discount_global/static/src/js/PaymentScreen.js"
             />
             <link
                 rel="stylesheet"
-                href="/pos_fixed_discount_in_lines/static/src/css/pos.css"
+                href="/pos_multi_discount_global/static/src/css/pos.css"
                 id="pos-stylesheet"
             />
         </xpath>
