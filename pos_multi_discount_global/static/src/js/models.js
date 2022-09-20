@@ -1,4 +1,4 @@
-odoo.define("pos_fixed_discount_in_lines.POSModels", function (require) {
+odoo.define("pos_multi_discount_global.POSModels", function (require) {
     "use strict";
 
     var models = require("point_of_sale.models");
