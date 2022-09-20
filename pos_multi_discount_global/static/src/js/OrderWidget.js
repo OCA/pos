@@ -1,4 +1,4 @@
-odoo.define("pos_fixed_discount_in_lines.PosOrderWidgetMod", function (require) {
+odoo.define("pos_multi_discount_global.PosOrderWidgetMod", function (require) {
     "use strict";
 
     const Registries = require("point_of_sale.Registries");

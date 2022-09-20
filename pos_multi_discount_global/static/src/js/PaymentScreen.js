@@ -1,4 +1,4 @@
-odoo.define("pos_fixed_discount_in_lines.PaymentScreen", function (require) {
+odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
     "use strict";
 
     const {useListener} = require("web.custom_hooks");

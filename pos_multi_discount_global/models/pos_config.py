@@ -20,6 +20,6 @@ class PosConfig(models.Model):
     @api.onchange("company_id", "split_fixed_discount")
     def _default_discount_product_id(self):
         self.rounding_product_id = self.env.ref(
-            "pos_fixed_discount_in_lines.product_fixed_discount_rounding",
+            "pos_multi_discount_global.product_fixed_discount_rounding",
             raise_if_not_found=False,
         )
