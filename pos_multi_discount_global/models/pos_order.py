@@ -37,9 +37,12 @@ class PosOrderLine(models.Model):
     def _compute_relative_discounts(self):
         super(PosOrderLine, self)._compute_relative_discounts()
         for rec in self:
-            rec.fixed_discount_relative_amount = (
-                rec.qty * rec.price_unit - rec.manual_amount
-            ) - rec.price_subtotal
+            subtotal = rec.qty * rec.price_unit
+            rec.fixed_discount_relative_amount = subtotal*rec.fixed_discount/100
             rec.fixed_discount_relative = (
-                100 * rec.fixed_discount_relative_amount / (rec.qty * rec.price_unit)
+                100 * rec.fixed_discount_relative_amount / subtotal
+            )
+            rec.percent_discount_relative_amount = subtotal*rec.percent_discount/100
+            rec.percent_discount_relative = (
+                100 * rec.percent_discount_relative_amount / subtotal
             )
