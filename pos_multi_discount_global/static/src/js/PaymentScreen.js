@@ -100,7 +100,6 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                         });
                         return;
                     }
-                    var discount = (100 * amount) / total;
                     if (disc_type === "fixed") {
                         this.reset_fixed_discount();
                         total = order.get_total_without_tax();
