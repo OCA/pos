@@ -7,18 +7,18 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='amount_tax']" position='after'>
                 <field name="total_fixed_discount" widget="monetary" />
-                <field name="total_percent_discount_string" string="Percent Discount" />
             </xpath>
             <xpath
                 expr="//field[@name='lines']//tree//field[@name='discount']"
                 position='before'
             >
-                <field name="fixed_discount" />
-                <field name="fixed_discount_relative_amount" optional="hide" />
-                <field name="fixed_discount_relative" optional="hide" />
-                <field name="percent_discount" />
-                <field name="percent_discount_relative_amount" optional="hide" />
-                <field name="percent_discount_relative" optional="hide" />
+                <field name="fixed_discount" invisible="1" />
+                <field name="fixed_discount_relative_amount" optional="show" />
+                <field
+                    name="fixed_discount_relative"
+                    string="Fixed Disc.%"
+                    optional="hide"
+                />
             </xpath>
             <xpath
                 expr="//field[@name='lines']//tree//field[@name='discount']"

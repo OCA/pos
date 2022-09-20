@@ -10,14 +10,6 @@
                     </em>
                 </li>
             </t>
-            <t t-if="props.line.get_percent_discount() !== 0">
-                <li class="info">
-                    Percent discount
-                    <em>
-                        <t t-esc="props.line.get_percent_discount()" />%
-                    </em>
-                </li>
-            </t>
         </xpath>
     </t>
 </templates>

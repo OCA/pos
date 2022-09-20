@@ -1,6 +1,6 @@
 {
-    "name": "Point of Sale - Multi Discount in Line",
-    "summary": "Order discount in POS lines instead of discount product",
+    "name": "Point of Sale - Fixed Discount in Line",
+    "summary": "Order discount in line instead of discount product",
     "version": "14.0.1.0.0",
     "category": "Point Of Sale",
     "author": "Ilyas, Ooops404, Odoo Community Association (OCA)",
