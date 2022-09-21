@@ -10,10 +10,6 @@ To configure this module, you need to:
 
 .. figure:: ../static/description/account_journal_config.png
 
-* Configure a Cashbox default if you want Odoo give by default lines when changing balance
-
-.. figure:: ../static/description/configure_cashbox_in_journal.gif
-
 **Configure your POS configuration**
 
 * Go to Point of Sale / Configuration / Point of Sale / <your pos>

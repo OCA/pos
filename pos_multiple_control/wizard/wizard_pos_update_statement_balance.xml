@@ -20,7 +20,7 @@
                                 options="{'currency_field': 'currency_id'}"
                             />
                             <label
-                                for="control_register_total_entry_encoding"
+                                for="total_entry_encoding"
                                 attrs="{'invisible' : [('balance_moment', '=', 'opening_control')]}"
                                 string="+ Transactions"
                             />
@@ -76,6 +76,7 @@
                                         widget="monetary"
                                         options="{'currency_field': 'currency_id'}"
                                     />
+
                                 </tree>
                             </field>
                         </group>
@@ -98,7 +99,6 @@
         <field name="name">Update Balances</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">wizard.update.bank.statement</field>
-        <field name="view_type">form</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>

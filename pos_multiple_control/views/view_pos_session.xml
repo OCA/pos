@@ -16,7 +16,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <attribute name="readonly">1</attribute>
             </field>
 
-            <xpath expr="//button[@name='open_cashbox']" position="after">
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
                 <button
                     name="open_cashbox_opening"
                     class="oe_stat_button"
@@ -27,13 +27,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 >
                     <span class="o_stat_text">Set Opening Balance</span>
                 </button>
-            </xpath>
-            <!-- Hide obsolete opening and closing button that have same name-->
-            <xpath expr="//button[@name='open_cashbox'][1]" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//button[@name='open_cashbox'][2]" position="attributes">
-                <attribute name="invisible">1</attribute>
             </xpath>
 
             <!-- Add new session button on closing-->
@@ -49,76 +42,67 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
             <!-- Theoritical Summary -->
             <xpath
-                expr="//field[@name='cash_register_balance_start']/.."
+                expr="//page[@name='cash_control']/group/group/div"
                 position="attributes"
             >
                 <attribute name="invisible">1</attribute>
             </xpath>
             <xpath
-                expr="//field[@name='cash_register_balance_start']/.."
-                position="after"
+                expr="//page[@name='cash_control']/group/group/div"
+                position="before"
             >
-                <group class="oe_subtotal_footer oe_right">
-                    <field
-                        name="control_register_balance_start"
-                        readonly="1"
-                        class="oe_subtotal_footer_separator"
-                        widget="monetary"
-                        options="{'currency_field': 'currency_id'}"
-                    />
-                    <label
-                        for="control_register_total_entry_encoding"
-                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
-                        string="+ Transactions"
-                        class="oe_opening_total"
-                    />
-                    <field
-                        name="control_register_total_entry_encoding"
-                        nolabel="1"
-                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
-                        class="oe_pos_total"
-                        widget="monetary"
-                        options="{'currency_field': 'currency_id'}"
-                    />
-                    <label
-                        for="control_register_balance_end"
-                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
-                        string="Theoretical Closing Balances"
-                        class="oe_opening_total"
-                    />
-                    <field
-                        name="control_register_balance_end"
-                        nolabel="1"
-                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
-                        class="oe_subtotal_footer_separator"
-                        widget="monetary"
-                        options="{'currency_field': 'currency_id'}"
-                    />
-                </group>
-            </xpath>
-
-
-            <!-- Real Summary and Differences -->
-            <xpath
-                expr="//field[@name='cash_register_balance_end_real']/../.."
-                position="replace"
-            >
-                <div>
-                    <group />
+                <div style="margin:0;padding:0;">
+                    <group style="margin:0;padding:0;">
+                        <field
+                            name="control_register_balance_start"
+                            readonly="1"
+                            style="text-align:right;margin:0;padding:0;"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
                     <group
-                        class="oe_subtotal_footer oe_right"
+                        style="margin:0;padding:0;"
+                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
+                    >
+                        <label
+                            for="control_register_total_entry_encoding"
+                            string="+ Transactions"
+                        />
+                        <field
+                            name="control_register_total_entry_encoding"
+                            nolabel="1"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                    <group
+                        style="margin:0;padding:0;"
+                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
+                    >
+                        <label
+                            for="control_register_balance_end"
+                            string="Theoretical Closing Balances"
+                        />
+                        <field
+                            name="control_register_balance_end"
+                            nolabel="1"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                    <group
+                        style="margin:0;padding:0;"
                         attrs="{'invisible': ['|', ('cash_control', '=', False), ('state', '=', 'opening_control')]}"
                     >
                         <field
                             name="control_register_balance"
                             string="Real Closing Balance"
-                            class="oe_subtotal_footer_separator"
                             widget="monetary"
                             options="{'currency_field': 'currency_id'}"
                         />
                         <field
                             name="control_register_difference"
-                            class="oe_subtotal_footer_separator oe_right oe_pos_total oe_pos_difference"
                             widget="monetary"
                             options="{'currency_field': 'currency_id'}"
                         />
@@ -127,67 +111,69 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             </xpath>
 
             <!--  Summary by Payment Methods -->
-            <field name="statement_ids" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </field>
-            <field name="statement_ids" position="before">
-                <field
-                    name="summary_statement_ids"
-                    nolabel="1"
-                    colspan="4"
-                    attrs="{'invisible': [('state', 'in', ['opening_control'])], 'readonly': 1}"
-                >
-                    <tree
-                        decoration-muted="is_pos_control == False and state != 'closed'"
-                        decoration-danger="is_pos_control == True and control_difference != 0"
+            <xpath expr="//notebook" position="inside">
+                <page string="Payment Methods" name="payment_methods">
+                    <field
+                        name="summary_statement_ids"
+                        nolabel="1"
+                        colspan="4"
+                        attrs="{'invisible': [('state', 'in', ['opening_control'])], 'readonly': 1}"
                     >
-                        <field name="is_pos_control" invisible="1" />
-                        <field name="pos_session_state" invisible="1" />
-                        <field name="name" />
-                        <field name="journal_id" />
-                        <field name="balance_start" />
-                        <button
-                            name="open_cashbox_starting_balance"
-                            help="Set your starting balance"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-money"
-                            attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}"
+                        <tree
+                            decoration-muted="is_pos_control == False and state != 'closed'"
+                            decoration-danger="is_pos_control == True and control_difference != 0"
                         >
-                        </button>
-                        <field name="total_entry_encoding" />
-                        <field name="balance_end_real" />
-                        <button
-                            name="open_cashbox_ending_balance"
-                            help="Set your ending balance"
-                            type="object"
-                            class="oe_stat_button"
-                            icon="fa-money"
-                            attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}"
-                        >
-                        </button>
-                        <field name="control_difference" />
-                        <field name="currency_id" groups="base.group_multi_currency" />
-                        <field name="state" invisible="1" />
-                    </tree>
-                    <form>
-                        <group>
+                            <field name="is_pos_control" invisible="1" />
+                            <field name="pos_session_state" invisible="1" />
                             <field name="name" />
                             <field name="journal_id" />
+                            <field name="balance_start" />
+                            <button
+                                name="open_cashbox_starting_balance"
+                                help="Set your starting balance"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}"
+                            >
+                            </button>
+                            <field name="total_entry_encoding" />
+                            <field name="balance_end_real" />
+                            <button
+                                name="open_cashbox_ending_balance"
+                                help="Set your ending balance"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}"
+                            >
+                            </button>
+                            <field name="control_difference" />
+                            <field
+                                name="currency_id"
+                                groups="base.group_multi_currency"
+                            />
                             <field name="state" invisible="1" />
-                        </group>
-                        <field name="line_ids" colspan="2">
-                            <tree string="Transactions">
-                                <field name="date" />
-                                <field name="ref" />
+                        </tree>
+                        <form>
+                            <group>
                                 <field name="name" />
-                                <field name="partner_id" />
-                                <field name="amount" sum="Total" />
-                            </tree>
-                        </field>
-                    </form>
-                </field>
-            </field>
+                                <field name="journal_id" />
+                                <field name="state" invisible="1" />
+                            </group>
+                            <field name="line_ids" colspan="2">
+                                <tree string="Transactions">
+                                    <field name="date" />
+                                    <field name="ref" />
+                                    <field name="name" />
+                                    <field name="partner_id" />
+                                    <field name="amount" sum="Total" />
+                                </tree>
+                            </field>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
 
             <!-- Automatic solve -->
             <field name="control_difference" position="after">

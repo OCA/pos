@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import _, api, fields, models
-from odoo.exceptions import ValidationError, Warning as UserError
+from odoo.exceptions import UserError, ValidationError
 
 
 class PosSession(models.Model):
@@ -46,7 +46,6 @@ class PosSession(models.Model):
     )
 
     # Compute Section
-    @api.multi
     @api.depends("statement_ids.is_pos_control", "statement_ids.balance_start")
     def _compute_control_register_balance_start(self):
         for session in self:
@@ -56,7 +55,6 @@ class PosSession(models.Model):
                 )
             )
 
-    @api.multi
     @api.depends("statement_ids.is_pos_control", "statement_ids.total_entry_encoding")
     def _compute_control_register_total_entry_encoding(self):
         for session in self:
@@ -66,7 +64,6 @@ class PosSession(models.Model):
                 )
             )
 
-    @api.multi
     @api.depends("statement_ids.is_pos_control", "statement_ids.balance_end_real")
     def _compute_control_register_balance_end(self):
         for session in self:
@@ -76,7 +73,6 @@ class PosSession(models.Model):
                 )
             )
 
-    @api.multi
     @api.depends("statement_ids.is_pos_control", "statement_ids.control_balance")
     def _compute_control_register_balance(self):
         for session in self:
@@ -86,7 +82,6 @@ class PosSession(models.Model):
                 )
             )
 
-    @api.multi
     @api.depends("statement_ids.is_pos_control", "statement_ids.control_difference")
     def _compute_control_register_difference(self):
         for session in self:
@@ -97,15 +92,12 @@ class PosSession(models.Model):
             )
 
     # Model
-    @api.multi
     def open_cashbox_opening(self):
-        return super(PosSession, self).open_cashbox()
+        return super(PosSession, self).open_cashbox_pos()
 
-    @api.multi
     def action_pos_session_new_session(self):
-        return self.config_id.open_new_session(False)
+        return self.config_id.open_new_session()
 
-    @api.multi
     def wkf_action_closing_control(self):
         for session in self:
             draft_orders = session.order_ids.filtered(lambda x: x.state == "draft")
@@ -120,7 +112,6 @@ class PosSession(models.Model):
         return super(PosSession, self).wkf_action_closing_control()
 
     # Overwrite functions
-    @api.multi
     def action_pos_session_closing_control(self):
         # Doesn't check balance before validate pos.session
         for session in self:
@@ -130,7 +121,6 @@ class PosSession(models.Model):
             if not session.config_id.cash_control:
                 session.action_pos_session_close()
 
-    @api.multi
     def action_pos_session_validate(self):
         for session in self:
             for statement in session.statement_ids:
@@ -153,7 +143,6 @@ class PosSession(models.Model):
         return super(PosSession, self).action_pos_session_validate()
 
     # Constraints
-    @api.multi
     @api.constrains("user_id", "state")
     def _check_unicity(self):
         for session in self:
@@ -169,7 +158,6 @@ class PosSession(models.Model):
                     )
                 )
 
-    @api.multi
     @api.constrains("config_id", "state")
     def _check_pos_config(self):
         for session in self:

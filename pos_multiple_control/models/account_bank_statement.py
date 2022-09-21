@@ -4,9 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import _, api, fields, models
-from odoo.exceptions import Warning as UserError
-
-import odoo.addons.decimal_precision as dp
+from odoo.exceptions import UserError
 
 
 class AccountBankStatement(models.Model):
@@ -16,13 +14,13 @@ class AccountBankStatement(models.Model):
     control_balance = fields.Float(
         string="Controled Balance",
         compute="_compute_control_balance",
-        digits=dp.get_precision("Account"),
+        digits="Account",
     )
 
     control_difference = fields.Float(
         string="Control Difference",
         compute="_compute_control_difference",
-        digits=dp.get_precision("Account"),
+        digits="Account",
     )
 
     is_pos_control = fields.Boolean(
@@ -50,13 +48,11 @@ class AccountBankStatement(models.Model):
     )
 
     # Compute Section
-    @api.multi
     @api.depends("line_ids")
     def _compute_control_balance(self):
         for statement in self:
             statement.control_balance = sum(statement.mapped("balance_end_real"))
 
-    @api.multi
     @api.depends("control_balance", "total_entry_encoding", "balance_end_real")
     def _compute_control_difference(self):
         for statement in self:
@@ -66,21 +62,18 @@ class AccountBankStatement(models.Model):
                 - statement.total_entry_encoding
             )
 
-    @api.multi
     @api.depends("journal_id.pos_control", "pos_session_state", "balance_start")
     def _compute_is_pos_control(self):
         for statement in self:
             journal = statement.journal_id
             statement.is_pos_control = journal.pos_control
 
-    @api.multi
     @api.depends("pos_session_id.state")
     def _compute_pos_session_state(self):
         for statement in self:
             statement.pos_session_state = statement.pos_session_id.state
 
     # Display button autosolve with some conditions
-    @api.multi
     def _compute_display_autosolve(self):
         for statement in self:
             if not statement.journal_id.pos_control:
@@ -99,11 +92,10 @@ class AccountBankStatement(models.Model):
                     and abs(round(statement.control_difference, 3)) != 0
                 )
 
-    @api.multi
     @api.depends("pos_session_state")
     def automatic_solve(self):
-        self.WizardReason = self.env["wizard.pos.move.reason"]
-        for statement in self:
+        WizardReason = self.env["wizard.pos.move.reason"]
+        for statement in self.filtered(lambda x: x.is_pos_control):
             pos_move_reason = (
                 statement.pos_session_id.config_id.autosolve_pos_move_reason
             )
@@ -117,7 +109,7 @@ class AccountBankStatement(models.Model):
                 else:
                     default_move_type = "income"
 
-                wizard = self.WizardReason.with_context(
+                wizard = WizardReason.with_context(
                     active_id=statement.pos_session_id.id,
                     default_move_type=default_move_type,
                 ).create(

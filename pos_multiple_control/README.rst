@@ -14,13 +14,13 @@ Point Of Sale - Multiple Cash Control
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/12.0/pos_multiple_control
+    :target: https://github.com/OCA/pos/tree/14.0/pos_multiple_control
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_multiple_control
+    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_multiple_control
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/12.0
+    :target: https://runbot.odoo-community.org/runbot/184/14.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -33,11 +33,7 @@ better control at the closing of the session.
 * Allow user to control each statement. (not only the cash statement, by
   default) and change his starting and ending balance
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/change_starting_balance.gif
-
-The cashbox lines are recorded and can be found later.
-
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/end_session_set_balance.gif
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_multiple_control/static/description/change_starting_balance.gif
 
 * Quickly solve differences (we can set an absolute limit),
   thanks to pos_move_reason
@@ -45,12 +41,12 @@ The cashbox lines are recorded and can be found later.
 See this gif where where we set ending balance with difference, solve it and
 close session :
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/end_session_balance_automatic_solve.gif
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_multiple_control/static/description/end_session_balance_automatic_solve.gif
 
 As the verification is more complete, allow the user to reopen a new session, 
 if the first one is in a closed state.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/open_new_session.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_multiple_control/static/description/open_new_session.png
 
 Extra checks are done, to prevent user errors:
 
@@ -77,10 +73,6 @@ To configure this module, you need to:
 
 .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/account_journal_config.png
 
-* Configure a Cashbox default if you want Odoo give by default lines when changing balance
-
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/configure_cashbox_in_journal.gif
-
 **Configure your POS configuration** 
 
 * Go to Point of Sale / Configuration / Point of Sale / <your pos> 
@@ -93,7 +85,7 @@ To configure this module, you need to:
 
 * (optional) Choose a limit to allow or not the user to autosolve control difference in pos - Set 0 if you don't want any limit. (4)
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_multiple_control/static/description/pos_session_config.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_multiple_control/static/description/pos_session_config.png
 
 Bug Tracker
 ===========
@@ -133,6 +125,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_multiple_control>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_multiple_control>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

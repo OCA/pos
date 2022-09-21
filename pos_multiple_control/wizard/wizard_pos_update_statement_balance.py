@@ -70,7 +70,6 @@ class WizardUpdateBankStatement(models.TransientModel):
         for rec in self:
             rec.balance_end = rec.statement_id.balance_end
 
-    @api.multi
     @api.depends("cashbox_lines.subtotal")
     def _compute_balance_end_real(self):
         balance_end_real = 0.0
@@ -84,7 +83,6 @@ class WizardUpdateBankStatement(models.TransientModel):
         self.env.context = context
         return balance_end_real
 
-    @api.multi
     @api.depends("cashbox_lines.subtotal")
     def _compute_balance_start_real(self):
         balance_start_real = 0.0
@@ -216,7 +214,6 @@ class WizardUpdateBankStatement(models.TransientModel):
             )
         return cashbox
 
-    @api.multi
     def action_confirm(self):
         self.ensure_one()
         # load context
@@ -240,10 +237,10 @@ class WizardUpdateCashboxLine(models.TransientModel):
     _name = "wizard.update.cashbox.line"
     _description = "POS Update Bank Statement Balance Wizard Line"
 
-    @api.one
     @api.depends("coin_value", "number")
-    def _sub_total(self):
-        self.subtotal = self.coin_value * self.number
+    def _compute_sub_total(self):
+        for line in self:
+            line.subtotal = line.coin_value * line.number
 
     balance_moment = fields.Selection(
         string="Balance moment", related="wiz_id.balance_moment"
@@ -253,7 +250,7 @@ class WizardUpdateCashboxLine(models.TransientModel):
         string="Number of Coins/Bills", help="Opening Unit Numbers", default=1
     )
     subtotal = fields.Float(
-        compute="_sub_total", string="Subtotal", digits=0, readonly=True
+        compute="_compute_sub_total", string="Subtotal", digits=0, readonly=True
     )
     cashbox_id = fields.Many2one(comodel_name="wizard.update.cashbox", string="Cashbox")
     wiz_id = fields.Many2one(
@@ -273,11 +270,12 @@ class WizardUpdateCashbox(models.TransientModel):
         inverse_name="cashbox_id",
         string="Cashbox Lines",
     )
-    total = fields.Float(compute="_total", string="Total", digits=0, readonly=True)
+    total = fields.Float(
+        compute="_compute_total", string="Total", digits=0, readonly=True
+    )
 
-    @api.multi
     @api.depends("cashbox_lines_ids.subtotal")
-    def _total(self):
+    def _compute_total(self):
         _total = 0.0
         for lines in self.cashbox_lines_ids:
             _total += lines.subtotal

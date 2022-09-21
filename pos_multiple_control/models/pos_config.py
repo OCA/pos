@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class PosConfig(models.Model):
@@ -12,7 +12,7 @@ class PosConfig(models.Model):
     # Columns Section
     autosolve_pos_move_reason = fields.Many2one(
         string="Autosolve pos move reason",
-        description="Product used to autosolve control difference",
+        help="Product used to autosolve control difference",
         comodel_name="pos.move.reason",
         domain="['|', \
         ('is_income_reason', '=', True), ('is_expense_reason', '=', True)]",
@@ -21,13 +21,13 @@ class PosConfig(models.Model):
 
     autosolve_limit = fields.Float(
         string="Autosolve limit",
-        description="Limit for autosolving bank statement",
+        help="Limit for autosolving bank statement",
         default=20,
     )
 
-    @api.multi
-    def open_new_session(self, openui):
+    def open_new_session(self):
         self.ensure_one()
+        openui = self.env.context
         # Check if some opening / opened session exists
         session_obj = self.env["pos.session"]
         sessions = session_obj.search(

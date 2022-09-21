@@ -5,25 +5,22 @@ Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
+    <data>
+        <record id="check_journal" model="account.journal">
+            <field name="code">CHK-C</field>
+            <field name="type">bank</field>
+            <field name="name">Check Journal (With Control)</field>
+            <field name="pos_control" eval="True" />
+        </record>
 
-    <record id="check_journal" model="account.journal">
-        <field name="code">CHK-C</field>
-        <field name="type">bank</field>
-        <field name="name">Check Journal (With Control)</field>
-        <field name="journal_user" eval="True" />
-        <field name="pos_control" eval="True" />
-    </record>
-
-    <record id="cash_journal" model="account.journal">
-        <field name="code">CSH-C</field>
-        <field name="type">cash</field>
-        <field name="name">Cash Journal (With Control and default French drawer)</field>
-        <field
-            name="cashbox_default"
-            ref="pos_multiple_control.cashbox_french_cash_drawer"
-        />
-        <field name="journal_user" eval="True" />
-        <field name="pos_control" eval="True" />
-    </record>
-
+        <record id="cash_journal" model="account.journal">
+            <field name="code">CSH-C</field>
+            <field name="type">cash</field>
+            <field
+                name="name"
+            >Cash Journal (With Control and default French drawer)</field>
+            <field name="cashbox_default" ref="cashbox_french_cash_drawer" />
+            <field name="pos_control" eval="True" />
+        </record>
+    </data>
 </odoo>

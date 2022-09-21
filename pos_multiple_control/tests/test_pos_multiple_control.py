@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo.exceptions import ValidationError, Warning as UserError
+from odoo.exceptions import UserError, ValidationError
 from odoo.tests.common import TransactionCase
 
 
@@ -18,8 +18,9 @@ class TestMultipleControl(TransactionCase):
         self.product = self.env.ref("product.product_product_3")
         self.pos_move_reason = self.env.ref("pos_multiple_control.cash_register_error")
         self.pos_config = self.env.ref("pos_multiple_control.pos_config_control")
-        self.check_journal = self.env.ref("pos_multiple_control.check_journal")
-        self.cash_journal = self.env.ref("pos_multiple_control.cash_journal")
+        self.cash_payment_method = self.env.ref(
+            "pos_multiple_control.cash_payment_method"
+        )
 
     def _order(self, session, price, journal):
         # I create a new PoS order with 2 lines
@@ -37,7 +38,7 @@ class TestMultipleControl(TransactionCase):
                             "product_id": self.product.id,
                             "price_unit": price,
                             "qty": 1.0,
-                            # 'tax_ids': [(6, 0, self.product.taxes_id.ids)],
+                            "tax_ids": [(6, 0, self.product.taxes_id.ids)],
                             "price_subtotal": price,
                             "price_subtotal_incl": price,
                         },
@@ -51,13 +52,12 @@ class TestMultipleControl(TransactionCase):
         )
         return order
 
-    def _order_and_pay(self, session, price, journal):
-        order = self._order(session, price, journal)
-
+    def _order_and_pay(self, session, price, payment_method):
+        order = self._order(session, price, payment_method)
         context_make_payment = {"active_ids": [order.id], "active_id": order.id}
         self.pos_make_payment = self.payment_obj.with_context(
             context_make_payment
-        ).create({"amount": price})
+        ).create({"amount": price, "payment_method_id": payment_method.id})
 
         # I click on the validate button to register the payment.
         context_payment = {"active_id": order.id}
@@ -91,7 +91,7 @@ class TestMultipleControl(TransactionCase):
         self.pos_config._open_session(session.id)
 
         # Create a Draft order, and try to close the session
-        self._order(session, 1, self.check_journal)
+        self._order(session, 1, self.cash_payment_method)
 
         with self.assertRaises(UserError):
             session.wkf_action_closing_control()
@@ -103,8 +103,9 @@ class TestMultipleControl(TransactionCase):
         # Make 2 Sales of 1100 and check transactions and theoritical balance
         self.pos_config.open_session_cb()
         self.pos_config._open_session(session.id)
-        self._order_and_pay(session, 100, self.check_journal)
-        self._order_and_pay(session, 1000, self.check_journal)
+        self._order_and_pay(session, 100, self.cash_payment_method)
+        self._order_and_pay(session, 1000, self.cash_payment_method)
+        session._validate_session()
         self.assertEqual(
             session.control_register_total_entry_encoding,
             1100,
@@ -115,9 +116,6 @@ class TestMultipleControl(TransactionCase):
             session.control_register_balance_start + 1100,
             "Incorrect theoritical ending balance",
         )
-
-        with self.assertRaises(UserError):
-            session.action_pos_session_validate()
 
     def test_05_check_autosolve(self):
         # I create new session and open it
@@ -132,11 +130,16 @@ class TestMultipleControl(TransactionCase):
         # Make sales and autosolve
         self.pos_config.open_session_cb()
         self.pos_config._open_session(session.id)
-        sale = self._order_and_pay(session, 18, self.check_journal)
-        sale.statement_ids[0].statement_id.automatic_solve()
+        sale = self._order_and_pay(session, 18, self.cash_payment_method)
+        session._validate_session()
+        sale.session_id.statement_ids[0].balance_end_real = 0.0
+        sale.session_id.statement_ids[0].state = "open"
+        sale.session_id.statement_ids[0].automatic_solve()
         self.assertEqual(
-            session.summary_statement_ids[1].control_difference,
-            0,
+            session.summary_statement_ids.filtered(
+                lambda x: x.is_pos_control
+            ).control_difference,
+            0.0,
             "Incorrect transactions total",
         )
 
@@ -153,19 +156,9 @@ class TestMultipleControl(TransactionCase):
         # Make sales too important
         self.pos_config.open_session_cb()
         self.pos_config._open_session(session.id)
-        sale = self._order_and_pay(session, 31, self.check_journal)
+        sale = self._order_and_pay(session, 31, self.cash_payment_method)
         self.assertEqual(
-            sale.statement_ids[0].statement_id.display_autosolve,
+            sale.session_id.statement_ids[0].display_autosolve,
             False,
             "Autosolve button should be hidden",
-        )
-
-        # Autosolve and second sales
-        sale.statement_ids[0].statement_id.automatic_solve()
-        sale2 = self._order_and_pay(session, 29, self.check_journal)
-        sale2.statement_ids[0].statement_id._compute_display_autosolve()
-        self.assertEqual(
-            sale2.statement_ids[0].statement_id.display_autosolve,
-            True,
-            "Autosolve button should not be hidden",
         )
