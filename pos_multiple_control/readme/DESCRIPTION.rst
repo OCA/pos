@@ -1,4 +1,4 @@
-This module extends the functionality of the point of sale by allowing a 
+This module extends the functionality of the point of sale by allowing a
 better control at the closing of the session.
 
 * Show differences for all statements chosen (see config part)
@@ -20,7 +20,7 @@ close session :
 
 .. figure:: ../static/description/end_session_balance_automatic_solve.gif
 
-As the verification is more complete, allow the user to reopen a new session, 
+As the verification is more complete, allow the user to reopen a new session,
 if the first one is in a closed state.
 
 .. figure:: ../static/description/open_new_session.png

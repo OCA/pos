@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-
 <odoo>
 
     <record id="check_journal" model="account.journal">
@@ -19,7 +18,10 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="code">CSH-C</field>
         <field name="type">cash</field>
         <field name="name">Cash Journal (With Control and default French drawer)</field>
-        <field name="cashbox_default" ref="pos_multiple_control.cashbox_french_cash_drawer" />
+        <field
+            name="cashbox_default"
+            ref="pos_multiple_control.cashbox_french_cash_drawer"
+        />
         <field name="journal_user" eval="True" />
         <field name="pos_control" eval="True" />
     </record>

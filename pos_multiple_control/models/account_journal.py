@@ -12,7 +12,7 @@ class AccountJournal(models.Model):
         string="POS Journal Control",
         help="If you want this journal"
         " to be controled at closing of point of sale, check this option",
-        default=False
+        default=False,
     )
 
     cashbox_default = fields.Many2one(

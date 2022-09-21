@@ -14,15 +14,15 @@ To configure this module, you need to:
 
 .. figure:: ../static/description/configure_cashbox_in_journal.gif
 
-**Configure your POS configuration** 
+**Configure your POS configuration**
 
-* Go to Point of Sale / Configuration / Point of Sale / <your pos> 
+* Go to Point of Sale / Configuration / Point of Sale / <your pos>
 
 * Choose your Payments methods (1)
 
 * Check Cash Control (2)
 
-* (optional) Choose a "pos move reason" to ausolve difference (3) (see pos_move_reason module for more details) 
+* (optional) Choose a "pos move reason" to ausolve difference (3) (see pos_move_reason module for more details)
 
 * (optional) Choose a limit to allow or not the user to autosolve control difference in pos - Set 0 if you don't want any limit. (4)
 

@@ -1,22 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-
 <odoo>
 
     <record id="view_account_journal_form" model="ir.ui.view">
         <field name="model">account.journal</field>
-        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
         <field name="arch" type="xml">
             <field name="journal_user" position="after">
-                <field name="pos_control" attrs="{'invisible': [('type', 'not in', ['bank', 'cash'])]}"/>
+                <field
+                    name="pos_control"
+                    attrs="{'invisible': [('type', 'not in', ['bank', 'cash'])]}"
+                />
             </field>
             <xpath expr="//group[@name='group_alias']" position="after">
                 <group string="Cashbox Default">
-                    <field name="cashbox_default" domain="[('is_pattern', '=', True)]"/>
+                    <field
+                        name="cashbox_default"
+                        domain="[('is_pattern', '=', True)]"
+                    />
                 </group>
             </xpath>
         </field>
@@ -24,11 +29,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <record id="view_account_journal_tree" model="ir.ui.view">
         <field name="model">account.journal</field>
-        <field name="inherit_id" ref="account.view_account_journal_tree"/>
+        <field name="inherit_id" ref="account.view_account_journal_tree" />
         <field name="arch" type="xml">
             <field name="company_id" position="before">
-                <field name="journal_user"/>
-                <field name="pos_control"/>
+                <field name="journal_user" />
+                <field name="pos_control" />
             </field>
         </field>
     </record>
