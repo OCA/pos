@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_form_view">
+        <field name="name">pos.config.form (in pos_printer_cups)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_print_via_proxy']/.." position="after">
+                <div
+                    class="row"
+                    attrs="{'invisible':[('iface_print_via_proxy', '=', False)],'required':[('iface_print_via_proxy', '!=', False)]}"
+                >
+                    <label
+                        string="Printer Type"
+                        for="iot_printer_type"
+                        class="col-md-3 o_light_label"
+                    />
+                    <field name="iot_printer_type" widget="radio" />
+                </div>
+                <div
+                    class="row"
+                    attrs="{'invisible' : ['|',('iot_printer_type', '!=', 'cups'),('iface_print_via_proxy', '=', False)],'required':[('iot_printer_type', '=', 'cups')]}"
+                >
+                    <label
+                        string="Printer Name"
+                        for="cups_printer_name"
+                        class="col-md-3 o_light_label"
+                    />
+                    <field name="cups_printer_name" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

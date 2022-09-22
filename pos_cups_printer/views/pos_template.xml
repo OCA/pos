@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template
+            id="pos_cups_printer_assets_backend"
+            name="pos_cups_printer_assets_backend"
+            inherit_id="point_of_sale.assets"
+        >
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_cups_printer/static/src/js/pos_cups_printer.js"
+                />
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
