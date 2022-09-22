@@ -16,6 +16,7 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                 this.state = useState({
                     fixed_discount: 0,
                     percent_discount: 0,
+                    percent_discount_amount: 0,
                 });
                 useListener("update-fixed-discount", this._updateFixedDiscount);
                 useListener("update-percent-discount", this._updatePercentDiscount);
@@ -77,6 +78,12 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                 } else {
                     var disc_value = NumberBuffer.getFloat();
                     // This.apply_discount(0, 'reset');
+                    this.reset_percent_discount();
+                    var order = this.env.pos.get_order();
+                    var total = order.get_total_without_tax();
+                    this.state.percent_discount_amount = this.env.pos.format_currency(
+                        (disc_value * total) / 100
+                    );
                     this.apply_discount(disc_value, "percent");
                     this.state.percent_discount = disc_value;
                 }
@@ -177,7 +184,9 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
             }
             process_percent_discount(amount, order) {
                 order.percent_discount = amount;
+                var total = order.get_total_without_tax();
                 var discount = Number(Math.round(amount + "e2") + "e-2");
+                order.percent_discount_amount = (amount * total) / 100;
                 var lines = order.get_orderlines();
                 for (const ind in lines) {
                     lines[ind].percent_discount = discount;

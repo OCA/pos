@@ -32,6 +32,7 @@
                 paymentLines="paymentLines"
                 fixed_discount="state.fixed_discount"
                 percent_discount="state.percent_discount"
+                percent_discount_amount="state.percent_discount_amount"
             />
         </xpath>
     </t>
