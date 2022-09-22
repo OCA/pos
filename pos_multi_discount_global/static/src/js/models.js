@@ -94,6 +94,7 @@ odoo.define("pos_multi_discount_global.POSModels", function (require) {
             _super_order.initialize.call(this, attr, options);
             this.fixed_discount = 0;
             this.percent_discount = 0;
+            this.percent_discount_amount = 0;
             this.fixed_discount_enabled = false;
             this.percent_discount_enabled = false;
             this.save_to_db();
@@ -104,6 +105,9 @@ odoo.define("pos_multi_discount_global.POSModels", function (require) {
         },
         get_percent_discount: function () {
             return this.percent_discount;
+        },
+        get_percent_discount_amount: function () {
+            return this.percent_discount_amount;
         },
         set_fixed_discount_enabled: function (fixed_discount_enabled) {
             this.fixed_discount_enabled = fixed_discount_enabled;
@@ -121,6 +125,7 @@ odoo.define("pos_multi_discount_global.POSModels", function (require) {
             var res = _super_order.export_as_JSON.apply(this, arguments);
             res.total_fixed_discount = this.fixed_discount;
             res.total_percent_discount = this.percent_discount;
+            res.total_percent_discount_amount = this.percent_discount_amount;
             return res;
         },
     });

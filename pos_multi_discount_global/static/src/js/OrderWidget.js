@@ -14,6 +14,7 @@ odoo.define("pos_multi_discount_global.PosOrderWidgetMod", function (require) {
                     tax: 0,
                     fixed_discount: 0,
                     percent_discount: 0,
+                    percent_discount_amount: 0,
                     subtotal: 0,
                 });
                 this._updateSummary();

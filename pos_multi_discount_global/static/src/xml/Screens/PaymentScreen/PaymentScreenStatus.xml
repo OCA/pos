@@ -22,6 +22,7 @@
             </div>
             <div t-if="props.percent_discount" class="fixed_discount_line">
                 Percent discount applied: <t t-esc="props.percent_discount" />%
+                (<t t-esc="props.percent_discount_amount" />)
             </div>
         </xpath>
     </t>
