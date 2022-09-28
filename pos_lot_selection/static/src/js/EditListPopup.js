@@ -2,7 +2,7 @@
     Copyright 2022 Camptocamp SA
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 */
-odoo.define("pos_lot_barcode.EditListPopup", function (require) {
+odoo.define("pos_lot_selection.EditListPopup", function (require) {
     "use strict";
 
     const EditListPopup = require("point_of_sale.EditListPopup");
