@@ -41,7 +41,7 @@ addon | version | maintainers | summary
 [pos_partner_firstname](pos_partner_firstname/) | 14.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.1.0 |  | Point of sale: support generic payment terminal
-[pos_product_display_default_code](pos_product_display_default_code/) | 14.0.1.0.0 |  | pos: display product default code before product name
+[pos_product_display_default_code](pos_product_display_default_code/) | 14.0.1.0.1 |  | pos: display product default code before product name
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 14.0.1.0.2 |  | Make product multi barcodes usable in the point of sale
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 |  | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_product_template](pos_product_template/) | 14.0.1.0.1 |  | Manage Product Template in Front End Point Of Sale
