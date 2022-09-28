@@ -10,7 +10,7 @@ class ProductionLot(models.Model):
 
     @api.model
     def get_available_lots_for_pos(self, product_id, company_id):
-        lots = self.search(
+        lots = self.sudo().search(
             [
                 "&",
                 ["product_id", "=", product_id],
