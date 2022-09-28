@@ -10,19 +10,16 @@ odoo.define("pos_lot_selection.ProductScreen", function (require) {
 
     const PosLotSaleProductScreen = (ProductScreen) =>
         class extends ProductScreen {
-            async _getAddProductOptions(product, base_code) {
-                var self = this;
+            /**
+             * @override
+             */
+            async _getAddProductOptions(product) {
                 if (["serial", "lot"].includes(product.tracking)) {
-                    // Set lots to context as it one possible way to extract arguments
-                    // later in popup
-                    this.env.session.lots = await this.env.pos.get_lots(product);
+                    this.env.session.lots = await this.env.pos.getProductLots(product);
                 }
-                return super
-                    ._getAddProductOptions(product, (base_code = base_code))
-                    .then(function (result) {
-                        self.env.session.lots = [];
-                        return result;
-                    });
+                const res = await super._getAddProductOptions(...arguments);
+                this.env.session.lots = undefined;
+                return res;
             }
         };
 

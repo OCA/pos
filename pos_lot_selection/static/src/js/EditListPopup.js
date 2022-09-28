@@ -17,6 +17,7 @@ odoo.define("pos_lot_selection.EditListPopup", function (require) {
                 }
             }
         };
+
     Registries.Component.extend(EditListPopup, LotSelectEditListPopup);
     return EditListPopup;
 });
