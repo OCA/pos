@@ -31,3 +31,10 @@ msgstr ""
 #, python-format
 msgid "prepared_lots"
 msgstr ""
+
+#. module: pos_lot_selection
+#. openerp-web
+#: code:addons/pos_lot_selection/static/src/xml/LotSelectorPopup.xml:0
+#, python-format
+msgid "props.lots"
+msgstr ""
