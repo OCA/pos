@@ -4,26 +4,15 @@
 <templates id="template" xml:space="preserve">
 
     <t t-inherit="point_of_sale.EditListPopup" t-inherit-mode="extension">
-
-        <xpath expr="//t[@t-foreach='state.array']" position="replace">
-            <t t-foreach="state.array" t-as="item" t-key="item._id">
-                <t t-if="props.lots">
-                    <EditListInput item="item" lots="props.lots" />
-                </t>
-                <t t-else="">
-                    <EditListInput item="item" />
-                </t>
-            </t>
-        </xpath>
+        <EditListInput position="attributes">
+            <attribute name="lots">props.lots</attribute>
+        </EditListInput>
     </t>
 
-
     <t t-inherit="point_of_sale.EditListInput" t-inherit-mode="extension">
-
         <xpath expr="//input" position="attributes">
             <attribute name="list">prepared_lots</attribute>
         </xpath>
-
         <xpath expr="//input" position="after">
             <datalist id="prepared_lots">
                 <t t-if="props.lots">
