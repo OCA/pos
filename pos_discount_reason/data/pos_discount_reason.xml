@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo noupdate="1">
+
+    <record model="pos.discount.reason" id="pos_discount_reason_no_discount">
+        <field name="name">Zero</field>
+        <field name="percent">0</field>
+        <field name="discount_use">both</field>
+     </record>
+
+     <record model="pos.discount.reason" id="pos_discount_reason_partner">
+        <field name="name">Partner</field>
+        <field name="percent">0.30</field>
+        <field name="discount_use">both</field>
+     </record>
+
+     <record model="pos.discount.reason" id="pos_discount_reason_unsatisfied_customer">
+        <field name="name">Unsatisfied Sustomer</field>
+        <field name="percent">1</field>
+        <field name="discount_use">both</field>
+     </record>
+
+</odoo>

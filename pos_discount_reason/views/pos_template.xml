@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template
+            id="pos_discount_reason_assets_backend"
+            name="pos_discount_reason_assets_backend"
+            inherit_id="point_of_sale.assets"
+        >
+
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_discount_reason/static/src/js/models.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_discount_reason/static/src/js/DiscountReasonButton.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_discount_reason/static/src/js/NumpadWidget.js"
+                />
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

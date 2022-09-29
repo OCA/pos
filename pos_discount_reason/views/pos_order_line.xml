@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_order_line_form_view">
+        <field name="name">pos.order.line.form (in pos_discount_reason)</field>
+        <field name="model">pos.order.line</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_line_form" />
+        <field name="arch" type="xml">
+            <field name="create_date" position="after">
+                <field name="discount_reason_id" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="pos_order_line_tree_view">
+        <field name="name">pos.order.line.tree (in pos_discount_reason)</field>
+        <field name="model">pos.order.line</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_line" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="discount_reason_id" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

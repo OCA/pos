@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_discount_reason_form_view">
+        <field name="name">pos.discount.reason.form (in pos_discount_reason)</field>
+        <field name="model">pos.discount.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="toggle_active"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-check"
+                        >
+                            <field
+                                name="active"
+                                widget="boolean_button"
+                                options='{"terminology": "active"}'
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only" />
+                        <h1>
+                            <field name="name" required="1" />
+                        </h1>
+                    </div>
+                    <group name="main_discount">
+                        <group>
+                            <field name="discount_use" widget="radio" />
+                        </group>
+                        <group>
+                            <field name="percent" widget="percentage" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="pos_discount_reason_search_view">
+        <field name="name">pos.discount.reason.search (in pos_discount_reason)</field>
+        <field name="model">pos.discount.reason</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="discount_use" />
+                <field name="percent" widget="percentage" />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="pos_discount_reason_tree_view">
+        <field name="name">pos.discount.reason.tree (in pos_discount_reason)</field>
+        <field name="model">pos.discount.reason</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field name="discount_use" />
+                <field name="percent" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="pos_discount_reason_act_window">
+        <field name="name">Discount Reason</field>
+        <field name="res_model">pos.discount.reason</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="pos_discount_reason_menu">
+        <field name="name">Discount Reason</field>
+        <field name="parent_id" ref="point_of_sale.pos_menu_products_configuration" />
+        <field name="action" ref="pos_discount_reason_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+
+</odoo>
