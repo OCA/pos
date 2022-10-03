@@ -36,7 +36,7 @@ class ResPartner(models.Model):
     )
 
     def _compute_credit_line(self):
-        credit_journals = self.env['account.journal'].search([
+        credit_journals = self.env['account.journal'].sudo().search([
             ('is_credit', '=', True)
         ])
         for partner in self:
@@ -46,6 +46,6 @@ class ResPartner(models.Model):
                     ('partner_id', '=', partner.id),
                     ('journal_id', 'in', credit_journals.ids)
                 ]
-                lines = ABSLine.search(args)
+                lines = ABSLine.sudo().search(args)
             partner.credit_line_ids = lines
 

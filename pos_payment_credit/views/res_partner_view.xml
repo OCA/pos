@@ -10,7 +10,7 @@
                     <group name="payment_credit_amount">
                         <field name="credit_amount"/>
                     </group>
-                    <group name="payment_credit_history" string="Credit History">
+                    <group name="payment_credit_history" string="Credit History" groups="point_of_sale.group_pos_user,account.group_account_invoice">
                         <field name="credit_line_ids" nolabel="1" groups="point_of_sale.group_pos_user,account.group_account_invoice"/>
                     </group>
                 </page>
