@@ -43,15 +43,15 @@ class PosOrder(models.Model):
                             )
                         ]
                     )
-        mrp_productions = (
-            self.env["mrp.production"]
-            .search([("origin", "=", self.name)])
-            .filtered(lambda production: production.state == "confirmed")
-        )
-        for mrp_production in mrp_productions:
-            mrp_production.write({"qty_producing": mrp_production.product_qty})
-            mrp_production._compute_state()
-            mrp_production._set_qty_producing()
-            mrp_production.move_raw_ids._compute_should_consume_qty()
-            mrp_production.button_mark_done()
+            mrp_productions = (
+                self.env["mrp.production"]
+                .search([("origin", "=", self.name)])
+                .filtered(lambda production: production.state == "confirmed")
+            )
+            for mrp_production in mrp_productions:
+                mrp_production.write({"qty_producing": mrp_production.product_qty})
+                mrp_production._compute_state()
+                mrp_production._set_qty_producing()
+                mrp_production.move_raw_ids._compute_should_consume_qty()
+                mrp_production.button_mark_done()
         super()._create_order_picking()
