@@ -262,8 +262,11 @@ odoo.define("pos_order_mgmt.widgets", function(require) {
 
             // Get Date
             if (["print"].indexOf(action) !== -1) {
-                order.formatted_validation_date = moment(order_data.date_order).format(
-                    "YYYY-MM-DD HH:mm:ss"
+                var local_date_hour = new Date(
+                    order_data.date_order + " UTC"
+                ).toISOString();
+                order.formatted_validation_date = moment(local_date_hour).format(
+                    "DD/MM/YYYY HH:mm:ss"
                 );
             }
 
