@@ -1,4 +1,5 @@
 # Copyright 2021 Tecnativa - Alexandre D. Díaz
+# Copyright 2022 KMEE - Luiz Felipe do Divino
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 from odoo.addons.pos_pwa_oca.controllers.service_worker import ServiceWorker
 
@@ -15,14 +16,14 @@ class ServiceWorkerCache(ServiceWorker):
         }} else {{
           console.log("Boo! Workbox didn't load!");
         }}
-        
-        workbox.loadModule('workbox-strategies');   
+
+        workbox.loadModule('workbox-strategies');
     """
 
     JS_PWA_CACHE_REGISTRATION = """
         workbox.core.setCacheNameDetails({{prefix: 'pos-cache'}});
         workbox.routing.registerRoute(/\.(?:js|css|png|woff)$/, new workbox.strategies.StaleWhileRevalidate({{cacheName: 'pos-cache-scripts'}}));
-        workbox.routing.registerRoute(new RegExp('.*/web.*|.*/static/.*|.*/binary/.*|.*/webclient.*'),
+        workbox.routing.registerRoute(new RegExp('.*/web.*|.*/static/.*|.*/binary/.*|.*/webclient.*|.*/pos.*|.*/ui.*'),
             new workbox.strategies.StaleWhileRevalidate({{
                 cacheName: 'pos-cache-page',
                 cacheExpiration: {{
@@ -32,19 +33,18 @@ class ServiceWorkerCache(ServiceWorker):
                 cacheableResponse: {{statuses: [0, 200]}}
             }})
         );
-        
-        {post_requests} 
+
+        {post_requests}
     """
 
     JS_PWA_MAIN = """
         self.importScripts(...{pwa_scripts});
         {pwa_cache}
-        
+
         odoo.define("pos_pwa_oca_cache.ServiceWorker", function (require) {{
             "use strict";
-            
             {pwa_cache_confirmation}
-            
+
             {pwa_requires}
 
             {pwa_init}
@@ -57,71 +57,105 @@ class ServiceWorkerCache(ServiceWorker):
     """
 
     def _get_post_resquests(self):
-        return """
-            self.addEventListener('fetch', async (event) => {
-              if (event.request.method === 'POST' && !event.request.url.split('/').includes('create_from_ui')) {
+        return f"""
+            self.addEventListener('fetch', async (event) => {{
+              if (event.request.method === 'POST' && !event.request.url.split('/').includes('create_from_ui')) {{
                 event.respondWith(staleWhileRevalidate(event));
-              }
-            });
-            async function staleWhileRevalidate(event) {
+              }}
+            }});
+            async function staleWhileRevalidate(event) {{
               let promise = null;
               let cachedResponse = await getCache(event.request.clone());
               let fetchResponse = null;
-              try {
+              try {{
                 fetchResponse = await fetch(event.request.clone());
                 setCache(event.request.clone(), fetchResponse.clone());
-              } catch (err) {
+              }} catch (err) {{
                 fetchResponse = null
-              }
+              }}
 
               return fetchResponse ? fetchResponse : Promise.resolve(cachedResponse);
-            }
-            
-            async function serializeResponse(response) {
-              let serializedHeaders = {};
-              for (var entry of response.headers.entries()) {
+            }}
+
+            async function serializeResponse(response) {{
+              let serializedHeaders = {{}};
+              for (var entry of response.headers.entries()) {{
                 serializedHeaders[entry[0]] = entry[1];
-              }
-              let serialized = {
+              }}
+              let serialized = {{
                 headers: serializedHeaders,
                 status: response.status,
                 statusText: response.statusText
-              };
+              }};
               serialized.body = await response.json();
               return serialized;
-            }
-            
-            async function setCache(request, response) {
+            }}
+
+            async function setCache(request, response) {{
               let body = await request.json();
               let id = CryptoJS.MD5(request.url + body.query).toString();
-              
-              var entry = {
+
+              var entry = {{
                 query: body.query,
                 response: await serializeResponse(response),
                 timestamp: Date.now()
-              };
-              
-              localforage.setItem(id, entry).then(function (value) {
-                console.log('Save at cache! ' + value);
-              });
-            }
-            
-            async function getCache(request) {
-              try {
+              }};
+
+              {self._check_non_repeating_requests()}
+
+              if (hasRepeatingRequest <= -1) {{
+                localforage.setItem(id, entry).then(function (value) {{
+                    console.log('Save at cache! ' + value);
+                }});
+              }}
+            }}
+
+            async function getCache(request) {{
+              try {{
                 let body = await request.json();
                 let id = CryptoJS.MD5(request.url + body.query).toString();
                 console.log(`Load response from cache.`);
                 let reponseCache = null
-                try {
+                try {{
                     reponseCache = await localforage.getItem(id);
-                } catch (err) {
+                }} catch (err) {{
                     return null;
-                }
+                }}
                 return new Response(JSON.stringify(reponseCache.response.body), reponseCache.response);
-              } catch (err) {
+              }} catch (err) {{
                 return null;
-              }
-            }
+              }}
+            }}
+        """
+
+    def _get_non_repeating_requests(self):
+        return [
+            "product.product"
+        ]
+
+    def _check_non_repeating_requests(self):
+        return f"""
+            let nonRepeatingRequests = {self._get_non_repeating_requests()};
+
+            let hasRepeatingRequest = -1;
+
+            for (let urlModel in nonRepeatingRequests) {{
+                if (request.url.search(nonRepeatingRequests[urlModel]) > -1) {{
+                    let id = CryptoJS.MD5(request.url + body.query).toString();
+                    let reponseCache = null
+                    try {{
+                        reponseCache = await localforage.getItem(id);
+                        if (reponseCache) {{
+                            hasRepeatingRequest = 2;
+                        }}
+                    }} catch (err) {{
+                        reponseCache = -1;
+                    }}
+                    if (hasRepeatingRequest > -1) {{
+                        break;
+                    }}
+                }}
+            }}
         """
 
     def _get_pwa_cache_scripts(self):
