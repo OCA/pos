@@ -4,7 +4,7 @@
 {
     "name": "POS Progressive web application",
     "summary": "Make Odoo POS a PWA",
-    "version": "12.0.3.2.0",
+    "version": "14.0.1.0.0",
     "development_status": "Beta",
     "category": "Website",
     "website": "https://github.com/OCA/pos",
