@@ -107,7 +107,7 @@ class PWA(Controller):
             "name": pwa_name,
             "short_name": pwa_short_name,
             "icons": self._get_pwa_manifest_icons(pwa_icon),
-            "start_url": '/pos/web',
+            "start_url": '/pos',
             "display": "standalone",
             "background_color": background_color,
             "theme_color": theme_color,
