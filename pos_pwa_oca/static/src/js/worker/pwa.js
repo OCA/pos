@@ -8,14 +8,12 @@
  * this class is instantiated.
  */
 
-
 odoo.define("pos_pwa_oca.PWA", function (require) {
     "use strict";
 
     const OdooClass = require("web.Class");
 
     const PWA = OdooClass.extend({
-
         // eslint-disable-next-line
         init: function (params) {
             // To be overridden

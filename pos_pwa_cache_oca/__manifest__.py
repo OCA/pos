@@ -12,11 +12,9 @@
     "license": "LGPL-3",
     "application": True,
     "installable": True,
-    "depends": [
-        'pos_pwa_oca'
-    ],
+    "depends": ["pos_pwa_oca"],
     "data": [
         "templates/assets.xml",
     ],
-    'images': ['static/description/pwa.png'],
+    "images": ["static/description/pwa.png"],
 }

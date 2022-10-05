@@ -4,7 +4,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 import json
 
-from odoo.http import request, Controller, route
+from odoo.http import Controller, request, route
 
 
 class PWA(Controller):
@@ -15,7 +15,7 @@ class PWA(Controller):
             "/pos_pwa_oca/static/src/js/worker/jquery-sw-compat.js",
             "/web/static/src/js/boot.js",
             "/web/static/src/js/core/class.js",
-            "/pos_pwa_oca/static/src/js/worker/pwa.js"
+            "/pos_pwa_oca/static/src/js/worker/pwa.js",
         ]
 
     @route("/service-worker.js", type="http", auth="public")
@@ -107,7 +107,7 @@ class PWA(Controller):
             "name": pwa_name,
             "short_name": pwa_short_name,
             "icons": self._get_pwa_manifest_icons(pwa_icon),
-            "start_url": '/pos',
+            "start_url": "/pos",
             "display": "standalone",
             "background_color": background_color,
             "theme_color": theme_color,

@@ -3,13 +3,13 @@
 
 odoo.define("pos_pwa_oca.webclient", function (require) {
     "use strict";
-    var chrome = require('point_of_sale.chrome');
+    var chrome = require("point_of_sale.chrome");
     var PWAManager = require("pos_pwa_oca.PWAManager");
 
     chrome.Chrome.include({
-      start: function () {
-        this.pwa_manager = new PWAManager(this);
-        return this._super.apply(this, arguments);
-      },
+        start: function () {
+            this.pwa_manager = new PWAManager(this);
+            return this._super.apply(this, arguments);
+        },
     });
 });

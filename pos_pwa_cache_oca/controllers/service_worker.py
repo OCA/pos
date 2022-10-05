@@ -20,7 +20,7 @@ class ServiceWorkerCache(ServiceWorker):
         workbox.loadModule('workbox-strategies');
     """
 
-    JS_PWA_CACHE_REGISTRATION = """
+    JS_PWA_CACHE_REGISTRATION = r"""
         workbox.core.setCacheNameDetails({{prefix: 'pos-cache'}});
         workbox.routing.registerRoute(/\.(?:js|css|png|woff)$/, new workbox.strategies.StaleWhileRevalidate({{cacheName: 'pos-cache-scripts'}}));
         workbox.routing.registerRoute(new RegExp('.*/web.*|.*/static/.*|.*/binary/.*|.*/webclient.*|.*/pos.*|.*/ui.*'),
@@ -129,9 +129,7 @@ class ServiceWorkerCache(ServiceWorker):
         """
 
     def _get_non_repeating_requests(self):
-        return [
-            "product.product"
-        ]
+        return ["product.product"]
 
     def _check_non_repeating_requests(self):
         return f"""
@@ -163,26 +161,30 @@ class ServiceWorkerCache(ServiceWorker):
         return [
             "/pos_pwa_cache_oca/static/src/js/aes.js",
             "/pos_pwa_cache_oca/static/src/js/workbox-sw.js",
-            "/pos_pwa_cache_oca/static/src/js/localforage.min.js"
+            "/pos_pwa_cache_oca/static/src/js/localforage.min.js",
         ]
 
     def _get_sw_code(self):
-        sw_code = self.JS_PWA_MAIN.format(**{
-            'pwa_scripts': self._get_pwa_scripts(),
-            'pwa_requires': self._get_js_pwa_requires(),
-            'pwa_init': self._get_js_pwa_init(),
-            'pwa_core_event_install': self.JS_PWA_CORE_EVENT_INSTALL.format(
-                self._get_js_pwa_core_event_install_impl()),
-            'pwa_core_event_activate': self.JS_PWA_CORE_EVENT_ACTIVATE.format(
-                self._get_js_pwa_core_event_activate_impl()),
-            'pwa_core_event_fetch': self.JS_PWA_CORE_EVENT_FETCH.format(
-                self._get_js_pwa_core_event_fetch_impl()),
-            'pwa_cache': self.JS_PWA_CACHE.format(
-                self._get_pwa_cache_scripts()),
-            'pwa_cache_confirmation': self.JS_PWA_CACHE_CONFIRMATION,
-            'pwa_cache_registration': self.JS_PWA_CACHE_REGISTRATION.format(**{
-                'post_requests': self._get_post_resquests()
-            })
-        })
+        sw_code = self.JS_PWA_MAIN.format(
+            **{
+                "pwa_scripts": self._get_pwa_scripts(),
+                "pwa_requires": self._get_js_pwa_requires(),
+                "pwa_init": self._get_js_pwa_init(),
+                "pwa_core_event_install": self.JS_PWA_CORE_EVENT_INSTALL.format(
+                    self._get_js_pwa_core_event_install_impl()
+                ),
+                "pwa_core_event_activate": self.JS_PWA_CORE_EVENT_ACTIVATE.format(
+                    self._get_js_pwa_core_event_activate_impl()
+                ),
+                "pwa_core_event_fetch": self.JS_PWA_CORE_EVENT_FETCH.format(
+                    self._get_js_pwa_core_event_fetch_impl()
+                ),
+                "pwa_cache": self.JS_PWA_CACHE.format(self._get_pwa_cache_scripts()),
+                "pwa_cache_confirmation": self.JS_PWA_CACHE_CONFIRMATION,
+                "pwa_cache_registration": self.JS_PWA_CACHE_REGISTRATION.format(
+                    **{"post_requests": self._get_post_resquests()}
+                ),
+            }
+        )
 
         return sw_code

@@ -1,22 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template id="pos_layout_pwa" name="POS PWA" inherit_id="point_of_sale.index">
         <xpath expr="//head/title" position="after">
             <!-- Add link rel manifest -->
-            <link rel="manifest" t-attf-href="/pos_pwa_oca/manifest.webmanifest"/>
+            <link rel="manifest" t-attf-href="/pos_pwa_oca/manifest.webmanifest" />
             <!-- Add iOS meta tags and icons -->
-            <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-            <t t-set="pwa_name" t-value="request.env['ir.config_parameter'].sudo().get_param('pwa.manifest.name')"/>
-            <meta name="apple-mobile-web-app-title" t-att-content="pwa_name"/>
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <t
+                t-set="pwa_name"
+                t-value="request.env['ir.config_parameter'].sudo().get_param('pwa.manifest.name')"
+            />
+            <meta name="apple-mobile-web-app-title" t-att-content="pwa_name" />
             <!-- Add meta theme-color -->
-            <t t-set="pwa_theme_color" t-value="request.env['ir.config_parameter'].sudo().get_param('pwa.manifest.theme_color')"/>
+            <t
+                t-set="pwa_theme_color"
+                t-value="request.env['ir.config_parameter'].sudo().get_param('pwa.manifest.theme_color')"
+            />
             <meta name="theme-color" t-att-content="pwa_theme_color" />
         </xpath>
     </template>
-    <template id="assets_backend" name="pos service worker assets" inherit_id="point_of_sale.assets">
+    <template
+        id="assets_backend"
+        name="pos service worker assets"
+        inherit_id="point_of_sale.assets"
+    >
         <xpath expr="." position="inside">
-            <script type="text/javascript" src="/pos_pwa_oca/static/src/js/pwa_manager.js"/>
-            <script type="text/javascript" src="/pos_pwa_oca/static/src/js/webclient.js"/>
+            <script
+                type="text/javascript"
+                src="/pos_pwa_oca/static/src/js/pwa_manager.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_pwa_oca/static/src/js/webclient.js"
+            />
         </xpath>
     </template>
 </odoo>

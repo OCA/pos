@@ -9,20 +9,21 @@ odoo.define("pos_pwa_oca.PWAManager", function (require) {
 
     var _t = core._t;
 
-
     var PWAManager = Widget.extend({
         /**
          * @override
          */
         init: function () {
             this._super.apply(this, arguments);
-            if (!('serviceWorker' in navigator)) {
+            if (!("serviceWorker" in navigator)) {
                 console.error(
-                    _t("Service workers are not supported! Maybe you are not using HTTPS or you work in private mode."));
-            }
-            else {
+                    _t(
+                        "Service workers are not supported! Maybe you are not using HTTPS or you work in private mode."
+                    )
+                );
+            } else {
                 this._service_worker = navigator.serviceWorker;
-                this.registerServiceWorker('/service-worker.js');
+                this.registerServiceWorker("/service-worker.js");
             }
         },
 
@@ -31,10 +32,11 @@ odoo.define("pos_pwa_oca.PWAManager", function (require) {
          * @returns {Promise}
          */
         registerServiceWorker: function (sw_script) {
-            return this._service_worker.register(sw_script)
+            return this._service_worker
+                .register(sw_script)
                 .then(this._onRegisterServiceWorker)
                 .catch(function (error) {
-                    console.log(_t('[ServiceWorker] Registration failed: '), error);
+                    console.log(_t("[ServiceWorker] Registration failed: "), error);
                 });
         },
 
@@ -45,7 +47,7 @@ odoo.define("pos_pwa_oca.PWAManager", function (require) {
          * @param {ServiceWorkerRegistration} registration
          */
         _onRegisterServiceWorker: function (registration) {
-            console.log(_t('[ServiceWorker] Registered:'), registration);
+            console.log(_t("[ServiceWorker] Registered:"), registration);
         },
     });
 

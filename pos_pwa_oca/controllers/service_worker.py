@@ -1,6 +1,7 @@
 # Copyright 2021 Tecnativa - Alexandre D. Díaz
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 from odoo.http import request, route
+
 from .main import PWA
 
 
@@ -27,10 +28,10 @@ class ServiceWorker(PWA):
 
     JS_PWA_MAIN = """
         self.importScripts(...{pwa_scripts});
-        
+
         odoo.define("pos_pwa_oca.ServiceWorker", function (require) {{
             "use strict";
-            
+
             {pwa_requires}
 
             {pwa_init}
@@ -48,7 +49,9 @@ class ServiceWorker(PWA):
     def _get_js_pwa_init(self):
         return """
             const pos_pwa_oca = new PWA({});
-        """.format(self._get_pwa_params())
+        """.format(
+            self._get_pwa_params()
+        )
 
     def _get_js_pwa_core_event_install_impl(self):
         return """
@@ -67,17 +70,22 @@ class ServiceWorker(PWA):
         return ""
 
     def _get_sw_code(self):
-        sw_code = self.JS_PWA_MAIN.format(**{
-            'pwa_scripts': self._get_pwa_scripts(),
-            'pwa_requires': self._get_js_pwa_requires(),
-            'pwa_init': self._get_js_pwa_init(),
-            'pwa_core_event_install': self.JS_PWA_CORE_EVENT_INSTALL.format(
-                self._get_js_pwa_core_event_install_impl()),
-            'pwa_core_event_activate': self.JS_PWA_CORE_EVENT_ACTIVATE.format(
-                self._get_js_pwa_core_event_activate_impl()),
-            'pwa_core_event_fetch': self.JS_PWA_CORE_EVENT_FETCH.format(
-                self._get_js_pwa_core_event_fetch_impl())
-        })
+        sw_code = self.JS_PWA_MAIN.format(
+            **{
+                "pwa_scripts": self._get_pwa_scripts(),
+                "pwa_requires": self._get_js_pwa_requires(),
+                "pwa_init": self._get_js_pwa_init(),
+                "pwa_core_event_install": self.JS_PWA_CORE_EVENT_INSTALL.format(
+                    self._get_js_pwa_core_event_install_impl()
+                ),
+                "pwa_core_event_activate": self.JS_PWA_CORE_EVENT_ACTIVATE.format(
+                    self._get_js_pwa_core_event_activate_impl()
+                ),
+                "pwa_core_event_fetch": self.JS_PWA_CORE_EVENT_FETCH.format(
+                    self._get_js_pwa_core_event_fetch_impl()
+                ),
+            }
+        )
 
         return sw_code
 
@@ -89,5 +97,8 @@ class ServiceWorker(PWA):
 
         return request.make_response(
             sw_code,
-            [('Content-Type', "text/javascript;charset=utf-8"),
-             ('Content-Length', len(sw_code))])
+            [
+                ("Content-Type", "text/javascript;charset=utf-8"),
+                ("Content-Length", len(sw_code)),
+            ],
+        )

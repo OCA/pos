@@ -1,15 +1,14 @@
 /* Copyright 2020 Tecnativa - Alexandre D. Díaz
  * License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). */
 
- // Compatibility layer to load some Odoo modules
- // This is a very simple implementation!!!
+// Compatibility layer to load some Odoo modules
+// This is a very simple implementation!!!
 
-function JQuery (selector, context) {
+function JQuery(selector, context) {
     return new JQuery.prototype.init(selector, context);
-};
+}
 
 JQuery.prototype = {
-
     init: function (selector, context) {
         if (typeof selector === "function") {
             selector();
@@ -19,10 +18,10 @@ JQuery.prototype = {
     // This is a hack, not a complete implementation!
     // only expected to be used by boot.js
     deparam: function (data) {
-        const params = data.split(',');
+        const params = data.split(",");
         const res = [];
-        for (let param of params) {
-            res.push(param.split('='));
+        for (const param of params) {
+            res.push(param.split("="));
         }
         return _.object(res);
     },
@@ -30,7 +29,7 @@ JQuery.prototype = {
     param: {
         querystring: function () {
             return "debug=1";
-        }
+        },
     },
 
     when: function (tasks) {
@@ -45,12 +44,12 @@ JQuery.prototype = {
 
 class Deferred {
     constructor() {
-        this.promise = new Promise((resolve, reject)=> {
+        this.promise = new Promise((resolve, reject) => {
             this.reject = reject;
             this.resolve = resolve;
-        })
+        });
     }
-};
+}
 
 JQuery.prototype.Deferred = () => new Deferred();
 

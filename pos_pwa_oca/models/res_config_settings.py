@@ -1,12 +1,12 @@
 # Copyright 2020 Tecnativa - João Marques
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
-import sys
 import base64
 import io
+import sys
 
 from PIL import Image
 
-from odoo import api, exceptions, fields, models, _
+from odoo import _, api, exceptions, fields, models
 from odoo.tools.mimetypes import guess_mimetype
 
 
@@ -29,13 +29,11 @@ class ResConfigSettings(models.TransientModel):
     def get_values(self):
         config_parameter_obj_sudo = self.env["ir.config_parameter"].sudo()
         res = super(ResConfigSettings, self).get_values()
-        res["pwa_name"] = (
-            config_parameter_obj_sudo.get_param(
-                "pwa.manifest.name", default="Odoo PWA")
+        res["pwa_name"] = config_parameter_obj_sudo.get_param(
+            "pwa.manifest.name", default="Odoo PWA"
         )
-        res["pwa_short_name"] = (
-            config_parameter_obj_sudo.get_param(
-                "pwa.manifest.short_name", default="Odoo")
+        res["pwa_short_name"] = config_parameter_obj_sudo.get_param(
+            "pwa.manifest.short_name", default="Odoo"
         )
         pwa_icon_ir_attachment = (
             self.env["ir.attachment"]
@@ -45,13 +43,11 @@ class ResConfigSettings(models.TransientModel):
         res["pwa_icon"] = (
             pwa_icon_ir_attachment.datas if pwa_icon_ir_attachment else False
         )
-        res["pwa_background_color"] = (
-            config_parameter_obj_sudo.get_param(
-                "pwa.manifest.background_color", default="#2E69B5")
+        res["pwa_background_color"] = config_parameter_obj_sudo.get_param(
+            "pwa.manifest.background_color", default="#2E69B5"
         )
-        res["pwa_theme_color"] = (
-            config_parameter_obj_sudo.get_param(
-                "pwa.manifest.theme_color", default="#2E69B5")
+        res["pwa_theme_color"] = config_parameter_obj_sudo.get_param(
+            "pwa.manifest.theme_color", default="#2E69B5"
         )
         return res
 
@@ -100,9 +96,7 @@ class ResConfigSettings(models.TransientModel):
     def set_values(self):
         config_parameter_obj_sudo = self.env["ir.config_parameter"].sudo()
         res = super(ResConfigSettings, self).set_values()
-        config_parameter_obj_sudo.set_param(
-            "pwa.manifest.name", self.pwa_name
-        )
+        config_parameter_obj_sudo.set_param("pwa.manifest.name", self.pwa_name)
         config_parameter_obj_sudo.set_param(
             "pwa.manifest.short_name", self.pwa_short_name
         )

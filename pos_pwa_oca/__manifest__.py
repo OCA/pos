@@ -13,13 +13,13 @@
     "application": True,
     "installable": True,
     "depends": [
-        'point_of_sale',
-        'web',
-        'mail',
+        "point_of_sale",
+        "web",
+        "mail",
     ],
     "data": [
         "templates/assets.xml",
         "views/res_config_settings_views.xml",
     ],
-    'images': ['static/description/pwa.png'],
+    "images": ["static/description/pwa.png"],
 }
