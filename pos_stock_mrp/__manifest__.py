@@ -11,6 +11,10 @@
     "maintainers": ["gabrielcardoso21"],
     "depends": [
         "point_of_sale",
+        "stock",
+        "mrp",
     ],
-    "data": [],
+    "demo": [
+        "data/demo_data.xml",
+    ],
 }

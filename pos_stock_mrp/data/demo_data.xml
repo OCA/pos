@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="stock.route_warehouse0_mto" model='stock.location.route'>
+            <field name="active">True</field>
+        </record>
+
+        <record
+            id="product.product_product_11_product_template"
+            model="product.template"
+        >
+            <field
+                name="route_ids"
+                eval="[(6, 0, [ref('stock.route_warehouse0_mto'), ref('mrp.route_warehouse0_manufacture')])]"
+            />
+        </record>
+
+        <record id="mrp_bom_pos_stock_mrp" model="mrp.bom">
+            <field
+                name="product_tmpl_id"
+                ref="product.product_product_11_product_template"
+            />
+            <field name="product_uom_id" ref="uom.product_uom_unit" />
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="mrp_bom_pos_stock_mrp_line_1" model="mrp.bom.line">
+            <field name="product_id" ref="product.product_product_12" />
+            <field name="product_qty">1</field>
+            <field name="product_uom_id" ref="uom.product_uom_unit" />
+            <field name="sequence">50</field>
+            <field name="bom_id" ref="mrp_bom_pos_stock_mrp" />
+        </record>
+
+        <record id="stock.stock_inventory_line_11" model="stock.inventory.line">
+            <field name="product_id" ref="product.product_product_12" />
+            <field name="product_uom_id" ref="uom.product_uom_unit" />
+            <field name="inventory_id" ref="stock.stock_inventory_0" />
+            <field name="product_qty">0.0</field>
+            <field
+                name="location_id"
+                model="stock.location"
+                eval="obj().env.ref('stock.warehouse0').lot_stock_id.id"
+            />
+        </record>
+
+    </data>
+</odoo>
