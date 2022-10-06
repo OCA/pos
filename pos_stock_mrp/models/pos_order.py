@@ -14,19 +14,19 @@ class PosOrder(models.Model):
     def _create_order_picking(self):
         if self.lines:
             lines_to_replenish = self.lines.filtered(lambda l: l.product_id.route_ids)
+            group_id = self.env["procurement.group"].create(
+                {
+                    "name": self.name,
+                    "move_type": "one",
+                    "pos_order_id": self.id,
+                    "partner_id": self.partner_id.id,
+                }
+            )
+            warehouse_id = self.env["stock.warehouse"].search(
+                [("company_id", "=", self.company_id.id)], limit=1
+            )
             for line in lines_to_replenish:
                 if line.qty > line.product_id.qty_available:
-                    warehouse_id = self.env["stock.warehouse"].search(
-                        [("company_id", "=", self.company_id.id)], limit=1
-                    )
-                    group_id = self.env["procurement.group"].create(
-                        {
-                            "name": self.name,
-                            "move_type": "one",
-                            "pos_order_id": self.id,
-                            "partner_id": self.partner_id.id,
-                        }
-                    )
                     self.env["procurement.group"].run(
                         [
                             self.env["procurement.group"].Procurement(
