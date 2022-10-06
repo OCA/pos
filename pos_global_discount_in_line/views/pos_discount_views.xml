@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <record
+        id="pos_config_view_form_inherit_pos_discount_inherit"
+        model="ir.ui.view"
+    >
+            <field name="name">pos.config.form.inherit.pos.discount.inherit</field>
+            <field name="model">pos.config</field>
+            <field
+            name="inherit_id"
+            ref="pos_discount.pos_config_view_form_inherit_pos_discount"
+        />
+            <field name="arch" type="xml">
+                <xpath
+                expr="//field[@name='discount_product_id']/.."
+                position="attributes"
+            >
+                    <attribute
+                    name="attrs"
+                >{'invisible':[('global_discount_in_line','=',True)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='discount_pc']/.." position="attributes">
+                    <attribute
+                    name="attrs"
+                >{'invisible':[('global_discount_in_line','=',True)]}</attribute>
+                </xpath>
+
+                <xpath expr="////field[@name='discount_pc']/.." position="after">
+                    <div>
+                        <field name="global_discount_in_line" />
+                        <label for="global_discount_in_line" />
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>
