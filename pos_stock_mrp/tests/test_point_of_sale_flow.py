@@ -90,8 +90,8 @@ class TestPointOfSaleFlow(TestPointOfSaleCommon):
         # I create a PoS order with 2 units of PCSC234 at 450 EUR
         # and 3 units of PCSC349 at 300 EUR.
         untax12, atax12 = self.compute_tax(self.product12, 450, 20)
-        untax1, atax1 = self.compute_tax(self.product12, 450, 20)
-        untax2, atax2 = self.compute_tax(self.product12, 450, 20)
+        untax1, atax1 = self.compute_tax(self.product3, 450, 20)
+        untax2, atax2 = self.compute_tax(self.product4, 450, 20)
         self.pos_order_pos1 = self.PosOrder.create(
             {
                 "company_id": self.env.company.id,
