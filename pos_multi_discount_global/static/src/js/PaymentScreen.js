@@ -65,14 +65,14 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                     this.remove_fixed_discount();
                 } else {
                     var disc_value = NumberBuffer.getFloat();
-                    // this.apply_discount(0, 'reset');
+                    // This.apply_discount(0, 'reset');
                     this.apply_discount(disc_value, "fixed");
                     this.state.fixed_discount = this.env.pos.format_currency(
                         disc_value
                     );
                 }
                 var order = this.env.pos.get_order();
-                if (order.percent_discount !== null && order.percent_discount > 0){
+                if (order.percent_discount !== null && order.percent_discount > 0) {
                     this._updatePercentDiscount(null, order.percent_discount);
                 }
             }
@@ -80,12 +80,12 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                 if (NumberBuffer.get() === null && amount === undefined) {
                     this.remove_percent_discount();
                 } else {
-                    if (amount !== undefined){
+                    if (amount !== undefined) {
                         var disc_value = amount;
                     } else {
                         var disc_value = NumberBuffer.getFloat();
                     }
-                    // this.apply_discount(0, 'reset');
+                    // This.apply_discount(0, 'reset');
                     this.reset_percent_discount();
                     var order = this.env.pos.get_order();
                     var total = order.get_total_without_tax();
@@ -101,7 +101,7 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                     var order = this.env.pos.get_order();
                     var lines = order.get_orderlines();
                     var total = order.get_total_without_tax();
-                    // var current_discount = order.get_total_discount();
+                    // Var current_discount = order.get_total_discount();
                     var product = this.env.pos.db.get_product_by_id(
                         this.env.pos.config.rounding_product_id[0]
                     );
