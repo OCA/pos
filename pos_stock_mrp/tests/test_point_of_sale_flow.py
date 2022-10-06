@@ -57,6 +57,28 @@ class TestPointOfSaleFlow(TestPointOfSaleCommon):
             }
         )
 
+        cls.env["product.supplierinfo"].create(
+            {
+                "product_tmpl_id": cls.product3.product_tmpl_id.id,
+                "name": cls.partner1.id,
+                "delay": 3,
+                "min_qty": 1,
+                "price": 300,
+                "currency_id": cls.pos_config.pricelist_id.currency_id.id,
+            }
+        )
+
+        cls.env["product.supplierinfo"].create(
+            {
+                "product_tmpl_id": cls.product4.product_tmpl_id.id,
+                "name": cls.partner1.id,
+                "delay": 3,
+                "min_qty": 1,
+                "price": 300,
+                "currency_id": cls.pos_config.pricelist_id.currency_id.id,
+            }
+        )
+
         cls.stock_location_components = cls.env["stock.location"].create(
             {
                 "name": "Shelf 1",
