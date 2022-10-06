@@ -1,11 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pos_order_to_sale_order
+#   * pos_order_to_sale_order
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-07 17:01+0000\n"
+"PO-Revision-Date: 2022-10-07 17:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,67 +16,74 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
-#, python-format
-msgid "Back"
+#: model:ir.model,name:pos_order_to_sale_order.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "Check your internet connection and try again."
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Confirmed Sale Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid "Create Confirmed Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Delivered Sale Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
 msgid "Create Delivered Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Draft Sale Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
 msgid "Create Draft Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
-msgid "Create Sale Order"
+msgid "Create Invoiced Sale Order"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
+msgid "Create Invoiced Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
 #, python-format
-msgid "Create Sale Order and discard the current PoS Order?"
+msgid "Create Order"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Create Sale Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
@@ -83,14 +92,33 @@ msgid "Create Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Discard"
+msgstr ""
+
+#. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid ""
 "If checked, the cashier will have the possibility to create a confirmed Sale"
 " Order, based on the current draft PoS Order."
 msgstr ""
 
 #. module: pos_order_to_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
+msgid ""
+"If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered.\n"
+" The Invoice will be generated and confirm.\n"
+" Only invoice payment process will be possible."
+msgstr ""
+
+#. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
 msgid ""
 "If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
 " the according picking will be marked as delivered. Only invoices process will be possible."
@@ -98,23 +126,10 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
 msgid ""
 "If checked, the cashier will have the possibility to create a draft Sale "
 "Order, based on the current draft PoS Order."
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "No customer defined"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
-#, python-format
-msgid "Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
@@ -129,7 +144,7 @@ msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Sale Order Creations"
 msgstr ""
 
@@ -141,27 +156,4 @@ msgstr ""
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "The order could not be sent"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid ""
-"This operation will permanently discard the current PoS Order and create a "
-"Sale Order, based on the current order lines."
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "You should select a customer in order to create a Sale Order."
 msgstr ""
