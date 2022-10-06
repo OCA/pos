@@ -12,11 +12,3 @@ This module is usefull in many cases, for exemple :
   have a unique invoice at the end of the month. With that module, you can
   create a sale order and deliver products every time to keep your stock value
   correct, and to create a unique invoice, when you want.
-
-**Technical Notes**
-
-* Some hooks are defined in the JS file, to define custom behaviour after
-  having created the sale order.
-
-* Some prepare functions are available in the ``sale.order`` model and
-  ``sale.order.line`` models to overload the creation of the sale order.
