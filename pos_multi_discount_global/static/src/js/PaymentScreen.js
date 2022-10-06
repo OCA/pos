@@ -71,12 +71,20 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                         disc_value
                     );
                 }
+                var order = this.env.pos.get_order();
+                if (order.percent_discount !== null && order.percent_discount > 0) {
+                    this._updatePercentDiscount(null, order.percent_discount);
+                }
             }
-            _updatePercentDiscount() {
-                if (NumberBuffer.get() === null) {
+            _updatePercentDiscount(event, amount) {
+                if (NumberBuffer.get() === null && amount === undefined) {
                     this.remove_percent_discount();
                 } else {
-                    var disc_value = NumberBuffer.getFloat();
+                    if (amount !== undefined) {
+                        var disc_value = amount;
+                    } else {
+                        var disc_value = NumberBuffer.getFloat();
+                    }
                     // This.apply_discount(0, 'reset');
                     this.reset_percent_discount();
                     var order = this.env.pos.get_order();
