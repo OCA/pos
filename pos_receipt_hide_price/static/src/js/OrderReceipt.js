@@ -4,9 +4,9 @@ odoo.define("pos_receipt_hide_price.OrderReceipt", function (require) {
     const OrderReceipt = require("point_of_sale.OrderReceipt");
     const Registries = require("point_of_sale.Registries");
 
-    const HidePriceOrderReceipt = (OrderReceipt) =>
-        class extends OrderReceipt {
-            constructor(_, {hidePriceState}) {
+    const HidePriceOrderReceipt = (OriginalOrderReceipt) =>
+        class extends OriginalOrderReceipt {
+            constructor({hidePriceState}) {
                 super(...arguments);
                 this.hidePriceState = hidePriceState;
             }
