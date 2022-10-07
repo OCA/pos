@@ -73,6 +73,10 @@ Contributors
 
   * Florian Mounier
 
+* `FactorLibre <https://factorlibre.com/>`_:
+
+  * Daniel Duque
+
 Maintainers
 ~~~~~~~~~~~
 

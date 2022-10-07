@@ -1,12 +1,12 @@
 odoo.define("pos_receipt_hide_price.ReprintReceiptScreen", function (require) {
     "use strict";
 
-    const {useState} = owl.hooks;
+    const {useState} = owl;
     const ReprintReceiptScreen = require("point_of_sale.ReprintReceiptScreen");
     const Registries = require("point_of_sale.Registries");
 
-    const HidePriceReprintReceiptScreen = (ReprintReceiptScreen) =>
-        class extends ReprintReceiptScreen {
+    const HidePriceReprintReceiptScreen = (OriginalReprintReceiptScreen) =>
+        class extends OriginalReprintReceiptScreen {
             constructor() {
                 super(...arguments);
                 this.hidePriceState = useState({priceHidden: false});
