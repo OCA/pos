@@ -1,5 +1,5 @@
 <templates id="template" xml:space="preserve">
-  <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
+  <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension" owl="1">
     <xpath expr="//div[hasclass('button', 'print')]" position="before">
       <t t-call="pos_receipt_hide_price.hide_price" />
     </xpath>
