@@ -24,7 +24,7 @@
             />
             <script
                 type="text/javascript"
-                src="/pos_pwa_cache_oca/static/src/js/workbox-sw.js"
+                src="pos_pwa_cache_oca/static/src/js/workbox/workbox-v6.5.4/workbox-sw.js"
             />
         </xpath>
     </template>

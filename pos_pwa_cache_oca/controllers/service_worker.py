@@ -163,7 +163,7 @@ class ServiceWorkerCache(ServiceWorker):
         """Scripts to be imported in the service worker (Order is important)"""
         return [
             "/pos_pwa_cache_oca/static/src/js/aes.js",
-            "/pos_pwa_cache_oca/static/src/js/workbox-sw.js",
+            "/pos_pwa_cache_oca/static/src/js/workbox/workbox-v6.5.4/workbox-sw.js",
             "/pos_pwa_cache_oca/static/src/js/localforage.min.js",
         ]
 
