@@ -13,8 +13,11 @@
         "point_of_sale",
     ],
     "data": [
+        # Security
+        "security/ir.model.access.csv",
         # Views
         "views/pos_assets_common.xml",
+        "views/pos_bill_view.xml",
     ],
     "qweb": [
         "static/src/xml/Chrome.xml",
