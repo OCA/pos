@@ -18,6 +18,7 @@
         # Views
         "views/pos_assets_common.xml",
         "views/pos_bill_view.xml",
+        "views/pos_config_view.xml",
     ],
     "qweb": [
         "static/src/xml/Chrome.xml",

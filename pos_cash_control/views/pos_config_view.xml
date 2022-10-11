@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html) -->
+<odoo>
+    <record model="ir.ui.view" id="view_pos_config_form">
+        <field name="name">view.pos.config.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='iface_tipproduct']" position="before">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <field name="cash_control" invisible="1" />
+                    <div class="o_setting_left_pane">
+                        <field name="set_maximum_difference" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="set_maximum_difference" />
+                        <div class="text-muted">
+                            Set a maximum difference allowed between the expected and counted money during the closing of the session
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    attrs="{'invisible': [('cash_control', '=', False)]}"
+                >
+                    <div class="o_setting_right_pane">
+                        <label for="default_bill_ids" string="Coins/Bills" />
+                        <div class="text-muted">
+                            Set of coins/bills that will be used in opening and closing control
+                        </div>
+                        <div class="content-group mt16">
+                            <field
+                                name="default_bill_ids"
+                                colspan="4"
+                                widget="many2many_tags"
+                                options="{'no_create_edit': True}"
+                                context="{'default_pos_config_ids':[(6, False, active_ids)]}"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//field[@name='amount_authorized_diff']" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': [('set_maximum_difference', '=', False)]}
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
