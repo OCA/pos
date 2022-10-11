@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportContainer" owl="1">
+        <div>
+            <t t-if="state.renderQWebReport != null">
+                <div
+                    class="pos-report-print-button"
+                    t-on-click='trigger("print-report")'
+                >
+                    <i
+                        role="img"
+                        aria-label="Print"
+                        title="Print"
+                        class="fa fa-fw fa-print"
+                    />
+                    Print Report
+                </div>
+                <div class="pos-report-container">
+                    <div class="pos-report">
+                        <div t-raw="state.renderQWebReport"> </div>
+                    </div>
+                </div>
+            </t>
+            <t t-else="">
+                <div class="hint-text-container">Select and generate a report</div>
+            </t>
+        </div>
+    </t>
+
+</templates>

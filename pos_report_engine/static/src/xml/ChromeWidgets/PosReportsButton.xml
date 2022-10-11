@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportsButton" owl="1">
+        <div class="oe_status pos-reports-button" t-on-click="onClick">
+            <div class="oe_icon">
+                <i
+                    class="fa fa-fw fa-file-text"
+                    role="img"
+                    aria-label="POS Reports Button"
+                    title="POS Reports Button"
+                />
+            </div>
+        </div>
+    </t>
+
+</templates>

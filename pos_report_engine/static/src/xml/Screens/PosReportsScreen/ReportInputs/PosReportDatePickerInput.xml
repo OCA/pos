@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportDatePickerInput" owl="1">
+        <div class="report report-input report-date-picker-input">
+            <span t-esc="props.label" class="report report-input-label" />
+            <input
+                t-model="state.text"
+                t-att-id="props.id"
+                class="report report-input-box teste"
+                type="date"
+            />
+          </div>
+    </t>
+
+</templates>

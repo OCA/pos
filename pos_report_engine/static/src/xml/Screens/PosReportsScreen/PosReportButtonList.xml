@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportButtonList" owl="1">
+        <div class="pos-report-buttons">
+            <t t-foreach="getReportList()" t-as="report" t-key="report.id">
+                <t t-if="getCurrentReport() and getCurrentReport().id == report.id">
+                    <PosReportButton
+                        name="report.name"
+                        id="report.id"
+                        selected="true"
+                        t-on-click="trigger('click-report', report.id)"
+                    />
+                </t>
+                <t t-else=''>
+                    <PosReportButton
+                        name="report.name"
+                        id="report.id"
+                        selected="false"
+                        t-on-click="trigger('click-report', report.id)"
+                    />
+                </t>
+            </t>
+        </div>
+    </t>
+
+</templates>

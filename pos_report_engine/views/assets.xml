@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <link
+                rel="stylesheet"
+                href="/pos_report_engine/static/src/css/pos_reports_screen.css"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/ReportEngine.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/ChromeWidgets/PosReportsButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportsScreen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportButtonList.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportContainer.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportInputsController.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/ReportInputs/PosReportTextInput.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/ReportInputs/PosReportDatePickerInput.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_report_engine/static/src/js/screens/PosReportsScreen/ReportInputs/PosReportDateTimePickerInput.js"
+            />
+      </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportButton" owl="1">
+        <t t-if="props.selected === true">
+            <div class="button pos-report-button highlight">
+                <div class="report-name">
+                    <t t-esc="props.name" />
+                </div>
+            </div>
+        </t>
+        <t t-else="">
+            <div class="button pos-report-button">
+                <div class="report-name">
+                    <t t-esc="props.name" />
+                </div>
+            </div>
+        </t>
+    </t>
+
+</templates>

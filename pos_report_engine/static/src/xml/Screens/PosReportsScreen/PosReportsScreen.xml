@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportsScreen" owl="1">
+        <div class="pos-report-screen screen">
+            <div class="screen-content">
+                <div class="top-content">
+                    <div class="button back">
+                        <i class="fa fa-angle-double-left fa-fw" />
+                        <span
+                            class="back"
+                            t-on-click="trigger('close-screen')"
+                        >Back</span>
+                    </div>
+                    <div class="top-content-center">
+                        <h1>Reports</h1>
+                    </div>
+                </div>
+                <div class="report-main-content">
+                    <div class="left-content">
+                        <PosReportButtonList />
+                    </div>
+                    <div class="report-right-content">
+                        <PosReportInputsController />
+                        <PosReportContainer />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

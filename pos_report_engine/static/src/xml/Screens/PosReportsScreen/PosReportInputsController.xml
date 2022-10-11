@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosReportInputsController" owl="1">
+        <div>
+            <t t-if="hasCurrentReport()">
+            <div class="report-inputs-controller">
+                <div class='report-inputs-container'>
+                    <t t-if="state.currentInputs">
+                        <t t-foreach="state.currentInputs" t-as="input">
+                            <t
+                                    t-component="input.component"
+                                    id="input.id"
+                                    label="input.label"
+                                    t-key="input.id"
+                                />
+                        </t>
+                    </t>
+                </div>
+
+                <div
+                        class="button highlight generate-button"
+                        t-on-click="trigger('generate-report')"
+                    >
+                    Generate
+                </div>
+            </div>
+            </t>
+        </div>
+    </t>
+
+</templates>
