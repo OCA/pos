@@ -5,13 +5,43 @@
             <xpath expr="." position="inside">
                 <script
                     type="text/javascript"
+                    src="/pos_cash_control/static/src/js/models.js"
+                />
+            </xpath>
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
                     src="/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js"
                 />
             </xpath>
             <xpath expr="." position="inside">
                 <script
                     type="text/javascript"
+                    src="/pos_cash_control/static/src/js/ChromeWidgets/HeaderButton.js"
+                />
+            </xpath>
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_cash_control/static/src/js/Misc/CurrencyAmount.js"
+                />
+            </xpath>
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
                     src="/pos_cash_control/static/src/js/Popups/CashMovePopup.js"
+                />
+            </xpath>
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_cash_control/static/src/js/Popups/MoneyDetailsPopup.js"
+                />
+            </xpath>
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_cash_control/static/src/js/Popups/ClosePosPopup.js"
                 />
             </xpath>
 

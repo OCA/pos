@@ -24,5 +24,8 @@
         "static/src/xml/Chrome.xml",
         "static/src/xml/ChromeWidgets/CashMoveButton.xml",
         "static/src/xml/Popups/CashMovePopup.xml",
+        "static/src/xml/Popups/MoneyDetailsPopup.xml",
+        "static/src/xml/Popups/ClosePosPopup.xml",
+        "static/src/xml/Misc/CurrencyAmount.xml",
     ],
 }
