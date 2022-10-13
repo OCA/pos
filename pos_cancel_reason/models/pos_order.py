@@ -15,8 +15,13 @@ class PosOrder(models.Model):
         inverse_name='order_id',
     )
 
+    cancel_reason_id = fields.Many2one(
+        string='Cancel Reason',
+        comodel_name='pos.cancel.reason'
+    )
+
     @api.model
-    def create_from_ui(self, orders):
+    def create_from_ui(self, orders, draft=False):
         orders_ids = super(PosOrder, self).create_from_ui(orders)
         for order in orders:
             for cancelled_item in order["data"]["cancelled_orderlines"]:

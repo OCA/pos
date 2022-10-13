@@ -11,6 +11,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="employee_id" />
+                <field name="user_id" />
                 <field name="order_id"/>
                 <field name="product_id"/>
                 <field name="qty"/>
@@ -29,6 +30,7 @@
                 <sheet>
                     <group>
                         <field name="employee_id" />
+                        <field name="user_id" />
                         <field name="order_id"/>
                         <field name="product_id"/>
                         <field name="qty"/>
