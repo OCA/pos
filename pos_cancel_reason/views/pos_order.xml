@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <record id="view_pos_order_form" model="ir.ui.view">
+        <field name="name">pos.order.form at (pos_cancel_reason)</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <page name="products" position="after">
+                <page string="Cancelled Items" name="cancelled_items">
+                    <field name="cancelled_line_ids" colspan="4" nolabel="1"/>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

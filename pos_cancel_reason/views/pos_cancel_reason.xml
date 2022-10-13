@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <record id="view_pos_cancel_reason_tree" model="ir.ui.view">
+        <field name="name">pos.cancel.reason.tree (in pos_cancel_reason)</field>
+        <field name="model">pos.cancel.reason</field>
+        <field name="arch" type="xml">
+            <tree decoration-muted="active == 'False'">
+                <field name="name" />
+                <field name="active" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_cancel_reason_form" model="ir.ui.view">
+        <field name="name">pos.cancel.reason.form (in pos_cancel_reason)</field>
+        <field name="model">pos.cancel.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_cancel_reason" model="ir.actions.act_window">
+        <field name="name">Cancel Reasons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.cancel.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_pos_cancel_reason"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_pos_cancel_reason"
+        sequence="55"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>

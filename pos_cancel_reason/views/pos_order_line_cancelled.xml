@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+    <record id="view_pos_order_line_cancelled_tree" model="ir.ui.view">
+        <field name="name">pos.order.line.cancelled.tree (in pos_cancel_reason)</field>
+        <field name="model">pos.order.line.cancelled</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" />
+                <field name="order_id"/>
+                <field name="product_id"/>
+                <field name="qty"/>
+                <field name="price_unit"/>
+                <field name="price_subtotal"/>
+                <field name="cancel_reason_id"/>
+                <field name="create_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_order_line_cancelled_form" model="ir.ui.view">
+        <field name="name">pos.order.line.cancelled.form (in pos_cancel_reason)</field>
+        <field name="model">pos.order.line.cancelled</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="employee_id" />
+                        <field name="order_id"/>
+                        <field name="product_id"/>
+                        <field name="qty"/>
+                        <field name="price_unit"/>
+                        <field name="price_subtotal"/>
+                        <field name="cancel_reason_id"/>
+                        <field name="create_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_order_line_cancelled" model="ir.actions.act_window">
+        <field name="name">POS Order Line Cancelled</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.order.line.cancelled</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_pos_order_line_cancelled"
+        parent="menu_pos_audit"
+        action="action_pos_order_line_cancelled"
+        sequence="55"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>
