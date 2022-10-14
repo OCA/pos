@@ -14,6 +14,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "views/assets.xml",
         "views/audit_menu.xml",
         "views/pos_cancel_reason.xml",
         "views/pos_config.xml",
