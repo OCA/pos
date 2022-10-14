@@ -20,6 +20,18 @@
                             Give a reason to cancel an item or an entiry order
                         </div>
                     </div>
+                    <div class="o_setting_left_pane" attrs="{'invisible': [('reason_to_cancel', '=', False)]}">
+                    </div>
+                    <div class="o_setting_right_pane" attrs="{'invisible': [('reason_to_cancel', '=', False)]}">
+                        <span class="o_form_label">Delay Cancel Reason</span>
+                        <div class="text-muted">
+                            Time in seconds of wait until it's necessary to give a reason to cancel items in POS
+                        </div>
+                        <div class="content-group mt16 row">
+                            <label for="delay_to_cancel" string="Delay Cancel Reason" class="col-lg-3 o_light_label"/>
+                            <field name="delay_to_cancel" attrs="{'required': [('reason_to_cancel', '=', True)]}"/>
+                        </div>
+                    </div>
                 </div>
             </xpath>
         </field>

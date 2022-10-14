@@ -13,6 +13,10 @@ class PosConfig(models.Model):
         string='Reason to Cancel',
         default=False,
     )
+    delay_to_cancel = fields.Integer(
+        string='Delayed time to cancel',
+        default=10,
+    )
 
     def write(self, vals):
         if vals.get('reason_to_cancel') and vals['reason_to_cancel']:

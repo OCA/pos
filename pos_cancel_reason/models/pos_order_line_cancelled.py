@@ -50,9 +50,14 @@ class PosOrderLineCancelled(models.Model):
         comodel_name='pos.cancel.reason',
         required=True,
     )
+    cancelled_at = fields.Datetime(
+        string='Cancelled at',
+        required=True,
+    )
 
     @api.model
     def cancel_from_ui(self, cancelled_item):
         pos_order = self.env["pos.order"].search([("pos_reference", "=", cancelled_item["order_id"])])
         cancelled_item["order_id"] = pos_order.id
+        cancelled_item["cancelled_at"] = cancelled_item["cancelled_at"].replace("T", " ").replace("Z", "")
         self.create([cancelled_item])
