@@ -1,13 +1,11 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * pos_order_to_sale_order
+# 	* pos_order_to_sale_order
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0beta\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-07 17:01+0000\n"
-"PO-Revision-Date: 2022-10-07 17:01+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -75,15 +73,9 @@ msgstr ""
 #. module: pos_order_to_sale_order
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
-#, python-format
-msgid "Create Order"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
-msgid "Create Sale Order"
+msgid "Create Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
@@ -145,7 +137,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
-msgid "Sale Order Creations"
+msgid "Sale Order Creation"
 msgstr ""
 
 #. module: pos_order_to_sale_order
