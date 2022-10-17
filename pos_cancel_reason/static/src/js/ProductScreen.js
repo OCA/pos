@@ -7,7 +7,7 @@ odoo.define("pos_cancel_reason.ProductScreen", function (require) {
     const PosProductScreen = (ProductScreen) =>
         class extends ProductScreen {
             async _setValue(val) {
-                const val_parsed = parseFloat(val);
+                const val_parsed = parseFloat(val || 0);
                 if (this.env.pos.config.reason_to_cancel) {
                     const selected_orderline = this.env.pos.get_order()
                         .selected_orderline;
