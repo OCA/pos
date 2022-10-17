@@ -3,7 +3,6 @@
     Copyright 2022 KMEE (<http://www.kmee.com.br>)
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-
 <odoo>
     <record id="view_pos_cancel_reason_tree" model="ir.ui.view">
         <field name="name">pos.cancel.reason.tree (in pos_cancel_reason)</field>
@@ -22,8 +21,8 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="active"/>
+                        <field name="name" />
+                        <field name="active" />
                     </group>
                 </sheet>
             </form>

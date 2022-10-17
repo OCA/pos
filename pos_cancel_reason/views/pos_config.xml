@@ -10,26 +10,39 @@
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('o_settings_container')][2]" position="inside">
-                <div class="col-12 col-lg-6 o_setting_box" >
+                <div class="col-12 col-lg-6 o_setting_box">
                     <div class="o_setting_left_pane">
-                        <field name="reason_to_cancel"/>
+                        <field name="reason_to_cancel" />
                     </div>
                     <div class="o_setting_right_pane">
-                        <label for="reason_to_cancel"/>
+                        <label for="reason_to_cancel" />
                         <div class="text-muted">
                             Give a reason to cancel an item or an entiry order
                         </div>
                     </div>
-                    <div class="o_setting_left_pane" attrs="{'invisible': [('reason_to_cancel', '=', False)]}">
+                    <div
+                        class="o_setting_left_pane"
+                        attrs="{'invisible': [('reason_to_cancel', '=', False)]}"
+                    >
                     </div>
-                    <div class="o_setting_right_pane" attrs="{'invisible': [('reason_to_cancel', '=', False)]}">
+                    <div
+                        class="o_setting_right_pane"
+                        attrs="{'invisible': [('reason_to_cancel', '=', False)]}"
+                    >
                         <span class="o_form_label">Delay Cancel Reason</span>
                         <div class="text-muted">
                             Time in seconds of wait until it's necessary to give a reason to cancel items in POS
                         </div>
                         <div class="content-group mt16 row">
-                            <label for="delay_to_cancel" string="Delay Cancel Reason" class="col-lg-3 o_light_label"/>
-                            <field name="delay_to_cancel" attrs="{'required': [('reason_to_cancel', '=', True)]}"/>
+                            <label
+                                for="delay_to_cancel"
+                                string="Delay Cancel Reason"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field
+                                name="delay_to_cancel"
+                                attrs="{'required': [('reason_to_cancel', '=', True)]}"
+                            />
                         </div>
                     </div>
                 </div>

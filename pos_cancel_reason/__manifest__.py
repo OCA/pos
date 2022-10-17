@@ -21,6 +21,5 @@
         "views/pos_order_line_cancelled.xml",
         "views/pos_order.xml",
     ],
-
     "demo": [],
 }

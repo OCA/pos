@@ -26,7 +26,7 @@ odoo.define("pos_cancel_reason.models", function (require) {
     models.Order = models.Order.extend({
         initialize(attributes, options) {
             _super_order.initialize.apply(this, arguments);
-            this.state = this.state || 'new';
+            this.state = this.state || "new";
             this.cancel_reason_id = false;
             this.cancelled_orderlines = [];
             this.cancelled_item = false;
@@ -47,18 +47,18 @@ odoo.define("pos_cancel_reason.models", function (require) {
         save_cancelled_orderlines_info: function (diffecence, reason) {
             const line = this.selected_orderline;
             const cancelled_orderline_object = {
-                "order_id": this.name,
-                "product_id": line.product.id,
-                "price_unit": line.price,
-                "qty": diffecence,
-                "price_subtotal": diffecence * line.price,
-                "cancel_reason_id": reason.id,
-                "cancelled_at": new moment().utc().format()
-            }
+                order_id: this.name,
+                product_id: line.product.id,
+                price_unit: line.price,
+                qty: diffecence,
+                price_subtotal: diffecence * line.price,
+                cancel_reason_id: reason.id,
+                cancelled_at: new moment().utc().format(),
+            };
             if (!this.pos.get_cashier().id) {
-                cancelled_orderline_object["user_id"] = this.pos.get_cashier().user_id[0];
+                cancelled_orderline_object.user_id = this.pos.get_cashier().user_id[0];
             } else {
-                cancelled_orderline_object["employee_id"] = this.pos.get_cashier().id;
+                cancelled_orderline_object.employee_id = this.pos.get_cashier().id;
             }
             this.cancelled_orderlines.push(cancelled_orderline_object);
         },
@@ -66,7 +66,7 @@ odoo.define("pos_cancel_reason.models", function (require) {
 
     var orderline_super = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
-        initialize(attr, options){
+        initialize(attr, options) {
             orderline_super.initialize.apply(this, arguments);
             this.created_at = new moment().utc().format();
         },

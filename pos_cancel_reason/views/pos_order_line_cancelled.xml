@@ -3,7 +3,6 @@
     Copyright 2022 KMEE (<http://www.kmee.com.br>)
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-
 <odoo>
     <record id="view_pos_order_line_cancelled_tree" model="ir.ui.view">
         <field name="name">pos.order.line.cancelled.tree (in pos_cancel_reason)</field>
@@ -12,13 +11,13 @@
             <tree>
                 <field name="employee_id" />
                 <field name="user_id" />
-                <field name="order_id"/>
-                <field name="product_id"/>
-                <field name="qty"/>
-                <field name="price_unit"/>
-                <field name="price_subtotal"/>
-                <field name="cancel_reason_id"/>
-                <field name="cancelled_at"/>
+                <field name="order_id" />
+                <field name="product_id" />
+                <field name="qty" />
+                <field name="price_unit" />
+                <field name="price_subtotal" />
+                <field name="cancel_reason_id" />
+                <field name="cancelled_at" />
             </tree>
         </field>
     </record>
@@ -31,13 +30,13 @@
                     <group>
                         <field name="employee_id" />
                         <field name="user_id" />
-                        <field name="order_id"/>
-                        <field name="product_id"/>
-                        <field name="qty"/>
-                        <field name="price_unit"/>
-                        <field name="price_subtotal"/>
-                        <field name="cancel_reason_id"/>
-                        <field name="cancelled_at"/>
+                        <field name="order_id" />
+                        <field name="product_id" />
+                        <field name="qty" />
+                        <field name="price_unit" />
+                        <field name="price_subtotal" />
+                        <field name="cancel_reason_id" />
+                        <field name="cancelled_at" />
                     </group>
                 </sheet>
             </form>
