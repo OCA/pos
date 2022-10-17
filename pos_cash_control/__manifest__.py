@@ -19,6 +19,8 @@
         "views/pos_assets_common.xml",
         "views/pos_bill_view.xml",
         "views/pos_config_view.xml",
+        # Wizards
+        "wizard/pos_close_session_wizard.xml",
     ],
     "qweb": [
         "static/src/xml/Chrome.xml",

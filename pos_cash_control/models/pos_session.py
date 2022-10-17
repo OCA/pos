@@ -200,12 +200,14 @@ class PosSession(models.Model):
             message = ""
             if no_loss_account:
                 message += _(
-                    "Need loss account for the following journals to post the lost amount: %s\n",
+                    "Need loss account for the following journals "
+                    + "to post the lost amount: %s\n",
                     ", ".join(no_loss_account.mapped("name")),
                 )
             if no_profit_account:
                 message += _(
-                    "Need proft account for the following journals to post the gained amount: %s\n",
+                    "Need proft account for the following journals "
+                    + "to post the gained amount: %s\n",
                     ", ".join(no_profit_account.mapped("name")),
                 )
             if message:
@@ -221,9 +223,9 @@ class PosSession(models.Model):
         if difference:
             message = (
                 f"{state} difference: "
-                f"{self.currency_id.symbol + ' ' if self.currency_id.position == 'before' else ''}"
+                f"{self.currency_id.symbol + ' ' if self.currency_id.position == 'before' else ''}"  # noqa
                 f"{self.currency_id.round(difference)} "
-                f"{self.currency_id.symbol if self.currency_id.position == 'after' else ''}<br/>"
+                f"{self.currency_id.symbol if self.currency_id.position == 'after' else ''}<br/>"  # noqa
             )
         if notes:
             message += notes.replace("\n", "<br/>")
@@ -266,9 +268,7 @@ class PosSession(models.Model):
         # validate_result = self._validate_session()
         # becase some functions are being used and overriden in other modules...
         # so we'll try to use the original flow as of now for the moment
-        validate_result = self.action_pos_session_closing_control(
-            bank_payment_method_diffs=bank_payment_method_diffs
-        )
+        validate_result = self.action_pos_session_closing_control()
 
         # If an error is raised, the user will still be redirected to the back
         # end to manually close the session.
@@ -282,6 +282,51 @@ class PosSession(models.Model):
                 "redirect": True,
             }
 
-        self.message_post(body="Point of Sale Session ended")
+        self.message_post(body=_("Point of Sale Session ended"))
 
         return {"successful": True}
+
+    def action_pos_session_closing_control(self):
+        super(PosSession, self).action_pos_session_closing_control()
+        return self.action_pos_session_validate()
+
+    def _validate_session(self):
+        try:
+            super(PosSession, self)._validate_session()
+            return True
+        except UserError:
+            self.env.cr.rollback()
+            return self._close_session_action(
+                sum(self.move_id.line_ids.mapped("balance"))
+            )
+
+    def _close_session_action(self, amount_to_balance):
+        default_account = self._get_balancing_account()
+        wizard = self.env["pos.close.session.wizard"].create(
+            {
+                "amount_to_balance": amount_to_balance,
+                "account_id": default_account.id,
+                "account_readonly": not self.env.user.has_group(
+                    "account.group_account_readonly"
+                ),
+                "message": _(
+                    "There is a difference between the amounts to post and "
+                    + "the amounts of the orders, it is probably caused by "
+                    + "taxes or accounting configurations changes."
+                ),
+            }
+        )
+        return {
+            "name": _("Force Close Session"),
+            "type": "ir.actions.act_window",
+            "view_type": "form",
+            "view_mode": "form",
+            "res_model": "pos.close.session.wizard",
+            "res_id": wizard.id,
+            "target": "new",
+            "context": {
+                **self.env.context,
+                "active_ids": self.ids,
+                "active_model": "pos.session",
+            },
+        }
