@@ -34,9 +34,12 @@ class PosCancelReason(models.Model):
                 raise ValidationError(
                     _("You can't change a reason name " "with cancelled lines created!")
                 )
+        return super(PosCancelReason, self).write(vals)
 
     def unlink(self):
         if self.cancelled_order_line_ids or self.order_ids:
             raise ValidationError(
                 _("You can't delete a reason " "with cancelled lines created!")
             )
+
+        return super(PosCancelReason, self).unlink()
