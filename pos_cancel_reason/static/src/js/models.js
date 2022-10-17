@@ -24,7 +24,7 @@ odoo.define("pos_cancel_reason.models", function (require) {
 
     var _super_order = models.Order.prototype;
     models.Order = models.Order.extend({
-        initialize(attributes, options) {
+        initialize() {
             _super_order.initialize.apply(this, arguments);
             this.state = this.state || "new";
             this.cancel_reason_id = false;
@@ -66,7 +66,7 @@ odoo.define("pos_cancel_reason.models", function (require) {
 
     var orderline_super = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
-        initialize(attr, options) {
+        initialize() {
             orderline_super.initialize.apply(this, arguments);
             this.created_at = new moment().utc().format();
         },
