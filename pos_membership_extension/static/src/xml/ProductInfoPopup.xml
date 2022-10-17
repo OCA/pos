@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2022-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ProductInfoPopup"
+        t-inherit="point_of_sale.ProductInfoPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//div[hasclass('section-product-info-title')]/div[1]/span[last()]"
+            position="after"
+        >
+            <span
+                t-if="productInfo.allowed_membership_categories.length"
+            >Membership Categories:
+                <t
+                    t-foreach="productInfo.allowed_membership_categories"
+                    t-as="category"
+                    t-key="category.name"
+                >
+                    <t t-esc="category.name" />
+                     <t
+                        t-if="category_index lt productInfo.allowed_membership_categories.length - 1"
+                    >, </t>
+                </t>
+            </span>
+        </xpath>
+    </t>
+
+</templates>
