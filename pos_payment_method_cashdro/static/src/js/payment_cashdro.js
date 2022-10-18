@@ -47,7 +47,7 @@ odoo.define("pos_payment_method_cashdro.payment", function (require) {
             // Cashdro treats decimals as positions in an integer we also have
             // to deal with floating point computing to avoid decimals at the
             // end or the drawer will reject our request.
-            const amount = parseInt(order.get_due(payment_line).toFixed(2) * 100, 10);
+            const amount = Math.round(order.get_due(payment_line) * 100);
             const res = await this._cashdro_request(
                 this._cashdro_payment_url({amount: amount})
             );
