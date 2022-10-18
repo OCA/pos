@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Odoo
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_payment_method_form_view">
+        <field name="name">pos.payment.method.form (in pos_cash_control)</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='receivable_account_id']" position="before">
+                <field
+                    name="outstanding_account_id"
+                    groups="account.group_account_readonly"
+                    attrs="{'invisible': [('is_cash_count', '!=', 'bank')]}"
+                    placeholder="Leave empty to use the default account from the company setting"
+                />
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

@@ -13,6 +13,7 @@
         "point_of_sale",
     ],
     "data": [
+        "views/pos_payment_method.xml",
         # Security
         "security/ir.model.access.csv",
         # Views

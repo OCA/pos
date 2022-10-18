@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_pos_bill,pos.bill pos_user,model_pos_bill,point_of_sale.group_pos_user,1,1,1,1
+access_pos_close_session_wizard,access.pos.close.session.wizard,model_pos_close_session_wizard,point_of_sale.group_pos_user,1,1,1,0
