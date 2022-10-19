@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<template>
+
+    <t
+        t-name="SelectVariantPopup"
+        t-inherit="pos_product_template.SelectVariantPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('attribute-list-container')]" position="attributes">
+            <attribute name="t-if">!env.pos.config.product_configurator</attribute>
+        </xpath>
+    </t>
+
+</template>
