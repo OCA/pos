@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_lot_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#, python-format
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
+#, python-format
+msgid ""
+"Lot is not loaded. Tried loading the lot from the server but there is a "
+"network error."
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.js:0
+#, python-format
+msgid "Lot/Serial Number(s) Required"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
+#, python-format
+msgid "Multiple Products Matching Barcode"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
+#, python-format
+msgid "Network Error"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#, python-format
+msgid ""
+"The Point of Sale can not process the scanned barcode, as it matches "
+"multiple products:"
+msgstr ""
+
+#. module: pos_lot_barcode
+#. openerp-web
+#: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
+#, python-format
+msgid ""
+"The Point of Sale could not find any product, lot, client, employee or "
+"action associated with the scanned barcode."
+msgstr ""
