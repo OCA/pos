@@ -19,9 +19,9 @@ class PosMoveReason(models.Model):
     def _default_company_id(self):
         return self.env.user.company_id
 
-    name = fields.Char(string="Name", required=True)
+    name = fields.Char(required=True)
 
-    active = fields.Boolean(string="Active", default=True)
+    active = fields.Boolean(default=True)
 
     journal_ids = fields.Many2many(
         comodel_name="account.journal",
@@ -29,9 +29,9 @@ class PosMoveReason(models.Model):
         default=_default_journal_ids,
     )
 
-    is_income_reason = fields.Boolean(string="Is Income Reason", default=True)
+    is_income_reason = fields.Boolean(default=True)
 
-    is_expense_reason = fields.Boolean(string="Is Expense Reason", default=True)
+    is_expense_reason = fields.Boolean(default=True)
 
     income_account_id = fields.Many2one(
         string="Income Account", comodel_name="account.account"

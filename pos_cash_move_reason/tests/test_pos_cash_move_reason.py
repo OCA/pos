@@ -2,10 +2,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import UserError
-from odoo.tests.common import Form, SavepointCase
+from odoo.tests.common import Form, TransactionCase
 
 
-class TestPosCashMoveReason(SavepointCase):
+class TestPosCashMoveReason(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -33,7 +33,7 @@ class TestPosCashMoveReason(SavepointCase):
         # Open New Session
         self.config.open_session_cb()
         session = self.PosSession.search(
-            [("state", "=", "opened"), ("config_id", "=", self.config.id)]
+            [("state", "=", "opening_control"), ("config_id", "=", self.config.id)]
         )
 
         # Get Cash Statement
@@ -71,8 +71,9 @@ class TestPosCashMoveReason(SavepointCase):
     def test_take_invalid_amount(self):
         # Open New Session
         self.config.open_session_cb()
+        #
         session = self.PosSession.search(
-            [("state", "=", "opened"), ("config_id", "=", self.config.id)]
+            [("state", "=", "opening_control"), ("config_id", "=", self.config.id)]
         )
 
         # Get Cash Statement

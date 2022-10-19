@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -97,7 +97,6 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__display_name
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__display_name
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__display_name
 msgid "Display Name"
 msgstr ""
@@ -114,7 +113,6 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__id
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__id
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__id
 msgid "ID"
 msgstr ""
@@ -147,7 +145,6 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason____last_update
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session____last_update
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason____last_update
 msgid "Last Modified on"
 msgstr ""
@@ -178,7 +175,7 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_type
-msgid "Move type"
+msgid "Move Type"
 msgstr ""
 
 #. module: pos_cash_move_reason

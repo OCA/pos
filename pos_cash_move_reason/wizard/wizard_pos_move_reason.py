@@ -21,7 +21,7 @@ class WizardPosMoveReason(models.TransientModel):
     ]
 
     move_type = fields.Selection(
-        selection=_MOVE_TYPE_SELECTION, string="Move type", default=_default_move_type
+        selection=_MOVE_TYPE_SELECTION, default=_default_move_type
     )
 
     move_reason_id = fields.Many2one(
@@ -55,7 +55,7 @@ class WizardPosMoveReason(models.TransientModel):
 
     name = fields.Char(string="Reason", required=True)
 
-    amount = fields.Float(string="Amount", required=True)
+    amount = fields.Float(required=True)
 
     @api.onchange("move_type")
     def onchange_move_type(self):
