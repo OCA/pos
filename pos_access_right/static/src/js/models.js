@@ -34,6 +34,9 @@ odoo.define("pos_access_right.models", function (require) {
                 cashier.groups_id.includes(
                     this.env.pos.config.group_delete_order_id[0]
                 );
+            pos_cashier.hasGroupDeleteItem =
+                cashier &&
+                cashier.groups_id.includes(this.env.pos.config.group_delete_item_id[0]);
             return pos_cashier;
         },
     });

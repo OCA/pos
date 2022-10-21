@@ -22,6 +22,12 @@ odoo.define("pos_access_right.NumpadWidget", function (require) {
                 }
                 return false;
             }
+            get hasDeleteItemControlRights() {
+                if (this.env.pos.get_cashier().hasGroupDeleteItem) {
+                    return true;
+                }
+                return false;
+            }
             get hasPriceControlRights() {
                 const res = super.hasPriceControlRights;
                 if (res) {

@@ -5,3 +5,4 @@ This module extends Odoo Point Of Sale features, restricting possibility to cash
 * **PoS - Change Unit Price**: The cashier can change the unit price of a product in Point Of Sale;
 * **PoS - Many Orders**: The cashier can many orders at the same time;
 * **PoS - Delete Order**: The cashier can not delete a full order;
+* **PoS - Delete Item**: The cashier can not delete item in Order;
