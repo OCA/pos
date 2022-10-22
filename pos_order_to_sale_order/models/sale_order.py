@@ -27,7 +27,11 @@ class SaleOrder(models.Model):
 
         # Create Draft Sale order
         order_vals = self._prepare_from_pos(order_data)
-        sale_order = self.create(order_vals)
+        sale_order = self.create(order_vals.copy())
+        sale_order.onchange_partner_id()
+        # we rewrite data, because onchange could alter some
+        # custom data (like pricelist)
+        sale_order.write(order_vals)
 
         # create Sale order lines
         for order_line_data in order_data["lines"]:
@@ -35,23 +39,22 @@ class SaleOrder(models.Model):
             order_line_vals = SaleOrderLine._prepare_from_pos(
                 sale_order, order_line_data[2]
             )
-            SaleOrderLine.create(order_line_vals)
+            sale_order_line = SaleOrderLine.create(order_line_vals.copy())
+            sale_order_line.product_id_change()
+            # we rewrite data, because onchange could alter some
+            # data (like quantity, or price)
+            sale_order_line.write(order_line_vals)
 
         # Confirm Sale Order
-        if action in ["confirmed", "delivered", "invoiced"]:
+        if action in ["confirmed", "delivered"]:
             sale_order.action_confirm()
 
         # mark picking as delivered
-        if action in ["delivered", "invoiced"]:
+        if action == "delivered":
             # Mark all moves are delivered
             for move in sale_order.mapped("picking_ids.move_ids_without_package"):
                 move.quantity_done = move.product_uom_qty
             sale_order.mapped("picking_ids").button_validate()
-
-        if action in ["invoiced"]:
-            # Create and confirm invoices
-            invoices = sale_order._create_invoices()
-            invoices.action_post()
 
         return {
             "sale_order_id": sale_order.id,

@@ -37,21 +37,10 @@ class PosConfig(models.Model):
         " process will be possible.",
     )
 
-    iface_create_invoiced_sale_order = fields.Boolean(
-        string="Create Invoiced Sale Orders",
-        default=True,
-        help="If checked, the cashier will have the possibility to create"
-        " a confirmed sale Order, based on the current draft PoS Order.\n"
-        " the according picking will be marked as delivered.\n"
-        " The Invoice will be generated and confirm.\n"
-        " Only invoice payment process will be possible.",
-    )
-
     @api.depends(
         "iface_create_draft_sale_order",
         "iface_create_confirmed_sale_order",
         "iface_create_delivered_sale_order",
-        "iface_create_invoiced_sale_order",
     )
     def _compute_iface_create_sale_order(self):
         for config in self:
@@ -60,6 +49,5 @@ class PosConfig(models.Model):
                     config.iface_create_draft_sale_order,
                     config.iface_create_confirmed_sale_order,
                     config.iface_create_delivered_sale_order,
-                    config.iface_create_invoiced_sale_order,
                 ]
             )

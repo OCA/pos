@@ -1,12 +1,13 @@
 * Open your Point of sale
-* Create a new order and select products
-* Select a customer
+* create a new order and select products
+* select a customer
 
-* Click on the "Create Order" button
+* then, click on the "Create Sale Order" button
 
-.. figure:: ../static/description/pos_frontend_button.png
+.. figure:: ../static/description/pos_frontend_order.png
+   :width: 800 px
 
-Four options are available (depending on the PoS settings):
+Three options are available:
 
 * **Create a draft Order**
   A new sale order in a draft mode will be created that can be changed later.
@@ -14,13 +15,9 @@ Four options are available (depending on the PoS settings):
 * **Create a Confirmed Order**
   A new sale order will be created and confirmed.
 
-* **Create Delivered Sale Order**
-  A new sale order will be created and confirmed.
-  the associated picking will be marked as delivered.
+* **Create Delivered Picking** (by default)
+  A new sale order will be created and confirmed. the associated picking
+  will be marked as delivered.
 
-* **Create Invoiced Sale Order**
-  A new sale order will be created and confirmed.
-  the associated picking will be marked as delivered.
-  An invoice will be created and confirmed.
-
-.. figure:: ../static/description/pos_frontend_popup.png
+.. figure:: ../static/description/pos_frontend_buttons.png
+   :width: 800 px
