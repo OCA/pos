@@ -4,11 +4,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-19 23:40+0000\n"
-"PO-Revision-Date: 2020-01-19 23:40+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2022-10-07 17:02+0000\n"
+"PO-Revision-Date: 2022-10-07 17:02+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -17,69 +17,69 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:15
-#, python-format
-msgid "Back"
-msgstr "Retour"
+#: model:ir.model,name:pos_order_to_sale_order.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:146
-#, python-format
-msgid "Check your internet connection and try again."
-msgstr "Veuillez vérifier votre connexion internet et essayer de nouveau."
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:26
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Confirmed Sale Order"
 msgstr "Créer une vente confirmée"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid "Create Confirmed Sale Orders"
 msgstr "Créer des ventes confirmées"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:29
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Delivered Sale Order"
 msgstr "Créer une vente livrée"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
 msgid "Create Delivered Sale Orders"
 msgstr "Créer des ventes livrées"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:23
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Draft Sale Order"
-msgstr "Créer un devis"
+msgstr "Créer un devis en brouillon"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
 msgid "Create Draft Sale Orders"
 msgstr "Créer des devis"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:6
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:18
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
-msgid "Create Sale Order"
-msgstr "Créer une vente"
+msgid "Create Invoiced Sale Order"
+msgstr "Créer une vente facturée"
+
+#. module: pos_order_to_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
+msgid "Create Invoiced Sale Orders"
+msgstr "Créer des ventes facturées"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:98
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
-msgid "Create Sale Order and discard the current PoS Order?"
-msgstr "Créer une vente, et supprimer le ticket de caisse en cours ?"
+msgid "Create Order"
+msgstr "Créer une vente"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
@@ -87,7 +87,15 @@ msgid "Create Sale Orders"
 msgstr "Créer des ventes"
 
 #. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Discard"
+msgstr "Annuler"
+
+#. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid ""
 "If checked, the cashier will have the possibility to create a confirmed Sale "
 "Order, based on the current draft PoS Order."
@@ -96,7 +104,19 @@ msgstr ""
 "confirmée, à partir du ticket de caisse en cours."
 
 #. module: pos_order_to_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
+msgid ""
+"If checked, the cashier will have the possibility to create a confirmed sale "
+"Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered.\n"
+" The Invoice will be generated and confirm.\n"
+" Only invoice payment process will be possible."
+msgstr ""
+
+#. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
 msgid ""
 "If checked, the cashier will have the possibility to create a confirmed sale "
 "Order, based on the current draft PoS Order.\n"
@@ -110,6 +130,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
+#: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
 msgid ""
 "If checked, the cashier will have the possibility to create a draft Sale "
 "Order, based on the current draft PoS Order."
@@ -118,14 +139,7 @@ msgstr ""
 "brouillon, à partir du ticket de caisse en cours."
 
 #. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:29
-#, python-format
-msgid "No customer defined"
-msgstr "Pas de client défini"
-
-#. module: pos_order_to_sale_order
-#: code:addons/pos_order_to_sale_order/models/sale_order.py:17
+#: code:addons/pos_order_to_sale_order/models/sale_order.py:0
 #, python-format
 msgid "Point of Sale %s"
 msgstr "Point de vente %s"
@@ -136,41 +150,16 @@ msgid "Point of Sale Configuration"
 msgstr "Paramétrage du point de vente"
 
 #. module: pos_order_to_sale_order
-#: model:ir.model,name:pos_order_to_sale_order.model_sale_order
-msgid "Sale Order"
-msgstr "Bon de commande"
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
+msgid "Sale Order Creation"
+msgstr "Création de bon de commande"
 
 #. module: pos_order_to_sale_order
-#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_pos_config_form
-msgid "Sale Order Creations"
-msgstr "Créations de Vente"
+#: model:ir.model,name:pos_order_to_sale_order.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order_line
 msgid "Sales Order Line"
 msgstr "Ligne de bons de commande"
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:145
-#, python-format
-msgid "The order could not be sent"
-msgstr "La commande n'a pas pu être envoyée"
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:101
-#, python-format
-msgid ""
-"This operation will permanently discard the current PoS Order and create a "
-"Sale Order, based on the current order lines."
-msgstr ""
-"Cette opération va supprimer définitivement le ticket de caisse en cours, et "
-"créer une vente, en se basant sur les lignes du ticket en cours."
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:30
-#, python-format
-msgid "You should select a customer in order to create a Sale Order."
-msgstr "Vous devez sélectionner un client, afin de créer une vente."
