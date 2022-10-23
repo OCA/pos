@@ -12,7 +12,7 @@
     "maintainers": ["legalsylvain"],
     "development_status": "Production/Stable",
     "website": "https://github.com/OCA/pos",
-    "data": ["views/view_res_config_settings.xml"],
+    #"data": ["views/view_res_config_settings.xml"],
     "assets": {
         "point_of_sale.assets": [
             "pos_order_to_sale_order/static/src/css/pos.css",
