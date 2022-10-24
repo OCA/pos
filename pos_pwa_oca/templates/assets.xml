@@ -22,7 +22,7 @@
     <template
         id="assets_backend"
         name="pos service worker assets"
-        inherit_id="point_of_sale.assets"
+        inherit_id="web.assets_backend"
     >
         <xpath expr="." position="inside">
             <script

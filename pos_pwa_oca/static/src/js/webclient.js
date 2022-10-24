@@ -3,19 +3,14 @@
 
  odoo.define("pos_pwa_oca.webclient", function (require) {
     "use strict";
-    const Chrome = require("point_of_sale.Chrome");
-    const Registries = require('point_of_sale.Registries');
+
+    var WebClient = require("web.WebClient");
     var PWAManager = require("pos_pwa_oca.PWAManager");
 
-    const PosPWA = (Chrome) =>
-        class extends Chrome {
-        start() {
+    WebClient.include({
+        show_application: function () {
             this.pwa_manager = new PWAManager(this);
-            return super.start();
-        }
-    };
-
-    Registries.Component.extend(Chrome, PosPWA);
-
-    return Chrome;
+            return this._super.apply(this, arguments);
+        },
+    });
 });
