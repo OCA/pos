@@ -11,46 +11,48 @@
             <attribute name="class">pos-receipt pos-receipt-without-price</attribute>
             <attribute name="style">display: none;</attribute>
         </xpath>
-
-        <xpath expr="//div/t/t[@t-if='isSimple(line)']/div/span" position="replace">
-            <span class="pos-receipt-right-align">
-                <t
-                    t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
-                />
-                <span t-esc="line.unit_name" />
-            </span>
-        </xpath>
-
-        <xpath
-            expr="//div/t/t/div[hasclass('pos-receipt-left-padding')]"
-            position="replace"
-        >
-            <span class="pos-receipt-right-align">
-                <t
-                    t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
-                />
-                <span t-esc="line.unit_name" />
-            </span>
-        </xpath>
-
         <xpath
             expr="//div/div[hasclass('pos-receipt-right-align')]"
             position="attributes"
         >
             <attribute name="class">oe_hidden</attribute>
         </xpath>
-
         <xpath expr="//div[hasclass('pos-receipt-amount')]" position="attributes">
             <attribute name="class">oe_hidden</attribute>
         </xpath>
-
         <xpath expr="//div[hasclass('receipt-change')]" position="attributes">
             <attribute name="class">oe_hidden</attribute>
         </xpath>
-
+        <xpath expr="//t[@t-if='receipt.total_discount']" position="replace" />
         <xpath expr="//t[@t-if='isTaxIncluded']" position="replace" />
         <xpath expr="//t[@t-if='!isTaxIncluded']" position="replace" />
         <xpath expr="//t[@t-foreach='receipt.paymentlines']" position="replace" />
+    </t>
+
+
+    <t t-inherit="point_of_sale.OrderLinesReceipt" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='isSimple(line)']/div/span" position="replace">
+            <span class="pos-receipt-right-align">
+                <t
+                    t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
+                />
+                <span t-esc="line.unit_name" />
+            </span>
+        </xpath>
+        <xpath expr="//t[@t-foreach='receipt.orderlines']/t[2]" position="replace">
+            <t t-else="">
+                <div class="responsive-price">
+                    <t t-esc="line.product_name_wrapped[0]" />
+                    <span class="pos-receipt-right-align">
+                        <t
+                            t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
+                        />
+                        <span t-esc="line.unit_name" />
+                    </span>
+                </div>
+                <WrappedProductNameLines line="line" />
+            </t>
+        </xpath>
     </t>
 
     <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
@@ -59,7 +61,6 @@
                 <i class="fa fa-print" /> Print Receipt Without Price
             </div>
         </xpath>
-
         <xpath expr="//div[hasclass('pos-receipt-container')]" position="inside">
             <OrderReceiptWithoutPrice
                 order="currentOrder"
