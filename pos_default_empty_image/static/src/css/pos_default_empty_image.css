@@ -1,0 +1,19 @@
+/*
+    Copyright (C) 2014 - Today: GRAP (http://www.grap.coop)
+    @author Julien WESTE
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+*/
+
+.pos .product .product-img > .product-name {
+    max-height: 100px;
+}
+
+.pos .product .product-img.no-image
+{
+    height: 110px;
+}
+.pos .product .product-img.no-image .price-tab
+{
+    z-index: 1;
+}

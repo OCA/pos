@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ProductItem" t-inherit="point_of_sale.ProductItem" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('product-img')]/img" position="replace">
+            <t t-if="props.product.has_image">
+                <img t-att-src="imageUrl" t-att-alt="props.product.display_name" />
+            </t>
+
+        </xpath>
+        <xpath expr="//div[hasclass('product-img')]" position="attributes">
+            <t t-if="not props.product.has_image">
+                <attribute name="class" add="no-image" separator=" "/>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[hasclass('product-name')]" position="replace"/>
+        <xpath expr="//div[hasclass('product-img')]/span[@class='price-tag']" position="after">
+            <t t-set="name_length" t-value="props.product.display_name.length" />
+            <t t-if='env.pos.config.iface_fixed_font_size'>
+                <t t-set="font_size" t-value="env.pos.config.iface_fixed_font_size" />
+            </t>
+            <t t-else="">
+                <t t-set="font_size" t-value="
+                    name_length >=120 and 11
+                    or name_length >=90 and 12
+                    or name_length >=60 and 13
+                    or name_length>=50 and 14
+                    or name_length>=40 and 16
+                    or 20"/>
+            </t>
+            <div class="product-name" t-attf-id="article_product_{{props.product.id}}" t-attf-style="font-size: {{font_size}}px !important; line-height: {{font_size}}px !important;">
+                <t t-esc="props.product.display_name" />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
