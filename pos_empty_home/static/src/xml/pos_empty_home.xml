@@ -11,7 +11,7 @@
     <t t-extend="ProductListWidget">
         <t t-jquery=".product-list" t-operation="before">
             <div class="product-list-empty-home">
-                To select a product, please scan a barcode or search products by category or by name
+                <span>To select a product, please scan a barcode or search products by category or by name</span>
             </div>
         </t>
     </t>
