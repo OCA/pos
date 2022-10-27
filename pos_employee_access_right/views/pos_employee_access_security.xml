@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="view_pos_employee_access_security_tree" model="ir.ui.view">
+        <field
+            name="name"
+        >pos.employee.access.security.tree (in pos_employee_access_security)</field>
+        <field name="model">pos.employee.access.security</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pos_component_id" />
+                <field name="pos_event_type" />
+                <field name="pos_payload" />
+                <field name="job_position_id" />
+                <field name="permission" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_employee_access_security_form" model="ir.ui.view">
+        <field
+            name="name"
+        >pos.employee.access.security.form (in pos_employee_access_security)</field>
+        <field name="model">pos.employee.access.security</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="pos_component_id" />
+                        <field name="pos_event_type" />
+                        <field name="pos_payload" />
+                        <field name="job_position_id" />
+                        <field name="permission" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_employee_access_security" model="ir.actions.act_window">
+        <field name="name">POS Employee Access Security</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.employee.access.security</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_pos_employee_access_security"
+        parent="menu_pos_access"
+        action="action_pos_employee_access_security"
+        sequence="20"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>

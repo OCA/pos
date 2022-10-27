@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <menuitem
+        id="menu_pos_access"
+        name="Access"
+        parent="point_of_sale.menu_point_root"
+        sequence="98"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>

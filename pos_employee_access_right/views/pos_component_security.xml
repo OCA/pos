@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="view_pos_component_security_tree" model="ir.ui.view">
+        <field
+            name="name"
+        >pos.component.security.tree (in pos_employee_access_right)</field>
+        <field name="model">pos.component.security</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_component_security_form" model="ir.ui.view">
+        <field
+            name="name"
+        >pos.component.security.form (in pos_employee_access_right)</field>
+        <field name="model">pos.component.security</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_pos_component_security" model="ir.actions.act_window">
+        <field name="name">POS Component Security</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.component.security</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="menu_pos_component_security"
+        parent="menu_pos_access"
+        action="action_pos_component_security"
+        sequence="10"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>

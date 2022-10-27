@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 KMEE (<http://www.kmee.com.br>)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr=".">
+            <script
+                type="text/javascript"
+                src="/pos_employee_access_right/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_employee_access_right/static/src/js/PosComponent.js"
+            />
+      </xpath>
+    </template>
+</odoo>
