@@ -9,7 +9,7 @@ class PosOrderLineCancelled(models.Model):
 
     employee_id = fields.Many2one(
         string="Cashier",
-        comodel_name="he.employee",
+        comodel_name="hr.employee",
     )
     user_id = fields.Many2one(
         comodel_name="res.users",
