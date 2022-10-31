@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_session_form_view">
+        <field name="name">pos.session.form (in pos_product_control)</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='cash_control']" position="after">
+                <page name="product_control" string="Product Control">
+                    <field name="pos_session_product_control_ids" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

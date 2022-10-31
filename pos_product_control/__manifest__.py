@@ -14,6 +14,9 @@
         "pos_cash_control",
     ],
     "data": [
+        "security/pos_session_product_control.xml",
+        "views/pos_session_product_control.xml",
+        "views/pos_session.xml",
         "views/pos_config.xml",
     ],
     "demo": [],

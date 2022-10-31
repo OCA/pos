@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+
+
+    <record model="ir.ui.view" id="pos_session_product_control_tree_view">
+        <field
+            name="name"
+        >pos.session.product.control.tree (in pos_product_control)</field>
+        <field name="model">pos.session.product.control</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_id" />
+                <field name="product_register_start_value" readonly="1" />
+                <field name="product_register_end_value" readonly="1" />
+                <field name="product_register_balance_value" readonly="1" />
+            </tree>
+        </field>
+    </record>
+
+</odoo>
