@@ -13,35 +13,39 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
             )
         ) {
             if (!this.env.pos.get_cashier().job_id) {
-                const {confirmed, payload: inputPin} = await this.showPopup(
-                    "NumberPopup",
-                    {
-                        isPassword: true,
-                        title: this.env._t("Password ?"),
-                        startingValue: null,
+                if (!payload || payload.props.title != "Password ?") {
+                    const {confirmed, payload: inputPin} = await this.showPopup(
+                        "NumberPopup",
+                        {
+                            isPassword: true,
+                            title: this.env._t("Password ?"),
+                            startingValue: null,
+                        }
+                    );
+
+                    if (!confirmed) return false;
+
+                    const managers = this.env.pos.employees.filter(
+                        (employee) => employee.pin && employee.role == "manager"
+                    );
+                    let permission = false;
+
+                    for (const i in managers) {
+                        if (managers[i].pin == Sha1.hash(inputPin)) {
+                            permission = true;
+                            break;
+                        }
                     }
-                );
 
-                if (!confirmed) return false;
-
-                const managers = this.env.pos.employees.filter(
-                    (employee) => employee.pin && employee.role == "manager"
-                );
-                let permission = false;
-
-                for (const i in managers) {
-                    if (managers[i].pin == Sha1.hash(inputPin)) {
-                        permission = true;
-                        break;
+                    if (permission) {
+                        this.__trigger(this, eventType, payload);
+                    } else {
+                        await this.showPopup("ErrorPopup", {
+                            title: this.env._t("Incorrect Password"),
+                        });
                     }
-                }
-
-                if (permission) {
-                    this.__trigger(this, eventType, payload);
                 } else {
-                    await this.showPopup("ErrorPopup", {
-                        title: this.env._t("Incorrect Password"),
-                    });
+                    this.__trigger(this, eventType, payload);
                 }
             } else {
                 const job_position = this.env.pos.get_cashier().job_id[0];
