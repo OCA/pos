@@ -4,12 +4,17 @@
 {
     "name": "Pos Product Control",
     "summary": """
-        Allows product inventory control during the opening and closing process of a POS session.""",
+        Allows product inventory control during the opening and closing process
+         of a POS session.""",
     "version": "14.0.1.0.0",
     "license": "AGPL-3",
     "author": "KMEE,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
-    "depends": [],
-    "data": [],
+    "depends": [
+        "pos_cash_control",
+    ],
+    "data": [
+        "views/pos_config.xml",
+    ],
     "demo": [],
 }

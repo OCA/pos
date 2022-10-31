@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_form_view">
+        <field name="name">pos.config.form (in pos_product_control)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='iface_tipproduct']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="iface_product_control">
+                    <div class="o_setting_left_pane">
+                        <field
+                            name="product_control"
+                            attrs="{'invisible': [('cash_control', '=', False)]}"
+                        />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="product_control" string="Product Control" />
+                        <div class="text-muted">
+                            It allows the control of product stock in the opening and closing of the box.
+                        </div>
+                        <div
+                            class="content-group"
+                            attrs="{'invisible': [('product_control', '=', False)]}"
+                        >
+                            <div class="mt16" id="product_control_ids">
+                                <label
+                                    string="Products to Control"
+                                    for="product_ids"
+                                    class="o_light_label"
+                                />
+                                <field name="product_ids" widget="many2many_tags" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>
