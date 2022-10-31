@@ -48,6 +48,8 @@ class PosMoveReason(models.Model):
         required=True,
     )
 
+    allowed_pos_ids = fields.Many2many("pos.config", string="Allowed POS")
+
     @api.onchange("is_income_reason")
     def _onchange_is_income_reason(self):
         if not self.is_income_reason:
