@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="CashBoxOpening"
+        t-inherit="point_of_sale.CashBoxOpening"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//span[hasclass('currencyCashBox')]" position="after">
+            <t t-if="env.pos.config.product_control">
+                <h1>Product Control:</h1>
+                <t
+                    t-foreach="env.pos.config.product_ids"
+                    t-as="product_id"
+                    t-key="product_id"
+                >
+                    <div t-on-input="updateProductInventory()">
+                        <span><t t-esc="name" />:</span>
+                        <input class="pos-input" t-att-id="product_id" type="number" />
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

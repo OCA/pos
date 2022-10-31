@@ -18,6 +18,10 @@
         "views/pos_session_product_control.xml",
         "views/pos_session.xml",
         "views/pos_config.xml",
+        "views/pos_assets_common.xml",
     ],
     "demo": [],
+    "qweb": [
+        "static/src/xml/Screens/ProductScreen/CashBoxOpening.xml",
+    ],
 }
