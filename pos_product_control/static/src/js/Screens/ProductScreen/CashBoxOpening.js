@@ -4,8 +4,6 @@ odoo.define("pos_productControl.CashBoxOpening", function (require) {
     const Registries = require("point_of_sale.Registries");
     const CashBoxOpening = require("point_of_sale.CashBoxOpening");
 
-    const {useState} = owl.hooks;
-
     const PosProductControlCashOpeningBox = (CashBoxOpening) =>
         class extends CashBoxOpening {
             constructor() {
@@ -14,24 +12,22 @@ odoo.define("pos_productControl.CashBoxOpening", function (require) {
                 const obj = productIds.reduce((accumulator, value) => {
                     return {...accumulator, [value]: ""};
                 }, {});
-                this.state = useState({
-                    productControl: obj,
-                });
+                this.productControl = obj;
             }
 
-            updateProductInventory() {
+            updateOpeningProductInventory() {
                 const productIds = this.env.pos.config.product_ids;
                 productIds.forEach((productID) => {
                     const value = $(`#${productID}`).val();
-                    this.state.productControl[productID] = value;
+                    this.productControl[productID] = value;
                 });
             }
 
             async startSession() {
                 await this.rpc({
                     model: "pos.session",
-                    method: "set_product_open",
-                    args: [this.env.pos.pos_session.id, this.state.productControl],
+                    method: "update_product_opening_value",
+                    args: [this.env.pos.pos_session.id, this.productControl],
                 });
                 super.startSession();
             }
@@ -40,7 +36,7 @@ odoo.define("pos_productControl.CashBoxOpening", function (require) {
 
             get product() {
                 const productReference = this.env.pos.db.get_product_by_id(
-                    this.product_id
+                    this.productID
                 );
                 return productReference;
             }

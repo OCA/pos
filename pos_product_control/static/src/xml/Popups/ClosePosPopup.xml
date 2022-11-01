@@ -13,14 +13,14 @@
                 <div>
                     <t
                         t-foreach="env.pos.config.product_ids"
-                        t-as="product_id"
-                        t-key="product_id"
+                        t-as="productID"
+                        t-key="productID"
                     >
-                        <div t-on-input="updateProductInventory()">
+                        <div t-on-input="updateCloseProductInventory()">
                             <span><t t-esc="name" />: </span>
                             <input
                                 class="pos-input"
-                                t-att-id="product_id"
+                                t-att-id="productID"
                                 type="number"
                             />
                         </div>

@@ -27,7 +27,7 @@ class PosSession(models.Model):
             res["pos_session_product_control_ids"].create(vals)
         return res
 
-    def set_product_open(self, opening_values):
+    def update_product_opening_value(self, opening_values):
         for key, value in opening_values.items():
             record = self.env["pos.session.product.control"].search(
                 [
@@ -38,7 +38,7 @@ class PosSession(models.Model):
             if record:
                 record.product_register_start_value = int(value)
 
-    def set_product_close(self, opening_values):
+    def update_product_closing_value(self, opening_values):
         for key, value in opening_values.items():
             record = self.env["pos.session.product.control"].search(
                 [

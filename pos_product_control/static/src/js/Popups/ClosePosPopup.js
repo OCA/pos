@@ -15,7 +15,7 @@ odoo.define("pos_product_control.ClosePosPopup", function (require) {
                 this.productControl = obj;
             }
 
-            updateProductInventory() {
+            updateCloseProductInventory() {
                 const productIds = this.env.pos.config.product_ids;
                 productIds.forEach((productID) => {
                     const value = $(`#${productID}`).val();
@@ -26,7 +26,7 @@ odoo.define("pos_product_control.ClosePosPopup", function (require) {
             async closeSession() {
                 await this.rpc({
                     model: "pos.session",
-                    method: "set_product_close",
+                    method: "update_product_closing_value",
                     args: [this.env.pos.pos_session.id, this.productControl],
                 });
                 super.closeSession();
@@ -36,7 +36,7 @@ odoo.define("pos_product_control.ClosePosPopup", function (require) {
 
             get product() {
                 const productReference = this.env.pos.db.get_product_by_id(
-                    this.product_id
+                    this.productID
                 );
                 return productReference;
             }
