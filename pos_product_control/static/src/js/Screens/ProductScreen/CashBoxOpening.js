@@ -27,6 +27,15 @@ odoo.define("pos_productControl.CashBoxOpening", function (require) {
                 });
             }
 
+            async startSession() {
+                await this.rpc({
+                    model: "pos.session",
+                    method: "set_product_open",
+                    args: [this.env.pos.pos_session.id, this.state.productControl],
+                });
+                super.startSession();
+            }
+
             /* Getters */
 
             get product() {

@@ -26,3 +26,14 @@ class PosSession(models.Model):
             }
             res["pos_session_product_control_ids"].create(vals)
         return res
+
+    def set_product_open(self, opening_values):
+        for key, value in opening_values.items():
+            record = self.env["pos.session.product.control"].search(
+                [
+                    ("session_id", "=", self.id),
+                    ("product_id", "=", int(key)),
+                ]
+            )
+            if record:
+                record.product_register_start_value = int(value)
