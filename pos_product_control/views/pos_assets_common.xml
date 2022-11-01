@@ -7,6 +7,10 @@
                     type="text/javascript"
                     src="/pos_product_control/static/src/js/Screens/ProductScreen/CashBoxOpening.js"
                 />
+                <script
+                    type="text/javascript"
+                    src="/pos_product_control/static/src/js/Popups/ClosePosPopup.js"
+                />
             </xpath>
 
             <xpath expr="//link[@id='pos-stylesheet']" position="after">

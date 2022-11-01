@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ClosePosPopup"
+        t-inherit="pos_cash_control.ClosePosPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('session-overview')]" position="inside">
+            <div>
+                <h1>Product Control</h1>
+                <div>
+                    <t
+                        t-foreach="env.pos.config.product_ids"
+                        t-as="product_id"
+                        t-key="product_id"
+                    >
+                        <div t-on-input="updateProductInventory()">
+                            <span><t t-esc="name" />: </span>
+                            <input
+                                class="pos-input"
+                                t-att-id="product_id"
+                                type="number"
+                            />
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

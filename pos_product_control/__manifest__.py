@@ -23,5 +23,6 @@
     "demo": [],
     "qweb": [
         "static/src/xml/Screens/ProductScreen/CashBoxOpening.xml",
+        "static/src/xml/Popups/ClosePosPopup.xml",
     ],
 }
