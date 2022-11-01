@@ -26,4 +26,4 @@ class PosSessionProductControl(models.Model):
         for record in self:
             start_value = record["product_register_start_value"]
             end_value = record["product_register_end_value"]
-            record["product_register_balance_value"] = end_value - start_value
+            record["product_register_balance_value"] = start_value - end_value
