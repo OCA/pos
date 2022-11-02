@@ -39,6 +39,11 @@ msgid "Active"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__allowed_pos_ids
+msgid "Allowed POS"
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__amount
 msgid "Amount"
 msgstr ""
