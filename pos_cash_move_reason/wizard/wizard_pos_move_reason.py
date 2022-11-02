@@ -60,14 +60,34 @@ class WizardPosMoveReason(models.TransientModel):
     @api.onchange("move_type")
     def onchange_move_type(self):
         if self.move_type == "income":
-            return {"domain": {"move_reason_id": [("is_income_reason", "=", True)]}}
+            return {
+                "domain": {
+                    "move_reason_id": [
+                        ("is_income_reason", "=", True),
+                        "|",
+                        ("allowed_pos_ids", "in", self.session_id.config_id.ids),
+                        ("allowed_pos_ids", "=", False),
+                    ]
+                }
+            }
         else:
-            return {"domain": {"move_reason_id": [("is_expense_reason", "=", True)]}}
+            return {
+                "domain": {
+                    "move_reason_id": [
+                        ("is_expense_reason", "=", True),
+                        "|",
+                        ("allowed_pos_ids", "in", self.session_id.config_id.ids),
+                        ("allowed_pos_ids", "=", False),
+                    ]
+                }
+            }
 
     @api.onchange("move_reason_id")
     def onchange_reason(self):
-        if len(self.journal_ids) == 1:
-            self.journal_id = fields.first(self.journal_ids).id
+        if self.move_reason_id.journal_ids:
+            self.update(
+                {"journal_id": fields.first(self.move_reason_id.journal_ids).id}
+            )
         self.name = self.move_reason_id.name
 
     @api.constrains("amount")
