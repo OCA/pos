@@ -7,8 +7,8 @@
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//div[hasclass('session-overview')]" position="inside">
-            <div>
+        <xpath expr="//div[hasclass('session-overview')]" position="after">
+            <div class="product-control">
                 <h1>Product Control</h1>
                 <div>
                     <t
@@ -16,8 +16,11 @@
                         t-as="productID"
                         t-key="productID"
                     >
-                        <div t-on-input="updateCloseProductInventory()">
-                            <span><t t-esc="name" />: </span>
+                        <div
+                            class="product-items"
+                            t-on-input="updateCloseProductInventory()"
+                        >
+                            <span class="product-name"><t t-esc="name" />: </span>
                             <input
                                 class="pos-input"
                                 t-att-id="productID"

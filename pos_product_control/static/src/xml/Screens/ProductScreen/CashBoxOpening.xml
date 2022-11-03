@@ -15,8 +15,8 @@
                     t-as="productID"
                     t-key="productID"
                 >
-                    <div t-on-input="updateOpeningProductInventory()">
-                        <span><t t-esc="name" />:</span>
+                    <div class="opening" t-on-input="updateOpeningProductInventory()">
+                        <span class="product-name"><t t-esc="name" />: </span>
                         <input class="pos-input" t-att-id="productID" type="number" />
                     </div>
                 </t>
