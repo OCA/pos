@@ -10,7 +10,7 @@ odoo.define("pos_productControl.CashBoxOpening", function (require) {
                 super(...arguments);
                 const productIds = this.env.pos.config.product_ids;
                 const obj = productIds.reduce((accumulator, value) => {
-                    return {...accumulator, [value]: ""};
+                    return {...accumulator, [value]: 0};
                 }, {});
                 this.productControl = obj;
             }
@@ -18,18 +18,36 @@ odoo.define("pos_productControl.CashBoxOpening", function (require) {
             updateOpeningProductInventory() {
                 const productIds = this.env.pos.config.product_ids;
                 productIds.forEach((productID) => {
-                    const value = $(`#${productID}`).val();
+                    const value = Number($(`#${productID}`).val());
                     this.productControl[productID] = value;
                 });
             }
 
             async startSession() {
-                await this.rpc({
-                    model: "pos.session",
-                    method: "update_product_opening_value",
-                    args: [this.env.pos.pos_session.id, this.productControl],
-                });
-                super.startSession();
+                if (this.checkOpeningValues()) {
+                    await this.rpc({
+                        model: "pos.session",
+                        method: "update_product_opening_value",
+                        args: [this.env.pos.pos_session.id, this.productControl],
+                    });
+                    super.startSession();
+                } else {
+                    await this.showPopup("ErrorPopup", {
+                        title: this.env._t("Value Error"),
+                        body: this.env._t(
+                            "One of the fields for product control is empty."
+                        ),
+                    });
+                }
+            }
+
+            checkOpeningValues() {
+                for (const item in this.productControl) {
+                    if (!this.productControl[item]) {
+                        return false;
+                    }
+                }
+                return true;
             }
 
             /* Getters */

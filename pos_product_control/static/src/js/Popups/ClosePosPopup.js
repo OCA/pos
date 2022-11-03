@@ -18,18 +18,36 @@ odoo.define("pos_product_control.ClosePosPopup", function (require) {
             updateCloseProductInventory() {
                 const productIds = this.env.pos.config.product_ids;
                 productIds.forEach((productID) => {
-                    const value = $(`#${productID}`).val();
+                    const value = Number($(`#${productID}`).val());
                     this.productControl[productID] = value;
                 });
             }
 
             async closeSession() {
-                await this.rpc({
-                    model: "pos.session",
-                    method: "update_product_closing_value",
-                    args: [this.env.pos.pos_session.id, this.productControl],
-                });
-                super.closeSession();
+                if (this.checkClosingValues()) {
+                    await this.rpc({
+                        model: "pos.session",
+                        method: "update_product_closing_value",
+                        args: [this.env.pos.pos_session.id, this.productControl],
+                    });
+                    super.closeSession();
+                } else {
+                    await this.showPopup("ErrorPopup", {
+                        title: this.env._t("Value Error"),
+                        body: this.env._t(
+                            "One of the fields for product control is empty."
+                        ),
+                    });
+                }
+            }
+
+            checkClosingValues() {
+                for (const item in this.productControl) {
+                    if (!this.productControl[item]) {
+                        return false;
+                    }
+                }
+                return true;
             }
 
             /* Getters */
