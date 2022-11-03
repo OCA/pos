@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <record id="view_pos_items_sales_report_wizard" model="ir.ui.view">
+            <field name="name">pos.items.sales.report.xlxs.wizard.form</field>
+            <field name="model">pos.items.sales.report.xlxs.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Pos Items Sales Report">
+                    <group>
+                        <field name="date_start" />
+                        <field name="date_end" />
+                        <field name="company_id" />
+                        <field name="rel_xls_filename" />
+                        <field name="rel_xls" />
+                    </group>
+                    <footer>
+                        <button
+                        name="generate_report"
+                        string="Print"
+                        type="object"
+                        class="btn-primary"
+                    />
+                        <button
+                        string="Cancel"
+                        class="btn-secondary"
+                        special="cancel"
+                    />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_pos_items_sales_report" model="ir.actions.act_window">
+            <field name="name">POS Items Sales</field>
+            <field name="res_model">pos.items.sales.report.xlxs.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+        id="menu_pos_items_sales_report"
+        name="Items Sales"
+        action="action_pos_items_sales_report"
+        parent="point_of_sale.menu_point_rep"
+        sequence="6"
+        groups="point_of_sale.group_pos_manager"
+    />
+
+</odoo>

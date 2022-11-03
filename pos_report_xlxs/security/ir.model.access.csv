@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pos_items_sales_report_manager,pos_items_sales_report_manager,model_pos_items_sales_report_xlxs_wizard,point_of_sale.group_pos_manager,1,1,1,1
