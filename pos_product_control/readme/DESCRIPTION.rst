@@ -1,4 +1,3 @@
-[ This file must be max 2-3 paragraphs, and is required. ]
-
-This module extends the functionality of ... to support ...
-and to allow you to ...
+This module extends the functionality of the Point of Sale, in particular the
+advanced control of cash, so that it is possible to control the initial and
+final quantities for certain products that can be configured by the POS.
