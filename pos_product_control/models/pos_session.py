@@ -21,8 +21,7 @@ class PosSession(models.Model):
             vals = {
                 "product_id": product_id.id,
                 "session_id": res.id,
-                "product_register_start_value": 0,
-                "product_register_end_value": 0,
+                "product_inventory_start_value": product_id.qty_available,
             }
             res["pos_session_product_control_ids"].create(vals)
         return res
@@ -36,15 +35,21 @@ class PosSession(models.Model):
                 ]
             )
             if record:
-                record.product_register_start_value = int(value)
+                record.product_real_start_value = int(value)
 
     def update_product_closing_value(self, opening_values):
         for key, value in opening_values.items():
+            product_id = self.env["product.product"].search(
+                [
+                    ("id", "=", int(key)),
+                ]
+            )
             record = self.env["pos.session.product.control"].search(
                 [
                     ("session_id", "=", self.id),
-                    ("product_id", "=", int(key)),
+                    ("product_id", "=", product_id.id),
                 ]
             )
             if record:
-                record.product_register_end_value = int(value)
+                record.product_real_end_value = int(value)
+                record.product_inventory_end_value = product_id.qty_available

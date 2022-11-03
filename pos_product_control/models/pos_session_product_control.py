@@ -13,17 +13,30 @@ class PosSessionProductControl(models.Model):
 
     session_id = fields.Many2one("pos.session", string="Session")
 
-    product_register_start_value = fields.Float("Starting Value")
+    product_real_start_value = fields.Float("Starting Value")
 
-    product_register_end_value = fields.Float("End Value")
+    product_real_end_value = fields.Float("End Value")
 
-    product_register_balance_value = fields.Float(
+    product_real_balance_value = fields.Float(
         "Product Difference", compute="_compute_product_difference"
     )
 
-    @api.depends("product_register_start_value", "product_register_end_value")
+    product_inventory_start_value = fields.Float("Starting Inventory Value")
+
+    product_inventory_end_value = fields.Float("End Inventory Value")
+
+    product_inventory_balance_value = fields.Float(
+        "Product Inventory Difference", compute="_compute_product_difference"
+    )
+
+    @api.depends("product_real_start_value", "product_real_end_value")
     def _compute_product_difference(self):
         for record in self:
-            start_value = record["product_register_start_value"]
-            end_value = record["product_register_end_value"]
-            record["product_register_balance_value"] = start_value - end_value
+            real_start_value = record["product_real_start_value"]
+            real_end_value = record["product_real_end_value"]
+            inventory_start_value = record["product_inventory_start_value"]
+            inventory_end_value = record["product_inventory_end_value"]
+            record["product_real_balance_value"] = real_start_value - real_end_value
+            record["product_inventory_balance_value"] = (
+                inventory_start_value - inventory_end_value
+            )
