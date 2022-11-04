@@ -31,8 +31,8 @@ class PosPaymentReceivingsReportXlxs(models.TransientModel):
             LEFT JOIN pos_order po on po.id = pp.pos_order_id
             LEFT JOIN pos_payment_method ppm on ppm.id = pp.payment_method_id
             WHERE po.id in (SELECT id FROM pos_order where session_id in (
-            SELECT id FROM pos_session WHERE start_at >= '{self.date_start}'
-            AND start_at <= '{self.date_end}') and state = 'paid')
+            SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
+            AND start_at <= '{self.date_end} 23:59:59') and state = 'paid')
             group by ppm.name
             order by total_paid desc
         """

@@ -36,8 +36,8 @@ class PosItemsSalesReportXlxs(models.TransientModel):
             left join product_template pt on pt.id = pp.product_tmpl_id
             left join pos_category pc on pc.id = pt.pos_categ_id
             WHERE po.id in (SELECT id FROM pos_order where session_id in (
-            SELECT id FROM pos_session WHERE start_at >= '{self.date_start}'
-            AND start_at <= '{self.date_end}') and state = 'paid')
+            SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
+            AND start_at <= '{self.date_end} 23:59:59') and state = 'paid')
             group by pt."name", pc."name", pc.id, pol.product_id, pp.default_code
             order by venda_bruta DESC
         """
