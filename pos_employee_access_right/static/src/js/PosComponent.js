@@ -13,7 +13,7 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
             )
         ) {
             if (!this.env.pos.get_cashier().job_id) {
-                if (!payload || payload.props.title != "Password ?") {
+                if (!payload || payload.props.title != this.env._t("Password ?")) {
                     const {confirmed, payload: inputPin} = await this.showPopup(
                         "NumberPopup",
                         {
