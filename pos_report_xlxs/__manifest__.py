@@ -15,5 +15,6 @@
     "data": [
         "security/ir.model.access.csv",
         "wizards/pos_items_sales_report.xml",
+        "wizards/pos_payment_receivings_report.xml",
     ],
 }

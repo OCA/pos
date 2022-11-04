@@ -9,8 +9,8 @@
                         <field name="date_start" />
                         <field name="date_end" />
                         <field name="company_id" />
-                        <field name="rel_xls_filename" />
-                        <field name="rel_xls" />
+                        <field name="rel_xls_filename" invisible="1" />
+                        <field name="rel_xls" filename="rel_xls_filename" />
                     </group>
                     <footer>
                         <button
