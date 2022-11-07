@@ -43,7 +43,7 @@ odoo.define("pos_product_control.ClosePosPopup", function (require) {
 
             checkClosingValues() {
                 for (const item in this.productControl) {
-                    if (!this.productControl[item]) {
+                    if (!this.productControl[item] && this.productControl[item] !== 0) {
                         return false;
                     }
                 }
