@@ -1,0 +1,632 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_cash_control
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-07 14:47+0000\n"
+"PO-Revision-Date: 2022-11-07 16:08-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "%s POS payment of %s in %s"
+msgstr "%s pagamento POS de %s em %s"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid ". Please contact your manager to accept the closing difference."
+msgstr ". Entre em contato com seu gerente para aceitar a diferença de fechamento."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Accept payments difference and post a profit/loss journal entry"
+msgstr "Aceite a diferença de pagamentos e lance um lançamento contábil de lucros/perdas"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment__account_move_id
+msgid "Account Move"
+msgstr "Mudança de conta"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,help:pos_cash_control.field_pos_order__is_total_cost_computed
+msgid "Allows to know if all the total cost of the order lines have already been computed"
+msgstr "Permite saber se todo o custo total das linhas do pedido já foi computado"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,help:pos_cash_control.field_pos_order_line__is_total_cost_computed
+msgid "Allows to know if the total cost has already been computed or not"
+msgstr "Permite saber se o custo total já foi computado ou não"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__amount_to_balance
+msgid "Amount to balance"
+msgstr "Montante a equilibrar"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/ClosePosPopup.js:0
+#, python-format
+msgid ""
+"An error has occurred when trying to close the session.\n"
+"You will be redirected to the back-end to manually close the session."
+msgstr ""
+"Ocorreu um erro ao tentar fechar a sessão.\n"
+"Você será redirecionado para o back-end para fechar manualmente a sessão."
+
+#. module: pos_cash_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_pos_bill_form
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_pos_bill_tree
+msgid "Bills"
+msgstr "Contas"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "CLOSING CONTROL"
+msgstr "CONTROLE DE FECHAMENTO"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#: code:addons/pos_cash_control/static/src/js/Popups/CashMovePopup.js:0
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_form_pos_close_session_wizard
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/ClosePosPopup.js:0
+#, python-format
+msgid "Cannot close the session when offline."
+msgstr "Não é possível fechar a sessão quando estiver offline."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/CashMovePopup.xml:0
+#, python-format
+msgid "Cash In"
+msgstr "Dinheiro em caixa"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#: code:addons/pos_cash_control/static/src/js/Popups/CashMovePopup.js:0
+#: code:addons/pos_cash_control/static/src/xml/ChromeWidgets/CashMoveButton.xml:0
+#, python-format
+msgid "Cash In/Out"
+msgstr "Entrada/Saída de Dinheiro"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/CashMovePopup.xml:0
+#, python-format
+msgid "Cash Out"
+msgstr "Saque"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#, python-format
+msgid "Cash in/out of %s is ignored."
+msgstr "A entrada/saída de %s é ignorada."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_form_pos_close_session_wizard
+#, python-format
+msgid "Close Session"
+msgstr "Fechar sessão"
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_close_session_wizard
+msgid "Close Session Wizard"
+msgstr "Assistente para fechar sessão"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/ClosePosPopup.js:0
+#, python-format
+msgid "Closing session error"
+msgstr "Erro ao fechar sessão"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__value
+msgid "Coin/Bill Value"
+msgstr "Valor da moeda/nota"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/MoneyDetailsPopup.xml:0
+#: model:ir.actions.act_window,name:pos_cash_control.action_pos_bill
+#: model:ir.model,name:pos_cash_control.model_pos_bill
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_config__default_bill_ids
+#: model:ir.ui.menu,name:pos_cash_control.menu_pos_bill
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_pos_config_form
+#, python-format
+msgid "Coins/Bills"
+msgstr "Moedas/Notas"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/CashMovePopup.xml:0
+#: code:addons/pos_cash_control/static/src/xml/Popups/MoneyDetailsPopup.xml:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirme"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Continue Selling"
+msgstr "Continuar vendendo"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Counted"
+msgstr "Contado"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__create_uid
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__create_date
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__account_id
+msgid "Destination account"
+msgstr "Conta de destino"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__account_readonly
+msgid "Destination account is readonly"
+msgstr "A conta de destino é somente leitura"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Difference"
+msgstr "Diferença"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "Difference at closing PoS session"
+msgstr "Diferença no fechamento da sessão PoS"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/MoneyDetailsPopup.xml:0
+#, python-format
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment_method__display_name
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_session__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Expected"
+msgstr "Esperado"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_form_pos_close_session_wizard
+#, python-format
+msgid "Force Close Session"
+msgstr "Forçar o fechamento da sessão"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment_method__id
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_session__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__message
+msgid "Information message"
+msgstr "Mensagem informativa"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/CashMovePopup.js:0
+#, python-format
+msgid "Insert a negative amount with the Cash Out option."
+msgstr "Insira um valor negativo com a opção de saque."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/CashMovePopup.js:0
+#, python-format
+msgid "Insert a positive amount with the Cash In option."
+msgstr "Insira um valor positivo com a opção de dinheiro em caixa."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/CashMovePopup.js:0
+#, python-format
+msgid "Invalid amount"
+msgstr "Montante inválido"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_payment.py:0
+#, python-format
+msgid "Invoice payment for %s (%s) using %s"
+msgstr "Pagamento de fatura para %s (%s) usando %s"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order__is_total_cost_computed
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order_line__is_total_cost_computed
+msgid "Is Total Cost Computed"
+msgstr "O custo total é calculado"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment_method__journal_id
+msgid "Journal"
+msgstr "Diária"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Keep Session Open"
+msgstr "Manter sessão aberta"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_order_line____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment_method____last_update
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_session____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__write_uid
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__write_date
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_close_session_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: pos_cash_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.pos_payment_method_form_view
+msgid "Leave empty to use the default account from the company setting"
+msgstr "Deixe em branco para usar a conta padrão da configuração da empresa"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,help:pos_cash_control.field_pos_payment_method__outstanding_account_id
+msgid ""
+"Leave empty to use the default account from the company setting.\n"
+"Account used as outstanding account when creating accounting payment records for bank payments."
+msgstr ""
+"Deixe em branco para usar a conta padrão da configuração da empresa.\n"
+"Conta usada como conta pendente ao criar registros de pagamentos contábeis para pagamentos "
+"bancários."
+
+#. module: pos_cash_control
+#: model:ir.model.fields,help:pos_cash_control.field_pos_payment_method__journal_id
+msgid ""
+"Leave empty to use the receivable account of customer.\n"
+"Defines the journal where to book the accumulated payments (or individual payment if Identify "
+"Customer is true) after closing the session.\n"
+"For cash journal, we directly write to the default account in the journal via statement "
+"lines.\n"
+"For bank journal, we write to the outstanding account specified in this payment method.\n"
+"Only cash and bank journals are allowed."
+msgstr ""
+"Deixe em branco para usar a conta a receber do cliente.\n"
+"Define o diário onde registrar os pagamentos acumulados (ou pagamento individual se "
+"Identificar Cliente for verdadeiro) após o fechamento da sessão.\n"
+"Para o diário de caixa, escrevemos diretamente na conta padrão no diário por meio de linhas de "
+"extrato.\n"
+"Para diário bancário, escrevemos na conta pendente especificada neste método de pagamento.\n"
+"Apenas dinheiro e diários bancários são permitidos."
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "Need loss account for the following journals to post the lost amount: %s\n"
+msgstr ""
+"Precisa de uma conta de perda para os seguintes diários para lançar o valor perdido: %s\n"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "Need proft account for the following journals to post the gained amount: %s\n"
+msgstr "Precisa de conta de lucro para os seguintes diários para postar o valor ganho: %s\n"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/ClosePosPopup.js:0
+#, python-format
+msgid "Network Error"
+msgstr "Erro de rede"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#, python-format
+msgid "Not amount"
+msgstr "Não quantidade"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Notes"
+msgstr "Notas"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Open the money details popup"
+msgstr "Abra o pop-up de detalhes do dinheiro"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Opening"
+msgstr "Abertura"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_session__opening_notes
+msgid "Opening Notes"
+msgstr "Notas de abertura"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_payment_method__outstanding_account_id
+msgid "Outstanding Account"
+msgstr "Conta pendente"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Payment Method"
+msgstr "Forma de pagamento"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Payments"
+msgstr "Pagamentos"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "Payments in"
+msgstr "Pagamentos em"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/ClosePosPopup.js:0
+#, python-format
+msgid "Please check your internet connection and try again."
+msgstr "Por favor verifique sua conexão com a internet e tente novamente."
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuração do ponto de venda"
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Linhas de pedido de Ponto de Venda"
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos do ponto de venda"
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pagamento do ponto de venda"
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Pagamentos de Ponto de Venda"
+
+#. module: pos_cash_control
+#: model:ir.model,name:pos_cash_control.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessão do ponto de venda"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "Point of Sale Session ended."
+msgstr "Sessão de ponto de venda encerrada."
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_bill__pos_config_ids
+msgid "Pos Config"
+msgstr "Configuração Pos"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/CashMovePopup.xml:0
+#, python-format
+msgid "Reason"
+msgstr "Razão"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/Popups/CashMovePopup.js:0
+#, python-format
+msgid "Select either Cash In or Cash Out before confirming."
+msgstr "Selecione Dinheiro em caixa ou saque antes de confirmar."
+
+#. module: pos_cash_control
+#: model:ir.model.fields,field_description:pos_cash_control.field_pos_config__set_maximum_difference
+msgid "Set Maximum Difference"
+msgstr "Definir Diferença Máxima"
+
+#. module: pos_cash_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_pos_config_form
+msgid ""
+"Set a maximum difference allowed between the expected and counted money during the closing of "
+"the session"
+msgstr ""
+"Defina uma diferença máxima permitida entre o dinheiro esperado e contado durante o fechamento "
+"da sessão"
+
+#. module: pos_cash_control
+#: model:ir.model.fields,help:pos_cash_control.field_pos_config__set_maximum_difference
+msgid ""
+"Set a maximum difference allowed between the expected and counted money during the closing of "
+"the session."
+msgstr ""
+"Defina uma diferença máxima permitida entre o dinheiro esperado e contado durante o fechamento "
+"da sessão."
+
+#. module: pos_cash_control
+#: model_terms:ir.ui.view,arch_db:pos_cash_control.view_pos_config_form
+msgid "Set of coins/bills that will be used in opening and closing control"
+msgstr "Conjunto de moedas/notas que serão utilizadas no controle de abertura e fechamento"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#, python-format
+msgid "Successfully made a cash %s of %s."
+msgstr "Fez um dinheiro %s de %s com sucesso."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "The maximum difference allowed is"
+msgstr "A diferença máxima permitida é"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid ""
+"There is a difference between the amounts to post and the amounts of the orders, it is "
+"probably caused by taxes or accounting configurations changes."
+msgstr ""
+"Existe uma diferença entre os valores a serem lançados e os valores dos pedidos, provavelmente "
+"devido a impostos ou alterações nas configurações contábeis."
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "There is no cash payment method for this PoS Session"
+msgstr "Não há método de pagamento em dinheiro para esta sessão de PoS"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "There is no cash register in this session."
+msgstr "Não há caixa registradora nesta sessão."
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "This session is already closed."
+msgstr "Esta sessão já está encerrada."
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#: code:addons/pos_cash_control/static/src/xml/Popups/MoneyDetailsPopup.xml:0
+#, python-format
+msgid "Total"
+msgstr "Total"
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "You cannot close the POS wehn orders are still in draft."
+msgstr "Você não pode fechar o PDV se os pedidos ainda estiverem em rascunho."
+
+#. module: pos_cash_control
+#: code:addons/pos_cash_control/models/pos_session.py:0
+#, python-format
+msgid "You cannot close the POS when orders are still in draft"
+msgstr "Você não pode fechar o PDV quando os pedidos ainda estão em rascunho"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#, python-format
+msgid "in"
+msgstr "dentro"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/xml/Popups/ClosePosPopup.xml:0
+#, python-format
+msgid "orders"
+msgstr "ordens"
+
+#. module: pos_cash_control
+#. openerp-web
+#: code:addons/pos_cash_control/static/src/js/ChromeWidgets/CashMoveButton.js:0
+#, python-format
+msgid "out"
+msgstr "fora"
