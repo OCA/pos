@@ -58,7 +58,7 @@ odoo.define("pos_product_template.models", function (require) {
         },
         {
             model: "product.attribute",
-            fields: ["name", "value_ids"],
+            fields: ["name", "value_ids", "sequence"],
             loaded: function (self, attributes) {
                 self.db.add_product_attributes(attributes);
             },

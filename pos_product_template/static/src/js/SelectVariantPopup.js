@@ -59,9 +59,18 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
             useListener("click-product", this._clickProduct);
             useListener("click-attribute-value", this._clickAttributeValue);
 
+            attributes.forEach((attribute) => {
+                const productAttribute = this.env.pos.db.product_attribute_by_id[
+                    attribute.id
+                ];
+                attribute.sequence = productAttribute.sequence;
+            });
+
             this.state.ptav = ptav;
             this.state.ptav_unavailable_ids = [];
-            this.state.attributes = attributes;
+            this.state.attributes = attributes.sort((a, b) =>
+                a.sequence > b.sequence ? 1 : b.sequence > a.sequence ? -1 : 0
+            );
             this.state.products = products;
         }
 
