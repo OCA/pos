@@ -127,7 +127,7 @@ class PosSession(models.Model):
                         orders.payment_ids.filtered(lambda p: p.payment_method_id == pm)
                     ),
                     "id": pm.id,
-                    "type": pm.is_cash_count,
+                    "is_cash_count": pm.is_cash_count,
                 }
                 for pm in other_payment_method_ids
             ],
@@ -192,11 +192,11 @@ class PosSession(models.Model):
             for payment_method in self.env["pos.payment.method"].browse(
                 bank_payment_method_diffs.keys()
             ):
-                journal = payment_method.journal_id
+                journal = payment_method.cash_journal_id
                 compare_to_zero = self.currency_id.compare_amounts(
                     bank_payment_method_diffs.get(payment_method.id), 0
                 )
-                if compare_to_zero == -1 and not journal.loss_acount_id:
+                if compare_to_zero == -1 and not journal.loss_account_id:
                     no_loss_account |= journal
                 elif compare_to_zero == 1 and not journal.profit_account_id:
                     no_profit_account |= journal

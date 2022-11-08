@@ -148,10 +148,13 @@ odoo.define("pos_cash_control.ClosePosPopup", function (require) {
                     args: [this.env.pos.pos_session.id, this.state.notes],
                 });
                 try {
+                    const bankPaymentMethodDiffPairs = this.otherPaymentMethods
+                        .filter((pm) => pm.is_cash_count)
+                        .map((pm) => [pm.id, this.state.payments[pm.id].difference]);
                     response = await this.rpc({
                         model: "pos.session",
                         method: "close_session_from_ui",
-                        args: [this.env.pos.pos_session.id],
+                        args: [this.env.pos.pos_session.id, bankPaymentMethodDiffPairs],
                     });
                     if (!response.successful) {
                         return this.handleClosingError(response);
