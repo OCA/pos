@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_stock_mrp
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-07 14:49+0000\n"
+"PO-Revision-Date: 2022-11-07 16:21-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: pos_stock_mrp
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_procurement_group__display_name
+msgid "Display Name"
+msgstr "Nome em Exibição"
+
+#. module: pos_stock_mrp
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_procurement_group__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_stock_mrp
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_procurement_group____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_stock_mrp
+#: model:ir.model,name:pos_stock_mrp.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos do ponto de venda"
+
+#. module: pos_stock_mrp
+#: model:ir.model.fields,field_description:pos_stock_mrp.field_procurement_group__pos_order_id
+msgid "Pos Order"
+msgstr "Ordem PDV"
+
+#. module: pos_stock_mrp
+#: model:ir.model,name:pos_stock_mrp.model_procurement_group
+msgid "Procurement Group"
+msgstr "Grupo de Compras"
