@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_discount_reason
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-07 14:48+0000\n"
+"PO-Revision-Date: 2022-11-07 16:19-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__active
+msgid "Active"
+msgstr "Ativo"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields.selection,name:pos_discount_reason.selection__pos_discount_reason__discount_use__both
+msgid "Both"
+msgstr "Ambos"
+
+#. module: pos_discount_reason
+#. openerp-web
+#: code:addons/pos_discount_reason/static/src/js/DiscountReasonButton.js:0
+#: code:addons/pos_discount_reason/static/src/js/NumpadWidget.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_discount_reason
+#. openerp-web
+#: code:addons/pos_discount_reason/static/src/js/DiscountReasonButton.js:0
+#: code:addons/pos_discount_reason/static/src/js/NumpadWidget.js:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirme"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: pos_discount_reason
+#. openerp-web
+#: code:addons/pos_discount_reason/static/src/xml/DiscountReasonButton.xml:0
+#, python-format
+msgid "Discount"
+msgstr "Desconto"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__percent
+msgid "Discount (%)"
+msgstr "Desconto (%)"
+
+#. module: pos_discount_reason
+#. openerp-web
+#: code:addons/pos_discount_reason/static/src/js/DiscountReasonButton.js:0
+#: code:addons/pos_discount_reason/static/src/js/NumpadWidget.js:0
+#: model:ir.actions.act_window,name:pos_discount_reason.pos_discount_reason_act_window
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_order_line__discount_reason_id
+#: model:ir.model.fields,field_description:pos_discount_reason.field_report_pos_order__discount_reason_id
+#: model:ir.ui.menu,name:pos_discount_reason.pos_discount_reason_menu
+#, python-format
+msgid "Discount Reason"
+msgstr "Motivo do desconto"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__discount_use
+msgid "Discount Use"
+msgstr "Uso com desconto"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__display_name
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_discount_reason.field_report_pos_order__display_name
+msgid "Display Name"
+msgstr "Nome em Exibição"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__id
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_discount_reason.field_report_pos_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason____last_update
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_order_line____last_update
+#: model:ir.model.fields,field_description:pos_discount_reason.field_report_pos_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields.selection,name:pos_discount_reason.selection__pos_discount_reason__discount_use__line
+msgid "Line"
+msgstr "Linha"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields.selection,name:pos_discount_reason.selection__pos_discount_reason__discount_use__order
+msgid "Order"
+msgstr "Ordem"
+
+#. module: pos_discount_reason
+#: model:ir.model,name:pos_discount_reason.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Linhas de pedidos de ponto de venda"
+
+#. module: pos_discount_reason
+#: model:ir.model,name:pos_discount_reason.model_report_pos_order
+msgid "Point of Sale Orders Report"
+msgstr "Relatório de pedidos de ponto de venda"
+
+#. module: pos_discount_reason
+#: model:ir.model,name:pos_discount_reason.model_pos_discount_reason
+msgid "Pos Discount Reason"
+msgstr "Razão do desconto posterior"
+
+#. module: pos_discount_reason
+#: model:ir.model.fields,field_description:pos_discount_reason.field_pos_discount_reason__sequence
+msgid "Sequence"
+msgstr "Seqüência"
+
+#. module: pos_discount_reason
+#: code:addons/pos_discount_reason/models/pos_discount_reason.py:0
+#, python-format
+msgid "The discount percentage must be between 0 and 100"
+msgstr "A porcentagem de desconto deve estar entre 0 e 100"
