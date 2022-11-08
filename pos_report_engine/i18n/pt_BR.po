@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_report_engine
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-07 14:44+0000\n"
+"PO-Revision-Date: 2022-11-07 13:05-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/Screens/PosReportsScreen/PosReportsScreen.xml:0
+#, python-format
+msgid "Back"
+msgstr "Voltar"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportInputsController.js:0
+#, python-format
+msgid "Could not generate report"
+msgstr "Não foi possível gerar o relatório"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/Screens/PosReportsScreen/PosReportInputsController.xml:0
+#, python-format
+msgid "Generate"
+msgstr "Gerar"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/ChromeWidgets/PosReportsButton.xml:0
+#, python-format
+msgid "POS Reports Button"
+msgstr "Botão de relatórios de PDV"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/Screens/PosReportsScreen/PosReportContainer.xml:0
+#, python-format
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/Screens/PosReportsScreen/PosReportContainer.xml:0
+#, python-format
+msgid "Print Report"
+msgstr "Relatório de impressão"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/Screens/PosReportsScreen/PosReportsScreen.xml:0
+#, python-format
+msgid "Reports"
+msgstr "Relatórios"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/xml/Screens/PosReportsScreen/PosReportContainer.xml:0
+#, python-format
+msgid "Select and generate a report"
+msgstr "Selecione e gere um relatório"
+
+#. module: pos_report_engine
+#. openerp-web
+#: code:addons/pos_report_engine/static/src/js/screens/PosReportsScreen/PosReportInputsController.js:0
+#, python-format
+msgid "The following error happened when calling the report generator handler: \n"
+msgstr "Ocorreu o seguinte erro ao chamar o manipulador do gerador de relatórios:\n"
