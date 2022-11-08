@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_cups_printer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-07 14:49+0000\n"
+"PO-Revision-Date: 2022-11-07 16:30-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2\n"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields,help:pos_cups_printer.field_pos_config__iot_printer_type
+msgid ""
+"\n"
+"            * The 'Default' will use the normal behavior of IOT\n"
+"\n"
+"            * The 'Cups' will send the printer name to the IOT\n"
+"\n"
+"            if the printer isn't founded will fall back to the\n"
+"\n"
+"             default behavior.\n"
+"        "
+msgstr ""
+"* O 'Padrão' usará o comportamento normal do IOT\n"
+"\n"
+"            * Os 'Cups' enviarão o nome da impressora para o IOT\n"
+"\n"
+"            se a impressora não for fundada, retornará ao"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields.selection,name:pos_cups_printer.selection__pos_config__iot_printer_type__cups
+msgid "Cups"
+msgstr "Copas"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields,field_description:pos_cups_printer.field_pos_config__cups_printer_name
+msgid "Cups Printer Name"
+msgstr "Nome da impressora de copos"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields.selection,name:pos_cups_printer.selection__pos_config__iot_printer_type__hw_driver
+msgid "Default"
+msgstr "Predefinição"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields,field_description:pos_cups_printer.field_pos_config__display_name
+msgid "Display Name"
+msgstr "Nome em Exibição"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields,field_description:pos_cups_printer.field_pos_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields,field_description:pos_cups_printer.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_cups_printer
+#: model:ir.model,name:pos_cups_printer.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuração do ponto de venda"
+
+#. module: pos_cups_printer
+#: model_terms:ir.ui.view,arch_db:pos_cups_printer.pos_config_form_view
+msgid "Printer Name"
+msgstr "Nome da impressora"
+
+#. module: pos_cups_printer
+#: model:ir.model.fields,field_description:pos_cups_printer.field_pos_config__iot_printer_type
+#: model_terms:ir.ui.view,arch_db:pos_cups_printer.pos_config_form_view
+msgid "Printer Type"
+msgstr "Tipo de impressora"
