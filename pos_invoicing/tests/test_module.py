@@ -16,6 +16,7 @@ class TestModule(TransactionCase):
         # Get Registry
         self.PosOrder = self.env['pos.order']
         self.AccountPayment = self.env['account.payment']
+        self.AccountInvoice = self.env['account.invoice']
 
         # Get Object
         self.pos_product = self.env.ref('point_of_sale.whiteboard_pen')
@@ -27,8 +28,8 @@ class TestModule(TransactionCase):
         self.pos_config.open_session_cb()
 
     # Test Section
-    def test_order_invoice(self):
-        order = self._create_order()
+    def test_order_invoiced_immediately(self):
+        order = self._create_order(to_invoice=True)
 
         # Check if invoice is correctly set
         self.assertEquals(order.invoice_id.pos_pending_payment, True)
@@ -46,6 +47,12 @@ class TestModule(TransactionCase):
         self.pos_config.current_session_id.action_pos_session_closing_control()
         self.assertEquals(order.invoice_id.pos_pending_payment, False)
 
+    def test_order_invoiced_later(self):
+        order = self._create_order(to_invoice=False)
+        res = order.action_pos_order_invoice()
+        invoice = self.AccountInvoice.browse(res["res_id"])
+        self.assertEquals(invoice.state, "open")
+
     # Private Section
     def register_payment(self, invoice_id=False):
         journal = self.pos_config.journal_ids[0]
@@ -60,11 +67,11 @@ class TestModule(TransactionCase):
             'payment_method_id': journal.inbound_payment_method_ids[0].id,
         })
 
-    def _create_order(self):
+    def _create_order(self, to_invoice):
         # Create order
         order_data = {
             'id': u'0006-001-0010',
-            'to_invoice': True,
+            'to_invoice': to_invoice,
             'data': {
                 'pricelist_id': self.pricelist.id,
                 'user_id': 1,
