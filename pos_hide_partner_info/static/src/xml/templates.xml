@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template">
+    <t t-extend="ClientListScreenWidget">
+
+        <t t-jquery="th:contains('Address')" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery="th:contains('Phone')" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+    </t>
+
+    <t t-extend="ClientLine">
+        <t t-jquery="td:has([t-esc='partner.address'])" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery="td:has([t-esc*='phone'])" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+    </t>
+
+    <t t-extend="ClientDetails">
+        <t t-jquery=".client-detail:has(.client-address)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-email)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-phone)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+    </t>
+    <t t-extend="ClientDetailsEdit">
+        <t t-jquery=".client-detail:has(.client-address-street)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-address-city)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-address-zip)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-address-country)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-email)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+        <t t-jquery=".client-detail:has(.client-phone)" t-operation="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </t>
+    </t>
+</templates>
