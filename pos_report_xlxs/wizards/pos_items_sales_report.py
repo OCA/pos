@@ -24,20 +24,20 @@ class PosItemsSalesReportXlxs(models.TransientModel):
     def get_sql(self):
         return f"""
             SELECT pt."name", pc."name",
-            SUM(pol.qty) as qtde_vendida,
-            SUM(pol.qty * pol.price_unit) as venda_bruta,
+            SUM(pol.qty) AS qtde_vendida,
+            SUM(pol.qty * pol.price_unit) AS venda_bruta,
             SUM(pol.qty * pol.price_unit) - SUM((pol.qty * pol.price_unit) *
-            (100 - pol.discount) / 100) as desc_item,
+            (100 - pol.discount) / 100) AS desc_item,
             SUM((pol.qty * pol.price_unit) * (100 - pol.discount) / 100)
-            as venda_liquida
+            AS venda_liquida
             from pos_order_line pol
-            left join pos_order po on po.id = pol.order_id
-            left join product_product pp on pp.id = pol.product_id
-            left join product_template pt on pt.id = pp.product_tmpl_id
-            left join pos_category pc on pc.id = pt.pos_categ_id
-            WHERE po.id in (SELECT id FROM pos_order where session_id in (
+            LEFT JOIN pos_order po ON po.id = pol.order_id
+            LEFT JOIN product_product pp ON pp.id = pol.product_id
+            LEFT JOIN product_template pt ON pt.id = pp.product_tmpl_id
+            LEFT JOIN pos_category pc ON pc.id = pt.pos_categ_id
+            WHERE po.id in (SELECT id FROM pos_order WHERE session_id IN (
             SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
-            AND start_at <= '{self.date_end} 23:59:59') and state = 'paid')
+            AND stop_at <= '{self.date_end} 23:59:59') AND  state = 'paid' OR state = 'done')
             group by pt."name", pc."name", pc.id, pol.product_id, pp.default_code
             order by venda_bruta DESC
         """
