@@ -15,7 +15,6 @@ odoo.define("pos_show_clock.Clock", function (require) {
             this.updateCurrentTime();
         }
         updateCurrentTime() {
-            var self = this;
             const now = Date.now();
             const next_update = 60050 - parseInt(moment(now).format("ss")) * 1000;
             // 1 min = 60.000ms
@@ -23,9 +22,12 @@ odoo.define("pos_show_clock.Clock", function (require) {
             // it's the time we can update the minute without the user noticing
             // the difference when comparing it to another watch.
             this.state.current_time = moment(now).format("HH:mm");
-            setTimeout(() => {
-                self.updateCurrentTime();
+            this.invervalReference = setInterval(() => {
+                this.updateCurrentTime();
             }, next_update);
+        }
+        unmount() {
+            clearInterval(this.intervalReference);
         }
         get time() {
             return this.state.current_time;
