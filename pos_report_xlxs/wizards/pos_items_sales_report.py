@@ -13,6 +13,7 @@ class PosItemsSalesReportXlxs(models.TransientModel):
 
     def get_titles(self):
         return [
+            _("Reference Code"),
             _("Product"),
             _("Category"),
             _("Quantity"),
@@ -23,7 +24,7 @@ class PosItemsSalesReportXlxs(models.TransientModel):
 
     def get_sql(self):
         return f"""
-            SELECT pt."name", pc."name",
+            SELECT pp."default_code", pt."name", pc."name",
             SUM(pol.qty) AS qtde_vendida,
             SUM(pol.qty * pol.price_unit) AS venda_bruta,
             SUM(pol.qty * pol.price_unit) - SUM((pol.qty * pol.price_unit) *
@@ -38,7 +39,8 @@ class PosItemsSalesReportXlxs(models.TransientModel):
             WHERE po.id in (SELECT id FROM pos_order WHERE session_id IN (
             SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
             AND stop_at <= '{self.date_end} 23:59:59') AND  state = 'paid' OR state = 'done')
-            group by pt."name", pc."name", pc.id, pol.product_id, pp.default_code
+            group by pp."default_code", pt."name", pc."name", pc.id,
+            pol.product_id, pp.default_code
             order by venda_bruta DESC
         """
 
