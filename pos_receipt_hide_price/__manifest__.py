@@ -5,14 +5,17 @@
     "author": "Akretion, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "category": "Point of Sale",
-    "version": "14.0.1.0.1",
+    "version": "15.0.1.0.0",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/assets.xml"],
-    "qweb": [
-        "static/src/xml/OrderReceipt.xml",
-        "static/src/xml/HidePrice.xml",
-        "static/src/xml/ReceiptScreen.xml",
-        "static/src/xml/ReprintReceiptScreen.xml",
-    ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_receipt_hide_price/static/src/js/ReceiptScreen.js",
+            "pos_receipt_hide_price/static/src/js/ReprintReceiptScreen.js",
+            "pos_receipt_hide_price/static/src/js/OrderReceipt.js",
+        ],
+        "web.assets_qweb": [
+            "pos_receipt_hide_price/static/src/xml/**/*",
+        ],
+    },
 }
