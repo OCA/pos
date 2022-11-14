@@ -89,5 +89,8 @@
     <xpath expr="//t[@t-if='isTaxIncluded']/div" position="attributes">
       <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
     </xpath>
+    <xpath expr="//t[@t-if='isTaxIncluded']/t[@t-foreach]/div" position="attributes">
+      <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
+    </xpath>
   </t>
 </templates>
