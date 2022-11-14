@@ -1,0 +1,2 @@
+- stores pos_order_count field to use it in filters and pivot view
+- adds pos_order_ids field to use it in pivot view
