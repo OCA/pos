@@ -34,6 +34,7 @@ setuptools.setup(
         'odoo12-addon-pos_meal_voucher',
         'odoo12-addon-pos_multi_ean',
         'odoo12-addon-pos_multiple_control',
+        'odoo12-addon-pos_order_count_store',
         'odoo12-addon-pos_order_line_no_unlink',
         'odoo12-addon-pos_order_line_note',
         'odoo12-addon-pos_order_mgmt',
