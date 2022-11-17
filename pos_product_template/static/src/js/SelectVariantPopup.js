@@ -24,6 +24,23 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                 ptav_unavailable_ids: [],
                 all_attributes_chosen: false,
             });
+
+            this._mountPopup(template);
+        }
+
+        willUpdateProps(nextProp) {
+            var template = this.env.pos.db.get_template_by_id(nextProp.template_id);
+            this._mountPopup(template);
+            super.willUpdateProps(nextProp);
+        }
+
+        _mountPopup(template) {
+            this.state.ptav = [];
+            this.state.attributes = [];
+            this.state.template = template;
+            this.state.products = [];
+            this.state.ptav_id_selected = {};
+
             var ptav = Array.from(
                 new Set(
                     template.product_template_attribute_value_ids.map((x) =>
