@@ -1,0 +1,85 @@
+/* Select Combo Popup */
+.body .select-combo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Combo Category Controller */
+.combo-category-controller {
+    display: flex;
+    flex-direction: row;
+    margin-block: 20px;
+}
+
+.combo-category-container {
+    margin-inline: 10px;
+    height: 50px;
+    width: 150px;
+    display: flex;
+    align-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.combo-category-options-container {
+    margin-inline: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.category-button {
+    margin-inline: 10px;
+    background: white;
+    padding: 5px;
+    font-size: 20px;
+}
+
+/* Category Option Button */
+
+.category-option-button {
+    margin-inline: 10px;
+    background: #d9d9d9;
+    font-size: 20px;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-block: 10px;
+}
+
+.combo-category-options-container > .selected {
+    color: red;
+}
+
+/* Category Qty Option Button */
+.option-quantity-container {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.qty-option-button {
+    height: 75px;
+}
+
+.quantity-button {
+    padding-inline: 20px;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+}
+
+.quantity-count-display {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-category-name {
+    padding-block: 5px;
+}

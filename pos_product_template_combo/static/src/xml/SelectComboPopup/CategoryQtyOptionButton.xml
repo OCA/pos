@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<template>
+    <t t-name="CategoryQtyOptionButton" owl="1">
+        <div class="category-option-button qty-option-button">
+            <div class="qty-category-name">
+                <t t-esc="state.option.name" />
+            </div>
+            <div class="option-quantity-container">
+                <div
+                    class="quantity-button"
+                    t-on-click="trigger('change-option-qty', {option: state.option, operation: 'decrease'})"
+                >&lt;</div>
+                <div class="quantity-count-display">
+                    <t t-esc="props.quantity" />
+                </div>
+                <div
+                    class="quantity-button"
+                    t-on-click="trigger('change-option-qty', {option: state.option, operation: 'increase'})"
+                >&gt;</div>
+            </div>
+        </div>
+    </t>
+</template>

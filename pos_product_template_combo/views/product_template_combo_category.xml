@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <menuitem
+        id="pos_menu_product_template_combo"
+        name="Combo"
+        parent="point_of_sale.menu_point_config_product"
+        sequence="12"
+    />
+
+    <record model="ir.ui.view" id="product_template_combo_category_form_view">
+        <field
+            name="name"
+        >product.template.combo.category.form (in pos_product_template_combo)</field>
+        <field name="model">product.template.combo.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field
+                            name="product_tmpl_combo_category_option_ids"
+                            string="Options"
+                            widget="many2many_tags"
+                            domain="[('product_tmpl_combo_category_id', '=', id)]"
+                        />
+                        <field
+                            name="price"
+                            widget="monetary"
+                            options="{'currency_field': 'company_currency'}"
+                        />
+                        <field name="max_qty" />
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_combo_category_search_view">
+        <field
+            name="name"
+        >product.template.combo.category.search (in pos_product_template_combo)</field>
+        <field name="model">product.template.combo.category</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field
+                    name="product_tmpl_combo_category_option_ids"
+                    string="Options"
+                    widget="many2many_tags"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_combo_category_tree_view">
+        <field
+            name="name"
+        >product.template.combo.category.tree (in pos_product_template_combo)</field>
+        <field name="model">product.template.combo.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle" />
+                <field name="name" />
+                <field
+                    name="product_tmpl_combo_category_option_ids"
+                    string="Options"
+                    widget="many2many_tags"
+                />
+                <field name="price" />
+                <field name="max_qty" />
+            </tree>
+        </field>
+    </record>
+
+    <record
+        model="ir.actions.act_window"
+        id="product_template_combo_category_act_window"
+    >
+        <field name="name">Combo Category</field>
+        <field name="res_model">product.template.combo.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="product_template_combo_category_menu">
+        <field name="name">Combo Category</field>
+        <field name="parent_id" ref="pos_menu_product_template_combo" />
+        <field name="action" ref="product_template_combo_category_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.form (in pos_product_template_combo)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <div>
+                    <field name="is_combo" />
+                    <label for="is_combo" />
+                </div>
+            </div>
+            <notebook position="inside">
+                <page
+                    name="page_combo"
+                    string="Combo Categories"
+                    attrs="{'invisible': [('is_combo', '=', False)]}"
+                >
+
+                    <field name="product_tmpl_combo_category_ids">
+                        <tree editable="botton" create="1">
+                            <field name="sequence" widget="handle" />
+                            <field name="name" />
+                            <field
+                                name="product_tmpl_combo_category_option_ids"
+                                string="Options"
+                                widget="many2many_tags"
+                                domain="[('product_tmpl_combo_category_id', '=', id)]"
+                            />
+                            <field name="price" />
+                            <field name="max_qty" />
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_search_view">
+        <field
+            name="name"
+        >product.template.search (in pos_product_template_combo)</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='consumable']" position="after">
+                <separator />
+                <filter
+                    string="Combo"
+                    name="is_combo"
+                    domain="[('is_combo', '=', True)]"
+                />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<template>
+    <t t-name="ComboCategoryController" owl="1">
+        <div class="combo-category-controller">
+            <div class="combo-category-container">
+                <t t-esc="state.name" class="category-button" />
+            </div>
+
+            <div class="combo-category-options-container">
+                <t t-foreach="state.options" t-as="option" t-key="option.id">
+                    <t t-if="state.max_qty === 1">
+                        <CategoryOptionButton
+                            name="option.name"
+                            t-att-class="{selected: state.selected_option == option}"
+                            t-on-click="_on_selected_option(option)"
+                        />
+                    </t>
+                    <t t-else="">
+                        <div>
+                            <CategoryQtyOptionButton
+                                option="option"
+                                quantity="state.selected_qty[option.id]"
+                            />
+                        </div>
+
+                    </t>
+                </t>
+            </div>
+        </div>
+    </t>
+</template>

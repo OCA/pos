@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="//link[@id='pos-stylesheet']" position="after">
+            <link
+                rel="stylesheet"
+                href="/pos_product_template_combo/static/src/css/product_template_combo.css"
+            />
+        </xpath>
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_product_template_combo/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template_combo/static/src/js/ProductScreen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template_combo/static/src/js/SelectComboPopup/SelectComboPopup.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template_combo/static/src/js/SelectComboPopup/CategoryOptionButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template_combo/static/src/js/SelectComboPopup/CategoryQtyOptionButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_product_template_combo/static/src/js/SelectComboPopup/ComboCategoryController.js"
+            />
+      </xpath>
+    </template>
+
+</odoo>

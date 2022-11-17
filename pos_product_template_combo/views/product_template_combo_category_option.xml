@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_template_combo_category_option_form_view">
+        <field
+            name="name"
+        >product.template.combo.category.option.form (in pos_product_template_combo)</field>
+        <field name="model">product.template.combo.category.option</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="product_template_id" />
+                        <field name="product_tmpl_combo_category_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_combo_category_option_search_view">
+        <field
+            name="name"
+        >product.template.combo.category.option.search (in pos_product_template_combo)</field>
+        <field name="model">product.template.combo.category.option</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="product_template_id" />
+                <field name="product_tmpl_combo_category_id" />
+                <filter
+                    name="product_tmpl_combo_category_id"
+                    string="Combo Category"
+                    icon="terp-partner"
+                    context="{'group_by':'product_tmpl_combo_category_id'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_combo_category_option_tree_view">
+        <field
+            name="name"
+        >product.template.combo.category.option.tree (in pos_product_template_combo)</field>
+        <field name="model">product.template.combo.category.option</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="product_template_id" />
+                <field name="product_tmpl_combo_category_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record
+        model="ir.actions.act_window"
+        id="product_template_combo_category_option_act_window"
+    >
+        <field name="name">Combo Category Option</field>
+        <field name="res_model">product.template.combo.category.option</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="product_template_combo_category_option_menu">
+        <field name="name">Combo Category Option</field>
+        <field name="parent_id" ref="pos_menu_product_template_combo" />
+        <field name="action" ref="product_template_combo_category_option_act_window" />
+        <field name="sequence" eval="16" />
+    </record>
+
+</odoo>
