@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_order_items_sales_report_xlxs_wizard_form_view">
+        <field
+            name="name"
+        >pos.order.items.sales.report.xlxs.wizard.form (in pos_report_xlxs)</field>
+        <field name="model">pos.order.items.sales.report.xlxs.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Pos Items Sales Report">
+                <group>
+                    <field name="date_start" />
+                    <field name="date_end" />
+                    <field name="company_id" />
+                    <field name="rel_xls_filename" invisible="1" />
+                    <field name="rel_xls" filename="rel_xls_filename" />
+                </group>
+                <footer>
+                    <button
+                        name="generate_report"
+                        string="Print"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record
+        model="ir.actions.act_window"
+        id="pos_order_items_sales_report_xlxs_wizard_act_window"
+    >
+        <field name="name">POS Order Items Sales</field> <!-- TODO -->
+        <field name="res_model">pos.order.items.sales.report.xlxs.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_pos_order_items_sales_report"
+        name="Order Items Sales"
+        action="pos_order_items_sales_report_xlxs_wizard_act_window"
+        parent="point_of_sale.menu_point_rep"
+        sequence="6"
+        groups="point_of_sale.group_pos_manager"
+    />
+
+
+</odoo>
