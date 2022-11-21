@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template">
+
+    <t t-extend="ClientListScreenWidget">
+        <t t-jquery='.new-customer' t-operation='attributes'>
+            <attribute name="invisible">1</attribute>
+        </t>
+    </t>
+</templates>
