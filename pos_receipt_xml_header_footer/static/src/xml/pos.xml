@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template id="template_id" name="template_name">
+
+    <t t-extend="PosTicket">
+        <t t-jquery="t[t-if='receipt.header']" t-operation="before">
+            <t t-if="receipt.header_xml">
+                <div style='text-align:center'>
+                    <t t-raw='receipt.header_xml' />
+                </div>
+            </t>
+        </t>
+        <t t-jquery="t[t-if='receipt.footer']" t-operation="before">
+            <t t-if='receipt.footer_xml'>
+                <br />
+                <div style='text-align:center'>
+                    <t t-raw='receipt.footer_xml' />
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
