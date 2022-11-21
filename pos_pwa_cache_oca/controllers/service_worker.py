@@ -131,7 +131,6 @@ class ServiceWorkerCache(ServiceWorker):
     def _get_non_repeating_requests(self):
         return [
             "product.product",
-            "product.template.attribute.value",
         ]
 
     def _check_non_repeating_requests(self):
