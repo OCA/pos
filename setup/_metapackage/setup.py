@@ -44,6 +44,7 @@ setuptools.setup(
         'odoo12-addon-pos_order_return_traceability',
         'odoo12-addon-pos_order_to_sale_order',
         'odoo12-addon-pos_partner_firstname',
+        'odoo12-addon-pos_partner_no_create',
         'odoo12-addon-pos_payment_change',
         'odoo12-addon-pos_payment_method_cashdro',
         'odoo12-addon-pos_payment_terminal',
