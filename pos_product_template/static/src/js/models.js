@@ -75,6 +75,7 @@ odoo.define("pos_product_template.models", function (require) {
             fields: [
                 "name",
                 "attribute_id",
+                "attribute_line_id",
                 "product_tmpl_id",
                 "product_attribute_value_id",
                 "ptav_product_variant_ids",
