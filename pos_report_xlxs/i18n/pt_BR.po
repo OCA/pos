@@ -1,0 +1,275 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_report_xlxs
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-22 16:39+0000\n"
+"PO-Revision-Date: 2022-11-22 16:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_payment_receivings_report.py:0
+#, python-format
+msgid "% From Total"
+msgstr "% do Total"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Amount Total"
+msgstr "Valor Total"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_payment_receivings_report.py:0
+#, python-format
+msgid "Average"
+msgstr "Média"
+
+#. module: pos_report_xlxs
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.pos_order_items_sales_report_xlxs_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.view_pos_items_sales_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.view_pos_payment_receivings_report_wizard
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Category"
+msgstr "Categoria"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_reports_xlxs_mixin.py:0
+#, python-format
+msgid "Columns title and lines columns must have the same lenght!"
+msgstr "As colunas do título e das linhas devem ter o mesmo tamanho."
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__company_id
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__company_id
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__company_id
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__create_uid
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__create_date
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__create_date
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__create_date
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__date_end
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__date_end
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__date_end
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__date_end
+msgid "Date End"
+msgstr "Data Final"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__date_start
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__date_start
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__date_start
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__date_start
+msgid "Date Start"
+msgstr "Data Inicial"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_reports_xlxs_mixin.py:0
+#, python-format
+msgid "Date start can not be superior than date end!"
+msgstr "A data inicial não pode ser maior que a data final!"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Discount"
+msgstr "Desconto"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__display_name
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__display_name
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__display_name
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__display_name
+msgid "Display Name"
+msgstr "Nome"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__id
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__id
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__id
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_report_xlxs
+#: model:ir.ui.menu,name:pos_report_xlxs.menu_pos_items_sales_report
+msgid "Items Sales"
+msgstr "Venda de Itens"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard____last_update
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard____last_update
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard____last_update
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__write_uid
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__write_uid
+msgid "Last Updated by"
+msgstr "Última atualização por"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__write_date
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__write_date
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__write_date
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__write_date
+msgid "Last Updated on"
+msgstr "Última atualização em"
+
+#. module: pos_report_xlxs
+#: model:ir.ui.menu,name:pos_report_xlxs.menu_pos_order_items_sales_report
+msgid "Order Items Sales"
+msgstr "Venda de Itens por Pedido"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Order Reference"
+msgstr "Referência do Pedido"
+
+#. module: pos_report_xlxs
+#: model:ir.actions.act_window,name:pos_report_xlxs.action_pos_items_sales_report
+msgid "POS Items Sales"
+msgstr "POS Venda de Itens"
+
+#. module: pos_report_xlxs
+#: model:ir.actions.act_window,name:pos_report_xlxs.pos_order_items_sales_report_xlxs_wizard_act_window
+msgid "POS Order Items Sales"
+msgstr "POS Venda de Itens por Pedido"
+
+#. module: pos_report_xlxs
+#: model:ir.actions.act_window,name:pos_report_xlxs.action_pos_payment_receivings_report
+msgid "POS Payment Receivings"
+msgstr "POS Pagamento Recebidos"
+
+#. module: pos_report_xlxs
+#: model:ir.ui.menu,name:pos_report_xlxs.menu_pos_payment_receivings_report
+msgid "Payment Receivings"
+msgstr "Pagamentos Recebidos"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_payment_receivings_report.py:0
+#, python-format
+msgid "Payment Type"
+msgstr "Tipo de Pagamento"
+
+#. module: pos_report_xlxs
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.pos_order_items_sales_report_xlxs_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.view_pos_items_sales_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.view_pos_payment_receivings_report_wizard
+msgid "Pos Items Sales Report"
+msgstr "POS Relatório de Venda de Itens"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Price Gross"
+msgstr "Preço Bruto"
+
+#. module: pos_report_xlxs
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.pos_order_items_sales_report_xlxs_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.view_pos_items_sales_report_wizard
+#: model_terms:ir.ui.view,arch_db:pos_report_xlxs.view_pos_payment_receivings_report_wizard
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Product"
+msgstr "Produto"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_payment_receivings_report.py:0
+#, python-format
+msgid "Quantity"
+msgstr "Quantidade"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_items_sales_report.py:0
+#: code:addons/pos_report_xlxs/wizards/pos_order_items_sales_report_xlxs_wizard.py:0
+#, python-format
+msgid "Reference Code"
+msgstr "Código de Referência"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__rel_xls_filename
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__rel_xls_filename
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__rel_xls_filename
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__rel_xls_filename
+msgid "Rel Xls Filename"
+msgstr "XLXS Arquivo Relacional"
+
+#. module: pos_report_xlxs
+#: code:addons/pos_report_xlxs/wizards/pos_payment_receivings_report.py:0
+#, python-format
+msgid "Total"
+msgstr "Total"
+
+#. module: pos_report_xlxs
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_items_sales_report_xlxs_wizard__rel_xls
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_order_items_sales_report_xlxs_wizard__rel_xls
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_payment_receivings_report_xlxs_wizard__rel_xls
+#: model:ir.model.fields,field_description:pos_report_xlxs.field_pos_report_xlxs_mixin__rel_xls
+msgid "XLS"
+msgstr "XLXS"
+
+#. module: pos_report_xlxs
+#: model:ir.model,name:pos_report_xlxs.model_pos_items_sales_report_xlxs_wizard
+msgid "pos.items.sales.report.xlxs.wizard"
+msgstr ""
+
+#. module: pos_report_xlxs
+#: model:ir.model,name:pos_report_xlxs.model_pos_order_items_sales_report_xlxs_wizard
+msgid "pos.order.items.sales.report.xlxs.wizard"
+msgstr ""
+
+#. module: pos_report_xlxs
+#: model:ir.model,name:pos_report_xlxs.model_pos_payment_receivings_report_xlxs_wizard
+msgid "pos.payment.receivings.report.xlxs.wizard"
+msgstr ""
+
+#. module: pos_report_xlxs
+#: model:ir.model,name:pos_report_xlxs.model_pos_report_xlxs_mixin
+msgid "pos.report.xlxs.mixin"
+msgstr ""
