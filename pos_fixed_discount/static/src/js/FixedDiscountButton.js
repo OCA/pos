@@ -17,7 +17,7 @@ odoo.define("pos_fixed_discount.FixedDiscountButton", function (require) {
                 startingValue: 0,
             });
             if (confirmed) {
-                var val = Math.round(Math.max(0, Math.min(100, parseFloat(payload))));
+                var val = Math.round(parseFloat(payload));
                 this.apply_discount(val);
             }
         }
