@@ -26,6 +26,7 @@ setuptools.setup(
         'odoo12-addon-pos_fixed_discount',
         'odoo12-addon-pos_hide_banknote_button',
         'odoo12-addon-pos_hide_empty_category',
+        'odoo12-addon-pos_hide_partner_info',
         'odoo12-addon-pos_invoice_send_mail',
         'odoo12-addon-pos_invoicing',
         'odoo12-addon-pos_journal_image',
