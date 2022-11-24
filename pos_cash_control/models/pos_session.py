@@ -554,7 +554,7 @@ class PosSession(models.Model):
                 date = payment.payment_date
                 payment_method = payment.payment_method_id
                 is_split_payment = payment.payment_method_id.split_transactions
-                if not payment_method.is_cash_count:
+                if is_split_payment and not payment_method.is_cash_count:
                     split_receivables_bank[payment] = self._update_amounts(
                         split_receivables_bank[payment], {"amount": amount}, date
                     )
@@ -614,6 +614,13 @@ class PosSession(models.Model):
             combine_receivable_line = MoveLine.create(
                 self._get_combine_receivable_vals(
                     payment_method, amounts["amount"], amounts["amount_converted"]
+                )
+            )
+            MoveLine.create(
+                self._prepare_balancing_line_vals(
+                    amounts["amount"],
+                    self.move_id,
+                    payment_method.receivable_account_id,
                 )
             )
             payment_receivable_line = self._create_combine_account_payment(
@@ -727,4 +734,44 @@ class PosSession(models.Model):
             )
         return self._credit_amounts(
             partial_vals, imbalance_amount_session, imbalance_amount
+        )
+
+    def _create_combine_account_payment(self, payment_method, amounts, diff_amount):
+        outstanding_account = (
+            payment_method.outstanding_account_id
+            or self.company_id.account_journal_payment_debit_account_id
+        )
+        destination_account = (
+            payment_method.receivable_account_id
+            or self.company_id.account_default_pos_receivable_account_id
+        )
+
+        if (
+            float_compare(
+                amounts["amount"], 0, precision_rounding=self.currency_id.rounding
+            )
+            < 0
+        ):
+            # revert the accounts because account.payment doesn't accept negative amount.
+            outstanding_account, destination_account = (
+                destination_account,
+                outstanding_account,
+            )
+
+        account_payment = self.env["account.payment"].create(
+            {
+                "amount": abs(amounts["amount"]),
+                "journal_id": payment_method.journal_id.id,
+                "force_outstanding_account_id": outstanding_account.id,
+                "destination_account_id": destination_account.id,
+                "ref": _("Combine %s POS payments from %s")
+                % (payment_method.name, self.name),
+                "pos_payment_method_id": payment_method.id,
+                "pos_session_id": self.id,
+            }
+        )
+
+        account_payment.action_post()
+        return account_payment.move_id.line_ids.filtered(
+            lambda line: line.account_id == account_payment.destination_account_id
         )

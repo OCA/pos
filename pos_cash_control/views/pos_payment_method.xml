@@ -9,10 +9,16 @@
         <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='receivable_account_id']" position="before">
+                <field name="type" invisible="1" />
+                <field
+                    name="journal_id"
+                    attrs="{'required': [('split_transactions', '=', False)]}"
+                    placeholder="Leave empty to use the receivable account of customer"
+                />
                 <field
                     name="outstanding_account_id"
                     groups="account.group_account_readonly"
-                    attrs="{'invisible': [('is_cash_count', '!=', 'bank')]}"
+                    attrs="{'invisible': [('type', '!=', 'bank')]}"
                     placeholder="Leave empty to use the default account from the company setting"
                 />
             </xpath>
