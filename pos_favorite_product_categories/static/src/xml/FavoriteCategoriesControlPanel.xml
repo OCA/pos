@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="FavoriteCategoriesControlPanel" owl="1">
+        <div class="products-widget-control">
+            <t t-if="!props.hasNoCategories and props.subcategories.length > 0">
+                <div
+                    class="rightpane-header favorite-categories-bar"
+                    t-att-class="{
+                    'green-border-bottom': !env.pos.config.iface_display_categ_images,
+                    'grey-border-bottom': env.pos.config.iface_display_categ_images,
+                }"
+                >
+                    <t t-if="props.subcategories.length > 0 and !env.isMobile">
+                        <t
+                            t-foreach="props.subcategories"
+                            t-as="category"
+                            t-key="category.id"
+                        >
+                            <CategorySimpleButton category="category" />
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </div>
+    </t>
+</templates>
