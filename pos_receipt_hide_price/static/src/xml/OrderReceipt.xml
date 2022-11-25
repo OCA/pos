@@ -1,5 +1,5 @@
 <templates id="template" xml:space="preserve">
-  <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+  <t t-inherit="point_of_sale.OrderLinesReceipt" t-inherit-mode="extension" owl="1">
     <!-- Attributes position xpath only apply to first match for some reason: -->
     <!-- https://github.com/odoo/odoo/issues/23862 -->
     <!-- Simple price -->
@@ -31,7 +31,9 @@
         </div>
       </t>
     </xpath>
+  </t>
 
+  <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
     <!-- Tax included -->
     <xpath expr="//t[@t-if='!isTaxIncluded']/div[1]" position="attributes">
       <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
@@ -82,7 +84,10 @@
     </xpath>
 
     <!-- Total Taxes -->
-    <xpath expr="//t[@t-foreach='receipt.tax_details']/div" position="attributes">
+    <xpath
+            expr="//t[@t-if='isTaxIncluded']/t[@t-foreach='receipt.tax_details']/div"
+            position="attributes"
+        >
       <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
     </xpath>
     <xpath expr="//t[@t-if='isTaxIncluded']/div" position="attributes">
