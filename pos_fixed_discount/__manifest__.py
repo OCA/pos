@@ -3,7 +3,7 @@
 {
     "name": "Point of Sale Fixed Discounts",
     "summary": "Allow to apply discounts with fixed amount",
-    "version": "14.0.1.0.1",
+    "version": "15.0.1.0.1",
     "development_status": "Beta",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
@@ -13,6 +13,12 @@
     "application": False,
     "installable": True,
     "depends": ["pos_discount"],
-    "data": ["views/pos_templates.xml"],
-    "qweb": ["static/src/xml/discount_templates.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_fixed_discount/static/src/js/FixedDiscountButton.js",
+        ],
+        "web.assets_qweb": [
+            "pos_fixed_discount/static/src/xml/**/*",
+        ],
+    },
 }
