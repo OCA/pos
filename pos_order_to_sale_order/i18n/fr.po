@@ -10,7 +10,6 @@ msgstr ""
 "PO-Revision-Date: 2022-10-07 17:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -97,8 +96,8 @@ msgstr "Annuler"
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed Sale "
-"Order, based on the current draft PoS Order."
+"If checked, the cashier will have the possibility to create a confirmed Sale"
+" Order, based on the current draft PoS Order."
 msgstr ""
 "En cochant la case, le caissier aura la possibilité de créer une vente "
 "confirmée, à partir du ticket de caisse en cours."
@@ -107,8 +106,7 @@ msgstr ""
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed sale "
-"Order, based on the current draft PoS Order.\n"
+"If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
 " the according picking will be marked as delivered.\n"
 " The Invoice will be generated and confirm.\n"
 " Only invoice payment process will be possible."
@@ -118,15 +116,11 @@ msgstr ""
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed sale "
-"Order, based on the current draft PoS Order.\n"
-" the according picking will be marked as delivered. Only invoices process "
-"will be possible."
+"If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered. Only invoices process will be possible."
 msgstr ""
-"En cochant la case, le caissier aura la possibilité de créer une vente "
-"confirmée, à partir du ticket de caisse en cours.\n"
-" Le bon de livraison correspondant sera marqué comme livré. Seul le "
-"processus de facturation sera possible."
+"En cochant la case, le caissier aura la possibilité de créer une vente confirmée, à partir du ticket de caisse en cours.\n"
+" Le bon de livraison correspondant sera marqué comme livré. Seul le processus de facturation sera possible."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
