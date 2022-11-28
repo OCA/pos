@@ -19,7 +19,7 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Confirmed Sale Order"
@@ -32,7 +32,7 @@ msgid "Create Confirmed Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Delivered Sale Order"
@@ -45,7 +45,7 @@ msgid "Create Delivered Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Draft Sale Order"
@@ -58,7 +58,7 @@ msgid "Create Draft Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Invoiced Sale Order"
@@ -71,7 +71,7 @@ msgid "Create Invoiced Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
@@ -84,7 +84,7 @@ msgid "Create Sale Orders"
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Discard"
@@ -125,6 +125,7 @@ msgid ""
 msgstr ""
 
 #. module: pos_order_to_sale_order
+#. odoo-python
 #: code:addons/pos_order_to_sale_order/models/sale_order.py:0
 #, python-format
 msgid "Point of Sale %s"
