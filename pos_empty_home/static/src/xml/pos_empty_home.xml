@@ -6,7 +6,12 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
-    <t t-inherit="point_of_sale.ProductList" t-inherit-mode="extension">
+    <t
+        t-name="ProductList"
+        t-inherit="point_of_sale.ProductList"
+        t-inherit-mode="extension"
+        owl="1"
+    >
         <xpath expr="//div[hasclass('product-list-empty')]" position="after">
             <p
                 t-if="props.products.length == 0 &amp;&amp; (!props.category || props.category.id == 0)"
