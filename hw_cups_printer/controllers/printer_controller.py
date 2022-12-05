@@ -1,7 +1,10 @@
-from odoo import http
+import logging
+
+from odoo import _, http
 from odoo.addons.hw_drivers.main import iot_devices
 from odoo.addons.hw_drivers.controllers.proxy import proxy_drivers
 
+_logger = logging.getLogger(__name__)
 
 @classmethod
 def get_status(cls):
@@ -17,10 +20,13 @@ while True:
 class PrinterController(http.Controller):
 
     @http.route('/hw_proxy/named_printer_action', type='json', auth='none', cors='*')
-    def default_printer_action(self, data):
-        if data.get('printer_name'):
-            printer = next((d for d in iot_devices if iot_devices[d].device_type == 'printer' and iot_devices[data.pop('printer_name')]), None)
-            if printer:
-                iot_devices[printer].action(data)
-                return True
-        return False
+    def named_printer_action(self, data):
+        _logger.info(_("Receive a new print job: name {}".format(data.get('printer_name'))))
+        printer = data.get('printer_name')
+        if printer:
+            _logger.info(_("Printing to named printer {}".format(printer)))
+            iot_devices[printer].action(data)
+            return True
+        else:
+            _logger.info(_("Fallback to default printer {}".format(printer)))
+            return self.default_printer_action(data)
