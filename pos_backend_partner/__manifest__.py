@@ -8,7 +8,7 @@
     "summary": "Choose point of sale customers in backend",
     "version": "10.0.1.0.2",
     "category": "Point of sale",
-    "website": "http://www.akretion.com",
+    "website": "https://github.com/OCA/pos",
     'author': "Akretion,Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,

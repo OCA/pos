@@ -12,6 +12,7 @@
               "Odoo Community Association (OCA)",
     'summary': 'Margin on PoS Order',
     'license': 'AGPL-3',
+    'website': 'https://github.com/OCA/pos',
     'depends': [
         'point_of_sale',
     ],

@@ -11,6 +11,7 @@
               "Odoo Community Association (OCA)",
     'summary': 'Pricelist for Point of sale',
     'license': 'LGPL-3',
+    'website': 'https://github.com/OCA/pos',
     'post_init_hook': 'post_init_hook',
     'depends': [
         "point_of_sale",

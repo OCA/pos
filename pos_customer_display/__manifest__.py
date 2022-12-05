@@ -10,6 +10,7 @@
     'summary': 'Manage Customer Display device from POS front end',
     'author': "Aurélien DUMAINE,Akretion,Odoo Community Association (OCA)",
     'license': 'AGPL-3',
+    'website': 'https://github.com/OCA/pos',
     'depends': ['point_of_sale'],
     'data': [
         'views/pos_customer_display.xml',

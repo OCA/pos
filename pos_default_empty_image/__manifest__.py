@@ -7,7 +7,7 @@
     'category': 'Point Of Sale',
     'summary': 'Optimize loading time for products without image',
     'author': "Akretion, GRAP, Odoo Community Association (OCA)",
-    'website': "https://akretion.com",
+    'website': "https://github.com/OCA/pos",
     'license': 'AGPL-3',
     'depends': [
         'point_of_sale',

@@ -29,7 +29,7 @@
     'depends': [
         'point_of_sale',
     ],
-    'website': 'https://www.akretion.com',
+    'website': 'https://github.com/OCA/pos',
     'data': [
         'view/pos_order_load.xml',
     ],

@@ -11,7 +11,7 @@
     'author': "OpenERP SA, "
               "RGB Consulting SL, "
               "Odoo Community Association (OCA)",
-    'website': "https://odoo-community.org/",
+    'website': "https://github.com/OCA/pos",
     'depends': ['point_of_sale'],
 
     'data': [

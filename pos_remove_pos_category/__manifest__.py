@@ -11,7 +11,7 @@
         'point_of_sale',
     ],
     'demo': [],
-    'website': 'https://www.akretion.com',
+    'website': 'https://github.com/OCA/pos',
     'data': [
         'views/assets.xml',
         'views/pos_view.xml',
