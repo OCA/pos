@@ -19,8 +19,8 @@ msgstr ""
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:79
 #, python-format
-msgid " (Refund Order: %s ; Resale Order: %s)"
-msgstr " (Orden de reembolso: %s ; Orden de reventa: %s)"
+msgid " (Refund Order: %(refund_order)s ; Resale Order: %(resale_order)s)"
+msgstr " (Orden de reembolso: %(refund_order)s ; Orden de reventa: %(resale_order)s)"
 
 #. module: pos_payment_change
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_pos_config_form
@@ -69,17 +69,17 @@ msgstr "Creado el"
 #: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
 #, python-format
 msgid ""
-"Differences between the two values for the POS Order '%s':\n"
+"Differences between the two values for the POS Order '%(name)s':"
 "\n"
-" * Total of all the new payments %s;\n"
-" * Total of the POS Order %s;\n"
+" * Total of all the new payments %(total)s;"
+" * Total of the POS Order %(amount_total)s;"
 "\n"
 "Please change the payments."
 msgstr ""
-"Diferencias entre los dos valores para la orden PdV '%s':\n"
+"Diferencias entre los dos valores para la orden PdV '%(name)s':\n"
 "\n"
-"  * Total de todos los nuevos pagos %s;\n"
-"  * Total del pedido del punto de venta %s;\n"
+"  * Total de todos los nuevos pagos %(total)s;\n"
+"  * Total del pedido del punto de venta %(amount_total)s;\n"
 "\n"
 "Por favor cambie los pagos."
 
@@ -199,8 +199,8 @@ msgstr "Reembolso y reventa"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:43
 #, python-format
-msgid "The payments of the Order %s (Ref: %s) has been changed by %s at %s."
-msgstr "Los pagos de la orden %s (Ref: %s) han sido modificados por %s en %s."
+msgid "The payments of the Order %(order)s (Ref: %(ref)s have been changed by %(user_name)s on %(today)s"
+msgstr "Los pagos de la orden %(order)s (Ref: %(ref)s) han sido modificados por %(user_name)s en %(today)s."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
@@ -239,8 +239,8 @@ msgstr "Asistente"
 #: code:addons/pos_payment_change/models/pos_order.py:97
 #, python-format
 msgid ""
-"You can not change payments of the POS '%s' because the associated session "
-"'%s' has been closed!"
+"You can not change payments of the POS '%(name)s' because the associated session "
+"'%(session)s' has been closed!"
 msgstr ""
-"¡No puede cambiar los pagos del PdV '%s' porque la sesión asociada '%s' se "
+"¡No puede cambiar los pagos del PdV '%(name)s' porque la sesión asociada '%(session)s' se "
 "ha cerrado!"
