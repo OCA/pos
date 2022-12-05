@@ -6,7 +6,7 @@
 {
     "name": "POS Backend Customer",
     "summary": "Choose point of sale customers in backend",
-    "version": "10.0.1.0.2",
+    "version": "10.0.1.0.3",
     "category": "Point of sale",
     "website": "https://github.com/OCA/pos",
     'author': "Akretion,Odoo Community Association (OCA)",
