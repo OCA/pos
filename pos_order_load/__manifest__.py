@@ -22,7 +22,7 @@
 
 {
     'name': 'POS Order Load and Save',
-    'version': '10.0.1.0.1',
+    'version': '10.0.1.0.2',
     'author': 'Akretion,GRAP,Odoo Community Association (OCA)',
     'category': 'Point Of Sale',
     'license': 'AGPL-3',
