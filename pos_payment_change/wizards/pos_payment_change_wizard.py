@@ -66,11 +66,13 @@ class PosPaymentChangeWizard(models.TransientModel):
             raise UserError(
                 _(
                     "Differences between the two values for the POS"
-                    " Order '%s':\n\n"
-                    " * Total of all the new payments %s;\n"
-                    " * Total of the POS Order %s;\n\n"
-                    "Please change the payments."
-                    % (order.name, total, order.amount_total)
+                    " Order '%(name)s':\n\n"
+                    " * Total of all the new payments %(total)s;\n"
+                    " * Total of the POS Order %(amount_total)s;\n\n"
+                    "Please change the payments.",
+                    name=order.name,
+                    total=total,
+                    amount_total=order.amount_total,
                 )
             )
 
