@@ -12,7 +12,7 @@
               "RGB Consulting SL, "
               "Lambda IS, "
               "Odoo Community Association (OCA)",
-    'website': "https://odoo-community.org/",
+    'website': "https://github.com/OCA/pos",
     'depends': ['point_of_sale'],
     'demo': [
         'demo/templates.xml',
