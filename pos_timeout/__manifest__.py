@@ -7,7 +7,7 @@
 {
     "name": "Point of Sale - timeout",
     "summary": "Set the timeout of the point of sale",
-    "version": "10.0.1.0.0",
+    "version": "10.0.1.0.1",
     "category": "Point Of sale",
     "website": "https://github.com/OCA/pos",
     "author": "GRAP, Odoo Community Association (OCA)",
