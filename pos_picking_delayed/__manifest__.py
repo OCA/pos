@@ -4,7 +4,7 @@
 {
     'name': 'Point of Sale - Picking Creation Delayed',
     'summary': 'Delay the creation of the picking when PoS order is created',
-    'version': '11.0.1.0.0',
+    'version': '11.0.1.0.1',
     'development_status': "Production/Stable",
     'category': 'Point Of Sale',
     'author': 'GRAP, '
