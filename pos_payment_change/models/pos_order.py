@@ -35,14 +35,12 @@ class PosOrder(models.Model):
         self._check_payment_change_allowed()
 
         comment = _(
-            "The payments of the Order %s (Ref: %s) has been changed"
-            " by %s at %s."
-            % (
-                self.name,
-                self.pos_reference,
-                self.env.user.name,
-                datetime.today(),
-            )
+            "The payments of the Order %(order)s (Ref: %(ref)s have"
+            " been changed by %(user_name)s on %(today)s",
+            order=self.name,
+            ref=self.pos_reference,
+            user_name=self.env.user.name,
+            today=datetime.today(),
         )
 
         if self.config_id.payment_change_policy == "update":
@@ -79,9 +77,11 @@ class PosOrder(models.Model):
 
             orders += refund_order + resale_order
             comment += _(
-                " (Refund Order: %s ; Resale Order: %s)"
-                % (refund_order.name, resale_order.name)
+                " (Refund Order: %(refund_order)s ; Resale Order: %(resale_order)s)",
+                refund_order=refund_order.name,
+                resale_order=resale_order.name,
             )
+
         for order in orders:
             order.note = "%s\n%s" % (order.note or "", comment)
         return orders
@@ -93,11 +93,9 @@ class PosOrder(models.Model):
         if len(closed_orders):
             raise UserError(
                 _(
-                    "You can not change payments of the POS '%s' because"
-                    " the associated session '%s' has been closed!"
-                    % (
-                        ", ".join(closed_orders.mapped("name")),
-                        ", ".join(closed_orders.mapped("session_id.name")),
-                    )
+                    "You can not change payments of the POS '%(name)s' because"
+                    " the associated session '%(session)s' has been closed!",
+                    name=", ".join(closed_orders.mapped("name")),
+                    session=", ".join(closed_orders.mapped("session_id.name")),
                 )
             )
