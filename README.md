@@ -21,18 +21,18 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_cashier_login](pos_cashier_login/) | 11.0.0.1.0 | [![kirca](https://github.com/kirca.png?size=30px)](https://github.com/kirca) | Require for cashier to sign in before each sale
+[pos_cashier_login](pos_cashier_login/) | 11.0.0.1.1 | [![kirca](https://github.com/kirca.png?size=30px)](https://github.com/kirca) | Require for cashier to sign in before each sale
 [pos_config_show_accounting](pos_config_show_accounting/) | 11.0.1.0.0 |  | Always display accounting settings in POS Config
 [pos_default_payment_method](pos_default_payment_method/) | 11.0.1.0.1 |  | POS Default payment method
-[pos_fix_search_limit](pos_fix_search_limit/) | 11.0.1.0.0 |  | Increase search in the PoS
+[pos_fix_search_limit](pos_fix_search_limit/) | 11.0.1.0.1 |  | Increase search in the PoS
 [pos_lot_selection](pos_lot_selection/) | 11.0.1.0.0 |  | POS Lot Selection
-[pos_loyalty](pos_loyalty/) | 11.0.1.0.0 |  | Loyalty Program
-[pos_margin](pos_margin/) | 11.0.1.0.0 |  | Margin on PoS Order
+[pos_loyalty](pos_loyalty/) | 11.0.1.0.1 |  | Loyalty Program
+[pos_margin](pos_margin/) | 11.0.1.0.1 |  | Margin on PoS Order
 [pos_order_mgmt](pos_order_mgmt/) | 11.0.1.0.4 |  | Manage old POS Orders from the frontend
-[pos_order_return](pos_order_return/) | 11.0.1.0.0 |  | Point of Sale Order Return
-[pos_payment_entries_globalization](pos_payment_entries_globalization/) | 11.0.1.0.0 |  | Globalize POS Payment
-[pos_picking_delayed](pos_picking_delayed/) | 11.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Delay the creation of the picking when PoS order is created
-[pos_price_to_weight](pos_price_to_weight/) | 11.0.1.0.0 |  | Compute weight based on barcodes with prices
+[pos_order_return](pos_order_return/) | 11.0.1.0.1 |  | Point of Sale Order Return
+[pos_payment_entries_globalization](pos_payment_entries_globalization/) | 11.0.1.0.1 |  | Globalize POS Payment
+[pos_picking_delayed](pos_picking_delayed/) | 11.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Delay the creation of the picking when PoS order is created
+[pos_price_to_weight](pos_price_to_weight/) | 11.0.1.0.1 |  | Compute weight based on barcodes with prices
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 11.0.1.0.1 |  | Pay and receive invoices from PoS Session
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 11.0.1.0.0 |  | POS Stock Picking Invoice Link
 [pos_ticket_logo](pos_ticket_logo/) | 11.0.1.0.0 |  | Pos Ticket Logo
