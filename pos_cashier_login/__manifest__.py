@@ -4,7 +4,7 @@
     'category': 'Point Of Sale',
     'author': 'Lambda IS, '
               'Odoo Community Association (OCA)',
-    'website': 'https://odoo-community.org/',
+    'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'summary': 'Require for cashier to sign in before each sale',
     'version': '11.0.0.1.0',
