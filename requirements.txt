@@ -1,1 +1,2 @@
-oca.decorators
+# generated from manifests external_dependencies
+oca-decorators

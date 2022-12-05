@@ -9,7 +9,7 @@
     'description': 'Show product Brand in pos order report',
     'category': 'Point Of Sale',
     'author': 'PlanetaTIC, Odoo Community Association (OCA)',
-    'website': 'https://www.github.com/OCA/pos',
+    'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'application': False,
     'installable': True,
