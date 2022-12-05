@@ -37,7 +37,7 @@ class TestModule(TransactionCase):
                 "name": "Cash",
                 "is_cash_count": True,
                 "receivable_account_id": account_id.id,
-                "cash_journal_id": self.env["account.journal"]
+                "journal_id": self.env["account.journal"]
                 .search(
                     [("type", "=", "cash"), ("company_id", "=", self.env.company.id)],
                     limit=1,

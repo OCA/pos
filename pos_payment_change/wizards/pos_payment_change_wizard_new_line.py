@@ -31,7 +31,6 @@ class PosPaymentChangeWizardLine(models.TransientModel):
     )
 
     amount = fields.Monetary(
-        string="Amount",
         required=True,
         default=0.0,
         currency_field="company_currency_id",
