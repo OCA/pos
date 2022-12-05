@@ -26,7 +26,7 @@ repos:
       - id: oca-fix-manifest-website
         args: ["https://github.com/OCA/pos"]
   - repo: https://github.com/acsone/setuptools-odoo
-    rev: 3.0.6
+    rev: 3.1.8
     hooks:
       - id: setuptools-odoo-make-default
       - id: setuptools-odoo-get-requirements
