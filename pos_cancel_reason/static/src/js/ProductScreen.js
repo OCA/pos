@@ -8,15 +8,19 @@ odoo.define("pos_cancel_reason.ProductScreen", function (require) {
         class extends ProductScreen {
             async _setValue(val) {
                 if (this.state.numpadMode === "quantity") {
+                    // Avoids the need to double click to remove an orderline with zero quantity
+                    const selectedOrderline = this.currentOrder.get_selected_orderline();
+                    if (val === "" && selectedOrderline.quantity === 0) {
+                        arguments[0] = "remove";
+                    }
+
                     let val_parsed = 0;
                     if (parseFloat(val)) {
                         val_parsed = parseFloat(val);
                     }
                     if (this.env.pos.config.reason_to_cancel) {
-                        const selected_orderline = this.env.pos.get_order()
-                            .selected_orderline;
-                        const compared_qty = selected_orderline
-                            ? val_parsed <= selected_orderline.quantity
+                        const compared_qty = selectedOrderline
+                            ? val_parsed <= selectedOrderline.quantity
                             : false;
                         // TODO: Use delayed time for not ask for password
                         if (compared_qty) {
@@ -38,12 +42,12 @@ odoo.define("pos_cancel_reason.ProductScreen", function (require) {
                                 list: cancel_reason_options,
                             });
                             if (confirmed) {
-                                const diffecence =
-                                    selected_orderline.quantity - val_parsed;
+                                const difference =
+                                    selectedOrderline.quantity - val_parsed;
                                 this.env.pos
                                     .get_order()
                                     .save_cancelled_orderlines_info(
-                                        diffecence,
+                                        difference,
                                         selectedOption
                                     );
                                 super._setValue(...arguments);
