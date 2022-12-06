@@ -25,6 +25,8 @@ class PosOrder(models.Model):
             order_fields["cancel_reason_id"] = ui_order.get("cancel_reason_id")
         if ui_order.get("state") and ui_order["state"] == "cancel":
             order_fields["state"] = ui_order.get("state")
+            session = self.env["pos.session"].browse(order_fields["session_id"])
+            order_fields["name"] = session.config_id.sequence_id._next()
         return order_fields
 
     @api.model
