@@ -2,7 +2,7 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
     "use strict";
 
     const PosComponent = require("point_of_sale.PosComponent");
-    const Registries = require("point_of_sale.Registries");
+    const NumberBuffer = require("point_of_sale.NumberBuffer");
 
     PosComponent.prototype.trigger = async function (eventType, payload) {
         if (
@@ -31,6 +31,7 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
                     let permission = false;
 
                     for (const i in managers) {
+                        // eslint-disable-next-line
                         if (managers[i].pin == Sha1.hash(inputPin)) {
                             permission = true;
                             break;
@@ -62,6 +63,8 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
                     if (access_right.permission == "allowed") {
                         this.__trigger(this, eventType, payload);
                     } else if (access_right.permission == "partially_allowed") {
+                        const numpad_buffer = NumberBuffer.get();
+
                         const {confirmed, payload: inputPin} = await this.showPopup(
                             "NumberPopup",
                             {
@@ -79,6 +82,7 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
                         let permission = false;
 
                         for (const i in managers) {
+                            // eslint-disable-next-line
                             if (managers[i].pin == Sha1.hash(inputPin)) {
                                 permission = true;
                                 break;
@@ -86,6 +90,17 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
                         }
 
                         if (permission) {
+                            // In the case of using access permission for functionalities
+                            // that also involve the use of NumberBuffer,
+                            // it is possible that there is a buffer conflict.
+                            const currentOrder = this.env.pos.get_order();
+                            if (currentOrder && currentOrder.get_selected_orderline()) {
+                                const orderline = currentOrder.get_selected_orderline();
+                                if (numpad_buffer == "" && orderline.quantity !== 0) {
+                                    NumberBuffer.reset();
+                                }
+                            }
+
                             this.__trigger(this, eventType, payload);
                         } else {
                             await this.showPopup("ErrorPopup", {
