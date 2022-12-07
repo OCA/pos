@@ -1,8 +1,8 @@
 odoo.define("pos_openreplay.OpenReplay", function (require) {
     "use strict";
 
-    var core = require("web.Core");
-    var models = require("point_of_sale.models");
+    const core = require("web.core");
+    const models = require("point_of_sale.models");
 
     const OpenReplay = core.Class.extend({
         init: function (options) {
@@ -18,9 +18,7 @@ odoo.define("pos_openreplay.OpenReplay", function (require) {
                 metadata: {
                     cashier: "",
                     session: "",
-                    cashier_role: "",
                     cashier_id: "",
-                    company_id: options.company_id[0],
                 },
             };
             (function (A, s, a, y, e, r) {
@@ -66,24 +64,20 @@ odoo.define("pos_openreplay.OpenReplay", function (require) {
         },
     });
 
-    var _super_pos_model = models.PosModel.prototype;
+    const _posmodelproto = models.PosModel.prototype;
     models.PosModel = models.PosModel.extend({
         after_load_server_data: function () {
-            _super_pos_model.after_load_server_data.call(this);
+            _posmodelproto.after_load_server_data.call(this);
             if (this.config.open_replay_active) {
                 new OpenReplay(this.config);
                 this.bind("change:cashier", () => {
-                    window.OpenReplay.setMetadata(
-                        "cashier",
-                        this.env.pos.get_cashier().name
-                    );
-                    window.OpenReplay.setMetadata("session", this.env.session.name);
+                    window.OpenReplay.setMetadata("cashier", this.get_cashier().name);
+                    window.OpenReplay.setMetadata("session", this.session.name);
                     window.OpenReplay.setMetadata("cashier_id", this.get_cashier().id);
                 });
             }
         },
     });
-    return {
-        OpenReplay: OpenReplay,
-    };
+
+    return {OpenReplay};
 });
