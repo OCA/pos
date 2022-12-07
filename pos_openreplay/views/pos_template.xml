@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <template
-            id="pos_openreplay_assets_backend"
-            name="pos_openreplay_assets_backend"
-            inherit_id="point_of_sale.assets"
-        >
+        <template id="assets" inherit_id="point_of_sale.assets">
             <xpath expr="." position="inside">
                 <script
                     type="text/javascript"
