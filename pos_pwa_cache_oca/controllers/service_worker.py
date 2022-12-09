@@ -64,17 +64,29 @@ class ServiceWorkerCache(ServiceWorker):
               }}
             }});
             async function staleWhileRevalidate(event) {{
-              let promise = null;
-              let cachedResponse = await getCache(event.request.clone());
-              let fetchResponse = null;
-              try {{
-                fetchResponse = await fetch(event.request.clone());
-                setCache(event.request.clone(), fetchResponse.clone());
-              }} catch (err) {{
-                fetchResponse = null
+              let isPosRequest = event.request.referrer.includes('pos/ui');
+              let CacheableRoutes = ['webclient/version_info', '/get_param', '/read', '/search_read', '/get_real_tax_amount', '/get_barcodes_and_pin_hashed'];
+              let isCacheableRoute = false;
+              for (var route of CacheableRoutes) {{
+                if (event.request.url.includes(route)) {{
+                    isCacheableRoute = true;
+                }}
+              }}
+              if (isPosRequest && isCacheableRoute) {{
+                let promise = null;
+                let cachedResponse = await getCache(event.request.clone());
+                let fetchResponse = null;
+                try {{
+                    fetchResponse = await fetch(event.request.clone());
+                    setCache(event.request.clone(), fetchResponse.clone());
+                }} catch (err) {{
+                    fetchResponse = null
+                }}
+
+                return fetchResponse ? fetchResponse : Promise.resolve(cachedResponse);
               }}
 
-              return fetchResponse ? fetchResponse : Promise.resolve(cachedResponse);
+              return fetch(event.request.clone());
             }}
 
             async function serializeResponse(response) {{
