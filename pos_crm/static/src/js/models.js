@@ -91,11 +91,6 @@ odoo.define("pos_crm.models", function (require) {
                     if (partner) {
                         if (this.get_client() !== partner) {
                             this.set_client(partner);
-                            this.set_pricelist(
-                                _.findWhere(this.pos.pricelists, {
-                                    id: partner.property_product_pricelist[0],
-                                }) || this.pos.default_pricelist
-                            );
                         }
                         return true;
                     }
