@@ -30,7 +30,7 @@ class PosOrderItemsSalesReportXlxsWizard(models.TransientModel):
             LEFT JOIN pos_order po ON po.id = pol.order_id
             LEFT JOIN product_product pp ON pp.id = pol.product_id
             LEFT JOIN product_template pt ON pt.id = pp.product_tmpl_id
-            LEFT JOIN product_category pc ON pc.id = pt.pos_categ_id
+            LEFT JOIN pos_category pc ON pc.id = pt.pos_categ_id
             WHERE po.id IN (SELECT id FROM pos_order WHERE session_id IN (
             SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
             AND start_at <= '{self.date_end} 23:59:59') AND state IN ('paid', 'done'))
