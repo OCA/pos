@@ -33,7 +33,7 @@ class PosOrderItemsSalesReportXlxsWizard(models.TransientModel):
             LEFT JOIN product_category pc ON pc.id = pt.pos_categ_id
             WHERE po.id IN (SELECT id FROM pos_order WHERE session_id IN (
             SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
-            AND start_at <= '{self.date_end} 23:59:59') AND  state = 'paid' OR state = 'done')
+            AND start_at <= '{self.date_end} 23:59:59') AND state IN ('paid', 'done'))
             ORDER BY po.name;
         """
 
