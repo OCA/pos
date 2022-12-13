@@ -61,7 +61,8 @@ odoo.define("pos_payment_terminal.models", function (require) {
             var vals = _paymentlineproto.export_as_JSON.apply(this, arguments);
             vals.terminal_transaction_id = this.terminal_transaction_id;
             vals.terminal_transaction_success = this.terminal_transaction_success;
-            vals.terminal_transaction_status_details = this.terminal_transaction_status_details;
+            vals.terminal_transaction_status_details =
+                this.terminal_transaction_status_details;
             return vals;
         },
     });

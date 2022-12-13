@@ -100,7 +100,8 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                 // complete on the terminal.
                 var status_params = {};
                 if (this.payment_method.oca_payment_terminal_id) {
-                    status_params.terminal_id = this.payment_method.oca_payment_terminal_id;
+                    status_params.terminal_id =
+                        this.payment_method.oca_payment_terminal_id;
                 }
                 this.pos.proxy.connection
                     .rpc("/hw_proxy/status_json", status_params, {
