@@ -5,7 +5,7 @@
 
 {
     "name": "POS Payment Terminal",
-    "version": "14.0.2.1.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of sale: support generic payment terminal",
     "author": (
@@ -20,7 +20,12 @@
     "depends": ["point_of_sale"],
     "data": [
         "views/pos_payment_method.xml",
-        "views/assets.xml",
     ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_payment_terminal/static/src/js/payment_terminal.js",
+            "pos_payment_terminal/static/src/js/models.js",
+        ],
+    },
     "installable": True,
 }

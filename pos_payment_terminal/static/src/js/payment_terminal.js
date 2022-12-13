@@ -103,7 +103,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
                     status_params.terminal_id =
                         this.payment_method.oca_payment_terminal_id;
                 }
-                this.pos.proxy.connection
+                this.pos.env.proxy.connection
                     .rpc("/hw_proxy/status_json", status_params, {
                         shadow: true,
                         timeout: 1000,
@@ -167,7 +167,7 @@ odoo.define("pos_payment_terminal.payment", function (require) {
         },
 
         _oca_payment_terminal_proxy_request: function (data) {
-            return this.pos.proxy
+            return this.pos.env.proxy
                 .message("payment_terminal_transaction_start", {
                     payment_info: JSON.stringify(data),
                 })
