@@ -104,6 +104,7 @@ odoo.define("pos_cancel_reason.ProductScreen", function (require) {
                                 this.env.pos
                                     .get_order()
                                     .save_cancelled_orderlines_info(
+                                        selectedOrderline,
                                         difference,
                                         selectedOption
                                     );

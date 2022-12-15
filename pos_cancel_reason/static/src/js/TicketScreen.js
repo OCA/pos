@@ -23,7 +23,8 @@ odoo.define("pos_cancel_reason.TicketScreen", function (require) {
                             title: this.env._t("Existing orderlines"),
                             body: _.str.sprintf(
                                 this.env._t(
-                                    "%s has a total amount of %s, are you sure you want to delete this order ?"
+                                    "%s has a total amount of %s, are you sure " +
+                                        "you want to delete this order ?"
                                 ),
                                 order.name,
                                 this.getTotal(order)
@@ -51,6 +52,16 @@ odoo.define("pos_cancel_reason.TicketScreen", function (require) {
                         });
                         if (confirmed) {
                             order.cancel_reason_id = selectedOption.id;
+                            const orderlines = order.get_orderlines();
+                            const copyOrderlines = [...orderlines];
+                            for (const lineId of copyOrderlines) {
+                                order.save_cancelled_orderlines_info(
+                                    lineId,
+                                    lineId.quantity,
+                                    selectedOption
+                                );
+                                order.remove_orderline(lineId);
+                            }
                             order.state = "cancel";
                             await this.env.pos.push_single_order(order);
                             await this._canDeleteOrder(order);

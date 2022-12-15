@@ -44,14 +44,13 @@ odoo.define("pos_cancel_reason.models", function (require) {
             this.state = json.state;
             this.cancel_reason_id = json.cancel_reason_id;
         },
-        save_cancelled_orderlines_info: function (diffecence, reason) {
-            const line = this.selected_orderline;
+        save_cancelled_orderlines_info: function (line, difference, reason) {
             const cancelled_orderline_object = {
                 order_id: this.name,
                 product_id: line.product.id,
                 price_unit: line.price,
-                qty: diffecence,
-                price_subtotal: diffecence * line.price,
+                qty: difference,
+                price_subtotal: difference * line.price,
                 cancel_reason_id: reason.id,
                 cancelled_at: new moment().utc().format(),
             };

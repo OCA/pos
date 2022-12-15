@@ -23,10 +23,6 @@ class PosOrder(models.Model):
         order_fields = super(PosOrder, self)._order_fields(ui_order)
         if ui_order.get("cancel_reason_id"):
             order_fields["cancel_reason_id"] = ui_order.get("cancel_reason_id")
-        if ui_order.get("state") and ui_order["state"] == "cancel":
-            order_fields["state"] = ui_order.get("state")
-            session = self.env["pos.session"].browse(order_fields["session_id"])
-            order_fields["name"] = session.config_id.sequence_id._next()
         return order_fields
 
     @api.model
@@ -36,6 +32,11 @@ class PosOrder(models.Model):
             for cancelled_item in order["data"]["cancelled_orderlines"]:
                 if cancelled_item:
                     self.env["pos.order.line.cancelled"].cancel_from_ui(cancelled_item)
+            if order["data"]["state"] == "cancel":
+                pos_order = self.env["pos.order"].search(
+                    [("pos_reference", "=", order["data"]["name"])]
+                )
+                pos_order.write({"state": "cancel"})
         return orders_ids
 
     def unlink(self):
