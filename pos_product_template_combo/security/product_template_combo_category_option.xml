@@ -9,7 +9,20 @@
     >
         <field name="name">product.template.combo.category.option access user</field>
         <field name="model_id" ref="model_product_template_combo_category_option" />
-        <field name="group_id" ref="base.group_user" />
+        <field name="group_id" ref="point_of_sale.group_pos_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record
+        model="ir.model.access"
+        id="product_template_combo_category_option_access_manager"
+    >
+        <field name="name">product.template.combo.category.option access manager</field>
+        <field name="model_id" ref="model_product_template_combo_category_option" />
+        <field name="group_id" ref="point_of_sale.group_pos_manager" />
         <field name="perm_read" eval="1" />
         <field name="perm_create" eval="1" />
         <field name="perm_write" eval="1" />
