@@ -23,7 +23,7 @@ class PosOrderItemsSalesReportXlxsWizard(models.TransientModel):
 
     def get_sql(self):
         return f"""
-            SELECT po.name, pp.default_code, pt.name, pc.name, pol.qty, pol.price_unit,
+            SELECT po.name, pp.default_code, pol.full_product_name, pc.name, pol.qty, pol.price_unit,
             (pol.price_unit * (pol.discount / 100)) AS discount,
             (pol.qty * pol.price_unit) * (100 - pol.discount) / 100 AS venda_liquida
             FROM pos_order_line pol
