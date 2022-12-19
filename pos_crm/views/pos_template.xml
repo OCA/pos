@@ -30,6 +30,10 @@
                     type="text/javascript"
                     src="/pos_crm/static/src/js/Screens/OrderFetcher.js"
                 />
+                <script
+                    type="text/javascript"
+                    src="/pos_crm/static/src/js/Misc/NumberBuffer.js"
+                />
             </xpath>
         </template>
 
