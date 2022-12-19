@@ -12,6 +12,7 @@ setuptools.setup(
         'odoo14-addon-pos_backend_communication',
         'odoo14-addon-pos_cash_move_reason',
         'odoo14-addon-pos_customer_required',
+        'odoo14-addon-pos_customer_tree_view_vat',
         'odoo14-addon-pos_default_partner',
         'odoo14-addon-pos_disable_pricelist_selection',
         'odoo14-addon-pos_edit_order_line',
