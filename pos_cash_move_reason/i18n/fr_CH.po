@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_cash_move_reason
+# 	* pos_cash_move_reason
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Put</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Put</span>\n"
 "                        <span class=\"o_stat_text\">Money In</span>"
 msgstr ""
 "<span class=\"o_stat_text\">Mettre</span>\n"
@@ -26,7 +27,8 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Take</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Take</span>\n"
 "                        <span class=\"o_stat_text\">Money Out</span>"
 msgstr ""
 "<span class=\"o_stat_text\">Retirer</span>\n"
@@ -129,7 +131,7 @@ msgid "Income Account"
 msgstr "Compte de revenus"
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:67
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "Invalid Amount"
 msgstr "Montant invalide"
@@ -181,8 +183,8 @@ msgstr "Motifs de mouvement d'argent"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_type
-msgid "Move type"
-msgstr "Type de mouvement"
+msgid "Move Type"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__name
@@ -206,7 +208,7 @@ msgid "Point of Sale Session"
 msgstr "Session du point de vente"
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__income
 msgid "Put Money In"
 msgstr "Mettre de l'argent"
 
@@ -216,7 +218,7 @@ msgid "Reason"
 msgstr "Motif"
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
 msgstr "Retirer de l'argent"
 
@@ -225,3 +227,6 @@ msgstr "Retirer de l'argent"
 msgid "Use Old PoS 'Put or Take Money' Actions"
 msgstr ""
 "Utiliser la fonctionnalité obsolète du PdV Mettre ou Prendre de l'argent"
+
+#~ msgid "Move type"
+#~ msgstr "Type de mouvement"

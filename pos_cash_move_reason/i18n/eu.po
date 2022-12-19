@@ -128,7 +128,7 @@ msgid "Income Account"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:67
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "Invalid Amount"
 msgstr ""
@@ -180,7 +180,7 @@ msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_type
-msgid "Move type"
+msgid "Move Type"
 msgstr ""
 
 #. module: pos_cash_move_reason
@@ -205,7 +205,7 @@ msgid "Point of Sale Session"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__income
 msgid "Put Money In"
 msgstr ""
 
@@ -215,7 +215,7 @@ msgid "Reason"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
 msgstr ""
 
