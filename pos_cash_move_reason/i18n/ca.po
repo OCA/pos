@@ -134,7 +134,7 @@ msgid "Income Account"
 msgstr "Compte d'ingressos"
 
 #. module: pos_cash_move_reason
-#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:67
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "Invalid Amount"
 msgstr "Import no vàlid"
@@ -186,8 +186,8 @@ msgstr "Motius de moviment"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_type
-msgid "Move type"
-msgstr "Tipus de moviment"
+msgid "Move Type"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__name
@@ -211,7 +211,7 @@ msgid "Point of Sale Session"
 msgstr "Sessió Punt de Venda"
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__income
 msgid "Put Money In"
 msgstr "Posa diners"
 
@@ -221,7 +221,7 @@ msgid "Reason"
 msgstr "Raó"
 
 #. module: pos_cash_move_reason
-#: selection:wizard.pos.move.reason,move_type:0
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
 msgstr "Treu diners"
 
@@ -229,6 +229,9 @@ msgstr "Treu diners"
 #: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
 msgid "Use Old PoS 'Put or Take Money' Actions"
 msgstr "Utilitzeu les antigues accions de PoS \"Posar o treure diners\""
+
+#~ msgid "Move type"
+#~ msgstr "Tipus de moviment"
 
 #~ msgid "Description"
 #~ msgstr "Descripció"
