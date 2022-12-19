@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_wizard_pos_move_reason_form" model="ir.ui.view">
+        <field name="model">wizard.pos.move.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <separator
+                    string="Fill in this form if you put money in the cash register"
+                    attrs="{'invisible': [('move_type', '=', 'expense')]}"
+                />
+                <separator
+                    string="Describe why you take money from the cash register"
+                    attrs="{'invisible': [('move_type', '=', 'income')]}"
+                />
+                <group>
+                    <field name="move_type" invisible="1" />
+                    <field name="session_id" />
+                    <field name="move_reason_id" />
+                    <field
+                        name="journal_id"
+                        attrs="{'invisible': [('move_reason_id', '=', False)]}"
+                    />
+                    <field name="statement_id" invisible="1" />
+                    <field name="journal_ids" invisible="1" />
+                    <field name="name" />
+                    <field name="amount" />
+                </group>
+                <footer>
+                    <button
+                        name="apply"
+                        string="Apply"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button class="btn-secondary" special="cancel" string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_wizard_pos_move_reason" model="ir.actions.act_window">
+        <field name="name">Move Reasons</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizard.pos.move.reason</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
