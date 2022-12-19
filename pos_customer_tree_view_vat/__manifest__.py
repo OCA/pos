@@ -4,7 +4,7 @@
 {
     "name": "Pos Vat Tree",
     "summary": """Point of Sale: Show VAT number at Customer Tree View""",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "license": "AGPL-3",
     "author": "KMEE,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
