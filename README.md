@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [pos_backend_communication](pos_backend_communication/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Communicate with odoo's backend from POS.
 [pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.1.0 |  | POS cash in-out reason
 [pos_customer_required](pos_customer_required/) | 14.0.1.0.0 |  | Point of Sale Require Customer
-[pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.0 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
+[pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.1 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 |  | Add a default customer in pos order
 [pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.1.0.1 |  | Disable Pricelist selection button in POS
 [pos_edit_order_line](pos_edit_order_line/) | 14.0.1.0.2 |  | POS Edit Order Line
