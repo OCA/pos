@@ -14,13 +14,13 @@ POS cash in-out reason
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/14.0/pos_cash_move_reason
+    :target: https://github.com/OCA/pos/tree/15.0/pos_cash_move_reason
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_cash_move_reason
+    :target: https://translation.odoo-community.org/projects/pos-15-0/pos-15-0-pos_cash_move_reason
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/14.0
+    :target: https://runbot.odoo-community.org/runbot/184/15.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -51,7 +51,7 @@ Configuration
 
 * Go to 'Point of Sale' / 'Configuration' / 'Move Reason'
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_cash_move_reason/static/description/pos_cash_move_tree.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_cash_move_reason/static/description/pos_cash_move_tree.png
    :alt: PoS Move Reasons List
 
 * Create or update your PoS move Reasons.
@@ -59,7 +59,7 @@ Configuration
   Cash Journal), and if it is a reason to 'put in' and / or to 'take out'
   Money.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_cash_move_reason/static/description/pos_cash_move_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_cash_move_reason/static/description/pos_cash_move_form.png
    :alt: PoS Move Reason
 
 **Note**
@@ -74,18 +74,18 @@ Usage
 
 * Click on the button "Put Money In" or "Take Money Out"
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_cash_move_reason/static/description/pos_session_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_cash_move_reason/static/description/pos_session_form.png
 
 * Select the reason, the journal, the amount, and optionaly an extra
   description
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_cash_move_reason/static/description/wizard_pos_move_reason_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_cash_move_reason/static/description/wizard_pos_move_reason_form.png
 
 * When closing the session, an account move will be created, with two lines,
   one with the default journal account, and one with the expense / income
   reason account.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_cash_move_reason/static/description/account_move_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/15.0/pos_cash_move_reason/static/description/account_move_form.png
 
 Known issues / Roadmap
 ======================
@@ -125,7 +125,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_cash_move_reason%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_cash_move_reason%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -157,6 +157,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_cash_move_reason>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/15.0/pos_cash_move_reason>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
