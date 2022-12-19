@@ -1,0 +1,10 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.ReprintReceiptScreen" t-inherit-mode="extension">
+    <xpath expr="//div[hasclass('button', 'print')]" position="after">
+      <t t-call="pos_receipt_hide_price.hide_price" />
+    </xpath>
+    <xpath expr="//OrderReceipt" position="attributes">
+      <attribute name="hidePriceState">hidePriceState</attribute>
+    </xpath>
+  </t>
+</templates>
