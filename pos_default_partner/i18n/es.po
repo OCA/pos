@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_default_partner
+# 	* pos_default_partner
 #
 msgid ""
 msgstr ""
@@ -17,18 +17,23 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: pos_default_partner
-#: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
-msgid "Customers"
-msgstr "Clientes"
+#: model:ir.model,name:pos_default_partner.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
 
 #. module: pos_default_partner
 #: model:ir.model.fields,field_description:pos_default_partner.field_pos_config__default_partner_id
-#: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
+#: model:ir.model.fields,field_description:pos_default_partner.field_res_config_settings__pos_default_partner_id
 msgid "Default Customer"
 msgstr "Cliente predeterminado"
 
 #. module: pos_default_partner
-#: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
+#: model_terms:ir.ui.view,arch_db:pos_default_partner.res_config_settings_view_form
+msgid "Default customer"
+msgstr ""
+
+#. module: pos_default_partner
+#: model_terms:ir.ui.view,arch_db:pos_default_partner.res_config_settings_view_form
 msgid "Default customer to use if none is set"
 msgstr "Cliente predeterminado para usar si no se establece ninguno"
 
@@ -41,3 +46,6 @@ msgstr "Configuración del punto de venta"
 #: model:ir.model,name:pos_default_partner.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Pedidos de Punto de Venta"
+
+#~ msgid "Customers"
+#~ msgstr "Clientes"
