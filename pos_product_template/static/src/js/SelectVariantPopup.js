@@ -21,6 +21,8 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                 template: template,
                 products: [],
                 ptav_id_selected: {},
+                ptav_unavailable_ids: [],
+                all_attributes_chosen: false,
             });
             var ptav = Array.from(
                 new Set(
@@ -58,6 +60,7 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
             useListener("click-attribute-value", this._clickAttributeValue);
 
             this.state.ptav = ptav;
+            this.state.ptav_unavailable_ids = [];
             this.state.attributes = attributes;
             this.state.products = products;
         }
@@ -94,11 +97,69 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
             });
 
             this.state.products = this.refreshProducts();
+            var self = this;
+            var selected_ptav_ids = Object.keys(self.state.ptav_id_selected).filter(
+                (x) => self.state.ptav_id_selected[x]
+            );
+            this.state.ptav_unavailable_ids = this.state.ptav
+                .filter(function (value) {
+                    // Remove ptav if no available product corresponds
+                    var res = self.state.products.every(function (product) {
+                        return (
+                            value.ptav_product_variant_ids.includes(product.id) ===
+                            false
+                        );
+                    });
+                    if (res === true) {
+                        // Do not remove ptav if there is already a ptav chosen for the
+                        // attribute and there are products if changed
+                        // This allows to show the possible modifications of choices
+                        selected_ptav_ids.forEach(function (selected_ptav_id) {
+                            const selected_ptav = self.all_ptav[selected_ptav_id];
+                            if (
+                                value.attribute_id[0] === selected_ptav.attribute_id[0]
+                            ) {
+                                const selected_ptav_test_list = selected_ptav_ids.filter(
+                                    function (id) {
+                                        // Test if ptav is available if this ptav is not selected
+                                        return id !== selected_ptav_id;
+                                    }
+                                );
+                                const product_ids = Array.from(
+                                    self._get_product_ids_for_ptav(
+                                        selected_ptav_test_list
+                                    )
+                                );
+                                res = product_ids.every(function (product_id) {
+                                    return (
+                                        value.ptav_product_variant_ids.includes(
+                                            product_id
+                                        ) === false
+                                    );
+                                });
+                            }
+                        });
+                    }
+                    return res;
+                })
+                .map(function (value) {
+                    return value.id;
+                });
+            this.state.all_attributes_chosen =
+                selected_ptav_ids.length === this.state.attributes.length &&
+                this.state.products.length === 1;
+        }
+        async click_confirm() {
+            if (this.state.all_attributes_chosen !== true) {
+                throw "You can only confirm when all attributes are chosen and there is a variant available";
+            }
+            this.product_selected = this.state.products[0];
+            return this.confirm();
         }
         async getPayload() {
             return this.product_selected;
         }
-        refreshProducts() {
+        _get_product_ids_for_ptav(ptav) {
             function intersection(setA, setB) {
                 var intersection = new Set();
                 for (var elem of setB) {
@@ -117,9 +178,6 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                 return union;
             }
 
-            var ptav = Object.keys(this.state.ptav_id_selected).filter(
-                (x) => this.state.ptav_id_selected[x]
-            );
             if (!ptav.length) {
                 ptav = this.all_ptav_id;
                 var variants_ids = ptav
@@ -138,6 +196,13 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                         return intersection(a, b);
                     });
             }
+            return variants_ids;
+        }
+        refreshProducts() {
+            var ptav = Object.keys(this.state.ptav_id_selected).filter(
+                (x) => this.state.ptav_id_selected[x]
+            );
+            var variants_ids = this._get_product_ids_for_ptav(ptav);
             return Array.from(variants_ids).map((x) => {
                 return this.env.pos.db.get_product_by_id(x);
             });
