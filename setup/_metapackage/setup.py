@@ -59,6 +59,7 @@ setuptools.setup(
         'odoo12-addon-pos_product_sort',
         'odoo12-addon-pos_product_template',
         'odoo12-addon-pos_quick_logout',
+        'odoo12-addon-pos_receipt_xml_header_footer',
         'odoo12-addon-pos_remove_pos_category',
         'odoo12-addon-pos_report_order_payment',
         'odoo12-addon-pos_report_session_summary',
