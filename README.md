@@ -72,6 +72,7 @@ addon | version | maintainers | summary
 [pos_product_sort](pos_product_sort/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_product_template](pos_product_template/) | 12.0.1.0.2 |  | Manage Product Template in Front End Point Of Sale
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.1 |  | Allow PoS user to logout quickly after user changed
+[pos_receipt_xml_header_footer](pos_receipt_xml_header_footer/) | 12.0.1.0.0 | [![carmenbianca](https://github.com/carmenbianca.png?size=30px)](https://github.com/carmenbianca) | Add the ability to use XML/HTML in the header and footer of a receipt
 [pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.1 |  | POS Remove POS Category
 [pos_report_order_payment](pos_report_order_payment/) | 12.0.1.0.1 |  | Analyze point of sale payments
 [pos_report_session_summary](pos_report_session_summary/) | 12.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
