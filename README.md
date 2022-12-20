@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [pos_default_partner](pos_default_partner/) | 16.0.1.0.0 |  | Add a default customer in pos order
 [pos_order_reorder](pos_order_reorder/) | 16.0.0.1.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Simple Re-order in the Point of Sale
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
+[pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
 
 [//]: # (end addons)
 
