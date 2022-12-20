@@ -4,13 +4,15 @@
 
 {
     "name": "POS ESC/Pos printer Status",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of sale: fetch status for 'escpos' driver",
     "author": "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/assets.xml"],
+    "assets": {
+        "point_of_sale.assets": ["/pos_escpos_status/static/src/js/ProxyStatus.js"],
+    },
     "installable": True,
 }
