@@ -2,5 +2,5 @@
 * Check the box 'Create Sale Orders'
 * Select the desired default behaviour
 
-.. figure:: ../static/description/pos_config_form.png
+.. figure:: ../static/description/res_config_settings_form.png
    :width: 800 px
