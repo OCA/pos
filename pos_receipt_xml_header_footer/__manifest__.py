@@ -5,7 +5,7 @@
     "name": "Point of Sale XML in Header and Footer of Receipt",
     "summary": """
         Add the ability to use XML/HTML in the header and footer of a receipt""",
-    "version": "12.0.1.0.0",
+    "version": "12.0.1.0.1",
     "license": "AGPL-3",
     "author": "Coop IT Easy SCRLfs, Odoo Community Association (OCA)",
     "maintainers": ["carmenbianca"],
