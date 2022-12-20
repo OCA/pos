@@ -52,7 +52,7 @@ Configuration
 * Check the box 'Create Sale Orders'
 * Select the desired default behaviour
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_order_to_sale_order/static/description/pos_config_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_order_to_sale_order/static/description/res_config_settings_form.png
    :width: 800 px
 
 Usage
