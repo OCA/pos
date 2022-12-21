@@ -41,6 +41,8 @@ odoo.define("pos_crm.models", function (require) {
             this.assert_editable();
             if (client) {
                 this.partner_vat = client.vat || null;
+            } else {
+                this.set_is_pos_crm_checked(false);
             }
         },
         set_is_pos_crm_checked: function (is_pos_crm_checked) {
