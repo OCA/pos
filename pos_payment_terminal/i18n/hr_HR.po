@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_payment_terminal
+#
+# Translators:
+# Bole <bole@dajmi5.com>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-13 19:51+0000\n"
+"PO-Revision-Date: 2016-12-13 19:51+0000\n"
+"Last-Translator: Bole <bole@dajmi5.com>, 2017\n"
+"Language-Team: Croatian (Croatia) (https://www.transifex.com/oca/teams/23907/"
+"hr_HR/)\n"
+"Language: hr_HR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Cannot process transactions with zero or negative amount."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__card
+msgid "Card"
+msgstr "Kartica"
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__check
+msgid "Check"
+msgstr "Ček"
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Failed to send the amount to pay to the payment terminal. Press the red "
+"button on the payment terminal and try again."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
+#, python-format
+msgid "OCA Payment Terminal"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_mode
+msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Payment Terminal Error"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Please press the red button on the payment terminal to cancel the "
+"transaction."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid "Terminal identifier"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid ""
+"The identifier of the terminal as known by the hardware proxy. Leave empty "
+"if the proxy has only one terminal connected."
+msgstr ""
+
+#~ msgid "Journal"
+#~ msgstr "Dnevnik"
+
+#, fuzzy
+#~ msgid "Payment Terminal"
+#~ msgstr "Način plaćanja"
+
+#~ msgid "Select the payment mode sent to the payment terminal"
+#~ msgstr "Odaberite način plaćanja korišten na naplatnom terminalu"
+
+#~ msgid "Start transaction"
+#~ msgstr "Započni transakciju"
+
+#, fuzzy
+#~ msgid "Terminal Payment Mode"
+#~ msgstr "Način plaćanja"
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"

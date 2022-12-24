@@ -1,0 +1,133 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_payment_terminal
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Cannot process transactions with zero or negative amount."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__card
+msgid "Card"
+msgstr "Tarjeta"
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__check
+msgid "Check"
+msgstr "Talón"
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Failed to send the amount to pay to the payment terminal. Press the red "
+"button on the payment terminal and try again."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
+#, python-format
+msgid "OCA Payment Terminal"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_mode
+msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Payment Terminal Error"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Please press the red button on the payment terminal to cancel the "
+"transaction."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid "Terminal identifier"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid ""
+"The identifier of the terminal as known by the hardware proxy. Leave empty "
+"if the proxy has only one terminal connected."
+msgstr ""
+
+#~ msgid "A payment terminal is available on the Proxy"
+#~ msgstr "Un terminal de pago está disponible en el Proxy"
+
+#~ msgid "Journal"
+#~ msgstr "Diario"
+
+#~ msgid "Payment Terminal"
+#~ msgstr "Terminal de pago"
+
+#~ msgid "Point of Sale Configuration"
+#~ msgstr "Configuración del punto de venta"
+
+#~ msgid "Point of Sale Orders"
+#~ msgstr "Pedidos de Punto de Venta"
+
+#~ msgid "Select the payment mode sent to the payment terminal"
+#~ msgstr "Seleccione la forma de pega enviada al terminal de pago"
+
+#~ msgid "Start transaction"
+#~ msgstr "Iniciar transacción"
+
+#~ msgid "Terminal Payment Mode"
+#~ msgstr "Modo de pago del terminal"
+
+#~ msgid "pos.config"
+#~ msgstr "Configuración del TPV"

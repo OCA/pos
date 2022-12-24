@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_payment_terminal
+#
+# Translators:
+# Francesco Fresta <franco.fresta@gmail.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2022-07-04 12:05+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Cannot process transactions with zero or negative amount."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__card
+msgid "Card"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__check
+msgid "Check"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Failed to send the amount to pay to the payment terminal. Press the red "
+"button on the payment terminal and try again."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: pos_payment_terminal
+#: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
+#, python-format
+msgid "OCA Payment Terminal"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_mode
+msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid "Payment Terminal Error"
+msgstr ""
+
+#. module: pos_payment_terminal
+#. openerp-web
+#: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
+#, python-format
+msgid ""
+"Please press the red button on the payment terminal to cancel the "
+"transaction."
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid "Terminal identifier"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model.fields,help:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
+msgid ""
+"The identifier of the terminal as known by the hardware proxy. Leave empty "
+"if the proxy has only one terminal connected."
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
