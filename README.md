@@ -56,7 +56,7 @@ addon | version | maintainers | summary
 [pos_order_remove_line](pos_order_remove_line/) | 12.0.1.1.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
 [pos_order_return](pos_order_return/) | 12.0.1.0.4 |  | Point of Sale Order Return
 [pos_order_return_traceability](pos_order_return_traceability/) | 12.0.1.0.1 |  | Adds full return traceability to POS frontend
-[pos_order_to_sale_order](pos_order_to_sale_order/) | 12.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
+[pos_order_to_sale_order](pos_order_to_sale_order/) | 12.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_partner_firstname](pos_partner_firstname/) | 12.0.1.1.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_partner_no_create](pos_partner_no_create/) | 12.0.2.0.1 |  | Forbid customer creation from the POS
 [pos_payment_change](pos_payment_change/) | 12.0.1.1.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
