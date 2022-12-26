@@ -49,8 +49,8 @@ class SaleOrder(models.Model):
         if action in ["confirmed", "delivered"]:
             sale_order.action_confirm()
 
-        # mark picking as delivered
-        if action == "delivered":
+        # mark picking as delivered (in case of non services products)
+        if action == "delivered" and sale_order.delivery_count:
             # Mark all moves are delivered
             for move in sale_order.mapped(
                     "picking_ids.move_ids_without_package"):
