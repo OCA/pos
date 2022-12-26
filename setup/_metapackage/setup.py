@@ -17,6 +17,7 @@ setuptools.setup(
         'odoo-addon-pos_product_display_default_code>=15.0dev,<15.1dev',
         'odoo-addon-pos_receipt_hide_price>=15.0dev,<15.1dev',
         'odoo-addon-pos_sale_pos_event_sale>=15.0dev,<15.1dev',
+        'odoo-addon-pos_supplierinfo_barcode>=15.0dev,<15.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
