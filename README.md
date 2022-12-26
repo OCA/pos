@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 15.0.1.0.1 |  | Hide Cost and Margin on PoS
 [pos_lot_barcode](pos_lot_barcode/) | 15.0.1.0.0 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 15.0.1.0.1 |  | POS Lot Selection
+[pos_payment_change](pos_payment_change/) | 15.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_product_display_default_code](pos_product_display_default_code/) | 15.0.1.0.0 |  | pos: display product default code before product name
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 15.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_sale_pos_event_sale](pos_sale_pos_event_sale/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Glue module between pos_sale and pos_event_sale
