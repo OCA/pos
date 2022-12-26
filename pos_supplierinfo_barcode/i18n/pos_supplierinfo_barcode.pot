@@ -1,0 +1,40 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_supplierinfo_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_supplierinfo_barcode
+#: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_supplierinfo_barcode
+#: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_supplierinfo_barcode
+#: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_supplierinfo_barcode
+#: model:ir.model,name:pos_supplierinfo_barcode.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: pos_supplierinfo_barcode
+#: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_product__supplier_barcode_json
+#: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_template__supplier_barcode_json
+msgid "Supplier barcode list"
+msgstr ""
