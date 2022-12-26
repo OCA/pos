@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo-addon-pos_hide_cost_price_and_margin>=15.0dev,<15.1dev',
         'odoo-addon-pos_lot_barcode>=15.0dev,<15.1dev',
         'odoo-addon-pos_lot_selection>=15.0dev,<15.1dev',
+        'odoo-addon-pos_payment_change>=15.0dev,<15.1dev',
         'odoo-addon-pos_product_display_default_code>=15.0dev,<15.1dev',
         'odoo-addon-pos_receipt_hide_price>=15.0dev,<15.1dev',
         'odoo-addon-pos_sale_pos_event_sale>=15.0dev,<15.1dev',
