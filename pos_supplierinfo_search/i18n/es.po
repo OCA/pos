@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_supplierinfo_search
+# 	* pos_supplierinfo_search
 #
 msgid ""
 msgstr ""
@@ -26,3 +26,10 @@ msgstr "Plantilla de producto"
 #: model:ir.model.fields,field_description:pos_supplierinfo_search.field_product_template__supplier_data_json
 msgid "Supplier data dict"
 msgstr "Dict de datos del proveedor"
+
+#. module: pos_supplierinfo_search
+#: model:ir.model.fields,help:pos_supplierinfo_search.field_product_product__supplier_data_json
+#: model:ir.model.fields,help:pos_supplierinfo_search.field_product_template__supplier_data_json
+msgid ""
+"Technical field: Used in POS frontend to search products by supplierinfo"
+msgstr ""
