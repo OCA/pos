@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_pos_order_form_inherit_pos_config_no_variant" model="ir.ui.view">
+        <field name="name">pos.order.form.pos.config.no.variant</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='lines']//tree//field[@name='full_product_name']"
+                position="after"
+            >
+                <field
+                    name="product_no_variant_attribute_value_ids"
+                    widget="many2many_tags"
+                    optional="hide"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
