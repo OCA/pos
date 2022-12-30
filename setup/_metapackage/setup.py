@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo14-addon-pos_order_return',
         'odoo14-addon-pos_partner_firstname',
         'odoo14-addon-pos_payment_change',
+        'odoo14-addon-pos_payment_method_cashdro',
         'odoo14-addon-pos_payment_terminal',
         'odoo14-addon-pos_product_display_default_code',
         'odoo14-addon-pos_product_multi_barcode',
