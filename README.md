@@ -41,6 +41,7 @@ addon | version | maintainers | summary
 [pos_order_return](pos_order_return/) | 14.0.1.0.1 |  | Point of Sale Order Return
 [pos_partner_firstname](pos_partner_firstname/) | 14.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
+[pos_payment_method_cashdro](pos_payment_method_cashdro/) | 14.0.1.0.0 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.1.0 |  | Point of sale: support generic payment terminal
 [pos_product_display_default_code](pos_product_display_default_code/) | 14.0.1.0.1 |  | pos: display product default code before product name
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 14.0.1.0.2 |  | Make product multi barcodes usable in the point of sale
