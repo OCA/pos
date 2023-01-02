@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: Francesco Fresta <franco.fresta@gmail.com>, 2018\n"
+"PO-Revision-Date: 2023-01-02 11:54+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: account_cash_invoice
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_amount
@@ -33,7 +34,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:account_cash_invoice.cash_invoice_in_form
 #: model:ir.ui.view,arch_db:account_cash_invoice.cash_invoice_out_form
 msgid "Cancel"
-msgstr "Elimina"
+msgstr "Annulla"
 
 #. module: account_cash_invoice
 #: model:ir.actions.act_window,name:account_cash_invoice.action_cash_invoice_out_from_statement
@@ -73,7 +74,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_display_name
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_out_display_name
 msgid "Display Name"
-msgstr "Mostra il nome"
+msgstr "Nome da visualizzare"
 
 #. module: account_cash_invoice
 #: model:ir.model.fields,field_description:account_cash_invoice.field_cash_invoice_in_id
