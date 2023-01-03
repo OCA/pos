@@ -76,9 +76,12 @@ class ServiceWorkerCache(ServiceWorker):
                 let promise = null;
                 let cachedResponse = await getCache(event.request.clone());
                 let fetchResponse = null;
+                const controller = new AbortController();
+                const id = setTimeout(() => controller.abort(), 4000);
                 try {{
-                    fetchResponse = await fetch(event.request.clone());
+                    fetchResponse = await fetch(event.request.clone(), {{signal: controller.signal}});
                     setCache(event.request.clone(), fetchResponse.clone());
+                    clearTimeout(id);
                 }} catch (err) {{
                     fetchResponse = null
                 }}
