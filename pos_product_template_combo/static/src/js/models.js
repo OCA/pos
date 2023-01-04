@@ -23,6 +23,7 @@ odoo.define("pos_product_template_combo.models", function (require) {
                 "product_tmpl_combo_category_option_ids",
                 "price",
                 "sequence",
+                "combo_category_option_behavior",
             ],
             loaded: function (self, combo_categories) {
                 self.db.add_product_combo_categories(combo_categories);

@@ -35,3 +35,18 @@ class ProductTemplateComboCategory(models.Model):
         inverse_name="product_tmpl_combo_category_id",
         string="Product Template Combo Category Option",
     )
+
+    combo_category_option_behavior = fields.Selection(
+        selection=[
+            ("default", "Default"),
+            ("duplicate_item", "Duplicate Item"),
+        ],
+        ondelete="set null",
+        help="""
+        [Default]: No type of exceptional behavior is defined, items will be\n
+            added as they were registered, respecting the maximum and\n
+            minimum values.
+        [Duplicate Item]: Combo options with this category will have their\n
+            product duplicated when added in order with value 0,01.
+        """,
+    )

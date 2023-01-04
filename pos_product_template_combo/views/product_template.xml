@@ -32,6 +32,7 @@
                                 domain="[('product_tmpl_combo_category_id', '=', id)]"
                             />
                             <field name="price" />
+                            <field name="combo_category_option_behavior" />
                             <field name="max_qty" />
                         </tree>
                     </field>

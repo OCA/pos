@@ -31,6 +31,7 @@
                             widget="monetary"
                             options="{'currency_field': 'company_currency'}"
                         />
+                        <field name="combo_category_option_behavior" />
                         <field name="max_qty" />
                     </group>
 
