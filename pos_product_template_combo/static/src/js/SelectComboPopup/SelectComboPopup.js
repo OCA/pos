@@ -125,7 +125,7 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
 
                     products_to_add.push({
                         product: product,
-                        quantity: 1,
+                        quantity: category.state.max_qty,
                         price: this._compute_price(category, product),
                         template_id: selected_option.product_template_id[0],
                         categoryBehavior: category.state.categoryBehavior,

@@ -80,7 +80,7 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
                     ) {
                         try {
                             this._insertDuplicateOrderline(
-                                order,
+                                product_to_add,
                                 orderlinesAddedSuccessfully
                             );
                         } catch (error) {
@@ -104,15 +104,21 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
                 return categoryBehavior === "duplicate_item";
             }
 
-            _insertDuplicateOrderline(order, orderlinesAddedSuccessfully) {
+            _insertDuplicateOrderline(product_to_add, orderlinesAddedSuccessfully) {
+                const order = this.env.pos.get_order();
+                const quantity = product_to_add.quantity;
                 const selectedOrderline = order.selected_orderline;
+                selectedOrderline.set_quantity(1);
                 selectedOrderline.set_unit_price(
-                    selectedOrderline.get_unit_price() - 0.01
+                    selectedOrderline.get_unit_price() - quantity * 0.01
                 );
-                const clonedOrderline = selectedOrderline.clone();
-                order.add_orderline(clonedOrderline);
-                clonedOrderline.set_unit_price(0.01);
-                orderlinesAddedSuccessfully.push(clonedOrderline);
+                for (let i = 1; i < quantity + 1; i++) {
+                    const clonedOrderline = selectedOrderline.clone();
+                    order.add_orderline(clonedOrderline);
+                    clonedOrderline.set_quantity(1);
+                    clonedOrderline.set_unit_price(0.01);
+                    orderlinesAddedSuccessfully.push(clonedOrderline);
+                }
             }
 
             _rollbackComboOrderlines(orderlinesAddedSuccessfully) {
