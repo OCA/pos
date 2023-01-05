@@ -50,7 +50,10 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
                         0
                     );
 
-                    if (total_qty !== category.state.max_qty) {
+                    if (
+                        category.state.categoryBehavior === "default" &&
+                        total_qty !== category.state.max_qty
+                    ) {
                         invalid_categories.push(category.state.name);
                     }
                 } else if (category.state.selected_option === null) {
@@ -82,7 +85,10 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
         _mount_products_to_add_map(category_contollers) {
             let products_to_add = [];
             category_contollers.forEach((category) => {
-                if (category.state.max_qty > 1) {
+                if (
+                    category.state.max_qty > 1 &&
+                    category.state.categoryBehavior === "default"
+                ) {
                     const temp_products_to_add = [];
 
                     Object.entries(category.state.selected_qty).forEach(
