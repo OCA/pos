@@ -101,6 +101,7 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
                                 quantity: qty,
                                 price: this._compute_price(category, product),
                                 template_id: option.product_template_id[0],
+                                categoryBehavior: category.state.categoryBehavior,
                             });
                         }
                     );
@@ -121,6 +122,7 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
                         quantity: 1,
                         price: this._compute_price(category, product),
                         template_id: selected_option.product_template_id[0],
+                        categoryBehavior: category.state.categoryBehavior,
                     });
                 }
             });

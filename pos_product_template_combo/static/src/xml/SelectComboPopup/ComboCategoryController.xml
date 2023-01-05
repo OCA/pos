@@ -8,7 +8,9 @@
 
             <div class="combo-category-options-container">
                 <t t-foreach="state.options" t-as="option" t-key="option.id">
-                    <t t-if="state.max_qty === 1">
+                    <t
+                        t-if="_useSimpleCategoryOptionButton(state.categoryBehavior, state.max_qty)"
+                    >
                         <CategoryOptionButton
                             name="option.name"
                             t-att-class="{selected: state.selected_option == option}"

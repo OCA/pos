@@ -23,6 +23,7 @@ odoo.define("pos_product_template_combo.ComboCategoryController", function (requ
                 selected_option: null,
                 selected_qty: selected_qty,
                 price: category.price,
+                categoryBehavior: category.combo_category_option_behavior,
             });
 
             // If it only has one option, it should already be checked by default.
@@ -82,6 +83,10 @@ odoo.define("pos_product_template_combo.ComboCategoryController", function (requ
 
         _on_selected_option(option) {
             this.state.selected_option = option;
+        }
+
+        _useSimpleCategoryOptionButton(categoryBehavior, maxQuantity) {
+            return categoryBehavior === "duplicate_item" || maxQuantity === 1;
         }
     }
     ComboCategoryController.template = "ComboCategoryController";

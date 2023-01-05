@@ -63,16 +63,72 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
             }
 
             _add_combo_products_to_order(result) {
-                result.payload.forEach(async (product_to_add) => {
-                    const options = {
-                        price: product_to_add.price,
-                        quantity: product_to_add.quantity,
-                        merge: false,
-                    };
+                const orderlinesAddedSuccessfully = [];
+                for (let i = 0; i < result.payload.length; i++) {
+                    const product_to_add = result.payload[i];
+                    const options = this._mountComboProductOptions(product_to_add);
+                    const order = this.env.pos.get_order();
                     if (product_to_add.product) {
-                        const order = this.env.pos.get_order();
                         order.add_product(product_to_add.product, options);
+                        const selectedOrderline = order.selected_orderline;
+                        orderlinesAddedSuccessfully.push(selectedOrderline);
                     }
+                    if (
+                        this._isDuplicateItemCategoryBehavior(
+                            product_to_add.categoryBehavior
+                        )
+                    ) {
+                        try {
+                            this._insertDuplicateOrderline(
+                                order,
+                                orderlinesAddedSuccessfully
+                            );
+                        } catch (error) {
+                            this._rollbackComboOrderlines(orderlinesAddedSuccessfully);
+                            this.showErrorProductComboMessage();
+                            break;
+                        }
+                    }
+                }
+            }
+
+            _mountComboProductOptions(product_to_add) {
+                return {
+                    price: product_to_add.price,
+                    quantity: product_to_add.quantity,
+                    merge: false,
+                };
+            }
+
+            _isDuplicateItemCategoryBehavior(categoryBehavior) {
+                return categoryBehavior === "duplicate_item";
+            }
+
+            _insertDuplicateOrderline(order, orderlinesAddedSuccessfully) {
+                const selectedOrderline = order.selected_orderline;
+                selectedOrderline.set_unit_price(
+                    selectedOrderline.get_unit_price() - 0.01
+                );
+                const clonedOrderline = selectedOrderline.clone();
+                order.add_orderline(clonedOrderline);
+                clonedOrderline.set_unit_price(0.01);
+                orderlinesAddedSuccessfully.push(clonedOrderline);
+            }
+
+            _rollbackComboOrderlines(orderlinesAddedSuccessfully) {
+                const order = this.env.pos.get_order();
+                orderlinesAddedSuccessfully.forEach((orderline) => {
+                    order.remove_orderline(orderline);
+                });
+            }
+
+            async showErrorProductComboMessage() {
+                await this.showPopup("ErrorPopup", {
+                    title: this.env._t("Error adding combo products"),
+                    body: this.env._t(
+                        "There was an error adding one of the combo " +
+                            "items. Try again or contact support."
+                    ),
                 });
             }
         };
