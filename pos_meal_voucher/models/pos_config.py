@@ -17,6 +17,10 @@ class PosConfig(models.Model):
         string="Display icon before products on screen",
         default=True)
 
+    meal_voucher_display_info_ticket = fields.Boolean(
+        string="Display Information on Ticket",
+    )
+
     has_meal_voucher_journal = fields.Boolean(
         compute="_compute_has_meal_voucher_journal")
 
