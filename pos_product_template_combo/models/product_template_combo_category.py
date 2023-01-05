@@ -25,7 +25,7 @@ class ProductTemplateComboCategory(models.Model):
     )
 
     max_qty = fields.Integer(
-        string="Max Qty",
+        string="Quantity",
         required=True,
         default=1,
     )
