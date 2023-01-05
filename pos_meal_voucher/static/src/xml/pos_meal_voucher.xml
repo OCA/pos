@@ -87,4 +87,42 @@
         </t>
     </t>
 
+    <t t-extend="PosTicket">
+         <t t-jquery="t[t-esc='orderline.get_product().display_name']" t-operation="before">
+            <t t-if="widget.pos.config.meal_voucher_display_info_ticket &amp;&amp; orderline.get_product().meal_voucher_ok">(*) </t>
+        </t>
+        <t t-jquery="t[t-if='receipt.footer']" t-operation="after">
+            <t t-if="widget.pos.config.meal_voucher_display_info_ticket">
+                <br/>
+                Products marked with a star (*) are eligible for Meal vouchers.
+                <table>
+                    <tr>
+                        <td>Eligible Total:</td>
+                        <td class="pos-right-align">
+                            <t t-esc="widget.format_currency(order.get_total_meal_voucher_eligible())" />
+                        </td>
+                    </tr>
+                </table>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery="div[class='after-footer']" t-operation="before">
+            <t t-if="widget.pos.config.meal_voucher_display_info_ticket">
+                <div>------------------------------------------</div>
+                <div>
+                    Products marked with a star (*) are eligible for Meal vouchers.
+                </div>
+                <line>
+                    <left>Eligible Total:</left>
+                    <right><t t-esc="widget.format_currency(order.get_total_meal_voucher_eligible())" /></right>
+                </line>
+            </t>
+        </t>
+    </t>
+
 </templates>
+
+
+

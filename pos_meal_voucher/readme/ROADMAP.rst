@@ -1,3 +1,6 @@
+Possible Features
+~~~~~~~~~~~~~~~~~
+
 * Introduce the Meal Voucher Issuer model
 * When scaning Meal Voucher, deduce the Issuer
 * Add a reporting to make easily the deposit of Meal Vouchers, per issuers.

@@ -39,6 +39,25 @@ odoo.define("pos_meal_voucher.models", function (require) {
 
     models.Order = Order;
 
+    var OrderlineSuper = models.Orderline.prototype;
+    var Orderline = models.Orderline.extend({
+
+        generate_wrapped_product_name: function() {
+
+            if (!this.get_product().meal_voucher_ok ||  !this.pos.config.meal_voucher_display_info_ticket) {
+                return OrderlineSuper.generate_wrapped_product_name.apply(this, arguments);
+            }
+            const originalDisplayName = this.product.display_name;
+            this.product.display_name = "(*) " + originalDisplayName;
+            const res = OrderlineSuper.generate_wrapped_product_name.apply(this, arguments);
+            this.product.display_name = originalDisplayName;
+            return res;
+        },
+    });
+
+    models.Orderline = Orderline;
+
+
     var PaymentlineSuper = models.Paymentline.prototype;
 
     var Paymentline = models.Paymentline.extend({

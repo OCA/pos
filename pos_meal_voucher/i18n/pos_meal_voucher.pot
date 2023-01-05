@@ -72,9 +72,23 @@ msgid "Discounted Product"
 msgstr ""
 
 #. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_info_ticket
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "Display Information on Ticket"
+msgstr ""
+
+#. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_product_screen
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
 msgid "Display icon before products on screen"
+msgstr ""
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:100
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:117
+#, python-format
+msgid "Eligible Total:"
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -85,6 +99,11 @@ msgstr ""
 #. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__has_meal_voucher_journal
 msgid "Has Meal Voucher Journal"
+msgstr ""
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "If checked, a star (*) will be displayed on the ticket, before each product that can be paid with meal vouchers, and the total of the eligible product will be printed."
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -195,11 +214,6 @@ msgid "Priced Product"
 msgstr ""
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Priced Product (Computed Weight)"
-msgstr ""
-
-#. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_product_product
 msgid "Product"
 msgstr ""
@@ -215,8 +229,11 @@ msgid "Product Template"
 msgstr ""
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Tare"
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:96
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:113
+#, python-format
+msgid "Products marked with a star (*) are eligible for Meal vouchers."
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -276,4 +293,3 @@ msgstr ""
 #: model:product.template,weight_uom_name:pos_meal_voucher.bread_product_template
 msgid "kg"
 msgstr ""
-

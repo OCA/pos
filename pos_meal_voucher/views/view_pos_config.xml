@@ -36,6 +36,17 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="meal_voucher_display_info_ticket"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="meal_voucher_display_info_ticket" string="Display Information on Ticket"/>
+                            <div class="text-muted">
+                                If checked, a star (*) will be displayed on the ticket, before each product that can be paid with meal vouchers, and the total of the eligible product will be printed.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </xpath>
         </field>
