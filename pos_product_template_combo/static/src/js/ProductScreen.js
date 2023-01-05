@@ -6,6 +6,14 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
 
     const PTCProductScreen = (ProductScreen) =>
         class extends ProductScreen {
+            get order() {
+                return this.env.pos.get_order();
+            }
+
+            get selectedOrderline() {
+                return this.order.get_selected_orderline();
+            }
+
             async _clickProduct(event) {
                 const product = event.detail;
 
@@ -63,28 +71,26 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
             }
 
             _add_combo_products_to_order(result) {
-                const orderlinesAddedSuccessfully = [];
+                const linesAddedToOrder = [];
                 for (let i = 0; i < result.payload.length; i++) {
-                    const product_to_add = result.payload[i];
-                    const options = this._mountComboProductOptions(product_to_add);
-                    const order = this.env.pos.get_order();
-                    if (product_to_add.product) {
-                        order.add_product(product_to_add.product, options);
-                        const selectedOrderline = order.selected_orderline;
-                        orderlinesAddedSuccessfully.push(selectedOrderline);
+                    const productToAdd = result.payload[i];
+                    const options = this._mountComboProductOptions(productToAdd);
+                    if (productToAdd.product) {
+                        this.order.add_product(productToAdd.product, options);
+                        linesAddedToOrder.push(this.selectedOrderline);
                     }
                     if (
                         this._isDuplicateItemCategoryBehavior(
-                            product_to_add.categoryBehavior
+                            productToAdd.categoryBehavior
                         )
                     ) {
                         try {
                             this._insertDuplicateOrderline(
-                                product_to_add,
-                                orderlinesAddedSuccessfully
+                                productToAdd,
+                                linesAddedToOrder
                             );
                         } catch (error) {
-                            this._rollbackComboOrderlines(orderlinesAddedSuccessfully);
+                            this._rollbackComboOrderlines(linesAddedToOrder);
                             this.showErrorProductComboMessage();
                             break;
                         }
@@ -92,10 +98,10 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
                 }
             }
 
-            _mountComboProductOptions(product_to_add) {
+            _mountComboProductOptions(productToAdd) {
                 return {
-                    price: product_to_add.price,
-                    quantity: product_to_add.quantity,
+                    price: productToAdd.price,
+                    quantity: productToAdd.quantity,
                     merge: false,
                 };
             }
@@ -104,27 +110,24 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
                 return categoryBehavior === "duplicate_item";
             }
 
-            _insertDuplicateOrderline(product_to_add, orderlinesAddedSuccessfully) {
-                const order = this.env.pos.get_order();
-                const quantity = product_to_add.quantity;
-                const selectedOrderline = order.selected_orderline;
-                selectedOrderline.set_quantity(1);
-                selectedOrderline.set_unit_price(
-                    selectedOrderline.get_unit_price() - quantity * 0.01
-                );
-                for (let i = 1; i < quantity + 1; i++) {
-                    const clonedOrderline = selectedOrderline.clone();
-                    order.add_orderline(clonedOrderline);
+            _insertDuplicateOrderline(productToAdd, linesAddedToOrder) {
+                const productQuantity = productToAdd.quantity;
+                const lineNewPrice =
+                    this.selectedOrderline.get_unit_price() - productQuantity * 0.01;
+                this.selectedOrderline.set_quantity(1);
+                this.selectedOrderline.set_unit_price(lineNewPrice);
+                for (let i = 0; i < productQuantity; i++) {
+                    const clonedOrderline = this.selectedOrderline.clone();
+                    this.order.add_orderline(clonedOrderline);
                     clonedOrderline.set_quantity(1);
                     clonedOrderline.set_unit_price(0.01);
-                    orderlinesAddedSuccessfully.push(clonedOrderline);
+                    linesAddedToOrder.push(clonedOrderline);
                 }
             }
 
-            _rollbackComboOrderlines(orderlinesAddedSuccessfully) {
-                const order = this.env.pos.get_order();
-                orderlinesAddedSuccessfully.forEach((orderline) => {
-                    order.remove_orderline(orderline);
+            _rollbackComboOrderlines(linesAddedToOrder) {
+                linesAddedToOrder.forEach((orderline) => {
+                    this.order.remove_orderline(orderline);
                 });
             }
 
