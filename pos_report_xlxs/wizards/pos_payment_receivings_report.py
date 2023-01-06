@@ -33,7 +33,7 @@ class PosPaymentReceivingsReportXlxs(models.TransientModel):
             WHERE po.id IN (SELECT id FROM pos_order where session_id IN (
             SELECT id FROM pos_session WHERE start_at >= '{self.date_start} 00:00:00'
             AND start_at <= '{self.date_end} 23:59:59') AND state IN ('paid', 'done')
-            AND amount_total >= 0)
+            AND amount_total >= 0 AND company_id = {self.company_id.id})
             group by ppm.name
             order by total_paid desc
         """
