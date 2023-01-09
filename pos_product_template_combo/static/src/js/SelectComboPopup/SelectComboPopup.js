@@ -125,7 +125,8 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
 
                     products_to_add.push({
                         product: product,
-                        quantity: category.state.max_qty,
+                        quantity: 1,
+                        quantityToAdd: category.state.max_qty,
                         price: this._compute_price(category, product),
                         template_id: selected_option.product_template_id[0],
                         categoryBehavior: category.state.categoryBehavior,
@@ -147,7 +148,9 @@ odoo.define("pos_product_template_combo.SelectComboPopup", function (require) {
         _compute_price(category, product) {
             let price = category.state.price;
 
-            if (price === 0 && product) {
+            if (category.state.categoryBehavior === "duplicate_item") {
+                price -= 0.01 * category.state.max_qty;
+            } else if (price === 0 && product) {
                 price = product.lst_price;
             } else {
                 price /= category.state.max_qty;

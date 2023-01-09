@@ -2,7 +2,7 @@
     @author Raphaël Reverdy (https://www.akretion.com)
     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 */
-
+/* eslint no-unused-expressions: "off" */
 odoo.define("pos_product_template.SelectVariantPopup", function (require) {
     "use strict";
 

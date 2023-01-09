@@ -73,27 +73,27 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
             _add_combo_products_to_order(result) {
                 const linesAddedToOrder = [];
                 for (let i = 0; i < result.payload.length; i++) {
-                    const productToAdd = result.payload[i];
-                    const options = this._mountComboProductOptions(productToAdd);
-                    if (productToAdd.product) {
-                        this.order.add_product(productToAdd.product, options);
-                        linesAddedToOrder.push(this.selectedOrderline);
-                    }
-                    if (
-                        this._isDuplicateItemCategoryBehavior(
-                            productToAdd.categoryBehavior
-                        )
-                    ) {
-                        try {
+                    try {
+                        const productToAdd = result.payload[i];
+                        const options = this._mountComboProductOptions(productToAdd);
+                        if (productToAdd.product) {
+                            this.order.add_product(productToAdd.product, options);
+                            linesAddedToOrder.push(this.selectedOrderline);
+                        }
+                        if (
+                            this._isDuplicateItemCategoryBehavior(
+                                productToAdd.categoryBehavior
+                            )
+                        ) {
                             this._insertDuplicateOrderline(
                                 productToAdd,
                                 linesAddedToOrder
                             );
-                        } catch (error) {
-                            this._rollbackComboOrderlines(linesAddedToOrder);
-                            this.showErrorProductComboMessage();
-                            break;
                         }
+                    } catch (error) {
+                        this._rollbackComboOrderlines(linesAddedToOrder);
+                        this.showErrorProductComboMessage();
+                        break;
                     }
                 }
             }
@@ -111,24 +111,23 @@ odoo.define("pos_product_template_combo.ProductScreen", function (require) {
             }
 
             _insertDuplicateOrderline(productToAdd, linesAddedToOrder) {
-                const productQuantity = productToAdd.quantity;
-                const lineNewPrice =
-                    this.selectedOrderline.get_unit_price() - productQuantity * 0.01;
-                this.selectedOrderline.set_quantity(1);
-                this.selectedOrderline.set_unit_price(lineNewPrice);
-                for (let i = 0; i < productQuantity; i++) {
-                    const clonedOrderline = this.selectedOrderline.clone();
-                    this.order.add_orderline(clonedOrderline);
-                    clonedOrderline.set_quantity(1);
-                    clonedOrderline.set_unit_price(0.01);
-                    linesAddedToOrder.push(clonedOrderline);
-                }
+                const options = this._mountComboProductDuplicateOptions(productToAdd);
+                this.order.add_product(productToAdd.product, options);
+                linesAddedToOrder.push(this.selectedOrderline);
             }
 
             _rollbackComboOrderlines(linesAddedToOrder) {
                 linesAddedToOrder.forEach((orderline) => {
                     this.order.remove_orderline(orderline);
                 });
+            }
+
+            _mountComboProductDuplicateOptions(productToAdd) {
+                return {
+                    price: 0.01,
+                    quantity: productToAdd.quantityToAdd,
+                    merge: false,
+                };
             }
 
             async showErrorProductComboMessage() {
