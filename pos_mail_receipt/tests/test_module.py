@@ -2,8 +2,15 @@
 # @author Pierrick Brun <pierrick.brun@akretion.com>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+import mock
+
 from odoo import fields
 from odoo.tests.common import TransactionCase
+
+wkhtmltopdf_method = (
+    "odoo.addons.base.models.ir_actions_report.IrActionsReport._run_wkhtmltopdf"
+)
+DUMMY_BASE64_VALUE = b"c2FsdXRvbgo="
 
 
 class TestModule(TransactionCase):
@@ -17,11 +24,15 @@ class TestModule(TransactionCase):
         self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
         self.pos_config.open_session_cb()
 
-    def test_mail_before_order(self):
+    @mock.patch(wkhtmltopdf_method)
+    def test_mail_before_order(self, wkhtmltopdf):
+        wkhtmltopdf.return_value = DUMMY_BASE64_VALUE
         order = self._create_order(email="test_mail@example.org.tst")
-        self.assertSent(order)
+        self.assert_sent(order)
 
-    def test_mail_after_order(self):
+    @mock.patch(wkhtmltopdf_method)
+    def test_mail_after_order(self, wkhtmltopdf):
+        wkhtmltopdf.return_value = DUMMY_BASE64_VALUE
         order = self._create_order()
         self.env["pos.order"].send_mail_receipt(
             order.pos_reference,
@@ -29,16 +40,16 @@ class TestModule(TransactionCase):
             "<p>Receipt's HTML</p>",
             force=False,
         )
-        self.assertSent(order)
+        self.assert_sent(order)
         self.env["pos.order"].send_mail_receipt(
             order.pos_reference,
             "test_mail@example.org.tst",
             "<p>Receipt's HTML</p>",
             force=False,
         )
-        self.assertSent(order)
+        self.assert_sent(order)
 
-    def assertSent(self, order):
+    def assert_sent(self, order):
         mail = self.env["mail.mail"].search(
             [("model", "=", "pos.order"), ("res_id", "=", order.id)]
         )
