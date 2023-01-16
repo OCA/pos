@@ -3,7 +3,7 @@
 
     <t t-extend="ClientListScreenWidget">
         <t t-jquery='.new-customer' t-operation='attributes'>
-            <attribute name="invisible">1</attribute>
+            <attribute name="class">oe_hidden</attribute>
         </t>
     </t>
 </templates>
