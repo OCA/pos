@@ -41,7 +41,7 @@ class PosOrder(models.Model):
             email_values["email_to"] = order.partner_id.email
 
         receipt = (
-            "<main><div class='article'><div class='pos'>"
+            "<main><div class='article pos-mail-receipt'><div class='pos'>"
             "<div class='pos-receipt-container'>"
             "{}</div></div></div></main>".format(body_from_ui)
         )
