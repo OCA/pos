@@ -19,6 +19,13 @@ class PosOrder(models.Model):
     @api.model
     def send_mail_receipt(
         self, pos_reference, email, body_from_ui, force=True
+            ):
+            return self._send_mail_receipt(
+                pos_reference, email, body_from_ui, force)
+
+    @api.model
+    def _send_mail_receipt(
+        self, pos_reference, email, body_from_ui, force=True
     ):
         order = self.search([("pos_reference", "=", pos_reference)])
         if len(order) < 1:
