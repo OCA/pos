@@ -30,6 +30,7 @@ setuptools.setup(
         'odoo12-addon-pos_invoice_send_mail',
         'odoo12-addon-pos_invoicing',
         'odoo12-addon-pos_journal_image',
+        'odoo12-addon-pos_mail_receipt',
         'odoo12-addon-pos_margin',
         'odoo12-addon-pos_margin_account_invoice_margin',
         'odoo12-addon-pos_meal_voucher',
