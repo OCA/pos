@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 14:32+0000\n"
-"PO-Revision-Date: 2019-12-17 14:32+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,53 +14,39 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_mail_receipt
+#: model:mail.template,body_html:pos_mail_receipt.email_send_ticket
+msgid "\n"
+"Your Ticket ${object.pos_reference}\n"
+"            "
+msgstr ""
+
+#. module: pos_mail_receipt
 #: model:mail.template,subject:pos_mail_receipt.email_send_ticket
 msgid "${object.pos_reference}"
 msgstr ""
 
 #. module: pos_mail_receipt
-#: model:mail.template,body_html:pos_mail_receipt.email_send_ticket
-msgid "<p style=\"margin:0px 0 1rem 0;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
-"Your Ticket ${object.pos_reference}\n"
-"            </p>"
-msgstr ""
-
-#. module: pos_mail_receipt
 #. openerp-web
-#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:25
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:125
 #, python-format
-msgid "Cancel"
+msgid ". Check your internet connection and try again."
 msgstr ""
 
 #. module: pos_mail_receipt
-#: code:addons/pos_mail_receipt/models/pos_order.py:25
+#: code:addons/pos_mail_receipt/models/pos_order.py:39
 #, python-format
 msgid "Cannot send the ticket, no email address found for the client"
 msgstr ""
 
 #. module: pos_mail_receipt
 #. openerp-web
-#: code:addons/pos_mail_receipt/static/src/js/screens.js:82
-#, python-format
-msgid "Check your internet connection and try again."
-msgstr ""
-
-#. module: pos_mail_receipt
-#. openerp-web
-#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:22
-#, python-format
-msgid "Confirm"
-msgstr ""
-
-#. module: pos_mail_receipt
-#. openerp-web
-#: code:addons/pos_mail_receipt/static/src/js/screens.js:28
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:39
 #, python-format
 msgid "E-mail address to use"
 msgstr ""
 
 #. module: pos_mail_receipt
-#: code:addons/pos_mail_receipt/models/pos_order.py:23
+#: code:addons/pos_mail_receipt/models/pos_order.py:35
 #, python-format
 msgid "E-mail already sent"
 msgstr ""
@@ -73,16 +57,16 @@ msgid "Email Receipt Sent"
 msgstr ""
 
 #. module: pos_mail_receipt
-#: code:addons/pos_mail_receipt/models/pos_order.py:21
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:132
 #, python-format
-msgid "Error: no order found"
+msgid "Error sending the mail receipt"
 msgstr ""
 
 #. module: pos_mail_receipt
-#. openerp-web
-#: code:addons/pos_mail_receipt/static/src/xml/pos.xml:19
+#: code:addons/pos_mail_receipt/models/pos_order.py:32
 #, python-format
-msgid "Mail"
+msgid "Error: no order found"
 msgstr ""
 
 #. module: pos_mail_receipt
@@ -98,25 +82,29 @@ msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_mail_receipt
-#: code:addons/pos_mail_receipt/models/pos_order.py:44
+#: code:addons/pos_mail_receipt/models/pos_order.py:67
 #, python-format
 msgid "Receipt_{}.pdf"
 msgstr ""
 
 #. module: pos_mail_receipt
 #. openerp-web
-#: code:addons/pos_mail_receipt/static/src/js/screens.js:81
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:69
+#, python-format
+msgid "Synchronisation with the database is taking too long. Retry or contact the system administrator."
+msgstr ""
+
+#. module: pos_mail_receipt
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:121
 #, python-format
 msgid "The e-mail could not be sent"
 msgstr ""
 
 #. module: pos_mail_receipt
-#: model:mail.template,report_name:pos_mail_receipt.email_send_ticket
-msgid "Ticket ${object.pos_reference}"
-msgstr ""
-
-#. module: pos_mail_receipt
-#: model:ir.model,name:pos_mail_receipt.model_report_pos_mail_receipt_pos_receipt_report
-msgid "report.pos_mail_receipt.pos_receipt_report"
+#. openerp-web
+#: code:addons/pos_mail_receipt/static/src/js/screens.js:123
+#, python-format
+msgid "The e-mail could not be sent to "
 msgstr ""
 
