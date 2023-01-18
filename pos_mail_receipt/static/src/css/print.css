@@ -1,0 +1,129 @@
+/* This is a copy of the pos receipt screen CSS
+ * This allows to use it in the backend */
+.pos-mail-receipt .pos .receipt-screen .centered-content .button {
+    line-height: 40px;
+    padding: 3px 13px;
+    font-size: 20px;
+    text-align: center;
+    background: rgb(230, 230, 230);
+    margin: 16px;
+    margin-bottom: 0px;
+    border-radius: 3px;
+    border: solid 1px rgb(209, 209, 209);
+    cursor: pointer;
+}
+
+.pos-mail-receipt .pos .pos-receipt-container {
+    font-size: 0.75em;
+    text-align: center;
+    direction: ltr;
+}
+
+.pos-mail-receipt .pos .pos-sale-ticket {
+    text-align: left;
+    width: 300px;
+    background-color: white;
+    margin: 20px;
+    padding: 15px;
+    font-size: 14px;
+    padding-bottom:30px;
+    display: inline-block;
+    font-family: "Inconsolata";
+    border: solid 1px rgb(220,220,220);
+    border-radius: 3px;
+    overflow: hidden;
+}
+.pos-mail-receipt .pos .pos-sale-ticket pre{
+    font-family: "Inconsolata";
+}
+.pos-mail-receipt .pos .pos-sale-ticket .emph{
+    font-size: 20px;
+    margin:5px;
+}
+.pos-mail-receipt .pos .pos-sale-ticket table {
+    width: 100%;
+    border: 0;
+    table-layout: fixed;
+}
+.pos-mail-receipt .pos .pos-sale-ticket table td {
+    border: 0;
+    word-wrap: break-word;
+}
+
+@page {
+    margin: 0;
+}
+@media print {
+    .pos-mail-receipt * {
+        color: black !important;
+    }
+    .pos-mail-receipt body {
+        margin: 0;
+        color: white !important;
+        /* avoid black background if backgrounds are printed */
+        background: initial;
+    }
+    .pos-mail-receipt .oe_leftbar,
+    .pos-mail-receipt .oe_loading,
+    .pos-mail-receipt .pos .pos-topheader, 
+    .pos-mail-receipt .pos .pos-leftpane, 
+    .pos-mail-receipt .pos .keyboard_frame,
+    .pos-mail-receipt .pos .receipt-screen header,
+    .pos-mail-receipt .pos .receipt-screen .top-content,
+    .pos-mail-receipt .pos .receipt-screen .centered-content .button {
+        display: none !important;
+    }
+    .pos-mail-receipt .pos,
+    .pos-mail-receipt .pos .pos-content,
+    .pos-mail-receipt .pos .rightpane,
+    .pos-mail-receipt .pos .screen, 
+    .pos-mail-receipt .pos .window, 
+    .pos-mail-receipt .pos .window .subwindow, 
+    .pos-mail-receipt .pos .subwindow .subwindow-container{
+        display: block;
+        position: static;
+        height: auto;
+    }
+    .pos-mail-receipt .pos{
+        background: white !important;
+    }
+    .pos-mail-receipt .pos .rightpane {
+        left: 0px !important;
+        background-color: white;
+    }
+    .pos-mail-receipt .pos .receipt-screen {
+        text-align: left;
+    }
+    .pos-mail-receipt .pos .receipt-screen .centered-content{
+        position: static;
+        border: none;
+    }
+    .pos-mail-receipt .pos .pos-receipt-container {
+        text-align: left;
+    }
+    .pos-mail-receipt .pos-actionbar {
+        display: none !important;
+    }
+    .pos-mail-receipt .debug-widget{
+        display: none !important;
+    }
+    .pos-mail-receipt .pos *{
+        text-shadow: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
+    .pos-mail-receipt .pos .pos-sale-ticket{
+        margin: 0;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border: none !important;
+        font-size: 13px !important;
+        width: 266px !important;
+    }
+    .pos-mail-receipt .o_debug_manager {
+        display: none !important;
+    }
+    .pos-mail-receipt .o_chat_window {
+        display: none !important;
+    }
+}
