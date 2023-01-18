@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-01-02 12:01+0000\n"
+"PO-Revision-Date: 2023-01-18 11:58+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -267,7 +267,7 @@ msgstr ""
 #. module: pos_loyalty
 #: model:ir.model,name:pos_loyalty.model_pos_order
 msgid "Point of Sale Orders"
-msgstr "Punto di riordino"
+msgstr "Ordini punto vendita"
 
 #. module: pos_loyalty
 #: code:addons/pos_loyalty/models/loyalty_reward.py:72
