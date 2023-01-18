@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2017-06-09 03:25+0000\n"
-"Last-Translator: Paolo Valier <paolo.valier@hotmail.it>, 2017\n"
+"PO-Revision-Date: 2023-01-18 11:53+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_store_draft_order
 #: field:pos.config,allow_store_draft_order:0
@@ -40,7 +41,7 @@ msgstr ""
 #. module: pos_store_draft_order
 #: model:ir.model,name:pos_store_draft_order.model_pos_order
 msgid "Point of Sale"
-msgstr "Punto Vendita"
+msgstr "Punto vendita"
 
 #. module: pos_store_draft_order
 #: code:addons/pos_store_draft_order/model/pos_session.py:63
