@@ -23,9 +23,8 @@ odoo.define("pos_margin.OrderWidget", function (require) {
                         order.get_margin()
                     );
                 }
-                var value_margin_rate = document.getElementsByClassName(
-                    "value-margin-rate"
-                );
+                var value_margin_rate =
+                    document.getElementsByClassName("value-margin-rate");
                 if (value_margin_rate && value_margin_rate.length) {
                     value_margin_rate[0].textContent =
                         field_utils.format.float(order.get_margin_rate()) + "%";
