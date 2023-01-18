@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-07-04 12:05+0000\n"
+"PO-Revision-Date: 2023-01-18 11:48+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_product_product__pos_allow_negative_qty
@@ -144,17 +144,17 @@ msgstr "Linea guidata reso parziale"
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_order_line
 msgid "Point of Sale Order Lines"
-msgstr "Righe d'ordine Punto Vendita"
+msgstr "Righe ordine punto vendita"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_order
 msgid "Point of Sale Orders"
-msgstr "Ordine Punto Vendita"
+msgstr "Ordini punto vendita"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_product_template
 msgid "Product Template"
-msgstr "Modello Prodotto"
+msgstr "Modello prodotto"
 
 #. module: pos_order_return
 #: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line__initial_qty
