@@ -1,0 +1,32 @@
+.pos .product-list .warehouse-info {
+    padding: 0.5rem;
+    font-weight: bold;
+    display: flex;
+    border-top: 1px solid #efefef;
+    justify-content: space-between;
+}
+.pos .product-list .warehouse-info .warehouse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.pos .product-list .warehouse-info .warehouse .quantity {
+    color: black;
+    padding: 1px 2px;
+    font-size: 11px;
+}
+.pos .product-list .warehouse-info .warehouse .warehouse-name {
+    display: block;
+    color: #696969;
+    font-size: 10px;
+}
+.pos .product-list .warehouse-info .warehouse.total .warehouse-name {
+    font-weight: bold;
+}
+.pos .product-list .warehouse-info .warehouse .quantity.available {
+    color: #32a868;
+}
+.pos .product-list .warehouse-info .warehouse .quantity.not-available {
+    color: #ef5350;
+}
