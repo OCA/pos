@@ -52,6 +52,22 @@ msgid "Point of Sale Session"
 msgstr "Sessão do Ponto de Venda"
 
 #. module: pos_invoicing
+#: code:addons/pos_invoicing/models/pos_order.py:62
+#, python-format
+msgid ""
+"Unable to create an invoice from the order %s because the amount taxes are "
+"not the same. %s != %s"
+msgstr ""
+
+#. module: pos_invoicing
+#: code:addons/pos_invoicing/models/pos_order.py:48
+#, python-format
+msgid ""
+"Unable to create an invoice from the order %s because the amount totals are "
+"not the same. %s != %s"
+msgstr ""
+
+#. module: pos_invoicing
 #: code:addons/pos_invoicing/models/account_invoice.py:37
 #, python-format
 msgid ""
