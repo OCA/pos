@@ -5,7 +5,7 @@
 {
     'name': 'Point Of Sale - Invoicing',
     'summary': 'Handle invoicing from Point Of Sale',
-    'version': '12.0.3.0.3',
+    'version': '12.0.3.1.0',
     'category': 'Point of Sale',
     'author': 'GRAP, Odoo Community Association (OCA)',
     'maintainers': ['legalsylvain'],
