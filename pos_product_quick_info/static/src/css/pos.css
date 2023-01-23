@@ -1,0 +1,7 @@
+.pos .product-list .quick-info {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 5px;
+    font-size: 24px;
+}
