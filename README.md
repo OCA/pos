@@ -41,7 +41,7 @@ addon | version | maintainers | summary
 [pos_hide_empty_category](pos_hide_empty_category/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Hide PoS categories that doesn't have any products
 [pos_hide_partner_info](pos_hide_partner_info/) | 12.0.2.0.1 |  | Hides phone and address field in pos customer list.
 [pos_invoice_send_mail](pos_invoice_send_mail/) | 12.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Send invoices by email from the POS
-[pos_invoicing](pos_invoicing/) | 12.0.3.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Handle invoicing from Point Of Sale
+[pos_invoicing](pos_invoicing/) | 12.0.3.1.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Handle invoicing from Point Of Sale
 [pos_journal_image](pos_journal_image/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add images on Account Journals available in the PoS
 [pos_mail_receipt](pos_mail_receipt/) | 12.0.1.0.0 |  | Pos Mail Receipt
 [pos_margin](pos_margin/) | 12.0.2.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
@@ -55,7 +55,7 @@ addon | version | maintainers | summary
 [pos_order_mgmt](pos_order_mgmt/) | 12.0.1.1.4 |  | Manage old POS Orders from the frontend
 [pos_order_picking_link](pos_order_picking_link/) | 12.0.1.0.1 | [![sadamo](https://github.com/sadamo.png?size=30px)](https://github.com/sadamo) [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | POS Order Picking Link
 [pos_order_remove_line](pos_order_remove_line/) | 12.0.1.1.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
-[pos_order_return](pos_order_return/) | 12.0.1.0.4 |  | Point of Sale Order Return
+[pos_order_return](pos_order_return/) | 12.0.1.1.0 |  | Point of Sale Order Return
 [pos_order_return_traceability](pos_order_return_traceability/) | 12.0.1.0.1 |  | Adds full return traceability to POS frontend
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 12.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_partner_firstname](pos_partner_firstname/) | 12.0.1.1.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
