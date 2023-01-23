@@ -60,7 +60,10 @@ class PosOrder(models.Model):
 
     def _action_pos_order_invoice(self):
         """Wrap common process"""
-        self.action_pos_order_invoice()
+        # make the module compatible with the pos_invoicing
+        super(
+            PosOrder, self.with_context(pos_order_invoiced=True)
+        ).action_pos_order_invoice()
         self.invoice_id.sudo().action_invoice_open()
         self.account_move = self.invoice_id.move_id
 
