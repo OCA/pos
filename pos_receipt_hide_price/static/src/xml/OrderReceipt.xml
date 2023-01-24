@@ -82,10 +82,12 @@
     </xpath>
 
     <!-- Total Taxes -->
-    <xpath expr="//t[@t-foreach='receipt.tax_details']/div" position="attributes">
+    <!-- Both of these are needed to reliably hide taxes -->
+    <!-- This is counterintuitive but is the odoo xpath behavior -->
+    <xpath expr="//t[@t-if='isTaxIncluded']/div" position="attributes">
       <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
     </xpath>
-    <xpath expr="//t[@t-if='isTaxIncluded']/div" position="attributes">
+    <xpath expr="//t[@t-if='isTaxIncluded']//div" position="attributes">
       <attribute name="t-att-class">{'oe_hidden': priceHidden}</attribute>
     </xpath>
   </t>
