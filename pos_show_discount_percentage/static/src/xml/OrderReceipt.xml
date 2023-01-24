@@ -1,0 +1,12 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+    <xpath
+            expr="//t[@t-else='']/t/div[hasclass('pos-receipt-left-padding')]/t[@t-esc='env.pos.format_currency_no_symbol(line.price)']"
+            position="after"
+        >
+       (-<t
+                t-esc="+((Math.round(10000 * (1 - line.price / line.price_lst)) / 100).toFixed(4))"
+            />%)
+    </xpath>
+  </t>
+</templates>
