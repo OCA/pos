@@ -4,9 +4,7 @@
             expr="//t[@t-else='']/t/div[hasclass('pos-receipt-left-padding')]/t[@t-esc='env.pos.format_currency_no_symbol(line.price)']"
             position="after"
         >
-       (-<t
-                t-esc="+((Math.round(10000 * (1 - line.price / line.price_lst)) / 100).toFixed(4))"
-            />%)
+       (-<t t-esc="Math.round(100 * (1 - line.price / line.price_lst))" />%)
     </xpath>
   </t>
 </templates>

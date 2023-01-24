@@ -14,15 +14,11 @@ odoo.define("pos_show_discount_percentage", function (require) {
                 _super_discount_str === "0" &&
                 this.get_unit_display_price() !== this.get_taxed_lst_unit_price()
             ) {
-                return Number(
-                    (
-                        Math.round(
-                            10000 *
-                                (1 -
-                                    this.get_unit_display_price() /
-                                        this.get_taxed_lst_unit_price())
-                        ) / 100
-                    ).toFixed(4)
+                return Math.round(
+                    100 *
+                        (1 -
+                            this.get_unit_display_price() /
+                                this.get_taxed_lst_unit_price())
                 );
             }
             return _super_discount_str;
