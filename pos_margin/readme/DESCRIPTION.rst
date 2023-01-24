@@ -1,5 +1,1 @@
-This module extends the functionality of point of sale to support margin on
-pos orders.
-
-This gives the profitability by calculating the difference between the Unit
-Price and Cost Price.
+This module shows margins in PoS frontend during an order creation.

@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-Copyright (C) 2021 - Today: GRAP (http://www.grap.coop)
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
 @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
 
-
     <t t-name="OrderSummaryMargin" owl="1">
         <div class="summary clearfix">
             <t t-if="env.pos.config.iface_display_margin">
-                <div class="line">
-                    <div class="subentry order-margin">
-                        <span>Margin: </span><span class="value-margin">0.00 €</span>
-                        (<span class="value-margin-rate">0.00 %</span>)
+                <t t-set="_result" t-value="getOrderMargin()" />
+                <t t-if="_result">
+                    <div class="line">
+                        <div class="subentry order-margin">
+                            <span class="value-margin">Margin:
+                                <t t-out="_result.margin" />
+                            </span>
+                            (<span class="value-margin-rate">
+                                <t t-out="_result.margin_rate" />
+                            </span>)
+                        </div>
                     </div>
-                </div>
+                </t>
             </t>
         </div>
     </t>
@@ -32,7 +38,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <span
                     t-att-class="'price order-line-margin ' + (props.line.get_margin_rate() &lt; 0 ? 'margin-negative' : '')"
                 >
-                    (<t t-esc="props.line.get_margin_rate_str()" />)
+                    (<t t-out="props.line.get_margin_rate_str()" />)
                 </span>
             </t>
         </xpath>
