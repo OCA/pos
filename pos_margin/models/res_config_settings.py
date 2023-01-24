@@ -5,11 +5,10 @@
 from odoo import fields, models
 
 
-class PosConfig(models.Model):
-    _inherit = "pos.config"
+class ResConfigSettings(models.TransientModel):
+    _inherit = "res.config.settings"
 
-    iface_display_margin = fields.Boolean(
-        string="Diplay Margin",
-        help="Display Margin and Margin Rate in the frontend",
-        default=True,
+    pos_iface_display_margin = fields.Boolean(
+        related="pos_config_id.iface_display_margin",
+        readonly=False,
     )
