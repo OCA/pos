@@ -27,8 +27,6 @@ odoo.define('pos_cashback_warning.screens', function (require) {
                     extradue = due;
                 }
                 _.each(lines, function (line) {
-                    console.log("=> line.cashregister.journal.type", line.cashregister.journal.type);
-                    console.log("=> line.amount", line.amount);
                     if (line.cashregister.journal.type === "cash") {
                         total_cash_received += line.amount;
                     }
@@ -44,4 +42,6 @@ odoo.define('pos_cashback_warning.screens', function (require) {
         },
 
     });
+
+    return screens;
 });

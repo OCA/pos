@@ -18,8 +18,5 @@
     "qweb": [
         'static/src/xml/pos.xml',
     ],
-    "images": [
-        "static/description/pos_cashback_warning.png",
-    ],
     "installable": True,
 }
