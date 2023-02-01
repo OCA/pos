@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-07-20 17:49+0000\n"
+"PO-Revision-Date: 2023-02-01 16:46+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_product_product__pos_allow_negative_qty
@@ -57,7 +57,7 @@ msgstr "Creato il"
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__display_name
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__display_name
 msgid "Display Name"
-msgstr "Nome Visualizzato"
+msgstr "Nome visualizzato"
 
 #. module: pos_order_return
 #: code:addons/pos_order_return/models/pos_order.py:198
