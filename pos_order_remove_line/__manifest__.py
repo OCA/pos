@@ -1,4 +1,4 @@
-# Copyright 2019 LevelPrime
+# Copyright 2023 LevelPrime
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 {
@@ -8,9 +8,14 @@
     "website": "https://github.com/OCA/pos",
     "category": "Point of Sale",
     "maintainers": ["robyf70"],
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/assets.xml"],
-    "qweb": ["static/src/xml/orderline.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_order_remove_line/static/src/js/*.js",
+            "pos_order_remove_line/static/src/css/*.scss",
+            "pos_order_remove_line/static/src/xml/*xml",
+        ]
+    },
 }
