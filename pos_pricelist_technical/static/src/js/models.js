@@ -9,16 +9,6 @@ odoo.define("pos_pricelist_technical.models", function (require) {
 
     var models = require("point_of_sale.models");
 
-    var _PosModelSuper = models.PosModel.prototype;
-    models.PosModel = models.PosModel.extend({
-        initialize: function(session, attributes) {
-            for (var i = 0 ; i < this.models.length; i++){
-                if (this.models[i].model == "product.pricelist") {
-                    this.models[i].fields.push("is_technical");
-                }
-            }
-            return _PosModelSuper.initialize.apply(this, arguments);
-        }
-    });
+    models.load_fields("product.pricelist", ["is_technical"]);
 
 });
