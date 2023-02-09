@@ -98,7 +98,9 @@ class PosPaymentChangeWizard(models.TransientModel):
             action = {"type": "ir.actions.act_window_close"}
         else:
             # otherwise (refund policy), displays the 3 orders
-            action = self.env.ref("point_of_sale.action_pos_pos_form").read()[0]
+            action = self.env["ir.actions.act_window"]._for_xml_id(
+                "point_of_sale.action_pos_pos_form"
+            )
             action["domain"] = [("id", "in", orders.ids)]
 
         return action
