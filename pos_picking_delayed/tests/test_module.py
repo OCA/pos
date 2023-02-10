@@ -46,7 +46,7 @@ class TestModule(TransactionCase):
         order = self._create_order()
 
         self.assertEqual(
-            order.picking_id.id,
+            order.picking_ids.id,
             False,
             "Creating order via UI should not generate a picking if"
             " feature is enabled",
@@ -64,7 +64,7 @@ class TestModule(TransactionCase):
 
         order = self._create_order()
 
-        picking_id = order.picking_id.id
+        picking_id = order.picking_ids.id
         self.assertNotEqual(
             picking_id,
             False,

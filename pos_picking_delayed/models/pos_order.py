@@ -48,5 +48,6 @@ class PosOrder(models.Model):
     def _create_delayed_picking(self):
         # make the function idempotent
         orders = self.filtered(lambda x: x.has_picking_delayed)
-        super(PosOrder, orders).create_picking()
+        res = super(PosOrder, orders).create_picking()
         orders.write({"has_picking_delayed": False})
+        return res
