@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_default_code_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.default.code.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='pos_is_margins_costs_accessible_to_every_user']/../.."
+                position="after"
+            >
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="pos_display_default_code" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="pos_display_default_code"
+                            string="Display Default Code"
+                        />
+                        <div class="text-muted">
+                            Display products' internal reference in the PoS interface and tickets.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
