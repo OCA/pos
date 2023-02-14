@@ -25,9 +25,9 @@
         <div class="pos-receipt-left-padding">
           x
           <t
-                        t-esc="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
+                        t-out="Math.round(line.quantity * Math.pow(10, env.pos.dp['Product Unit of Measure'])) / Math.pow(10, env.pos.dp['Product Unit of Measure'])"
                     />
-          <t t-if="!line.is_in_unit" t-esc="line.unit_name" />
+          <t t-if="!line.is_in_unit" t-out="line.unit_name" />
         </div>
       </t>
     </xpath>

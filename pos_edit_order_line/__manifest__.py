@@ -5,7 +5,7 @@
 
 {
     "name": "POS Edit Order Line",
-    "version": "14.0.1.0.2",
+    "version": "16.0.1.0.0",
     "summary": "POS Edit Order Line",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "contributors": "Cetmix",
@@ -15,12 +15,18 @@
     "depends": ["point_of_sale"],
     "external_dependencies": {},
     "demo": [],
-    "data": ["views/assets.xml", "views/pos_config_view.xml"],
-    "qweb": [
-        "static/src/xml/EditOrderButton.xml",
-        "static/src/xml/EditOrderPopup.xml",
-        "static/src/xml/EditOrderLineInput.xml",
-    ],
+    "data": ["views/pos_config_view.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_edit_order_line/static/src/css/pos.css",
+            "pos_edit_order_line/static/src/js/EditOrderButton.js",
+            "pos_edit_order_line/static/src/js/EditOrderPopup.js",
+            "pos_edit_order_line/static/src/js/EditOrderLineInput.js",
+            "pos_edit_order_line/static/src/xml/EditOrderButton.xml",
+            "pos_edit_order_line/static/src/xml/EditOrderPopup.xml",
+            "pos_edit_order_line/static/src/xml/EditOrderLineInput.xml",
+        ],
+    },
     "installable": True,
     "application": False,
 }

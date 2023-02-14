@@ -4,7 +4,7 @@
     <t t-name="EditOrderLineInput" owl="1">
         <tr t-attf-class="order-line" t-att-data-id="props.item.id">
             <td>
-                <t t-esc="props.item.name" />
+                <t t-out="props.item.name" />
             </td>
             <td>
                 <input
@@ -16,7 +16,7 @@
                 />
             </td>
             <td>
-                <t t-esc="props.item.uom" />
+                <t t-out="props.item.uom" />
             </td>
             <td>
                  <input

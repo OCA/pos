@@ -5,7 +5,7 @@
         <div role="dialog" class="modal-dialog edit-order-popup">
             <div class="popup popup-text">
                 <header class="title">
-                    <t t-esc="props.title" />
+                    <t t-out="props.title" />
                 </header>
                 <main class="full-content">
                     <div class="order-line-window">
@@ -44,10 +44,10 @@
                 </main>
                 <footer class="footer">
                     <div class="button confirm" t-on-click="confirm">
-                        <t t-esc="props.confirmText" />
+                        <t t-out="props.confirmText" />
                     </div>
                     <div class="button cancel" t-on-click="cancel">
-                        <t t-esc="props.cancelText" />
+                        <t t-out="props.cancelText" />
                     </div>
                 </footer>
             </div>

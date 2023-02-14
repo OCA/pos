@@ -5,7 +5,7 @@
         <field name="model">pos.config</field>
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='manage_orders']/../.." position="after">
+            <xpath expr="//field[@name='proxy_ip']/../../../.." position="after">
                 <div class="col-12 col-lg-6 o_setting_box" id="allow_edit_order_line">
                     <div class="o_setting_left_pane">
                         <field name="allow_edit_order_line" />

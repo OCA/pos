@@ -3,15 +3,10 @@ odoo.define("pos_edit_order_line.EditOrderButton", function (require) {
 
     const PosComponent = require("point_of_sale.PosComponent");
     const ProductScreen = require("point_of_sale.ProductScreen");
-    const {useListener} = require("web.custom_hooks");
     const Registries = require("point_of_sale.Registries");
     const {_t} = require("web.core");
 
     class EditOrderButton extends PosComponent {
-        constructor() {
-            super(...arguments);
-            useListener("click", this.onClick);
-        }
         async onClick() {
             var self = this;
             var order = this.env.pos.get_order();
@@ -44,7 +39,7 @@ odoo.define("pos_edit_order_line.EditOrderButton", function (require) {
         async apply_changes(payload) {
             var order = this.env.pos.get_order();
             _.each(payload, function (changes, id) {
-                var line = order.get_orderline(parseInt(id));
+                var line = order.get_orderline(parseInt(id, 10));
                 _.each(changes, function (value, key) {
                     if (key === "quantity") {
                         line.set_quantity(value);
@@ -55,9 +50,6 @@ odoo.define("pos_edit_order_line.EditOrderButton", function (require) {
                     }
                 });
             });
-            if (!_.isEmpty(payload)) {
-                order.trigger("change");
-            }
         }
     }
     EditOrderButton.template = "EditOrderButton";

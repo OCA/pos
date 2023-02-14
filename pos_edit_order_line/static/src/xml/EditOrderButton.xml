@@ -2,7 +2,7 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="EditOrderButton" owl="1">
-        <span class="control-button js_edit_order">
+        <span class="control-button js_edit_order" t-on-click="onClick">
             <i class="fa fa-pencil-square-o" />
             <span> </span>
             <span>Edit Order Lines</span>

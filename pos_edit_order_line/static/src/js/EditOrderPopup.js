@@ -1,9 +1,10 @@
 odoo.define("pos_edit_order_line.EditOrderPopup", function (require) {
     "use strict";
 
-    const {useState} = owl.hooks;
+    const {useState} = owl;
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
     const Registries = require("point_of_sale.Registries");
+    const {_t} = require("web.core");
 
     class EditOrderPopup extends AbstractAwaitablePopup {
         constructor() {
@@ -51,15 +52,14 @@ odoo.define("pos_edit_order_line.EditOrderPopup", function (require) {
             );
 
             if (allowConfirmChanges) {
-                this.props.resolve({confirmed: true, payload: await this.getPayload()});
-                this.trigger("close-popup");
+                return super.confirm();
             }
         }
     }
     EditOrderPopup.template = "EditOrderPopup";
     EditOrderPopup.defaultProps = {
-        confirmText: "Save",
-        cancelText: "Cancel",
+        confirmText: _t("Save"),
+        cancelText: _t("Cancel"),
         array: [],
     };
 
