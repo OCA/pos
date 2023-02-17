@@ -36,10 +36,14 @@ example: Desk Organizer -> [FURN_0001] Desk Organizer
 .. contents::
    :local:
 
-Known issues / Roadmap
-======================
+Configuration
+=============
 
-add an option in pos.config to activate/deactivate
+* Go to Point Of Sale / Configuration / Settings
+* Check the box 'Display Default Code' in PoS Interface section
+
+.. image:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_product_display_default_code/static/description/config.png
+   :width: 800 px
 
 Bug Tracker
 ===========
@@ -58,6 +62,12 @@ Authors
 ~~~~~~~
 
 * Akretion
+* FactorLibre
+
+Contributors
+~~~~~~~~~~~~
+
+* Juan Carlos Bonilla <juancarlos.bonilla@factorlibre.com>
 
 Maintainers
 ~~~~~~~~~~~
