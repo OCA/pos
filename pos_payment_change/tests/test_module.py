@@ -51,7 +51,7 @@ class TestModule(TransactionCase):
             self.bank_payment_method.id,
             self.cash_payment_method.id,
         ]
-        self.pos_config.open_session_cb()
+        self.pos_config.open_ui()
         self.session = self.pos_config.current_session_id
 
     def _sale(self, payment_method_1, price_1, payment_method_2=False, price_2=0.0):
@@ -181,3 +181,17 @@ class TestModule(TransactionCase):
             len(self.PosOrder.search([])),
             "In 'Refund' mode, changing payment should generate" " two new PoS Orders",
         )
+
+    def test_03_payment_change_closed_orders(self):
+        self.pos_config.payment_change_policy = "update"
+
+        self._initialize_journals_open_session()
+        # Make a sale with 35 in cash journal and 65 in check
+        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
+
+        self.session.state = "closed"
+
+        with self.assertRaises(UserError):
+            self._change_payment(
+                order, self.cash_payment_method, 10, self.bank_payment_method, 90
+            )
