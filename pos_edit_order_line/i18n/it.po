@@ -18,56 +18,47 @@ msgstr ""
 
 #. module: pos_edit_order_line
 #: model:ir.model.fields,field_description:pos_edit_order_line.field_pos_config__allow_edit_order_line
+#: model:ir.model.fields,field_description:pos_edit_order_line.field_res_config_settings__pos_allow_edit_order_line
 msgid "Allow Edit Order Line"
 msgstr "Abilita la modifica righe ordine con popup"
 
 #. module: pos_edit_order_line
-#: model_terms:ir.ui.view,arch_db:pos_edit_order_line.pos_config_view_form
+#: model_terms:ir.ui.view,arch_db:pos_edit_order_line.res_config_settings_view_form
 msgid "Allow edit Order Line in popup"
 msgstr "Abilita la modifica righe ordine con popup"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#: model:ir.model,name:pos_edit_order_line.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_edit_order_line
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/xml/EditOrderPopup.xml:0
 #, python-format
 msgid "Discount"
 msgstr "Sconto"
 
 #. module: pos_edit_order_line
-#: model:ir.model.fields,field_description:pos_edit_order_line.field_pos_config__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/js/EditOrderButton.js:0
 #, python-format
 msgid "Edit Order Line"
 msgstr "Modifica righe ordine"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/xml/EditOrderButton.xml:0
 #, python-format
 msgid "Edit Order Lines"
 msgstr "Modifica righe ordine"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/js/EditOrderButton.js:0
 #, python-format
 msgid "Empty Order"
 msgstr "Svuota ordine"
-
-#. module: pos_edit_order_line
-#: model:ir.model.fields,field_description:pos_edit_order_line.field_pos_config__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_edit_order_line
-#: model:ir.model.fields,field_description:pos_edit_order_line.field_pos_config____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
 
 #. module: pos_edit_order_line
 #: model:ir.model,name:pos_edit_order_line.model_pos_config
@@ -75,36 +66,45 @@ msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/xml/EditOrderPopup.xml:0
 #, python-format
 msgid "Price"
 msgstr "Prezzo"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/xml/EditOrderPopup.xml:0
 #, python-format
 msgid "Product"
 msgstr "Prodotto"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/xml/EditOrderPopup.xml:0
 #, python-format
 msgid "Quantity"
 msgstr "Quantità"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/xml/EditOrderPopup.xml:0
 #, python-format
 msgid "UoM"
 msgstr "UdM"
 
 #. module: pos_edit_order_line
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_edit_order_line/static/src/js/EditOrderButton.js:0
 #, python-format
 msgid "You need add some products first"
 msgstr "Devi aggiungere qualche prodotto prima all'ordine."
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
