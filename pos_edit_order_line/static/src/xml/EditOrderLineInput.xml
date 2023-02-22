@@ -9,8 +9,7 @@
             <td>
                 <input
                     t-model="state.quantityInput"
-                    t-on-blur="onBlur"
-                    t-on-focus="onFocus"
+                    t-on-change="onChange"
                     type="number"
                     name="quantity"
                 />
@@ -21,8 +20,7 @@
             <td>
                  <input
                     t-model="state.priceInput"
-                    t-on-blur="onBlur"
-                    t-on-focus="onFocus"
+                    t-on-change="onChange"
                     type="number"
                     name="price"
                 />
@@ -30,8 +28,7 @@
             <td t-if="env.pos.config.manual_discount">
                  <input
                     t-model="state.discountInput"
-                    t-on-blur="onBlur"
-                    t-on-focus="onFocus"
+                    t-on-change="onChange"
                     type="number"
                     name="discount"
                 />

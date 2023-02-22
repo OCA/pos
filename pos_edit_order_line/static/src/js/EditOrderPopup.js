@@ -1,13 +1,13 @@
 odoo.define("pos_edit_order_line.EditOrderPopup", function (require) {
     "use strict";
 
-    const {useState} = owl.hooks;
+    const {useState} = owl;
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
     const Registries = require("point_of_sale.Registries");
 
     class EditOrderPopup extends AbstractAwaitablePopup {
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             this._id = 0;
             this.state = useState({array: this._initialize(this.props.array)});
             this.changes = {};
@@ -49,10 +49,11 @@ odoo.define("pos_edit_order_line.EditOrderPopup", function (require) {
                     }
                 })
             );
-
             if (allowConfirmChanges) {
-                this.props.resolve({confirmed: true, payload: await this.getPayload()});
-                this.trigger("close-popup");
+                this.env.posbus.trigger("close-popup", {
+                    popupId: this.props.id,
+                    response: {confirmed: true, payload: await this.getPayload()},
+                });
             }
         }
     }
