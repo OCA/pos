@@ -14,13 +14,13 @@ POS Edit Order Line
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/14.0/pos_edit_order_line
+    :target: https://github.com/OCA/pos/tree/16.0/pos_edit_order_line
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_edit_order_line
+    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_edit_order_line
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/14.0
+    :target: https://runbot.odoo-community.org/runbot/184/16.0
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
@@ -29,7 +29,7 @@ This module adds a button "Edit order lines" in main POS interface to allow an e
 
 On button click, a popup with order lines allows user to input a clear value for each field, instead of having to use the default process of selecting which field to edit, which is not very intuitive and error-prone.
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_edit_order_line/static/description/pos_edit_order_line.png
+.. image:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_edit_order_line/static/description/pos_edit_order_line.png
   :alt: Display Edit Order Line Popup
 
 **Table of contents**
@@ -57,7 +57,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_edit_order_line%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_edit_order_line%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -75,6 +75,9 @@ Contributors
 
 * Ooops404 <https://www.ooops404.com/>
 * Cetmix <https://cetmix.com/>
+* `Acsone <https://www.acsone.eu/>`_:
+
+  * Maxime Franco
 
 Maintainers
 ~~~~~~~~~~~
@@ -89,6 +92,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_edit_order_line>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_edit_order_line>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
