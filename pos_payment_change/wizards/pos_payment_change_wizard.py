@@ -89,12 +89,6 @@ class PosPaymentChangeWizard(models.TransientModel):
 
         orders = order.change_payment(new_payments)
 
-        # Note. Because of the poor design of the closing session process
-        # in Odoo, we call _check_pos_session_balance() that sets
-        # balance_end_real with balance_end for "non cash" journals
-        if order.session_id.state == "closing_control":
-            order.session_id._check_pos_session_balance()
-
         if len(orders) == 1:
             # if policy is 'update', only close the pop up
             action = {"type": "ir.actions.act_window_close"}
