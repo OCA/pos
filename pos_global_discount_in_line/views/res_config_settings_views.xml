@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos_discount</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="pos_discount.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='pos_discount_product_id']/.."
+                position="attributes"
+            >
+                <attribute
+                    name="attrs"
+                >{'invisible':[('pos_global_discount_in_line','=',True)]}</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='pos_discount_pc']/.." position="attributes">
+                <attribute
+                    name="attrs"
+                >{'invisible':[('pos_global_discount_in_line','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="////field[@name='pos_discount_pc']/.." position="after">
+                    <div>
+                        <field name="pos_global_discount_in_line" />
+                        <label for="pos_global_discount_in_line" />
+                    </div>
+                </xpath>
+        </field>
+    </record>
+</odoo>

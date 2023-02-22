@@ -1,7 +1,7 @@
 {
     "name": "Point of Sale - Global Discount in Line",
     "summary": "Order discount in line instead of discount product",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "author": "Ilyas, Ooops404, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
@@ -9,5 +9,10 @@
     "depends": [
         "pos_discount",
     ],
-    "data": ["views/pos_templates.xml", "views/pos_discount_views.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_global_discount_in_line/static/src/js/GlobalLineDiscount.js",
+        ],
+    },
+    "data": ["views/res_config_settings_views.xml"],
 }
