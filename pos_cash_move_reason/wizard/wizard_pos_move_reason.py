@@ -3,6 +3,7 @@
 
 from odoo import _, api, fields, models
 from odoo.exceptions import UserError
+from odoo.tools.misc import formatLang
 
 
 class WizardPosMoveReason(models.TransientModel):
@@ -90,6 +91,20 @@ class WizardPosMoveReason(models.TransientModel):
         self.ensure_one()
         AccountBankStatementLine = self.env["account.bank.statement.line"]
         AccountBankStatementLine.create(self._prepare_statement_line())
+        if self.move_type == "income":
+            chatter_text = _("<p>Money in.</p>")
+        elif self.move_type == "expense":
+            chatter_text = _("<p>Money out.</p>")
+        chatter_text += _(
+            "<p>Move reason: %s</p><p>Reason: %s</p> <p>Amount: %s</p>"
+        ) % (
+            self.move_reason_id.name,
+            self.name,
+            formatLang(self.env, self.amount, currency_obj=self.journal_id.currency_id),
+        )
+        self.session_id.message_post(
+            body=chatter_text, subtype_id=self.env.ref("mail.mt_note").id
+        )
 
     def _prepare_statement_line(self):
         self.ensure_one()
