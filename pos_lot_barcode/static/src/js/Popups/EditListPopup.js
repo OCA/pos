@@ -11,8 +11,8 @@ odoo.define("pos_lot_barcode.EditListPopup", function (require) {
 
     const PosLotBarcodeEditListPopup = (EditListPopup) =>
         class extends EditListPopup {
-            constructor() {
-                super(...arguments);
+            setup() {
+                super.setup();
                 useBarcodeReader({
                     lot: this._lotScanned,
                 });
