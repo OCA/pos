@@ -20,6 +20,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
+#, python-format
+msgid "<p>Money in.</p>"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
+#, python-format
+msgid "<p>Money out.</p>"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
+#, python-format
+msgid "<p>Move reason: %s</p><p>Reason: %s</p> <p>Amount: %s</p>"
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
 msgid ""
 "<span class=\"o_stat_text\">Put</span>\n"
