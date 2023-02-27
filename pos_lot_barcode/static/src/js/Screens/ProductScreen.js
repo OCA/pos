@@ -13,8 +13,8 @@ odoo.define("pos_lot_barcode.ProductScreen", function (require) {
 
     const PosLotBarcodeProductScreen = (ProductScreen) =>
         class extends ProductScreen {
-            constructor() {
-                super(...arguments);
+            setup() {
+                super.setup();
                 this.scan_lots_active = true;
                 useBarcodeReader({
                     lot: this._barcodeLotAction,
@@ -64,7 +64,7 @@ odoo.define("pos_lot_barcode.ProductScreen", function (require) {
                 let foundLotIds = [];
                 try {
                     foundLotIds = await this.rpc({
-                        model: "stock.production.lot",
+                        model: "stock.lot",
                         method: "search_read",
                         domain: [["name", "=", code]],
                         fields: ["id", "product_id"],
