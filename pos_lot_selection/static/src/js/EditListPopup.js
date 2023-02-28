@@ -10,8 +10,8 @@ odoo.define("pos_lot_selection.EditListPopup", function (require) {
 
     const LotSelectEditListPopup = (EditListPopup) =>
         class extends EditListPopup {
-            constructor() {
-                super(...arguments);
+            setup() {
+                super.setup();
                 if (this.props.title === this.env._t("Lot/Serial Number(s) Required")) {
                     this.props.lots = this.env.session.lots;
                 }
