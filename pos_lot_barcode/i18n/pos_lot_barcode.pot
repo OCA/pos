@@ -14,21 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
 #, python-format
 msgid "Cancel"
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
 #, python-format
 msgid "Error"
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
 #, python-format
 msgid ""
@@ -37,28 +37,28 @@ msgid ""
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
 #, python-format
 msgid "Multiple Products Matching Barcode"
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
 #, python-format
 msgid "Network Error"
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
 #: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
 #, python-format
@@ -66,7 +66,7 @@ msgid "Ok"
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
 #, python-format
 msgid ""
@@ -75,7 +75,7 @@ msgid ""
 msgstr ""
 
 #. module: pos_lot_barcode
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
 #, python-format
 msgid ""
