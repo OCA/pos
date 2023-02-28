@@ -14,27 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_lot_selection
-#: model:ir.model,name:pos_lot_selection.model_stock_production_lot
+#: model:ir.model,name:pos_lot_selection.model_stock_lot
 msgid "Lot/Serial"
 msgstr ""
 
 #. module: pos_lot_selection
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_lot_selection/static/src/js/EditListPopup.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
-msgstr ""
-
-#. module: pos_lot_selection
-#. openerp-web
-#: code:addons/pos_lot_selection/static/src/xml/LotSelectorPopup.xml:0
-#, python-format
-msgid "prepared_lots"
-msgstr ""
-
-#. module: pos_lot_selection
-#. openerp-web
-#: code:addons/pos_lot_selection/static/src/xml/LotSelectorPopup.xml:0
-#, python-format
-msgid "props.lots"
 msgstr ""
