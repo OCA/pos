@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2022-11-02 17:45+0000\n"
+"PO-Revision-Date: 2023-02-28 12:23+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -24,19 +24,19 @@ msgstr ""
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "<p>Money in.</p>"
-msgstr ""
+msgstr "<p>Deposito denaro.</p>"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "<p>Money out.</p>"
-msgstr ""
+msgstr "<p>Prelievo denaro.</p>"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "<p>Move reason: %s</p><p>Reason: %s</p> <p>Amount: %s</p>"
-msgstr ""
+msgstr "<p>Motivo movimento: %s</p><p>Motivo: %s</p> <p>Importo: %s</p>"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
