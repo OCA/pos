@@ -6,7 +6,7 @@ from odoo.tools import float_compare
 
 
 class ProductionLot(models.Model):
-    _inherit = "stock.production.lot"
+    _inherit = "stock.lot"
 
     @api.model
     def get_available_lots_for_pos(self, product_id, company_id):
