@@ -1,5 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
+#	* pos_partner_no_create
 #
 msgid ""
 msgstr ""
@@ -11,4 +12,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: pos_partner_no_create
+#. openerp-web
+#: code:addons/pos_partner_no_create/static/src/xml/templates.xml:6
+#, python-format
+msgid "oe_hidden"
+msgstr ""
 
