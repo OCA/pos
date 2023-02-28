@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo-addon-pos_customer_comment>=16.0dev,<16.1dev',
         'odoo-addon-pos_default_partner>=16.0dev,<16.1dev',
         'odoo-addon-pos_escpos_status>=16.0dev,<16.1dev',
+        'odoo-addon-pos_lot_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_selection>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_remove_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_reorder>=16.0dev,<16.1dev',
