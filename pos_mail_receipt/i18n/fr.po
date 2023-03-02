@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-17 14:32+0000\n"
-"PO-Revision-Date: 2019-12-17 15:38+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-03-02 12:23+0000\n"
+"Last-Translator: Grégory Moka Tourisme <gregory@mokatourisme.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_mail_receipt
 #: model:mail.template,body_html:pos_mail_receipt.email_send_ticket
@@ -24,6 +24,9 @@ msgid ""
 "Your Ticket ${object.pos_reference}\n"
 "            "
 msgstr ""
+"\n"
+"Votre reçu ${object.pos_reference}\n"
+"            "
 
 #. module: pos_mail_receipt
 #: model:mail.template,subject:pos_mail_receipt.email_send_ticket
@@ -35,7 +38,7 @@ msgstr ""
 #: code:addons/pos_mail_receipt/static/src/js/screens.js:125
 #, python-format
 msgid ". Check your internet connection and try again."
-msgstr ""
+msgstr ". Vérifier votre connexion internet et veuillez réessayer."
 
 #. module: pos_mail_receipt
 #: code:addons/pos_mail_receipt/models/pos_order.py:39
@@ -67,20 +70,20 @@ msgstr "Reçu envoyé"
 #: code:addons/pos_mail_receipt/static/src/js/screens.js:132
 #, python-format
 msgid "Error sending the mail receipt"
-msgstr ""
+msgstr "Erreur lors de l'envoi du reçu"
 
 #. module: pos_mail_receipt
 #: code:addons/pos_mail_receipt/models/pos_order.py:32
 #, python-format
 msgid "Error: no order found"
-msgstr "Erreur: pas de commande trouvée"
+msgstr "Erreur : pas de commande trouvée"
 
 #. module: pos_mail_receipt
 #. openerp-web
 #: code:addons/pos_mail_receipt/static/src/xml/pos.xml:8
 #, python-format
 msgid "Mail Receipt"
-msgstr "Reçu"
+msgstr "Envoyer par courriel"
 
 #. module: pos_mail_receipt
 #: model:ir.model,name:pos_mail_receipt.model_pos_order
@@ -101,6 +104,8 @@ msgid ""
 "Synchronisation with the database is taking too long. Retry or contact the "
 "system administrator."
 msgstr ""
+"La synchronisation avec la base de donnée prend trop de temps. Veuillez "
+"réessayer ou contacter l'administrateur."
 
 #. module: pos_mail_receipt
 #. openerp-web
@@ -114,7 +119,7 @@ msgstr "L'e-mail n'a pas pu être envoyé"
 #: code:addons/pos_mail_receipt/static/src/js/screens.js:123
 #, python-format
 msgid "The e-mail could not be sent to "
-msgstr ""
+msgstr "Le courriel ne peux pas être envoyé à "
 
 #~ msgid ""
 #~ "<p style=\"margin:0px 0 1rem 0;font-size:13px;font-family:&quot;Lucida "
