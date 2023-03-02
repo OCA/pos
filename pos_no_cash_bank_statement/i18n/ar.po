@@ -6,7 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-03-02 13:23+0000\n"
+"Last-Translator: Rachid Al Assir <rachidalassir@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -14,11 +15,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
 msgid "Bank/Cash Journal"
-msgstr ""
+msgstr "دفتر يومية البنك/النقدية"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
@@ -29,56 +31,61 @@ msgid ""
 " closing, which will generate accounting entries in the bank journal, which "
 "will be automatically reconciled with the sale journal entry."
 msgstr ""
+"بشكل افتراضي ، سيقوم Odoo بإنشاء سجل نقدي / كشف حساب بنكي عند إغلاق جلسة "
+"نقاط البيع فقط لطرق الدفع النقدي. إذا قمت بتفعيل هذا الخيار لطريقة دفع غير "
+"نقدية ، فسيقوم Odoo بإنشاء كشف حساب بنكي عند إغلاق الجلسة ، والذي سينشئ "
+"إدخالات محاسبية في دفتر يومية البنك ، والتي سيتم تسويتها تلقائيًا مع إدخال "
+"دفتر يومية البيع."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__display_name
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "اسم العرض"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
 msgid "Generate Bank Statement"
-msgstr ""
+msgstr "إنشاء كشف حساب بنكي"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__id
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session__id
 msgid "ID"
-msgstr ""
+msgstr "المُعرف"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__journal_type_domain
 msgid "Journal Type Domain"
-msgstr ""
+msgstr "مجال نوع المجلة"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method____last_update
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "تاريخ آخر تعديل"
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid "Missing bank journal on payment method '%s'."
-msgstr ""
+msgstr "دفتر اليومية المصرفي غير موجود في طريقة الدفع '%s'."
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid "Missing cash journal on cash payment method '%s'."
-msgstr ""
+msgstr "دفتر اليومية النقدي مفقود في طريقة الدفع النقدي '%s'."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model,name:pos_no_cash_bank_statement.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "طرق الدفع في نقاط البيع"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model,name:pos_no_cash_bank_statement.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "جلسة نقاط البيع"
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
@@ -87,6 +94,9 @@ msgid ""
 "The journal configured on the cash payment method '%s' should one of these types:\n"
 "- %s."
 msgstr ""
+"يجب أن يكون دفتر اليومية الذي تم تكوينه على طريقة الدفع النقدي '%s' أحد "
+"الأنواع التالية:\n"
+"- %s."
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
@@ -94,10 +104,11 @@ msgstr ""
 msgid ""
 "The journal configured on the payment method '%s' should be a bank journal."
 msgstr ""
+"دفتر اليومية الذي تم تفعيله في طريقة الدفع '%s' يجب أن يكون دفتر يومية بنكي."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
 msgid ""
 "The payment method is of type cash. A cash statement will be automatically "
 "generated."
-msgstr ""
+msgstr "طريقة الدفع من النوع النقدي. سيتم إنشاء كشف حساب نقدي تلقائيًا."
