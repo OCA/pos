@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_no_cash_bank_statement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
+msgid "Bank/Cash Journal"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
+msgid ""
+"By default, Odoo will generate a cash register/bank statement upon POS "
+"session closing only for cash payment methods. If you enable this option for"
+" a non-cash payment method, Odoo will generate a bank statement upon session"
+" closing, which will generate accounting entries in the bank journal, which "
+"will be automatically reconciled with the sale journal entry."
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__display_name
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
+msgid "Generate Bank Statement"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__id
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__journal_type_domain
+msgid "Journal Type Domain"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method____last_update
+#: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
+#, python-format
+msgid "Missing bank journal on payment method '%s'."
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
+#, python-format
+msgid "Missing cash journal on cash payment method '%s'."
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model,name:pos_no_cash_bank_statement.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model,name:pos_no_cash_bank_statement.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
+#, python-format
+msgid ""
+"The journal configured on the cash payment method '%s' should one of these types:\n"
+"- %s."
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
+#, python-format
+msgid ""
+"The journal configured on the payment method '%s' should be a bank journal."
+msgstr ""
+
+#. module: pos_no_cash_bank_statement
+#: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
+msgid ""
+"The payment method is of type cash. A cash statement will be automatically "
+"generated."
+msgstr ""
