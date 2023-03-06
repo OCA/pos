@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2022-05-14 15:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -32,6 +33,7 @@ msgstr "Billetterie"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event__pos_order_line_ids
+#: model:ir.model.fields,field_description:pos_event_sale.field_event_session__pos_order_line_ids
 msgid "All the PoS Order Lines pointing to this event"
 msgstr ""
 
@@ -74,8 +76,10 @@ msgstr "Code barre"
 #, python-format
 msgid ""
 "Besides the Event filters on the Point of Sale configuration,\n"
-"                        make sure products related to the event tickets are also available\n"
-"                        for this Point of Sale, otherwise they won't be shown here."
+"                        make sure products related to the event tickets are "
+"also available\n"
+"                        for this Point of Sale, otherwise they won't be "
+"shown here."
 msgstr ""
 
 #. module: pos_event_sale
@@ -105,7 +109,8 @@ msgstr "Afficher une alerte quand les places sont en dessous de"
 #. module: pos_event_sale
 #: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_event_seats_available_warning
 msgid "Display a warning when available seats is below this quantity."
-msgstr "Afficher une alerte quand les places sont en dessous de cette quantité."
+msgstr ""
+"Afficher une alerte quand les places sont en dessous de cette quantité."
 
 #. module: pos_event_sale
 #: model:ir.model,name:pos_event_sale.model_event_event
@@ -294,6 +299,7 @@ msgstr ""
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event__pos_price_subtotal
+#: model:ir.model.fields,field_description:pos_event_sale.field_event_session__pos_price_subtotal
 msgid "POS Sales (Tax Excluded)"
 msgstr ""
 
@@ -375,12 +381,13 @@ msgstr "Il n'y a pas d'événement sur ces dates."
 msgid ""
 "This is configured on the related Product.\n"
 "\n"
-"Please note that for the ticket to be available in the Point of Sale, the ticket's product has to be available there, too."
+"Please note that for the ticket to be available in the Point of Sale, the "
+"ticket's product has to be available there, too."
 msgstr ""
 "Configuré sur l'article associé.\n"
 "\n"
-"Veuillez noter que vous qu'un ticket soit disponible en Point de Vente, l'article du billet doit y être disponible "
-"également."
+"Veuillez noter que vous qu'un ticket soit disponible en Point de Vente, "
+"l'article du billet doit y être disponible également."
 
 #. module: pos_event_sale
 #. openerp-web
