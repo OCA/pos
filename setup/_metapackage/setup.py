@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo-addon-pos_cash_move_reason>=15.0dev,<15.1dev',
         'odoo-addon-pos_event_sale>=15.0dev,<15.1dev',
         'odoo-addon-pos_event_sale_registration_qr_code>=15.0dev,<15.1dev',
+        'odoo-addon-pos_event_sale_session>=15.0dev,<15.1dev',
         'odoo-addon-pos_hide_cost_price_and_margin>=15.0dev,<15.1dev',
         'odoo-addon-pos_lot_barcode>=15.0dev,<15.1dev',
         'odoo-addon-pos_lot_selection>=15.0dev,<15.1dev',
