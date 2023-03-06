@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-pos_customer_comment>=16.0dev,<16.1dev',
         'odoo-addon-pos_default_partner>=16.0dev,<16.1dev',
+        'odoo-addon-pos_edit_order_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_escpos_status>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_selection>=16.0dev,<16.1dev',
