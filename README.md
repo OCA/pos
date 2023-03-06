@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [pos_default_partner](pos_default_partner/) | 16.0.1.0.0 |  | Add a default customer in pos order
 [pos_edit_order_line](pos_edit_order_line/) | 16.0.1.0.0 |  | POS Edit Order Line
 [pos_escpos_status](pos_escpos_status/) | 16.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
+[pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.0 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.0 |  | POS Lot Selection
 [pos_order_remove_line](pos_order_remove_line/) | 16.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
