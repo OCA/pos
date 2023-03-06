@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <div id="pos_interface_section" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="allow_edit_order_line">
+                    <div class="o_setting_left_pane">
+                        <field name="pos_allow_edit_order_line" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_allow_edit_order_line" />
+                        <div class="text-muted">
+                            Allow edit Order Line in popup
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
