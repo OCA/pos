@@ -30,6 +30,7 @@ msgstr ""
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event__pos_order_line_ids
+#: model:ir.model.fields,field_description:pos_event_sale.field_event_session__pos_order_line_ids
 msgid "All the PoS Order Lines pointing to this event"
 msgstr ""
 
@@ -292,6 +293,7 @@ msgstr ""
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event__pos_price_subtotal
+#: model:ir.model.fields,field_description:pos_event_sale.field_event_session__pos_price_subtotal
 msgid "POS Sales (Tax Excluded)"
 msgstr ""
 
