@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-02 16:30+0000\n"
+"PO-Revision-Date: 2023-03-07 18:23+0000\n"
 "Last-Translator: Patricia Lorenzo Bartolomé <lb.patri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -35,7 +35,7 @@ msgstr "Crear un nuevo pedido basado en uno existente"
 #. module: pos_order_reorder
 #: model:ir.model,name:pos_order_reorder.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuración Punto de Venta"
 
 #. module: pos_order_reorder
 #. odoo-javascript
