@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2022-04-20 19:05+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-03-09 00:17+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_timeout
 #: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
@@ -36,6 +36,14 @@ msgid ""
 " the effective timeout value applied will be equal to the defined timeout "
 "value multiplied by the number of orders.\n"
 msgstr ""
+"Definisce il valore del timeout lato cliente per la creazione di ordine(i) "
+"PoS da POS UI.\n"
+" Il valore è espresso in secondi, per un singolo ordine.\n"
+" Se non definito, verrà usato il predefinito Odoo: 30 secondi.\n"
+" Se la chiamata contiene più di un ordine (ad esempio dopo un lungo periodo "
+"di disconnessione o se la precedente chiamata ha raggiunto il timeout),\n"
+" l'effettivo valore del timeout applicato sarà uguale al valore timeout "
+"definito moltiplicato per il numero di ordini.\n"
 
 #. module: pos_timeout
 #: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
@@ -50,7 +58,7 @@ msgstr "Configurazione punto vendita"
 #. module: pos_timeout
 #: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
 msgid "Technical settings"
-msgstr ""
+msgstr "Impostazioni tecniche"
 
 #~ msgid "pos.config"
 #~ msgstr "pos.config"
