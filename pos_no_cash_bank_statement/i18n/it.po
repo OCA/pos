@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-02-16 18:22+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-03-09 18:22+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -30,6 +30,12 @@ msgid ""
 " closing, which will generate accounting entries in the bank journal, which "
 "will be automatically reconciled with the sale journal entry."
 msgstr ""
+"In modo predefinito, Odoo genererà un estratto conto di banca/cassa alla "
+"chiusura della sessione POS solo per i metodi di pagamento in contanti. Se "
+"si abilita questa opzione per un pagamento non in contanti, Odoo genererà un "
+"estratto conto alla chiusura della sessione, che genererà le registrazioni "
+"contabili nel libro giornale, che verranno automaticamente riconciliate con "
+"le registrazioni del libro giornale delle vendite."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__display_name
@@ -40,7 +46,7 @@ msgstr "Nome visualizzato"
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
 msgid "Generate Bank Statement"
-msgstr ""
+msgstr "Genera estratto conto"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__id
@@ -51,7 +57,7 @@ msgstr "ID"
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__journal_type_domain
 msgid "Journal Type Domain"
-msgstr ""
+msgstr "Dominio tipo libro giornale"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method____last_update
@@ -63,23 +69,25 @@ msgstr "Ultima modifica il"
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid "Missing bank journal on payment method '%s'."
-msgstr ""
+msgstr "Libro giornale banca non definito per il metodo di pagamento '%s'."
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid "Missing cash journal on cash payment method '%s'."
 msgstr ""
+"Libro giornale contanti non definito per il metodo di pagamento contanti "
+"'%s'."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model,name:pos_no_cash_bank_statement.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "Metodi di pagamento punto vendita"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model,name:pos_no_cash_bank_statement.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
@@ -88,6 +96,9 @@ msgid ""
 "The journal configured on the cash payment method '%s' should one of these types:\n"
 "- %s."
 msgstr ""
+"Il libro giornale configurato nel metodo di pagamento contanti '%s' dovrebbe "
+"essere di questi tipi:\n"
+"- %s."
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
@@ -95,6 +106,8 @@ msgstr ""
 msgid ""
 "The journal configured on the payment method '%s' should be a bank journal."
 msgstr ""
+"Il libro giornale configurato nel metodo di pagamento '%s' dovrebbe essere "
+"un libro giornale banca."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
@@ -102,3 +115,5 @@ msgid ""
 "The payment method is of type cash. A cash statement will be automatically "
 "generated."
 msgstr ""
+"Il metodo di pagamento è di tipo contanti. Un resoconto verrà generato "
+"automaticamente."
