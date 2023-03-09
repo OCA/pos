@@ -1,0 +1,167 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_access_right
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
+#, python-format
+msgid "!hasMinusControlRights"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
+#, python-format
+msgid "!hasNewOrdersControlRights"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
+#, python-format
+msgid "!hasPaymentControlRights"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
+msgid "Point of Sale - Allow Discount"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_negative_qty_id
+msgid "Point of Sale - Allow Negative Quantity"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_change_unit_price_id
+msgid "Point of Sale - Allow Unit Price Change"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_delete_order_id
+#: model:res.groups,name:pos_access_right.group_delete_order
+msgid "Point of Sale - Delete Order"
+msgstr ""
+
+#. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_discount
+msgid "Point of Sale - Discount"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_multi_order_id
+#: model:res.groups,name:pos_access_right.group_multi_order
+msgid "Point of Sale - Many Orders"
+msgstr ""
+
+#. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_negative_qty
+msgid "Point of Sale - Negative Quantity"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
+#: model:res.groups,name:pos_access_right.group_payment
+msgid "Point of Sale - Payment"
+msgstr ""
+
+#. module: pos_access_right
+#: model:res.groups,name:pos_access_right.group_change_unit_price
+msgid "Point of Sale - Unit Price Change"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model,name:pos_access_right.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Allow Discount' Group to "
+"the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_negative_qty_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Allow Negative Quantity' "
+"Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_change_unit_price_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Allow Unit Price Change' "
+"Group to the Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_delete_order_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Delete Order' Group to the "
+"Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_multi_order_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Many Orders Group to the "
+"Point of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Payment' Group to the Point"
+" of Sale Frontend."
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
+#, python-format
+msgid "{'disabled-mode': !hasMinusControlRights}"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
+#, python-format
+msgid "{'disabled-mode': !hasNewOrdersControlRights}"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
+#, python-format
+msgid "{'disabled-mode': !hasPaymentControlRights}"
+msgstr ""
