@@ -4,6 +4,7 @@ odoo.define("pos_edit_order_line.EditOrderPopup", function (require) {
     const {useState} = owl;
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
     const Registries = require("point_of_sale.Registries");
+    const {_lt} = require("@web/core/l10n/translation");
 
     class EditOrderPopup extends AbstractAwaitablePopup {
         setup() {
@@ -59,8 +60,8 @@ odoo.define("pos_edit_order_line.EditOrderPopup", function (require) {
     }
     EditOrderPopup.template = "EditOrderPopup";
     EditOrderPopup.defaultProps = {
-        confirmText: "Save",
-        cancelText: "Cancel",
+        confirmText: _lt("Save"),
+        cancelText: _lt("Cancel"),
         array: [],
     };
 
