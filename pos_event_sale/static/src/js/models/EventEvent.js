@@ -49,17 +49,30 @@ odoo.define("pos_event_sale.EventEvent", function (require) {
                 : this.seats_available;
         },
         /**
-         * Similar to getSeatsAvailable, but also checks its ticket's availability
+         * Computes the total available places according to event ticket limits.
+         *
+         * Please note it doesn't check the available seats against the backend.
+         * For a real availability check see updateAndCheckEventAvailability.
+         *
+         * @param {Object} options - Sent to the ticket's getSeatsAvailable
+         * @returns {Number} available seats
+         */
+        getTicketSeatsAvailable: function (options) {
+            return this.getEventTickets()
+                .map((ticket) => ticket.getSeatsAvailable(options))
+                .reduce((sum, qty) => sum + qty, 0);
+        },
+        /**
+         * Similar to getSeatsAvailable, but also checks its ticket's availability.
+         * It's useful to display the real availability in the UI, that accounts for
+         * both the event and the tickets availability.
          *
          * @param {Object} options - Sent to getOrderedQuantity
          * @returns {Number} available seats
          */
         getSeatsAvailableReal: function (options) {
-            const ticketSeatsAvailable = this.getEventTickets()
-                .map((ticket) => ticket.getSeatsAvailable(options))
-                .reduce((sum, qty) => sum + qty, 0);
+            const ticketSeatsAvailable = this.getTicketSeatsAvailable(options);
             const eventSeatsAvailable = this.getSeatsAvailable(options);
-            // The available seats is the minimum of both
             return Math.min(ticketSeatsAvailable, eventSeatsAvailable);
         },
         /**
