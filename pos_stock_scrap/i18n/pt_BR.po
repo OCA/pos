@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_stock_scrap
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-15 11:30+0000\n"
+"PO-Revision-Date: 2023-03-15 13:30+0000\n"
+"Last-Translator: Felipe Zago <felipe.zago@kmee.com.br>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: pos_stock_scrap
+#: model:ir.model.fields,field_description:pos_stock_scrap.field_pos_config__scrap_source_location_id
+msgid "Scrap Source Location"
+msgstr "Local de Origem da Perda"
+
+#. module: pos_stock_scrap
+#: model:ir.model.fields,field_description:pos_stock_scrap.field_pos_config__scrap_location_id
+msgid "Scrap Location"
+msgstr "Local de Perda"
+
+#. module: pos_stock_scrap
+#: model_terms:ir.ui.view,arch_db:pos_stock_scrap.view_pos_config_form
+msgid "Source location for stock scrap on PoS<br/>"
+msgstr "Local de origem para lançamento de perda pelo PDV"
+
+#. module: pos_stock_scrap
+#: model_terms:ir.ui.view,arch_db:pos_stock_scrap.view_pos_config_form
+msgid "Location for stock scrap on PoS<br/>"
+msgstr "Local para lançamento de perda pelo PDV"
+
+#. module: pos_stock_scrap
+#: model:ir.model.fields,field_description:scrap_reason_code.field_scrap_reason_code__name
+msgid "Code"
+msgstr "Codigo"
+
+#. module: pos_stock_scrap
+#: model:ir.model.fields,field_description:scrap_reason_code.field_scrap_reason_code__description
+msgid "Description"
+msgstr "Descrição"
+
+#. module: pos_stock_scrap
+#: model:ir.model,name:scrap_reason_code.model_scrap_reason_code
+#: model:ir.model.fields,field_description:scrap_reason_code.field_stock_scrap__reason_code_id
+#: model_terms:ir.ui.view,arch_db:scrap_reason_code.stock_reason_code_form
+#: model_terms:ir.ui.view,arch_db:scrap_reason_code.view_scrap_reason_code_form
+msgid "Reason Code"
+msgstr "Codigo de Motivo"
+
+#. module: pos_stock_scrap
+#: model_terms:ir.ui.view,arch_db:scrap_reason_code.view_scrap_reason_code_list
+msgid "Reason Codes"
+msgstr "Codigos de Motivo"
+
+#. module: pos_stock_scrap
+#: model:ir.model.fields,field_description:scrap_reason_code.field_stock_move__reason_code_id
+msgid "Reason code"
+msgstr "Codigo de Motivo"
+
+#. module: pos_stock_scrap
+#: model:ir.actions.act_window,name:scrap_reason_code.open_view_scrap_reason_code_form
+#: model:ir.ui.menu,name:scrap_reason_code.menu_view_scrap_reason_code_form
+msgid "Scrap Reason Codes"
+msgstr "Codigos de Motivo de Perda"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapButton.xml:0
+#, python-format
+msgid "POS Stock Scrap Button"
+msgstr "Botão de perdas do PDV"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapButton.xml:0
+#, python-format
+msgid "Scraps"
+msgstr "Perdas"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#, python-format
+msgid "Product:"
+msgstr "Produto:"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#, python-format
+msgid "STOCK SCRAP"
+msgstr "LANÇAMENTO DE PERDA"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#, python-format
+msgid "Scrap Reason:"
+msgstr "Motivo da Perda:"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#, python-format
+msgid "Variant:"
+msgstr "Variante:"
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#, python-format
+msgid "Please fill the necessary data."
+msgstr "Por favor, preencha os dados obrigatórios."
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/js/Popups/StockScrapPopup.js:38
+#, python-format
+msgid "Please fill all the necessary data to proceed."
+msgstr "Por favor, preencha todos os dados necessários para prosseguir."

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2021 KMEE
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record
+        model="ir.model.access"
+        id="scrap_reason_code.access_scrap_reason_code_stock_user"
+    >
+        <field name="perm_create" eval="1" />
+    </record>
+
+</odoo>
