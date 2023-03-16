@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-03-16 22:22+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -20,6 +22,8 @@ msgid ""
 "<span class=\"o_stat_text\">Get Payment</span>\n"
 "                        <span class=\"o_stat_text\">from Invoice</span>"
 msgstr ""
+"<span class=\"o_stat_text\">Ottieni pagamento</span>\n"
+"                        <span class=\"o_stat_text\">dalla fattura</span>"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -27,6 +31,8 @@ msgid ""
 "<span class=\"o_stat_text\">Pay Supplier</span>\n"
 "                        <span class=\"o_stat_text\">Invoice</span>"
 msgstr ""
+"<span class=\"o_stat_text\">Pagamento fattura</span>\n"
+"                        <span class=\"o_stat_text\">fornitore</span>"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -34,154 +40,156 @@ msgid ""
 "<span class=\"o_stat_text\">Pay</span>\n"
 "                        <span class=\"o_stat_text\">Refund</span>"
 msgstr ""
+"<span class=\"o_stat_text\">Pagamento</span>\n"
+"                        <span class=\"o_stat_text\">rimborso</span>"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__amount
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__amount
 msgid "Amount"
-msgstr ""
+msgstr "Valore"
 
 #. module: pos_session_pay_invoice
 #: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:0
 #, python-format
 msgid "Bank Statement was not found"
-msgstr ""
+msgstr "Non è stato trovato il rendiconto bancario"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_in_form
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_out_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
 msgid "Cash invoice in"
-msgstr ""
+msgstr "Contanti fattura passiva"
 
 #. module: pos_session_pay_invoice
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
 msgid "Collect Payment from Invoice"
-msgstr ""
+msgstr "Riscuoti pagamento da fattura"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__company_id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__create_uid
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__create_date
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__currency_id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Valuta"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__display_name
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__move_id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__move_id
 msgid "Invoice"
-msgstr ""
+msgstr "Fattura"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in____last_update
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modica il"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__write_uid
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__write_date
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: pos_session_pay_invoice
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in_control
 msgid "Pay invoice"
-msgstr ""
+msgstr "Paga fattura"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_id
 msgid "Payment Method"
-msgstr ""
+msgstr "Metodo pagamento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_count
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_count
 msgid "Payment Method Count"
-msgstr ""
+msgstr "Conteggio metodo pagamento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_ids
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_ids
 msgid "Payment methods"
-msgstr ""
+msgstr "Metodi pagamento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__name
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__name
 msgid "Reason"
-msgstr ""
+msgstr "Causale"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_in_form
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_out_form
 msgid "Register"
-msgstr ""
+msgstr "Registro"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__session_id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__session_id
 msgid "Session"
-msgstr ""
+msgstr "Sessione"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
 msgid "Summary"
-msgstr ""
+msgstr "Riassunto"
 
 #. module: pos_session_pay_invoice
 #: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:0
 #, python-format
 msgid "There is no cash register for this Pos session"
-msgstr ""
+msgstr "Non è presente il registratore di cassa per questa sessione POS"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_pos_box_cash_invoice_in
 msgid "pos box cash invoice in"
-msgstr ""
+msgstr "POS BOX contanti fattura passiva"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_pos_box_cash_invoice_out
 msgid "pos box cash invoice out"
-msgstr ""
+msgstr "POS BOX contanti fattura attiva"
