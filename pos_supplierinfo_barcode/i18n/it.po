@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-16 13:22+0000\n"
+"PO-Revision-Date: 2023-03-16 16:32+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -34,10 +34,10 @@ msgstr "Ultima modifica il"
 #. module: pos_supplierinfo_barcode
 #: model:ir.model,name:pos_supplierinfo_barcode.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: pos_supplierinfo_barcode
 #: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_product__supplier_barcode_json
 #: model:ir.model.fields,field_description:pos_supplierinfo_barcode.field_product_template__supplier_barcode_json
 msgid "Supplier barcode list"
-msgstr ""
+msgstr "Elenco codici a barre fornitore"
