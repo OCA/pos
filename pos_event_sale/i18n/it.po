@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-09 15:22+0000\n"
+"PO-Revision-Date: 2023-03-16 22:22+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -55,7 +55,7 @@ msgstr "Etichette evento disponibile"
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_available_event_type_ids
 msgid "Available Event Types"
-msgstr "Tipo evento disponibile"
+msgstr "Tipi evento disponibili"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event_ticket__available_in_pos
@@ -142,7 +142,7 @@ msgstr "Iscrizioni evento"
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_event_seats_available_warning
 msgid "Event Seats Available Warning"
-msgstr "Evanto avviso posti disponibili"
+msgstr "Avviso posti evento disponibili"
 
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
