@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-03-09 18:22+0000\n"
+"PO-Revision-Date: 2023-03-17 00:29+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -49,8 +49,8 @@ msgid ""
 "Failed to send the amount to pay to the payment terminal. Press the red "
 "button on the payment terminal and try again."
 msgstr ""
-"Fallito l'invio del valore da pagare al terminale pagamento. Cliccare il "
-"pulsante rosso sul terminale pagamento e riprovare."
+"Fallito l'invio del valore da pagare al terminale di pagamento. Fare clic "
+"sul pulsante rosso nel terminale di pagamento e riprovare."
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
@@ -71,7 +71,7 @@ msgstr "Terminale pagamento OCA"
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_mode
 msgid "Payment Mode"
-msgstr "Metodo pagamento"
+msgstr "Modo di pagamento"
 
 #. module: pos_payment_terminal
 #. openerp-web
