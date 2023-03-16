@@ -6,50 +6,52 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-03-16 13:22+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__cashdro_password
 msgid "Cashdro Password"
-msgstr ""
+msgstr "Password Cashdro"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__cashdro_host
 msgid "Cashdro Terminal Host Name or IP address"
-msgstr ""
+msgstr "Nome host terminale Cashdro o indirizzo IP"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__cashdro_user
 msgid "Cashdro User"
-msgstr ""
+msgstr "Utente Cashdro"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,help:pos_payment_method_cashdro.field_pos_payment_method__cashdro_host
 msgid "It must be reachable by the PoS in the store"
-msgstr ""
+msgstr "Deve essere raggiungibile dal POS nel negozio"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: pos_payment_method_cashdro
 #: model:ir.model,name:pos_payment_method_cashdro.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "Metodi pagamento punto vendita"
