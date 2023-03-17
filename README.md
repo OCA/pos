@@ -69,6 +69,7 @@ addon | version | maintainers | summary
 [pos_place](pos_place/) | 12.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Define places on PoS orders
 [pos_prevent_double_closing](pos_prevent_double_closing/) | 12.0.1.0.2 |  | Prevent user to generate duplicates of accounting sale entries, when double closing sessions.
 [pos_price_to_weight](pos_price_to_weight/) | 12.0.2.0.1 |  | Compute weight based on barcodes with prices
+[pos_pricelist_technical](pos_pricelist_technical/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Prevent technical pricelists from being displayed in the Point of Sale front-end UI
 [pos_product_default_code](pos_product_default_code/) | 12.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Show Internal Reference in POS products list
 [pos_product_sort](pos_product_sort/) | 12.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | sort the products by name in the point of sale instead of sorting them by the sequence field.
 [pos_product_template](pos_product_template/) | 12.0.1.0.2 |  | Manage Product Template in Front End Point Of Sale
