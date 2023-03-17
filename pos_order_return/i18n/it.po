@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-01-18 11:48+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-03-17 16:32+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -111,18 +111,18 @@ msgstr "Ultimo aggiornamento il"
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__pos_order_line_id
 msgid "Line To Return"
-msgstr "Riga da Restituire"
+msgstr "Riga da restituire"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__line_ids
 #: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
 msgid "Lines to Return"
-msgstr "Righe da Restituire"
+msgstr "Righe da restituire"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__order_id
 msgid "Order to Return"
-msgstr "Ordine di Reso"
+msgstr "Ordine di reso"
 
 #. module: pos_order_return
 #: model_terms:ir.ui.view,arch_db:pos_order_return.view_partial_return_wizard_form
@@ -139,7 +139,7 @@ msgstr "Procedura guidata reso parziale"
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_partial_return_wizard_line
 msgid "Partial Return Wizard Line"
-msgstr "Linea guidata reso parziale"
+msgstr "Riga procedura guidata reso parziale"
 
 #. module: pos_order_return
 #: model:ir.model,name:pos_order_return.model_pos_order_line
@@ -159,7 +159,7 @@ msgstr "Modello prodotto"
 #. module: pos_order_return
 #: model:ir.model.fields,help:pos_order_return.field_pos_partial_return_wizard_line__initial_qty
 msgid "Quantity of Product initially sold"
-msgstr "Quantità di prodotto inizialmente venduta"
+msgstr "Quantità di prodotto venduta inizialmente"
 
 #. module: pos_order_return
 #: model_terms:ir.ui.view,arch_db:pos_order_return.view_pos_order_form
@@ -170,12 +170,12 @@ msgstr "Rimborso"
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_line_ids
 msgid "Refund Lines"
-msgstr "Riga Rimborso"
+msgstr "Righe rimborso"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_ids
 msgid "Refund Orders"
-msgstr "Ordine Rimborso"
+msgstr "Ordini rimborso"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_qty
@@ -192,7 +192,7 @@ msgstr "Reso di %s"
 #: model:product.product,name:pos_order_return.product_product_returnable_bottle
 #: model:product.template,name:pos_order_return.product_product_returnable_bottle_product_template
 msgid "Returnable Bottle"
-msgstr "Bottiglia Riconsegnabile"
+msgstr "Bottiglia a rendere"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__max_returnable_qty
@@ -208,7 +208,7 @@ msgstr "Ordine Restituito"
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__qty
 msgid "Returned Quantity"
-msgstr "Quantità Restituita"
+msgstr "Quantità restituita"
 
 #. module: pos_order_return
 #: model:product.product,uom_name:pos_order_return.product_product_returnable_bottle
@@ -228,7 +228,7 @@ msgid ""
 "You can not return %d %s of %s because some refunds have already been done.\n"
 " Maximum quantity allowed : %d %s."
 msgstr ""
-"Non puoi restituire %d %s di %s perché alcuni rimborsi sono già stati "
+"Non si può restituire %d %s di %s perché alcuni rimborsi sono già stati "
 "effettuati.\n"
 " Quantità massima consentita : %d %s."
 
@@ -239,5 +239,5 @@ msgid ""
 "You can not return %d %s of %s because the original Order line only mentions"
 " %d %s."
 msgstr ""
-"Non puoi restituire %d %s of %s perché la riga dell'ordine originale "
+"Non si può restituire %d %s of %s perché la riga dell'ordine originale "
 "menziona solo %d %s."
