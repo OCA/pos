@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2021-06-30 18:48+0000\n"
-"Last-Translator: Lorenzo Battistini <lb@takobi.online>\n"
+"PO-Revision-Date: 2023-03-17 16:10+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_meal_voucher
 #. openerp-web
@@ -58,7 +58,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Client"
-msgstr ""
+msgstr "Client"
 
 #. module: pos_meal_voucher
 #: selection:account.journal,meal_voucher_type:0
