@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2021-10-07 19:34+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-03-17 13:22+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.3.2\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -28,18 +28,20 @@ msgid ""
 "A picking is still loaded. You can not load another picking. Please create a "
 "new order."
 msgstr ""
+"Prelievo già caricato. Non si può caricare un'altro prelievo. Creare un "
+"nuovo ordine."
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_stock_picking_type__available_in_pos
 msgid "Available in Point Of Sale"
-msgstr ""
+msgstr "Disponibile nel punto vendita"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:243
 #, python-format
 msgid "Can not execute this action because the POS is currently offline"
-msgstr ""
+msgstr "Impossibile eseguire questa azione perchè il POS è attualmente offline"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -53,7 +55,7 @@ msgstr "Annulla"
 #: code:addons/pos_picking_load/static/src/js/widget.js:242
 #, python-format
 msgid "Connection error"
-msgstr ""
+msgstr "Errore di connessione"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -65,13 +67,13 @@ msgstr "Cliente"
 #. module: pos_picking_load
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 msgid "Enable the possibility to load pickings in the Point of Sale"
-msgstr ""
+msgstr "Consente la possibilità di caricare prelievi nel punto vendita"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_sale_order__final_pos_order_id
 #: model:ir.model.fields,field_description:pos_picking_load.field_stock_picking__final_pos_order_id
 msgid "Final PoS Order"
-msgstr ""
+msgstr "Ordine POS definitivo"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,help:pos_picking_load.field_stock_picking_type__available_in_pos
@@ -79,25 +81,27 @@ msgid ""
 "If checked, associated pickings will be available in the point of sale, to "
 "be changed and paid in it"
 msgstr ""
+"Se selezionato, i prelievi associati saranno disponibili per essere caricati "
+"e pagati nel punto vendita"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:285
 #, python-format
 msgid "Load Picking"
-msgstr ""
+msgstr "Carica prelievo"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_config__iface_load_picking
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 msgid "Load Pickings"
-msgstr ""
+msgstr "Carica prelievi"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_config__iface_load_picking_max_qty
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
 msgid "Max Picking Quantity To Load"
-msgstr ""
+msgstr "Quantità massima prelievo da caricare"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -109,7 +113,7 @@ msgstr "Nome"
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_order__origin_picking_id
 msgid "Origin Picking"
-msgstr ""
+msgstr "Prelievo origine"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -117,20 +121,19 @@ msgstr ""
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:80
 #, python-format
 msgid "Origin Picking:"
-msgstr ""
+msgstr "Prelievo origine:"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:273
 #, python-format
 msgid "Pending Picking"
-msgstr ""
+msgstr "Prelievo in sospeso"
 
 #. module: pos_picking_load
 #: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
-#, fuzzy
 msgid "Picking Load"
-msgstr "Lista Picking"
+msgstr "Carico prelievo"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -138,25 +141,22 @@ msgstr "Lista Picking"
 #: code:addons/pos_picking_load/static/src/js/widget.js:166
 #, python-format
 msgid "Picking Still Loaded"
-msgstr ""
+msgstr "Prelievo ancora caricato"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking_type
-#, fuzzy
 msgid "Picking Type"
-msgstr "Lista Picking"
+msgstr "Tipo prelievo"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_config
-#, fuzzy
 msgid "Point of Sale Configuration"
-msgstr "Punto Vendita"
+msgstr "Configurazione punto vendita"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_order
-#, fuzzy
 msgid "Point of Sale Orders"
-msgstr "Punto Vendita"
+msgstr "Ordini punto vendita"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_sale_order
@@ -175,7 +175,7 @@ msgstr "Data programmata"
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:33
 #, python-format
 msgid "Search Picking"
-msgstr ""
+msgstr "Cerca prelievo"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -189,26 +189,26 @@ msgstr "Seleziona"
 #: code:addons/pos_picking_load/static/src/js/widget.js:235
 #, python-format
 msgid "Server Error"
-msgstr ""
+msgstr "Errore server"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:53
 #, python-format
 msgid "Source Document"
-msgstr ""
+msgstr "Documento sorgente"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:236
 #, python-format
 msgid "The server encountered an error while receiving your order."
-msgstr ""
+msgstr "Il server ha riscontrato un errore nel ricevere l'ordine."
 
 #. module: pos_picking_load
 #: model:ir.model.fields,help:pos_picking_load.field_sale_order__final_pos_order_id
 msgid "This Sale Order has beend replaced by this PoS Order"
-msgstr ""
+msgstr "Questo ordine di vendita è satato sostituito da questo ordine POS"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,help:pos_picking_load.field_stock_picking__final_pos_order_id
@@ -216,11 +216,13 @@ msgid ""
 "This picking has been canceled, because it has been replaced by this PoS "
 "Order"
 msgstr ""
+"Questo prelievo è stato cancellato, perché è stato sostituito da questo "
+"ordine POS"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking
 msgid "Transfer"
-msgstr ""
+msgstr "Trasferimento"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -234,6 +236,12 @@ msgid ""
 "\n"
 "  * "
 msgstr ""
+"Impossibile caricare alcune righe del prelievo perché i prodotti non sono "
+"disponibili nella cache del POS.\n"
+"\n"
+"Controllare queste righe:\n"
+"\n"
+"  * "
 
 #. module: pos_picking_load
 #. openerp-web
@@ -244,6 +252,9 @@ msgid ""
 "PoS Order :\n"
 "\n"
 msgstr ""
+"Impossibile caricare questo prelievo perché è già stato caricato in un altro "
+"ordine POS confermato:\n"
+"\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -254,6 +265,9 @@ msgid ""
 "Order :\n"
 "\n"
 msgstr ""
+"Impossibile caricare questo prelievo perché è già stato caricato in un'altra "
+"bozza ordine POS:\n"
+"\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -263,17 +277,19 @@ msgid ""
 "Unable to load this picking because the partner is not known in the Point Of "
 "Sale as a customer"
 msgstr ""
+"Impossibile caricare questo prelievo perché il partner non è riconosciuto "
+"nel punto vendita come cliente"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:136
 #, python-format
 msgid "Unknown Partner"
-msgstr ""
+msgstr "Partner non riconosciuto"
 
 #. module: pos_picking_load
 #. openerp-web
 #: code:addons/pos_picking_load/static/src/js/widget.js:118
 #, python-format
 msgid "Unknown Products"
-msgstr ""
+msgstr "Prodotti non riconosciuti"
