@@ -6,180 +6,182 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-03-17 16:10+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_report_order_payment
 #: selection:report.pos.order.payment,state:0
 msgid "Cancelled"
-msgstr ""
+msgstr "Annullato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__company_id
 msgid "Company"
-msgstr ""
+msgstr "Azienda"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__partner_id
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: pos_report_order_payment
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Group By"
-msgstr ""
+msgstr "Raggruppa per"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__invoiced
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 #: selection:report.pos.order.payment,state:0
 msgid "Invoiced"
-msgstr ""
+msgstr "Fatturato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__journal_id
 msgid "Journal"
-msgstr ""
+msgstr "Registro"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modica il"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__location_id
 msgid "Location"
-msgstr ""
+msgstr "Ubicazione"
 
 #. module: pos_report_order_payment
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "My Sales"
-msgstr ""
+msgstr "Le mie vendite"
 
 #. module: pos_report_order_payment
 #: selection:report.pos.order.payment,state:0
 msgid "New"
-msgstr ""
+msgstr "Nuovo"
 
 #. module: pos_report_order_payment
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Not Invoiced"
-msgstr ""
+msgstr "Non fatturato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__order_id
 msgid "Order"
-msgstr ""
+msgstr "Ordine"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__date
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Order Date"
-msgstr ""
+msgstr "Data ordine"
 
 #. module: pos_report_order_payment
 #: model:ir.ui.menu,name:pos_report_order_payment.menu_report_pos_order_payment
 msgid "Order Payments"
-msgstr ""
+msgstr "Pagamenti ordine"
 
 #. module: pos_report_order_payment
 #: model:ir.actions.act_window,name:pos_report_order_payment.action_report_pos_order_payment
 msgid "Order Payments Analysis"
-msgstr ""
+msgstr "Analisi pagamenti ordine"
 
 #. module: pos_report_order_payment
 #: selection:report.pos.order.payment,state:0
 msgid "Paid"
-msgstr ""
+msgstr "Pagato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_amount
 msgid "Paid Amount"
-msgstr ""
+msgstr "Imposto pagato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_journal_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Payment Journal"
-msgstr ""
+msgstr "Registro pagamento"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__pos_categ_id
 msgid "PoS Category"
-msgstr ""
+msgstr "Categoria POS"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__config_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Point of Sale"
-msgstr ""
+msgstr "Punto vendita"
 
 #. module: pos_report_order_payment
 #: model:ir.model,name:pos_report_order_payment.model_report_pos_order_payment
 msgid "Point of Sale Order Payments Report"
-msgstr ""
+msgstr "Resoconto pagamenti ordine punto vendita"
 
 #. module: pos_report_order_payment
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_graph
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_pivot
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Point of Sale Payment Analysis"
-msgstr ""
+msgstr "Analisi pagamenti punto vendita"
 
 #. module: pos_report_order_payment
 #: selection:report.pos.order.payment,state:0
 msgid "Posted"
-msgstr ""
+msgstr "Inviato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__pricelist_id
 msgid "Pricelist"
-msgstr ""
+msgstr "Listino prezzi"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__product_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__product_categ_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Product Category"
-msgstr ""
+msgstr "Categoria Prodotto"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__product_tmpl_id
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__user_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Salesperson"
-msgstr ""
+msgstr "Addetto alle Vendite"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__session_id
 msgid "Session"
-msgstr ""
+msgstr "Sessione"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__state
 msgid "Status"
-msgstr ""
+msgstr "Stato"
