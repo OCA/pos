@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-09 21:22+0000\n"
+"PO-Revision-Date: 2023-03-17 18:23+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -191,7 +191,7 @@ msgstr "Ordini punto vendita"
 #. module: pos_payment_change
 #: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__refund
 msgid "Refund and Resale"
-msgstr "Rimborsi e rivendite"
+msgstr "Rimborsa e rivendi"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:0
