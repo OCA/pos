@@ -25,10 +25,6 @@
         "static/description/pos_front_end_ui.png",
         "static/description/pos_config_form.png",
     ],
-    "demo": [
-        "demo/pos_config.xml",
-    ],
-
     "installable": True,
     "auto_install": True,
 }
