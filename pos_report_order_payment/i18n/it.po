@@ -1,0 +1,185 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_report_order_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_report_order_payment
+#: selection:report.pos.order.payment,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__company_id
+msgid "Company"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Group By"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__invoiced
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+#: selection:report.pos.order.payment,state:0
+msgid "Invoiced"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__journal_id
+msgid "Journal"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__location_id
+msgid "Location"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "My Sales"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: selection:report.pos.order.payment,state:0
+msgid "New"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Not Invoiced"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__order_id
+msgid "Order"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__date
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Order Date"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.ui.menu,name:pos_report_order_payment.menu_report_pos_order_payment
+msgid "Order Payments"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.actions.act_window,name:pos_report_order_payment.action_report_pos_order_payment
+msgid "Order Payments Analysis"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: selection:report.pos.order.payment,state:0
+msgid "Paid"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_amount
+msgid "Paid Amount"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_journal_id
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Payment Journal"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__pos_categ_id
+msgid "PoS Category"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__config_id
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Point of Sale"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model,name:pos_report_order_payment.model_report_pos_order_payment
+msgid "Point of Sale Order Payments Report"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_graph
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_pivot
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Point of Sale Payment Analysis"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: selection:report.pos.order.payment,state:0
+msgid "Posted"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__pricelist_id
+msgid "Pricelist"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__product_id
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Product"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__product_categ_id
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Product Category"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__product_tmpl_id
+msgid "Product Template"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__user_id
+#: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
+msgid "Salesperson"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__session_id
+msgid "Session"
+msgstr ""
+
+#. module: pos_report_order_payment
+#: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__state
+msgid "Status"
+msgstr ""
