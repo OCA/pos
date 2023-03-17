@@ -9,116 +9,117 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2018-03-01 02:01+0000\n"
-"Last-Translator: Francesco Fresta <franco.fresta@gmail.com>, 2018\n"
+"PO-Revision-Date: 2023-03-17 16:10+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 #. module: pos_price_to_weight
 #: model:product.product,name:pos_price_to_weight.product_price_to_weight_barcode
 #: model:product.template,name:pos_price_to_weight.product_price_to_weight_barcode_product_template
 msgid "Apples (with Price To Weight Barcode)"
-msgstr ""
+msgstr "Mele (con codice a barre prezzo a pezo)"
 
 #. module: pos_price_to_weight
 #: model:ir.model,name:pos_price_to_weight.model_barcode_rule
-#, fuzzy
 msgid "Barcode Rule"
-msgstr "barcode.rule"
+msgstr "Regola codice a barre"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Cashier"
-msgstr ""
+msgstr "Cassiere"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Client"
-msgstr ""
+msgstr "Client"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Discounted Product"
-msgstr ""
+msgstr "Prodotto scontato"
 
 #. module: pos_price_to_weight
 #: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_name
 msgid "Field Name"
-msgstr ""
+msgstr "Nome campo"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Location"
-msgstr ""
+msgstr "Ubicazione"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Lot"
-msgstr ""
+msgstr "Lotto"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Meal Voucher Payment"
-msgstr ""
+msgstr "Pagamento buoni pasto"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Package"
-msgstr ""
+msgstr "Imballaggio"
 
 #. module: pos_price_to_weight
 #: model:ir.model,name:pos_price_to_weight.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_price_to_weight
 #: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_id
 msgid "Price To Weight Field"
-msgstr ""
+msgstr "Campo prezzo a peso"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Priced Product"
-msgstr ""
+msgstr "Prodotto prezzato"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Priced Product (Computed Weight)"
-msgstr ""
+msgstr "Prodotto prezzato (peso calcolato)"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Tare"
-msgstr ""
+msgstr "Tara"
 
 #. module: pos_price_to_weight
 #: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: pos_price_to_weight
 #: model_terms:ir.ui.view,arch_db:pos_price_to_weight.view_pos_config_form
 msgid "Unit Price field used when converting scanned weight to price."
 msgstr ""
+"Campo prezzo unitario utilizzato quando si converte un peso letto in prezzo."
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Unit Product"
-msgstr ""
+msgstr "Prodotto unitario"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Weighted Product"
-msgstr ""
+msgstr "Prodotto pesato"
 
 #. module: pos_price_to_weight
 #: model:product.product,uom_name:pos_price_to_weight.product_price_to_weight_barcode
@@ -126,4 +127,4 @@ msgstr ""
 #: model:product.template,uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
 #: model:product.template,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
 msgid "kg"
-msgstr ""
+msgstr "kg"
