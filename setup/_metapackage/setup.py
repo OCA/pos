@@ -56,6 +56,7 @@ setuptools.setup(
         'odoo12-addon-pos_place',
         'odoo12-addon-pos_prevent_double_closing',
         'odoo12-addon-pos_price_to_weight',
+        'odoo12-addon-pos_pricelist_technical',
         'odoo12-addon-pos_product_default_code',
         'odoo12-addon-pos_product_sort',
         'odoo12-addon-pos_product_template',
