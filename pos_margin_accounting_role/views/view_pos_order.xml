@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+<odoo>
+
+    <record id="view_pos_order_form_ext" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="pos_margin.view_pos_order_form"/>
+        <field name="arch" type="xml">
+            <!--<field name="margin" position="attributes">-->
+                <!--<attribute name="groups">account.group_account_user</attribute>-->
+            <!--</field>-->
+
+             <!--<field name="margin_percent" position="attributes">-->
+                <!--<attribute name="groups">account.group_account_user</attribute>-->
+            <!--</field>-->
+
+            <xpath expr="//group[@name='order_total']/field[@name='margin']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='order_total']/field[@name='margin_percent']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lines']/tree/field[@name='purchase_price']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lines']/tree/field[@name='margin']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lines']/tree/field[@name='margin_percent']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree_ext" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="pos_margin.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="margin" position="attributes">
+                 <attribute name="groups">account.group_account_user</attribute>
+            </field>
+
+            <field name="margin_percent" position="attributes">
+                 <attribute name="groups">account.group_account_user</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
