@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-16 22:22+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-03-20 13:22+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -117,7 +117,7 @@ msgstr "Fattura"
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in____last_update
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out____last_update
 msgid "Last Modified on"
-msgstr "Ultima modica il"
+msgstr "Ultima modifica il"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__write_uid
