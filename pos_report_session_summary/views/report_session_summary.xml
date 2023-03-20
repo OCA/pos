@@ -103,7 +103,7 @@
 
                     <t t-foreach="o.statement_ids" t-as="statement">
                         <h4 t-if="statement.line_ids">Statement Details: <span
-                                    t-esc="statement.name"
+                                    t-out="statement.name"
                                 /></h4>
 
                         <table
