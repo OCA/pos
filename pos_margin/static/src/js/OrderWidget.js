@@ -14,7 +14,7 @@ odoo.define("pos_margin.OrderWidget", function (require) {
             _updateSummary() {
                 super._updateSummary(...arguments);
                 var order = this.env.pos.get_order();
-                if (!order.get_orderlines().length) {
+                if (order === null || !order.get_orderlines().length) {
                     return;
                 }
                 var value_margin = document.getElementsByClassName("value-margin");
