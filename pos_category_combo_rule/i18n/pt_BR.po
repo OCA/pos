@@ -1,0 +1,153 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_category_combo_rule
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-21 11:30+0000\n"
+"PO-Revision-Date: 2023-03-21 13:30+0000\n"
+"Last-Translator: Felipe Zago <felipe.zago@kmee.com.br>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__category_ids
+#: model_terms:ir.ui.view,arch_db:pos_category_combo_rule.combo_rule_item_form_view
+msgid "Categories"
+msgstr "Categorias"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_pos_order_line__combo_discount_amount
+msgid "Combo Discount Amount"
+msgstr "Quantidade de Desconto de Combo"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__combo_rule_item_ids
+msgid "Combo Items"
+msgstr "Itens do Combo"
+
+#. module: pos_category_combo_rule
+#: model:ir.actions.act_window,name:pos_category_combo_rule.combo_rule_act_window
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_pos_order_line__combo_rule_id
+#: model:ir.ui.menu,name:pos_category_combo_rule.combo_rule_menu
+msgid "Combo Rule"
+msgstr "Regra de Combo"
+
+#. module: pos_category_combo_rule
+#: model:ir.model,name:pos_category_combo_rule.model_combo_rule_item
+msgid "Combo rule items to apply discounts on POS"
+msgstr "Itens da regra de combo para aplicar descontos no PDV"
+
+#. module: pos_category_combo_rule
+#: model:ir.model,name:pos_category_combo_rule.model_combo_rule
+msgid "Combo rule to apply discounts on POS"
+msgstr "Regra de combo para aplicar descontos no PDV"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__create_uid
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__create_uid
+msgid "Created by"
+msgstr "Criado por"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__create_date
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__create_date
+msgid "Created on"
+msgstr "Criado em"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__discount_amount
+msgid "Discount Amount"
+msgstr "Valor de Desconto"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__display_name
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__display_name
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_pos_order_line__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: pos_category_combo_rule
+#: model_terms:ir.ui.view,arch_db:pos_category_combo_rule.combo_rule_form_view
+msgid "Items"
+msgstr "Itens"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule____last_update
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item____last_update
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_pos_order_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__write_uid
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__write_uid
+msgid "Last Updated by"
+msgstr "Ultima Alteração por"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__write_date
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__write_date
+msgid "Last Updated on"
+msgstr "Ultima Alteração em"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule__name
+msgid "Name"
+msgstr "Nome"
+
+#. module: pos_category_combo_rule
+#: model:ir.model,name:pos_category_combo_rule.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Linhas de pedido de Ponto de Venda"
+
+#. module: pos_category_combo_rule
+#: model:ir.model.fields,field_description:pos_category_combo_rule.field_combo_rule_item__rule_id
+msgid "Rule"
+msgstr "Regra"
+
+#. module: pos_category_combo_rule
+#: code:addons/pos_category_combo_rule/models/combo_rule.py:0
+#, python-format
+msgid "Unable to create two rules with the same items."
+msgstr "Não é possível criar duas regras com os mesmos itens."
+
+#. module: pos_category_combo_rule
+#. openerp-web
+#: code:addons/pos_category_combo_rule/static/src/js/models.js:0
+#, python-format
+msgid "Unable to update quantity from order line with discount from combo."
+msgstr "Não é possível alterar a quantidade de uma linha do pedido com desconto de combo."
+
+#. module: pos_category_combo_rule
+#. openerp-web
+#: code:addons/pos_category_combo_rule/static/src/js/models.js:0
+#, python-format
+msgid "Validation Error"
+msgstr "Erro de Validação"
+
+#. module: pos_category_combo_rule
+#. openerp-web
+#: code:addons/pos_category_combo_rule/static/src/xml/Screens/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "With"
+msgstr "Com"
+
+#. module: pos_category_combo_rule
+#. openerp-web
+#: code:addons/pos_category_combo_rule/static/src/xml/Screens/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "discount from combo."
+msgstr "de desconto de combo."

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="combo_rule_form_view">
+        <field name="name">combo.rule.form (in pos_category_combo_rule)</field>
+        <field name="model">combo.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="priority" widget="priority" />
+                    </group>
+
+                    <notebook>
+                        <page string="Items">
+                            <field
+                                name="combo_rule_item_ids"
+                                context="{'tree_view_ref': 'combo_rule_item_tree_view'}"
+                                nolabel="1"
+                            />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="combo_rule_tree_view">
+        <field name="name">combo.rule.tree (in pos_category_combo_rule)</field>
+        <field name="model">combo.rule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="combo_rule_item_form_view">
+        <field name="name">combo.rule.item.form (in pos_category_combo_rule)</field>
+        <field name="model">combo.rule.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="discount_amount" />
+                    </group>
+                    <notebook>
+                        <page string="Categories">
+                            <field name="category_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="combo_rule_item_tree_view">
+        <field name="name">combo.rule.item.tree (in pos_category_combo_rule)</field>
+        <field name="model">combo.rule.item</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="category_ids" widget="many2many_tags" />
+                <field name="discount_amount" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="combo_rule_act_window">
+        <field name="name">Combo Rule</field>
+        <field name="res_model">combo.rule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.ui.menu" id="combo_rule_menu">
+        <field name="name">Combo Rule</field>
+        <field name="parent_id" ref="point_of_sale.menu_point_config_product" />
+        <field name="action" ref="combo_rule_act_window" />
+        <field name="sequence" eval="60" />
+    </record>
+
+</odoo>

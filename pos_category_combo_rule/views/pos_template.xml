@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="pos_category_combo_rule_assets"
+        name="pos_category_combo_rule_assets"
+        inherit_id="point_of_sale.assets"
+    >
+        <xpath expr="." position="inside">
+
+            <script
+                src="/pos_category_combo_rule/static/src/js/models.js"
+                type="text/javascript"
+            />
+
+            <script
+                src="/pos_category_combo_rule/static/src/js/ProductScreen.js"
+                type="text/javascript"
+            />
+
+        </xpath>
+    </template>
+
+</odoo>
