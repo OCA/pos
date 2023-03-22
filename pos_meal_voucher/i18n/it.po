@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-17 16:10+0000\n"
+"PO-Revision-Date: 2023-03-22 13:23+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -31,7 +31,7 @@ msgstr "<span class=\"o_form_label\">Importo buoni pasto</span>"
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
@@ -41,12 +41,12 @@ msgstr "Applicare a tutti i prodotti"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_barcode_rule
 msgid "Barcode Rule"
-msgstr ""
+msgstr "Regola codice a barre"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Cashier"
-msgstr ""
+msgstr "Cassiere"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,help:pos_meal_voucher.field_product_product__meal_voucher_ok
@@ -73,7 +73,7 @@ msgstr "Dematerializzato"
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Discounted Product"
-msgstr ""
+msgstr "Prodotto scontato"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_product_screen
@@ -84,12 +84,12 @@ msgstr "Mostrare l'icona prima dei prodotti a schermo"
 #. module: pos_meal_voucher
 #: model:product.category,name:pos_meal_voucher.food_category
 msgid "Food"
-msgstr ""
+msgstr "Cibo"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__has_meal_voucher_journal
 msgid "Has Meal Voucher Journal"
-msgstr ""
+msgstr "Ha registro buoni pasto"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
@@ -113,12 +113,12 @@ msgstr "Registro"
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Location"
-msgstr ""
+msgstr "Ubicazione"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Lot"
-msgstr ""
+msgstr "Lotto"
 
 #. module: pos_meal_voucher
 #. openerp-web
@@ -178,12 +178,12 @@ msgstr "Buoni pasto"
 #: model:product.product,name:pos_meal_voucher.bread
 #: model:product.template,name:pos_meal_voucher.bread_product_template
 msgid "Organic Wholemeal Bread"
-msgstr ""
+msgstr "Pane integrale biologico"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Package"
-msgstr ""
+msgstr "Imballaggio"
 
 #. module: pos_meal_voucher
 #: selection:account.journal,meal_voucher_type:0
@@ -193,22 +193,22 @@ msgstr "Carta"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Ordini punto vendita"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Priced Product"
-msgstr ""
+msgstr "Prodotto prezzato"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Priced Product (Computed Weight)"
-msgstr ""
+msgstr "Prodotto prezzato (peso calcolato)"
 
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_product_product
@@ -223,12 +223,12 @@ msgstr "Categoria prodotto"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_product_template
 msgid "Product Template"
-msgstr ""
+msgstr "Modello prodotto"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Tare"
-msgstr ""
+msgstr "Tara"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_mixed_text
@@ -266,18 +266,18 @@ msgstr "Tipo"
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Unit Product"
-msgstr ""
+msgstr "Prodotto unitario"
 
 #. module: pos_meal_voucher
 #: model:product.product,uom_name:pos_meal_voucher.bread
 #: model:product.template,uom_name:pos_meal_voucher.bread_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "Unità"
 
 #. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Weighted Product"
-msgstr ""
+msgstr "Prodotto pesato"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
@@ -290,4 +290,4 @@ msgstr ""
 #: model:product.product,weight_uom_name:pos_meal_voucher.bread
 #: model:product.template,weight_uom_name:pos_meal_voucher.bread_product_template
 msgid "kg"
-msgstr ""
+msgstr "kg"
