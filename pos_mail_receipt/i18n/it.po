@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-22 13:23+0000\n"
+"PO-Revision-Date: 2023-03-22 16:28+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -99,17 +99,19 @@ msgstr "Receipt_{}.pdf"
 #, python-format
 msgid "Synchronisation with the database is taking too long. Retry or contact the system administrator."
 msgstr ""
+"La sincronizzazione con il database è lenta. Riprovare o contattare "
+"l'amministrazione di sistema."
 
 #. module: pos_mail_receipt
 #. openerp-web
 #: code:addons/pos_mail_receipt/static/src/js/screens.js:121
 #, python-format
 msgid "The e-mail could not be sent"
-msgstr ""
+msgstr "L'e-mail non può essere spedita"
 
 #. module: pos_mail_receipt
 #. openerp-web
 #: code:addons/pos_mail_receipt/static/src/js/screens.js:123
 #, python-format
 msgid "The e-mail could not be sent to "
-msgstr ""
+msgstr "L'e-mail nonpuò essere spedita a "
