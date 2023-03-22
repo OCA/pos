@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-17 00:29+0000\n"
+"PO-Revision-Date: 2023-03-22 15:22+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -138,7 +138,7 @@ msgstr "Ultimo aggiornamento il"
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in_control
 msgid "Pay invoice"
-msgstr "Paga fattura"
+msgstr "Paga la fattura"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_id
