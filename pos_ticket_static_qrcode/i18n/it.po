@@ -1,0 +1,67 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_ticket_static_qrcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_ticket_static_qrcode
+#: code:addons/pos_ticket_static_qrcode/models/pos_config.py:53
+#, python-format
+msgid "Cannot convert %(qrcode_value)s into QR Code: %(error)s"
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model_terms:ir.ui.view,arch_db:pos_ticket_static_qrcode.pos_config_view_form
+msgid "Message :"
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model:ir.model.fields,help:pos_ticket_static_qrcode.field_pos_config__pos_ticket_static_qrcode_message
+msgid "Message to display under QRCode."
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model:ir.model,name:pos_ticket_static_qrcode.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model_terms:ir.ui.view,arch_db:pos_ticket_static_qrcode.pos_config_view_form
+msgid "QR Code to display on ticket to give the\n"
+"                            opportunity to customer to interact with\n"
+"                            its ticket. To visit site web, ask support, rate\n"
+"                            service.\n"
+"                            If you provide a QRCode value it's recomanded\n"
+"                            to add a short message to invit and tell why\n"
+"                            to scan the QRCode (ie: SCAN TO RATE)."
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model:ir.model.fields,field_description:pos_ticket_static_qrcode.field_pos_config__pos_ticket_static_qrcode
+msgid "QRCode"
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model:ir.model.fields,field_description:pos_ticket_static_qrcode.field_pos_config__pos_ticket_static_qrcode_message
+msgid "QRCode Message"
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model:ir.model.fields,field_description:pos_ticket_static_qrcode.field_pos_config__pos_ticket_static_qrcode_value
+msgid "QRCode Value"
+msgstr ""
+
+#. module: pos_ticket_static_qrcode
+#: model:ir.model.fields,help:pos_ticket_static_qrcode.field_pos_config__pos_ticket_static_qrcode_value
+msgid "QRCode value use to generate QRCOde, the value return when user scan that QRCode."
+msgstr ""
