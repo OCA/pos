@@ -6,32 +6,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-03-22 22:22+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_product_template
 #: model:product.attribute.value,name:pos_product_template.attribute_wifi_extra
 msgid "2.399GHz"
-msgstr ""
+msgstr "2.399 GHz"
 
 #. module: pos_product_template
 #. openerp-web
 #: code:addons/pos_product_template/static/src/xml/ppt.xml:13
 #, python-format
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: pos_product_template
 #. openerp-web
 #: code:addons/pos_product_template/static/src/xml/ppt.xml:11
 #, python-format
 msgid "Variant Selection of"
-msgstr ""
+msgstr "Selezione variante di"
 
 #. module: pos_product_template
 #. openerp-web
@@ -39,4 +41,4 @@ msgstr ""
 #: code:addons/pos_product_template/static/src/xml/ppt.xml:77
 #, python-format
 msgid "Variants"
-msgstr ""
+msgstr "Varianti"
