@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_order_count_store
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_order_count_store
+#: model:ir.model,name:pos_order_count_store.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_order_count_store
+#: model:ir.model.fields,field_description:pos_order_count_store.field_res_partner__pos_order_ids
+#: model:ir.model.fields,field_description:pos_order_count_store.field_res_users__pos_order_ids
+msgid "Pos Order"
+msgstr ""
+
+#. module: pos_order_count_store
+#: model:ir.model.fields,field_description:pos_order_count_store.field_res_partner__pos_order_count
+#: model:ir.model.fields,field_description:pos_order_count_store.field_res_users__pos_order_count
+msgid "Pos Order Count"
+msgstr ""
+
+#. module: pos_order_count_store
+#: model:ir.model.fields,help:pos_order_count_store.field_res_partner__pos_order_count
+#: model:ir.model.fields,help:pos_order_count_store.field_res_users__pos_order_count
+msgid "The number of point of sales orders related to this customer"
+msgstr ""
