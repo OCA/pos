@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-17 16:10+0000\n"
+"PO-Revision-Date: 2023-03-22 13:23+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -25,34 +25,36 @@ msgstr "Contatto"
 #: code:addons/pos_customer_required_fields/models/res_partner.py:24
 #, python-format
 msgid "Following required field(s) is/are not set: %s."
-msgstr ""
+msgstr "I(l) seguenti(e) campi(o) richiesti(o) non è(sono) impostati: %s."
 
 #. module: pos_customer_required_fields
 #: model:ir.model.fields,help:pos_customer_required_fields.field_pos_config__res_partner_required_fields_ids
 msgid "List of fields that are required while creating or updating a res partner from the point of sale."
 msgstr ""
+"Elenco dei campi richiesti dal punto vendtia nella creazione o aggiornamento "
+"di una maschera res_partner."
 
 #. module: pos_customer_required_fields
 #. openerp-web
 #: code:addons/pos_customer_required_fields/static/src/js/screens.js:33
 #, python-format
 msgid "Missing customer data"
-msgstr ""
+msgstr "Dati cliente mancanti"
 
 #. module: pos_customer_required_fields
 #: model:ir.model.fields,field_description:pos_customer_required_fields.field_pos_config__res_partner_required_fields_ids
 msgid "Partner required fields"
-msgstr ""
+msgstr "Campi partner richiesti"
 
 #. module: pos_customer_required_fields
 #: model:ir.model.fields,field_description:pos_customer_required_fields.field_pos_config__res_partner_required_fields_names
 msgid "Partner required fields name"
-msgstr ""
+msgstr "nome campi partner richiesti"
 
 #. module: pos_customer_required_fields
 #: model:ir.model,name:pos_customer_required_fields.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_customer_required_fields
 #. openerp-web
@@ -60,11 +62,13 @@ msgstr ""
 #, python-format
 msgid "Some data on the customer you picked are missing. Use the customer screen to edit: "
 msgstr ""
+"Mancano alcuni dati del cliente selezionato. Utilizzare la maschera cliente "
+"per modificarli: "
 
 #. module: pos_customer_required_fields
 #: model:ir.model.fields,help:pos_customer_required_fields.field_pos_config__res_partner_required_fields_names
 msgid "Technical fields to avoid adding ir.model.fields in pos model"
-msgstr ""
+msgstr "Campo tecnico per evitare di aggiungere ir.model.fields nel modello pos"
 
 #. module: pos_customer_required_fields
 #: model_terms:ir.ui.view,arch_db:pos_customer_required_fields.pos_config_view_form
@@ -75,3 +79,11 @@ msgid "This ensure following fields are set in partner while\n"
 "                            backend without that field, user will be prompt to\n"
 "                            add that information."
 msgstr ""
+"Questo assicura che i campi seguenti siano impostati nel partner\n"
+"                            durante la creazione da punto vendita.\n"
+"\n"
+"                            Inoltre se l'utente seleziona un partner "
+"esistente creato\n"
+"                            nel backend senza il campo, verrà chiesto all'"
+"utente\n"
+"                            di aggiungere l'informazione."
