@@ -10,6 +10,11 @@
     "data": [
         "views/res_config_settings_views.xml",
     ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_restrict_price_discount_buttons/static/src/js/Screens/ProductScreen/NumpadWidget.js",  # noqa
+        ]
+    },
     "license": "AGPL-3",
     "installable": True,
     "auto_install": False,
