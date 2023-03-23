@@ -7,25 +7,23 @@ odoo.define("pos_restrict_price_discount_buttons.NumpadWidget", function (requir
     const RestrictButtonsNumpadWidget = (NumpadWidget) =>
         class extends NumpadWidget {
             get hasPriceControlRights() {
-                const config = this.env.pos.config;
-                if (config.restrict_price_button) {
-                    const users = config.restrict_price_users_ids;
+                if (this.env.pos.config.restrict_price_button) {
+                    const users = this.env.pos.config.restrict_price_users_ids;
                     return users.includes(this.env.pos.user.id);
                 }
-                return super.setup();
+                return super.hasPriceControlRights;
             }
 
             get hasManualDiscount() {
-                const config = this.env.pos.config;
-                if (config.restrict_discount_button) {
-                    const users = config.restrict_discount_users_ids;
+                if (this.env.pos.config.restrict_discount_button) {
+                    const users = this.env.pos.config.restrict_discount_users_ids;
                     return users.includes(this.env.pos.user.id);
                 }
-                return super.setup();
+                return super.hasManualDiscount;
             }
         };
 
     Registries.Component.extend(NumpadWidget, RestrictButtonsNumpadWidget);
 
-    return NumpadWidget;
+    return RestrictButtonsNumpadWidget;
 });
