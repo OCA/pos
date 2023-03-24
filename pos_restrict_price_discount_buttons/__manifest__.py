@@ -6,7 +6,7 @@
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "maintainers": ["geomer198", "CetmixGitDrone"],
-    "depends": ["pos_sale"],
+    "depends": ["pos_sale", "pos_hr"],
     "data": [
         "views/res_config_settings_views.xml",
     ],
