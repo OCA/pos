@@ -8,9 +8,9 @@ odoo.define("pos_crm.db", function (require) {
     }
 
     PosDB.include({
-        init: function (options) {
+        init: function () {
             this.partner_by_tax_id = {};
-            this._super(options);
+            this._super.apply(this, arguments);
         },
         add_partners: function (partners) {
             var updated_count = this._super(partners);

@@ -16,7 +16,7 @@ odoo.define("pos_crm.OrderFetcher", function (require) {
                 case "pos_reference":
                     return order.name.toLowerCase().includes(searchWord);
                 case "partner_id.display_name":
-                    const client = order.get_client();
+                    const client = order.get_partner();
                     return client
                         ? client.name.toLowerCase().includes(searchWord)
                         : false;

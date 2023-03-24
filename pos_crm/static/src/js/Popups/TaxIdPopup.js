@@ -1,47 +1,41 @@
-odoo.define("pos_crm.TaxIdPopup", function (require) {
+odoo.define("pos_crm.AskVatPopup", function (require) {
     "use strict";
     var core = require("web.core");
     var _t = core._t;
 
-    const {useState} = owl;
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
-    const NumberBuffer = require("point_of_sale.NumberBuffer");
-    const {useListener} = require("web.custom_hooks");
+    const AskVatBuffer = require("pos_crm.AskVatBuffer");
+    const {useListener} = require("@web/core/utils/hooks");
     const Registries = require("point_of_sale.Registries");
 
-    class TaxIdPopup extends AbstractAwaitablePopup {
+    const {useState} = owl;
+
+    class AskVatPopup extends AbstractAwaitablePopup {
         /**
          * @param {Object} props
          * @param {Boolean} props.isPassword Show password popup.
          * @param {Number|null} props.startingValue Starting value of the popup.
+         * @param {Boolean} props.isInputSelected Input is highlighted and will reset upon a change.
          *
          * Resolve to { confirmed, payload } when used with showPopup method.
          * @confirmed {Boolean}
          * @payload {String}
          */
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             useListener("accept-input", this.confirm);
             useListener("close-this-popup", this.cancel);
-            let startingBuffer = "";
-            if (
-                typeof this.props.startingValue === "number" &&
-                this.props.startingValue > 0
-            ) {
-                startingBuffer = this.props.startingValue
-                    .toString()
-                    .replace(".", this.decimalSeparator);
-            }
-            this.state = useState({buffer: startingBuffer});
-            NumberBuffer.use({
+            const startingBuffer = "";
+            this.state = useState({
+                buffer: startingBuffer,
+                toStartOver: this.props.isInputSelected,
+            });
+            AskVatBuffer.use({
                 nonKeyboardInputEvent: "numpad-click-input",
                 triggerAtEnter: "accept-input",
                 triggerAtEscape: "close-this-popup",
                 state: this.state,
             });
-        }
-        get decimalSeparator() {
-            return this.env._t.database.parameters.decimal_point;
         }
         get inputBuffer() {
             if (this.state.buffer === null) {
@@ -50,12 +44,10 @@ odoo.define("pos_crm.TaxIdPopup", function (require) {
             if (this.props.isPassword) {
                 return this.state.buffer.replace(/./g, "•");
             }
-                return this.state.buffer;
-
+            return this.state.buffer;
         }
-        confirm(event) {
-            const bufferState = event.detail;
-            if (bufferState.buffer !== "") {
+        confirm() {
+            if (AskVatBuffer.get()) {
                 super.confirm();
             }
         }
@@ -63,20 +55,20 @@ odoo.define("pos_crm.TaxIdPopup", function (require) {
             this.trigger("numpad-click-input", {key});
         }
         getPayload() {
-            return NumberBuffer.get();
+            return AskVatBuffer.get();
         }
     }
-    TaxIdPopup.template = "TaxIdPopup";
-    TaxIdPopup.defaultProps = {
+    AskVatPopup.template = "AskVatPopup";
+    AskVatPopup.defaultProps = {
         confirmText: _t("Ok"),
         cancelText: _t("Cancel"),
         title: _t("Confirm ?"),
         body: "",
+        cheap: false,
         startingValue: null,
-        isPassword: false,
     };
 
-    Registries.Component.add(TaxIdPopup);
+    Registries.Component.add(AskVatPopup);
 
-    return TaxIdPopup;
+    return AskVatPopup;
 });

@@ -1,4 +1,4 @@
-odoo.define("pos_crm.OrderManagementControlPanel", function (require) {
+odoo.define("pos_AskCustomer.OrderManagementControlPanel", function (require) {
     "use strict";
 
     const Registries = require("point_of_sale.Registries");
@@ -11,7 +11,7 @@ odoo.define("pos_crm.OrderManagementControlPanel", function (require) {
         "partner_vat",
     ];
 
-    const OrderManagementControlPanelCRM = (OrderManagementControlPanel) =>
+    const OrderManagementControlPanelAskCustomer = (OrderManagementControlPanel) =>
         class extends OrderManagementControlPanel {
             get searchFields() {
                 return SEARCH_FIELDS;
@@ -20,8 +20,8 @@ odoo.define("pos_crm.OrderManagementControlPanel", function (require) {
 
     Registries.Component.extend(
         OrderManagementControlPanel,
-        OrderManagementControlPanelCRM
+        OrderManagementControlPanelAskCustomer
     );
 
-    return OrderManagementControlPanelCRM;
+    return OrderManagementControlPanelAskCustomer;
 });
