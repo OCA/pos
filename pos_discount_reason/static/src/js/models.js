@@ -71,6 +71,7 @@ odoo.define("pos_discount_reason.models", function (require) {
                 this.discount_reason_id = null;
             }
             this.set_discount(reason.percent * 100);
+
             this.trigger("change", this);
         },
         clone: function () {
