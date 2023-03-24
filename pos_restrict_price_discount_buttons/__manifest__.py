@@ -1,6 +1,6 @@
 {
     "name": "POS Restrict Price Discount Buttons",
-    "summary": "POS Restrict Price Discount Buttons",
+    "summary": "Restrict access to 'Price' and 'Discount' buttons in POS",
     "author": "Cetmix, Odoo Community Association (OCA)",
     "version": "16.0.1.0.0",
     "category": "Point of Sale",
