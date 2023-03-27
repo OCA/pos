@@ -28,6 +28,13 @@ msgid "Allow edit Order Line in popup"
 msgstr "Abilita la modifica righe ordine con popup"
 
 #. module: pos_edit_order_line
+#. odoo-javascript
+#: code:addons/pos_edit_order_line/static/src/js/EditOrderPopup.js:0
+#, python-format
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_edit_order_line
 #: model:ir.model,name:pos_edit_order_line.model_res_config_settings
 msgid "Config Settings"
 msgstr "Impostazioni configurazione"
@@ -85,6 +92,13 @@ msgstr "Prodotto"
 #, python-format
 msgid "Quantity"
 msgstr "Quantità"
+
+#. module: pos_edit_order_line
+#. odoo-javascript
+#: code:addons/pos_edit_order_line/static/src/js/EditOrderPopup.js:0
+#, python-format
+msgid "Save"
+msgstr ""
 
 #. module: pos_edit_order_line
 #. odoo-javascript
