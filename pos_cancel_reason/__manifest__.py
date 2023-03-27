@@ -7,6 +7,7 @@
     "website": "https://github.com/OCA/pos",
     "category": "Point Of sale",
     "version": "14.0.1.0.0",
+    "maintainers": ["lfdivino", "luismalta", "ygcarvalh", "felipezago"],
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
