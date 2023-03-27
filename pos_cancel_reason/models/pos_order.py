@@ -32,7 +32,7 @@ class PosOrder(models.Model):
             for cancelled_item in order["data"]["cancelled_orderlines"]:
                 if cancelled_item:
                     self.env["pos.order.line.cancelled"].cancel_from_ui(cancelled_item)
-            if order["data"]["state"] == "cancel":
+            if order.get("data", {}).get("state", False) == "cancel":
                 pos_order = self.env["pos.order"].search(
                     [("pos_reference", "=", order["data"]["name"])]
                 )

@@ -127,3 +127,9 @@ class TestPosOrderCancelItems(TransactionCase):
             "You can't delete an order with a cancel reason!",
             e.exception.args[0],
         )
+
+    def test_write_cancel_reason_name(self):
+        self._create_order(cancelled=True)
+
+        with self.assertRaises(ValidationError):
+            self.cancel_reason.write({"name": "TEST WRITE"})

@@ -13,8 +13,8 @@ class TestCancelReasonConfig(TransactionCase):
         self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
 
     def test_add_cancel_reason_config_without_reason_registers(self):
-        for cancel_reason in self.env["pos.cancel.reason"].search([]):
-            cancel_reason.active = False
+        self.env["pos.cancel.reason"].search([]).write({"active": False})
+
         with self.assertRaises(ValidationError) as e, self.env.cr.savepoint():
             self.pos_config.reason_to_cancel = True
 
