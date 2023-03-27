@@ -12,9 +12,16 @@ class PosConfig(models.Model):
         string="Reason to Cancel",
         default=False,
     )
+
     delay_to_cancel = fields.Integer(
         string="Delayed time to cancel",
         default=10,
+    )
+
+    iface_cancel_immediately = fields.Boolean(
+        string="Cancel Immediately",
+        help="Cancel order lines immediately, instead of first setting the quantity to 0.",
+        default=True,
     )
 
     def write(self, vals):
