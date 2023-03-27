@@ -31,7 +31,7 @@ addon | version | maintainers | summary
 [pos_edit_order_line](pos_edit_order_line/) | 14.0.1.0.2 |  | POS Edit Order Line
 [pos_empty_home](pos_empty_home/) | 14.0.1.0.0 |  | Point of Sale - Hide products if no category is selected
 [pos_escpos_status](pos_escpos_status/) | 14.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
-[pos_fixed_discount](pos_fixed_discount/) | 14.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
+[pos_fixed_discount](pos_fixed_discount/) | 14.0.1.0.2 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 14.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 |  | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_margin](pos_margin/) | 14.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
