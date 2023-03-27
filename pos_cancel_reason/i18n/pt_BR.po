@@ -270,3 +270,28 @@ msgstr "pos.cancel.reason"
 #: model:ir.model,name:pos_cancel_reason.model_pos_order_line_cancelled
 msgid "pos.order.line.cancelled"
 msgstr "pos.order.line.cancelled"
+
+#. module: pos_cancel_reason
+#. openerp-web
+#: code:addons/pos_cancel_reason/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Incorrect Password"
+msgstr "Senha Incorreta"
+
+#. module: pos_cancel_reason
+#. openerp-web
+#: code:addons/pos_cancel_reason/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Password ?"
+msgstr "Senha ?"
+
+#. module: pos_cancel_reason
+#: model:ir.model.fields,field_description:pos_cancel_reason.field_pos_config__iface_cancel_immediately
+msgid "Cancel Immediately"
+msgstr "Cancelar Imediatamente"
+
+#. module: pos_cancel_reason
+#: model_terms:ir.ui.view,arch_db:pos_cancel_reason.view_pos_config_form
+#: model:ir.model.fields,help:pos_cancel_reason.field_pos_config__iface_cancel_immediately
+msgid "Cancel order lines immediately, instead of first setting the quantity to 0."
+msgstr "Cancelar linhas do pedido imediatamente, ao invés de mudar a quantidade para 0 primeiro."
