@@ -82,6 +82,11 @@ odoo.define("pos_event_sale.db", function (require) {
                 if (this.event_ticket_by_id[ticket.id]) {
                     Object.assign(this.event_ticket_by_id[ticket.id], ticket);
                 } else {
+                    // Ignore ticket updates with missing fields.
+                    // This can happen during the seats availability update.
+                    if (!ticket.event_id) {
+                        continue;
+                    }
                     // Map event ticket by id
                     this.event_ticket_by_id[ticket.id] = ticket;
                     // Map event ticket by event id
