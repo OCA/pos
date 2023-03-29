@@ -1,0 +1,1 @@
+This module extends the functionality of Point of Sale (point_of_sale), and makes it possible to create events based on week days to apply price changing events on products. Also, implements the possibility to hide items based on event.

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="resource_product_event_form_view">
+        <field
+            name="name"
+        >resource.product.event.form (in pos_product_price_event)</field>
+        <field name="model">resource.product.event</field>
+        <field name="arch" type="xml">
+            <form create="0" delete="0">
+                <sheet>
+                    <group>
+                        <field name="week_day" />
+                    </group>
+
+                    <notebook>
+                        <page string="Events">
+                            <group>
+                                <field
+                                    name="price_event_ids"
+                                    nolabel="1"
+                                    options="{'no_open': True}"
+                                >
+                                    <tree editable="bottom">
+                                        <field name="event_name_id" />
+                                        <field name="product_id" />
+                                        <field name="price" />
+                                        <field name="product_availability" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="resource_product_event_tree_view">
+        <field
+            name="name"
+        >resource.product.event.tree (in pos_product_price_event)</field>
+        <field name="model">resource.product.event</field>
+        <field name="arch" type="xml">
+            <tree create="0" delete="0">
+                <field name="week_day" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="resource_product_event_act_window">
+        <field name="name">Product Events</field>
+        <field name="res_model">resource.product.event</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record model="ir.ui.menu" id="resource_product_event_menu">
+        <field name="name">Product Events</field>
+        <field name="parent_id" ref="point_of_sale.menu_point_config_product" />
+        <field name="action" ref="resource_product_event_act_window" />
+        <field name="sequence" eval="70" />
+    </record>
+
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.model.access" id="resource_product_event_user_access">
+        <field name="name">resource.product.event user access</field>
+        <field name="model_id" ref="model_resource_product_event" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+    <record model="ir.model.access" id="resource_product_event_price_user_access">
+        <field name="name">resource.product.event.price user access</field>
+        <field name="model_id" ref="model_resource_product_event_price" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+    <record model="ir.model.access" id="resource_product_event_price_name_user_access">
+        <field name="name">resource.product.event.price,name user access</field>
+        <field name="model_id" ref="model_resource_product_event_price_name" />
+        <field name="group_id" ref="base.group_user" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+</odoo>
