@@ -1,0 +1,127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_report_session_summary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-01-28 14:13+0000\n"
+"Last-Translator: lromero-solvos <luis.romero@solvos.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Closing Date</strong>:<br/>"
+msgstr "<strong>Fecha de cierre</strong>:<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Currency</strong>"
+msgstr "<strong>Moneda</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Difference</strong>"
+msgstr "<strong>Diferencia</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Ending Balance</strong>"
+msgstr "<strong>Balance Final</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Journal</strong>"
+msgstr "<strong>Diario</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Opening Date</strong>:<br/>"
+msgstr "<strong>Fecha de apertura</strong>:<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Point of Sale</strong>:<br/>"
+msgstr "<strong>Punto de Venta</strong>:<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Referencia</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Responsible</strong>:<br/>"
+msgstr "<strong>Responsable</strong>:<br/>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Starting Balance</strong>"
+msgstr "<strong>Balance Inicial</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Status</strong>"
+msgstr "<strong>Estado</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "<strong>Total Transactions</strong>"
+msgstr "<strong>Total Transacciones</strong>"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Account"
+msgstr "Cuenta"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Amount"
+msgstr "Importe"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Date"
+msgstr "Fecha"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Description"
+msgstr "Descripción"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: pos_report_session_summary
+#: model:ir.actions.report,name:pos_report_session_summary.action_report_pos_session_summary
+msgid "Session Summary"
+msgstr "Resumen de la sesión"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Session Summary:"
+msgstr "Resumen de la sesión:"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Statement Details:"
+msgstr "Detalles del declarado:"
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Statement Summary"
+msgstr "Resumen de la Declaración"

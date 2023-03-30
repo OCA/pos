@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<odoo>
+    <record id="action_report_pos_session_summary" model="ir.actions.report">
+        <field name="name">Session Summary</field>
+        <field name="model">pos.session</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >pos_report_session_summary.report_session_summary</field>
+        <field
+            name="report_file"
+        >pos_report_session_summary.report_session_summary</field>
+        <field name="binding_model_id" ref="point_of_sale.model_pos_session" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
