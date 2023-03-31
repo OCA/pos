@@ -10,22 +10,22 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2020-07-27 11:19+0000\n"
-"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"PO-Revision-Date: 2023-03-31 08:15+0000\n"
+"Last-Translator: FLNerea <nerea.fernandez@factorlibre.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_payment_terminal
 #. openerp-web
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Cannot process transactions with zero or negative amount."
-msgstr ""
+msgstr "No se pueden procesar transacciones con importe cero o negativo."
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__card
@@ -40,7 +40,7 @@ msgstr "Talón"
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: pos_payment_terminal
 #. openerp-web
