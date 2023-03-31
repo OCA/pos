@@ -6,33 +6,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-03-31 08:15+0000\n"
+"Last-Translator: FLNerea <nerea.fernandez@factorlibre.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_res_config_settings__pos_global_discount_in_line
 msgid "Add Discount in Line"
-msgstr ""
+msgstr "Añadir descuento en línea"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model,name:pos_global_discount_in_line.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Ajustes de Configuración"
 
 #. module: pos_global_discount_in_line
 #. odoo-javascript
 #: code:addons/pos_global_discount_in_line/static/src/js/GlobalLineDiscount.js:0
 #, python-format
 msgid "Discount Percentage"
-msgstr ""
+msgstr "Porcentaje de Descuento"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model,name:pos_global_discount_in_line.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuración del Punto de Venta"
