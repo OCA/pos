@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 KMEE
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_scanner_proxy_form_view">
+        <field name="name">pos.config.form (in pos_scanner_proxy)</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@name='order']" position="before">
+                <h2>Screen Lock Settings</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box" modifiers="{}">
+                        <div class="o_setting_left_pane">
+                            <field name="iface_screen_lock" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_screen_lock" />
+                            <div class="text-muted">
+                                Allows the screen to be locked after a period of inactivity.
+                            </div>
+                            <div
+                                class="content-group mt16"
+                                attrs="{'invisible': [('iface_screen_lock', '=', False)]}"
+                            >
+                                <field name="screen_lock_time" />
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        modifiers="{}"
+                        attrs="{'invisible': [('iface_screen_lock', '=', False)]}"
+                    >
+                        <div class="o_setting_left_pane">
+                            <field name="iface_screen_lock_warning" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="iface_screen_lock_warning" />
+                            <div class="text-muted">
+                                Allows setting a minimum time for inactivity warning message.
+                            </div>
+                            <div
+                                class="content-group mt16"
+                                attrs="{'invisible': [('iface_screen_lock_warning', '=', False)]}"
+                            >
+                                <field name="warning_screen_lock_time" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

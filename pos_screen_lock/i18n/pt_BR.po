@@ -1,0 +1,105 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_screen_lock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-18 13:03+0000\n"
+"PO-Revision-Date: 2022-08-18 10:05-0300\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: pos_screen_lock
+#. openerp-web
+#: code:addons/pos_screen_lock/static/src/js/custom.js:38
+#, python-format
+msgid " minutes."
+msgstr " minutos."
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,help:pos_screen_lock.field_pos_config__iface_screen_lock_warning
+msgid "Allows a system inactivityu warning message to appear after a period of time."
+msgstr "Permite que o sistema mostre uma mensagem de aviso após um certo período de tempo."
+
+#. module: pos_screen_lock
+#: model_terms:ir.ui.view,arch_db:pos_screen_lock.pos_config_scanner_proxy_form_view
+msgid "Allows setting a minimum time for inactivity warning message."
+msgstr "Define o tempo mínimo de inatividade antes da mensagem de aviso."
+
+#. module: pos_screen_lock
+#: model_terms:ir.ui.view,arch_db:pos_screen_lock.pos_config_scanner_proxy_form_view
+msgid "Allows the screen to be locked after a period of inactivity."
+msgstr "Permite que o sistema seja bloqueado após um certo período de inatividade do sistema."
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,help:pos_screen_lock.field_pos_config__iface_screen_lock
+msgid "Allows the system to be locked after a certain time."
+msgstr "Permite que o sistema seja bloqueado após um certo período de tempo."
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,help:pos_screen_lock.field_pos_config__screen_lock_time
+msgid "Amount of time, in minutes, of system inactivity before the screen lock can occur."
+msgstr "Total do tempo, em minutos, de inatividade do sistema antes do bloqueio de tela acontecer."
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,field_description:pos_screen_lock.field_pos_config__iface_screen_lock
+msgid "Automatic Lock Screen"
+msgstr "Bloqueio Automático do Sistema"
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,field_description:pos_screen_lock.field_pos_config__iface_screen_lock_warning
+msgid "Inactivity warning message"
+msgstr "Mensagem de aviso por inatividade."
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,field_description:pos_screen_lock.field_pos_config__screen_lock_time
+msgid "Maximum system downtime (minutes)"
+msgstr "Tempo máximo de inatividade (em minutos)."
+
+#. module: pos_screen_lock
+#: model:ir.model,name:pos_screen_lock.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuração do Ponto de Vendas"
+
+#. module: pos_screen_lock
+#: model_terms:ir.ui.view,arch_db:pos_screen_lock.pos_config_scanner_proxy_form_view
+msgid "Screen Lock Settings"
+msgstr "Configurações do Bloqueio de Tela"
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,help:pos_screen_lock.field_pos_config__warning_screen_lock_time
+msgid "Sets a minimum system inactivity time for a warning message to appear before the screen is locked."
+msgstr "Define um tempo mínimo de inatividade do sistema antes de aparecer a mensagem de aviso de bloqueio do sistema."
+
+#. module: pos_screen_lock
+#: code:addons/pos_screen_lock/models/pos_config.py:42
+#, python-format
+msgid "The system inactivity alert message time must be less than the inactivity lock time."
+msgstr "O tempo da mensagem de inatividade do sistema deve ser menor que o tempo de bloqueio por inatividade."
+
+#. module: pos_screen_lock
+#. openerp-web
+#: code:addons/pos_screen_lock/static/src/js/custom.js:38
+#, python-format
+msgid "The system will lock in "
+msgstr "O sistema será bloqueado em "
+
+#. module: pos_screen_lock
+#: model:ir.model.fields,field_description:pos_screen_lock.field_pos_config__warning_screen_lock_time
+msgid "Time to inactivity warning message (minutes)"
+msgstr "Tempo da mensagem inatividade do sistema (em minutos)"
+
+#. module: pos_screen_lock
+#. openerp-web
+#: code:addons/pos_screen_lock/static/src/js/custom.js:37
+#, python-format
+msgid "Warning Idle"
+msgstr "Aviso de Inatividade"
