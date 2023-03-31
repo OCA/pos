@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-14 11:00+0000\n"
-"PO-Revision-Date: 2022-11-14 11:00+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-03-31 08:15+0000\n"
+"Last-Translator: FLNerea <nerea.fernandez@factorlibre.com>\n"
 "Language-Team: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_receipt_hide_price
 #. openerp-web
@@ -35,7 +37,7 @@ msgstr "Mostrar precios"
 #: code:addons/pos_receipt_hide_price/static/src/xml/ReprintReceiptScreen.xml:0
 #, python-format
 msgid "hidePriceState"
-msgstr ""
+msgstr "ocultarPrecioEstado"
 
 #. module: pos_receipt_hide_price
 #. openerp-web
@@ -58,4 +60,4 @@ msgstr ""
 #: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
 #, python-format
 msgid "{'oe_hidden': priceHidden}"
-msgstr ""
+msgstr "{'oe_oculto': precioOculto}"
