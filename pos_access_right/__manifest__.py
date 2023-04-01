@@ -11,13 +11,17 @@
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
+    "demo": ["demo/res_groups.xml"],
     "data": [
         "security/res_groups.xml",
-        "views/templates.xml",
     ],
-    "demo": [
-        "demo/res_groups.xml",
-    ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_access_right/static/src/css/*",
+            "pos_access_right/static/src/js/*.js",
+            "pos_access_right/static/src/xml/*.xml",
+        ]
+    },
     "qweb": [
         "static/src/xml/*.xml",
     ],
