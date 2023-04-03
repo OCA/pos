@@ -3,9 +3,18 @@
 
     <template id="assets" inherit_id="point_of_sale.assets">
         <xpath expr="." position="inside">
+            <link
+                type="text/css"
+                rel="stylesheet"
+                href="/pos_order_to_sale_order/static/src/css/pos.css"
+            />
             <script
                 type="text/javascript"
-                src="/pos_order_to_sale_order/static/src/js/screens.js"
+                src="/pos_order_to_sale_order/static/src/js/CreateOrderButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_order_to_sale_order/static/src/js/CreateOrderPopup.js"
             />
         </xpath>
     </template>
