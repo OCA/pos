@@ -1,0 +1,19 @@
+.pos .popup-create-sale-order table {
+    width: 100%;
+}
+
+.pos .popup-create-sale-order .button.button-sale-order {
+    width: 100%;
+    margin-right: 0px;
+    text-align: left;
+}
+
+.pos .popup-create-sale-order .button.button-sale-order .icon-containers {
+    margin-left: 10px;
+    width: 80px;
+    display: inline-block;
+}
+
+.pos .popup-create-sale-order .button.button-sale-order span {
+    margin-left: 10px;
+}
