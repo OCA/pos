@@ -31,7 +31,7 @@ odoo.define("pos_event_sale.db", function (require) {
          */
         addEvents: function (events) {
             /* eslint-disable no-param-reassign */
-            if (!events instanceof Array) {
+            if (!(events instanceof Array)) {
                 events = [events];
             }
             for (const event of events) {
@@ -67,7 +67,7 @@ odoo.define("pos_event_sale.db", function (require) {
          */
         addEventTickets: function (tickets) {
             /* eslint-disable no-param-reassign */
-            if (!tickets instanceof Array) {
+            if (!(tickets instanceof Array)) {
                 tickets = [tickets];
             }
             for (const ticket of tickets) {
