@@ -10,6 +10,7 @@ odoo.define("pos_event_sale_session.EventSelectorPopup", function (require) {
     const Registries = require("point_of_sale.Registries");
     const {getDatesInRange} = require("pos_event_sale.utils");
 
+    /* eslint-disable no-shadow */
     const PosEventSaleSessionEventSelectorPopup = (EventSelectorPopup) =>
         class extends EventSelectorPopup {
             /**
@@ -18,7 +19,8 @@ odoo.define("pos_event_sale_session.EventSelectorPopup", function (require) {
             constructor() {
                 super(...arguments);
                 // Build also a map for event sessions
-                this.sessionsByDate = this.getEventSessionsByDate(this.events);
+                this._sessions = null;
+                this._sessionsByDate = null;
             }
             /**
              * @override
@@ -28,46 +30,47 @@ odoo.define("pos_event_sale_session.EventSelectorPopup", function (require) {
              */
             async willStart() {
                 const res = await super.willStart(...arguments);
-                const session_ids = [];
-                for (const event of this.events) {
-                    if (event.use_sessions) {
-                        session_ids.push(...event.getEventSessions().map((s) => s.id));
-                    }
-                }
-                if (session_ids.length) {
-                    try {
-                        await this.env.pos.db.updateEventSessionSeatsAvailable({
-                            session_ids: session_ids,
-                            options: {
-                                timeout: 1000,
-                                shadow: true,
-                            },
-                        });
-                    } catch (error) {
-                        console.debug(error);
-                    }
+                try {
+                    await this.env.pos.db.updateEventSessionSeatsAvailable({
+                        session_ids: Object.keys(this.env.pos.db.event_session_by_id),
+                        options: {
+                            timeout: 1000,
+                            shadow: true,
+                        },
+                    });
+                } catch (error) {
+                    console.debug(error);
                 }
                 return res;
             }
             /**
-             * @param {Array} events List of events
-             * @returns Object mapping event sessions by date string YYYY-MM-DD
+             * @property {Array} sessions List of filtered sessions
              */
-            getEventSessionsByDate(events) {
-                const res = {};
-                for (const event of events) {
-                    if (!event.use_sessions) {
-                        continue;
-                    }
-                    for (const session of event.getEventSessions()) {
-                        for (const eventDate of session.getEventDates()) {
-                            const key = moment(eventDate).format("YYYY-MM-DD");
-                            res[key] = res[key] || [];
-                            res[key].push(session);
-                        }
+            get sessions() {
+                if (this._sessions !== null) {
+                    return this._sessions;
+                }
+                return this.events
+                    .filter((event) => event.use_sessions)
+                    .map((event) => event.getEventSessions())
+                    .flat();
+            }
+            /**
+             * @property {Array} sessionsByDate Mapping of dates and filtered sessions
+             */
+            get sessionsByDate() {
+                if (this._sessionsByDate !== null) {
+                    return this._sessionsByDate;
+                }
+                this._sessionsByDate = {};
+                for (const session of this.sessions) {
+                    for (const eventDate of session.getEventDates()) {
+                        const key = moment(eventDate).format("YYYY-MM-DD");
+                        this._sessionsByDate[key] = this._sessionsByDate[key] || [];
+                        this._sessionsByDate[key].push(session);
                     }
                 }
-                return res;
+                return this._sessionsByDate;
             }
             get sessionsToDisplay() {
                 const dates = getDatesInRange(
@@ -92,6 +95,14 @@ odoo.define("pos_event_sale_session.EventSelectorPopup", function (require) {
                     return await this.showPopup("EventTicketsPopup", {event, session});
                 }
                 return super.clickEvent(...arguments);
+            }
+            /**
+             * @override
+             */
+            onFiltersChange() {
+                this._sessions = null;
+                this._sessionsByDate = null;
+                return super.onFiltersChange(...arguments);
             }
         };
 
