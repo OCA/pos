@@ -106,6 +106,41 @@ odoo.define("pos_event_sale.models", function (require) {
                 );
             },
         },
+        {
+            model: "event.tag.category",
+            after: "event.event",
+            label: "Event Tag Categories",
+            fields: ["name"],
+            condition: function (self) {
+                return self.config.iface_event_sale;
+            },
+            loaded: function (self, records) {
+                self.db.event_tag_category_by_id = {};
+                self.db.event_tags = records;
+                for (const record of records) {
+                    record.tag_ids = [];
+                    self.db.event_tag_category_by_id[record.id] = record;
+                }
+            },
+        },
+        {
+            model: "event.tag",
+            after: "event.tag.category",
+            label: "Event Tags",
+            fields: ["name", "category_id", "color"],
+            condition: function (self) {
+                return self.config.iface_event_sale;
+            },
+            loaded: function (self, records) {
+                for (const record of records) {
+                    const category =
+                        self.db.event_tag_category_by_id[record.category_id[0]];
+                    if (category) {
+                        category.tag_ids.push(record);
+                    }
+                }
+            },
+        },
     ]);
 
     return models;
