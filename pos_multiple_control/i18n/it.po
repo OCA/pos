@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-20 13:22+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-04-03 22:43+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -488,7 +488,7 @@ msgstr "Saldo chiususa teorico"
 #: model:ir.model.fields,field_description:pos_multiple_control.field_wizard_update_cashbox__total
 #: model_terms:ir.ui.view,arch_db:pos_multiple_control.view_pos_session_form
 msgid "Total"
-msgstr "totale"
+msgstr "Totale"
 
 #. module: pos_multiple_control
 #: model:ir.model.fields,field_description:pos_multiple_control.field_pos_session__control_register_difference
