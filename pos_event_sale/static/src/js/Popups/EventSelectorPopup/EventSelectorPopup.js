@@ -26,20 +26,23 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
             this.state = useState({
                 selectedStartDate: moment().startOf("day").toDate(),
                 selectedEndDate: moment().endOf("day").toDate(),
+                filters: [],
             });
             useListener("select-dates", this.selectDates);
             useListener("click-event", this.clickEvent);
             // If there's a product, get all events related to this product
             // If not, show all available events (use case: Add Event button)
             if (this.props.product) {
-                this.events = this.env.pos.db.getEventsByProductID(
-                    this.props.product.id
-                );
-            } else {
-                this.events = this.env.pos.db.events;
+                this.state.filters.push({
+                    kind: "product",
+                    data: this.props.product.id,
+                    label: this.env._t("Product"),
+                    value: this.props.product.display_name,
+                });
             }
-            // Build a map of events by date where keys are Strings YYYY-MM-DD
-            this.eventsByDate = this.getEventsByDate(this.events);
+            // Cached properties
+            this._events = null;
+            this._eventsByDate = null;
         }
         /**
          * @override
@@ -50,7 +53,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
         async willStart() {
             try {
                 await this.env.pos.db.updateEventSeatsAvailable({
-                    event_ids: this.events.map((event) => event.id),
+                    event_ids: this.env.pos.db.events.map((event) => event.id),
                     options: {
                         timeout: 1000,
                         shadow: true,
@@ -61,20 +64,87 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
             }
         }
         /**
-         * @param {Array} events List of events
-         * @returns Object mapping events by date string YYYY-MM-DD
+         * Compiles a filter specification into a filter function suitable to filter events.
+         *
+         * @param {Object} filter Filter specification
+         * @param {String} filter.kind Type of filter (e.g.: "product", "name", "tag")
+         * @param {String} filter.label Human-readable label
+         * @param {String} filter.value Human-readable value
+         * @param {any} filter.data
+         * @returns {Function} Filter function to apply to events.
          */
-        getEventsByDate(events) {
-            const res = {};
-            for (const event of events) {
+        _compileFilter(filter) {
+            if (filter.kind === "product") {
+                const productEvents = this.env.pos.db.getEventsByProductID(filter.data);
+                return (event) => productEvents.includes(event);
+            }
+            if (filter.kind === "search") {
+                const {fieldName, searchTerm} = filter.data;
+                const searchTerms = searchTerm.split(" ");
+                const searchString = (source, terms) => {
+                    const sourceLower = source.toLowerCase();
+                    return terms.every((term) =>
+                        sourceLower.includes(term.toLowerCase())
+                    );
+                };
+                /* eslint-disable no-shadow */
+                const fieldGetterChar = (event, fieldName) => event[fieldName] || "";
+                const fieldGetterMany2one = (event, fieldName) =>
+                    event[fieldName] ? event[fieldName][1] : "";
+                const fieldGetter = fieldName.endsWith("_id")
+                    ? fieldGetterMany2one
+                    : fieldGetterChar;
+                return (event) =>
+                    searchString(fieldGetter(event, fieldName), searchTerms);
+            }
+            if (filter.kind === "tag") {
+                const {tagID} = filter.data;
+                return (event) => event.tag_ids && event.tag_ids.includes(tagID);
+            }
+        }
+        /**
+         * Compile filters
+         *
+         * @returns {Function} Filter function to apply to events.
+         */
+        _compileFilters() {
+            const filterFunctions = this.state.filters.map((filter) =>
+                this._compileFilter(filter)
+            );
+            const filterFunction = (event) =>
+                filterFunctions.every((filter) => filter(event));
+            return filterFunction;
+        }
+        /**
+         * @property {Array} events List of filtered events
+         */
+        get events() {
+            if (this._events !== null) {
+                return this._events;
+            }
+            this._events = this.env.pos.db.events.filter(this._compileFilters());
+            return this._events;
+        }
+        /**
+         * @property {Object} eventsByDate Mapping of dates and filtered events
+         */
+        get eventsByDate() {
+            if (this._eventsByDate !== null) {
+                return this._eventsByDate;
+            }
+            this._eventsByDate = {};
+            for (const event of this.events) {
                 for (const eventDate of event.getEventDates()) {
                     const key = moment(eventDate).format("YYYY-MM-DD");
-                    res[key] = res[key] || [];
-                    res[key].push(event);
+                    this._eventsByDate[key] = this._eventsByDate[key] || [];
+                    this._eventsByDate[key].push(event);
                 }
             }
-            return res;
+            return this._eventsByDate;
         }
+        /**
+         * @property {Array} eventsToDisplay List of events displayed in EventList
+         */
         get eventsToDisplay() {
             const dates = getDatesInRange(
                 this.state.selectedStartDate,
@@ -89,14 +159,32 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
             }
             return _.unique(events);
         }
+        /**
+         * @event
+         * @param {Event} event
+         */
         selectDates(event) {
             const {start, end} = event.detail;
             this.state.selectedStartDate = start;
             this.state.selectedEndDate = moment(end).subtract(1, "seconds").toDate();
         }
+        /**
+         * @event
+         * @param {Event} ev
+         */
         async clickEvent(ev) {
             const {event} = ev.detail;
             await this.showPopup("EventTicketsPopup", {event});
+        }
+        /**
+         * @event
+         * @param {Event} event
+         */
+        onFiltersChange(event) {
+            this._events = null;
+            this._eventsByDate = null;
+            this.state.filters = event.detail;
+            this.render();
         }
     }
     EventSelectorPopup.template = "EventSelectorPopup";
