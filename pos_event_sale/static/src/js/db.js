@@ -109,7 +109,9 @@ odoo.define("pos_event_sale.db", function (require) {
          */
         getEventByID: function (event_id, raiseIfNotFound = true) {
             if (event_id instanceof Array) {
-                return event_id.map((id) => this.getEventByID(id)).filter(Boolean);
+                return event_id
+                    .map((id) => this.getEventByID(id, raiseIfNotFound))
+                    .filter(Boolean);
             }
             const event = this.event_by_id[event_id];
             if (!event && raiseIfNotFound) {
@@ -125,7 +127,7 @@ odoo.define("pos_event_sale.db", function (require) {
         getEventTicketByID: function (ticket_id, raiseIfNotFound = true) {
             if (ticket_id instanceof Array) {
                 return ticket_id
-                    .map((id) => this.getEventTicketByID(id))
+                    .map((id) => this.getEventTicketByID(id, raiseIfNotFound))
                     .filter(Boolean);
             }
             const ticket = this.event_ticket_by_id[ticket_id];
