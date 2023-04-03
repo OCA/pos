@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template
+        id="pos_combo_rule_with_price_event_assets"
+        name="pos_combo_rule_with_price_event_assets"
+        inherit_id="point_of_sale.assets"
+    >
+        <xpath expr="." position="inside">
+
+            <script
+                src="/pos_combo_rule_with_price_event/static/src/js/Screens/ProductScreen.js"
+                type="text/javascript"
+            />
+
+        </xpath>
+    </template>
+
+</odoo>
