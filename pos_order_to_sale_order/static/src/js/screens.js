@@ -4,7 +4,7 @@
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 ******************************************************************************/
 
-odoo.define("pos_order_to_sale_order.screens", function(require) {
+odoo.define("pos_order_to_sale_order.screens", function (require) {
     "use strict";
 
     var screens = require("point_of_sale.screens");
@@ -21,7 +21,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
     var CreateSaleOrderButtonWidget = screens.ActionButtonWidget.extend({
         template: "CreateSaleOrderButtonWidget",
 
-        button_click: function() {
+        button_click: function () {
             if (this.pos.get_order().get_client()) {
                 this.gui.show_screen("create_sale_order");
             } else {
@@ -35,7 +35,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
             }
         },
 
-        is_visible: function() {
+        is_visible: function () {
             return this.pos.get_order().orderlines.length > 0;
         },
     });
@@ -43,13 +43,13 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
     screens.define_action_button({
         name: "create_sale_order",
         widget: CreateSaleOrderButtonWidget,
-        condition: function() {
+        condition: function () {
             return this.pos.config.iface_create_sale_order;
         },
     });
 
     screens.OrderWidget.include({
-        update_summary: function() {
+        update_summary: function () {
             this._super();
             if (
                 this.getParent().action_buttons &&
@@ -68,13 +68,13 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
         template: "CreateSaleOrderScreenWidget",
         auto_back: true,
 
-        show: function() {
+        show: function () {
             var self = this;
             this._super();
 
             this.renderElement();
 
-            this.$(".back").click(function() {
+            this.$(".back").click(function () {
                 self.gui.back();
             });
 
@@ -88,14 +88,14 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
                 this.$("#button-create-delivered-order").addClass("oe_hidden");
             }
 
-            this.$(".paymentmethod").click(function(event) {
+            this.$(".paymentmethod").click(function (event) {
                 self.click_sale_order_button(
                     event.currentTarget.attributes.action.nodeValue
                 );
             });
         },
 
-        click_sale_order_button: function(action) {
+        click_sale_order_button: function (action) {
             var self = this;
             this.gui.show_popup("confirm", {
                 title: _t("Create Sale Order and discard the current" + " PoS Order?"),
@@ -104,17 +104,17 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
                         " Order and create a Sale Order, based on the" +
                         " current order lines."
                 ),
-                confirm: function() {
+                confirm: function () {
                     framework.blockUI();
                     rpc.query({
                         model: "sale.order",
                         method: "create_order_from_pos",
                         args: [self.pos.get("selectedOrder").export_as_JSON(), action],
                     })
-                        .then(function() {
+                        .then(function () {
                             self.hook_create_sale_order_success();
                         })
-                        .catch(function(error, event) {
+                        .catch(function (error, event) {
                             self.hook_create_sale_order_error(error, event);
                         });
                 },
@@ -125,7 +125,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
          * Overloadable function to make custom action after Sale order
          * Creation succeeded
          */
-        hook_create_sale_order_success: function() {
+        hook_create_sale_order_success: function () {
             framework.unblockUI();
             this.pos.get("selectedOrder").destroy();
         },
@@ -134,7 +134,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
          * Overloadable function to make custom action after Sale order
          * Creation failed
          */
-        hook_create_sale_order_error: function(error, event) {
+        hook_create_sale_order_error: function (error, event) {
             framework.unblockUI();
             event.preventDefault();
             if (error.code === 200) {
@@ -156,7 +156,7 @@ odoo.define("pos_order_to_sale_order.screens", function(require) {
     gui.define_screen({
         name: "create_sale_order",
         widget: CreateSaleOrderScreenWidget,
-        condition: function() {
+        condition: function () {
             return this.pos.config.iface_create_sale_order;
         },
     });
