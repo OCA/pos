@@ -28,7 +28,7 @@ odoo.define("pos_event_sale_session.db", function (require) {
          */
         addEventSessions: function (sessions) {
             /* eslint-disable no-param-reassign */
-            if (!sessions instanceof Array) {
+            if (!(sessions instanceof Array)) {
                 sessions = [sessions];
             }
             for (const session of sessions) {
