@@ -11,6 +11,10 @@
             <div class="popup popup-text event-selector-popup">
                 <header class="title">Add Event</header>
                 <main class="body">
+                    <EventFilters
+                        filters="state.filters"
+                        t-on-change="onFiltersChange"
+                    />
                     <div class="event-selector">
                         <section>
                             <EventCalendar eventsByDate="eventsByDate" />
