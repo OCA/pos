@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventFilters" owl="1">
+        <div class="event-filters">
+            <div class="filters">
+                <SearchBar
+                    config="searchBarConfig"
+                    placeholder="'Search events..'"
+                    t-on-search.stop="onSearch"
+                    t-on-change.stop=""
+                />
+                <MultiSelectButton
+                    t-foreach="eventTagFilters"
+                    t-as="filter"
+                    t-key="filter.id"
+                    string="filter.label"
+                    icon="'fa-tag'"
+                    items="filter.options"
+                    hideOnClick="true"
+                    t-on-change.stop="(event) => onTagsFilterChange(event, filter)"
+                />
+            </div>
+            <div class="applied">
+                <t t-foreach="state.filters" t-as="filter" t-key="filter_index">
+                    <div class="filter">
+                        <span class="facet" t-esc="filter.label" />
+                        <span class="value" t-esc="filter.value" />
+                        <i
+                            class="fa fa-times"
+                            t-on-click.stop="(event) => onRemoveFilter(event, filter_index)"
+                        />
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -31,7 +31,7 @@ odoo.define("pos_event_sale.db", function (require) {
          */
         addEvents: function (events) {
             /* eslint-disable no-param-reassign */
-            if (!events instanceof Array) {
+            if (!(events instanceof Array)) {
                 events = [events];
             }
             for (const event of events) {
@@ -67,7 +67,7 @@ odoo.define("pos_event_sale.db", function (require) {
          */
         addEventTickets: function (tickets) {
             /* eslint-disable no-param-reassign */
-            if (!tickets instanceof Array) {
+            if (!(tickets instanceof Array)) {
                 tickets = [tickets];
             }
             for (const ticket of tickets) {
@@ -82,6 +82,11 @@ odoo.define("pos_event_sale.db", function (require) {
                 if (this.event_ticket_by_id[ticket.id]) {
                     Object.assign(this.event_ticket_by_id[ticket.id], ticket);
                 } else {
+                    // Ignore ticket updates with missing fields.
+                    // This can happen during the seats availability update.
+                    if (!ticket.event_id) {
+                        continue;
+                    }
                     // Map event ticket by id
                     this.event_ticket_by_id[ticket.id] = ticket;
                     // Map event ticket by event id
