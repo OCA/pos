@@ -91,6 +91,47 @@ class PosOrderLine(models.Model):
                     body=_("Refunded on %s", line.order_id.session_id.name)
                 )
 
+    def _find_event_registrations_to_negate(self):
+        """Find the registrations that could be negated by this order line"""
+        self.ensure_one()
+        return self.order_id.event_registration_ids.filtered(
+            lambda r: (
+                r.event_ticket_id
+                and r.event_ticket_id == self.event_ticket_id
+                and r.state == "draft"
+            )
+        )
+
+    def _cancel_negated_event_registrations(self):
+        """Cancel negated event registrations
+
+        This happens when the order contains a negative event line
+        that is not a refund of another order's line.
+
+        For example:
+
+        * Line 1: 10 tickets for event A
+        * Line 2: -5 tickets for event A
+
+        In this case, we need to cancel 5 registrations of the first
+        order line, as they are negated by the second line.
+
+        These registrations are never confirmed. They go from `draft`
+        to `cancel` directly.
+        """
+        to_process = self.filtered(
+            lambda line: (
+                line.event_ticket_id
+                and int(line.qty) < 0
+                and not line.refunded_orderline_id
+            )
+        )
+        for line in to_process:
+            qty_to_cancel = max(0, -int(line.qty))
+            registrations = line._find_event_registrations_to_negate()
+            registrations = registrations[-qty_to_cancel:]
+            registrations.action_cancel()
+
     def _export_for_ui(self, orderline):
         # OVERRIDE to add event_ticket_id
         res = super()._export_for_ui(orderline)
