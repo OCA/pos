@@ -17,7 +17,10 @@ odoo.define("pos_event_sale.PaymentScreen", function (require) {
                     order.event_registrations = await this.rpc({
                         model: "event.registration",
                         method: "search_read",
-                        domain: [["pos_order_id", "in", server_ids]],
+                        domain: [
+                            ["pos_order_id", "in", server_ids],
+                            ["state", "=", "open"],
+                        ],
                         kwargs: {context: session.user_context},
                     });
                 }
