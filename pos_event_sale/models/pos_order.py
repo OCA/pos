@@ -38,8 +38,9 @@ class PosOrder(models.Model):
 
     def action_pos_order_paid(self):
         res = super().action_pos_order_paid()
-        self.event_registration_ids.action_confirm()
-        self.event_registration_ids._action_set_paid()
+        to_confirm = self.event_registration_ids.filtered(lambda r: r.state == "draft")
+        to_confirm.action_confirm()
+        to_confirm._action_set_paid()
         return res
 
     def action_pos_order_cancel(self):
