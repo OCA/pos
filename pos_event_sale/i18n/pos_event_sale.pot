@@ -92,6 +92,13 @@ msgid "Close"
 msgstr ""
 
 #. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
+#, python-format
+msgid "Country"
+msgstr ""
+
+#. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__currency_id
 msgid "Currency"
 msgstr ""
@@ -249,6 +256,13 @@ msgstr ""
 
 #. module: pos_event_sale
 #. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
 #: code:addons/pos_event_sale/static/src/js/models/Orderline.js:0
 #, python-format
 msgid "Not enough available seats for %s"
@@ -320,6 +334,13 @@ msgstr ""
 #. module: pos_event_sale
 #: model:ir.model,name:pos_event_sale.model_report_pos_order
 msgid "Point of Sale Orders Report"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
+#, python-format
+msgid "Product"
 msgstr ""
 
 #. module: pos_event_sale
@@ -396,6 +417,13 @@ msgstr ""
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.view_event_form_inherit_ticket
 msgid "Total POS Sales for this event"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
+#, python-format
+msgid "Type"
 msgstr ""
 
 #. module: pos_event_sale
