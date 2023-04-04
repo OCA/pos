@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+
+<templates id="template" xml:space="preserve">
+
+    <!-- Extend ticket printed without Proxy (and displayed on screen) -->
+
+    <t t-extend="PosTicket">
+        <t t-jquery="div[class='receipt-vat']" t-operation="after">
+            <div t-if="widget.pos.company.siret" class="receipt-siret">
+                SIRET: <t t-esc="widget.pos.company.siret"/>
+            </div>
+        </t>
+    </t>
+
+    <!-- Extend ticket printed via Proxy -->
+
+    <t t-extend="XmlReceipt">
+        <t t-jquery="t[t-if='receipt.company.vat']" t-operation="after">
+            <t t-if='widget.pos.company.siret'>
+                <div>SIRET: <t t-esc='widget.pos.company.siret' /></div>
+            </t>
+        </t>
+    </t>
+
+</templates>
