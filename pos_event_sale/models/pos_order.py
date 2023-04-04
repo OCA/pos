@@ -45,7 +45,8 @@ class PosOrder(models.Model):
 
     def action_pos_order_cancel(self):
         res = super().action_pos_order_cancel()
-        self.event_registration_ids.action_cancel()
+        to_cancel = self.event_registration_ids.filtered(lambda r: r.state != "done")
+        to_cancel.action_cancel()
         return res
 
     def unlink(self):
