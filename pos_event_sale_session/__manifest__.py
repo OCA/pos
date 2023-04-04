@@ -8,7 +8,7 @@
     "author": "Moka Tourisme, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "category": "Marketing",
-    "version": "15.0.1.0.2",
+    "version": "15.0.2.0.0",
     "license": "AGPL-3",
     "maintainers": ["ivantodorovich"],
     "depends": ["pos_event_sale", "event_sale_session"],
