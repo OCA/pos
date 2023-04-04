@@ -75,7 +75,18 @@ class TestUi(TestPointOfSaleHttpCommon):
         action = self.event.action_view_pos_orders()
         self.assertEqual(self.env["pos.order"].search(action["domain"]), pos_order)
         # Refund the order
-        pos_order.refund()
+        refund = self.env["pos.order"].browse(pos_order.refund()["res_id"])
+        # Pay the refund
+        self.env["pos.make.payment"].with_context(
+            active_ids=refund.ids,
+            active_id=refund.id,
+            active_model=refund._name,
+        ).create(
+            {
+                "payment_method_id": self.main_pos_config.payment_method_ids[0].id,
+                "amount": refund.amount_total,
+            }
+        ).check()
         for reg in pos_order.event_registration_ids:
             self.assertEqual(reg.state, "cancel")
 
