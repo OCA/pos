@@ -66,7 +66,7 @@ odoo.define("pos_event_sale_session.db", function (require) {
         getEventSessionByID: function (session_id, raiseIfNotFound = true) {
             if (session_id instanceof Array) {
                 return session_id
-                    .map((id) => this.getEventSessionByID(id))
+                    .map((id) => this.getEventSessionByID(id, raiseIfNotFound))
                     .filter(Boolean);
             }
             const session = this.event_session_by_id[session_id];
