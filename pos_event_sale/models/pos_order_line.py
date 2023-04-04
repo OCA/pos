@@ -34,7 +34,6 @@ class PosOrderLine(models.Model):
     def create(self, vals_list):
         records = super().create(vals_list)
         records._create_event_registrations()
-        records._cancel_refunded_event_registrations()
         return records
 
     def _prepare_event_registration_vals(self):
