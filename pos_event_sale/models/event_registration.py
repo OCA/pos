@@ -49,6 +49,13 @@ class EventRegistration(models.Model):
                 rec.payment_status = "not_paid"
         return res
 
+    def _check_auto_confirmation(self):
+        # OVERRIDE to disable auto confirmation for registrations created from
+        # PoS orders. We confirm them explicitly when the orders are paid.
+        if any(rec.pos_order_line_id for rec in self):
+            return False
+        return super()._check_auto_confirmation()
+
     @api.model_create_multi
     def create(self, vals_list):
         # Override to post the origin-link message.
