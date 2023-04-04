@@ -76,8 +76,10 @@ msgstr "Codice a barre"
 #, python-format
 msgid ""
 "Besides the Event filters on the Point of Sale configuration,\n"
-"                        make sure products related to the event tickets are also available\n"
-"                        for this Point of Sale, otherwise they won't be shown here."
+"                        make sure products related to the event tickets are "
+"also available\n"
+"                        for this Point of Sale, otherwise they won't be "
+"shown here."
 msgstr ""
 "Oltre ai filtri evento sulla configurazione del punto vendita,\n"
 "                        assicurati che i prodotti relativi ai biglietti "
@@ -98,6 +100,13 @@ msgstr "Annulla"
 #, python-format
 msgid "Close"
 msgstr "Chiudi"
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
+#, python-format
+msgid "Country"
+msgstr ""
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__currency_id
@@ -264,6 +273,13 @@ msgstr "Logo"
 
 #. module: pos_event_sale
 #. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: pos_event_sale
+#. openerp-web
 #: code:addons/pos_event_sale/static/src/js/models/Orderline.js:0
 #, python-format
 msgid "Not enough available seats for %s"
@@ -342,6 +358,13 @@ msgid "Point of Sale Orders Report"
 msgstr "Resoconto ordini punto vendita"
 
 #. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
+#, python-format
+msgid "Product"
+msgstr ""
+
+#. module: pos_event_sale
 #: code:addons/pos_event_sale/models/pos_order_line.py:0
 #, python-format
 msgid "Refunded on %s"
@@ -394,7 +417,8 @@ msgstr "Non ci sono eventi in questa data."
 msgid ""
 "This is configured on the related Product.\n"
 "\n"
-"Please note that for the ticket to be available in the Point of Sale, the ticket's product has to be available there, too."
+"Please note that for the ticket to be available in the Point of Sale, the "
+"ticket's product has to be available there, too."
 msgstr ""
 "Questo è configurato nel prodotto collegato.\n"
 "\n"
@@ -420,6 +444,13 @@ msgstr "Oggi"
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.view_event_form_inherit_ticket
 msgid "Total POS Sales for this event"
 msgstr "Vendite POS totali per questo evento"
+
+#. module: pos_event_sale
+#. openerp-web
+#: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
+#, python-format
+msgid "Type"
+msgstr ""
 
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
