@@ -32,30 +32,39 @@ odoo.define("pos_crm.OrderFetcher", function (require) {
             return creationDate.includes(searchWord.toLowerCase());
         }
 
-        function checkOrder(order, field, searchWord) {
-            searchWord = searchWord.substring(1, searchWord.length - 1).toLowerCase();
+        const searchDomain = OrderFetcher.searchDomain || [];
+        const clauses = searchDomain.filter((item) => item !== "|");
+
+        for (const clause of clauses) {
+            const [field, operator, searchWord] = clause;
+
             switch (field) {
                 case "partner_vat":
-                    return searchByPartnerVat(order, searchWord);
+                    if (operator === "ilike") {
+                        return searchByPartnerVat(order, searchWord);
+                    }
+                    break;
+
                 case "pos_reference":
-                    return searchByPosReference(order, searchWord);
+                    if (operator === "ilike") {
+                        return searchByPosReference(order, searchWord);
+                    }
+                    break;
+
                 case "partner_id.display_name":
-                    return searchByClientName(order, searchWord);
+                    if (operator === "ilike") {
+                        return searchByClientName(order, searchWord);
+                    }
+                    break;
+
                 case "date_order":
-                    return searchByDateOrder(order, searchWord);
-                default:
-                    return false;
+                    if (operator === "ilike") {
+                        return searchByDateOrder(order, searchWord);
+                    }
+                    break;
             }
         }
 
-        const searchDomain = OrderFetcher.searchDomain || [];
-        const clauses = searchDomain.filter((item) => item !== "|");
-        for (const clause of clauses) {
-            const [field, searchWord] = clause.split(" ");
-            if (checkOrder(order, field, searchWord)) {
-                return true;
-            }
-        }
         return false;
     };
 });

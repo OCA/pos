@@ -72,7 +72,7 @@ odoo.define("pos_crm.models", function (require) {
                         this.pos.db.get_partners_by_tax_id(result.payload) ||
                         this.pos.db.get_partner_by_barcode(result.payload);
 
-                    if (!partner && posConfig.pos_crm_auto_create_partner) {
+                    if (partner.length === 0 && posConfig.pos_crm_auto_create_partner) {
                         try {
                             const partnerId = await this.pos.rpc({
                                 model: "res.partner",
