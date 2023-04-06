@@ -13,7 +13,7 @@
         "point_of_sale",
     ],
     "data": [
-        "views/pos_config_view.xml",
+        "views/pos_config.xml",
         # Templates
         "views/pos_template.xml",
     ],
