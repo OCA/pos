@@ -13,33 +13,31 @@ odoo.define("pos_crm.db", function (require) {
             this._super(options);
         },
         add_partners: function (partners) {
-            var updated_count = this._super(partners);
-            if (updated_count > 0) {
-                for (var id in this.partner_by_id) {
-                    const partner = this.partner_by_id[id];
+            const updatedCount = this._super(partners);
+            if (updatedCount > 0) {
+                Object.values(this.partner_by_id).forEach((partner) => {
                     if (partner.vat) {
-                        var vat_unmasked = removePunctuation(partner.vat);
-                        // Some times the vat id can be repeated...
-                        if (this.partner_by_tax_id[vat_unmasked]) {
-                            this.partner_by_tax_id[vat_unmasked].push(partner.id);
+                        const vatUnmasked = removePunctuation(partner.vat);
+
+                        if (this.partner_by_tax_id[vatUnmasked]) {
+                            this.partner_by_tax_id[vatUnmasked].push(partner.id);
                         } else {
-                            this.partner_by_tax_id[vat_unmasked] = [partner.id];
+                            this.partner_by_tax_id[vatUnmasked] = [partner.id];
                         }
                     }
-                }
-            }
-            return updated_count;
-        },
-        get_partners_by_tax_id: function (tax_id) {
-            var result_ids = [];
-            const vat_unmasked = removePunctuation(tax_id);
-            var partner_ids = this.partner_by_tax_id[vat_unmasked];
-            if (partner_ids) {
-                partner_ids.forEach((element) => {
-                    result_ids.push(this.partner_by_id[element]);
                 });
             }
-            return result_ids;
+
+            return updatedCount;
+        },
+        get_partners_by_tax_id: function (taxId) {
+            const resultIds = [];
+            const vatUnmasked = removePunctuation(taxId);
+            const partner = this.partner_by_tax_id[vatUnmasked];
+            if (partner) {
+                resultIds.push(...partner);
+            }
+            return resultIds;
         },
     });
 

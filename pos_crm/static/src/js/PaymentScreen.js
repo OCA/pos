@@ -9,7 +9,7 @@ odoo.define("pos_crm.PaymentScreen", function (require) {
     const PaymentScreen = require("point_of_sale.PaymentScreen");
     const Registries = require("point_of_sale.Registries");
 
-    const PosAskCustomerPaymentScreen = (PaymentScreen) =>
+    const PosCrmPaymentScreen = (PaymentScreen) =>
         class extends PaymentScreen {
             async validateOrder(isForceValidate) {
                 var order = this.env.pos.get_order();
@@ -18,7 +18,7 @@ odoo.define("pos_crm.PaymentScreen", function (require) {
             }
         };
 
-    Registries.Component.extend(PaymentScreen, PosAskCustomerPaymentScreen);
+    Registries.Component.extend(PaymentScreen, PosCrmPaymentScreen);
 
-    return PosAskCustomerPaymentScreen;
+    return PosCrmPaymentScreen;
 });
