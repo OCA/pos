@@ -118,6 +118,14 @@ odoo.define("pos_event_sale.Orderline", function (require) {
         /**
          * @override
          */
+        clone: function () {
+            const res = OrderlineSuper.clone.apply(this, arguments);
+            res.event_ticket_id = this.event_ticket_id;
+            return res;
+        },
+        /**
+         * @override
+         */
         init_from_JSON: function (json) {
             OrderlineSuper.init_from_JSON.apply(this, arguments);
             this.event_ticket_id = json.event_ticket_id;

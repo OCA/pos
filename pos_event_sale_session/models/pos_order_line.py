@@ -26,6 +26,14 @@ class PosOrderLine(models.Model):
             res["event_session_id"] = self.event_session_id.id
         return res
 
+    def _find_event_registrations_to_negate(self):
+        # OVERRIDE to match also by event_session_id
+        return (
+            super()
+            ._find_event_registrations_to_negate()
+            .filtered(lambda r: r.session_id == self.event_session_id)
+        )
+
     def _export_for_ui(self, orderline):
         # OVERRIDE to add event_session_id
         res = super()._export_for_ui(orderline)
