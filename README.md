@@ -22,9 +22,9 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_cash_move_reason](pos_cash_move_reason/) | 15.0.1.0.0 |  | POS cash in-out reason
-[pos_event_sale](pos_event_sale/) | 15.0.2.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell events from Point of Sale
+[pos_event_sale](pos_event_sale/) | 15.0.3.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell events from Point of Sale
 [pos_event_sale_registration_qr_code](pos_event_sale_registration_qr_code/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Print registration QR codes on Point of Sale receipts
-[pos_event_sale_session](pos_event_sale_session/) | 15.0.2.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell event sessions from Point of Sale
+[pos_event_sale_session](pos_event_sale_session/) | 15.0.3.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell event sessions from Point of Sale
 [pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 15.0.1.0.1 |  | Hide Cost and Margin on PoS
 [pos_lot_barcode](pos_lot_barcode/) | 15.0.1.0.0 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 15.0.1.0.1 |  | POS Lot Selection
