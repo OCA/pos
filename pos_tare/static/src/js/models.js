@@ -1,15 +1,26 @@
 odoo.define("pos_tare.models", function (require) {
     "use strict";
-    var core = require("web.core");
     var models = require("point_of_sale.models");
+    models.load_fields("product.product", ["tare_weight"]);
     var pos_tare_tools = require("pos_tare.tools");
-    var _t = core._t;
-
     var _super_ = models.Orderline.prototype;
+    var _superOrder_ = models.Order.prototype;
+
+    var OrderWithTare = models.Order.extend({
+        add_product: function (product, options) {
+            var res = _superOrder_.add_product.call(this, product, options);
+            if (options.tare !== undefined) {
+                this.get_last_orderline().set_tare(options.tare);
+            }
+            return res;
+        },
+    });
+
     var OrderLineWithTare = models.Orderline.extend({
         // /////////////////////////////
         // Overload Section
         // /////////////////////////////
+
         initialize: function (session, attributes) {
             this.tare = 0;
             return _super_.initialize.call(this, session, attributes);
@@ -65,11 +76,6 @@ odoo.define("pos_tare.models", function (require) {
                 tare_unit,
                 line_unit
             );
-            var tare_in_product_uom_string = pos_tare_tools.format_tare(
-                this.pos,
-                tare_in_product_uom,
-                line_unit
-            );
             if (update_net_weight) {
                 var net_quantity = this.get_quantity() - tare_in_product_uom;
                 // Update the quantity with the new weight net of tare quantity.
@@ -114,4 +120,5 @@ odoo.define("pos_tare.models", function (require) {
     });
 
     models.Orderline = OrderLineWithTare;
+    models.Order = OrderWithTare;
 });
