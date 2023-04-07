@@ -1,14 +1,12 @@
-odoo.define('pos_tare.models', function (require) {
-
+odoo.define("pos_tare.models", function (require) {
     "use strict";
-    var core = require('web.core');
-    var models = require('point_of_sale.models');
-    var pos_tare_tools = require('pos_tare.tools');
+    var core = require("web.core");
+    var models = require("point_of_sale.models");
+    var pos_tare_tools = require("pos_tare.tools");
     var _t = core._t;
 
     var _super_ = models.Orderline.prototype;
     var OrderLineWithTare = models.Orderline.extend({
-
         // /////////////////////////////
         // Overload Section
         // /////////////////////////////
@@ -19,7 +17,7 @@ odoo.define('pos_tare.models', function (require) {
 
         init_from_JSON: function (json) {
             _super_.init_from_JSON.call(this, json);
-            this.tare = json.tare ||0;
+            this.tare = json.tare || 0;
         },
 
         clone: function () {
@@ -63,9 +61,15 @@ odoo.define('pos_tare.models', function (require) {
             var tare = parseFloat(quantity) || 0;
             var line_unit = this.get_unit();
             var tare_in_product_uom = pos_tare_tools.convert_mass(
-                tare, tare_unit, line_unit);
+                tare,
+                tare_unit,
+                line_unit
+            );
             var tare_in_product_uom_string = pos_tare_tools.format_tare(
-                this.pos, tare_in_product_uom, line_unit);
+                this.pos,
+                tare_in_product_uom,
+                line_unit
+            );
             if (update_net_weight) {
                 var net_quantity = this.get_quantity() - tare_in_product_uom;
                 // Update the quantity with the new weight net of tare quantity.
@@ -73,8 +77,7 @@ odoo.define('pos_tare.models', function (require) {
             }
             // Update tare value.
             this.tare = tare_in_product_uom;
-            this.trigger('change', this);
-
+            this.trigger("change", this);
         },
 
         reset_tare: function () {
@@ -96,7 +99,7 @@ odoo.define('pos_tare.models', function (require) {
                 this.tare,
                 this.get_unit()
             );
-            return tare_str + ' ' + unit.name;
+            return tare_str + " " + unit.name;
         },
 
         get_gross_weight_str_with_unit: function () {
@@ -106,11 +109,9 @@ odoo.define('pos_tare.models', function (require) {
                 this.get_gross_weight(),
                 this.get_unit()
             );
-            return gross_weight_str + ' ' + unit.name;
+            return gross_weight_str + " " + unit.name;
         },
-
     });
 
     models.Orderline = OrderLineWithTare;
-
 });
