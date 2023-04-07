@@ -14,14 +14,3 @@ class EventTypeTicket(models.Model):
         "Please note that for the ticket to be available in the Point of Sale, "
         "the ticket's product has to be available there, too.",
     )
-
-
-class EventTicket(models.Model):
-    _inherit = "event.event.ticket"
-
-    available_in_pos = fields.Boolean(
-        related="product_id.available_in_pos",
-        help="This is configured on the related Product.\n\n"
-        "Please note that for the ticket to be available in the Point of Sale, "
-        "the ticket's product has to be available there, too.",
-    )
