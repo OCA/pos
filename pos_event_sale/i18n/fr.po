@@ -164,7 +164,6 @@ msgid "Event Template Ticket"
 msgstr ""
 
 #. module: pos_event_sale
-#: model:ir.model,name:pos_event_sale.model_event_event_ticket
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__event_ticket_id
 #: model:ir.model.fields,field_description:pos_event_sale.field_report_pos_order__event_ticket_id
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.view_report_pos_order_search
