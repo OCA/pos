@@ -4,8 +4,14 @@
              <link rel="stylesheet" href="/pos_tare/static/src/css/pos_tare.css" />
             <script type="text/javascript" src="/pos_tare/static/src/js/tools.js" />
             <script type="text/javascript" src="/pos_tare/static/src/js/models.js" />
-            <script type="text/javascript" src="/pos_tare/static/src/js/screens.js" />
-            <script type="text/javascript" src="/pos_tare/static/src/js/db.js" />
+            <script
+                type="text/javascript"
+                src="/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_tare/static/src/js/Screens/ScaleScreen/ScaleScreen.js"
+            />
         </xpath>
     </template>
 </odoo>

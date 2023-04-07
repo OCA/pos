@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="TareNumpadWidget"
+        t-inherit="point_of_sale.NumpadWidget"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//button[@t-on-click='sendInput(decimalSeparator)']"
+            position="after"
+        >
+            <button
+                class="mode-button"
+                t-att-class="{'selected-mode': props.activeMode === 'tare'}"
+                t-on-click="changeMode('tare')"
+            >Tare
+            </button>
+        </xpath>
+    </t>
+
+</templates>
