@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-extend="ScaleScreenWidget">
@@ -8,20 +8,33 @@
                     Gross Weight
                 </div>
                 <t t-if="widget.pos.config.iface_gross_weight_method == 'scale'">
-                    <div class="weight-value weight-value-fixed" id="container_weight_gross"/>
+                    <div
+                        class="weight-value weight-value-fixed"
+                        id="container_weight_gross"
+                    />
                 </t>
                 <t t-else="1">
                     <div class="weight-value weight-value-alterable">
-                        <input type="text" class="input-weight" id="input_gross_weight" placeholder="0.000"/>
-                        <t t-esc="widget.pos.config.iface_tare_uom_id[1]"/>
+                        <input
+                            type="text"
+                            class="input-weight"
+                            id="input_gross_weight"
+                            placeholder="0.000"
+                        />
+                        <t t-esc="widget.pos.config.iface_tare_uom_id[1]" />
                     </div>
                 </t>
                 <div class="weight-label">
                     Tare
                 </div>
                 <div class="weight-value weight-value-alterable">
-                    <input type="text" class="input-weight" id="input_weight_tare" placeholder="0.000"/>
-                    <t t-esc="widget.pos.config.iface_tare_uom_id[1]"/>
+                    <input
+                        type="text"
+                        class="input-weight"
+                        id="input_weight_tare"
+                        placeholder="0.000"
+                    />
+                    <t t-esc="widget.pos.config.iface_tare_uom_id[1]" />
                 </div>
             </t>
         </t>
@@ -33,9 +46,9 @@
                 <li class="info">
                     <i>
                       Gross Weight:
-                      <em><t t-esc="line.get_gross_weight_str_with_unit()"/></em>
+                      <em><t t-esc="line.get_gross_weight_str_with_unit()" /></em>
                       - Tare:
-                      <em><t t-esc="line.get_tare_str_with_unit()"/></em>)
+                      <em><t t-esc="line.get_tare_str_with_unit()" /></em>)
                     </i>
                 </li>
             </t>
@@ -47,9 +60,9 @@
             <t t-if="orderline.get_tare() > 0">
                 <div class="pos-disc-font">
                     Gross Weight :
-                    <t t-esc="orderline.get_gross_weight_str_with_unit()"/><br/>
+                    <t t-esc="orderline.get_gross_weight_str_with_unit()" /><br />
                     Tare :
-                    <t t-esc="orderline.get_tare_str_with_unit()"/><br/>
+                    <t t-esc="orderline.get_tare_str_with_unit()" /><br />
                 </div>
             </t>
         </t>
@@ -61,11 +74,17 @@
                 <line indent='1'>
                     <left>
                         (
-                        <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
+                        <value
+                            t-att-value-decimals='pos.dp["Product Unit of Measure"]'
+                            value-autoint='on'
+                        >
                           <t t-esc="line.gross_quantity" />
                         </value> -
-                        <value t-att-value-decimals='pos.dp["Product Unit of Measure"]' value-autoint='on'>
-                          <t t-esc="line.tare_quantity"/>
+                        <value
+                            t-att-value-decimals='pos.dp["Product Unit of Measure"]'
+                            value-autoint='on'
+                        >
+                          <t t-esc="line.tare_quantity" />
                         </value>
                         )
                     </left>
@@ -94,13 +113,19 @@
             <button class="mode-button" data-mode='discount'>Disc</button>
 
             <br />
-            <button class="input-button numpad-minus" >+/-</button>
+            <button class="input-button numpad-minus">+/-</button>
             <button class="input-button number-char">0</button>
             <button class="input-button number-char">.</button>
             <button class="mode-button" data-mode='price'>Price</button>
 
             <button class="input-button numpad-backspace">
-                <img style="pointer-events: none;" src="/point_of_sale/static/src/img/backspace.png" width="24" height="21" alt="Backspace"/>
+                <img
+                    style="pointer-events: none;"
+                    src="/point_of_sale/static/src/img/backspace.png"
+                    width="24"
+                    height="21"
+                    alt="Backspace"
+                />
             </button>
         </div>
     </t>

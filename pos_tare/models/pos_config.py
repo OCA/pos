@@ -1,4 +1,4 @@
-from odoo import api, models, fields
+from odoo import api, fields, models
 
 
 class PosConfig(models.Model):
@@ -22,7 +22,7 @@ class PosConfig(models.Model):
     iface_gross_weight_method = fields.Selection(
         [
             ("manual", "Input the Gross Weight manually"),
-            ("scale", "Input Gross Weight via Scale")
+            ("scale", "Input Gross Weight via Scale"),
         ],
         string="Gross Weight Input Method",
         default="scale",
