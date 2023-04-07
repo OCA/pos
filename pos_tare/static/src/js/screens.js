@@ -1,9 +1,8 @@
-odoo.define('pos_tare.screens', function (require) {
-
+odoo.define("pos_tare.screens", function (require) {
     "use strict";
-    var core = require('web.core');
-    var screens = require('point_of_sale.screens');
-    var utils = require('web.utils');
+    var core = require("web.core");
+    var screens = require("point_of_sale.screens");
+    var utils = require("web.utils");
 
     var _t = core._t;
     var round_pr = utils.round_precision;
@@ -22,24 +21,25 @@ odoo.define('pos_tare.screens', function (require) {
             } catch (error) {
                 var title = _t("We can not apply this tare barcode.");
                 var popup = {title: title, body: error.message};
-                this.gui.show_popup('error', popup);
+                this.gui.show_popup("error", popup);
             }
         },
         // Setup the callback action for the "weight" barcodes.
         show: function () {
             this._super();
-            if (this.pos.config.iface_tare_method !== 'manual') {
+            if (this.pos.config.iface_tare_method !== "manual") {
                 this.pos.barcode_reader.set_action_callback(
-                    'tare',
-                    _.bind(this.barcode_tare_action, this));
+                    "tare",
+                    _.bind(this.barcode_tare_action, this)
+                );
             }
         },
     });
 
-    var _super_ScaleScreenWidget_order_product = screens.ScaleScreenWidget.prototype.order_product;
+    var _super_ScaleScreenWidget_order_product =
+        screens.ScaleScreenWidget.prototype.order_product;
 
     screens.ScaleScreenWidget.include({
-
         // /////////////////////////////
         // Overload Section
         // /////////////////////////////
@@ -52,17 +52,17 @@ odoo.define('pos_tare.screens', function (require) {
             }
             this.gross_weight = 0.0;
             var self = this;
-            this.$('#input_weight_tare').keyup(function (event) {
+            this.$("#input_weight_tare").keyup(function (event) {
                 self.onchange_tare(event);
             });
-            this.$('#input_gross_weight').keyup(function (event) {
+            this.$("#input_gross_weight").keyup(function (event) {
                 self.onchange_gross_weight(event);
             });
-            if (this.pos.config.iface_gross_weight_method === 'scale') {
-                this.$('#input_weight_tare').focus();
+            if (this.pos.config.iface_gross_weight_method === "scale") {
+                this.$("#input_weight_tare").focus();
             } else {
                 this.pos.proxy_queue.clear();
-                this.$('#input_gross_weight').focus();
+                this.$("#input_gross_weight").focus();
             }
         },
 
@@ -73,32 +73,37 @@ odoo.define('pos_tare.screens', function (require) {
         set_weight: function (gross_weight) {
             this.gross_weight = gross_weight;
             var net_weight = gross_weight - (this.tare || 0);
-            this.$('#container_weight_gross').text(
-                this.get_product_gross_weight_string());
+            this.$("#container_weight_gross").text(
+                this.get_product_gross_weight_string()
+            );
             this._super(net_weight);
         },
 
         order_product: function () {
             var self = this;
             if (this.tare === undefined) {
-                this.gui.show_popup('error', {
-                    'title': _t('Incorrect Tare Value'),
-                    'body': _t('Please set a numeric value' +
-                        ' in the tare field, or let empty.'),
+                this.gui.show_popup("error", {
+                    title: _t("Incorrect Tare Value"),
+                    body: _t(
+                        "Please set a numeric value" +
+                            " in the tare field, or let empty."
+                    ),
                 });
             } else if (isNaN(this.gross_weight)) {
-                this.gui.show_popup('error', {
-                    'title': _t('Incorrect Gross Weight Value'),
-                    'body': _t('Please set a numeric value' +
-                        ' in the gross weight field.'),
+                this.gui.show_popup("error", {
+                    title: _t("Incorrect Gross Weight Value"),
+                    body: _t(
+                        "Please set a numeric value" + " in the gross weight field."
+                    ),
                 });
             } else if (this.weight <= 0) {
-                this.gui.show_popup('confirm', {
-                    title: _t('Quantity lower or equal to zero'),
+                this.gui.show_popup("confirm", {
+                    title: _t("Quantity lower or equal to zero"),
                     body: _t(
-                            "The quantity is lower or equal to" +
-                            " zero. Are you sure you want to continue ?"),
-                    confirm: function() {
+                        "The quantity is lower or equal to" +
+                            " zero. Are you sure you want to continue ?"
+                    ),
+                    confirm: function () {
                         _super_ScaleScreenWidget_order_product.apply(self);
                         if (self.tare > 0.0) {
                             var order = self.pos.get_order();
@@ -122,7 +127,7 @@ odoo.define('pos_tare.screens', function (require) {
         // /////////////////////////////
         get_product_gross_weight_string: function () {
             var product = this.get_product();
-            var defaultstr = (this.gross_weight || 0).toFixed(3) + ' Kg';
+            var defaultstr = (this.gross_weight || 0).toFixed(3) + " Kg";
             if (!product || !this.pos) {
                 return defaultstr;
             }
@@ -133,23 +138,24 @@ odoo.define('pos_tare.screens', function (require) {
             var unit = this.pos.units_by_id[unit_id[0]];
             var weight = round_pr(this.gross_weight || 0, unit.rounding);
             var weightstr = weight.toFixed(
-                Math.ceil(Math.log(1.0/unit.rounding) / Math.log(10) ));
-            weightstr += ' ' + unit.name;
+                Math.ceil(Math.log(1.0 / unit.rounding) / Math.log(10))
+            );
+            weightstr += " " + unit.name;
             return weightstr;
         },
 
         onchange_tare: function () {
-            this.tare = this.check_sanitize_value('#input_weight_tare');
+            this.tare = this.check_sanitize_value("#input_weight_tare");
             this.set_weight(this.gross_weight);
         },
 
         onchange_gross_weight: function () {
-            var gross_weight = this.check_sanitize_value('#input_gross_weight');
+            var gross_weight = this.check_sanitize_value("#input_gross_weight");
             this.set_weight(gross_weight);
         },
 
         check_sanitize_value: function (input_name) {
-            var res = this.$(input_name)[0].value.replace(',', '.').trim();
+            var res = this.$(input_name)[0].value.replace(",", ".").trim();
             if (isNaN(res)) {
                 this.$(input_name).css("background-color", "#F66");
                 return undefined;
@@ -157,43 +163,45 @@ odoo.define('pos_tare.screens', function (require) {
             this.$(input_name).css("background-color", "#FFF");
             return parseFloat(res, 10);
         },
-
     });
 
     screens.OrderWidget.include({
         set_value: function (val) {
             var order = this.pos.get_order();
             if (order.get_selected_orderline()) {
-                var mode = this.numpad_state.get('mode');
-                if (mode === 'quantity') {
+                var mode = this.numpad_state.get("mode");
+                if (mode === "quantity") {
                     var orderline = order.get_selected_orderline();
                     var tare = orderline.get_tare();
                     orderline.reset_tare();
                     orderline.set_quantity(val);
                     if (tare > 0) {
-                      orderline.set_tare(tare, true);
+                        orderline.set_tare(tare, true);
                     }
-                } else if (mode === 'discount') {
+                } else if (mode === "discount") {
                     order.get_selected_orderline().set_discount(val);
-                } else if (mode === 'price') {
+                } else if (mode === "price") {
                     var selected_orderline = order.get_selected_orderline();
                     selected_orderline.price_manually_set = true;
                     selected_orderline.set_unit_price(val);
-                } else if (mode === 'tare') {
-                    if (this.pos.config.iface_tare_method === 'barcode') {
-                        this.gui.show_popup('error',
-                            {'title': _t('Feature Disabled'),
-                                'body': _t('You can not set the tare.' +
-                                ' To be able to set the tare manually' +
-                                ' you have to change the tare input method' +
-                                ' in the POS configuration.')});
+                } else if (mode === "tare") {
+                    if (this.pos.config.iface_tare_method === "barcode") {
+                        this.gui.show_popup("error", {
+                            title: _t("Feature Disabled"),
+                            body: _t(
+                                "You can not set the tare." +
+                                    " To be able to set the tare manually" +
+                                    " you have to change the tare input method" +
+                                    " in the POS configuration."
+                            ),
+                        });
                     } else {
                         try {
                             order.get_selected_orderline().set_tare(val, true);
                         } catch (error) {
                             var title = _t("We can not apply this tare.");
                             var popup = {title: title, body: error.message};
-                            this.gui.show_popup('error', popup);
+                            this.gui.show_popup("error", popup);
                         }
                     }
                 }
