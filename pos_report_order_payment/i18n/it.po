@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-20 13:22+0000\n"
+"PO-Revision-Date: 2023-04-07 14:24+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -174,7 +174,7 @@ msgstr "Modello prodotto"
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__user_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Salesperson"
-msgstr "Addetto alle Vendite"
+msgstr "Addetto vendite"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__session_id
