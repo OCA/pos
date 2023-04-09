@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pmar_view_pos_config_kanban" model="ir.ui.view">
+        <field name="name">pos.config.kanban.view</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//t[@t-name='kanban-box']/div/div[3]/div[1]/div[2]"
+                position="attributes"
+            >
+                 <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ClosePosPopup"
+        t-inherit="point_of_sale.ClosePosPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+
+        <xpath expr="//main/div[1]/table/thead/tr/th[2]" position="attributes">
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+        <xpath expr="//main/div[1]/table/thead/tr/th[4]" position="attributes">
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+         <xpath
+            expr="//main/div[1]/table/t[@t-if='cashControl']/tbody[1]/tr/td[2]"
+            position="attributes"
+        >
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+        <xpath
+            expr="//main/div[1]/table/t[@t-if='cashControl']/tbody[1]/tr/td[4]"
+            position="attributes"
+        >
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+
+         <xpath expr="//main/div[1]/table/tbody/tr/td[2]" position="attributes">
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+        <xpath expr="//main/div[1]/table/tbody/tr/td[4]" position="attributes">
+            <attribute name="t-if">getShowDiffRole(pm)</attribute>
+        </xpath>
+
+
+        <xpath expr="//footer/div[4]" position="attributes">
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+    </t>
+
+</templates>
