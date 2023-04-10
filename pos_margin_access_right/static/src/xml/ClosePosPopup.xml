@@ -30,6 +30,20 @@
             <attribute name="t-if">getManagerRole()</attribute>
         </xpath>
 
+        <xpath
+            expr="//main/div[1]/table/t[@t-if='cashControl']/tbody[2]/tr[3]/td[1]"
+            position="attributes"
+        >
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
+        <xpath
+            expr="//main/div[1]/table/t[@t-if='cashControl']/tbody[2]/tr[3]/td[2]"
+            position="attributes"
+        >
+            <attribute name="t-if">getManagerRole()</attribute>
+        </xpath>
+
 
          <xpath expr="//main/div[1]/table/tbody/tr/td[2]" position="attributes">
             <attribute name="t-if">getManagerRole()</attribute>

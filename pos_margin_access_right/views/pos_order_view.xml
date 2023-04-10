@@ -29,6 +29,13 @@
             >
                 <attribute name="groups">account.group_account_user</attribute>
             </xpath>
+
+             <xpath
+                expr="//group[@name='order_total']/div[hasclass('text-nowrap')]/span[hasclass('oe_inline')]"
+                position="attributes"
+            >
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
         </field>
     </record>
 </odoo>
