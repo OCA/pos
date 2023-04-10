@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-16 22:22+0000\n"
+"PO-Revision-Date: 2023-04-10 15:22+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -106,7 +106,7 @@ msgstr "Chiudi"
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
 #, python-format
 msgid "Country"
-msgstr ""
+msgstr "Nazione"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__currency_id
@@ -275,7 +275,7 @@ msgstr "Logo"
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
 #, python-format
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: pos_event_sale
 #. openerp-web
@@ -361,7 +361,7 @@ msgstr "Resoconto ordini punto vendita"
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
 #, python-format
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: pos_event_sale
 #: code:addons/pos_event_sale/models/pos_order_line.py:0
@@ -449,7 +449,7 @@ msgstr "Vendite POS totali per questo evento"
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
 #, python-format
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
