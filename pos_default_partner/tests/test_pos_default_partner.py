@@ -1,12 +1,24 @@
 from odoo import fields
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestPosDefaultPartner(SavepointCase):
+class TestPosDefaultPartner(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.config = cls.env["pos.config"].create({"name": "DEMO Config"})
+
+        # Create a new cash payment method
+        cls.cash_pm1 = cls.env["pos.payment.method"].create(
+            {
+                "name": "Cash",
+                "journal_id": cls.env["account.journal"]
+                .search([("code", "=", "CSH1")])
+                .id,
+                "company_id": cls.env.company.id,
+            }
+        )
+        cls.config.payment_method_ids = cls.cash_pm1
         cls.PosOrder = cls.env["pos.order"]
         cls.AccountPayment = cls.env["account.payment"]
 
