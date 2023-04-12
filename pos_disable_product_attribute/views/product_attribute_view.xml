@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright <YEAR(S)> <AUTHOR(S)>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="name">Product attribute form POS visibility</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form"/>
+        <field name="arch" type="xml">
+            <field name="create_variant" position="after">
+                <field name="pos_visibility" string="POS Visibility" widget="radio"/>
+            </field>
+        </field>
+    </record>
+    <record id="attribute_tree_view" model="ir.ui.view">
+        <field name="name">Product attribute tree POS visibility</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.attribute_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="create_variant" position="after">
+                <field name="pos_visibility" string="POS Visibility"/>
+            </field>
+        </field>
+    </record>
+</odoo>

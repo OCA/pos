@@ -1,0 +1,2 @@
+This module adds a filter on product attributes so that they can be removed from the Point of Sale product configurator popup. It can be useful for instance if some attributes are only needed for the website.
+
