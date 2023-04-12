@@ -46,7 +46,7 @@ class EventRegistration(models.Model):
             elif rec.is_paid:
                 rec.payment_status = "paid"
             else:
-                rec.payment_status = "not_paid"
+                rec.payment_status = "to_pay"
         return res
 
     def _check_auto_confirmation(self):
