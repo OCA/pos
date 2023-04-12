@@ -9,6 +9,7 @@ setuptools.setup(
     version=version,
     install_requires=[
         'odoo-addon-pos_cash_move_reason>=15.0dev,<15.1dev',
+        'odoo-addon-pos_default_partner>=15.0dev,<15.1dev',
         'odoo-addon-pos_event_sale>=15.0dev,<15.1dev',
         'odoo-addon-pos_event_sale_registration_qr_code>=15.0dev,<15.1dev',
         'odoo-addon-pos_event_sale_session>=15.0dev,<15.1dev',
