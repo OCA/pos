@@ -33,24 +33,6 @@ msgid "Default customer to use if none is set"
 msgstr "Cliente predefinito da utilizzare se non è impostato"
 
 #. module: pos_default_partner
-#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config__display_name
-#: model:ir.model.fields,field_description:pos_default_partner.field_pos_order__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_default_partner
-#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config__id
-#: model:ir.model.fields,field_description:pos_default_partner.field_pos_order__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_default_partner
-#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config____last_update
-#: model:ir.model.fields,field_description:pos_default_partner.field_pos_order____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: pos_default_partner
 #: model:ir.model,name:pos_default_partner.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
@@ -59,3 +41,12 @@ msgstr "Configurazione punto vendita"
 #: model:ir.model,name:pos_default_partner.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Ordini punto vendita"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
