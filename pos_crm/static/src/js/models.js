@@ -33,7 +33,7 @@ odoo.define("pos_crm.models", function (require) {
             return json;
         },
         export_for_printing: function () {
-            var json = _super_order.export_for_printing.call(this);
+            const json = _super_order.export_for_printing.call(this);
             json.is_pos_crm_checked = this.is_pos_crm_checked;
             json.partner_vat = this.partner_vat;
             return json;
