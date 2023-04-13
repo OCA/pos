@@ -1,10 +1,10 @@
 /* Copyright 2018 Tecnativa - David Vidal
    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). */
 
-odoo.define('pos_order_mgmt.models', function (require) {
-    'use strict';
+odoo.define("pos_order_mgmt.models", function (require) {
+    "use strict";
 
-    var models = require('point_of_sale.models');
+    var models = require("point_of_sale.models");
 
     var order_super = models.Order.prototype;
 
