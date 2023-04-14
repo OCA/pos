@@ -9,16 +9,20 @@
     "category": "Point of Sale",
     "author": "GRAP, " "Tecnativa, " "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
+    "development_status": "Alpha",
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
+        "pos_order_return",
     ],
     "data": [
         "views/assets.xml",
         "views/view_pos_config.xml",
-        "views/view_pos_order.xml",
     ],
-    "qweb": ["static/src/xml/pos.xml"],
+    "qweb": [
+        "static/src/xml/RefundOrderButton.xml",
+        "static/src/xml/CopyOrderButton.xml",
+    ],
     "application": False,
     "installable": True,
 }

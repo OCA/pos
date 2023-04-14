@@ -1,4 +1,4 @@
-Once the PoS is loaded, you'll find a shopping trolley icon (🛒) in the top
+Once the PoS is loaded, you'll find a magnifying glass icon (🔎) in the top
 bar that grants access to the order list screen.
 
 .. image:: ../static/description/order-mgmt-icon.png

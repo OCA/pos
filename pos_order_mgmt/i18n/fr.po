@@ -29,23 +29,6 @@ msgstr ""
 "Autoriser à rembourser des commandes réalisées dans l'interface tactile."
 
 #. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
-msgid "Allows to manage orders in the frontend"
-msgstr "Autoriser à gérer des commandes réalisées dans l'interface tactile"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-msgid "Allows to reprint already done orders in the frontend"
-msgstr ""
-"Autoriser à réimprimer des commandes réalisées dans l'interface tactile"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
-msgid "Allows to return already done orders in the frontend"
-msgstr ""
-"Autoriser à rembourser des commandes réalisées dans l'interface tactile"
-
-#. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
 #, python-format
@@ -119,26 +102,6 @@ msgid "Duplicate Orders"
 msgstr "Copier une commande réalisée"
 
 #. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-msgid "Maximum Orders to load"
-msgstr "Nombre maximum de commande à charger"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-msgid ""
-"Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
-"none (it's still possible to load them by ticket code)."
-msgstr ""
-"Nombre maximum de commandes à charger dans le point de vente à son "
-"initialisation. Indiquer \"0\" pour n'en charger aucune (Il est toujours "
-"possible de les charger par une référence de commande)."
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
-msgid "Order Management"
-msgstr "Gestion des commandes"
-
-#. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Paramétrage du point de vente"
@@ -195,11 +158,6 @@ msgstr "Nombre de remboursements"
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
 msgid "Refunds"
 msgstr "Remboursements"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-msgid "Reprint Orders"
-msgstr "Réimprimer les tickets de commandes réalisées"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order

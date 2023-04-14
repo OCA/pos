@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="RefundOrderButton" owl="1">
+        <span class="control-button" t-on-click="onClick">
+            <i class="fa fa-rotate-left" />
+            <span> </span>
+            <span>Refund Order</span>
+        </span>
+    </t>
+
+</templates>

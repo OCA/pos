@@ -27,21 +27,6 @@ msgid "Allows to manage already done orders in the frontend."
 msgstr "Permette di gestire ordini già fatti nel frontend."
 
 #. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_order_mgmt
-msgid "Allows to manage orders in the frontend"
-msgstr "Permette di gestire ordini nel frontend"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-msgid "Allows to reprint already done orders in the frontend"
-msgstr "Permette di ristampare ordini già fatti nel frontend"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
-msgid "Allows to return already done orders in the frontend"
-msgstr "Permette di fare il reso di ordini già fatti nel frontend"
-
-#. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
 #, python-format
@@ -113,26 +98,6 @@ msgid "Duplicate Orders"
 msgstr "Ordini duplicati"
 
 #. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-msgid "Maximum Orders to load"
-msgstr "Numero massimo di ordini da caricare"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_load_done_order_max_qty
-msgid ""
-"Maximum number of orders to load on the PoS at its init. Set it to 0 to load "
-"none (it's still possible to load them by ticket code)."
-msgstr ""
-"Massimo numero di ordini da caricare nel PoS al suo avvio. Impostarlo a 0 "
-"per non caricarne nessuno (è sempre possibile caricarli tramite codice "
-"scontrino)."
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_order_mgmt
-msgid "Order Management"
-msgstr "Gestione ordine"
-
-#. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
@@ -189,11 +154,6 @@ msgstr "Quantità ordini di reso"
 #: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
 msgid "Refunds"
 msgstr "Resi"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_reprint_done_order
-msgid "Reprint Orders"
-msgstr "Ordini ristampa"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order

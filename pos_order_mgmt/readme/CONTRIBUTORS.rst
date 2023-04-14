@@ -4,3 +4,4 @@
 * Pierrick Brun <pierrick.brun@akretion.com>
 * Iván Todorovich <ivan.todorovich@druidoo.io>
 * David Alonso <david.alonso@solvos.es>
+* Jose Zambudio <jose@aurestic.es>
