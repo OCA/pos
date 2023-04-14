@@ -14,32 +14,33 @@ odoo.define("pos_crm.models", function (require) {
     models.Order = models.Order.extend({
         initialize: function (attributes, options) {
             _super_order.initialize.call(this, attributes, options);
-            this.partner_vat = this.partner_vat || null;
+            this.customer_tax_id = this.customer_tax_id || null;
             this.save_to_db();
         },
         init_from_JSON: function (json) {
             _super_order.init_from_JSON.call(this, json);
-            this.partner_vat = json.partner_vat || null;
+            this.customer_tax_id = json.customer_tax_id || null;
             if (json.partner_id) {
-                this.partner_vat = this.pos.db.get_partner_by_id(json.partner_id).vat;
+                this.customer_tax_id = this.pos.db.get_partner_by_id(
+                    json.partner_id
+                ).vat;
             }
         },
         export_as_JSON: function () {
             const json = _super_order.export_as_JSON.call(this);
-            json.partner_vat = this.partner_vat;
+            json.customer_tax_id = this.customer_tax_id;
             return json;
         },
         export_for_printing: function () {
             const json = _super_order.export_for_printing.call(this);
-            json.partner_vat = this.partner_vat;
+            json.customer_tax_id = this.customer_tax_id;
             return json;
         },
         set_client: function (client) {
             _super_order.set_client.call(this, client);
             this.assert_editable();
             if (client) {
-                this.partner_vat = client.vat || null;
-            } else {
+                this.customer_tax_id = client.vat || null;
             }
         },
         ask_customer_data: async function (component, screen) {
@@ -48,7 +49,7 @@ odoo.define("pos_crm.models", function (require) {
 
             if (!client && posConfig.pos_crm_question === screen) {
                 const result = await component.showPopup("TaxIdPopup", {
-                    title: _t("Customer VAT"),
+                    title: _t("Customer Tax ID"),
                     startingValue: 0,
                 });
 
@@ -79,7 +80,7 @@ odoo.define("pos_crm.models", function (require) {
                             this.set_client(partner);
                         }
                     } else {
-                        this.partner_vat = result.payload;
+                        this.customer_tax_id = result.payload;
                     }
                 }
             }

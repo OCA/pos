@@ -8,8 +8,8 @@ class PosOrder(models.Model):
 
     _inherit = "pos.order"
 
-    partner_vat = fields.Char(
-        string="Partner VAT",
+    customer_tax_id = fields.Char(
+        string="Customer Tax ID",
         readonly=True,
         copy=False,
     )
@@ -17,12 +17,12 @@ class PosOrder(models.Model):
     @api.model
     def _order_fields(self, ui_order):
         res = super(PosOrder, self)._order_fields(ui_order)
-        res["partner_vat"] = ui_order["partner_vat"]
+        res["customer_tax_id"] = ui_order["customer_tax_id"]
         return res
 
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
         if self.partner_id:
-            self.partner_vat = self.partner_id.vat
+            self.customer_tax_id = self.partner_id.vat
         else:
-            self.partner_vat = False
+            self.customer_tax_id = False

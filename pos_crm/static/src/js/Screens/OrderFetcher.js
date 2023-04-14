@@ -9,9 +9,9 @@ odoo.define("pos_crm.OrderFetcher", function (require) {
         }
 
         function searchByPartnerVat(order, searchWord) {
-            const partner_vat = normalizePartnerVat(order.partner_vat);
+            const customer_tax_id = normalizePartnerVat(order.customer_tax_id);
             const searchVat = normalizePartnerVat(searchWord);
-            return partner_vat.includes(searchVat);
+            return customer_tax_id.includes(searchVat);
         }
 
         function searchByPosReference(order, searchWord) {
@@ -39,7 +39,7 @@ odoo.define("pos_crm.OrderFetcher", function (require) {
             const [field, operator, searchWord] = clause;
 
             switch (field) {
-                case "partner_vat":
+                case "customer_tax_id":
                     if (operator === "ilike") {
                         return searchByPartnerVat(order, searchWord);
                     }

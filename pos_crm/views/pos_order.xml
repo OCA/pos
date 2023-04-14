@@ -9,7 +9,7 @@
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="partner_vat" />
+                <field name="customer_tax_id" />
             </field>
         </field>
     </record>
