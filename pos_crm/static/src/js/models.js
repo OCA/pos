@@ -14,13 +14,11 @@ odoo.define("pos_crm.models", function (require) {
     models.Order = models.Order.extend({
         initialize: function (attributes, options) {
             _super_order.initialize.call(this, attributes, options);
-            this.is_pos_crm_checked = this.is_pos_crm_checked || false;
             this.partner_vat = this.partner_vat || null;
             this.save_to_db();
         },
         init_from_JSON: function (json) {
             _super_order.init_from_JSON.call(this, json);
-            this.is_pos_crm_checked = json.is_pos_crm_checked || false;
             this.partner_vat = json.partner_vat || null;
             if (json.partner_id) {
                 this.partner_vat = this.pos.db.get_partner_by_id(json.partner_id).vat;
@@ -28,13 +26,11 @@ odoo.define("pos_crm.models", function (require) {
         },
         export_as_JSON: function () {
             const json = _super_order.export_as_JSON.call(this);
-            json.is_pos_crm_checked = this.is_pos_crm_checked;
             json.partner_vat = this.partner_vat;
             return json;
         },
         export_for_printing: function () {
             const json = _super_order.export_for_printing.call(this);
-            json.is_pos_crm_checked = this.is_pos_crm_checked;
             json.partner_vat = this.partner_vat;
             return json;
         },
@@ -44,28 +40,17 @@ odoo.define("pos_crm.models", function (require) {
             if (client) {
                 this.partner_vat = client.vat || null;
             } else {
-                this.set_is_pos_crm_checked(false);
             }
-        },
-        set_is_pos_crm_checked: function (is_pos_crm_checked) {
-            this.assert_editable();
-            this.is_pos_crm_checked = is_pos_crm_checked;
-        },
-        get_is_pos_crm_checked: function () {
-            return this.is_pos_crm_checked;
         },
         ask_customer_data: async function (component, screen) {
             const client = this.get_client();
-            const isPosCrmChecked = this.is_pos_crm_checked;
             const posConfig = this.pos.config;
 
-            if (!client && !isPosCrmChecked && posConfig.pos_crm_question === screen) {
+            if (!client && posConfig.pos_crm_question === screen) {
                 const result = await component.showPopup("TaxIdPopup", {
                     title: _t("Customer VAT"),
                     startingValue: 0,
                 });
-
-                this.set_is_pos_crm_checked(true);
 
                 if (result.confirmed) {
                     let partner =
