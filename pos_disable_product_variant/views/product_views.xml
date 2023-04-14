@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_variant_easy_edit_pos_view" model="ir.ui.view">
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view" />
+        <field name="arch" type="xml">
+            <!-- Make the field editable -->
+            <group name="tags" position="after">
+                <group name="pos" string="Point of Sale">
+                    <field name="template_in_pos" invisible="1" />
+                    <field
+                        name="available_in_pos"
+                        attrs="{'readonly': [('template_in_pos', '=', False)]}"
+                    />
+                    <label
+                        for="template_in_pos"
+                        attrs="{'invisible': [('template_in_pos', '=', True)]}"
+                    />
+                    <div
+                        class="text-muted fst-italic"
+                        id="pos_tooltip"
+                        attrs="{'invisible': [('template_in_pos', '=', True)]}"
+                    >
+                        <span>Disabled at product level.</span>
+                    </div>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>
