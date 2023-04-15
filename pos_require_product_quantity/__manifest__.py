@@ -21,7 +21,7 @@
     "assets": {
         "point_of_sale.assets": [
             "pos_require_product_quantity/static/src/js/**/*.js",
-    ],
+        ],
     },
     "installable": True,
 }
