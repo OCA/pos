@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-09 13:22+0000\n"
+"PO-Revision-Date: 2023-04-17 09:51+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_stock_lot
 msgid "Lot/Serial"
-msgstr "Lotto/seriale"
+msgstr "Lotto/Seriale"
 
 #. module: pos_lot_selection
 #. odoo-javascript
