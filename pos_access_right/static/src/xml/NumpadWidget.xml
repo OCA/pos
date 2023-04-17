@@ -13,8 +13,12 @@
         >
             <attribute
                 name="t-att-class"
+                t-translation="off"
             >{'disabled-mode': !hasMinusControlRights}</attribute>
-            <attribute name="t-att-disabled">!hasMinusControlRights</attribute>
+            <attribute
+                name="t-att-disabled"
+                t-translation="off"
+            >!hasMinusControlRights</attribute>
         </xpath>
 
         <xpath
@@ -23,8 +27,12 @@
         >
             <attribute
                 name="t-att-class"
+                t-translation="off"
             >{'disabled-mode': !hasDeleteItemControlRights}</attribute>
-            <attribute name="t-att-disabled">!hasDeleteItemControlRights</attribute>
+            <attribute
+                name="t-att-disabled"
+                t-translation="off"
+            >!hasDeleteItemControlRights</attribute>
         </xpath>
 
 

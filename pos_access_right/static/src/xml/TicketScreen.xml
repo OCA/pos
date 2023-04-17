@@ -13,8 +13,12 @@
         >
             <attribute
                 name="t-att-class"
+                t-translation="off"
             >{'disabled-mode': !hasNewOrdersControlRights}</attribute>
-            <attribute name="t-att-disabled">!hasNewOrdersControlRights</attribute>
+            <attribute
+                name="t-att-disabled"
+                t-translation="off"
+            >!hasNewOrdersControlRights</attribute>
         </xpath>
     </t>
 
