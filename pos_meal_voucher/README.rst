@@ -92,6 +92,10 @@ It is a non blocking warning, because we don't want to prevent an order to be do
 if products are not correctly set, or if a recent law changed the maximum amount that can
 be used each day. (A recent case occured in France, during the Covid-19 pandemy)
 
+Informations are printed on the ticket, if the point of sale is so configured.
+
+  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/ticket_information.png
+
 Note
 ~~~~
 
@@ -103,6 +107,9 @@ If you scan the following barcode ``052566641320080017000000``, a new payment li
 
 Known issues / Roadmap
 ======================
+
+Possible Features
+~~~~~~~~~~~~~~~~~
 
 * Introduce the Meal Voucher Issuer model
 * When scaning Meal Voucher, deduce the Issuer
