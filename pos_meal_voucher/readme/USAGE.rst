@@ -23,6 +23,10 @@ It is a non blocking warning, because we don't want to prevent an order to be do
 if products are not correctly set, or if a recent law changed the maximum amount that can
 be used each day. (A recent case occured in France, during the Covid-19 pandemy)
 
+Informations are printed on the ticket, if the point of sale is so configured.
+
+  .. figure:: ../static/description/ticket_information.png
+
 Note
 ~~~~
 
