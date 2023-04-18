@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo12-addon-pos_cash_control_multiple_config',
         'odoo12-addon-pos_cash_move_reason',
         'odoo12-addon-pos_cash_move_reason_multiple_control',
+        'odoo12-addon-pos_cashback_warning',
         'odoo12-addon-pos_check_session_state',
         'odoo12-addon-pos_customer_display',
         'odoo12-addon-pos_customer_required',
