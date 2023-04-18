@@ -3,7 +3,7 @@
 
 {
     "name": "Point of Sale - Cashback Warning",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "category": "Point of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
