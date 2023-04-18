@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo-addon-pos_order_remove_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_reorder>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_to_sale_order>=16.0dev,<16.1dev',
+        'odoo-addon-pos_partner_birthdate>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_terminal>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_display_default_code>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_quick_info>=16.0dev,<16.1dev',
