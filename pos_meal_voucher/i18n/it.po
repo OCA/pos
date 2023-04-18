@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_meal_voucher
+# 	* pos_meal_voucher
 #
 msgid ""
 msgstr ""
@@ -76,10 +76,24 @@ msgid "Discounted Product"
 msgstr "Prodotto scontato"
 
 #. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_info_ticket
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid "Display Information on Ticket"
+msgstr ""
+
+#. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_product_screen
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
 msgid "Display icon before products on screen"
 msgstr "Mostrare l'icona prima dei prodotti a schermo"
+
+#. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:100
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:118
+#, python-format
+msgid "Eligible Total:"
+msgstr ""
 
 #. module: pos_meal_voucher
 #: model:product.category,name:pos_meal_voucher.food_category
@@ -93,14 +107,26 @@ msgstr "Ha registro buoni pasto"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
-msgid "If checked, an icon will be displayed on the screen, before each product that can be paid with meal vouchers."
+msgid ""
+"If checked, a star (*) will be displayed on the ticket, before each product "
+"that can be paid with meal vouchers, and the total of the eligible product "
+"will be printed."
+msgstr ""
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+msgid ""
+"If checked, an icon will be displayed on the screen, before each product "
+"that can be paid with meal vouchers."
 msgstr ""
 "Se selezionato, un'icona verrà mostrata a schermo, prima di ogni prodotto "
 "che può essere pagato con buoni pasto."
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,help:pos_meal_voucher.field_product_category__meal_voucher_ok
-msgid "If checked, the products that belong to the category will be marked as 'can be paid with meal vouchers', by default."
+msgid ""
+"If checked, the products that belong to the category will be marked as 'can "
+"be paid with meal vouchers', by default."
 msgstr ""
 "Se selezionato, i prodotti che appartengono alla categoria verranno "
 "impostati come 'può essere pagato con buoni pasto', di default."
@@ -129,8 +155,10 @@ msgstr "Importo massimo"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
-msgid "Maximum amount of Meal Vouchers that can be received for a PoS Order.\n"
-"                                Let 0, if you don't want to enable this check."
+msgid ""
+"Maximum amount of Meal Vouchers that can be received for a PoS Order.\n"
+"                                Let 0, if you don't want to enable this "
+"check."
 msgstr ""
 "Massimo importo di buoni pasto che può essere ricevuto per un ordine POS.\n"
 "                                Lasciare 0, se non si vuole abilitare questo "
@@ -226,6 +254,14 @@ msgid "Product Template"
 msgstr "Modello prodotto"
 
 #. module: pos_meal_voucher
+#. openerp-web
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:96
+#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:114
+#, python-format
+msgid "Products marked with a star (*) are eligible for Meal vouchers."
+msgstr ""
+
+#. module: pos_meal_voucher
 #: selection:barcode.rule,type:0
 msgid "Tare"
 msgstr "Tara"
@@ -239,7 +275,9 @@ msgstr "Testo per il registro misto"
 #. module: pos_meal_voucher
 #: model:ir.model.fields,help:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_mixed_text
 #: model:ir.model.fields,help:pos_meal_voucher.field_account_journal__meal_voucher_mixed_text
-msgid "Text that will be displayed in the point of sale if the journal is a mixed journal (Credit Card /  Dematerialized) for the dematerialized button."
+msgid ""
+"Text that will be displayed in the point of sale if the journal is a mixed "
+"journal (Credit Card /  Dematerialized) for the dematerialized button."
 msgstr ""
 "Testo che verrà mostrato nel punto vendita se il registro è misto (carta di "
 "credito / dematerializzato) per il pulsante dematerializzato."
@@ -281,7 +319,9 @@ msgstr "Prodotto pesato"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
-msgid "by clicking on this button, all the products of this category will have the same settings than the current category, for the value 'Meal Voucher'"
+msgid ""
+"by clicking on this button, all the products of this category will have the "
+"same settings than the current category, for the value 'Meal Voucher'"
 msgstr ""
 "cliccando questo pulsante, tutti i prodotti di questa categoria avranno le "
 "stesse impostazioni della categoria corrente, per il valore 'buoni pasto'"
