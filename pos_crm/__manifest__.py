@@ -8,12 +8,13 @@
     "author": "KMEE, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "LGPL-3",
-    "maintainers": ["mileo"],
+    "maintainers": ["mileo", "ygcarvalh"],
     "depends": [
         "point_of_sale",
     ],
     "data": [
-        "views/pos_config_view.xml",
+        "views/pos_order.xml",
+        "views/pos_config.xml",
         # Templates
         "views/pos_template.xml",
     ],

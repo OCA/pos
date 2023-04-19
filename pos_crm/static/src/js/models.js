@@ -6,95 +6,81 @@ Copyright (C) 2022-Today KMEE (https://kmee.com.br)
 odoo.define("pos_crm.models", function (require) {
     "use strict";
 
-    var models = require("point_of_sale.models");
+    const models = require("point_of_sale.models");
     const core = require("web.core");
-
     const _t = core._t;
 
-    //    Models.load_fields("pos.order", ["is_pos_crm_checked"]);
-
-    var _super_order = models.Order.prototype;
+    const _super_order = models.Order.prototype;
     models.Order = models.Order.extend({
         initialize: function (attributes, options) {
-            _super_order.initialize.apply(this, arguments, options);
-            this.is_pos_crm_checked = this.is_pos_crm_checked || null;
-            this.partner_vat = this.partner_vat || null;
+            _super_order.initialize.call(this, attributes, options);
+            this.customer_tax_id = this.customer_tax_id || null;
             this.save_to_db();
         },
         init_from_JSON: function (json) {
-            _super_order.init_from_JSON.apply(this, arguments);
-            this.is_pos_crm_checked = json.is_pos_crm_checked || null;
-            this.partner_vat = json.partner_vat || null;
+            _super_order.init_from_JSON.call(this, json);
+            this.customer_tax_id = json.customer_tax_id || null;
             if (json.partner_id) {
-                this.partner_vat = this.pos.db.get_partner_by_id(json.partner_id).vat;
+                this.customer_tax_id = this.pos.db.get_partner_by_id(
+                    json.partner_id
+                ).vat;
             }
         },
-        export_for_printing: function () {
-            var json = _super_order.export_for_printing.apply(this, arguments);
-            json.is_pos_crm_checked = this.is_pos_crm_checked;
-            json.partner_vat = this.partner_vat;
+        export_as_JSON: function () {
+            const json = _super_order.export_as_JSON.call(this);
+            json.customer_tax_id = this.customer_tax_id;
             return json;
         },
-        // TODO: Export from json!
+        export_for_printing: function () {
+            const json = _super_order.export_for_printing.call(this);
+            json.customer_tax_id = this.customer_tax_id;
+            return json;
+        },
         set_client: function (client) {
-            _super_order.set_client.apply(this, arguments);
+            _super_order.set_client.call(this, client);
             this.assert_editable();
             if (client) {
-                this.partner_vat = client.vat || null;
-            } else {
-                this.set_is_pos_crm_checked(false);
+                this.customer_tax_id = client.vat || null;
             }
         },
-        set_is_pos_crm_checked: function (is_pos_crm_checked) {
-            this.assert_editable();
-            this.is_pos_crm_checked = is_pos_crm_checked;
-        },
-        is_is_pos_crm_checked: function () {
-            return this.is_pos_crm_checked;
-        },
         ask_customer_data: async function (component, screen) {
-            if (
-                !this.get_client() &&
-                !this.is_pos_crm_checked &&
-                this.pos.config.pos_crm_question === screen
-            ) {
+            const client = this.get_client();
+            const posConfig = this.pos.config;
+
+            if (!client && posConfig.pos_crm_question === screen) {
                 const result = await component.showPopup("TaxIdPopup", {
-                    title: _t("CPF/CNPJ"),
+                    title: _t("Customer Tax ID"),
                     startingValue: 0,
                 });
-                this.set_is_pos_crm_checked(true);
+
                 if (result.confirmed) {
-                    var partner = this.pos.db.get_partners_by_tax_id(result.payload)[0];
-                    // FIXME: return a new pop-up to the user select the partner;
-                    if (!partner && this.pos.config.pos_crm_auto_create_partner) {
+                    let partner =
+                        this.pos.db.get_partners_by_tax_id(result.payload) ||
+                        this.pos.db.get_partner_by_barcode(result.payload);
+
+                    if (partner.length === 0 && posConfig.pos_crm_auto_create_partner) {
                         try {
                             const partnerId = await this.pos.rpc({
                                 model: "res.partner",
                                 method: "create_from_ui",
-                                args: [
-                                    {
-                                        name: result.payload,
-                                        vat: result.payload,
-                                    },
-                                ],
+                                args: [{name: result.payload, vat: result.payload}],
                             });
+
                             await this.pos.load_new_partners();
                             partner = this.pos.db.get_partner_by_id(partnerId);
                         } catch (error) {
-                            // FIXME: Create a strategy to create partner offline;
-                            console.log("Create a strategy to create partner offline");
-                            this.partner_vat = result.payload;
+                            console.error(
+                                "Error creating partner. It is not possible to complete the operation when offline",
+                                error
+                            );
                             return false;
                         }
-                    }
-                    if (!partner) {
-                        partner = this.pos.db.get_partner_by_barcode(result.payload);
-                    }
-                    if (partner) {
-                        if (this.get_client() !== partner) {
+
+                        if (partner && client !== partner) {
                             this.set_client(partner);
                         }
-                        return true;
+                    } else {
+                        this.customer_tax_id = result.payload;
                     }
                 }
             }

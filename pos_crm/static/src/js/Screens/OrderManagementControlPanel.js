@@ -8,7 +8,7 @@ odoo.define("pos_crm.OrderManagementControlPanel", function (require) {
         "pos_reference",
         "partner_id.display_name",
         "date_order",
-        "partner_vat",
+        "customer_tax_id",
     ];
 
     const OrderManagementControlPanelCRM = (OrderManagementControlPanel) =>
