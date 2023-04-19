@@ -12,9 +12,7 @@
     "license": "LGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "point_of_sale",
-    ],
+    "depends": ["point_of_sale"],
     "data": [
         "security/pos_security.xml",
         "views/pos_config_views.xml",
