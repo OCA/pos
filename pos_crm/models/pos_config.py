@@ -21,7 +21,7 @@ class PosConfig(models.Model):
         ],
         string="Ask Customer",
         default="no",
-        help="Aks customer for orders in this point of sale:\n"
+        help="Ask customer for orders in this point of sale:\n"
         "* 'Don't ask' (customer can be created and select as the normal workflow);\n"
         "* 'Ask before paying';\n",
     )
