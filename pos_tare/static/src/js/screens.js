@@ -47,7 +47,7 @@ odoo.define('pos_tare.screens', function (require) {
         show: function () {
             this._super();
             this.tare = this.get_product().tare_weight;
-            if (this.tare) {
+            if (this.tare && this.pos.config.iface_tare_method !== 'barcode') {
                 this.$("#input_weight_tare")[0].value = this.tare;
             }
             this.gross_weight = 0.0;
