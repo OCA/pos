@@ -39,31 +39,31 @@ class TestUserRestriction(SavepointCase):
 
     def test_access_pos(self):
         # assigned_user_ids is not set: both users can read
-        pos_configs = self.pos_config_model.sudo(self.pos_user.id).search([])
+        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search([])
         self.assertTrue(pos_configs)
-        pos_configs = self.pos_config_model.sudo(self.pos_user_assigned_pos.id).search(
-            []
-        )
+        pos_configs = self.pos_config_model.with_user(
+            self.pos_user_assigned_pos.id
+        ).search([])
         self.assertTrue(pos_configs)
 
         self.pos_config_main.assigned_user_ids = [
             (6, 0, [self.pos_user_assigned_pos.id])
         ]
         # assigned_user_ids is set with pos_user_assigned_pos: both users can read
-        pos_configs = self.pos_config_model.sudo(self.pos_user.id).search([])
+        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search([])
         self.assertTrue(pos_configs)
-        pos_configs = self.pos_config_model.sudo(self.pos_user_assigned_pos.id).search(
-            []
-        )
+        pos_configs = self.pos_config_model.with_user(
+            self.pos_user_assigned_pos.id
+        ).search([])
         self.assertTrue(pos_configs)
 
         self.pos_config_main.assigned_user_ids = [(6, 0, [self.pos_user.id])]
         # assigned_user_ids is set with pos_user: only pos_user can read
-        pos_configs = self.pos_config_model.sudo(self.pos_user.id).search([])
+        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search([])
         self.assertTrue(pos_configs)
-        pos_configs = self.pos_config_model.sudo(self.pos_user_assigned_pos.id).search(
-            []
-        )
+        pos_configs = self.pos_config_model.with_user(
+            self.pos_user_assigned_pos.id
+        ).search([])
 
         # TODO, fixme
         # this test is failing, if Odoo pos_restaurant is installed

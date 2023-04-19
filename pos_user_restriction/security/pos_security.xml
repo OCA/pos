@@ -2,7 +2,7 @@
 <odoo>
     <record id="group_assigned_points_of_sale_user" model="res.groups">
         <field name="name">User: Assigned POS Only</field>
-        <field name="category_id" ref="base.module_category_point_of_sale" />
+        <field name="category_id" ref="base.module_category_sales_point_of_sale" />
         <field
             name="comment"
         >The user will have access to her assigned points of sale.</field>
