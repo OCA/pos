@@ -38,10 +38,8 @@ odoo.define("point_of_sale.CreateOrderPopup", function (require) {
                 })
                 .finally(function () {
                     framework.unblockUI();
+                    current_order.destroy();
                 });
-
-            this.env.pos.on_removed_order(current_order);
-            this.env.pos.add_new_order();
 
             return await super.confirm();
         }
