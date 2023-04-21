@@ -5,7 +5,7 @@
     License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 -->
 <odoo>
-    <record id="base.res_partner_address_31" model="res.partner">
+    <record id="base.res_partner_2" model="res.partner">
         <field
             name="pos_comment"
         >Important information to display in Point of Sale</field>

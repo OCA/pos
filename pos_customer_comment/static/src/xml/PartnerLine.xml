@@ -7,12 +7,12 @@
 <templates id="template" xml:space="preserve">
 
     <t
-        t-name="PartnerLine"
-        t-inherit="point_of_sale.PartnerLine"
+        t-name="ClientLine"
+        t-inherit="point_of_sale.ClientLine"
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//button[@class='edit-partner-button']" position="after">
+        <xpath expr="//button[@class='edit-client-button']" position="after">
             <div t-if="props.partner.pos_comment != ''">
             <i
                     class="fa fa-comment"

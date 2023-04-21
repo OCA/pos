@@ -8,25 +8,31 @@ odoo.define("pos_customer_comment.tour.PosCustomerComment", function (require) {
 
     const Tour = require("web_tour.tour");
 
+
     var steps = [
         {
             content: "Test pos_customer_content: Waiting for loading to finish",
             trigger: "body:not(:has(.loader))",
+            run: function () {},
         },
         {
             content: "Test pos_customer_content: open customer list",
-            trigger: "button.set-partner",
+            trigger: ".actionpad .button.set-customer",
         },
         {
-            content: "Test pos_customer_content: select 'Addison Olson' Customer",
-            trigger: ".partner-line:contains('Addison Olson') .edit-partner-button",
+            content: "Test pos_customer_content: select 'Deco Addict' Customer",
+            trigger: ".client-line:contains('Deco Addict')",
+        },
+        {
+            content: "Test pos_customer_content: Edit client 'Deco Addict' Customer",
+            trigger: ".edit-client-button",
         },
         {
             content: "Test pos_customer_content: Check if value is correctly loaded",
             trigger: "textarea[name='pos_comment']",
             run: () => {
                 var content = $("textarea[name='pos_comment']");
-                if (!content.val().includes("Important")) {
+                if (content.val() !== "Important information to display in Point of Sale") {
                     throw new Error("the PoS comment was not loaded in the frontend");
                 }
             },
@@ -34,11 +40,14 @@ odoo.define("pos_customer_comment.tour.PosCustomerComment", function (require) {
         {
             content: "Test pos_customer_content: Write new text in PoS Comment field",
             trigger: "textarea[name='pos_comment']",
-            run: "text New Comment",
+            run: () => {
+                var content = $("textarea[name='pos_comment']");
+                content.val("New Comment");
+            },
         },
         {
             content: "Test pos_customer_content: Save Customer changes",
-            trigger: ".partnerlist-screen .button.highlight",
+            trigger: ".clientlist-screen .button.highlight",
         },
         {
             content: "Test pos_customer_content: Close the Point of Sale frontend",
