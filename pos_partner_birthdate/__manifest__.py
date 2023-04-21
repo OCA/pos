@@ -3,7 +3,7 @@
 {
     "name": "Point of Sale - Partner contact birthdate",
     "summary": "Adds the birthdate in the customer screen of POS",
-    "version": "16.0.1.0.1",
+    "version": "14.0.1.0.1",
     "development_status": "Beta",
     "category": "Point of sale",
     "website": "https://github.com/OCA/pos",
@@ -12,9 +12,8 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["point_of_sale", "partner_contact_birthdate"],
-    "assets": {
-        "point_of_sale.assets": [
-            "pos_partner_birthdate/static/src/xml/ClientDetailsEdit.xml"
-        ]
-    },
+    "data": ["views/assets.xml"],
+    "qweb": [
+        "static/src/xml/ClientDetailsEdit.xml",
+    ],
 }
