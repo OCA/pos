@@ -2,10 +2,9 @@
 # Copyright 2018 David Vidal <david.vidal@tecnativa.com>
 # Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
-
 from odoo import _, api, fields, models
 from odoo.exceptions import ValidationError
+from odoo.tests import Form
 
 
 class PosOrder(models.Model):
@@ -111,9 +110,13 @@ class PosOrder(models.Model):
 
     def _create_picking_return(self):
         self.ensure_one()
-        picking = self.returned_order_id.picking_ids
-        ctx = dict(self.env.context, active_ids=picking.ids, active_id=picking.id)
-        wizard = self.env["stock.return.picking"].with_context(ctx).create({})
+        return_form = Form(
+            self.env["stock.return.picking"].with_context(
+                active_id=self.returned_order_id.picking_ids.id,
+                active_model="stock.picking",
+            )
+        )
+        wizard = return_form.save()
         # Discard not returned lines
         wizard.product_return_moves.filtered(
             lambda x: x.product_id not in self.mapped("lines.product_id")
@@ -127,20 +130,26 @@ class PosOrder(models.Model):
             if to_return[move.product_id] < move.quantity:
                 move.quantity = to_return[move.product_id]
             to_return[move.product_id] -= move.quantity
-        return wizard
+        picking = self.env["stock.picking"].browse(wizard.create_returns()["res_id"])
+        for move in picking.move_lines:
+            move.quantity_done = move.product_uom_qty
+        picking._action_done()
+        picking.write(
+            {
+                "pos_session_id": self.session_id.id,
+                "pos_order_id": self.id,
+                "origin": self.name,
+            }
+        )
+        return picking
 
     def _create_order_picking(self):
         """Odoo bases return picking if the quantities are negative, but it's
         not linked to the original one"""
-        orders = self.filtered(
-            lambda x: not x.returned_order_id or not x.returned_order_id.picking_ids
-        )
-        res = super()._create_order_picking()
-        for order in self - orders:
-            wizard = order._create_picking_return()
-            res = wizard.create_returns()
-            order.write({"picking_ids": (6, 0, [res["res_id"]])})
-        return res
+        self.ensure_one()
+        if not self.returned_order_id.picking_ids:
+            return super()._create_order_picking()
+        self.picking_ids = self._create_picking_return()
 
 
 class PosOrderLine(models.Model):
