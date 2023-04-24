@@ -16,6 +16,18 @@
             >{'disabled-mode': !hasMinusControlRights}</attribute>
             <attribute name="t-att-disabled">!hasMinusControlRights</attribute>
         </xpath>
+
+        <xpath
+            expr="div[hasclass('numpad')]//button[hasclass('numpad-backspace')]"
+            position="attributes"
+        >
+            <attribute
+                name="t-att-class"
+            >{'disabled-mode': !hasDeleteOrderLineRights}</attribute>
+            <attribute name="t-att-disabled">!hasDeleteOrderLineRights</attribute>
+        </xpath>
+
+
     </t>
 
 </templates>
