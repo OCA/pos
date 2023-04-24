@@ -15,7 +15,7 @@ class PosOrder(models.Model):
         ('no_send', 'Do not Send'),
         ('to_send', 'To send'),
         ('sent', 'Sent')],
-        default="no_send", string="Send Status")
+        default="no_send", copy=False, string="Send Status")
 
     @api.model
     def _send_order_cron(self):
@@ -37,10 +37,14 @@ class PosOrder(models.Model):
         #  receipt_option = 1: Don't send e-receipt
         #  receipt_option = 2 or 3: Send e-receipt
         res = super(PosOrder, self).action_pos_order_paid()
+        self._set_order_to_send()
+        return res
+
+    def _set_order_to_send(self):
         icp_sudo = self.env['ir.config_parameter'].sudo()
         receipt_options = icp_sudo.get_param('point_of_sale.receipt_options')
         receipt_options = receipt_options and int(receipt_options) or False
         for order in self:
-            if receipt_options in [2, 3] and order.partner_id.email:
+            if receipt_options in [2, 3, 4] and order.partner_id.email and \
+                    not order.partner_id.no_email_pos_receipt:
                 order.email_status = 'to_send'
-        return res

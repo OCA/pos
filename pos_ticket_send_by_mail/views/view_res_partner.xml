@@ -7,7 +7,13 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
             <field name="category_id" position="after">
-                <field name="email_pos_receipt" groups="point_of_sale.group_pos_user"/>
+                <field name="config_receipt_options" invisible="1"/>
+                <field name="email_pos_receipt" groups="point_of_sale.group_pos_user"
+                    attrs="{'invisible': [('config_receipt_options', '!=', 3)]}"
+                />
+                <field name="no_email_pos_receipt" groups="point_of_sale.group_pos_user"
+                    attrs="{'invisible': [('config_receipt_options', 'not in', (2, 4))]}"
+                />
             </field>
         </field>
     </record>

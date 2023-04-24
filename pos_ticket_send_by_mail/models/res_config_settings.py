@@ -14,7 +14,8 @@ class ResConfigSettings(models.TransientModel):
             ('1', 'Do not send receipt via email'),
             ('2', 'Email receipt and print it'),
             ('3', 'Email receipt and print it unless configured on user that \
-                   he only receives electronically')
+                   he only receives electronically'),
+            ('4', 'Email receipt')
         ], string="Receipt",
         config_parameter='point_of_sale.receipt_options'
     )

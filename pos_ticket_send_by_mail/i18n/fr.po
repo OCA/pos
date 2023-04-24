@@ -93,6 +93,11 @@ msgstr "Reçu électronique"
 
 #. module: pos_ticket_send_by_mail
 #: selection:res.config.settings,receipt_options:0
+msgid "Email receipt"
+msgstr "Envoyer le reçu par email"
+
+#. module: pos_ticket_send_by_mail
+#: selection:res.config.settings,receipt_options:0
 msgid "Email receipt and print it"
 msgstr "Envoyer le reçu par email et l'imprimer"
 
@@ -116,6 +121,12 @@ msgstr ""
 "Si vous cochez cette case et que l'option 3 est sélectionnée dans la "
 "configuration générale du point de vente, ce partenaire recevra uniquement "
 "le reçu électronique"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_partner__no_email_pos_receipt
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_users__no_email_pos_receipt
+msgid "No E-receipt"
+msgstr "Pas Reçu électronique"
 
 #. module: pos_ticket_send_by_mail
 #: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt

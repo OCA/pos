@@ -83,6 +83,11 @@ msgstr ""
 
 #. module: pos_ticket_send_by_mail
 #: selection:res.config.settings,receipt_options:0
+msgid "Email receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: selection:res.config.settings,receipt_options:0
 msgid "Email receipt and print it"
 msgstr ""
 
@@ -95,6 +100,12 @@ msgstr ""
 #: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_partner__email_pos_receipt
 #: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_users__email_pos_receipt
 msgid "If you tick this box and option 3 is selected for 'Receipt'         in point of sale settings, the user will only receive e-receipt "
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_partner__no_email_pos_receipt
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_users__no_email_pos_receipt
+msgid "No E-receipt"
 msgstr ""
 
 #. module: pos_ticket_send_by_mail
