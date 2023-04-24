@@ -4,20 +4,24 @@
 
 {
     "name": "Point of Sale - Extra Access Right",
-    "version": "14.0.1.0.2",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of Sale - Extra Access Right for certain actions",
     "author": "La Louve, GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
-    "depends": ["point_of_sale"],
+    "depends": ["pos_hr"],
+    "demo": ["demo/res_groups.xml"],
     "data": [
         "security/res_groups.xml",
-        "views/templates.xml",
     ],
-    "demo": [
-        "demo/res_groups.xml",
-    ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_access_right/static/src/css/*",
+            "pos_access_right/static/src/js/*.js",
+            "pos_access_right/static/src/xml/*.xml",
+        ]
+    },
     "qweb": [
         "static/src/xml/*.xml",
     ],
