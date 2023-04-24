@@ -9,17 +9,17 @@ odoo.define("pos_access_right.NumpadWidget", function (require) {
             get hasManualDiscount() {
                 const res = super.hasManualDiscount;
                 if (res) {
-                    return this.env.pos.user.hasGroupDiscount;
+                    return this.env.pos.get_cashier().hasGroupDiscount;
                 }
                 return res;
             }
             get hasMinusControlRights() {
-                return this.env.pos.user.hasGroupNegativeQty;
+                return this.env.pos.get_cashier().hasGroupNegativeQty;
             }
             get hasPriceControlRights() {
                 const res = super.hasPriceControlRights;
                 if (res) {
-                    return this.env.pos.user.hasGroupPriceControl;
+                    return this.env.pos.get_cashier().hasGroupPriceControl;
                 }
                 return res;
             }

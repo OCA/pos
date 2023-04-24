@@ -10,7 +10,7 @@
     "author": "La Louve, GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
-    "depends": ["point_of_sale"],
+    "depends": ["pos_hr"],
     "demo": ["demo/res_groups.xml"],
     "data": [
         "security/res_groups.xml",

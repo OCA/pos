@@ -7,11 +7,11 @@ odoo.define("pos_access_right.TicketScreen", function (require) {
     const PosTicketScreen = (TicketScreen) =>
         class extends TicketScreen {
             get hasNewOrdersControlRights() {
-                return this.env.pos.user.hasGroupMultiOrder;
+                return this.env.pos.get_cashier().hasGroupMultiOrder;
             }
 
             async deleteOrder(order) {
-                if (this.env.pos.user.hasGroupDeleteOrder) {
+                if (this.env.pos.get_cashier().hasGroupDeleteOrder) {
                     return super.deleteOrder(order);
                 }
                 return false;
