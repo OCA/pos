@@ -15,8 +15,8 @@
     "depends": ["point_of_sale"],
     "data": [
         "security/pos_security.xml",
-        "views/pos_config_views.xml",
         "security/ir.model.access.csv",
         "views/point_of_sale_views.xml",
+        "views/pos_config_views.xml",
     ],
 }

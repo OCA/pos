@@ -64,6 +64,12 @@ class TestUserRestriction(SavepointCase):
         pos_configs = self.pos_config_model.with_user(
             self.pos_user_assigned_pos.id
         ).search([])
+        self.assertFalse(pos_configs)
+
+        self.assingned_group = self.env.ref(
+            "pos_user_restriction.group_assigned_points_of_sale_user"
+        )
+        self.assertEqual(self.assingned_group, self.pos_config_main.group_pos_user_id)
 
         # TODO, fixme
         # this test is failing, if Odoo pos_restaurant is installed
