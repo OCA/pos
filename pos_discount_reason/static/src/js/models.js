@@ -79,4 +79,21 @@ odoo.define("pos_discount_reason.models", function (require) {
             return orderline;
         },
     });
+
+    models.PosModel = models.PosModel.extend({
+        _mount_discount_options: function () {
+            const discount_options = [];
+            for (const item in this.discount_reasons.order_discount_reasons) {
+                const reason = this.discount_reasons.get_by_id(item);
+                const reason_value = " - " + reason.percent * 100 + "%";
+                discount_options.push({
+                    label: reason.name + reason_value,
+                    item: reason,
+                    id: reason.id,
+                });
+            }
+
+            return discount_options;
+        },
+    });
 });
