@@ -1,7 +1,7 @@
 # Copyright (C) 2018 - Today: GRAP (http://www.grap.coop)
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class PosConfig(models.Model):
@@ -17,7 +17,6 @@ class PosConfig(models.Model):
         " group to the point of sale client.",
     )
 
-    @api.multi
     def _compute_group_pos_place_user_id(self):
         for config in self:
             config.group_pos_place_user_id = self.env.ref(

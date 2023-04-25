@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class AccountInvoice(models.Model):
-    _inherit = "account.invoice"
+class AccountMove(models.Model):
+    _inherit = "account.move"
 
     place_id = fields.Many2one(string="Place", comodel_name="pos.place")

@@ -4,7 +4,7 @@
 {
     "name": "Point of Sale - Places",
     "summary": "Define places on PoS orders",
-    "version": "12.0.1.0.4",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
@@ -18,14 +18,14 @@
         "security/ir_rule.xml",
         "security/res_groups.xml",
         "security/ir.model.access.csv",
-        "views/templates.xml",
-        "views/view_account_invoice.xml",
+        # "views/templates.xml",
+        "views/view_account_move.xml",
         "views/view_pos_config.xml",
         "views/view_pos_place.xml",
         "views/view_pos_order.xml",
     ],
     "qweb": [
-        "static/src/xml/pos_place.xml",
+        # "static/src/xml/pos_place.xml",
     ],
     "demo": [
         "demo/res_groups.xml",

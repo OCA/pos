@@ -63,19 +63,19 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         </field>
     </record>
 
-    <record id="action_pos_place" model="ir.actions.act_window">
+<!--     <record id="action_pos_place" model="ir.actions.act_window">
         <field name="name">Places</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">pos.place</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
-    <menuitem
+<!--     <menuitem
         id="menu_pos_place"
         parent="point_of_sale.menu_point_config_product"
         groups="group_pos_place_manager"
         action="action_pos_place"
-    />
+    /> -->
 
 </odoo>
