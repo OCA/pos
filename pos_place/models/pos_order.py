@@ -5,15 +5,14 @@ from odoo import api, fields, models
 
 
 class PosOrder(models.Model):
-    _inherit = 'pos.order'
+    _inherit = "pos.order"
 
-    place_id = fields.Many2one(
-        string='Place', comodel_name='pos.place')
+    place_id = fields.Many2one(string="Place", comodel_name="pos.place")
 
     @api.model
     def _order_fields(self, ui_order):
         res = super()._order_fields(ui_order)
-        res['place_id'] = ui_order.get('place_id', False)
+        res["place_id"] = ui_order.get("place_id", False)
         return res
 
     def _prepare_invoice(self):

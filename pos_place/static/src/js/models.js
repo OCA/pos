@@ -4,15 +4,15 @@ Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 **/
 
-odoo.define('pos_place.models', function (require) {
+odoo.define("pos_place.models", function (require) {
     "use strict";
 
-    var models = require('point_of_sale.models');
+    var models = require("point_of_sale.models");
     var _super_order = models.Order.prototype;
 
     // Load pos.place model
     models.load_models({
-        model: 'pos.place',
+        model: "pos.place",
         loaded: function (self, places) {
             self.places = [];
             for (var i = 0; i < places.length; i++) {
@@ -24,12 +24,11 @@ odoo.define('pos_place.models', function (require) {
     // Make place persistent in the session
     models.PosModel = models.PosModel.extend({
         get_place: function () {
-            return this.get('current_place') ||
-                this.db.load('current_place');
+            return this.get("current_place") || this.db.load("current_place");
         },
         set_place: function (place) {
-            this.set('current_place', place);
-            this.db.save('current_place', place || null);
+            this.set("current_place", place);
+            this.db.save("current_place", place || null);
         },
     });
 
@@ -47,5 +46,4 @@ odoo.define('pos_place.models', function (require) {
             return json;
         },
     });
-
 });

@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
 @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
-
 <templates id="template" xml:space="preserve">
 
     <t t-extend="Chrome">
         <t t-jquery=".pos-logo" t-operation="after">
-            <span class="placeholder-PlaceNameWidget"></span>
+            <span class="placeholder-PlaceNameWidget" />
         </t>
     </t>
 
@@ -26,7 +25,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <t t-jquery="[class='receipt-user']" t-operation="after">
              <t t-if="receipt.place">
                 <div class="receipt-place">
-                    Place: <t t-esc="receipt.place.name"/><br />
+                    Place: <t t-esc="receipt.place.name" /><br />
                 </div>
             </t>
         </t>

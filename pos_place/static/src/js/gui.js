@@ -4,16 +4,14 @@ Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 **/
 
-odoo.define('pos_place.gui', function (require) {
+odoo.define("pos_place.gui", function (require) {
     "use strict";
 
-    var gui = require('point_of_sale.gui');
-    var core = require('web.core');
+    var gui = require("point_of_sale.gui");
+    var core = require("web.core");
     var _t = core._t;
 
-
     gui.Gui.include({
-
         select_place: function () {
             var def = new $.Deferred();
             var current_place = this.pos.get_place();
@@ -22,12 +20,12 @@ odoo.define('pos_place.gui', function (require) {
             for (var i = 0; i < this.pos.places.length; i++) {
                 var item = this.pos.places[i];
                 list.push({
-                    'label': item.code + " - " + item.name,
-                    'item':  item,
+                    label: item.code + " - " + item.name,
+                    item: item,
                 });
             }
 
-            this.show_popup('selection', {
+            this.show_popup("selection", {
                 title: _t("Select a Place"),
                 list: list,
                 confirm: function (place) {
@@ -42,7 +40,6 @@ odoo.define('pos_place.gui', function (require) {
                     }
 
                     return false;
-
                 },
             });
 
@@ -50,7 +47,5 @@ odoo.define('pos_place.gui', function (require) {
                 return place;
             });
         },
-
     });
-
 });

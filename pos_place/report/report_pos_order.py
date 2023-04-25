@@ -5,12 +5,11 @@ from odoo import fields, models
 
 
 class PosOrderReport(models.Model):
-    _inherit = 'report.pos.order'
+    _inherit = "report.pos.order"
 
-    place_id = fields.Many2one(
-        comodel_name='pos.place', string='Place', readonly=True)
+    place_id = fields.Many2one(comodel_name="pos.place", string="Place", readonly=True)
 
     def _select(self):
         res = super()._select()
-        res += ', s.place_id as place_id'
+        res += ", s.place_id as place_id"
         return res

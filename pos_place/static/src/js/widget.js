@@ -4,15 +4,15 @@ Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 **/
 
-odoo.define('pos_place.widgets', function (require) {
+odoo.define("pos_place.widgets", function (require) {
     "use strict";
 
-    var PosBaseWidget = require('point_of_sale.BaseWidget');
-    var core = require('web.core');
+    var PosBaseWidget = require("point_of_sale.BaseWidget");
+    var core = require("web.core");
     var _t = core._t;
 
     var PlaceNameWidget = PosBaseWidget.extend({
-        template: 'PlaceNameWidget',
+        template: "PlaceNameWidget",
         renderElement: function () {
             var self = this;
             this._super();
@@ -29,9 +29,12 @@ odoo.define('pos_place.widgets', function (require) {
             });
         },
         is_visible: function () {
-            return this.pos.config.use_pos_place &&
-            this.pos.user.groups_id.indexOf(
-                this.pos.config.group_pos_place_user_id[0]) !== -1;
+            return (
+                this.pos.config.use_pos_place &&
+                this.pos.user.groups_id.indexOf(
+                    this.pos.config.group_pos_place_user_id[0]
+                ) !== -1
+            );
         },
         get_name: function () {
             var place = this.pos.get_place();
@@ -39,12 +42,10 @@ odoo.define('pos_place.widgets', function (require) {
                 return place.code;
             }
             return _t("Place");
-
         },
     });
 
     return {
         PlaceNameWidget: PlaceNameWidget,
     };
-
 });

@@ -5,7 +5,6 @@ from odoo import fields, models
 
 
 class AccountInvoice(models.Model):
-    _inherit = 'account.invoice'
+    _inherit = "account.invoice"
 
-    place_id = fields.Many2one(
-        string='Place', comodel_name='pos.place')
+    place_id = fields.Many2one(string="Place", comodel_name="pos.place")

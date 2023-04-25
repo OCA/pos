@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
 Copyright (C) 2013 - Today: GRAP (http://www.grap.coop)
 @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
@@ -11,7 +11,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="inherit_id" ref="point_of_sale.view_pos_order_tree" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="place_id" groups="pos_place.group_pos_place_user"/>
+                <field name="place_id" groups="pos_place.group_pos_place_user" />
             </field>
         </field>
     </record>
@@ -21,7 +21,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="place_id" groups="pos_place.group_pos_place_user"/>
+                <field name="place_id" groups="pos_place.group_pos_place_user" />
             </field>
         </field>
     </record>
