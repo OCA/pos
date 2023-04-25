@@ -12,16 +12,7 @@ odoo.define("pos_discount.DiscountReasonButton", function (require) {
             useListener("click", this.onClick);
         }
         async onClick() {
-            const discount_options = [];
-            for (const item in this.env.pos.discount_reasons.order_discount_reasons) {
-                const reason = this.env.pos.discount_reasons.get_by_id(item);
-                const reason_value = " - " + reason.percent * 100 + "%";
-                discount_options.push({
-                    label: reason.name + reason_value,
-                    item: reason,
-                    id: reason.id,
-                });
-            }
+            const discount_options = this.env.pos._mount_discount_options();
             const {confirmed, payload} = await this.showPopup("SelectionPopup", {
                 title: this.env._t("Discount Reason"),
                 list: discount_options,

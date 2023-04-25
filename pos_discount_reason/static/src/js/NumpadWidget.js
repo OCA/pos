@@ -8,17 +8,7 @@ odoo.define("pos_discount_reason.NumpadWidget", function (require) {
         class extends NumpadWidget {
             async changeMode(mode) {
                 if (this.hasManualDiscount && mode === "discount") {
-                    const discount_options = [];
-                    for (const item in this.env.pos.discount_reasons
-                        .line_discount_reasons) {
-                        const reason = this.env.pos.discount_reasons.get_by_id(item);
-                        const reason_value = " - " + reason.percent * 100 + "%";
-                        discount_options.push({
-                            label: reason.name + reason_value,
-                            item: reason,
-                            id: reason.id,
-                        });
-                    }
+                    const discount_options = this.env.pos._mount_discount_options();
                     const {confirmed, payload} = await this.showPopup(
                         "SelectionPopup",
                         {
