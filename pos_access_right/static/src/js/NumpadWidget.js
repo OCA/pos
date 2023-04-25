@@ -9,23 +9,31 @@ odoo.define("pos_access_right.NumpadWidget", function (require) {
             get hasManualDiscount() {
                 const res = super.hasManualDiscount;
                 if (res) {
-                    return this.env.pos.get_cashier().hasGroupDiscount;
+                    if (this.env.pos.config.module_pos_hr)
+                        return this.env.pos.get_cashier().hasGroupDiscount;
+                    return this.env.pos.user.hasGroupDiscount;
                 }
                 return res;
             }
             get hasMinusControlRights() {
-                return this.env.pos.get_cashier().hasGroupNegativeQty;
+                if (this.env.pos.config.module_pos_hr)
+                    return this.env.pos.get_cashier().hasGroupNegativeQty;
+                return this.env.pos.user.hasGroupNegativeQty;
             }
             get hasPriceControlRights() {
                 const res = super.hasPriceControlRights;
                 if (res) {
-                    return this.env.pos.get_cashier().hasGroupPriceControl;
+                    if (this.env.pos.config.module_pos_hr)
+                        return this.env.pos.get_cashier().hasGroupPriceControl;
+                    return this.env.pos.user.hasGroupPriceControl;
                 }
                 return res;
             }
 
             get hasDeleteOrderLineRights() {
-                return this.env.pos.get_cashier().hasGroupDeleteOrder;
+                if (this.env.pos.config.module_pos_hr)
+                    return this.env.pos.get_cashier().hasGroupDeleteOrderLine;
+                return this.env.pos.user.hasGroupDeleteOrderLine;
             }
         };
 

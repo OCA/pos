@@ -44,6 +44,14 @@ class PosConfig(models.Model):
         " Group to the Point of Sale Frontend.",
     )
 
+    group_delete_order_line_id = fields.Many2one(
+        comodel_name="res.groups",
+        compute="_compute_groups",
+        string="Point of Sale - Delete Order Line",
+        help="This field is there to pass the id of the 'PoS - Delete Order Line'"
+        " Group to the Point of Sale Frontend.",
+    )
+
     group_payment_id = fields.Many2one(
         comodel_name="res.groups",
         compute="_compute_groups",
@@ -67,6 +75,9 @@ class PosConfig(models.Model):
                 ).id,
                 "group_delete_order_id": self.env.ref(
                     "pos_access_right.group_delete_order"
+                ).id,
+                "group_delete_order_line_id": self.env.ref(
+                    "pos_access_right.group_delete_order_line"
                 ).id,
                 "group_payment_id": self.env.ref("pos_access_right.group_payment").id,
             }

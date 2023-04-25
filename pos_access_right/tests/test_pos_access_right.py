@@ -1,7 +1,9 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests import TransactionCase, tagged
+
+from odoo.addons.pos_hr.tests.test_frontend import TestPosHrHttpCommon
 
 
-class TestUserRestriction(SavepointCase):
+class TestUserRestriction(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -50,5 +52,19 @@ class TestUserRestriction(SavepointCase):
             self.group_delete_order, self.pos_config_main.group_delete_order_id
         )
 
+        self.group_delete_order_line = self.env.ref(
+            "pos_access_right.group_delete_order_line"
+        )
+        self.assertEqual(
+            self.group_delete_order_line,
+            self.pos_config_main.group_delete_order_line_id,
+        )
+
         self.group_payment = self.env.ref("pos_access_right.group_payment")
         self.assertEqual(self.group_payment, self.pos_config_main.group_payment_id)
+
+
+@tagged("post_install", "-at_install")
+class TestPosAccessRightHttpCommonUi(TestPosHrHttpCommon):
+    def test_01_load_employee(self):
+        self.main_pos_config.open_ui()

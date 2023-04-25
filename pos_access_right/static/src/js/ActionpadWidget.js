@@ -7,7 +7,9 @@ odoo.define("pos_access_right.ActionpadWidget", function (require) {
     const PosActionpadWidget = (ActionpadWidget) =>
         class extends ActionpadWidget {
             get hasPaymentControlRights() {
-                return this.env.pos.get_cashier().hasGroupPayment;
+                if (this.env.pos.config.module_pos_hr)
+                    return this.env.pos.get_cashier().hasGroupPayment;
+                return this.env.pos.user.hasGroupPayment;
             }
         };
 
