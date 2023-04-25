@@ -4,7 +4,7 @@
 {
     "name": "Point of Sale - No Unlink Order Lines",
     "summary": "Prevent to unlink Confirmed or Invoiced Order Lines",
-    "version": "12.0.1.0.3",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
