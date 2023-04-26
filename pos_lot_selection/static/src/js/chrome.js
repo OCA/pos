@@ -94,7 +94,7 @@ odoo.define("pos_lot_selection.chrome", function(require) {
             $option.prop("selected", function() {
                 return this.defaultSelected;
             });
-        },     
+        },
     });
     gui.define_popup({name: "packlotline", widget: PackLotLinePopupWidget});
 }); 

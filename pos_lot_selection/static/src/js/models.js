@@ -20,7 +20,7 @@ odoo.define("pos_lot_selection.models", function(require) {
                             ["product_id", "=", product],
                             ["lot_id", "!=", false],
                         ],
-                    }, 
+                    },
                     {async: false}
                 )
                 .then(function(result) {
