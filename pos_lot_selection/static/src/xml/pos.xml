@@ -5,7 +5,7 @@
     <t t-extend="PackLotLinePopupWidget">
         <t t-jquery=".packlot-lines" t-operation="before">
             <div class="packlot-select">
-                <t 
+                <t
                     t-if="widget.options.pack_lot_lines and widget.options.pack_lot_lines.lot_name"
                 >
                     <select class="packlot-line-select">

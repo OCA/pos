@@ -18,20 +18,20 @@ odoo.define("pos_lot_selection.models", function(require) {
                         domain: [
                             ["location_id", "=", location_id],
                             ["product_id", "=", product],
-                            ["lot_id", "!=", false]
+                            ["lot_id", "!=", false],
                         ],
                     }, 
-                    {'async': false}
+                    {async: false}
                 )
                 .then(function(result) {
                     var product_lot = {};
                     if (result.length) {
                         for (var i = 0; i < result.length; i++) {
                             if (product_lot[result.records[i].lot_id[1]]) {
-                                product_lot[result.records[i].lot_id[1]] += 
+                                product_lot[result.records[i].lot_id[1]] +=
                                     result.records[i].quantity;
                             } else {
-                                product_lot[result.records[i].lot_id[1]] = 
+                                product_lot[result.records[i].lot_id[1]] =
                                     result.records[i].quantity;
                             }
                         }
@@ -47,16 +47,16 @@ odoo.define("pos_lot_selection.models", function(require) {
         compute_lot_lines: function() {
             var done = new $.Deferred();
             var compute_lot_lines = _orderline_super.compute_lot_lines.apply(
-                this, 
+                this,
                 arguments
             );
             this.pos
                 .get_lot(this.product.id, this.pos.config.default_location_src_id[0])
-                .then(function (product_lot) {
+                .then(function(product_lot) {
                     var lot_name = Object.keys(product_lot);
                     for (var i = 0; i < lot_name.length; i++) {
                         if (
-                            product_lot[lot_name[i]] < 
+                            product_lot[lot_name[i]] <
                             compute_lot_lines.order_line.quantity
                         ) {
                             lot_name.splice(i, 1);
