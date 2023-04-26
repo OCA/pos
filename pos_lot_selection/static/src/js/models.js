@@ -52,18 +52,4 @@ odoo.define("pos_lot_selection.models", function (require) {
             return compute_lot_lines;
         },
     });
-
-    /* var _super_posmodel = models.PosModel.prototype;
-    models.PosModel = models.PosModel.extend({
-        initialize: function(session,attributes)
-        {
-            var pos_config = _.find(this.models,function(model)
-            {
-                return model.model === 'pos.config';
-            });
-            pos_config.fields.push('default_location_src_id');
-            return _super_posmodel.initialize.call(this,session,attributes);
-        },
-    }); */
-
 });

@@ -1,4 +1,5 @@
-from odoo import _, api, fields, models
+from odoo import fields, models
+
 
 class PosConfig(models.Model):
     _inherit = "pos.config"
