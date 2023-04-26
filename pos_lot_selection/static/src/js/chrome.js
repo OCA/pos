@@ -14,12 +14,12 @@ odoo.define("pos_lot_selection.chrome", function(require) {
             "keydown": "add_lot",
             "blur .packlot-line-input": "lose_input_focus",
             "change .packlot-line-select": "lot_to_input",
-        }),    
+        }),
         
         show: function(options) {
             this._super(options);
-            this.focus();     
-            this.renderElement();       
+            this.focus();
+            this.renderElement();
         },
     
         click_confirm: function() {
@@ -39,9 +39,9 @@ odoo.define("pos_lot_selection.chrome", function(require) {
     
         add_lot: function(ev) {
             if (
-                ev.keyCode === $.ui.keyCode.ENTER && 
+                ev.keyCode === $.ui.keyCode.ENTER &&
                 this.options.order_line.product.tracking == "serial"
-            ){
+            ) {
                 var pack_lot_lines = this.options.pack_lot_lines,
                     $input = $(ev.target),
                     cid = $input.attr("cid"),
@@ -49,7 +49,7 @@ odoo.define("pos_lot_selection.chrome", function(require) {
     
                 var lot_model = pack_lot_lines.get({cid: cid});
                 lot_model.set_lot_name(lot_name); // First set current model then add new one
-                if(!pack_lot_lines.get_empty_model()) {
+                if (!pack_lot_lines.get_empty_model()) {
                     var new_lot_model = lot_model.add();
                     this.focus_model = new_lot_model;
                 }
@@ -78,7 +78,7 @@ odoo.define("pos_lot_selection.chrome", function(require) {
     
         focus: function() {
             this.$("input[autofocus]").focus();
-            this.focus_model = false; // After focus clear focus_model on widget            
+            this.focus_model = false; // After focus clear focus_model on widget
         },
         
         // Add new function
@@ -96,5 +96,5 @@ odoo.define("pos_lot_selection.chrome", function(require) {
             });
         },     
     });
-    gui.define_popup({name:"packlotline", widget: PackLotLinePopupWidget});
+    gui.define_popup({name: "packlotline", widget: PackLotLinePopupWidget});
 }); 

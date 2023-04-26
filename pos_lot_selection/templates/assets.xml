@@ -4,12 +4,12 @@
 <odoo>
     <template id="assets" inherit_id="point_of_sale.assets">
         <xpath expr=".">
-            <script 
-                type="text/javascript" 
+            <script
+                type="text/javascript"
                 src="/pos_lot_selection/static/src/js/models.js"
             />
-            <script 
-                type="text/javascript" 
+            <script
+                type="text/javascript"
                 src="/pos_lot_selection/static/src/js/chrome.js"
             />
             <link rel="stylesheet" href="/pos_lot_selection/static/src/css/pos.css" />
