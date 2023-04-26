@@ -4,7 +4,6 @@
 
 odoo.define("pos_lot_selection.chrome", function(require) {
     "use strict";
-    var PosModel = require("point_of_sale.models");
     var PosPopups = require("point_of_sale.popups");
     var gui = require("point_of_sale.gui");
     var PackLotLinePopupWidget = PosPopups.extend({
