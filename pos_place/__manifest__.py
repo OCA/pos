@@ -24,9 +24,15 @@
         "views/view_pos_place.xml",
         "views/view_pos_order.xml",
     ],
-    "qweb": [
-        # "static/src/xml/pos_place.xml",
-    ],
+    # "qweb": [
+    #     "static/src/xml/pos_place.xml",
+    # ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_place/static/src/js/models.js",
+            "pos_place/static/src/xml/pos_place.xml",
+        ],
+    },
     "demo": [
         "demo/res_groups.xml",
         "demo/pos_config.xml",

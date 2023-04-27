@@ -6,6 +6,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
 
+<!--
     <t t-extend="Chrome">
         <t t-jquery=".pos-logo" t-operation="after">
             <span class="placeholder-PlaceNameWidget" />
@@ -20,27 +21,17 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         </t>
     </t>
 
-    <!-- Non Proxy Bill -->
-    <t t-extend="PosTicket">
-        <t t-jquery="[class='receipt-user']" t-operation="after">
-             <t t-if="receipt.place">
-                <div class="receipt-place">
-                    Place: <t t-esc="receipt.place.name" /><br />
-                </div>
-            </t>
-        </t>
-    </t>
+-->
 
-    <!--     Proxy Bill -->
-    <t t-extend="XmlReceipt">
-        <t t-jquery="[t-if='receipt.cashier']" t-operation="after">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='receipt.cashier']" t-operation="after">
             <t t-if='receipt.place'>
                 <div class='place'>
                     <div>--------------------------------</div>
                     <div>Place: <t t-esc='receipt.place.name' /></div>
                 </div>
             </t>
-        </t>
+        </xpath>
     </t>
 
 </templates>

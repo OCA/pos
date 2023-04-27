@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Copyright (C) 2015 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PlaceNameWidget" owl="1">
+        <div class="oe_status">
+            <span>
+                <img t-att-src="avatar" t-att-alt="username" class="avatar" />
+                <span t-if="!env.isMobile" t-esc="username" class="username" /></span>
+        </div>
+    </t>
+
+</templates>
