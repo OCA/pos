@@ -28,6 +28,7 @@ addon | version | maintainers | summary
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.0 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.0 |  | POS Lot Selection
+[pos_membership](pos_membership/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Implement features of membership module in the Point of sale UI.
 [pos_order_remove_line](pos_order_remove_line/) | 16.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
 [pos_order_reorder](pos_order_reorder/) | 16.0.0.1.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Simple Re-order in the Point of Sale
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
