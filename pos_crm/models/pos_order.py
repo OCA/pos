@@ -17,7 +17,7 @@ class PosOrder(models.Model):
     @api.model
     def _order_fields(self, ui_order):
         res = super(PosOrder, self)._order_fields(ui_order)
-        res["customer_tax_id"] = ui_order["customer_tax_id"]
+        res["customer_tax_id"] = ui_order.get("customer_tax_id")
         return res
 
     @api.onchange("partner_id")
