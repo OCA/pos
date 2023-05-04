@@ -7,9 +7,9 @@ POS Frontend Orders Management
    !! changes will be overwritten.                   !!
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Alpha
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
@@ -17,7 +17,7 @@ POS Frontend Orders Management
     :target: https://github.com/OCA/pos/tree/14.0/pos_order_mgmt
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14.0/pos-14.0-pos_order_mgmt
+    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_order_mgmt
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/184/14.0
@@ -28,6 +28,11 @@ POS Frontend Orders Management
 This module extends the functionality of the PoS frontend allowing to load
 already done PoS Orders in order to be able to operate over them, being able to
 reprint past tickets or return them.
+
+.. IMPORTANT::
+   This is an alpha version, the data model and design can change at any time without warning.
+   Only for development or testing purpose, do not use in production.
+   `More details on development status <https://odoo-community.org/page/development-status>`_
 
 **Table of contents**
 
@@ -42,14 +47,6 @@ Point of Sale* and enable *Order Management*
 
 .. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_mgmt/static/description/order-mgmt-config.png
 
-#. Change *Maximum orders to load* to your desired amount (10 by default).
-   Please note that the more you load, the more it will take to load
-   them in the session opening. You can also set it to 0 and you'll just be
-   able to load them from the order list screen.
-
-#. Enable *Reprint orders* on if you want to be able to reprint past orders
-   in that PoS.
-
 #. Enable *Return orders* on if you want to be able to return past orders
    in that PoS.
 
@@ -59,7 +56,7 @@ Point of Sale* and enable *Order Management*
 Usage
 =====
 
-Once the PoS is loaded, you'll find a shopping trolley icon (🛒) in the top
+Once the PoS is loaded, you'll find a magnifying glass icon (🔎) in the top
 bar that grants access to the order list screen.
 
 .. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_mgmt/static/description/order-mgmt-icon.png
@@ -78,14 +75,6 @@ the current session:
 
 NOTE: You'll need your PoS to be online to be able to search or return a past
 ticket.
-
-Known issues / Roadmap
-======================
-
-* This module contains a *basic return* feature that makes possible returning
-  the same order over and over. If you need a full return feature, you can
-  install ``pos_order_return`` (only back office implementation), or
-  ``pos_order_return_traceability``, which also covers front office support.
 
 Bug Tracker
 ===========
@@ -115,6 +104,7 @@ Contributors
 * Pierrick Brun <pierrick.brun@akretion.com>
 * Iván Todorovich <ivan.todorovich@druidoo.io>
 * David Alonso <david.alonso@solvos.es>
+* Jose Zambudio <jose@aurestic.es>
 
 Maintainers
 ~~~~~~~~~~~
