@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2018 GRAP - Sylvain LE GAL
+     Copyright 2018 Tecnativa - David Vidal
+     Copyright 2019 Druidoo - Iván Todorovich
+     Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='manage_orders']/parent::div" position="inside">
+                <div class="content-group mt16 row">
+                    <label
+                        for="iface_return_done_order"
+                        class="col-lg-3 o_light_label"
+                    />
+                    <field name="iface_return_done_order" />
+                </div>
+                <div class="content-group mt16 row">
+                    <label for="iface_copy_done_order" class="col-lg-3 o_light_label" />
+                    <field name="iface_copy_done_order" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

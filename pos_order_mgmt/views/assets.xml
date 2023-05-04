@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_order_mgmt/static/src/js/CopyOrderButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_order_mgmt/static/src/js/RefundOrderButton.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_order_mgmt/static/src/js/models.js"
+            />
+        </xpath>
+
+    </template>
+
+</odoo>
