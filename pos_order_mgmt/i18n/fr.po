@@ -23,83 +23,39 @@ msgid "Allows to duplicate already done orders in the frontend"
 msgstr "Autoriser à dupliquer des commandes réalisées dans l'interface tactile"
 
 #. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_config_form
-msgid "Allows to manage already done orders in the frontend."
+#: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
+msgid "Allows to return already done orders in the frontend"
 msgstr ""
-"Autoriser à rembourser des commandes réalisées dans l'interface tactile."
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:36
+#: code:addons/pos_order_mgmt/static/src/xml/CopyOrderButton.xml:0
 #, python-format
-msgid "Amount"
-msgstr "Total"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:17
-#, python-format
-msgid "Back"
-msgstr "Retour"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:374
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:429
-#, python-format
-msgid "Can not execute this action because the POS is currently offline"
+msgid "Copy Order"
 msgstr ""
-"Vous ne pouvez pas exécuter cette action, car le Point de Vente est "
-"actuellement hors ligne"
 
 #. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:373
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:428
-#, python-format
-msgid "Connection error"
-msgstr "Erreur de connexion"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:61
-#, python-format
-msgid "Create a new order based on this one"
-msgstr "Créer une nouvelle commande basée sur celle-ci"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:64
-#, python-format
-msgid "Create a refund order of this order"
-msgstr "Rembourser cette commande"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:34
-#, python-format
-msgid "Customer"
-msgstr "Client"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:93
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:102
-#, python-format
-msgid "DUPLICATE"
-msgstr "DUPLICATA"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:35
-#, python-format
-msgid "Date"
-msgstr "Date"
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
 msgid "Duplicate Orders"
 msgstr "Copier une commande réalisée"
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_order_mgmt
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
@@ -113,100 +69,118 @@ msgstr "Commandes du point de vente"
 
 #. module: pos_order_mgmt
 #. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:58
-#, python-format
-msgid "Print a duplicate for this order"
-msgstr "Imprimer un duplicata de cette commande"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:87
-#, python-format
-msgid "Rectifies:"
-msgstr "Rectifie : "
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:33
-#, python-format
-msgid "Ref."
-msgstr "Réf."
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_reference
-msgid "Reference of the returned Order"
-msgstr "Réference de la vente retournée"
-
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:251
+#: code:addons/pos_order_mgmt/static/src/js/RefundOrderButton.js:0
 #, python-format
 msgid "Refund "
 msgstr "Rembourse "
 
 #. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_ids
-msgid "Refund Orders"
-msgstr "Commandes remboursées"
-
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__refund_order_qty
-msgid "Refund Orders Quantity"
-msgstr "Nombre de remboursements"
-
-#. module: pos_order_mgmt
-#: model_terms:ir.ui.view,arch_db:pos_order_mgmt.view_pos_order_form
-msgid "Refunds"
-msgstr "Remboursements"
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/xml/RefundOrderButton.xml:0
+#, python-format
+msgid "Refund Order"
+msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Return Orders"
 msgstr "Commande retournée"
 
-#. module: pos_order_mgmt
-#: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__returned_order_id
-msgid "Returned Order"
-msgstr "Commande retournée"
+#~ msgid "Allows to manage already done orders in the frontend."
+#~ msgstr ""
+#~ "Autoriser à rembourser des commandes réalisées dans l'interface tactile."
 
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:76
 #, python-format
-msgid "Returned order:"
-msgstr "Commande retournée:"
+#~ msgid "Amount"
+#~ msgstr "Total"
 
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/xml/pos.xml:21
 #, python-format
-msgid "Search Order"
-msgstr "Recherche une commande"
+#~ msgid "Back"
+#~ msgstr "Retour"
 
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:391
 #, python-format
-msgid ""
-"Unable to load some order lines because the products are not available in "
-"the POS cache.\n"
-"\n"
-"Please check that lines :\n"
-"\n"
-"  * "
-msgstr ""
-"Impossible de charger certaines lignes de ticket car les produits ne sont "
-"pas disponible dans le point de vente\n"
-"Veuillez vérifier les lignes suivantes : \n"
-"\n"
-"  * "
+#~ msgid "Can not execute this action because the POS is currently offline"
+#~ msgstr ""
+#~ "Vous ne pouvez pas exécuter cette action, car le Point de Vente est "
+#~ "actuellement hors ligne"
 
-#. module: pos_order_mgmt
-#. openerp-web
-#: code:addons/pos_order_mgmt/static/src/js/widgets.js:390
 #, python-format
-msgid "Unknown Products"
-msgstr "Produit inconnu"
+#~ msgid "Connection error"
+#~ msgstr "Erreur de connexion"
+
+#, python-format
+#~ msgid "Create a new order based on this one"
+#~ msgstr "Créer une nouvelle commande basée sur celle-ci"
+
+#, python-format
+#~ msgid "Create a refund order of this order"
+#~ msgstr "Rembourser cette commande"
+
+#, python-format
+#~ msgid "Customer"
+#~ msgstr "Client"
+
+#, python-format
+#~ msgid "DUPLICATE"
+#~ msgstr "DUPLICATA"
+
+#, python-format
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#, python-format
+#~ msgid "Print a duplicate for this order"
+#~ msgstr "Imprimer un duplicata de cette commande"
+
+#, python-format
+#~ msgid "Rectifies:"
+#~ msgstr "Rectifie : "
+
+#, python-format
+#~ msgid "Ref."
+#~ msgstr "Réf."
+
+#~ msgid "Reference of the returned Order"
+#~ msgstr "Réference de la vente retournée"
+
+#~ msgid "Refund Orders"
+#~ msgstr "Commandes remboursées"
+
+#~ msgid "Refund Orders Quantity"
+#~ msgstr "Nombre de remboursements"
+
+#~ msgid "Refunds"
+#~ msgstr "Remboursements"
+
+#~ msgid "Returned Order"
+#~ msgstr "Commande retournée"
+
+#, python-format
+#~ msgid "Returned order:"
+#~ msgstr "Commande retournée:"
+
+#, python-format
+#~ msgid "Search Order"
+#~ msgstr "Recherche une commande"
+
+#, python-format
+#~ msgid ""
+#~ "Unable to load some order lines because the products are not available in "
+#~ "the POS cache.\n"
+#~ "\n"
+#~ "Please check that lines :\n"
+#~ "\n"
+#~ "  * "
+#~ msgstr ""
+#~ "Impossible de charger certaines lignes de ticket car les produits ne sont "
+#~ "pas disponible dans le point de vente\n"
+#~ "Veuillez vérifier les lignes suivantes : \n"
+#~ "\n"
+#~ "  * "
+
+#, python-format
+#~ msgid "Unknown Products"
+#~ msgstr "Produit inconnu"
 
 #~ msgid "Allow to duplicate done orders in this POS"
 #~ msgstr ""
