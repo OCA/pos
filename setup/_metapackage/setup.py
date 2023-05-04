@@ -23,6 +23,7 @@ setuptools.setup(
         'odoo14-addon-pos_hide_banknote_button',
         'odoo14-addon-pos_margin',
         'odoo14-addon-pos_no_cash_bank_statement',
+        'odoo14-addon-pos_order_mgmt',
         'odoo14-addon-pos_order_product_search',
         'odoo14-addon-pos_order_remove_line',
         'odoo14-addon-pos_order_return',
