@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="pos_config_view_form_inh_pos_return_voucher" model="ir.ui.view">
+        <field name="name">pos.config.view.form.inherit</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='receipt']" position="after">
+                <h2>Return vouchers</h2>
+                <div class="row mt16 o_settings_container" id="return_voucher">
+                    <div
+                        id="rv_validity"
+                        class="col-12 col-lg-6 o_setting_box"
+                        groups="base.group_no_one"
+                    >
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Validity days</span>
+                            <div class="text-muted">
+                                Set return voucher life days
+                            </div>
+                            <div class="content-group mt16 row">
+                                <label
+                                    for="return_voucher_validity"
+                                    string="Validity days"
+                                    class="col-lg-3 o_light_label"
+                                />
+                                <field name="return_voucher_validity" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
