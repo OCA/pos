@@ -2,8 +2,8 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="SessionUserName" owl="1">
-        <div class="oe_status" t-if="env.pos.config.module_pos_hr">
-            <span class="username" t-if="!env.isMobile">
+        <div class="oe_status">
+            <span class="username">
                 <t t-esc="username" />
             </span>
         </div>
@@ -15,11 +15,8 @@
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath
-            expr="//div[hasclass('pos-rightheader')]/div[hasclass('search-bar-portal')]"
-            position="before"
-        >
-            <SessionUserName />
+        <xpath expr="//CashierName" position="before">
+            <SessionUserName t-if="env.pos and env.pos.config and !env.isMobile" />
         </xpath>
     </t>
 

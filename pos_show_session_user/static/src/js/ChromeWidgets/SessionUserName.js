@@ -6,13 +6,10 @@ odoo.define("pos_show_session_user.SessionUserName", function (require) {
 
     class SessionUserName extends PosComponent {
         get username() {
-            const username = this.env.session.name;
-            if (username) {
-                return username;
-            }
-            return "";
+            return this.env.session.name || "";
         }
     }
+
     SessionUserName.template = "SessionUserName";
 
     Registries.Component.add(SessionUserName);
