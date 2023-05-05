@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 13.0\n"
+"Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,21 +15,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
-#, python-format
-msgid "Back"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "Check your internet connection and try again."
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Confirmed Sale Order"
 msgstr ""
@@ -41,7 +27,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Delivered Sale Order"
 msgstr ""
@@ -53,7 +39,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Draft Sale Order"
 msgstr ""
@@ -65,21 +51,36 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
-msgid "Create Sale Order"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "Create Sale Order and discard the current PoS Order?"
+msgid "Create Order"
 msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
 msgid "Create Sale Orders"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Discard"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order__display_name
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order__id
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order_line__id
+msgid "ID"
 msgstr ""
 
 #. module: pos_order_to_sale_order
@@ -104,17 +105,10 @@ msgid ""
 msgstr ""
 
 #. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "No customer defined"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
-#, python-format
-msgid "Order"
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order____last_update
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order_line____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: pos_order_to_sale_order
@@ -141,27 +135,4 @@ msgstr ""
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "The order could not be sent"
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid ""
-"This operation will permanently discard the current PoS Order and create a "
-"Sale Order, based on the current order lines."
-msgstr ""
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "You should select a customer in order to create a Sale Order."
 msgstr ""
