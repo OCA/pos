@@ -91,14 +91,12 @@ class PosOrder(models.Model):
         return order_ids
 
     def action_view_sale_order(self):
-        self.ensure_one()
-        linked_orders = self.lines.mapped("sale_order_origin_id")
         return {
             "type": "ir.actions.act_window",
             "name": _("Linked Sale Orders"),
             "res_model": "sale.order",
             "view_mode": "tree,form",
-            "domain": [("id", "in", linked_orders.ids)],
+            "domain": [("id", "in", self.lines.mapped("sale_order_origin_id").ids)],
         }
 
 
