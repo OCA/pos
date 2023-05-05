@@ -8,7 +8,7 @@
     "author": "KMEE, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "LGPL-3",
-    "maintainers": ["mileo"],
+    "maintainers": ["mileo", "ygcarvalh", "felipezago"],
     "depends": [
         "point_of_sale",
     ],

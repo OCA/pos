@@ -19,9 +19,9 @@ Pos Show Clock
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
     :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_show_clock
     :alt: Translate me on Weblate
-.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
-    :target: https://runbot.odoo-community.org/runbot/184/14.0
-    :alt: Try me on Runbot
+.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
+    :target: https://runboat.odoo-community.org/webui/builds.html?repo=OCA/pos&target_branch=14.0
+    :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
@@ -59,6 +59,7 @@ Contributors
 * `KMEE <https://www.kmee.com.br>`__:
     * Luis Felipe Mileo <mileo@kmee.com.br>
     * Ygor Carvalho <ygor.carvalho@kmee.com.br>
+    * Felipe Zago <felipe.zago@kmee.com.br>
 
 Other credits
 ~~~~~~~~~~~~~
@@ -83,10 +84,16 @@ promote its widespread use.
 .. |maintainer-mileo| image:: https://github.com/mileo.png?size=40px
     :target: https://github.com/mileo
     :alt: mileo
+.. |maintainer-ygcarvalh| image:: https://github.com/ygcarvalh.png?size=40px
+    :target: https://github.com/ygcarvalh
+    :alt: ygcarvalh
+.. |maintainer-felipezago| image:: https://github.com/felipezago.png?size=40px
+    :target: https://github.com/felipezago
+    :alt: felipezago
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-mileo| 
+|maintainer-mileo| |maintainer-ygcarvalh| |maintainer-felipezago| 
 
 This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_show_clock>`_ project on GitHub.
 

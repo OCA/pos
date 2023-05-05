@@ -4,7 +4,7 @@
     <t t-name="Clock" owl="1">
         <div class="oe_status time">
             <span>
-                <span t-if="!env.isMobile" t-esc="time" class="time" />
+                <span t-esc="state.current_time" class="time" />
             </span>
         </div>
     </t>
@@ -16,7 +16,7 @@
         owl="1"
     >
         <xpath expr="//SyncNotification" position="before">
-            <Clock />
+            <Clock t-if="!env.isMobile" />
         </xpath>
     </t>
 

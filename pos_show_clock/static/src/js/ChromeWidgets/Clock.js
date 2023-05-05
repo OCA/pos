@@ -8,29 +8,37 @@ odoo.define("pos_show_clock.Clock", function (require) {
     class Clock extends PosComponent {
         setup() {
             super.setup();
-            this.state = useState({current_time: ""});
-            this.mounted();
+            this.state = useState({current_time: this.time});
         }
-        mounted() {
-            this.updateCurrentTime();
+
+        get now() {
+            return moment(Date.now());
         }
-        updateCurrentTime() {
-            const now = Date.now();
-            const next_update = 60050 - parseInt(moment(now).format("ss")) * 1000;
-            // 1 min = 60.000ms
-            // 60000 + 50 (less then 100ms rule)
-            // it's the time we can update the minute without the user noticing
-            // the difference when comparing it to another watch.
-            this.state.current_time = moment(now).format("HH:mm");
-            this.invervalReference = setInterval(() => {
-                this.updateCurrentTime();
-            }, next_update);
+
+        get timeFormat() {
+            return "HH:mm";
         }
-        unmount() {
-            clearInterval(this.intervalReference);
-        }
+
         get time() {
-            return this.state.current_time;
+            return this.now.format(this.timeFormat);
+        }
+
+        mounted() {
+            this.intervalRef = setInterval(() => this.updateCurrentTime(), 1000);
+        }
+
+        willUnmount() {
+            if (this.intervalReference) {
+                clearInterval(this.intervalReference);
+            }
+        }
+
+        updateCurrentTime() {
+            if (this.time <= this.state.current_time) {
+                return;
+            }
+
+            this.state.current_time = this.time;
         }
     }
 
