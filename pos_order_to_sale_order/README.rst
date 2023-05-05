@@ -17,7 +17,7 @@ PoS Order To Sale Order
     :target: https://github.com/OCA/pos/tree/14.0/pos_order_to_sale_order
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14.0/pos-14.0-pos_order_to_sale_order
+    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_order_to_sale_order
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/184/14.0
