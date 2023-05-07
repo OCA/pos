@@ -17,3 +17,16 @@ For instance :
   without having selected the 'Invoice' option.
 
 .. figure:: ../static/description/pos_warning_sell_membership_product.png
+
+
+.. figure::::
+
+Title with bad number of=
+================
+
+Subtitle with bad quantity of +
+++++++++++++++++++++++++++++++++++++
+
+* 
+** 
+*
