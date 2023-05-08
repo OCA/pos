@@ -13,7 +13,8 @@ class PosCloseSessionWizard(models.TransientModel):
     message = fields.Text("Information message")
 
     def close_session(self):
-        session = self.env["pos.session"].browse(self.env.context["active_ids"])
-        return session.action_pos_session_closing_control(
-            self.account_id, self.amount_to_balance
+        return (
+            self.env["pos.session"]
+            .browse(self.env.context["active_ids"])
+            .action_pos_session_closing_control(self.account_id, self.amount_to_balance)
         )
