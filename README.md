@@ -56,6 +56,7 @@ addon | version | maintainers | summary
 [pos_reset_search](pos_reset_search/) | 14.0.1.0.1 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
 [pos_reuse_pricelist](pos_reuse_pricelist/) | 14.0.1.0.1 |  | PoS reuse pricelist
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 14.0.1.0.1 |  | Pay and receive invoices from PoS Session
+[pos_show_clock](pos_show_clock/) | 14.0.1.0.0 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) [![ygcarvalh](https://github.com/ygcarvalh.png?size=30px)](https://github.com/ygcarvalh) [![felipezago](https://github.com/felipezago.png?size=30px)](https://github.com/felipezago) | Point of Sale: Display Current Date and Time on POS sreen
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 |  | Point of sale: show pos config name
 [pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 14.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 14.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier data
