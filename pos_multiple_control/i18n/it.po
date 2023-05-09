@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-04-28 12:56+0000\n"
+"PO-Revision-Date: 2023-05-09 13:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -471,7 +471,7 @@ msgstr "Rendiconto"
 #. module: pos_multiple_control
 #: model:ir.model.fields,field_description:pos_multiple_control.field_wizard_update_cashbox_line__subtotal
 msgid "Subtotal"
-msgstr "Sub totale"
+msgstr "Subtotale"
 
 #. module: pos_multiple_control
 #: model:ir.model.fields,field_description:pos_multiple_control.field_pos_session__summary_statement_ids
