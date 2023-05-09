@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template
+            id="pos_show_clock_assets_backend"
+            name="pos_show_clock_assets_backend"
+            inherit_id="point_of_sale.assets"
+        >
+
+            <xpath expr="." position="inside">
+                <link
+                    rel="stylesheet"
+                    href="/pos_show_clock/static/src/css/pos.css"
+                    id="pos-stylesheet"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_show_clock/static/src/js/ChromeWidgets/Clock.js"
+                />
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
