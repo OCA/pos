@@ -28,8 +28,8 @@ odoo.define("pos_show_clock.Clock", function (require) {
         }
 
         willUnmount() {
-            if (this.intervalReference) {
-                clearInterval(this.intervalReference);
+            if (this.intervalRef) {
+                clearInterval(this.intervalRef);
             }
         }
 
