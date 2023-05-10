@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo14-addon-pos_order_remove_line',
         'odoo14-addon-pos_order_return',
         'odoo14-addon-pos_order_to_sale_order',
+        'odoo14-addon-pos_partner_birthdate',
         'odoo14-addon-pos_partner_firstname',
         'odoo14-addon-pos_payment_change',
         'odoo14-addon-pos_payment_method_cashdro',
