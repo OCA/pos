@@ -7,6 +7,7 @@
     "website": "https://github.com/OCA/pos",
     "author": "Cetmix, Odoo Community Association (OCA)",
     "maintainers": ["GabbasovDinar", "CetmixGitDrone"],
+    "images": ["static/description/banner.png"],
     "installable": True,
     "data": ["views/res_config_settings_view.xml"],
     "assets": {
