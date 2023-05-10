@@ -5,9 +5,9 @@ from odoo import models
 
 
 class PosSession(models.Model):
-    _inherit = 'pos.session'
+    _inherit = "pos.session"
 
     def _loader_params_product_product(self):
         result = super()._loader_params_product_product()
-        result['search_params']['fields'].append('pos_sequence')
+        result["search_params"]["fields"].append("pos_sequence")
         return result
