@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2023-04-28 15:33+0000\n"
+"PO-Revision-Date: 2023-05-11 17:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -131,7 +131,7 @@ msgstr "ID"
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__income_account_id
 msgid "Income Account"
-msgstr "Conto Entrate"
+msgstr "Conto ricavi"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
