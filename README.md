@@ -35,7 +35,7 @@ addon | version | maintainers | summary
 [pos_default_empty_image](pos_default_empty_image/) | 12.0.1.1.1 |  | Optimize loading time for products without image
 [pos_default_partner](pos_default_partner/) | 12.0.1.0.1 |  | Add a default customer in pos order
 [pos_disable_change_cashier](pos_disable_change_cashier/) | 12.0.1.0.1 |  | Disable the feature that allow to change cashier in the PoS
-[pos_empty_home](pos_empty_home/) | 12.0.1.0.0 |  | Point of Sale - Hide products at the start of the Point of Sale
+[pos_empty_home](pos_empty_home/) | 12.0.1.0.1 |  | Point of Sale - Hide products at the start of the Point of Sale
 [pos_fix_search_limit](pos_fix_search_limit/) | 12.0.1.0.1 |  | Increase search in the PoS
 [pos_fixed_discount](pos_fixed_discount/) | 12.0.1.0.2 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Hide useless Banknote buttons in the PoS (+10, +20, +50)
