@@ -19,8 +19,10 @@
         "point_of_sale.assets": [
             "pos_order_to_sale_order/static/src/js/PosOrderToSaleOrderButton.js",
             "pos_order_to_sale_order/static/src/js/PosOrderToSaleOrderPopup.js",
+            "pos_order_to_sale_order/static/src/js/PosSeeSaleOrdersButton.js",
         ],
     "web.assets_qweb": [
+        "pos_order_to_sale_order/static/src/xml/PosSeeSaleOrdersButton.xml",
         "pos_order_to_sale_order/static/src/xml/PosOrderToSaleOrderButton.xml",
         "pos_order_to_sale_order/static/src/xml/PosOrderToSaleOrderPopup.xml",
      ],
