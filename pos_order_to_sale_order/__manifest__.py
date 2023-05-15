@@ -14,7 +14,6 @@
     "website": "https://github.com/OCA/pos",
     "data": [
         "views/view_pos_config.xml",
-        "views/assets.xml",
     ],
     "assets": {
         "point_of_sale.assets": [
