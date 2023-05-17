@@ -17,7 +17,7 @@ Point Of Sale - Change Payments
     :target: https://github.com/OCA/pos/tree/16.0/pos_payment_change
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-15-0/pos-15-0-pos_payment_change
+    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_payment_change
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/184/16.0
