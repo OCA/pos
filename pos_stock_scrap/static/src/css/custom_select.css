@@ -1,0 +1,66 @@
+div.o_custom_select {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+    text-align: left;
+    line-height: 30px;
+    clear: both;
+}
+
+span.selected {
+    text-indent: 20px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background: #f6f6f6;
+    overflow: hidden;
+}
+
+span.o_custom_select_arrow {
+    width: 30px;
+    border: 1px solid;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+span.o_custom_select_arrow,
+span.selected {
+    position: relative;
+    float: left;
+    height: 30px;
+}
+
+div.o_custom_select_options {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    border: 1px solid #ccc;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 153px;
+    background: #f6f6f6;
+    padding-top: 2px;
+    display: none;
+    z-index: 1;
+}
+
+span.o_custom_select_option {
+    display: block;
+    line-height: 20px;
+    padding: 5px 20px;
+}
+
+span.o_custom_select_option:hover {
+    color: #f6f6f6;
+    background: #4096ee;
+}

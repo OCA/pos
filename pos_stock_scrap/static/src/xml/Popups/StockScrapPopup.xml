@@ -22,7 +22,7 @@
 
                                     <tbody>
                                         <tr
-                                            t-foreach="templates"
+                                            t-foreach="templates_list"
                                             t-as="tmpl"
                                             t-key="tmpl.name"
                                         >
@@ -35,50 +35,43 @@
                                 </table>
                             </div>
 
-                            <div class="popup-form" t-if="state.productId">
-                                <span class="field-label">Variant: </span>
-                                <select
-                                    class="pos-input pos-input-select"
-                                    style="width: 500px !important"
-                                    t-model="state.productVariantId"
-                                >
-                                    <option
-                                        id="variantId"
-                                        t-foreach="variants"
-                                        t-as="var"
-                                        t-key="var.display_name"
-                                        t-att-value="var.id"
-                                    >
-                                        <t t-esc="var.display_name" />
-                                    </option>
-                                </select>
+                            <div t-if="state.productId">
+                                <div class="popup-form-input">
+                                    <span class="field-label" style="display: block;">
+                                        Variant:
+                                    </span>
+                                    <CustomSelect
+                                        id="variant_select_id"
+                                        list="variants_list"
+                                        width="500"
+                                    />
+                                </div>
 
-                                <span class="field-label">Quantity: </span>
-                                <input
-                                    class="pos-input"
-                                    type="number"
-                                    t-model="state.productQty"
-                                />
+                                <div
+                                    class="popup-form-input"
+                                    t-if="env.pos.db.scrap_reason_code_by_id"
+                                >
+                                    <span class="field-label" style="display: block;">
+                                        Scrap Reason:
+                                    </span>
+                                    <CustomSelect
+                                        id="reason_code_select_id"
+                                        list="reason_codes_list"
+                                        width="500"
+                                    />
+                                </div>
+
+                                <div class="popup-form-input">
+                                    <span class="field-label">Quantity: </span>
+                                    <input
+                                        class="pos-input"
+                                        type="number"
+                                        t-model="state.productQty"
+                                    />
+                                </div>
                             </div>
 
-                            <div class="popup-form" t-if="env.pos.scrap_reason_codes">
-                                <span class="field-label">Scrap Reason: </span>
-                                <select
-                                    class="pos-input pos-input-select"
-                                    t-model="state.scrapReasonId"
-                                >
-                                    <option
-                                        t-foreach="env.pos.scrap_reason_codes"
-                                        t-as="code"
-                                        t-key="code.name"
-                                        t-att-value="code.id"
-                                    >
-                                        <t t-esc="code.name" />
-                                    </option>
-                                </select>
-                            </div>
-
-                            <div class="error-msg popup-form">
+                            <div class="error-msg popup-form-input">
                                 Please fill the necessary data.
                             </div>
                         </div>

@@ -29,6 +29,11 @@
             />
 
             <script
+                src="/pos_stock_scrap/static/src/js/CustomSelect.js"
+                type="text/javascript"
+            />
+
+            <script
                 src="/pos_stock_scrap/static/src/js/Popups/StockScrapPopup.js"
                 type="text/javascript"
             />
@@ -36,6 +41,11 @@
             <script
                 src="/pos_stock_scrap/static/src/js/StockScrapButton.js"
                 type="text/javascript"
+            />
+
+            <link
+                rel="stylesheet"
+                href="/pos_stock_scrap/static/src/css/custom_select.css"
             />
 
             <link rel="stylesheet" href="/pos_stock_scrap/static/src/css/pos.css" />

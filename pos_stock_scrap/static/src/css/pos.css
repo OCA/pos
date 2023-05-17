@@ -1,7 +1,7 @@
 /** Stock Scrap Popup **/
 
 .pos .stock-scrap-popup {
-    max-width: 800px !important;
+    max-width: 700px !important;
 }
 
 .pos .stock-scrap-popup .header {
@@ -27,7 +27,7 @@
     display: none;
 }
 
-.pos .stock-scrap-popup .popup-form {
+.pos .stock-scrap-popup .popup-form-input {
     margin-top: 15px;
 }
 

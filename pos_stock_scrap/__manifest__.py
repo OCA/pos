@@ -17,6 +17,7 @@
         "views/pos_template.xml",
     ],
     "qweb": [
+        "static/src/xml/CustomSelect.xml",
         "static/src/xml/StockScrapButton.xml",
         "static/src/xml/Popups/StockScrapPopup.xml",
     ],

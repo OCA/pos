@@ -73,49 +73,49 @@ msgstr "Codigos de Motivo de Perda"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapButton.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapButton.xml:0
 #, python-format
 msgid "POS Stock Scrap Button"
 msgstr "Botão de perdas do PDV"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapButton.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapButton.xml:0
 #, python-format
 msgid "Scraps"
 msgstr "Perdas"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapPopup.xml:0
 #, python-format
 msgid "Product:"
 msgstr "Produto:"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapPopup.xml:0
 #, python-format
 msgid "STOCK SCRAP"
 msgstr "LANÇAMENTO DE PERDA"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapPopup.xml:0
 #, python-format
 msgid "Scrap Reason:"
 msgstr "Motivo da Perda:"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapPopup.xml:0
 #, python-format
 msgid "Variant:"
 msgstr "Variante:"
 
 #. module: pos_stock_scrap
 #. openerp-web
-#: code:addons/pos_stock_scrap/static/src/xml/ChromeWidgets/StockScrapPopup.xml:0
+#: code:addons/pos_stock_scrap/static/src/xml/Popup/StockScrapPopup.xml:0
 #, python-format
 msgid "Please fill the necessary data."
 msgstr "Por favor, preencha os dados obrigatórios."
@@ -126,3 +126,10 @@ msgstr "Por favor, preencha os dados obrigatórios."
 #, python-format
 msgid "Please fill all the necessary data to proceed."
 msgstr "Por favor, preencha todos os dados necessários para prosseguir."
+
+#. module: pos_stock_scrap
+#. openerp-web
+#: code:addons/pos_stock_scrap/static/src/xml/CustomSelect.xml:0
+#, python-format
+msgid "SELECT AN OPTION"
+msgstr "SELECIONE UMA OPÇÃO"

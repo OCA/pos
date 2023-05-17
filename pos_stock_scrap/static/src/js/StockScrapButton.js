@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016-Today KMEE (https://kmee.com.br)
+    Copyright (C) 2023 KMEE (https://kmee.com.br)
     @author: Felipe Zago <felipe.zago@kmee.com.br>
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
@@ -13,11 +13,7 @@ odoo.define("pos_stock_crap.StockScrapButton", function (require) {
 
     class StockScrapButton extends PosComponent {
         setup() {
-            useListener("click", this.onClick);
-        }
-
-        async onClick() {
-            this.showPopup("StockScrapPopup", {});
+            useListener("click", () => this.showPopup("StockScrapPopup", {}));
         }
     }
 

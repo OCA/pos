@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 KMEE
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="CustomSelect" owl="1">
+        <div class="o_custom_select" t-att-id="props.id">
+            <t
+                t-set="custom_width"
+                t-value="'width: ' + (props.width or 300) + 'px;'"
+            />
+            <span
+                class="selected"
+                t-att-style="custom_width"
+                t-att-value="state.selectedItemId"
+                t-esc="state.selectedItemLabel"
+            />
+            <span class="o_custom_select_arrow">
+                <i class="fa fa-arrow-down" />
+            </span>
+
+            <div class="o_custom_select_options" t-att-style="custom_width">
+                <span
+                    class="o_custom_select_option o_empty_option"
+                    t-if="props.hasEmptyOption"
+                >
+                    SELECT AN OPTION
+                </span>
+
+                <t t-foreach="props.list" t-as="item" t-key="item.id">
+                    <span
+                        class="o_custom_select_option"
+                        t-att-value="item.id"
+                        t-esc="item.label"
+                    />
+                </t>
+            </div>
+        </div>
+    </t>
+
+</templates>

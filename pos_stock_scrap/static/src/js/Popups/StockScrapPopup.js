@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2016-Today KMEE (https://kmee.com.br)
+    Copyright (C) 2023 KMEE (https://kmee.com.br)
     @author: Felipe Zago <felipe.zago@kmee.com.br>
     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 */
@@ -16,9 +16,8 @@ odoo.define("pos_stock_crap.StockScrapPopup", function (require) {
             onMounted(() => {
                 $("table").DataTable();
 
-                const self = this;
                 $(document).on("click", ".scrap-product-table td", (ev) =>
-                    self._selectProduct(ev)
+                    this.selectProduct(ev)
                 );
 
                 $(document).on("keyup", "[type=search]", function (ev) {
@@ -29,57 +28,71 @@ odoo.define("pos_stock_crap.StockScrapPopup", function (require) {
             });
 
             this.state = useState({});
-            this.product_by_id = this.env.pos.db.product_by_id;
-            this.template_by_id = this.env.pos.db.template_by_id;
+            this.db = this.env.pos.db;
         }
 
-        _selectProduct(event) {
+        get variant_select_id() {
+            return "variant_select";
+        }
+
+        get reason_code_select_id() {
+            return "reason_code_select";
+        }
+
+        get templates_list() {
+            return Object.entries(this.db.template_by_id).map((templ) => templ[1]);
+        }
+
+        get variants_list() {
+            const selectedTemplate = this.db.template_by_id[this.state.productId];
+            const variant_ids = selectedTemplate.product_variant_ids.map(
+                (product_id) => this.db.product_by_id[product_id]
+            );
+
+            return _.map(variant_ids, (variant) => {
+                return {
+                    id: variant.id,
+                    label: variant.display_name,
+                };
+            });
+        }
+
+        get reason_codes_list() {
+            return _.map(this.db.scrap_reason_code_by_id, (reason) => {
+                return {
+                    id: reason.id,
+                    label: reason.name,
+                };
+            });
+        }
+
+        get selectedVariant() {
+            const variantId = this.getSelectValueById(this.variant_select_id);
+            if (!variantId) return;
+
+            return this.db.product_by_id[variantId];
+        }
+
+        get selectedReasonCode() {
+            const reasonCodeId = this.getSelectValueById(this.reason_code_select_id);
+            if (!reasonCodeId) return;
+
+            return this.db.scrap_reason_code_by_id[reasonCodeId];
+        }
+
+        getSelectValueById(id) {
+            const selected = $("#" + id).find(".selected");
+            if (selected.length === 0) return;
+
+            return parseInt(selected.attr("value"), 10);
+        }
+
+        selectProduct(event) {
             const $target = $(event.currentTarget);
             $("td").removeClass("highlighted");
             $target.addClass("highlighted");
 
             this.state.productId = $target.attr("value");
-        }
-
-        get templates() {
-            return Object.entries(this.template_by_id).map((a) => a[1]);
-        }
-
-        get selectedTemplate() {
-            return this.templates.find(
-                (value) => value.id === parseInt(this.state.productId)
-            );
-        }
-
-        get variants() {
-            return this.selectedTemplate.product_variant_ids.map(
-                (a) => this.product_by_id[a]
-            );
-        }
-
-        get selectedVariant() {
-            return this.product_by_id[$("#variantId").val()];
-        }
-
-        validateFields() {
-            return (
-                this.selectedVariant &&
-                this.state.productQty &&
-                (this.env.pos.scrap_reason_codes.length
-                    ? this.state.scrapReasonId !== undefined
-                    : true)
-            );
-        }
-
-        prepareStockScrapVals() {
-            return {
-                product_id: this.selectedVariant.id,
-                product_uom_id: this.selectedVariant.uom_id[0],
-                scrap_qty: parseFloat(this.state.productQty),
-                reason_code_id: parseInt(this.state.scrapReasonId),
-                location_id: this.env.pos.config.scrap_location_id[0],
-                scrap_location_id: this.env.pos.config.scrap_source_location_id[0],
-            };
         }
 
         async createStockScrap() {
@@ -95,6 +108,27 @@ odoo.define("pos_stock_crap.StockScrapPopup", function (require) {
             });
 
             this.cancel();
+        }
+
+        validateFields() {
+            return (
+                this.selectedVariant &&
+                this.state.productQty &&
+                (Object.keys(this.db.scrap_reason_code_by_id).length
+                    ? this.selectedReasonCode !== undefined
+                    : true)
+            );
+        }
+
+        prepareStockScrapVals() {
+            return {
+                product_id: this.selectedVariant.id,
+                product_uom_id: this.selectedVariant.uom_id[0],
+                scrap_qty: parseFloat(this.state.productQty),
+                reason_code_id: this.selectedReasonCode.id,
+                location_id: this.env.pos.config.scrap_location_id[0],
+                scrap_location_id: this.env.pos.config.scrap_source_location_id[0],
+            };
         }
     }
 
