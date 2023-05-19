@@ -40,7 +40,7 @@ odoo.define("pos_crm.models", function (require) {
             _super_order.set_client.call(this, client);
             this.assert_editable();
             if (client) {
-                this.customer_tax_id = client.vat || null;
+                this.customer_tax_id = client.vat || this.customer_tax_id;
             }
         },
         ask_customer_data: async function (component, screen) {
