@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-22 15:22+0000\n"
+"PO-Revision-Date: 2023-05-22 12:09+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -144,7 +144,7 @@ msgstr "Paga la fattura"
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_id
 msgid "Payment Method"
-msgstr "Metodo pagamento"
+msgstr "Metodo di pagamento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_count
