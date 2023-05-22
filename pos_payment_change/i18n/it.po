@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-12 12:47+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-05-22 12:09+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:0
@@ -166,7 +166,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_payment_method_id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_payment_method_id
 msgid "Payment Method"
-msgstr "Metodo pagamento"
+msgstr "Metodo di pagamento"
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard
@@ -229,7 +229,7 @@ msgstr "Aggiorna pagamenti"
 #: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
 #: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
 msgid "Utility field to express amount currency"
-msgstr "Campo utilità per esprimere il valore valuta"
+msgstr "Campo utilità per esprimere la valuta del valore"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__wizard_id
