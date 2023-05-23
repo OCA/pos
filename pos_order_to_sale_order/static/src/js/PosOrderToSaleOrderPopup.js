@@ -41,7 +41,7 @@ odoo.define("pos_order_to_sale_order.PosOrderToSaleOrderPopup", function (requir
            rpc.query({
                model: 'sale.order',
                method: 'create_order_from_pos',
-               args: [this.props.orderJson, "sale"],
+               args: [this.props.orderJson, "confirmed"],
            }).then(function (result) {
                confirmed=true;
            }).catch(function (error, event) {
@@ -65,7 +65,7 @@ odoo.define("pos_order_to_sale_order.PosOrderToSaleOrderPopup", function (requir
            rpc.query({
                model: 'sale.order',
                method: 'create_order_from_pos',
-               args: [this.props.orderJson, "done"],
+               args: [this.props.orderJson, "delivered"],
            }).then(function (result) {
                confirmed=true;
            }).catch(function (error, event) {
