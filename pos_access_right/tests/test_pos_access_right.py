@@ -1,6 +1,6 @@
-from odoo.tests import TransactionCase, tagged
+from odoo.tests import TransactionCase
 
-from odoo.addons.pos_hr.tests.test_frontend import TestPosHrHttpCommon
+# from odoo.addons.pos_hr.tests.test_frontend import TestPosHrHttpCommon
 
 
 class TestUserRestriction(TransactionCase):
@@ -21,11 +21,14 @@ class TestUserRestriction(TransactionCase):
                 "groups_id": [(6, 0, [cls.env.ref("point_of_sale.group_pos_user").id])],
             }
         )
+        cls.pos_emp = cls.env["hr.employee"].create(
+            {"name": "pos_emp", "user_id": cls.pos_user.id}
+        )
         cls.pos_config_main = cls.env.ref("point_of_sale.pos_config_main")
-        cls.pos_config_model = cls.env["pos.config"]
 
     def test_access_pos(self):
         self.pos_config_main._compute_groups()
+
         self.group_negative_qty = self.env.ref("pos_access_right.group_negative_qty")
         self.assertEqual(
             self.group_negative_qty, self.pos_config_main.group_negative_qty_id
@@ -62,9 +65,4 @@ class TestUserRestriction(TransactionCase):
 
         self.group_payment = self.env.ref("pos_access_right.group_payment")
         self.assertEqual(self.group_payment, self.pos_config_main.group_payment_id)
-
-
-@tagged("post_install", "-at_install")
-class TestPosAccessRightHttpCommonUi(TestPosHrHttpCommon):
-    def test_01_load_employee(self):
-        self.main_pos_config.open_ui()
+        self.pos_config_main.open_ui()

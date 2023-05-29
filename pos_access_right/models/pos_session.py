@@ -19,6 +19,7 @@ class PosSession(models.Model):
                 hasGroupMultiOrder=config.group_multi_order_id in groups,
                 hasGroupDeleteOrder=config.group_delete_order_id in groups,
                 hasGroupDeleteOrderLine=config.group_delete_order_line_id in groups,
+                hasGroupRefundAction=config.group_refund_action in groups,
             )
         return user_vals
 
@@ -55,6 +56,10 @@ class PosSession(models.Model):
 
                 employee["hasGroupDeleteOrderLine"] = (
                     True if config.group_delete_order_line_id in groups else False
+                )
+
+                employee["hasGroupRefundAction"] = (
+                    True if config.group_refund_action in groups else False
                 )
 
         return employees

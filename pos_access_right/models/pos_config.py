@@ -60,6 +60,14 @@ class PosConfig(models.Model):
         " Group to the Point of Sale Frontend.",
     )
 
+    group_refund_action = fields.Many2one(
+        comodel_name="res.groups",
+        compute="_compute_groups",
+        string="Point of Sale - Refund",
+        help="This field is to hide Refund Button for non Accounting/Pos Manager"
+        " Group to the Point of Sale Frontend.",
+    )
+
     def _compute_groups(self):
         self.update(
             {
@@ -80,5 +88,8 @@ class PosConfig(models.Model):
                     "pos_access_right.group_delete_order_line"
                 ).id,
                 "group_payment_id": self.env.ref("pos_access_right.group_payment").id,
+                "group_refund_action": self.env.ref(
+                    "pos_access_right.group_refund_action"
+                ).id,
             }
         )
