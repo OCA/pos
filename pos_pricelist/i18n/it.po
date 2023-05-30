@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-28 18:31+0000\n"
-"PO-Revision-Date: 2023-01-18 11:53+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2023-05-30 09:10+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-pos-8-0/language/it/"
 ")\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,amount:0 view:website:point_of_sale.report_receipt
@@ -58,7 +58,7 @@ msgstr "Creato il"
 #. module: pos_pricelist
 #: field:pos.order.tax,display_name:0
 msgid "Display Name"
-msgstr "Nome da visualizzare"
+msgstr "Nome visualizzato"
 
 #. module: pos_pricelist
 #: help:pos.config,display_price_with_taxes:0
