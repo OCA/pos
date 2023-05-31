@@ -23,12 +23,12 @@ class PosSession(models.Model):
         # I have to do that because the method
         # _create_cash_statement_lines_and_cash_move_lines()
         # reads payment_method_id.cash_journal_id
-        payment_methods_bank_statement = self.env["pos.payment.method"].search(
-            [
-                ("is_cash_count", "=", False),
-                ("bank_statement", "=", True),
-                ("cash_journal_id", "!=", False),
-            ]
+        payment_methods_bank_statement = self.config_id.payment_method_ids.filtered(
+            lambda payment_method: (
+                not payment_method.is_cash_count
+                and payment_method.bank_statement
+                and payment_method.cash_journal_id
+            )
         )
         if payment_methods_bank_statement:
             self.write(
