@@ -17,6 +17,17 @@ odoo.define("pos_margin_access_right.ClosePosPopup", function (require) {
             getShowDiffRole(pm) {
                 if (this.getManagerRole()) return pm.type == "bank" && pm.number !== 0;
             }
+            async confirm() {
+                const absDifferences = Object.entries(this.state.payments).map((pm) =>
+                    Math.abs(pm[1].difference)
+                );
+                if (
+                    this.hasDifference() &&
+                    Math.max(...absDifferences) <= this.amountAuthorizedDiff
+                )
+                    this.closeSession();
+                else super.confirm();
+            }
         };
     Registries.Component.extend(ClosePosPopup, PosMarClosePosPopup);
     return ClosePosPopup;
