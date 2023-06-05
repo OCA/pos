@@ -18,8 +18,21 @@ msgstr ""
 
 #. module: pos_partner_firstname
 #. openerp-web
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:8
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:37
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "!props.partner.is_company"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/js/ClientDetailsEdit.js:0
+#, python-format
+msgid "Both Customer First and Last Name Are Required"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
 msgid "Company"
 msgstr "Société"
@@ -30,17 +43,52 @@ msgid "Contact"
 msgstr "Contact"
 
 #. module: pos_partner_firstname
-#. openerp-web
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:19
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:47
-#, python-format
-msgid "Name"
-msgstr "Nom"
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: pos_partner_firstname
 #. openerp-web
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:25
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:53
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
-msgid "Surname"
-msgstr "Nom de famille"
+msgid "First Name"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "FirstName"
+msgstr ""
+
+#. module: pos_partner_firstname
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_partner_firstname
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "Last Name"
+msgstr ""
+
+#. module: pos_partner_firstname
+#. openerp-web
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "LastName"
+msgstr ""
+
+#, python-format
+#~ msgid "Name"
+#~ msgstr "Nom"
+
+#, python-format
+#~ msgid "Surname"
+#~ msgstr "Nom de famille"
