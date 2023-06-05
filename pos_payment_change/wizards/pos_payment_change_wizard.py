@@ -68,7 +68,8 @@ class PosPaymentChangeWizard(models.TransientModel):
                 total,
                 self.amount_total,
                 precision_rounding=self.order_id.currency_id.rounding,
-            ) != 0
+            )
+            != 0
         ):
             raise UserError(
                 _(
