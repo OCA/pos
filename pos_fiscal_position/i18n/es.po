@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_fiscal_position
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-17 07:03+0000\n"
+"PO-Revision-Date: 2023-04-17 07:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_fiscal_position
+#: model:ir.model,name:pos_fiscal_position.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: pos_fiscal_position
+#: model:res.groups,name:pos_fiscal_position.group_account_fields_on_pos
+msgid "Display account fields on pos settings"
+msgstr "Mostrar campos de contabilidad en ajustes de TPV"
+
+#. module: pos_fiscal_position
+#: model_terms:ir.ui.view,arch_db:pos_fiscal_position.res_config_settings_view_form_inherit
+msgid "Hide Fiscal Position Button"
+msgstr "Ocultar botón de posición fiscal"
+
+#. module: pos_fiscal_position
+#: model:ir.model.fields,field_description:pos_fiscal_position.field_pos_config__hide_fiscal_position_button
+#: model:ir.model.fields,field_description:pos_fiscal_position.field_res_config_settings__pos_hide_fiscal_position_button
+msgid "Hide fiscal position button"
+msgstr "Ocultar botón de posición fiscal"
+
+#. module: pos_fiscal_position
+#: model_terms:ir.ui.view,arch_db:pos_fiscal_position.res_config_settings_view_form_inherit
+msgid "Hide fiscal position button in PoS Interface"
+msgstr "Ocultar botón de la posición fiscal en la interfaz del TPV"
+
+#. module: pos_fiscal_position
+#: model:ir.model,name:pos_fiscal_position.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_fiscal_position
+#. odoo-javascript
+#: code:addons/pos_fiscal_position/static/src/js/SetFiscalPositionButton.js:0
+#, python-format
+msgid "Select Fiscal Position"
+msgstr "Seleccionar posición fiscal"

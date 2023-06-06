@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="group_account_fields_on_pos" model="res.groups">
+        <field name="name">Display account fields on pos settings</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+
+</odoo>
