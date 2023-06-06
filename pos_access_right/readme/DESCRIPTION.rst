@@ -6,3 +6,4 @@ This module extends Odoo Point Of Sale features, restricting possibility to cash
 * **PoS - Many Orders**: The cashier can many orders at the same time;
 * **PoS - Delete Order**: The cashier can not delete a full order;
 * **PoS - Delete Order Line**: The cashier can not delete an order line;
+* **Pos - Refund Order**: The cashier can not do refund of an order;

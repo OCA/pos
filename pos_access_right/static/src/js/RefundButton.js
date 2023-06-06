@@ -5,10 +5,15 @@ odoo.define("pos_access_right.RefundButton", function (require) {
 
     const PosRefundButton = (RefundButton) =>
         class extends RefundButton {
-            get hasRefundButtonRights() {
-                if (this.env.pos.config.module_pos_hr)
-                    return this.env.pos.get_cashier().hasGroupRefundAction;
-                return this.env.pos.user.hasGroupRefundAction;
+            _onClick() {
+                if (this.env.pos.config.module_pos_hr) {
+                    if (this.env.pos.get_cashier().hasGroupRefundAction) {
+                        return super._onClick();
+                    }
+                } else if (this.env.pos.user.hasGroupRefundAction)
+                    return super._onClick();
+
+                return false;
             }
         };
 

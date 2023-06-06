@@ -65,4 +65,8 @@ class TestUserRestriction(TransactionCase):
 
         self.group_payment = self.env.ref("pos_access_right.group_payment")
         self.assertEqual(self.group_payment, self.pos_config_main.group_payment_id)
-        self.pos_config_main.open_ui()
+
+        self.group_refund_action = self.env.ref("pos_access_right.group_refund_action")
+        self.assertEqual(
+            self.group_refund_action, self.pos_config_main.group_refund_action
+        )
