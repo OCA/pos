@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2023-05-11 17:34+0000\n"
+"PO-Revision-Date: 2023-06-07 13:17+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
@@ -121,7 +121,7 @@ msgstr "Mostra Motivo Movimento in Entrata"
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__display_name
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__display_name
 msgid "Display Name"
-msgstr "Nome Visualizzato"
+msgstr "Nome visualizzato"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__expense_account_id
