@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
-@author Sylvain LE GAL (https://twitter.com/legalsylvain)
-License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
--->
 
 <odoo>
 
@@ -11,13 +6,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="pos_margin.view_pos_order_form"/>
         <field name="arch" type="xml">
-            <!--<field name="margin" position="attributes">-->
-                <!--<attribute name="groups">account.group_account_user</attribute>-->
-            <!--</field>-->
-
-             <!--<field name="margin_percent" position="attributes">-->
-                <!--<attribute name="groups">account.group_account_user</attribute>-->
-            <!--</field>-->
 
             <xpath expr="//group[@name='order_total']/field[@name='margin']" position="attributes">
                 <attribute name="groups">account.group_account_user</attribute>

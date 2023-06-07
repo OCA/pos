@@ -3,13 +3,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
-    'name': 'PoS Order Margin',
+    'name': 'PoS Order Margin Accounting Role',
     'summary': 'Margin on PoS Order for Accounting Role',
-    'version': '12.0.2.0.2',
+    'version': '12.0.1.0.0',
     'category': 'Point Of Sale',
-    'author': "GRAP,"
+    'author': "Jumeldi - Solusi Aglis Indonesia Ltd,"
               "Odoo Community Association (OCA)",
-    "maintainers": ["legalsylvain"],
+    "maintainers": ["jumeldi74"],
     'website': 'https://github.com/OCA/pos',
     'license': 'AGPL-3',
     'depends': [
@@ -17,9 +17,6 @@
     ],
     'data': [
         'views/view_pos_order.xml',
-    ],
-    'qweb': [
-        # 'static/src/xml/pos_margin.xml',
     ],
     'installable': True,
 }
