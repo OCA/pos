@@ -1,1 +1,1 @@
-* Jumeldi <jumeldi74@gmail.com, Solusi Aglis Indonesia Ltd>
+* Jumeldi <jumeldi74@gmail.com, PT Solusi Aglis Indonesia>

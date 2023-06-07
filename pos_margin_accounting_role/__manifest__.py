@@ -7,7 +7,7 @@
     'summary': 'Margin on PoS Order for Accounting Role',
     'version': '12.0.1.0.0',
     'category': 'Point Of Sale',
-    'author': "Jumeldi - Solusi Aglis Indonesia Ltd,"
+    'author': "Jumeldi - PT Solusi Aglis Indonesia,"
               "Odoo Community Association (OCA)",
     "maintainers": ["jumeldi74"],
     'website': 'https://github.com/OCA/pos',
