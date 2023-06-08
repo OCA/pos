@@ -1,7 +1,7 @@
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestUserRestriction(SavepointCase):
+class TestUserRestriction(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -41,38 +41,47 @@ class TestUserRestriction(SavepointCase):
 
     def test_access_pos(self):
         # assigned_user_ids is not set: both users can read
-        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search([])
+        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search(
+            [
+                (
+                    "id",
+                    "=",
+                    self.pos_config_main.id,
+                )  # for tests to pass if pos_restaurant is installed
+            ]
+        )
         self.assertTrue(pos_configs)
         pos_configs = self.pos_config_model.with_user(
             self.pos_user_assigned_pos.id
-        ).search([])
+        ).search([("id", "=", self.pos_config_main.id)])
         self.assertTrue(pos_configs)
 
         self.pos_config_main.assigned_user_ids = [
             (6, 0, [self.pos_user_assigned_pos.id])
         ]
         # assigned_user_ids is set with pos_user_assigned_pos: both users can read
-        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search([])
+        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search(
+            [("id", "=", self.pos_config_main.id)]
+        )
         self.assertTrue(pos_configs)
         pos_configs = self.pos_config_model.with_user(
             self.pos_user_assigned_pos.id
-        ).search([])
+        ).search([("id", "=", self.pos_config_main.id)])
         self.assertTrue(pos_configs)
-
         self.pos_config_main.assigned_user_ids = [(6, 0, [self.pos_user.id])]
         # assigned_user_ids is set with pos_user: only pos_user can read
-        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search([])
+        pos_configs = self.pos_config_model.with_user(self.pos_user.id).search(
+            [("id", "=", self.pos_config_main.id)]
+        )
         self.assertTrue(pos_configs)
         pos_configs = self.pos_config_model.with_user(
             self.pos_user_assigned_pos.id
-        ).search([])
+        ).search([("id", "=", self.pos_config_main.id)])
         self.assertFalse(pos_configs)
 
-        self.assingned_group = self.env.ref(
+        self.assigned_group = self.env.ref(
             "pos_user_restriction.group_assigned_points_of_sale_user"
         )
-        self.assertEqual(self.assingned_group, self.pos_config_main.group_pos_user_id)
+        self.assertEqual(self.assigned_group, self.pos_config_main.group_pos_user_id)
 
-        # TODO, fixme
-        # this test is failing, if Odoo pos_restaurant is installed
-        # self.assertFalse(pos_configs)
+        self.assertFalse(pos_configs)
