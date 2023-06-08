@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: pos (8.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-28 18:31+0000\n"
-"PO-Revision-Date: 2023-05-30 09:10+0000\n"
+"PO-Revision-Date: 2023-06-08 09:11+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-pos-8-0/language/it/"
 ")\n"
@@ -85,12 +85,12 @@ msgstr "Ultima Modifica il"
 #. module: pos_pricelist
 #: field:pos.order.tax,write_uid:0
 msgid "Last Updated by"
-msgstr "Ultimo Aggiornamento di"
+msgstr "Ultimo aggiornamento di"
 
 #. module: pos_pricelist
 #: field:pos.order.tax,write_date:0
 msgid "Last Updated on"
-msgstr "Ultimo Aggiornamento il"
+msgstr "Ultimo aggiornamento il"
 
 #. module: pos_pricelist
 #: model:ir.model,name:pos_pricelist.model_pos_order_line
