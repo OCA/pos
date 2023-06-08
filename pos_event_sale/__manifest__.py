@@ -8,7 +8,7 @@
     "author": "Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "category": "Marketing",
-    "version": "15.0.3.1.0",
+    "version": "16.0.1.0.0",
     "license": "AGPL-3",
     "maintainers": ["ivantodorovich"],
     "depends": ["event_sale", "point_of_sale"],
