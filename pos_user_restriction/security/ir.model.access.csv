@@ -27,3 +27,5 @@ access_pos_payment_method_user,pos.payment.method user,point_of_sale.model_pos_p
 access_decimal_precision_user,decimal.precision,base.model_decimal_precision,group_assigned_points_of_sale_user,1,0,0,0
 access_money_in_out_wizard,access.money.in.out.wizard,point_of_sale.model_cash_box_out,group_assigned_points_of_sale_user,1,1,1,0
 access_pos_payment_user,pos.payment user,point_of_sale.model_pos_payment,group_assigned_points_of_sale_user,1,1,1,1
+access_pos_bill_user,pos.bill,point_of_sale.model_pos_bill,group_assigned_points_of_sale_user,1,1,1,1
+access_pos_close_session_wizard,access.pos.close.session.wizard,point_of_sale.model_pos_close_session_wizard,group_assigned_points_of_sale_user,1,1,1,0
