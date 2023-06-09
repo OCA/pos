@@ -40,5 +40,5 @@ odoo.define("pos_return_voucher.ReturnVoucherScreen", function (require) {
 
     Registries.Component.extend(PaymentScreen, ReturnVoucherScreen);
 
-    return ReturnVoucherScreen;
+    return PaymentScreen;
 });

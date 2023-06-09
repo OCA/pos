@@ -1,4 +1,4 @@
-odoo.define("pos_edit_order_line.SetReturnVoucherPopup", function (require) {
+odoo.define("pos_return_voucher.SetReturnVoucherPopup", function (require) {
     "use strict";
 
     const {useState, useRef} = owl.hooks;

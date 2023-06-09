@@ -17,6 +17,10 @@
                 type="text/javascript"
                 src="/pos_return_voucher/static/src/js/PaymentScreen.js"
             />
+            <script
+                type="text/javascript"
+                src="/pos_return_voucher/static/src/js/ReceiptScreen.js"
+            />
         </xpath>
     </template>
 </odoo>
