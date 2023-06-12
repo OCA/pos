@@ -14,12 +14,13 @@ class ProductProduct(models.Model):
     )
     template_in_pos = fields.Boolean(related="product_tmpl_id.available_in_pos")
 
-    @api.model_create_single
-    def create(self, vals):
-        product = super().create(vals)
-        if "available_in_pos" not in vals:
-            product.available_in_pos = product.product_tmpl_id.available_in_pos
-        return product
+    @api.model_create_multi
+    def create(self, vals_list):
+        products = super().create(vals_list)
+        for product, vals in zip(products, vals_list):
+            if "available_in_pos" not in vals:
+                product.available_in_pos = product.product_tmpl_id.available_in_pos
+        return products
 
 
 class ProductTemplate(models.Model):
