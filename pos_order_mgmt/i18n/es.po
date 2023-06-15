@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 11:15+0000\n"
-"PO-Revision-Date: 2020-07-27 11:19+0000\n"
-"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"PO-Revision-Date: 2023-06-15 11:15+0000\n"
+"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
@@ -25,14 +25,14 @@ msgstr "Permite duplicar pedidos ya realizados en la interfaz"
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Allows to return already done orders in the frontend"
-msgstr ""
+msgstr "Permite devolver pedidos ya realizados en la interfaz"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/CopyOrderButton.xml:0
 #, python-format
 msgid "Copy Order"
-msgstr ""
+msgstr "Duplicar Orden"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__display_name
@@ -79,7 +79,7 @@ msgstr "Reembolso "
 #: code:addons/pos_order_mgmt/static/src/xml/RefundOrderButton.xml:0
 #, python-format
 msgid "Refund Order"
-msgstr ""
+msgstr "Devolución"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
