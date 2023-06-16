@@ -7,3 +7,4 @@ This module extends Odoo Point Of Sale features, restricting possibility to cash
 * **PoS - Delete Order**: The cashier can not delete a full order;
 * **PoS - Delete Order Line**: The cashier can not delete an order line;
 * **Pos - Refund Order**: The cashier can not do refund of an order;
+* **Pos - Cash In/Out**: The cashier can not open Cash In/Out Popup;

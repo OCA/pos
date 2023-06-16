@@ -64,7 +64,15 @@ class PosConfig(models.Model):
         comodel_name="res.groups",
         compute="_compute_groups",
         string="Point of Sale - Refund",
-        help="This field is to hide Refund Button for non Accounting/Pos Manager"
+        help="This field is to enable Refund Button only for Accounting/Pos Manager"
+        " Group to the Point of Sale Frontend.",
+    )
+
+    group_cashinout_action = fields.Many2one(
+        comodel_name="res.groups",
+        compute="_compute_groups",
+        string="Point of Sale - Cash In/Out",
+        help="This field is to enable Cash In/Out Button only for Accounting/Pos Manager"
         " Group to the Point of Sale Frontend.",
     )
 
@@ -90,6 +98,9 @@ class PosConfig(models.Model):
                 "group_payment_id": self.env.ref("pos_access_right.group_payment").id,
                 "group_refund_action": self.env.ref(
                     "pos_access_right.group_refund_action"
+                ).id,
+                "group_cashinout_action": self.env.ref(
+                    "pos_access_right.group_cashinout_action"
                 ).id,
             }
         )

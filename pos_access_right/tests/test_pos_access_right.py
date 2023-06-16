@@ -70,3 +70,10 @@ class TestUserRestriction(TransactionCase):
         self.assertEqual(
             self.group_refund_action, self.pos_config_main.group_refund_action
         )
+
+        self.group_cashinout_action = self.env.ref(
+            "pos_access_right.group_cashinout_action"
+        )
+        self.assertEqual(
+            self.group_cashinout_action, self.pos_config_main.group_cashinout_action
+        )
