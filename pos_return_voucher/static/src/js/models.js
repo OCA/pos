@@ -47,9 +47,9 @@ odoo.define("pos_return_vocher.models", function (require) {
         init_from_JSON: function (json) {
             superOrder.init_from_JSON.apply(this, arguments);
             this.emittedReturnVoucherId = json.emitted_return_voucher_id;
-            this.emittedReturnVoucherDate = time.str_to_datetime(
-                json.return_voucher_max_date
-            );
+            this.emittedReturnVoucherDate = json.return_voucher_max_date
+                ? time.str_to_datetime(json.return_voucher_max_date)
+                : false;
         },
         export_for_printing: function () {
             const json = superOrder.export_for_printing.call(this);
@@ -57,7 +57,11 @@ odoo.define("pos_return_vocher.models", function (require) {
                 json.paymentlines.some((payment) => payment.return_voucher) ||
                 this.emittedReturnVoucherId;
             if (json.return_voucher) {
-                if (!this.emittedReturnVoucherId && !this.emittedReturnVoucherDate) {
+                if (
+                    !this.emittedReturnVoucherId &&
+                    !this.emittedReturnVoucherDate &&
+                    this.pos.config.return_voucher_validity
+                ) {
                     const emittedReturnVoucherDate = new Date();
                     emittedReturnVoucherDate.setDate(
                         emittedReturnVoucherDate.getDate() +
@@ -65,9 +69,9 @@ odoo.define("pos_return_vocher.models", function (require) {
                     );
                     this.emittedReturnVoucherDate = emittedReturnVoucherDate;
                 }
-                json.return_voucher_expire_date = time.date_to_str(
-                    this.emittedReturnVoucherDate
-                );
+                json.return_voucher_expire_date = this.emittedReturnVoucherDate
+                    ? time.date_to_str(this.emittedReturnVoucherDate)
+                    : false;
             }
             return json;
         },

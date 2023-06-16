@@ -65,6 +65,9 @@ class PosReturnVoucher(models.Model):
             if not rec.date_order:
                 continue
             config = rec.order_id.session_id.config_id
+            if not config.return_voucher_validity:
+                rec.max_validity_date = False
+                continue
             rec.max_validity_date = fields.Date.add(
                 rec.date_order, days=config.return_voucher_validity
             )
@@ -78,7 +81,7 @@ class PosReturnVoucher(models.Model):
                 rec.remaining_amount, precision_rounding=order.currency_id.rounding
             ):
                 state = "done"
-            elif now > rec.max_validity_date:
+            elif rec.max_validity_date and now > rec.max_validity_date:
                 state = "expired"
             rec.state = state
 

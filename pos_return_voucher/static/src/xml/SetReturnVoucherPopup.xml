@@ -20,7 +20,7 @@
                             <td>Reference</td>
                             <td><t t-esc="state.pos_reference" /></td>
                         </tr>
-                        <tr>
+                        <tr t-if="state.max_validity_date">
                             <td>Expire date</td>
                             <td>
                                 <t t-esc="datetime_to_str(state.max_validity_date)" />

@@ -26,9 +26,11 @@
                     />
                 </div>
                 <div class="return-voucher-info">
-                    You have until <t
-                        t-esc="receipt.return_voucher_expire_date"
-                    /> to redeem the discount voucher, keep this ticket for the discount voucher.
+                    <t t-if="receipt.return_voucher_expire_date">
+                        You have until <t
+                            t-esc="receipt.return_voucher_expire_date"
+                        /> to redeem the discount voucher, keep this ticket for the discount voucher.
+                    </t>
                 </div>
             </div>
         </xpath>

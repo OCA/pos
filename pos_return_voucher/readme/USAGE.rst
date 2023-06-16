@@ -1,7 +1,4 @@
-
-
-Emitt Return Voucher
---------------------
+- Emitt Return Voucher
 
 Once the PoS is loaded, you'll find a magnifying glass icon (🔎) in the top
 bar that grants access to the order list screen. here you can find the number
@@ -21,8 +18,7 @@ that the customer can use for his next purchase.
 .. image:: ../static/description/pos-payment-validated.png
 
 
-Redeem Return Voucher
----------------------
+- Redeem Return Voucher
 
 Once the POS has loaded, when the customer places a new order, on the payment
 screen the payment method marked with the "Return Voucher" flag can be selected,
@@ -34,8 +30,7 @@ voucher info will be displayed.
 When accepted, the POS will count the discount voucher as payment.
 
 
-Backend
--------
+- Backend
 
 You need to go to *Point of Sale > Orders > Return vouchers* to see return
 vouchers createds or from pos order on *Payments* tab
