@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/payment_screen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/product_screen.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/chrome.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/devices.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_customer_display/static/src/js/customer_display_2_20.js"
+            />
+        </xpath>
+    </template>
+
+</odoo>

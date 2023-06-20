@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="pos_epson_printer.pos_iot_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='iface_cashdrawer']/.." position="after">
+                <div class="row" id="iface_customer_display">
+                    <label
+                        string="LED Customer Display"
+                        for="iface_customer_display"
+                        class="col-lg-4 o_light_label"
+                    />
+                    <field name="iface_customer_display" />
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='epson_printer_ip']/../.." position="inside">
+                <div
+                    class="row"
+                    name="epos_customer_display"
+                    attrs="{'invisible': [('epson_printer_ip', 'in', [False, ''])]}"
+                >
+                    <label
+                        string="LED Customer Display"
+                        for="epos_customer_display"
+                        class="col-lg-3 o_light_label"
+                    />
+                    <field name="epos_customer_display" />
+                </div>
+            </xpath>
+            <div id="barcode_scanner" position="after">
+                <div
+                    id="led_customer_display"
+                    class="col-12 col-lg-6 o_setting_box"
+                    attrs="{'invisible': [('iface_customer_display', '=', False), ('epos_customer_display', '=', False)]}"
+                >
+                    <div class="o_setting_left_pane">
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <span
+                            class="o_form_label"
+                        >LED Customer Display Configuration</span>
+                        <div class="text-muted">
+                            Configure display and customize messages
+                        </div>
+
+                <div class="content-group mt16 row" id="customer_display_format">
+                    <label
+                                string="Customer Display Format"
+                                for="customer_display_format"
+                                class="col-lg-4 o_light_label"
+                            />
+                    <field name="customer_display_format" />
+                </div>
+
+                <div class="content-group mt16 row" id="customer_display_line_length">
+                    <label
+                                string="Line Length"
+                                for="customer_display_line_length"
+                                class="col-lg-4 o_light_label"
+                            />
+                    <field name="customer_display_line_length" />
+                </div>
+
+                <div class="content-group mt16 row" id="customer_display_msg_next_l1">
+                    <label
+                                string="Next Customer (Line 1)"
+                                for="customer_display_msg_next_l1"
+                                class="col-lg-4 o_light_label"
+                            />
+                    <field name="customer_display_msg_next_l1" />
+                </div>
+                <div class="content-group mt16 row" id="customer_display_msg_next_l2">
+                    <label
+                                string="Next Customer (Line 2)"
+                                for="customer_display_msg_next_l2"
+                                class="col-lg-4 o_light_label"
+                            />
+                    <field name="customer_display_msg_next_l2" />
+                </div>
+
+                <div class="content-group mt16 row" id="customer_display_msg_closed_l1">
+                    <label
+                                string="PoS Closed (Line 1)"
+                                for="customer_display_msg_closed_l1"
+                                class="col-lg-4 o_light_label"
+                            />
+                    <field name="customer_display_msg_closed_l1" />
+                </div>
+                <div class="content-group mt16 row" id="customer_display_msg_closed_l2">
+                    <label
+                                string="PoS Closed (Line 2)"
+                                for="customer_display_msg_closed_l2"
+                                class="col-lg-4 o_light_label"
+                            />
+                    <field name="customer_display_msg_closed_l2" />
+                </div>
+            </div>
+            </div>
+        </div>
+
+        </field>
+    </record>
+
+</odoo>
