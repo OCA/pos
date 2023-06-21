@@ -51,7 +51,7 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
     };
 
     PosComponent.prototype.trigger = async function (eventType, payload) {
-        if (payload?.props?.accessIgnore) {
+        if (payload && payload.props && payload.props.accessIgnore) {
             return _superTrigger.apply(this, arguments);
         }
         if (
