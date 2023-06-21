@@ -40,6 +40,7 @@ setuptools.setup(
         'odoo14-addon-pos_product_template',
         'odoo14-addon-pos_product_template_configurator',
         'odoo14-addon-pos_receipt_hide_price',
+        'odoo14-addon-pos_report_discount',
         'odoo14-addon-pos_report_session_summary',
         'odoo14-addon-pos_require_product_quantity',
         'odoo14-addon-pos_reset_search',
