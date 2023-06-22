@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-03-22 13:23+0000\n"
+"PO-Revision-Date: 2023-06-22 08:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_customer_display
 #: selection:pos.config,customer_display_format:0
@@ -122,13 +122,13 @@ msgstr "Off-line"
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "PoS Closed (Line 1)"
-msgstr "PoS chiuso (riga 1)"
+msgstr "POS chiuso (riga 1)"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
 msgid "PoS Closed (Line 2)"
-msgstr "PoS chiuso (riga 2)"
+msgstr "POS chiuso (riga 2)"
 
 #. module: pos_customer_display
 #: code:addons/pos_customer_display/models/pos_config.py:64
