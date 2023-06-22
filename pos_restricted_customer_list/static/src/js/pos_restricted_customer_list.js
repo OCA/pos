@@ -15,7 +15,7 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
                 var model_name = model.model;
                 if (model_name === "res.partner") {
                     model.domain = function(myself) {
-                        return myself.prepare_new_partners_domain();
+                        return myself.prepare_partners_domain();
                     };
                     res_partner_index = i;
                 }
@@ -37,9 +37,9 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
             });
             return PosModelSuper.initialize.call(self, session, attributes);
         },
-        prepare_new_partners_domain: function(){
+
+        prepare_partners_domain: function() {
             var self = this;
-            domain = PosModelSuper.prepare_new_partners_domain.call(self);
             var domain = [["available_in_pos", "=", true]];
             if (self.config && self.config.partner_category_id) {
                 domain.push([
@@ -50,6 +50,14 @@ odoo.define("pos_restricted_customer_list.point_of_sale.models", function(requir
                         : 0,
                 ]);
             }
+            return domain;
+        },
+
+        prepare_new_partners_domain: function(){
+            var self = this;
+            var domain = PosModelSuper.prepare_new_partners_domain.call(self);
+            var partners_domain = self.prepare_partners_domain();
+            domain.push.apply(domain, partners_domain);
             return domain;
         },
     });
