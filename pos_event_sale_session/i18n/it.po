@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-09 15:22+0000\n"
+"PO-Revision-Date: 2023-06-22 08:08+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_event_sale_session
 #: model:ir.model.fields,field_description:pos_event_sale_session.field_event_session__pos_order_line_ids
@@ -58,7 +58,7 @@ msgstr "Righe punto vendita"
 #. module: pos_event_sale_session
 #: model:ir.model,name:pos_event_sale_session.model_report_pos_order
 msgid "Point of Sale Orders Report"
-msgstr "Resoconto punto vendita"
+msgstr "Resoconto ordini punto vendita"
 
 #. module: pos_event_sale_session
 #: model_terms:ir.ui.view,arch_db:pos_event_sale_session.view_event_session_form
