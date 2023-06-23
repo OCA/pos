@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_cashier_login](pos_cashier_login/) | 11.0.0.1.1 | [![kirca](https://github.com/kirca.png?size=30px)](https://github.com/kirca) | Require for cashier to sign in before each sale
+[pos_cashier_login](pos_cashier_login/) | 11.0.0.1.2 | [![kirca](https://github.com/kirca.png?size=30px)](https://github.com/kirca) | Require for cashier to sign in before each sale
 [pos_config_show_accounting](pos_config_show_accounting/) | 11.0.1.0.0 |  | Always display accounting settings in POS Config
 [pos_default_payment_method](pos_default_payment_method/) | 11.0.1.0.1 |  | POS Default payment method
 [pos_fix_search_limit](pos_fix_search_limit/) | 11.0.1.0.1 |  | Increase search in the PoS
