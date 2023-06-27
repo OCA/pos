@@ -71,9 +71,12 @@ odoo.define("pos_employee_access_right.models", function (require) {
             );
 
             if (payload) {
-                component_access = component_access.filter((item) =>
-                    JSON.stringify(payload).includes(item.pos_payload)
-                );
+                component_access = component_access.filter((item) => {
+                    const matchPayload = JSON.parse(item.pos_payload || "{}");
+                    return Object.keys(matchPayload).every(
+                        (k) => matchPayload[k] == payload[k]
+                    );
+                });
             }
 
             return component_access;
