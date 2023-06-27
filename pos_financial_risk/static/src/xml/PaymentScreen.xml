@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+        <xpath
+            expr="//t[@t-foreach='payment_methods_from_config']"
+            position="attributes"
+        >
+            <attribute name="t-foreach">paymentMethodsUnlock</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('paymentmethods')]" position="after">
+            <div class="paymentmethods" t-if="paymentMethodsLock.length > 0">
+                <p class="title-category">Blocked due to credit limit reached</p>
+                <t
+                    t-foreach="paymentMethodsLock"
+                    t-as="paymentMethod"
+                    t-key="paymentMethod.id"
+                >
+                    <div class="button paymentmethod">
+                        <div class="payment-name payment-red">
+                            <s t-esc="paymentMethod.name" />
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+        <xpath
+            expr="//div[hasclass('payment-buttons')]/div[hasclass('partner-button')]/div[hasclass('button')]"
+            position="attributes"
+        >
+            <attribute name="t-att-class">{
+                highlight: currentOrder.get_partner(),
+                error_risk: currentOrder.get_partner() &amp;&amp; riskLimit > 0 &amp;&amp; remainderLimit &lt;= 0 }
+            </attribute>
+        </xpath>
+        <xpath
+            expr="//div[hasclass('payment-buttons')]/div[hasclass('partner-button')]//t[@t-esc='partner.name']"
+            position="after"
+        >
+            <span t-if="riskLimit > 0"> (remainder <t t-esc="remainderLimit" />$)</span>
+        </xpath>
+    </t>
+</templates>
