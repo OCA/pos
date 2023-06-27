@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-inherit="point_of_sale.NumberPopup"
+        t-name="ResponsiveNumberPopup"
+        t-inherit-mode="primary"
+        owl="1"
+    >
+        <!-- Expected thing would be adding a new class to popup-number, but this makes events crash -->
+        <xpath expr="//div[hasclass('popup-numpad')]" position="after">
+            <div class="oe_hidden popup-number-responsive" />
+        </xpath>
+    </t>
+</templates>

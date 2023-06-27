@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="loyalty_program_view_form_inherit" model="ir.ui.view">
+        <field name="name">loyalty.program.view.form.inherit</field>
+        <field name="model">loyalty.program</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mail_template_id']" position="after">
+                <field
+                    name="redeem_method"
+                    attrs="{'invisible': [('program_type', '!=', 'gift_card')]}"
+                />
+                </xpath>
+                <xpath
+                expr="//form/sheet/group/group[last()]/field[@name='portal_point_name']"
+                position="after"
+            >
+                    <field
+                    name="pos_payment_method_ids"
+                    widget="many2many_tags"
+                    attrs="{'invisible': ['|', ('program_type', '!=', 'gift_card'), ('redeem_method', '=', 'discount')], 'required': [('redeem_method', '=', 'payment_method')]}"
+                />
+                </xpath>
+        </field>
+
+    </record>
+
+</odoo>
