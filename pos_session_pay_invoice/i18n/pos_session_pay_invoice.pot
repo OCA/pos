@@ -90,6 +90,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_cash_invoice_in__display_name
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__display_name
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__display_name
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_order__display_name
 msgid "Display Name"
 msgstr ""
 
@@ -97,6 +98,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_cash_invoice_in__id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__id
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_order__id
 msgid "ID"
 msgstr ""
 
@@ -110,6 +112,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_cash_invoice_in____last_update
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in____last_update
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out____last_update
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_order____last_update
 msgid "Last Modified on"
 msgstr ""
 
@@ -147,6 +150,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_ids
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_ids
 msgid "Payment methods"
+msgstr ""
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_pos_order
+msgid "Point of Sale Orders"
 msgstr ""
 
 #. module: pos_session_pay_invoice
