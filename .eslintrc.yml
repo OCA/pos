@@ -126,7 +126,7 @@ rules:
   no-self-compare: warn
   no-sequences: warn
   no-shadow-restricted-names: warn
-  no-shadow: warn
+  # no-shadow: warn
   no-sparse-arrays: warn
   no-sync: warn
   no-this-before-super: warn
