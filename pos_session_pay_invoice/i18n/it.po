@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-22 12:09+0000\n"
+"PO-Revision-Date: 2024-04-02 11:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -159,12 +159,12 @@ msgstr "Conteggio metodo pagamento"
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_ids
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_ids
 msgid "Payment methods"
-msgstr "Metodi pagamento"
+msgstr "Metodi di pagamento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Ordini punto vendita"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__name
