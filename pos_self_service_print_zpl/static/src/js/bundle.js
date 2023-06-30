@@ -1,4 +1,4 @@
-(function () {
+(function() {
     function r(e, n, t) {
         function o(i, f) {
             if (!n[i]) {
@@ -12,7 +12,7 @@
                 var p = (n[i] = {exports: {}});
                 e[i][0].call(
                     p.exports,
-                    function (r) {
+                    function(r) {
                         var n = e[i][1][r];
                         return o(n || r);
                     },
@@ -34,9 +34,9 @@
 })()(
     {
         1: [
-            function (require, module, exports) {
-                (function (Buffer) {
-                    (function () {
+            function(require, module, exports) {
+                (function(Buffer) {
+                    (function() {
                         const ipp = require("../lib/ipp");
 
                         window.printZPL = (printerName, zplString) => {
@@ -53,7 +53,7 @@
                                     },
                                     data: Buffer.from(zplString),
                                 },
-                                function (err, res) {
+                                function(err, res) {
                                     console.log(res);
                                 }
                             );
@@ -64,7 +64,7 @@
             {"../lib/ipp": 2, buffer: 16},
         ],
         2: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var util = require("./lib/ipputil");
 
                 module.exports = {
@@ -105,7 +105,7 @@
             },
         ],
         3: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 /*
 
 The attributes and their syntaxes are complicated. The functions in this
@@ -198,26 +198,28 @@ uncomment the console.log() at the end of this file.
                 function _(arg1, arg2, arg3) {
                     var args = Array.prototype.slice.call(arguments);
                     args.lookup = {};
-                    const deferred = createDeferred(function () {
-                        args.forEach(function (a, i) {
+                    const deferred = createDeferred(function() {
+                        args.forEach(function(a, i) {
                             if (typeof a === "function") args[i] = a();
                             args.lookup[args[i].type] = args[i];
                         });
-                        args.alts = Object.keys(args.lookup).sort().join();
+                        args.alts = Object.keys(args.lookup)
+                            .sort()
+                            .join();
                         return args;
                     });
-                    return args.some(function (a) {
+                    return args.some(function(a) {
                         return isDeferred(a);
                     })
                         ? deferred
                         : deferred();
                 }
-                const createDeferred = function (deferred) {
+                const createDeferred = function(deferred) {
                     deferred.isDeferred = true;
                     return deferred;
                 };
 
-                const isDeferred = function (type) {
+                const isDeferred = function(type) {
                     return typeof type === "function" && type.isDeferred;
                 };
 
@@ -225,7 +227,7 @@ uncomment the console.log() at the end of this file.
                 // In javascript, functions can't start with a number- so let's just use...
                 function setof(type) {
                     if (isDeferred(type)) {
-                        return createDeferred(function () {
+                        return createDeferred(function() {
                             type = type();
                             type.setof = true;
                             return type;
@@ -245,7 +247,7 @@ uncomment the console.log() at the end of this file.
                         return {type: "collection", tag: tags.begCollection};
 
                     if (typeof group === "string") {
-                        return createDeferred(function () {
+                        return createDeferred(function() {
                             return {
                                 type: "collection",
                                 tag: tags.begCollection,
@@ -253,10 +255,10 @@ uncomment the console.log() at the end of this file.
                             };
                         });
                     }
-                    var defer = Object.keys(group).some(function (key) {
+                    var defer = Object.keys(group).some(function(key) {
                         return isDeferred(group[key]);
                     });
-                    const deferred = createDeferred(function () {
+                    const deferred = createDeferred(function() {
                         return {
                             type: "collection",
                             tag: tags.begCollection,
@@ -1151,7 +1153,7 @@ uncomment the console.log() at the end of this file.
                 // Convert all the syntactical sugar to an object tree
                 function resolve(obj) {
                     if (obj.type) return obj;
-                    Object.keys(obj).forEach(function (name) {
+                    Object.keys(obj).forEach(function(name) {
                         var item = obj[name];
                         if (typeof item === "function") obj[name] = item();
                         else if (typeof item === "object" && !item.type)
@@ -1167,7 +1169,7 @@ uncomment the console.log() at the end of this file.
             {"./tags": 12},
         ],
         4: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var xref = require("./ipputil").xref;
                 var enums = {
                     "document-state": xref([
@@ -1387,13 +1389,13 @@ uncomment the console.log() at the end of this file.
             {"./ipputil": 5},
         ],
         5: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 //  To serialize and deserialize, we need to be able to look
                 //  things up by key or by value. This little helper just
                 //  converts the arrays to objects and tacks on a 'lookup' property.
                 function xref(arr) {
                     var obj = {};
-                    arr.forEach(function (item, index) {
+                    arr.forEach(function(item, index) {
                         obj[item] = index;
                     });
                     obj.lookup = arr;
@@ -1420,7 +1422,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         6: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var attributes = require("./attributes");
 
                 // The only possible values for the keyword
@@ -1971,10 +1973,9 @@ uncomment the console.log() at the end of this file.
                 var Job_Template_attribute_names = Object.keys(
                     attributes["Job Template"]
                 );
-                var Job_Template_and_Operation_attribute_names =
-                    Job_Template_attribute_names.concat(
-                        Object.keys(attributes.Operation)
-                    );
+                var Job_Template_and_Operation_attribute_names = Job_Template_attribute_names.concat(
+                    Object.keys(attributes.Operation)
+                );
                 var Printer_attribute_names = Object.keys(
                     attributes["Job Template"]
                 ).concat(["none"]);
@@ -3624,13 +3625,13 @@ uncomment the console.log() at the end of this file.
             {"./attributes": 3},
         ],
         7: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var enums = require("./enums"),
                     operations = enums["operations-supported"],
                     statusCodes = require("./status-codes"),
                     tags = require("./tags"),
                     RS = "\u001e";
-                module.exports = function (buf) {
+                module.exports = function(buf) {
                     var obj = {};
                     var position = 0;
                     var encoding = "utf8";
@@ -3743,7 +3744,10 @@ uncomment the console.log() at the end of this file.
                                 );
                                 // Silly way to add on the timezone
                                 return new Date(
-                                    date.toISOString().substr(0, 23).replace("T", ",") +
+                                    date
+                                        .toISOString()
+                                        .substr(0, 23)
+                                        .replace("T", ",") +
                                         "," +
                                         String.fromCharCode(read(1)) +
                                         read(1) +
@@ -3867,7 +3871,7 @@ uncomment the console.log() at the end of this file.
             {"./enums": 4, "./status-codes": 11, "./tags": 12},
         ],
         8: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var request = require("./request"),
                     serialize = require("./serializer"),
                     extend = require("./ipputil").extend,
@@ -3882,7 +3886,7 @@ uncomment the console.log() at the end of this file.
                     this.language = opts.language || "en-us";
                 }
                 Printer.prototype = {
-                    _message: function (operation, msg) {
+                    _message: function(operation, msg) {
                         if (typeof operation === "undefined")
                             operation = "Get-Printer-Attributes";
 
@@ -3911,7 +3915,7 @@ uncomment the console.log() at the end of this file.
                             delete msg["operation-attributes-tag"]["printer-uri"];
                         return msg;
                     },
-                    execute: function (operation, msg, cb) {
+                    execute: function(operation, msg, cb) {
                         msg = this._message(operation, msg);
                         var buf = serialize(msg);
                         //		Console.log(buf.toString('hex'));
@@ -3927,15 +3931,15 @@ uncomment the console.log() at the end of this file.
             {"./ipputil": 5, "./request": 9, "./serializer": 10, url: 48},
         ],
         9: [
-            function (require, module, exports) {
-                (function (Buffer) {
-                    (function () {
+            function(require, module, exports) {
+                (function(Buffer) {
+                    (function() {
                         var http = require("http"),
                             https = require("https"),
                             url = require("url"),
                             parse = require("./parser");
 
-                        module.exports = function (opts, buffer, cb) {
+                        module.exports = function(opts, buffer, cb) {
                             var streamed = typeof buffer === "function";
                             // All IPP requires are POSTs- so we must have some data.
                             //  10 is just a number I picked- this probably should have something more meaningful
@@ -3953,9 +3957,10 @@ uncomment the console.log() at the end of this file.
 
                             if (opts.protocol === "ipps:") opts.protocol = "https:";
 
-                            var req = (
-                                opts.protocol === "https:" ? https : http
-                            ).request(opts, function (res) {
+                            var req = (opts.protocol === "https:"
+                                ? https
+                                : http
+                            ).request(opts, function(res) {
                                 //		Console.log('STATUS: ' + res.statusCode);
                                 //		console.log('HEADERS: ' + JSON.stringify(res.headers));
                                 switch (res.statusCode) {
@@ -3974,14 +3979,14 @@ uncomment the console.log() at the end of this file.
                                         return console.log(res.statusCode, "response");
                                 }
                             });
-                            req.on("error", function (err) {
+                            req.on("error", function(err) {
                                 cb(err);
                             });
                             if (
                                 opts.headers.Expect === "100-Continue" &&
                                 typeof opts.continue === "function"
                             ) {
-                                req.on("continue", function () {
+                                req.on("continue", function() {
                                     opts.continue(req);
                                 });
                             }
@@ -3991,11 +3996,11 @@ uncomment the console.log() at the end of this file.
                         function readResponse(res, cb) {
                             var chunks = [],
                                 length = 0;
-                            res.on("data", function (chunk) {
+                            res.on("data", function(chunk) {
                                 length += chunk.length;
                                 chunks.push(chunk);
                             });
-                            res.on("end", function () {
+                            res.on("end", function() {
                                 var response = parse(Buffer.concat(chunks, length));
                                 delete response.operation;
                                 cb(null, response);
@@ -4020,9 +4025,9 @@ uncomment the console.log() at the end of this file.
             {"./parser": 7, buffer: 16, http: 28, https: 19, url: 48},
         ],
         10: [
-            function (require, module, exports) {
-                (function (Buffer) {
-                    (function () {
+            function(require, module, exports) {
+                (function(Buffer) {
+                    (function() {
                         var operations = require("./enums")["operations-supported"],
                             tags = require("./tags"),
                             versions = require("./versions"),
@@ -4032,7 +4037,11 @@ uncomment the console.log() at the end of this file.
                             statusCodes = require("./status-codes"),
                             RS = "\u001e";
                         function random() {
-                            return Number(Math.random().toString().substr(-8));
+                            return Number(
+                                Math.random()
+                                    .toString()
+                                    .substr(-8)
+                            );
                         }
 
                         module.exports = function serializer(msg) {
@@ -4090,18 +4099,18 @@ uncomment the console.log() at the end of this file.
                                 var keys = Object.keys(attrs);
                                 // 'attributes-charset' and 'attributes-natural-language' need to come first- so we sort them to the front
                                 if (tag == tags["operation-attributes-tag"])
-                                    keys = keys.sort(function (a, b) {
+                                    keys = keys.sort(function(a, b) {
                                         return (special[a] || 3) - (special[b] || 3);
                                     });
                                 var groupname = groupmap[tag];
                                 write1(tags[tag]);
-                                keys.forEach(function (name) {
+                                keys.forEach(function(name) {
                                     attr(groupname, name, attrs);
                                 });
                             }
                             function attr(group, name, obj) {
                                 var groupName = Array.isArray(group)
-                                    ? group.find(function (grp) {
+                                    ? group.find(function(grp) {
                                           return attributes[grp][name];
                                       })
                                     : group;
@@ -4114,7 +4123,7 @@ uncomment the console.log() at the end of this file.
                                 var value = obj[name];
                                 if (!Array.isArray(value)) value = [value];
 
-                                value.forEach(function (value, i) {
+                                value.forEach(function(value, i) {
                                     // We need to re-evaluate the alternates every time
                                     var syntax2 = Array.isArray(syntax)
                                         ? resolveAlternates(syntax, name, value)
@@ -4267,7 +4276,7 @@ uncomment the console.log() at the end of this file.
                                 }
                             }
                             function writeCollection(value, members) {
-                                Object.keys(value).forEach(function (key) {
+                                Object.keys(value).forEach(function(key) {
                                     var subvalue = value[key];
                                     var subsyntax = members[key];
 
@@ -4342,7 +4351,7 @@ uncomment the console.log() at the end of this file.
             },
         ],
         11: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var xref = require("./ipputil").xref;
 
                 var status = [];
@@ -4404,7 +4413,7 @@ uncomment the console.log() at the end of this file.
             {"./ipputil": 5},
         ],
         12: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var xref = require("./ipputil").xref;
 
                 // http://www.iana.org/assignments/ipp-registrations/ipp-registrations.xml#ipp-registrations-7
@@ -4494,7 +4503,7 @@ uncomment the console.log() at the end of this file.
             {"./ipputil": 5},
         ],
         13: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var versions = [];
                 versions[0x0100] = "1.0";
                 versions[0x0101] = "1.1";
@@ -4506,7 +4515,7 @@ uncomment the console.log() at the end of this file.
             {"./ipputil": 5},
         ],
         14: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 "use strict";
 
                 exports.byteLength = byteLength;
@@ -4667,11 +4676,11 @@ uncomment the console.log() at the end of this file.
             },
             {},
         ],
-        15: [function (require, module, exports) {}, {}],
+        15: [function(require, module, exports) {}, {}],
         16: [
-            function (require, module, exports) {
-                (function (Buffer) {
-                    (function () {
+            function(require, module, exports) {
+                (function(Buffer) {
+                    (function() {
                         /* !
                          * The buffer module from node.js, for the browser.
                          *
@@ -4725,7 +4734,7 @@ uncomment the console.log() at the end of this file.
                                 var arr = new Uint8Array(1);
                                 arr.__proto__ = {
                                     __proto__: Uint8Array.prototype,
-                                    foo: function () {
+                                    foo: function() {
                                         return 42;
                                     },
                                 };
@@ -4737,7 +4746,7 @@ uncomment the console.log() at the end of this file.
 
                         Object.defineProperty(Buffer.prototype, "parent", {
                             enumerable: true,
-                            get: function () {
+                            get: function() {
                                 if (!Buffer.isBuffer(this)) return undefined;
                                 return this.buffer;
                             },
@@ -4745,7 +4754,7 @@ uncomment the console.log() at the end of this file.
 
                         Object.defineProperty(Buffer.prototype, "offset", {
                             enumerable: true,
-                            get: function () {
+                            get: function() {
                                 if (!Buffer.isBuffer(this)) return undefined;
                                 return this.byteOffset;
                             },
@@ -4869,7 +4878,7 @@ uncomment the console.log() at the end of this file.
                          * Buffer.from(buffer)
                          * Buffer.from(arrayBuffer[, byteOffset[, length]])
                          **/
-                        Buffer.from = function (value, encodingOrOffset, length) {
+                        Buffer.from = function(value, encodingOrOffset, length) {
                             return from(value, encodingOrOffset, length);
                         };
 
@@ -4912,7 +4921,7 @@ uncomment the console.log() at the end of this file.
                          * Creates a new filled Buffer instance.
                          * alloc(size[, fill[, encoding]])
                          **/
-                        Buffer.alloc = function (size, fill, encoding) {
+                        Buffer.alloc = function(size, fill, encoding) {
                             return alloc(size, fill, encoding);
                         };
 
@@ -4924,13 +4933,13 @@ uncomment the console.log() at the end of this file.
                         /**
                          * Equivalent to Buffer(num), by default creates a non-zero-filled Buffer instance.
                          * */
-                        Buffer.allocUnsafe = function (size) {
+                        Buffer.allocUnsafe = function(size) {
                             return allocUnsafe(size);
                         };
                         /**
                          * Equivalent to SlowBuffer(num), by default creates a non-zero-filled Buffer instance.
                          */
-                        Buffer.allocUnsafeSlow = function (size) {
+                        Buffer.allocUnsafeSlow = function(size) {
                             return allocUnsafe(size);
                         };
 
@@ -6950,7 +6959,7 @@ uncomment the console.log() at the end of this file.
             {"base64-js": 14, buffer: 16, ieee754: 20},
         ],
         17: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 module.exports = {
                     100: "Continue",
                     101: "Switching Protocols",
@@ -7019,7 +7028,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         18: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7108,10 +7117,10 @@ uncomment the console.log() at the end of this file.
 
                 Object.defineProperty(EventEmitter, "defaultMaxListeners", {
                     enumerable: true,
-                    get: function () {
+                    get: function() {
                         return defaultMaxListeners;
                     },
-                    set: function (arg) {
+                    set: function(arg) {
                         if (typeof arg !== "number" || arg < 0 || NumberIsNaN(arg)) {
                             throw new RangeError(
                                 'The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' +
@@ -7123,7 +7132,7 @@ uncomment the console.log() at the end of this file.
                     },
                 });
 
-                EventEmitter.init = function () {
+                EventEmitter.init = function() {
                     if (
                         this._events === undefined ||
                         this._events === Object.getPrototypeOf(this)._events
@@ -7319,12 +7328,14 @@ uncomment the console.log() at the end of this file.
                     return this;
                 };
 
-                EventEmitter.prototype.prependOnceListener =
-                    function prependOnceListener(type, listener) {
-                        checkListener(listener);
-                        this.prependListener(type, _onceWrap(this, type, listener));
-                        return this;
-                    };
+                EventEmitter.prototype.prependOnceListener = function prependOnceListener(
+                    type,
+                    listener
+                ) {
+                    checkListener(listener);
+                    this.prependListener(type, _onceWrap(this, type, listener));
+                    return this;
+                };
 
                 // Emits a 'removeListener' event if and only if the listener was removed.
                 EventEmitter.prototype.removeListener = function removeListener(
@@ -7462,7 +7473,7 @@ uncomment the console.log() at the end of this file.
                     return _listeners(this, type, false);
                 };
 
-                EventEmitter.listenerCount = function (emitter, type) {
+                EventEmitter.listenerCount = function(emitter, type) {
                     if (typeof emitter.listenerCount === "function") {
                         return emitter.listenerCount(type);
                     }
@@ -7511,7 +7522,7 @@ uncomment the console.log() at the end of this file.
                 }
 
                 function once(emitter, name) {
-                    return new Promise(function (resolve, reject) {
+                    return new Promise(function(resolve, reject) {
                         function errorListener(err) {
                             emitter.removeListener(name, resolver);
                             reject(err);
@@ -7580,7 +7591,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         19: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 var http = require("http");
                 var url = require("url");
 
@@ -7590,12 +7601,12 @@ uncomment the console.log() at the end of this file.
                     if (http.hasOwnProperty(key)) https[key] = http[key];
                 }
 
-                https.request = function (params, cb) {
+                https.request = function(params, cb) {
                     params = validateParams(params);
                     return http.request.call(this, params, cb);
                 };
 
-                https.get = function (params, cb) {
+                https.get = function(params, cb) {
                     params = validateParams(params);
                     return http.get.call(this, params, cb);
                 };
@@ -7620,9 +7631,9 @@ uncomment the console.log() at the end of this file.
             {http: 28, url: 48},
         ],
         20: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 /* ! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
-                exports.read = function (buffer, offset, isLE, mLen, nBytes) {
+                exports.read = function(buffer, offset, isLE, mLen, nBytes) {
                     var e, m;
                     var eLen = nBytes * 8 - mLen - 1;
                     var eMax = (1 << eLen) - 1;
@@ -7663,7 +7674,7 @@ uncomment the console.log() at the end of this file.
                     return (s ? -1 : 1) * m * Math.pow(2, e - mLen);
                 };
 
-                exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
+                exports.write = function(buffer, value, offset, isLE, mLen, nBytes) {
                     var e, m, c;
                     var eLen = nBytes * 8 - mLen - 1;
                     var eMax = (1 << eLen) - 1;
@@ -7726,7 +7737,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         21: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 if (typeof Object.create === "function") {
                     // Implementation from standard node.js 'util' module
                     module.exports = function inherits(ctor, superCtor) {
@@ -7747,7 +7758,7 @@ uncomment the console.log() at the end of this file.
                     module.exports = function inherits(ctor, superCtor) {
                         if (superCtor) {
                             ctor.super_ = superCtor;
-                            var TempCtor = function () {};
+                            var TempCtor = function() {};
                             TempCtor.prototype = superCtor.prototype;
                             ctor.prototype = new TempCtor();
                             ctor.prototype.constructor = ctor;
@@ -7758,7 +7769,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         22: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Shim for using process in browser
                 var process = (module.exports = {});
 
@@ -7776,7 +7787,7 @@ uncomment the console.log() at the end of this file.
                 function defaultClearTimeout() {
                     throw new Error("clearTimeout has not been defined");
                 }
-                (function () {
+                (function() {
                     try {
                         if (typeof setTimeout === "function") {
                             cachedSetTimeout = setTimeout;
@@ -7894,7 +7905,7 @@ uncomment the console.log() at the end of this file.
                     runClearTimeout(timeout);
                 }
 
-                process.nextTick = function (fun) {
+                process.nextTick = function(fun) {
                     var args = new Array(arguments.length - 1);
                     if (arguments.length > 1) {
                         for (var i = 1; i < arguments.length; i++) {
@@ -7912,7 +7923,7 @@ uncomment the console.log() at the end of this file.
                     this.fun = fun;
                     this.array = array;
                 }
-                Item.prototype.run = function () {
+                Item.prototype.run = function() {
                     this.fun.apply(null, this.array);
                 };
                 process.title = "browser";
@@ -7934,32 +7945,32 @@ uncomment the console.log() at the end of this file.
                 process.prependListener = noop;
                 process.prependOnceListener = noop;
 
-                process.listeners = function (name) {
+                process.listeners = function(name) {
                     return [];
                 };
 
-                process.binding = function (name) {
+                process.binding = function(name) {
                     throw new Error("process.binding is not supported");
                 };
 
-                process.cwd = function () {
+                process.cwd = function() {
                     return "/";
                 };
-                process.chdir = function (dir) {
+                process.chdir = function(dir) {
                     throw new Error("process.chdir is not supported");
                 };
-                process.umask = function () {
+                process.umask = function() {
                     return 0;
                 };
             },
             {},
         ],
         23: [
-            function (require, module, exports) {
-                (function (global) {
-                    (function () {
+            function(require, module, exports) {
+                (function(global) {
+                    (function() {
                         /* ! https://mths.be/punycode v1.4.1 by @mathias */
-                        (function (root) {
+                        (function(root) {
                             /** Detect free variables */
                             var freeExports =
                                 typeof exports === "object" &&
@@ -8128,7 +8139,7 @@ uncomment the console.log() at the end of this file.
                              * @returns {String} The new Unicode string (UCS-2).
                              */
                             function ucs2encode(array) {
-                                return map(array, function (value) {
+                                return map(array, function(value) {
                                     var output = "";
                                     if (value > 0xffff) {
                                         value -= 0x10000;
@@ -8465,7 +8476,7 @@ uncomment the console.log() at the end of this file.
                              * string.
                              */
                             function toUnicode(input) {
-                                return mapDomain(input, function (string) {
+                                return mapDomain(input, function(string) {
                                     return regexPunycode.test(string)
                                         ? decode(string.slice(4).toLowerCase())
                                         : string;
@@ -8484,7 +8495,7 @@ uncomment the console.log() at the end of this file.
                              * email address.
                              */
                             function toASCII(input) {
-                                return mapDomain(input, function (string) {
+                                return mapDomain(input, function(string) {
                                     return regexNonASCII.test(string)
                                         ? "xn--" + encode(string)
                                         : string;
@@ -8526,7 +8537,7 @@ uncomment the console.log() at the end of this file.
                                 typeof define.amd === "object" &&
                                 define.amd
                             ) {
-                                define("punycode", function () {
+                                define("punycode", function() {
                                     return punycode;
                                 });
                             } else if (freeExports && freeModule) {
@@ -8560,7 +8571,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         24: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -8591,7 +8602,7 @@ uncomment the console.log() at the end of this file.
                     return Object.prototype.hasOwnProperty.call(obj, prop);
                 }
 
-                module.exports = function (qs, sep, eq, options) {
+                module.exports = function(qs, sep, eq, options) {
                     sep = sep || "&";
                     eq = eq || "=";
                     var obj = {};
@@ -8647,14 +8658,14 @@ uncomment the console.log() at the end of this file.
 
                 var isArray =
                     Array.isArray ||
-                    function (xs) {
+                    function(xs) {
                         return Object.prototype.toString.call(xs) === "[object Array]";
                     };
             },
             {},
         ],
         25: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -8678,7 +8689,7 @@ uncomment the console.log() at the end of this file.
 
                 "use strict";
 
-                var stringifyPrimitive = function (v) {
+                var stringifyPrimitive = function(v) {
                     switch (typeof v) {
                         case "string":
                             return v;
@@ -8694,7 +8705,7 @@ uncomment the console.log() at the end of this file.
                     }
                 };
 
-                module.exports = function (obj, sep, eq, name) {
+                module.exports = function(obj, sep, eq, name) {
                     sep = sep || "&";
                     eq = eq || "=";
                     if (obj === null) {
@@ -8702,10 +8713,10 @@ uncomment the console.log() at the end of this file.
                     }
 
                     if (typeof obj === "object") {
-                        return map(objectKeys(obj), function (k) {
+                        return map(objectKeys(obj), function(k) {
                             var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
                             if (isArray(obj[k])) {
-                                return map(obj[k], function (v) {
+                                return map(obj[k], function(v) {
                                     return (
                                         ks + encodeURIComponent(stringifyPrimitive(v))
                                     );
@@ -8725,7 +8736,7 @@ uncomment the console.log() at the end of this file.
 
                 var isArray =
                     Array.isArray ||
-                    function (xs) {
+                    function(xs) {
                         return Object.prototype.toString.call(xs) === "[object Array]";
                     };
 
@@ -8740,7 +8751,7 @@ uncomment the console.log() at the end of this file.
 
                 var objectKeys =
                     Object.keys ||
-                    function (obj) {
+                    function(obj) {
                         var res = [];
                         for (var key in obj) {
                             if (Object.prototype.hasOwnProperty.call(obj, key))
@@ -8752,7 +8763,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         26: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 "use strict";
 
                 exports.decode = exports.parse = require("./decode");
@@ -8761,7 +8772,7 @@ uncomment the console.log() at the end of this file.
             {"./decode": 24, "./encode": 25},
         ],
         27: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 /* ! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
                 /* eslint-disable node/no-deprecated-api */
                 var buffer = require("buffer");
@@ -8795,14 +8806,14 @@ uncomment the console.log() at the end of this file.
                 // Copy static methods from Buffer
                 copyProps(Buffer, SafeBuffer);
 
-                SafeBuffer.from = function (arg, encodingOrOffset, length) {
+                SafeBuffer.from = function(arg, encodingOrOffset, length) {
                     if (typeof arg === "number") {
                         throw new TypeError("Argument must not be a number");
                     }
                     return Buffer(arg, encodingOrOffset, length);
                 };
 
-                SafeBuffer.alloc = function (size, fill, encoding) {
+                SafeBuffer.alloc = function(size, fill, encoding) {
                     if (typeof size !== "number") {
                         throw new TypeError("Argument must be a number");
                     }
@@ -8819,14 +8830,14 @@ uncomment the console.log() at the end of this file.
                     return buf;
                 };
 
-                SafeBuffer.allocUnsafe = function (size) {
+                SafeBuffer.allocUnsafe = function(size) {
                     if (typeof size !== "number") {
                         throw new TypeError("Argument must be a number");
                     }
                     return Buffer(size);
                 };
 
-                SafeBuffer.allocUnsafeSlow = function (size) {
+                SafeBuffer.allocUnsafeSlow = function(size) {
                     if (typeof size !== "number") {
                         throw new TypeError("Argument must be a number");
                     }
@@ -8836,9 +8847,9 @@ uncomment the console.log() at the end of this file.
             {buffer: 16},
         ],
         28: [
-            function (require, module, exports) {
-                (function (global) {
-                    (function () {
+            function(require, module, exports) {
+                (function(global) {
+                    (function() {
                         var ClientRequest = require("./lib/request");
                         var response = require("./lib/response");
                         var extend = require("xtend");
@@ -8847,7 +8858,7 @@ uncomment the console.log() at the end of this file.
 
                         var http = exports;
 
-                        http.request = function (opts, cb) {
+                        http.request = function(opts, cb) {
                             if (typeof opts === "string") opts = url.parse(opts);
                             else opts = extend(opts);
 
@@ -8892,7 +8903,7 @@ uncomment the console.log() at the end of this file.
                         http.ClientRequest = ClientRequest;
                         http.IncomingMessage = response.IncomingMessage;
 
-                        http.Agent = function () {};
+                        http.Agent = function() {};
                         http.Agent.defaultMaxSockets = 4;
 
                         http.globalAgent = new http.Agent();
@@ -8948,9 +8959,9 @@ uncomment the console.log() at the end of this file.
             },
         ],
         29: [
-            function (require, module, exports) {
-                (function (global) {
-                    (function () {
+            function(require, module, exports) {
+                (function(global) {
+                    (function() {
                         exports.fetch =
                             isFunction(global.fetch) &&
                             isFunction(global.ReadableStream);
@@ -9038,9 +9049,9 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         30: [
-            function (require, module, exports) {
-                (function (process, global, Buffer) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process, global, Buffer) {
+                    (function() {
                         var capability = require("./capability");
                         var inherits = require("inherits");
                         var response = require("./response");
@@ -9062,7 +9073,7 @@ uncomment the console.log() at the end of this file.
                             return "text";
                         }
 
-                        var ClientRequest = (module.exports = function (opts) {
+                        var ClientRequest = (module.exports = function(opts) {
                             var self = this;
                             stream.Writable.call(self);
 
@@ -9074,7 +9085,7 @@ uncomment the console.log() at the end of this file.
                                     "Authorization",
                                     "Basic " + Buffer.from(opts.auth).toString("base64")
                                 );
-                            Object.keys(opts.headers).forEach(function (name) {
+                            Object.keys(opts.headers).forEach(function(name) {
                                 self.setHeader(name, opts.headers[name]);
                             });
 
@@ -9108,14 +9119,14 @@ uncomment the console.log() at the end of this file.
                             self._mode = decideMode(preferBinary, useFetch);
                             self._fetchTimer = null;
 
-                            self.on("finish", function () {
+                            self.on("finish", function() {
                                 self._onFinish();
                             });
                         });
 
                         inherits(ClientRequest, stream.Writable);
 
-                        ClientRequest.prototype.setHeader = function (name, value) {
+                        ClientRequest.prototype.setHeader = function(name, value) {
                             var self = this;
                             var lowerName = name.toLowerCase();
                             // This check is not necessary, but it prevents warnings from browsers about setting unsafe
@@ -9129,18 +9140,18 @@ uncomment the console.log() at the end of this file.
                             };
                         };
 
-                        ClientRequest.prototype.getHeader = function (name) {
+                        ClientRequest.prototype.getHeader = function(name) {
                             var header = this._headers[name.toLowerCase()];
                             if (header) return header.value;
                             return null;
                         };
 
-                        ClientRequest.prototype.removeHeader = function (name) {
+                        ClientRequest.prototype.removeHeader = function(name) {
                             var self = this;
                             delete self._headers[name.toLowerCase()];
                         };
 
-                        ClientRequest.prototype._onFinish = function () {
+                        ClientRequest.prototype._onFinish = function() {
                             var self = this;
 
                             if (self._destroyed) return;
@@ -9157,11 +9168,11 @@ uncomment the console.log() at the end of this file.
 
                             // Create flattened list of headers
                             var headersList = [];
-                            Object.keys(headersObj).forEach(function (keyName) {
+                            Object.keys(headersObj).forEach(function(keyName) {
                                 var name = headersObj[keyName].name;
                                 var value = headersObj[keyName].value;
                                 if (Array.isArray(value)) {
-                                    value.forEach(function (v) {
+                                    value.forEach(function(v) {
                                         headersList.push([name, v]);
                                     });
                                 } else {
@@ -9181,7 +9192,7 @@ uncomment the console.log() at the end of this file.
                                         opts.requestTimeout !== 0
                                     ) {
                                         self._fetchTimer = global.setTimeout(
-                                            function () {
+                                            function() {
                                                 self.emit("requestTimeout");
                                                 if (self._fetchAbortController)
                                                     self._fetchAbortController.abort();
@@ -9203,11 +9214,11 @@ uncomment the console.log() at the end of this file.
                                         signal: signal,
                                     })
                                     .then(
-                                        function (response) {
+                                        function(response) {
                                             self._fetchResponse = response;
                                             self._connect();
                                         },
-                                        function (reason) {
+                                        function(reason) {
                                             global.clearTimeout(self._fetchTimer);
                                             if (!self._destroyed)
                                                 self.emit("error", reason);
@@ -9218,7 +9229,7 @@ uncomment the console.log() at the end of this file.
                                 try {
                                     xhr.open(self._opts.method, self._opts.url, true);
                                 } catch (err) {
-                                    process.nextTick(function () {
+                                    process.nextTick(function() {
                                         self.emit("error", err);
                                     });
                                     return;
@@ -9238,17 +9249,17 @@ uncomment the console.log() at the end of this file.
 
                                 if ("requestTimeout" in opts) {
                                     xhr.timeout = opts.requestTimeout;
-                                    xhr.ontimeout = function () {
+                                    xhr.ontimeout = function() {
                                         self.emit("requestTimeout");
                                     };
                                 }
 
-                                headersList.forEach(function (header) {
+                                headersList.forEach(function(header) {
                                     xhr.setRequestHeader(header[0], header[1]);
                                 });
 
                                 self._response = null;
-                                xhr.onreadystatechange = function () {
+                                xhr.onreadystatechange = function() {
                                     switch (xhr.readyState) {
                                         case rStates.LOADING:
                                         case rStates.DONE:
@@ -9259,12 +9270,12 @@ uncomment the console.log() at the end of this file.
                                 // Necessary for streaming in Firefox, since xhr.response is ONLY defined
                                 // in onprogress, not in onreadystatechange with xhr.readyState = 3
                                 if (self._mode === "moz-chunked-arraybuffer") {
-                                    xhr.onprogress = function () {
+                                    xhr.onprogress = function() {
                                         self._onXHRProgress();
                                     };
                                 }
 
-                                xhr.onerror = function () {
+                                xhr.onerror = function() {
                                     if (self._destroyed) return;
                                     self.emit("error", new Error("XHR error"));
                                 };
@@ -9272,7 +9283,7 @@ uncomment the console.log() at the end of this file.
                                 try {
                                     xhr.send(body);
                                 } catch (err) {
-                                    process.nextTick(function () {
+                                    process.nextTick(function() {
                                         self.emit("error", err);
                                     });
                                     return;
@@ -9294,7 +9305,7 @@ uncomment the console.log() at the end of this file.
                             }
                         }
 
-                        ClientRequest.prototype._onXHRProgress = function () {
+                        ClientRequest.prototype._onXHRProgress = function() {
                             var self = this;
 
                             if (!statusValid(self._xhr) || self._destroyed) return;
@@ -9304,7 +9315,7 @@ uncomment the console.log() at the end of this file.
                             self._response._onXHRProgress();
                         };
 
-                        ClientRequest.prototype._connect = function () {
+                        ClientRequest.prototype._connect = function() {
                             var self = this;
 
                             if (self._destroyed) return;
@@ -9315,36 +9326,31 @@ uncomment the console.log() at the end of this file.
                                 self._mode,
                                 self._fetchTimer
                             );
-                            self._response.on("error", function (err) {
+                            self._response.on("error", function(err) {
                                 self.emit("error", err);
                             });
 
                             self.emit("response", self._response);
                         };
 
-                        ClientRequest.prototype._write = function (
-                            chunk,
-                            encoding,
-                            cb
-                        ) {
+                        ClientRequest.prototype._write = function(chunk, encoding, cb) {
                             var self = this;
 
                             self._body.push(chunk);
                             cb();
                         };
 
-                        ClientRequest.prototype.abort =
-                            ClientRequest.prototype.destroy = function () {
-                                var self = this;
-                                self._destroyed = true;
-                                global.clearTimeout(self._fetchTimer);
-                                if (self._response) self._response._destroyed = true;
-                                if (self._xhr) self._xhr.abort();
-                                else if (self._fetchAbortController)
-                                    self._fetchAbortController.abort();
-                            };
+                        ClientRequest.prototype.abort = ClientRequest.prototype.destroy = function() {
+                            var self = this;
+                            self._destroyed = true;
+                            global.clearTimeout(self._fetchTimer);
+                            if (self._response) self._response._destroyed = true;
+                            if (self._xhr) self._xhr.abort();
+                            else if (self._fetchAbortController)
+                                self._fetchAbortController.abort();
+                        };
 
-                        ClientRequest.prototype.end = function (data, encoding, cb) {
+                        ClientRequest.prototype.end = function(data, encoding, cb) {
                             var self = this;
                             if (typeof data === "function") {
                                 cb = data;
@@ -9359,10 +9365,10 @@ uncomment the console.log() at the end of this file.
                             );
                         };
 
-                        ClientRequest.prototype.flushHeaders = function () {};
-                        ClientRequest.prototype.setTimeout = function () {};
-                        ClientRequest.prototype.setNoDelay = function () {};
-                        ClientRequest.prototype.setSocketKeepAlive = function () {};
+                        ClientRequest.prototype.flushHeaders = function() {};
+                        ClientRequest.prototype.setTimeout = function() {};
+                        ClientRequest.prototype.setNoDelay = function() {};
+                        ClientRequest.prototype.setSocketKeepAlive = function() {};
 
                         // Taken from http://www.w3.org/TR/XMLHttpRequest/#the-setrequestheader%28%29-method
                         var unsafeHeaders = [
@@ -9411,9 +9417,9 @@ uncomment the console.log() at the end of this file.
             },
         ],
         31: [
-            function (require, module, exports) {
-                (function (process, global, Buffer) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process, global, Buffer) {
+                    (function() {
                         var capability = require("./capability");
                         var inherits = require("inherits");
                         var stream = require("readable-stream");
@@ -9426,7 +9432,7 @@ uncomment the console.log() at the end of this file.
                             DONE: 4,
                         });
 
-                        var IncomingMessage = (exports.IncomingMessage = function (
+                        var IncomingMessage = (exports.IncomingMessage = function(
                             xhr,
                             response,
                             mode,
@@ -9442,9 +9448,9 @@ uncomment the console.log() at the end of this file.
                             self.rawTrailers = [];
 
                             // Fake the 'close' event, but only once 'end' fires
-                            self.on("end", function () {
+                            self.on("end", function() {
                                 // The nextTick is necessary to prevent the 'request' module from causing an infinite loop
-                                process.nextTick(function () {
+                                process.nextTick(function() {
                                     self.emit("close");
                                 });
                             });
@@ -9456,15 +9462,15 @@ uncomment the console.log() at the end of this file.
                                 self.statusCode = response.status;
                                 self.statusMessage = response.statusText;
 
-                                response.headers.forEach(function (header, key) {
+                                response.headers.forEach(function(header, key) {
                                     self.headers[key.toLowerCase()] = header;
                                     self.rawHeaders.push(key, header);
                                 });
 
                                 if (capability.writableStream) {
                                     var writable = new WritableStream({
-                                        write: function (chunk) {
-                                            return new Promise(function (
+                                        write: function(chunk) {
+                                            return new Promise(function(
                                                 resolve,
                                                 reject
                                             ) {
@@ -9479,11 +9485,11 @@ uncomment the console.log() at the end of this file.
                                                 }
                                             });
                                         },
-                                        close: function () {
+                                        close: function() {
                                             global.clearTimeout(fetchTimer);
                                             if (!self._destroyed) self.push(null);
                                         },
-                                        abort: function (err) {
+                                        abort: function(err) {
                                             if (!self._destroyed)
                                                 self.emit("error", err);
                                         },
@@ -9492,7 +9498,7 @@ uncomment the console.log() at the end of this file.
                                     try {
                                         response.body
                                             .pipeTo(writable)
-                                            .catch(function (err) {
+                                            .catch(function(err) {
                                                 global.clearTimeout(fetchTimer);
                                                 if (!self._destroyed)
                                                     self.emit("error", err);
@@ -9505,7 +9511,7 @@ uncomment the console.log() at the end of this file.
                                 function read() {
                                     reader
                                         .read()
-                                        .then(function (result) {
+                                        .then(function(result) {
                                             if (self._destroyed) return;
                                             if (result.done) {
                                                 global.clearTimeout(fetchTimer);
@@ -9515,7 +9521,7 @@ uncomment the console.log() at the end of this file.
                                             self.push(Buffer.from(result.value));
                                             read();
                                         })
-                                        .catch(function (err) {
+                                        .catch(function(err) {
                                             global.clearTimeout(fetchTimer);
                                             if (!self._destroyed)
                                                 self.emit("error", err);
@@ -9532,7 +9538,7 @@ uncomment the console.log() at the end of this file.
                                 var headers = xhr
                                     .getAllResponseHeaders()
                                     .split(/\r?\n/);
-                                headers.forEach(function (header) {
+                                headers.forEach(function(header) {
                                     var matches = header.match(/^([^:]+):\s*(.*)/);
                                     if (matches) {
                                         var key = matches[1].toLowerCase();
@@ -9558,8 +9564,7 @@ uncomment the console.log() at the end of this file.
                                             /;\s*charset=([^;])(;|$)/
                                         );
                                         if (charsetMatch) {
-                                            self._charset =
-                                                charsetMatch[1].toLowerCase();
+                                            self._charset = charsetMatch[1].toLowerCase();
                                         }
                                     }
                                     if (!self._charset) self._charset = "utf-8"; // Best guess
@@ -9569,7 +9574,7 @@ uncomment the console.log() at the end of this file.
 
                         inherits(IncomingMessage, stream.Readable);
 
-                        IncomingMessage.prototype._read = function () {
+                        IncomingMessage.prototype._read = function() {
                             var self = this;
 
                             var resolve = self._resumeFetch;
@@ -9579,7 +9584,7 @@ uncomment the console.log() at the end of this file.
                             }
                         };
 
-                        IncomingMessage.prototype._onXHRProgress = function () {
+                        IncomingMessage.prototype._onXHRProgress = function() {
                             var self = this;
 
                             var xhr = self._xhr;
@@ -9622,7 +9627,7 @@ uncomment the console.log() at the end of this file.
                                     response = xhr.response;
                                     if (xhr.readyState !== rStates.LOADING) break;
                                     var reader = new global.MSStreamReader();
-                                    reader.onprogress = function () {
+                                    reader.onprogress = function() {
                                         if (reader.result.byteLength > self._pos) {
                                             self.push(
                                                 Buffer.from(
@@ -9634,7 +9639,7 @@ uncomment the console.log() at the end of this file.
                                             self._pos = reader.result.byteLength;
                                         }
                                     };
-                                    reader.onload = function () {
+                                    reader.onload = function() {
                                         self.push(null);
                                     };
                                     // Reader.onerror = ??? // TODO: this
@@ -9673,7 +9678,7 @@ uncomment the console.log() at the end of this file.
             },
         ],
         32: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 "use strict";
 
                 function _inheritsLoose(subClass, superClass) {
@@ -9698,7 +9703,7 @@ uncomment the console.log() at the end of this file.
 
                     var NodeError =
                         /* #__PURE__*/
-                        (function (_Base) {
+                        (function(_Base) {
                             _inheritsLoose(NodeError, _Base);
 
                             function NodeError(arg1, arg2, arg3) {
@@ -9719,7 +9724,7 @@ uncomment the console.log() at the end of this file.
                 function oneOf(expected, thing) {
                     if (Array.isArray(expected)) {
                         var len = expected.length;
-                        expected = expected.map(function (i) {
+                        expected = expected.map(function(i) {
                             return String(i);
                         });
 
@@ -9771,7 +9776,7 @@ uncomment the console.log() at the end of this file.
 
                 createErrorType(
                     "ERR_INVALID_OPT_VALUE",
-                    function (name, value) {
+                    function(name, value) {
                         return (
                             'The value "' +
                             value +
@@ -9784,7 +9789,7 @@ uncomment the console.log() at the end of this file.
                 );
                 createErrorType(
                     "ERR_INVALID_ARG_TYPE",
-                    function (name, expected, actual) {
+                    function(name, expected, actual) {
                         // Determiner: 'must be' or 'must not be'
                         var determiner;
 
@@ -9821,11 +9826,11 @@ uncomment the console.log() at the end of this file.
                     TypeError
                 );
                 createErrorType("ERR_STREAM_PUSH_AFTER_EOF", "stream.push() after EOF");
-                createErrorType("ERR_METHOD_NOT_IMPLEMENTED", function (name) {
+                createErrorType("ERR_METHOD_NOT_IMPLEMENTED", function(name) {
                     return "The " + name + " method is not implemented";
                 });
                 createErrorType("ERR_STREAM_PREMATURE_CLOSE", "Premature close");
-                createErrorType("ERR_STREAM_DESTROYED", function (name) {
+                createErrorType("ERR_STREAM_DESTROYED", function(name) {
                     return "Cannot call " + name + " after a stream was destroyed";
                 });
                 createErrorType(
@@ -9841,7 +9846,7 @@ uncomment the console.log() at the end of this file.
                 );
                 createErrorType(
                     "ERR_UNKNOWN_ENCODING",
-                    function (arg) {
+                    function(arg) {
                         return "Unknown encoding: " + arg;
                     },
                     TypeError
@@ -9855,9 +9860,9 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         33: [
-            function (require, module, exports) {
-                (function (process) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process) {
+                    (function() {
                         // Copyright Joyent, Inc. and other Node contributors.
                         //
                         // Permission is hereby granted, free of charge, to any person obtaining a
@@ -9887,7 +9892,7 @@ uncomment the console.log() at the end of this file.
 
                         var objectKeys =
                             Object.keys ||
-                            function (obj) {
+                            function(obj) {
                                 var keys = [];
 
                                 for (var key in obj) {
@@ -10026,7 +10031,7 @@ uncomment the console.log() at the end of this file.
             },
         ],
         34: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10063,16 +10068,16 @@ uncomment the console.log() at the end of this file.
                     Transform.call(this, options);
                 }
 
-                PassThrough.prototype._transform = function (chunk, encoding, cb) {
+                PassThrough.prototype._transform = function(chunk, encoding, cb) {
                     cb(null, chunk);
                 };
             },
             {"./_stream_transform": 36, inherits: 21},
         ],
         35: [
-            function (require, module, exports) {
-                (function (process, global) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process, global) {
+                    (function() {
                         // Copyright Joyent, Inc. and other Node contributors.
                         //
                         // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10118,7 +10123,7 @@ uncomment the console.log() at the end of this file.
 
                         var Buffer = require("buffer").Buffer;
 
-                        var OurUint8Array = global.Uint8Array || function () {};
+                        var OurUint8Array = global.Uint8Array || function() {};
 
                         function _uint8ArrayToBuffer(chunk) {
                             return Buffer.from(chunk);
@@ -10254,8 +10259,8 @@ uncomment the console.log() at the end of this file.
 
                             if (options.encoding) {
                                 if (!StringDecoder)
-                                    StringDecoder =
-                                        require("string_decoder/").StringDecoder;
+                                    StringDecoder = require("string_decoder/")
+                                        .StringDecoder;
                                 this.decoder = new StringDecoder(options.encoding);
                                 this.encoding = options.encoding;
                             }
@@ -10312,14 +10317,14 @@ uncomment the console.log() at the end of this file.
                         Readable.prototype.destroy = destroyImpl.destroy;
                         Readable.prototype._undestroy = destroyImpl.undestroy;
 
-                        Readable.prototype._destroy = function (err, cb) {
+                        Readable.prototype._destroy = function(err, cb) {
                             cb(err);
                         }; // Manually shove something into the read() buffer.
                         // This returns true if the highWaterMark has not been hit yet,
                         // similar to how Writable.write() returns true if you should
                         // write() some more.
 
-                        Readable.prototype.push = function (chunk, encoding) {
+                        Readable.prototype.push = function(chunk, encoding) {
                             var state = this._readableState;
                             var skipChunkCheck;
 
@@ -10347,7 +10352,7 @@ uncomment the console.log() at the end of this file.
                             );
                         }; // Unshift should *always* be something directly out of read()
 
-                        Readable.prototype.unshift = function (chunk) {
+                        Readable.prototype.unshift = function(chunk) {
                             return readableAddChunk(this, chunk, null, true, false);
                         };
 
@@ -10458,19 +10463,18 @@ uncomment the console.log() at the end of this file.
                             return er;
                         }
 
-                        Readable.prototype.isPaused = function () {
+                        Readable.prototype.isPaused = function() {
                             return this._readableState.flowing === false;
                         }; // Backwards compatibility.
 
-                        Readable.prototype.setEncoding = function (enc) {
+                        Readable.prototype.setEncoding = function(enc) {
                             if (!StringDecoder)
-                                StringDecoder =
-                                    require("string_decoder/").StringDecoder;
+                                StringDecoder = require("string_decoder/")
+                                    .StringDecoder;
                             var decoder = new StringDecoder(enc);
                             this._readableState.decoder = decoder; // If setEncoding(null), decoder.encoding equals utf8
 
-                            this._readableState.encoding =
-                                this._readableState.decoder.encoding; // Iterate over current buffer to convert already stored Buffers:
+                            this._readableState.encoding = this._readableState.decoder.encoding; // Iterate over current buffer to convert already stored Buffers:
 
                             var p = this._readableState.buffer.head;
                             var content = "";
@@ -10533,7 +10537,7 @@ uncomment the console.log() at the end of this file.
                             return state.length;
                         } // You can override either this method, or the async _read(n) below.
 
-                        Readable.prototype.read = function (n) {
+                        Readable.prototype.read = function(n) {
                             debug("read", n);
                             n = parseInt(n, 10);
                             var state = this._readableState;
@@ -10771,14 +10775,14 @@ uncomment the console.log() at the end of this file.
                         // for virtual (non-string, non-buffer) streams, "length" is somewhat
                         // arbitrary, and perhaps not very meaningful.
 
-                        Readable.prototype._read = function (n) {
+                        Readable.prototype._read = function(n) {
                             errorOrDestroy(
                                 this,
                                 new ERR_METHOD_NOT_IMPLEMENTED("_read()")
                             );
                         };
 
-                        Readable.prototype.pipe = function (dest, pipeOpts) {
+                        Readable.prototype.pipe = function(dest, pipeOpts) {
                             var src = this;
                             var state = this._readableState;
 
@@ -10942,7 +10946,7 @@ uncomment the console.log() at the end of this file.
                             };
                         }
 
-                        Readable.prototype.unpipe = function (dest) {
+                        Readable.prototype.unpipe = function(dest) {
                             var state = this._readableState;
                             var unpipeInfo = {
                                 hasUnpiped: false,
@@ -10989,7 +10993,7 @@ uncomment the console.log() at the end of this file.
                         }; // Set up data events if they are asked for
                         // Ensure readable listeners eventually get something
 
-                        Readable.prototype.on = function (ev, fn) {
+                        Readable.prototype.on = function(ev, fn) {
                             var res = Stream.prototype.on.call(this, ev, fn);
                             var state = this._readableState;
 
@@ -11020,7 +11024,7 @@ uncomment the console.log() at the end of this file.
 
                         Readable.prototype.addListener = Readable.prototype.on;
 
-                        Readable.prototype.removeListener = function (ev, fn) {
+                        Readable.prototype.removeListener = function(ev, fn) {
                             var res = Stream.prototype.removeListener.call(
                                 this,
                                 ev,
@@ -11040,7 +11044,7 @@ uncomment the console.log() at the end of this file.
                             return res;
                         };
 
-                        Readable.prototype.removeAllListeners = function (ev) {
+                        Readable.prototype.removeAllListeners = function(ev) {
                             var res = Stream.prototype.removeAllListeners.apply(
                                 this,
                                 arguments
@@ -11079,7 +11083,7 @@ uncomment the console.log() at the end of this file.
                         } // Pause() and resume() are remnants of the legacy readable stream API
                         // If the user uses them, then switch into old mode.
 
-                        Readable.prototype.resume = function () {
+                        Readable.prototype.resume = function() {
                             var state = this._readableState;
 
                             if (!state.flowing) {
@@ -11115,7 +11119,7 @@ uncomment the console.log() at the end of this file.
                             if (state.flowing && !state.reading) stream.read(0);
                         }
 
-                        Readable.prototype.pause = function () {
+                        Readable.prototype.pause = function() {
                             debug("call pause flowing=%j", this._readableState.flowing);
 
                             if (this._readableState.flowing !== false) {
@@ -11137,12 +11141,12 @@ uncomment the console.log() at the end of this file.
                         // This is *not* part of the readable stream interface.
                         // It is an ugly unfortunate mess of history.
 
-                        Readable.prototype.wrap = function (stream) {
+                        Readable.prototype.wrap = function(stream) {
                             var _this = this;
 
                             var state = this._readableState;
                             var paused = false;
-                            stream.on("end", function () {
+                            stream.on("end", function() {
                                 debug("wrapped end");
 
                                 if (state.decoder && !state.ended) {
@@ -11152,7 +11156,7 @@ uncomment the console.log() at the end of this file.
 
                                 _this.push(null);
                             });
-                            stream.on("data", function (chunk) {
+                            stream.on("data", function(chunk) {
                                 debug("wrapped data");
                                 if (state.decoder) chunk = state.decoder.write(chunk); // Don't skip over falsy values in objectMode
 
@@ -11197,7 +11201,7 @@ uncomment the console.log() at the end of this file.
                             } // When we try to consume some more bytes, simply unpause the
                             // underlying stream.
 
-                            this._read = function (n) {
+                            this._read = function(n) {
                                 debug("wrapped _read", n);
 
                                 if (paused) {
@@ -11210,7 +11214,7 @@ uncomment the console.log() at the end of this file.
                         };
 
                         if (typeof Symbol === "function") {
-                            Readable.prototype[Symbol.asyncIterator] = function () {
+                            Readable.prototype[Symbol.asyncIterator] = function() {
                                 if (createReadableStreamAsyncIterator === undefined) {
                                     createReadableStreamAsyncIterator = require("./internal/streams/async_iterator");
                                 }
@@ -11325,7 +11329,7 @@ uncomment the console.log() at the end of this file.
                         }
 
                         if (typeof Symbol === "function") {
-                            Readable.from = function (iterable, opts) {
+                            Readable.from = function(iterable, opts) {
                                 if (from === undefined) {
                                     from = require("./internal/streams/from");
                                 }
@@ -11372,7 +11376,7 @@ uncomment the console.log() at the end of this file.
             },
         ],
         36: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -11509,7 +11513,7 @@ uncomment the console.log() at the end of this file.
                         typeof this._flush === "function" &&
                         !this._readableState.destroyed
                     ) {
-                        this._flush(function (er, data) {
+                        this._flush(function(er, data) {
                             done(_this, er, data);
                         });
                     } else {
@@ -11517,7 +11521,7 @@ uncomment the console.log() at the end of this file.
                     }
                 }
 
-                Transform.prototype.push = function (chunk, encoding) {
+                Transform.prototype.push = function(chunk, encoding) {
                     this._transformState.needTransform = false;
                     return Duplex.prototype.push.call(this, chunk, encoding);
                 }; // This is the part where you do stuff!
@@ -11531,11 +11535,11 @@ uncomment the console.log() at the end of this file.
                 // an error, then that'll put the hurt on the whole operation.  If you
                 // never call cb(), then you'll never get another chunk.
 
-                Transform.prototype._transform = function (chunk, encoding, cb) {
+                Transform.prototype._transform = function(chunk, encoding, cb) {
                     cb(new ERR_METHOD_NOT_IMPLEMENTED("_transform()"));
                 };
 
-                Transform.prototype._write = function (chunk, encoding, cb) {
+                Transform.prototype._write = function(chunk, encoding, cb) {
                     var ts = this._transformState;
                     ts.writecb = cb;
                     ts.writechunk = chunk;
@@ -11554,7 +11558,7 @@ uncomment the console.log() at the end of this file.
                 // _transform does all the work.
                 // That we got here means that the readable side wants more data.
 
-                Transform.prototype._read = function (n) {
+                Transform.prototype._read = function(n) {
                     var ts = this._transformState;
 
                     if (ts.writechunk !== null && !ts.transforming) {
@@ -11572,8 +11576,8 @@ uncomment the console.log() at the end of this file.
                     }
                 };
 
-                Transform.prototype._destroy = function (err, cb) {
-                    Duplex.prototype._destroy.call(this, err, function (err2) {
+                Transform.prototype._destroy = function(err, cb) {
+                    Duplex.prototype._destroy.call(this, err, function(err2) {
                         cb(err2);
                     });
                 };
@@ -11596,9 +11600,9 @@ uncomment the console.log() at the end of this file.
             {"../errors": 32, "./_stream_duplex": 33, inherits: 21},
         ],
         37: [
-            function (require, module, exports) {
-                (function (process, global) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process, global) {
+                    (function() {
                         // Copyright Joyent, Inc. and other Node contributors.
                         //
                         // Permission is hereby granted, free of charge, to any person obtaining a
@@ -11641,7 +11645,7 @@ uncomment the console.log() at the end of this file.
                             this.next = null;
                             this.entry = null;
 
-                            this.finish = function () {
+                            this.finish = function() {
                                 onCorkedFinish(_this, state);
                             };
                         }
@@ -11667,7 +11671,7 @@ uncomment the console.log() at the end of this file.
 
                         var Buffer = require("buffer").Buffer;
 
-                        var OurUint8Array = global.Uint8Array || function () {};
+                        var OurUint8Array = global.Uint8Array || function() {};
 
                         function _uint8ArrayToBuffer(chunk) {
                             return Buffer.from(chunk);
@@ -11768,7 +11772,7 @@ uncomment the console.log() at the end of this file.
 
                             this.bufferProcessing = false; // The callback that's passed to _write(chunk,cb)
 
-                            this.onwrite = function (er) {
+                            this.onwrite = function(er) {
                                 onwrite(stream, er);
                             }; // The callback that the user supplies to write(chunk,encoding,cb)
 
@@ -11808,7 +11812,7 @@ uncomment the console.log() at the end of this file.
                             return out;
                         };
 
-                        (function () {
+                        (function() {
                             try {
                                 Object.defineProperty(
                                     WritableState.prototype,
@@ -11887,7 +11891,7 @@ uncomment the console.log() at the end of this file.
                             Stream.call(this);
                         } // Otherwise people can pipe Writable streams, which is just wrong.
 
-                        Writable.prototype.pipe = function () {
+                        Writable.prototype.pipe = function() {
                             errorOrDestroy(this, new ERR_STREAM_CANNOT_PIPE());
                         };
 
@@ -11922,7 +11926,7 @@ uncomment the console.log() at the end of this file.
                             return true;
                         }
 
-                        Writable.prototype.write = function (chunk, encoding, cb) {
+                        Writable.prototype.write = function(chunk, encoding, cb) {
                             var state = this._writableState;
                             var ret = false;
 
@@ -11955,11 +11959,11 @@ uncomment the console.log() at the end of this file.
                             return ret;
                         };
 
-                        Writable.prototype.cork = function () {
+                        Writable.prototype.cork = function() {
                             this._writableState.corked++;
                         };
 
-                        Writable.prototype.uncork = function () {
+                        Writable.prototype.uncork = function() {
                             var state = this._writableState;
 
                             if (state.corked) {
@@ -11974,32 +11978,33 @@ uncomment the console.log() at the end of this file.
                             }
                         };
 
-                        Writable.prototype.setDefaultEncoding =
-                            function setDefaultEncoding(encoding) {
-                                // Node::ParseEncoding() requires lower case.
-                                if (typeof encoding === "string")
-                                    encoding = encoding.toLowerCase();
-                                if (
-                                    !(
-                                        [
-                                            "hex",
-                                            "utf8",
-                                            "utf-8",
-                                            "ascii",
-                                            "binary",
-                                            "base64",
-                                            "ucs2",
-                                            "ucs-2",
-                                            "utf16le",
-                                            "utf-16le",
-                                            "raw",
-                                        ].indexOf(String(encoding).toLowerCase()) > -1
-                                    )
+                        Writable.prototype.setDefaultEncoding = function setDefaultEncoding(
+                            encoding
+                        ) {
+                            // Node::ParseEncoding() requires lower case.
+                            if (typeof encoding === "string")
+                                encoding = encoding.toLowerCase();
+                            if (
+                                !(
+                                    [
+                                        "hex",
+                                        "utf8",
+                                        "utf-8",
+                                        "ascii",
+                                        "binary",
+                                        "base64",
+                                        "ucs2",
+                                        "ucs-2",
+                                        "utf16le",
+                                        "utf-16le",
+                                        "raw",
+                                    ].indexOf(String(encoding).toLowerCase()) > -1
                                 )
-                                    throw new ERR_UNKNOWN_ENCODING(encoding);
-                                this._writableState.defaultEncoding = encoding;
-                                return this;
-                            };
+                            )
+                                throw new ERR_UNKNOWN_ENCODING(encoding);
+                            this._writableState.defaultEncoding = encoding;
+                            return this;
+                        };
 
                         Object.defineProperty(Writable.prototype, "writableBuffer", {
                             // Making it explicit this property is not enumerable
@@ -12269,13 +12274,13 @@ uncomment the console.log() at the end of this file.
                             state.bufferProcessing = false;
                         }
 
-                        Writable.prototype._write = function (chunk, encoding, cb) {
+                        Writable.prototype._write = function(chunk, encoding, cb) {
                             cb(new ERR_METHOD_NOT_IMPLEMENTED("_write()"));
                         };
 
                         Writable.prototype._writev = null;
 
-                        Writable.prototype.end = function (chunk, encoding, cb) {
+                        Writable.prototype.end = function(chunk, encoding, cb) {
                             var state = this._writableState;
 
                             if (typeof chunk === "function") {
@@ -12320,7 +12325,7 @@ uncomment the console.log() at the end of this file.
                         }
 
                         function callFinal(stream, state) {
-                            stream._final(function (err) {
+                            stream._final(function(err) {
                                 state.pendingcb--;
 
                                 if (err) {
@@ -12430,7 +12435,7 @@ uncomment the console.log() at the end of this file.
                         Writable.prototype.destroy = destroyImpl.destroy;
                         Writable.prototype._undestroy = destroyImpl.undestroy;
 
-                        Writable.prototype._destroy = function (err, cb) {
+                        Writable.prototype._destroy = function(err, cb) {
                             cb(err);
                         };
                     }.call(this));
@@ -12459,9 +12464,9 @@ uncomment the console.log() at the end of this file.
             },
         ],
         38: [
-            function (require, module, exports) {
-                (function (process) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process) {
+                    (function() {
                         "use strict";
 
                         var _Object$setPrototypeO;
@@ -12521,8 +12526,8 @@ uncomment the console.log() at the end of this file.
                         }
 
                         function wrapForNext(lastPromise, iter) {
-                            return function (resolve, reject) {
-                                lastPromise.then(function () {
+                            return function(resolve, reject) {
+                                lastPromise.then(function() {
                                     if (iter[kEnded]) {
                                         resolve(createIterResult(undefined, true));
                                         return;
@@ -12534,109 +12539,41 @@ uncomment the console.log() at the end of this file.
                         }
 
                         var AsyncIteratorPrototype = Object.getPrototypeOf(
-                            function () {}
+                            function() {}
                         );
-                        var ReadableStreamAsyncIteratorPrototype =
-                            Object.setPrototypeOf(
-                                ((_Object$setPrototypeO = {
-                                    get stream() {
-                                        return this[kStream];
-                                    },
+                        var ReadableStreamAsyncIteratorPrototype = Object.setPrototypeOf(
+                            ((_Object$setPrototypeO = {
+                                get stream() {
+                                    return this[kStream];
+                                },
 
-                                    next: function next() {
-                                        var _this = this;
+                                next: function next() {
+                                    var _this = this;
 
-                                        // If we have detected an error in the meanwhile
-                                        // reject straight away
-                                        var error = this[kError];
+                                    // If we have detected an error in the meanwhile
+                                    // reject straight away
+                                    var error = this[kError];
 
-                                        if (error !== null) {
-                                            return Promise.reject(error);
-                                        }
-
-                                        if (this[kEnded]) {
-                                            return Promise.resolve(
-                                                createIterResult(undefined, true)
-                                            );
-                                        }
-
-                                        if (this[kStream].destroyed) {
-                                            // We need to defer via nextTick because if .destroy(err) is
-                                            // called, the error will be emitted via nextTick, and
-                                            // we cannot guarantee that there is no error lingering around
-                                            // waiting to be emitted.
-                                            return new Promise(function (
-                                                resolve,
-                                                reject
-                                            ) {
-                                                process.nextTick(function () {
-                                                    if (_this[kError]) {
-                                                        reject(_this[kError]);
-                                                    } else {
-                                                        resolve(
-                                                            createIterResult(
-                                                                undefined,
-                                                                true
-                                                            )
-                                                        );
-                                                    }
-                                                });
-                                            });
-                                        } // If we have multiple next() calls
-                                        // we will wait for the previous Promise to finish
-                                        // this logic is optimized to support for await loops,
-                                        // where next() is only called once at a time
-
-                                        var lastPromise = this[kLastPromise];
-                                        var promise;
-
-                                        if (lastPromise) {
-                                            promise = new Promise(
-                                                wrapForNext(lastPromise, this)
-                                            );
-                                        } else {
-                                            // Fast path needed to support multiple this.push()
-                                            // without triggering the next() queue
-                                            var data = this[kStream].read();
-
-                                            if (data !== null) {
-                                                return Promise.resolve(
-                                                    createIterResult(data, false)
-                                                );
-                                            }
-
-                                            promise = new Promise(this[kHandlePromise]);
-                                        }
-
-                                        this[kLastPromise] = promise;
-                                        return promise;
-                                    },
-                                }),
-                                _defineProperty(
-                                    _Object$setPrototypeO,
-                                    Symbol.asyncIterator,
-                                    function () {
-                                        return this;
+                                    if (error !== null) {
+                                        return Promise.reject(error);
                                     }
-                                ),
-                                _defineProperty(
-                                    _Object$setPrototypeO,
-                                    "return",
-                                    function _return() {
-                                        var _this2 = this;
 
-                                        // Destroy(err, cb) is a private API
-                                        // we can guarantee we have that here, because we control the
-                                        // Readable class this is attached to
-                                        return new Promise(function (resolve, reject) {
-                                            _this2[kStream].destroy(
-                                                null,
-                                                function (err) {
-                                                    if (err) {
-                                                        reject(err);
-                                                        return;
-                                                    }
+                                    if (this[kEnded]) {
+                                        return Promise.resolve(
+                                            createIterResult(undefined, true)
+                                        );
+                                    }
 
+                                    if (this[kStream].destroyed) {
+                                        // We need to defer via nextTick because if .destroy(err) is
+                                        // called, the error will be emitted via nextTick, and
+                                        // we cannot guarantee that there is no error lingering around
+                                        // waiting to be emitted.
+                                        return new Promise(function(resolve, reject) {
+                                            process.nextTick(function() {
+                                                if (_this[kError]) {
+                                                    reject(_this[kError]);
+                                                } else {
                                                     resolve(
                                                         createIterResult(
                                                             undefined,
@@ -12644,93 +12581,147 @@ uncomment the console.log() at the end of this file.
                                                         )
                                                     );
                                                 }
-                                            );
+                                            });
                                         });
+                                    } // If we have multiple next() calls
+                                    // we will wait for the previous Promise to finish
+                                    // this logic is optimized to support for await loops,
+                                    // where next() is only called once at a time
+
+                                    var lastPromise = this[kLastPromise];
+                                    var promise;
+
+                                    if (lastPromise) {
+                                        promise = new Promise(
+                                            wrapForNext(lastPromise, this)
+                                        );
+                                    } else {
+                                        // Fast path needed to support multiple this.push()
+                                        // without triggering the next() queue
+                                        var data = this[kStream].read();
+
+                                        if (data !== null) {
+                                            return Promise.resolve(
+                                                createIterResult(data, false)
+                                            );
+                                        }
+
+                                        promise = new Promise(this[kHandlePromise]);
                                     }
-                                ),
-                                _Object$setPrototypeO),
-                                AsyncIteratorPrototype
-                            );
 
-                        var createReadableStreamAsyncIterator =
-                            function createReadableStreamAsyncIterator(stream) {
-                                var _Object$create;
+                                    this[kLastPromise] = promise;
+                                    return promise;
+                                },
+                            }),
+                            _defineProperty(
+                                _Object$setPrototypeO,
+                                Symbol.asyncIterator,
+                                function() {
+                                    return this;
+                                }
+                            ),
+                            _defineProperty(
+                                _Object$setPrototypeO,
+                                "return",
+                                function _return() {
+                                    var _this2 = this;
 
-                                var iterator = Object.create(
-                                    ReadableStreamAsyncIteratorPrototype,
-                                    ((_Object$create = {}),
-                                    _defineProperty(_Object$create, kStream, {
-                                        value: stream,
-                                        writable: true,
-                                    }),
-                                    _defineProperty(_Object$create, kLastResolve, {
-                                        value: null,
-                                        writable: true,
-                                    }),
-                                    _defineProperty(_Object$create, kLastReject, {
-                                        value: null,
-                                        writable: true,
-                                    }),
-                                    _defineProperty(_Object$create, kError, {
-                                        value: null,
-                                        writable: true,
-                                    }),
-                                    _defineProperty(_Object$create, kEnded, {
-                                        value: stream._readableState.endEmitted,
-                                        writable: true,
-                                    }),
-                                    _defineProperty(_Object$create, kHandlePromise, {
-                                        value: function value(resolve, reject) {
-                                            var data = iterator[kStream].read();
-
-                                            if (data) {
-                                                iterator[kLastPromise] = null;
-                                                iterator[kLastResolve] = null;
-                                                iterator[kLastReject] = null;
-                                                resolve(createIterResult(data, false));
-                                            } else {
-                                                iterator[kLastResolve] = resolve;
-                                                iterator[kLastReject] = reject;
+                                    // Destroy(err, cb) is a private API
+                                    // we can guarantee we have that here, because we control the
+                                    // Readable class this is attached to
+                                    return new Promise(function(resolve, reject) {
+                                        _this2[kStream].destroy(null, function(err) {
+                                            if (err) {
+                                                reject(err);
+                                                return;
                                             }
-                                        },
-                                        writable: true,
-                                    }),
-                                    _Object$create)
-                                );
-                                iterator[kLastPromise] = null;
-                                finished(stream, function (err) {
-                                    if (
-                                        err &&
-                                        err.code !== "ERR_STREAM_PREMATURE_CLOSE"
-                                    ) {
-                                        var reject = iterator[kLastReject]; // Reject if we are waiting for data in the Promise
-                                        // returned by next() and store the error
 
-                                        if (reject !== null) {
+                                            resolve(createIterResult(undefined, true));
+                                        });
+                                    });
+                                }
+                            ),
+                            _Object$setPrototypeO),
+                            AsyncIteratorPrototype
+                        );
+
+                        var createReadableStreamAsyncIterator = function createReadableStreamAsyncIterator(
+                            stream
+                        ) {
+                            var _Object$create;
+
+                            var iterator = Object.create(
+                                ReadableStreamAsyncIteratorPrototype,
+                                ((_Object$create = {}),
+                                _defineProperty(_Object$create, kStream, {
+                                    value: stream,
+                                    writable: true,
+                                }),
+                                _defineProperty(_Object$create, kLastResolve, {
+                                    value: null,
+                                    writable: true,
+                                }),
+                                _defineProperty(_Object$create, kLastReject, {
+                                    value: null,
+                                    writable: true,
+                                }),
+                                _defineProperty(_Object$create, kError, {
+                                    value: null,
+                                    writable: true,
+                                }),
+                                _defineProperty(_Object$create, kEnded, {
+                                    value: stream._readableState.endEmitted,
+                                    writable: true,
+                                }),
+                                _defineProperty(_Object$create, kHandlePromise, {
+                                    value: function value(resolve, reject) {
+                                        var data = iterator[kStream].read();
+
+                                        if (data) {
                                             iterator[kLastPromise] = null;
                                             iterator[kLastResolve] = null;
                                             iterator[kLastReject] = null;
-                                            reject(err);
+                                            resolve(createIterResult(data, false));
+                                        } else {
+                                            iterator[kLastResolve] = resolve;
+                                            iterator[kLastReject] = reject;
                                         }
+                                    },
+                                    writable: true,
+                                }),
+                                _Object$create)
+                            );
+                            iterator[kLastPromise] = null;
+                            finished(stream, function(err) {
+                                if (err && err.code !== "ERR_STREAM_PREMATURE_CLOSE") {
+                                    var reject = iterator[kLastReject]; // Reject if we are waiting for data in the Promise
+                                    // returned by next() and store the error
 
-                                        iterator[kError] = err;
-                                        return;
-                                    }
-
-                                    var resolve = iterator[kLastResolve];
-
-                                    if (resolve !== null) {
+                                    if (reject !== null) {
                                         iterator[kLastPromise] = null;
                                         iterator[kLastResolve] = null;
                                         iterator[kLastReject] = null;
-                                        resolve(createIterResult(undefined, true));
+                                        reject(err);
                                     }
 
-                                    iterator[kEnded] = true;
-                                });
-                                stream.on("readable", onReadable.bind(null, iterator));
-                                return iterator;
-                            };
+                                    iterator[kError] = err;
+                                    return;
+                                }
+
+                                var resolve = iterator[kLastResolve];
+
+                                if (resolve !== null) {
+                                    iterator[kLastPromise] = null;
+                                    iterator[kLastResolve] = null;
+                                    iterator[kLastReject] = null;
+                                    resolve(createIterResult(undefined, true));
+                                }
+
+                                iterator[kEnded] = true;
+                            });
+                            stream.on("readable", onReadable.bind(null, iterator));
+                            return iterator;
+                        };
 
                         module.exports = createReadableStreamAsyncIterator;
                     }.call(this));
@@ -12739,7 +12730,7 @@ uncomment the console.log() at the end of this file.
             {"./end-of-stream": 41, _process: 22},
         ],
         39: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 "use strict";
 
                 function ownKeys(object, enumerableOnly) {
@@ -12747,7 +12738,7 @@ uncomment the console.log() at the end of this file.
                     if (Object.getOwnPropertySymbols) {
                         var symbols = Object.getOwnPropertySymbols(object);
                         if (enumerableOnly)
-                            symbols = symbols.filter(function (sym) {
+                            symbols = symbols.filter(function(sym) {
                                 return Object.getOwnPropertyDescriptor(
                                     object,
                                     sym
@@ -12762,7 +12753,7 @@ uncomment the console.log() at the end of this file.
                     for (var i = 1; i < arguments.length; i++) {
                         var source = arguments[i] != null ? arguments[i] : {};
                         if (i % 2) {
-                            ownKeys(Object(source), true).forEach(function (key) {
+                            ownKeys(Object(source), true).forEach(function(key) {
                                 _defineProperty(target, key, source[key]);
                             });
                         } else if (Object.getOwnPropertyDescriptors) {
@@ -12771,7 +12762,7 @@ uncomment the console.log() at the end of this file.
                                 Object.getOwnPropertyDescriptors(source)
                             );
                         } else {
-                            ownKeys(Object(source)).forEach(function (key) {
+                            ownKeys(Object(source)).forEach(function(key) {
                                 Object.defineProperty(
                                     target,
                                     key,
@@ -12834,7 +12825,7 @@ uncomment the console.log() at the end of this file.
 
                 module.exports =
                     /* #__PURE__*/
-                    (function () {
+                    (function() {
                         function BufferList() {
                             _classCallCheck(this, BufferList);
 
@@ -13038,9 +13029,9 @@ uncomment the console.log() at the end of this file.
             {buffer: 16, util: 15},
         ],
         40: [
-            function (require, module, exports) {
-                (function (process) {
-                    (function () {
+            function(require, module, exports) {
+                (function(process) {
+                    (function() {
                         "use strict"; // Undocumented cb() API, needed for core, not for public API
 
                         function destroy(err, cb) {
@@ -13075,7 +13066,7 @@ uncomment the console.log() at the end of this file.
                                 this._writableState.destroyed = true;
                             }
 
-                            this._destroy(err || null, function (err) {
+                            this._destroy(err || null, function(err) {
                                 if (!cb && err) {
                                     if (!_this._writableState) {
                                         process.nextTick(
@@ -13167,17 +13158,17 @@ uncomment the console.log() at the end of this file.
             {_process: 22},
         ],
         41: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Ported from https://github.com/mafintosh/end-of-stream with
                 // permission from the author, Mathias Buus (@mafintosh).
                 "use strict";
 
-                var ERR_STREAM_PREMATURE_CLOSE =
-                    require("../../../errors").codes.ERR_STREAM_PREMATURE_CLOSE;
+                var ERR_STREAM_PREMATURE_CLOSE = require("../../../errors").codes
+                    .ERR_STREAM_PREMATURE_CLOSE;
 
                 function once(callback) {
                     var called = false;
-                    return function () {
+                    return function() {
                         if (called) return;
                         called = true;
 
@@ -13271,7 +13262,7 @@ uncomment the console.log() at the end of this file.
                     stream.on("finish", onfinish);
                     if (opts.error !== false) stream.on("error", onerror);
                     stream.on("close", onclose);
-                    return function () {
+                    return function() {
                         stream.removeListener("complete", onfinish);
                         stream.removeListener("abort", onclose);
                         stream.removeListener("request", onrequest);
@@ -13290,15 +13281,15 @@ uncomment the console.log() at the end of this file.
             {"../../../errors": 32},
         ],
         42: [
-            function (require, module, exports) {
-                module.exports = function () {
+            function(require, module, exports) {
+                module.exports = function() {
                     throw new Error("Readable.from is not available in the browser");
                 };
             },
             {},
         ],
         43: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Ported from https://github.com/mafintosh/pump with
                 // permission from the author, Mathias Buus (@mafintosh).
                 "use strict";
@@ -13307,7 +13298,7 @@ uncomment the console.log() at the end of this file.
 
                 function once(callback) {
                     var called = false;
-                    return function () {
+                    return function() {
                         if (called) return;
                         called = true;
                         callback.apply(void 0, arguments);
@@ -13330,7 +13321,7 @@ uncomment the console.log() at the end of this file.
                 function destroyer(stream, reading, writing, callback) {
                     callback = once(callback);
                     var closed = false;
-                    stream.on("close", function () {
+                    stream.on("close", function() {
                         closed = true;
                     });
                     if (eos === undefined) eos = require("./end-of-stream");
@@ -13340,14 +13331,14 @@ uncomment the console.log() at the end of this file.
                             readable: reading,
                             writable: writing,
                         },
-                        function (err) {
+                        function(err) {
                             if (err) return callback(err);
                             closed = true;
                             callback();
                         }
                     );
                     var destroyed = false;
-                    return function (err) {
+                    return function(err) {
                         if (closed) return;
                         if (destroyed) return;
                         destroyed = true; // Request.destroy just do .end - .abort is what we want
@@ -13392,10 +13383,10 @@ uncomment the console.log() at the end of this file.
                     }
 
                     var error;
-                    var destroys = streams.map(function (stream, i) {
+                    var destroys = streams.map(function(stream, i) {
                         var reading = i < streams.length - 1;
                         var writing = i > 0;
-                        return destroyer(stream, reading, writing, function (err) {
+                        return destroyer(stream, reading, writing, function(err) {
                             if (!error) error = err;
                             if (err) destroys.forEach(call);
                             if (reading) return;
@@ -13411,11 +13402,11 @@ uncomment the console.log() at the end of this file.
             {"../../../errors": 32, "./end-of-stream": 41},
         ],
         44: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 "use strict";
 
-                var ERR_INVALID_OPT_VALUE =
-                    require("../../../errors").codes.ERR_INVALID_OPT_VALUE;
+                var ERR_INVALID_OPT_VALUE = require("../../../errors").codes
+                    .ERR_INVALID_OPT_VALUE;
 
                 function highWaterMarkFrom(options, isDuplex, duplexKey) {
                     return options.highWaterMark != null
@@ -13447,13 +13438,13 @@ uncomment the console.log() at the end of this file.
             {"../../../errors": 32},
         ],
         45: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 module.exports = require("events").EventEmitter;
             },
             {events: 18},
         ],
         46: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 exports = module.exports = require("./lib/_stream_readable.js");
                 exports.Stream = exports;
                 exports.Readable = exports;
@@ -13475,7 +13466,7 @@ uncomment the console.log() at the end of this file.
             },
         ],
         47: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -13506,7 +13497,7 @@ uncomment the console.log() at the end of this file.
 
                 var isEncoding =
                     Buffer.isEncoding ||
-                    function (encoding) {
+                    function(encoding) {
                         encoding = String(encoding);
                         switch (encoding && encoding.toLowerCase()) {
                             case "hex":
@@ -13598,7 +13589,7 @@ uncomment the console.log() at the end of this file.
                     this.lastChar = Buffer.allocUnsafe(nb);
                 }
 
-                StringDecoder.prototype.write = function (buf) {
+                StringDecoder.prototype.write = function(buf) {
                     if (buf.length === 0) return "";
                     var r;
                     var i;
@@ -13621,7 +13612,7 @@ uncomment the console.log() at the end of this file.
                 StringDecoder.prototype.text = utf8Text;
 
                 // Attempts to complete a partial non-UTF-8 character using bytes from a Buffer
-                StringDecoder.prototype.fillLast = function (buf) {
+                StringDecoder.prototype.fillLast = function(buf) {
                     if (this.lastNeed <= buf.length) {
                         buf.copy(
                             this.lastChar,
@@ -13810,7 +13801,7 @@ uncomment the console.log() at the end of this file.
             {"safe-buffer": 27},
         ],
         48: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 // Copyright Joyent, Inc. and other Node contributors.
                 //
                 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -13916,7 +13907,7 @@ uncomment the console.log() at the end of this file.
                     return u;
                 }
 
-                Url.prototype.parse = function (
+                Url.prototype.parse = function(
                     url,
                     parseQueryString,
                     slashesDenoteHost
@@ -14206,7 +14197,7 @@ uncomment the console.log() at the end of this file.
                     return obj.format();
                 }
 
-                Url.prototype.format = function () {
+                Url.prototype.format = function() {
                     var auth = this.auth || "";
                     if (auth) {
                         auth = encodeURIComponent(auth);
@@ -14261,7 +14252,7 @@ uncomment the console.log() at the end of this file.
                     if (hash && hash.charAt(0) !== "#") hash = "#" + hash;
                     if (search && search.charAt(0) !== "?") search = "?" + search;
 
-                    pathname = pathname.replace(/[?#]/g, function (match) {
+                    pathname = pathname.replace(/[?#]/g, function(match) {
                         return encodeURIComponent(match);
                     });
                     search = search.replace("#", "%23");
@@ -14273,7 +14264,7 @@ uncomment the console.log() at the end of this file.
                     return urlParse(source, false, true).resolve(relative);
                 }
 
-                Url.prototype.resolve = function (relative) {
+                Url.prototype.resolve = function(relative) {
                     return this.resolveObject(urlParse(relative, false, true)).format();
                 };
 
@@ -14282,7 +14273,7 @@ uncomment the console.log() at the end of this file.
                     return urlParse(source, false, true).resolveObject(relative);
                 }
 
-                Url.prototype.resolveObject = function (relative) {
+                Url.prototype.resolveObject = function(relative) {
                     if (util.isString(relative)) {
                         var rel = new Url();
                         rel.parse(relative, false, true);
@@ -14583,7 +14574,7 @@ uncomment the console.log() at the end of this file.
                     return result;
                 };
 
-                Url.prototype.parseHost = function () {
+                Url.prototype.parseHost = function() {
                     var host = this.host;
                     var port = portPattern.exec(host);
                     if (port) {
@@ -14599,20 +14590,20 @@ uncomment the console.log() at the end of this file.
             {"./util": 49, punycode: 23, querystring: 26},
         ],
         49: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 "use strict";
 
                 module.exports = {
-                    isString: function (arg) {
+                    isString: function(arg) {
                         return typeof arg === "string";
                     },
-                    isObject: function (arg) {
+                    isObject: function(arg) {
                         return typeof arg === "object" && arg !== null;
                     },
-                    isNull: function (arg) {
+                    isNull: function(arg) {
                         return arg === null;
                     },
-                    isNullOrUndefined: function (arg) {
+                    isNullOrUndefined: function(arg) {
                         return arg == null;
                     },
                 };
@@ -14620,9 +14611,9 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         50: [
-            function (require, module, exports) {
-                (function (global) {
-                    (function () {
+            function(require, module, exports) {
+                (function(global) {
+                    (function() {
                         /**
                          * Module exports.
                          */
@@ -14704,7 +14695,7 @@ uncomment the console.log() at the end of this file.
             {},
         ],
         51: [
-            function (require, module, exports) {
+            function(require, module, exports) {
                 module.exports = extend;
 
                 var hasOwnProperty = Object.prototype.hasOwnProperty;

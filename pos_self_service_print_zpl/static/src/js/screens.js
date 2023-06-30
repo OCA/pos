@@ -1,4 +1,4 @@
-odoo.define("pos_self_service_print_zpl.screens", function (require) {
+odoo.define("pos_self_service_print_zpl.screens", function(require) {
     "use strict";
 
     var screens = require("pos_self_service_base.screens");
@@ -6,7 +6,7 @@ odoo.define("pos_self_service_print_zpl.screens", function (require) {
     var _t = core._t;
 
     screens.SelfServiceScreenWidget.include({
-        click_print: function () {
+        click_print: function() {
             this._super();
             var printer_name = this.pos.config.printer_name;
             if (printer_name) {
@@ -20,7 +20,7 @@ odoo.define("pos_self_service_print_zpl.screens", function (require) {
                 });
             }
         },
-        get_ZPL_barcode: function () {
+        get_ZPL_barcode: function() {
             return `~SD${this.pos.config.darkness}
             ^XA ^FX
             ^BY${this.pos.config.label_height},2,${this.pos.config.label_width}
