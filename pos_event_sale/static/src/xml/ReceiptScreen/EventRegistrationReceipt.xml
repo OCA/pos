@@ -55,12 +55,14 @@
                 <div class="event-registration-barcode">
                     <!--
                         Lazy dependency with enterprise `event_barcode` module.
+                        The barcode is cut in the ticket to improve the thermal printer print
                     -->
                     <div t-if="registration.barcode">
                         <img
                             class="barcode"
-                            t-attf-src="/report/barcode/?type=Code128&amp;value={{registration.barcode}}&amp;width=300&amp;height=75&amp;humanreadable=1"
+                            t-attf-src="/report/barcode/?barcode_type=Code128&amp;value={{registration.barcode}}&amp;width=400&amp;height=75&amp;humanreadable=1"
                             alt="Barcode"
+                            style="object-fit: cover;height: 75px;width: 300px;"
                         />
                     </div>
                 </div>

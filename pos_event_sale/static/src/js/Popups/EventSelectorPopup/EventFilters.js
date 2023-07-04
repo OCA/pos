@@ -8,11 +8,11 @@ odoo.define("pos_event_sale.EventFilters", function (require) {
 
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
-    const {useState} = owl.hooks;
+    const {useState} = owl;
 
     class EventFilters extends PosComponent {
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             this.state = useState({
                 filters: this.props.filters,
             });

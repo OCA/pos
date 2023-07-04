@@ -13,7 +13,6 @@ odoo.define("pos_event_sale.PaymentScreen", function (require) {
     const PosEventSalePaymentScreen = (PaymentScreen) =>
         class extends PaymentScreen {
             async _postPushOrderResolve(order, server_ids) {
-                debugger;
                 if (order.hasEvents()) {
                     order.event_registrations = await this.rpc({
                         model: "event.registration",

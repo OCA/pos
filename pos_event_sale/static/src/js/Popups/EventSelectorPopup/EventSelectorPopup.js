@@ -6,11 +6,12 @@
 odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
     "use strict";
 
-    const {useState} = owl.hooks;
-    const {useListener} = require("web.custom_hooks");
+    const {useState} = owl;
+    const {useListener} = require("@web/core/utils/hooks");
     const {getDatesInRange} = require("pos_event_sale.utils");
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
     const Registries = require("point_of_sale.Registries");
+    const {onWillStart} = owl;
 
     class EventSelectorPopup extends AbstractAwaitablePopup {
         /**
@@ -21,8 +22,8 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
          * @confirmed {Boolean}
          * @payload {Object} Selected event.
          */
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             this.state = useState({
                 selectedStartDate: moment().startOf("day").toDate(),
                 selectedEndDate: moment().endOf("day").toDate(),
@@ -43,6 +44,7 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
             // Cached properties
             this._events = null;
             this._eventsByDate = null;
+            onWillStart(this.willStart);
         }
         /**
          * @override
@@ -119,9 +121,6 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
          * @property {Array} events List of filtered events
          */
         get events() {
-            if (this._events !== null) {
-                return this._events;
-            }
             this._events = this.env.pos.db.events.filter(this._compileFilters());
             return this._events;
         }
@@ -129,9 +128,6 @@ odoo.define("pos_event_sale.EventSelectorPopup", function (require) {
          * @property {Object} eventsByDate Mapping of dates and filtered events
          */
         get eventsByDate() {
-            if (this._eventsByDate !== null) {
-                return this._eventsByDate;
-            }
             this._eventsByDate = {};
             for (const event of this.events) {
                 for (const eventDate of event.getEventDates()) {

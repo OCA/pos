@@ -19,7 +19,7 @@ odoo.define("pos_event_sale.EventAvailabilityBadge", function (require) {
                     label: this.env._t("Oversold"),
                     addedClasses: {"bg-danger": true},
                 };
-            } else if (seatsAvailable == 0) {
+            } else if (seatsAvailable === 0) {
                 return {
                     label: this.env._t("Sold out"),
                     addedClasses: {"bg-danger": true},

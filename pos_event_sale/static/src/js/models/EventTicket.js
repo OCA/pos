@@ -6,21 +6,22 @@ License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 odoo.define("pos_event_sale.EventTicket", function (require) {
     "use strict";
 
-    const models = require("point_of_sale.models");
+    const Registries = require("point_of_sale.Registries");
+    const PosModel = require("pos_event_sale.PosModel");
 
-    models.EventTicket = window.Backbone.Model.extend({
-        initialize: function (attr, options) {
-            _.extend(this, options);
-        },
-        getEvent: function () {
+    class EventTicket extends PosModel {
+        getEvent() {
             return this.pos.db.getEventByID(this.event_id[0]);
-        },
-        getProduct: function () {
+        }
+
+        getProduct() {
             return this.pos.db.get_product_by_id(this.product_id[0]);
-        },
-        getPriceExtra: function () {
+        }
+
+        getPriceExtra() {
             return this.price - this.getProduct().lst_price;
-        },
+        }
+
         _prepareOrderlineOptions() {
             return {
                 price_extra: this.getPriceExtra(),
@@ -28,7 +29,8 @@ odoo.define("pos_event_sale.EventTicket", function (require) {
                     event_ticket_id: this.id,
                 },
             };
-        },
+        }
+
         /**
          * Computes the total ordered quantity for this event ticket.
          *
@@ -36,7 +38,7 @@ odoo.define("pos_event_sale.EventTicket", function (require) {
          * @param {Order} options.order defaults to the current order
          * @returns {Number} ordered quantity
          */
-        getOrderedQuantity: function ({order} = {}) {
+        getOrderedQuantity({order} = {}) {
             /* eslint-disable no-param-reassign */
             order = order ? order : this.pos.get_order();
             if (!order) {
@@ -46,7 +48,8 @@ odoo.define("pos_event_sale.EventTicket", function (require) {
                 .get_orderlines()
                 .filter((line) => line.getEventTicket() === this)
                 .reduce((sum, line) => sum + line.quantity, 0);
-        },
+        }
+
         /**
          * Computes the available places, considering all the ordered quantities in
          * the current order.
@@ -57,24 +60,26 @@ odoo.define("pos_event_sale.EventTicket", function (require) {
          * @param {Object} options - Sent to getOrderedQuantity
          * @returns {Number} available seats
          */
-        getSeatsAvailable: function (options) {
+        getSeatsAvailable(options) {
             return this.seats_limited
                 ? this.seats_available - this.getOrderedQuantity(options)
                 : this.seats_available;
-        },
+        }
+
         /**
          * Similar to getSeatsAvailable, but also checks the event's availability.
          *
          * @param {Object} options - Sent to getOrderedQuantity
          * @returns {Number} available seats
          */
-        getSeatsAvailableReal: function (options) {
+        getSeatsAvailableReal(options) {
             const event = this.getEvent();
             const ticketSeatsAvailable = this.getSeatsAvailable(options);
             const eventSeatsAvailable = event.getSeatsAvailable(options);
             return Math.min(ticketSeatsAvailable, eventSeatsAvailable);
-        },
-    });
+        }
+    }
 
-    return models;
+    Registries.Model.add(EventTicket);
+    return EventTicket;
 });

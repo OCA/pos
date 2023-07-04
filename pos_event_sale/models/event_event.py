@@ -42,42 +42,24 @@ class Event(models.Model):
         date_now = fields.Datetime.now()
         sale_price_by_event = {}
         if self.ids:
-            event_subtotals = self.env["pos.order.line"]._read_group(
+            line_ids = self.env["pos.order.line"].search(
                 [
                     ("event_id", "in", self.ids),
                     ("order_id.state", "!=", "cancel"),
                     ("price_subtotal", "!=", 0),
-                ],
-                ["event_id", "currency_id"],
-                ["price_subtotal:sum"],
+                ]
             )
-            currency_ids = [
-                event_subtotal["currency_id"][0] for event_subtotal in event_subtotals
-            ]
-            company_by_event = {
-                event._origin.id or event.id: event.company_id for event in self
-            }
-            currency_by_event = {
-                event._origin.id or event.id: event.currency_id for event in self
-            }
-            currency_by_id = {
-                currency.id: currency
-                for currency in self.env["res.currency"].browse(currency_ids)
-            }
-            for event_subtotal in event_subtotals:
-                price_subtotal = event_subtotal["price_subtotal"]
-                event_id = event_subtotal["event_id"][0]
-                currency_id = event_subtotal["currency_id"][0]
-                sale_price = currency_by_event[event_id]._convert(
-                    price_subtotal,
-                    currency_by_id[currency_id],
-                    company_by_event[event_id],
+            for line_id in line_ids:
+                sale_price = line_id.event_id.currency_id._convert(
+                    line_id.price_subtotal,
+                    line_id.currency_id,
+                    line_id.event_id.company_id,
                     date_now,
                 )
-                if event_id in sale_price_by_event:
-                    sale_price_by_event[event_id] += sale_price
+                if line_id.event_id.id in sale_price_by_event:
+                    sale_price_by_event[line_id.event_id.id] += sale_price
                 else:
-                    sale_price_by_event[event_id] = sale_price
+                    sale_price_by_event[line_id.event_id.id] = sale_price
 
         for rec in self:
             rec.pos_price_subtotal = sale_price_by_event.get(

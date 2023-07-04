@@ -13,7 +13,6 @@
                     config="searchBarConfig"
                     placeholder="'Search events..'"
                     t-on-search.stop="onSearch"
-                    t-on-change.stop=""
                 />
                 <MultiSelectButton
                     t-foreach="eventTagFilters"
@@ -23,7 +22,7 @@
                     icon="'fa-tag'"
                     items="filter.options"
                     hideOnClick="true"
-                    t-on-change.stop="(event) => onTagsFilterChange(event, filter)"
+                    t-on-change.stop="(event) => this.onTagsFilterChange(event, filter)"
                 />
             </div>
             <div class="applied">
@@ -33,7 +32,7 @@
                         <span class="value" t-esc="filter.value" />
                         <i
                             class="fa fa-times"
-                            t-on-click.stop="(event) => onRemoveFilter(event, filter_index)"
+                            t-on-click.stop="(event) => this.onRemoveFilter(event, filter_index)"
                         />
                     </div>
                 </t>

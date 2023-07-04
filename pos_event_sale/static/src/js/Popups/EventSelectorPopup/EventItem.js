@@ -6,20 +6,25 @@
 odoo.define("pos_event_sale.EventItem", function (require) {
     "use strict";
 
-    const {useState} = owl.hooks;
+    const {useState} = owl;
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
+    const {onWillRender} = owl;
 
     class EventItem extends PosComponent {
         /**
          * @param {Object} props
          * @param {Object} props.event
          */
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             this.state = useState({
                 seatsAvailable: this.props.event.getSeatsAvailableReal(),
             });
+            onWillRender(this.willRender);
+        }
+        willRender() {
+            this.state.seatsAvailable = this.props.event.getSeatsAvailableReal();
         }
         get disabled() {
             return this.state.seatsAvailable <= 0;

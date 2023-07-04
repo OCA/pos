@@ -8,14 +8,18 @@ odoo.define("pos_event_sale.EventCalendar", function (require) {
 
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
+    const {onMounted, onWillUnmount, onWillUpdateProps} = owl;
 
     class EventCalendar extends PosComponent {
         /**
          * @param {Object} props.eventsByDate Mapping events to their dates.
          */
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             this.eventsByDate = this.props.eventsByDate;
+            onMounted(this.mounted);
+            onWillUnmount(this.willUnmount);
+            onWillUpdateProps(this.willUpdateProps);
         }
         /**
          * Documentation here: https://fullcalendar.io/docs/v4/

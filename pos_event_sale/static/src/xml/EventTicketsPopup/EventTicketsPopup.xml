@@ -14,6 +14,9 @@
                     <EventTicketList eventTickets="eventTicketsToDisplay" />
                 </main>
                 <footer class="footer">
+                    <div class="button cancel" t-on-click="backToOrder">
+                        Back to order
+                    </div>
                     <div class="button cancel" t-on-click="cancel">
                         Close
                     </div>
