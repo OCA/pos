@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record model="ir.actions.act_window" id="action_pos_invoice_in">
+    <record id="action_pos_invoice_in" model="ir.actions.act_window">
         <field name="name">Pay invoice</field>
         <field name="res_model">pos.box.cash.invoice.in</field>
         <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
     <record id="cash_invoice_in_form" model="ir.ui.view">
         <field name="name">cash_invoice_in_form</field>
