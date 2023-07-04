@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo-addon-pos_sale_pos_event_sale_session>=15.0dev,<15.1dev',
         'odoo-addon-pos_supplierinfo_barcode>=15.0dev,<15.1dev',
         'odoo-addon-pos_supplierinfo_search>=15.0dev,<15.1dev',
+        'odoo-addon-pos_user_restriction>=15.0dev,<15.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
