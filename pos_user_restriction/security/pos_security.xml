@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_assigned_points_of_sale_user" model="res.groups">
+        <field name="name">User: Assigned POS Only</field>
+        <field name="category_id" ref="base.module_category_sales_point_of_sale" />
+        <field
+            name="comment"
+        >The user will have access to her assigned points of sale.</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+    <record id="point_of_sale.group_pos_user" model="res.groups">
+        <field
+            name="implied_ids"
+            eval="[(4, ref('group_assigned_points_of_sale_user'))]"
+        />
+    </record>
+
+<data noupdate="1">
+    <record id="pos_config_assigned_users" model="ir.rule">
+        <field name="name">Assigned points of sale</field>
+        <field ref="point_of_sale.model_pos_config" name="model_id" />
+        <field
+                name="domain_force"
+            >['|',('assigned_user_ids','in',user.id),('assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_assigned_points_of_sale_user'))]" />
+    </record>
+    <record id="pos_session_assigned_users" model="ir.rule">
+        <field name="name">Assigned POS sessions</field>
+        <field ref="point_of_sale.model_pos_session" name="model_id" />
+        <field
+                name="domain_force"
+            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_assigned_points_of_sale_user'))]" />
+    </record>
+    <record id="pos_order_assigned_users" model="ir.rule">
+        <field name="name">Assigned POS orders</field>
+        <field ref="point_of_sale.model_pos_order" name="model_id" />
+        <field
+                name="domain_force"
+            >['|',('session_id.config_id.assigned_user_ids','in',user.id),('session_id.config_id.assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('group_assigned_points_of_sale_user'))]" />
+    </record>
+
+    <record id="pos_config_see_all" model="ir.rule">
+        <field name="name">All points of sale</field>
+        <field ref="point_of_sale.model_pos_config" name="model_id" />
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('point_of_sale.group_pos_user'))]" />
+    </record>
+    <record id="pos_session_see_all" model="ir.rule">
+        <field name="name">All POS sessions</field>
+        <field ref="point_of_sale.model_pos_session" name="model_id" />
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('point_of_sale.group_pos_user'))]" />
+    </record>
+    <record id="pos_order_see_all" model="ir.rule">
+        <field name="name">All POS orders</field>
+        <field ref="point_of_sale.model_pos_order" name="model_id" />
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('point_of_sale.group_pos_user'))]" />
+    </record>
+</data>
+
+</odoo>

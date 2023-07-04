@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_user_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config__assigned_user_ids
+msgid "Assigned users"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model,name:pos_user_restriction.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config__group_pos_user_id
+msgid "Point of Sale User Group"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
+msgid ""
+"Restrict some users to only access their assigned points of sale. In order "
+"to apply the restriction, the user needs the 'User: Assigned POS Only' group"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,help:pos_user_restriction.field_pos_config__assigned_user_ids
+msgid ""
+"Restrict some users to only access their assigned points of sale.In order to"
+" apply the restriction, the user needs the 'User: Assigned POS Only' group"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:res.groups,comment:pos_user_restriction.group_assigned_points_of_sale_user
+msgid "The user will have access to her assigned points of sale."
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,help:pos_user_restriction.field_pos_config__group_pos_user_id
+msgid ""
+"This field is there to passthe id of the pos user group to the point of sale"
+" client."
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:res.groups,name:pos_user_restriction.group_assigned_points_of_sale_user
+msgid "User: Assigned POS Only"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
+msgid "Users"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
+msgid "Users assigned to this point of sale"
+msgstr ""
