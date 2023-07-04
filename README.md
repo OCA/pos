@@ -37,6 +37,7 @@ addon | version | maintainers | summary
 [pos_sale_pos_event_sale_session](pos_sale_pos_event_sale_session/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Glue module between pos_sale and pos_event_sale_session
 [pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 15.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 15.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier data
+[pos_user_restriction](pos_user_restriction/) | 15.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Restrict some users to see and use only certain points of sale
 
 [//]: # (end addons)
 
