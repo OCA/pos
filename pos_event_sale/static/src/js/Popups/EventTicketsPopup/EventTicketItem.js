@@ -6,33 +6,26 @@
 odoo.define("pos_event_sale.EventTicketItem", function (require) {
     "use strict";
 
-    const {useState} = owl.hooks;
+    const {useState} = owl;
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
+    const {onWillRender} = owl;
 
     class EventTicketItem extends PosComponent {
         /**
          * @param {Object} props
          * @param {Object} props.eventTicket
          */
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             this.state = useState({
                 orderedQty: this.props.eventTicket.getOrderedQuantity(),
                 seatsAvailable: this.props.eventTicket.getSeatsAvailableReal(),
             });
+            onWillRender(this.willRendered);
         }
-        mounted() {
-            const order = this.env.pos.get_order();
-            if (order) {
-                order.orderlines.on("change add remove", this._orderlinesUpdated, this);
-            }
-        }
-        willUnmount() {
-            const order = this.env.pos.get_order();
-            if (order) {
-                order.orderlines.off("change add remove", null, this);
-            }
+        willRendered() {
+            this._updateQuantities();
         }
         get imageUrl() {
             const product_id = this.props.eventTicket.product_id[0];
@@ -71,12 +64,6 @@ odoo.define("pos_event_sale.EventTicketItem", function (require) {
         _updateQuantities() {
             this.state.seatsAvailable = this.props.eventTicket.getSeatsAvailableReal();
             this.state.orderedQty = this.props.eventTicket.getOrderedQuantity();
-        }
-        _orderlinesUpdated(orderline) {
-            const event = this.props.eventTicket.getEvent();
-            if (event === orderline.getEvent()) {
-                this._updateQuantities();
-            }
         }
     }
     EventTicketItem.template = "EventTicketItem";

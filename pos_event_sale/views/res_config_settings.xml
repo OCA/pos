@@ -5,110 +5,110 @@
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 -->
 <odoo>
-    <record id="pos_config_view_form" model="ir.ui.view">
-        <field name="model">pos.config</field>
-        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
-        <field name="groups_id" eval="[(4, ref('event.group_event_user'))]" />
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.point_of_sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//div[@id='category_reference']//ancestor::div[hasclass('o_settings_container')]"
-                position="inside"
-            >
-                <div class="col-12 col-lg-6 o_setting_box">
+            <div id="pos_interface_section" position="inside">
+                <div
+                    class="col-12 col-lg-6 o_setting_box"
+                    groups="event.group_event_user"
+                >
                     <div class="o_setting_left_pane">
                         <field
-                            name="iface_event_sale"
-                            attrs="{'readonly': [('has_active_session','=', True)]}"
+                            name="pos_iface_event_sale"
+                            attrs="{'readonly': [('pos_has_active_session','=', True)]}"
                         />
                     </div>
                     <div class="o_setting_right_pane">
-                        <label for="iface_event_sale" />
+                        <label for="pos_iface_event_sale" />
                         <div
                             class="content-group mt16"
-                            attrs="{'invisible': [('iface_event_sale', '=', False)]}"
+                            attrs="{'invisible': [('pos_iface_event_sale', '=', False)]}"
                         >
                             <div class="mt8">
                                 <label
-                                    for="iface_event_seats_available_warning"
+                                    for="pos_iface_event_seats_available_warning"
                                     string="Display a warning when available seats is below"
                                     class="o_light_label"
                                 />
                                 <field
-                                    name="iface_event_seats_available_warning"
+                                    name="pos_iface_event_seats_available_warning"
                                     class="col-1 text-center oe_inline"
                                 />
                             </div>
                             <div class="mt8" groups="base.group_no_one">
                                 <label
                                     class="o_light_label"
-                                    for="iface_event_load_days_before"
+                                    for="pos_iface_event_load_days_before"
                                     string="Load"
                                 />
                                 <field
-                                    name="iface_event_load_days_before"
+                                    name="pos_iface_event_load_days_before"
                                     nolabel="1"
                                     class="col-1 text-center oe_inline"
-                                    attrs="{'readonly': [('has_active_session','=', True)]}"
+                                    attrs="{'readonly': [('pos_has_active_session','=', True)]}"
                                 />
                                 <label
                                     class="o_light_label"
-                                    for="iface_event_load_days_before"
-                                    string="days before today,"
+                                    for="pos_iface_event_load_days_before"
+                                    string="days before today, "
                                 />
                                 <label
                                     class="o_light_label"
-                                    for="iface_event_load_days_after"
+                                    for="pos_iface_event_load_days_after"
                                     string="and"
                                 />
                                 <field
-                                    name="iface_event_load_days_after"
+                                    name="pos_iface_event_load_days_after"
                                     nolabel="1"
                                     class="col-1 text-center oe_inline"
-                                    attrs="{'readonly': [('has_active_session','=', True)]}"
+                                    attrs="{'readonly': [('pos_has_active_session','=', True)]}"
                                 />
                                 <label
                                     class="o_light_label"
-                                    for="iface_event_load_days_after"
+                                    for="pos_iface_event_load_days_after"
                                     string="days after today"
                                 />
                             </div>
                             <div class="row mt8">
                                 <label
                                     class="col-lg-3 o_light_label"
-                                    for="iface_available_event_stage_ids"
+                                    for="pos_iface_available_event_stage_ids"
                                     string="Stages"
                                 />
                                 <field
-                                    name="iface_available_event_stage_ids"
+                                    name="pos_iface_available_event_stage_ids"
                                     widget="many2many_tags"
                                     options="{'no_create': True}"
-                                    attrs="{'readonly': [('has_active_session','=', True)]}"
+                                    attrs="{'readonly': [('pos_has_active_session','=', True)]}"
                                 />
                             </div>
                             <div class="row mt8">
                                 <label
                                     class="col-lg-3 o_light_label"
-                                    for="iface_available_event_type_ids"
+                                    for="pos_iface_available_event_type_ids"
                                     string="Types"
                                 />
                                 <field
-                                    name="iface_available_event_type_ids"
+                                    name="pos_iface_available_event_type_ids"
                                     widget="many2many_tags"
                                     options="{'no_create': True}"
-                                    attrs="{'readonly': [('has_active_session','=', True)]}"
+                                    attrs="{'readonly': [('pos_has_active_session','=', True)]}"
                                 />
                             </div>
                             <div class="row mt8">
                                 <label
                                     class="col-lg-3 o_light_label"
-                                    for="iface_available_event_tag_ids"
+                                    for="pos_iface_available_event_tag_ids"
                                     string="Tags"
                                 />
                                 <field
-                                    name="iface_available_event_tag_ids"
+                                    name="pos_iface_available_event_tag_ids"
                                     widget="many2many_tags"
                                     options="{'no_create': True}"
-                                    attrs="{'readonly': [('has_active_session','=', True)]}"
+                                    attrs="{'readonly': [('pos_has_active_session','=', True)]}"
                                 />
                             </div>
                             <div class="mt16">
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-            </xpath>
+            </div>
         </field>
     </record>
 </odoo>

@@ -18,7 +18,7 @@
         "views/event_registration.xml",
         "views/event_event.xml",
         "views/pos_order.xml",
-        "views/pos_config.xml",
+        "views/res_config_settings.xml",
     ],
     "assets": {
         "point_of_sale.assets": [
@@ -29,8 +29,6 @@
             "web/static/lib/fullcalendar/interaction/main.js",
             "pos_event_sale/static/src/js/**/*.js",
             "pos_event_sale/static/src/scss/**/*.scss",
-        ],
-        "web.assets_qweb": [
             "pos_event_sale/static/src/xml/**/*.xml",
         ],
         "web.assets_tests": [

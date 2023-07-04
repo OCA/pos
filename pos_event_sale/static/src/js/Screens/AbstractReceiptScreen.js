@@ -18,7 +18,7 @@ odoo.define("pos_event_sale.AbstractReceiptScreen", function (require) {
              * @returns {Boolean}
              */
             async _printEventRegistrations() {
-                if (this.env.pos.proxy.printer) {
+                if (this.env.pos.proxy && this.env.pos.proxy.printer) {
                     const $receipts = this.el.getElementsByClassName(
                         "event-registration-receipt"
                     );

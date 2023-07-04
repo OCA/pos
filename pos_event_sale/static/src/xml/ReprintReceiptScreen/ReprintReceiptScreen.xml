@@ -11,6 +11,7 @@
                 <EventRegistrationReceipt
                     t-foreach="props.order.event_registrations"
                     t-as="registration"
+                    t-key="registration.id"
                     order="props.order"
                     registration="registration"
                 />

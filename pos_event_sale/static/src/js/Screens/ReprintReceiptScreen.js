@@ -8,10 +8,16 @@ odoo.define("pos_event_sale.ReprintReceiptScreen", function (require) {
     const ReprintReceiptScreen = require("point_of_sale.ReprintReceiptScreen");
     const Registries = require("point_of_sale.Registries");
     const session = require("web.session");
+    const {onWillStart} = owl;
 
     /* eslint-disable no-shadow */
     const PosEventSaleReprintReceiptScreen = (ReprintReceiptScreen) =>
         class extends ReprintReceiptScreen {
+            setup() {
+                super.setup();
+                onWillStart(this.willStart);
+            }
+
             /**
              * @override
              */

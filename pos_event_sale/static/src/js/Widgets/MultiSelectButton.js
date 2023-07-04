@@ -7,13 +7,13 @@
 odoo.define("pos_event_sale.MultiSelectButton", function (require) {
     "use strict";
 
-    const {useState, useExternalListener} = owl.hooks;
+    const {useState, useExternalListener} = owl;
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
 
     class MultiSelectButton extends PosComponent {
-        constructor() {
-            super(...arguments);
+        setup() {
+            super.setup();
             useExternalListener(window, "click", this.onWindowClick, true);
             useExternalListener(window, "keydown", this.onWindowKeydown);
             this.state = useState({open: false});

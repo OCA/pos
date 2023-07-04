@@ -57,7 +57,7 @@ class TestPoSEventCommon(TestPoSCommon, PosEventMixin):
         cls.basic_config.iface_event_sale = True
         cls.config = cls.basic_config
         # Open session
-        cls.config.open_session_cb(check_coa=False)
+        cls.config.open_ui()
         cls.pos_session = cls.config.current_session_id
         cls.currency = cls.pos_session.currency_id
         cls.pricelist = cls.pos_session.config_id.pricelist_id
@@ -68,7 +68,7 @@ class TestPoSEventCommon(TestPoSCommon, PosEventMixin):
     @classmethod
     def _create_order_line_data(cls, product=None, quantity=1.0, discount=0.0, fp=None):
         cls._nextId += 1
-        price_unit = cls.pricelist.get_product_price(product, quantity, False)
+        price_unit = cls.pricelist._get_product_price(product, quantity, False)
         tax_ids = fp.map_tax(product.taxes_id) if fp else product.taxes_id
         price_unit_after_discount = price_unit * (1 - discount / 100.0)
         tax_values = (
@@ -98,7 +98,7 @@ class TestPoSEventCommon(TestPoSCommon, PosEventMixin):
         cls._nextId += 1
         product = ticket.product_id
         product_lst_price = product.lst_price
-        product_price = cls.pricelist.get_product_price(product, quantity, False)
+        product_price = cls.pricelist._get_product_price(product, quantity, False)
         price_unit = product_price / product_lst_price * ticket.price
         tax_ids = (
             fp.map_tax(ticket.product_id.taxes_id) if fp else ticket.product_id.taxes_id
@@ -225,4 +225,4 @@ class TestPoSEventHttpCommon(TestPointOfSaleHttpCommon, PosEventMixin):
         cls.setUpData()
         cls.env.user.groups_id += cls.env.ref("event.group_event_user")
         cls.main_pos_config.iface_event_sale = True
-        cls.main_pos_config.open_session_cb(check_coa=False)
+        cls.main_pos_config.open_ui()

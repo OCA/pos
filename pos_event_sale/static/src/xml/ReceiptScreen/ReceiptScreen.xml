@@ -12,6 +12,7 @@
                 <EventRegistrationReceipt
                     t-foreach="currentOrder.event_registrations"
                     t-as="registration"
+                    t-key="registration.id"
                     order="currentOrder"
                     registration="registration"
                 />
