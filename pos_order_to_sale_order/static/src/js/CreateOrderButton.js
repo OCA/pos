@@ -25,4 +25,6 @@ odoo.define("point_of_sale.CreateOrderButton", function (require) {
     });
 
     Registries.Component.add(CreateOrderButton);
+
+    return CreateOrderButton;
 });
