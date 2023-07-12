@@ -1,0 +1,145 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_ask_vat
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-19 11:53+0000\n"
+"PO-Revision-Date: 2023-04-19 11:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,help:pos_ask_vat.field_pos_config__pos_ask_vat_question
+msgid ""
+"Ask customer for orders in this point of sale:\n"
+"* 'Don't ask' (customer can be created and select as the normal workflow);\n"
+"* 'Ask before paying';\n"
+msgstr ""
+"Identificar clientes nos pedidos deste PDV:\n"
+"* 'Não perguntar' (clientes podem ser selecionados e criados no fluxo normal de trabalho);\n"
+"* 'Antes de pagar';\n"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_config__pos_ask_vat_question
+msgid "Ask Customer"
+msgstr "Identificar Cliente"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields.selection,name:pos_ask_vat.selection__pos_config__pos_ask_vat_question__payment
+msgid "Ask before paying"
+msgstr "Antes de pagar"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_config__pos_ask_vat_auto_create_partner
+msgid "Auto Create Partner"
+msgstr "Criação Automática de Cliente"
+
+#. module: pos_ask_vat
+#: model_terms:ir.ui.view,arch_db:pos_ask_vat.view_pos_config_form
+msgid "Autocreate Partner"
+msgstr "Criação Automática de Cliente"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,help:pos_ask_vat.field_pos_config__pos_ask_vat_auto_create_partner
+msgid ""
+"Automatic create Partner:\n"
+"* 'Name' will be the VAT number;\n"
+msgstr ""
+"Criação automática de cliente:\n"
+"* 'Nome' será o valor do CPF / CNPJ;\n"
+
+#. module: pos_ask_vat
+#. openerp-web
+#: code:addons/pos_ask_vat/static/src/xml/Popups/TaxIdPopup.xml:0
+#, python-format
+msgid "Backspace"
+msgstr "Deletar"
+
+#. module: pos_ask_vat
+#: model_terms:ir.ui.view,arch_db:pos_ask_vat.view_pos_config_form
+msgid "VAT Question"
+msgstr "Identificação de Cliente"
+
+#. module: pos_ask_vat
+#. openerp-web
+#: code:addons/pos_ask_vat/static/src/js/Popups/TaxIdPopup.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_ask_vat
+#. openerp-web
+#: code:addons/pos_ask_vat/static/src/js/Popups/TaxIdPopup.js:0
+#, python-format
+msgid "Confirm ?"
+msgstr "Ok ?"
+
+#. module: pos_ask_vat
+#: model_terms:ir.ui.view,arch_db:pos_ask_vat.view_pos_config_form
+msgid "Create customers in POS workflow"
+msgstr "Criar clientes no fluxo de trabalho do PDV"
+
+#. module: pos_ask_vat
+#. openerp-web
+#: code:addons/pos_ask_vat/static/src/js/models.js:0
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_order__customer_tax_id
+#, python-format
+msgid "Customer Tax ID"
+msgstr "CPF / CNPJ"
+
+#. module: pos_ask_vat
+#: model_terms:ir.ui.view,arch_db:pos_ask_vat.view_pos_config_form
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_order__display_name
+msgid "Display Name"
+msgstr "Nome exibido"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields.selection,name:pos_ask_vat.selection__pos_config__pos_ask_vat_question__no
+msgid "Don't ask"
+msgstr "Não perguntar"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: pos_ask_vat
+#. openerp-web
+#: code:addons/pos_ask_vat/static/src/js/Popups/TaxIdPopup.js:0
+#, python-format
+msgid "Ok"
+msgstr "OK"
+
+#. module: pos_ask_vat
+#: model:ir.model.fields,field_description:pos_ask_vat.field_pos_config__iface_pos_ask_vat
+msgid "POS ASK VAT Module"
+msgstr "Módulo POS Identificação Cliente"
+
+#. module: pos_ask_vat
+#: model:ir.model,name:pos_ask_vat.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuração do ponto de venda"
+
+#. module: pos_ask_vat
+#: model:ir.model,name:pos_ask_vat.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos do ponto de venda"

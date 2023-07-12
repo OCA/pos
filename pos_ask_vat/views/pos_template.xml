@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template
+            id="pos_ask_vat_assets_backend"
+            name="pos_ask_vat_assets_backend"
+            inherit_id="point_of_sale.assets"
+        >
+
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/pos_ask_vat/static/src/js/db.js" />
+                <script
+                    type="text/javascript"
+                    src="/pos_ask_vat/static/src/js/models.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_ask_vat/static/src/js/PaymentScreen.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_ask_vat/static/src/js/Popups/TaxIdPopup.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_ask_vat/static/src/js/Screens/OrderManagementControlPanel.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_ask_vat/static/src/js/Screens/OrderFetcher.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_ask_vat/static/src/js/Misc/NumberBuffer.js"
+                />
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
