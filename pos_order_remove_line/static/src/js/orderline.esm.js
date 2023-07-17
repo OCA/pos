@@ -15,7 +15,9 @@ const PosOrderline = (Orderline) =>
                 ev.stopPropagation();
                 ev.preventDefault();
                 this.selectLine();
-                order.remove_orderline(order.get_selected_orderline());
+                const selected_line = order.get_selected_orderline();
+                selected_line.set_quantity("remove");
+                order.remove_orderline(selected_line);
                 this.checkRewardLines(order);
             }
         }
