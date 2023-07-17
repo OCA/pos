@@ -17,13 +17,13 @@ PoS Order Margin
     :target: https://github.com/OCA/pos/tree/16.0/pos_margin
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_margin
+    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_margin
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/184/16.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5|
+|badge1| |badge2| |badge3| |badge4| |badge5| 
 
 This module shows margins in PoS frontend during an order creation.
 
@@ -36,21 +36,9 @@ Configuration
 =============
 
 * If you want to disable the display of the margin, in the front-office UI, you can
-  uncheck the check box in the ``res.config.settings`` form:
+  uncheck the check box in the `res.config.settings` shop form:
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_margin/static/description/pos_config_form.png
-
-Usage
-=====
-
-**In the PoS Front Office**
-
-* Make an order. Each time a line is added, updated, or deleted, the margin and the margin rate
-  will be updated.
-
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_margin/static/description/pos_front_end.png
-   :width: 800px
-
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_margin/static/description/pos_config_setting.png
 
 Known issues / Roadmap
 ======================
@@ -61,16 +49,16 @@ for exemple).
 
 Changelog
 =========
+
 16.0.1.0.0
 ~~~~~~~~~~
 
-* Migrate to v16.0
+* Migrate to V16.0
 * Remove ``pos.order`` and ``pos.order.line`` funcionality from V14.0.
-  It's already done by core V16.0.
+  It's already done by V16.0.
 * Remove tests.
 * Create a ``res.config.settings`` field `pos_iface_display_margin`
   to display margins in PoS frontend.
-
 
 14.0.1.0.0
 ~~~~~~~~~~
@@ -103,6 +91,7 @@ Authors
 ~~~~~~~
 
 * GRAP
+* FactorLibre
 
 Contributors
 ~~~~~~~~~~~~
@@ -111,7 +100,7 @@ Contributors
 * Wolfgang Pichler
 * Murtaza Mithaiwala (https://twitter.com/MurtazaMithaiw4)
 * Dhara Solanki <dhara.solanki@initos.com>
-* Juan Carlos <juancarlos.bonilla@factorlibre.com>
+* Juan Carlos Bonilla <juancarlos.bonilla@factorlibre.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -132,7 +121,7 @@ promote its widespread use.
 
 Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-legalsylvain|
+|maintainer-legalsylvain| 
 
 This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_margin>`_ project on GitHub.
 
