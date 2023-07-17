@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2023-04-07 14:24+0000\n"
+"PO-Revision-Date: 2023-07-17 17:13+0000\n"
 "Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_picking_load
 #. openerp-web
@@ -146,7 +146,7 @@ msgstr "Prelievo ancora caricato"
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking_type
 msgid "Picking Type"
-msgstr "Tipo prelievo"
+msgstr "Tipologia prelievo"
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_pos_config
