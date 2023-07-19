@@ -1,12 +1,12 @@
-odoo.define("pos_partner_firstname.ClientDetailsEdit", function (require) {
+odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
     "use strict";
 
     const {_t} = require("web.core");
-    const ClientDetailsEdit = require("point_of_sale.ClientDetailsEdit");
+    const PartnerDetailsEdit = require("point_of_sale.PartnerDetailsEdit");
     const Registries = require("point_of_sale.Registries");
 
-    const PosClientDetailsEdit = (ClientDetailsEdit) =>
-        class extends ClientDetailsEdit {
+    const PosPartnerDetailsEdit = (PartnerDetailsEdit) =>
+        class extends PartnerDetailsEdit {
             constructor() {
                 super(...arguments);
                 this.rpc({
@@ -15,7 +15,7 @@ odoo.define("pos_partner_firstname.ClientDetailsEdit", function (require) {
                     args: [],
                 }).then((res) => (this.partner_names_order = res || "last_first"));
             }
-            _update_client_name(lastname, firstname) {
+            _update_partner_name(lastname, firstname) {
                 let name = null;
                 if (this.partner_names_order === "last_first_comma") {
                     name = lastname + ", " + firstname;
@@ -52,7 +52,7 @@ odoo.define("pos_partner_firstname.ClientDetailsEdit", function (require) {
                         (!this.props.partner.name && !processedChanges.name) ||
                         processedChanges.name === ""
                     ) {
-                        this.props.partner.name = this._update_client_name(
+                        this.props.partner.name = this._update_partner_name(
                             processedChanges.lastname,
                             processedChanges.firstname
                         );
@@ -84,7 +84,7 @@ odoo.define("pos_partner_firstname.ClientDetailsEdit", function (require) {
                         const firstname = this.props.partner.firstname
                             ? this.props.partner.firstname
                             : "";
-                        this.props.partner.name = this._update_client_name(
+                        this.props.partner.name = this._update_partner_name(
                             lastname,
                             firstname
                         );
@@ -93,7 +93,7 @@ odoo.define("pos_partner_firstname.ClientDetailsEdit", function (require) {
             }
         };
 
-    Registries.Component.extend(ClientDetailsEdit, PosClientDetailsEdit);
+    Registries.Component.extend(PartnerDetailsEdit, PosPartnerDetailsEdit);
 
-    return ClientDetailsEdit;
+    return PartnerDetailsEdit;
 });
