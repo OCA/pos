@@ -62,6 +62,15 @@ odoo.define("pos_cancel_reason.TicketScreen", function (require) {
                                 );
                                 order.remove_orderline(lineId);
                             }
+                            $(".start")
+                                .filter(function () {
+                                    return $(this).text() == order.name;
+                                })
+                                .closest(".order-row")
+                                .hide();
+                            if (this.env.pos.get_order_list().length < 1) {
+                                this.env.pos.add_new_order({silent: true});
+                            }
                             order.state = "cancel";
                             await this.env.pos.push_single_order(order);
                             await this._canDeleteOrder(order);
@@ -69,6 +78,24 @@ odoo.define("pos_cancel_reason.TicketScreen", function (require) {
                         }
                     }
                 }
+            }
+            check_cancelled_orders(res) {
+                const not_cancelled_orders = [];
+
+                for (var i = 0; i < res.length; i++) {
+                    if (res[i].state !== "cancel") {
+                        not_cancelled_orders.push(res[i]);
+                    }
+                }
+
+                return not_cancelled_orders;
+            }
+            get orderList() {
+                const res = this.env.pos.get_order_list();
+
+                const not_cancelled_orders = this.check_cancelled_orders(res);
+
+                return not_cancelled_orders;
             }
         };
 

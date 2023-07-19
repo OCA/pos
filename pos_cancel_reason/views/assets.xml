@@ -18,6 +18,10 @@
                 type="text/javascript"
                 src="/pos_cancel_reason/static/src/js/TicketScreen.js"
             />
+            <script
+                type="text/javascript"
+                src="/pos_cancel_reason/static/src/js/TicketButton.js"
+            />
       </xpath>
     </template>
 </odoo>
