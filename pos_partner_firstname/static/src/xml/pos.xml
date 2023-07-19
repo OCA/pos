@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension">
+    <t t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
         <xpath expr="//input[@name='name']" position="attributes">
             <attribute name="t-att-readonly">!props.partner.is_company</attribute>
         </xpath>
-        <xpath expr="//div[@class='client-details-left']/div[1]" position="before">
-            <div class="client-detail">
+        <xpath expr="//div[@class='partner-details-left']/div[1]" position="before">
+            <div class="partner-detail">
                 <span class='label'>Company</span>
                 <input
                     type='checkbox'
@@ -21,7 +21,7 @@
                     t-on-change="captureChange"
                     t-attf-style="display: {{!props.partner.is_company ? 'block': 'none'}};"
                 >
-                    <div class='client-detail'>
+                    <div class='partner-detail'>
                         <span class='label'>Last Name</span>
                         <input
                             class='detail lastname person'
@@ -38,7 +38,7 @@
                 t-on-change="captureChange"
                 t-attf-style="display: {{!props.partner.is_company ? 'block': 'none'}};"
             >
-                    <div class='client-detail'>
+                    <div class='partner-detail'>
                         <span class='label'>First Name</span>
                         <input
                         class='detail firstname person'

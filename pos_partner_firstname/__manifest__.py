@@ -21,8 +21,8 @@
     ],
     "assets": {
         "point_of_sale.assets": [
-            "pos_partner_firstname/static/src/js/ClientDetailsEdit.js",
-            "pos_partner_firstname/static/src/js/ClientScreen.js",
+            "pos_partner_firstname/static/src/js/PartnerDetailsEdit.js",
+            "pos_partner_firstname/static/src/js/PartnerScreen.js",
             "pos_partner_firstname/static/src/js/models.js",
             "pos_partner_firstname/static/src/xml/pos.xml",
         ],
