@@ -26,8 +26,8 @@ class PosOrder(models.Model):
         return order_fields
 
     @api.model
-    def create_from_ui(self, orders, draft=False):
-        orders_ids = super(PosOrder, self).create_from_ui(orders)
+    def create_from_ui(self, orders, *args, **kwargs):
+        orders_ids = super(PosOrder, self).create_from_ui(orders, *args, **kwargs)
         for order in orders:
             for cancelled_item in order["data"]["cancelled_orderlines"]:
                 if cancelled_item:
