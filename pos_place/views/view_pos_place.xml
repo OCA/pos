@@ -64,4 +64,10 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         groups="group_pos_place_manager"
         action="action_pos_place"/>
 
+    <menuitem id="menu_pos_place_account"
+        parent="account.menu_finance_receivables"
+        groups="group_pos_place_manager"
+        action="action_pos_place"
+        sequence="150"/>
+
 </odoo>
