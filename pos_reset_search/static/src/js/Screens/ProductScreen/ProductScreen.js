@@ -4,30 +4,33 @@ odoo.define("pos_reset_search.ProductScreen", function (require) {
     const ProductScreen = require("point_of_sale.ProductScreen");
     const Registries = require("point_of_sale.Registries");
 
-    const PosProductScreen = (ProductScreen) =>
-        class extends ProductScreen {
+    const PosProductScreen = (PaymentScreen_) =>
+        class extends PaymentScreen_ {
             async _clickProduct(event) {
                 const ProductScreenChildren = this.__owl__.children;
                 var ProductWidget = null;
                 for (const key in ProductScreenChildren) {
-                    if (ProductScreenChildren[key].el.className === "products-widget") {
+                    if (
+                        ProductScreenChildren[key].bdom.el.className ===
+                        "products-widget"
+                    ) {
                         ProductWidget = ProductScreenChildren[key];
                     }
                 }
                 if (ProductWidget) {
-                    const ProductWidgetChildren = ProductWidget.__owl__.children;
+                    const ProductWidgetChildren = ProductWidget.children;
 
                     var ProductsWidgetControlPanel = null;
                     for (const key in ProductWidgetChildren) {
                         if (
-                            ProductWidgetChildren[key].el.className ===
+                            ProductWidgetChildren[key].bdom.el.className ===
                             "products-widget-control"
                         ) {
-                            ProductWidget = ProductWidgetChildren[key];
+                            ProductsWidgetControlPanel = ProductWidgetChildren[key];
                         }
                     }
                     if (ProductsWidgetControlPanel) {
-                        ProductsWidgetControlPanel.clearSearch();
+                        ProductsWidgetControlPanel.component._clearSearch();
                     }
                 }
                 return super._clickProduct(event);
@@ -36,5 +39,5 @@ odoo.define("pos_reset_search.ProductScreen", function (require) {
 
     Registries.Component.extend(ProductScreen, PosProductScreen);
 
-    return ProductScreen;
+    return PosProductScreen;
 });
