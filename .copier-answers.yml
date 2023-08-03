@@ -15,7 +15,9 @@ odoo_test_flavor: OCB
 odoo_version: 12.0
 org_name: Odoo Community Association (OCA)
 org_slug: OCA
-rebel_module_groups: []
+rebel_module_groups:
+- pos_bank_statement_line_no_change
+- pos_payment_change
 repo_description: This project aims to deal with Odoo modules related to the Point
     of Sale.
 repo_name: Point of Sale
