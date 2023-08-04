@@ -8,7 +8,7 @@ const PartnerDetailsEditBirthdate = (OriginalPartnerDetailsEdit) =>
             super.setup();
             this.changes = {
                 ...this.changes,
-                birthdate_date: this.props.partner.birthdate_date || "",
+                birthdate_date: this.props.partner.birthdate_date || null,
             };
         }
     };
