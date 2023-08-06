@@ -59,6 +59,7 @@ setuptools.setup(
         'odoo12-addon-pos_price_to_weight',
         'odoo12-addon-pos_pricelist_technical',
         'odoo12-addon-pos_product_default_code',
+        'odoo12-addon-pos_product_mergeable_line',
         'odoo12-addon-pos_product_sort',
         'odoo12-addon-pos_product_template',
         'odoo12-addon-pos_quick_logout',
