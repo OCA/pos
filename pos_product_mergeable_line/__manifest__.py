@@ -6,7 +6,7 @@
     "name": "Point of Sale - Mergeable Lines",
     "summary": "Allows to configure at the product level,"
     " if an order line can be merged or not.",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "category": "Point of Sale",
     "author": "GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
