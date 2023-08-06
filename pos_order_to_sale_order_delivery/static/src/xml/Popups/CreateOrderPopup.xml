@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="CreateOrderPopup"
+        t-inherit="pos_order_to_sale_order.CreateOrderPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//tr[@t-if='env.pos.config.iface_create_draft_sale_order']"
+            position="before"
+        >
+            <tr
+                t-if="env.pos.config.iface_sale_order_allow_delivery and env.pos.config.iface_sale_order_delivery_carrier_ids.length"
+            >
+                <td>
+                    <div
+                        class="button js_class_add_shipping_method"
+                        t-att-class="{ highlight: state.addDeliveryCarrier }"
+                        t-on-click="() => this.onClickToShipping()"
+                    >
+                        <i class="fa fa-truck" /> Add a shipping method
+                    </div>
+                </td>
+            </tr>
+        </xpath>
+    </t>
+
+</templates>

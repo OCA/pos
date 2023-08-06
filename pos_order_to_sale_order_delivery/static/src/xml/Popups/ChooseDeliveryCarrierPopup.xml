@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ChooseDeliveryCarrierPopup" owl="1">
+        <Draggable>
+            <div class="popup popup-selection delivery-carrier-popup">
+                <header class="title drag-handle">
+                    <t t-esc="props.title" />
+                </header>
+                <main class="body">
+                    <select
+                        class="detail"
+                        name="carrier"
+                        t-on-change="(ev) => this.onChange(ev.target.value)"
+                    >
+                        <t
+                            t-foreach="props.chooses"
+                            t-as="item"
+                            t-key="item.carrier_id[0]"
+                        >
+                            <option
+                                t-att-value="item.carrier_id[0]"
+                                t-att-selected="item.carrier_id[0] === state.choose.carrier_id[0] ? true : undefined"
+                            >
+                                <t t-esc="item.carrier_id[1]" />
+                            </option>
+                        </t>
+                    </select>
+                    <div class="details">
+                        <div t-if="state.choose.display_price" class="cost">
+                            <span class="label">Cost: </span> <span class="cost"> <t
+                                    t-esc="env.pos.format_currency(state.choose.display_price)"
+                                /></span>
+                        </div>
+                        <div
+                            class="alert alert-info"
+                            t-if="state.choose.delivery_message"
+                        >
+                            <t t-esc="state.choose.delivery_message" />
+                        </div>
+                    </div>
+                </main>
+                <footer class="footer">
+                    <div class="button confirm highlight" t-on-click="confirm">
+                        <t t-esc="props.confirmText" />
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+                </footer>
+            </div>
+        </Draggable>
+    </t>
+
+</templates>
