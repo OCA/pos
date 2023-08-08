@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PartnerMapEdit" owl="1">
+        <div class="popup partner-map-popup">
+            <header class="title">
+                Customer <t t-esc="partner.name" />
+                Location
+            </header>
+            <main class="partner-map-body" t-ref="map-container" />
+            <footer class="footer" style="display: flex !important;">
+                <input
+                    class="flex-grow-1 map-addr-input"
+                    name="address"
+                    t-ref="addr-input"
+                    placeholder="Address"
+                    t-on-change="inputChange"
+                />
+                <div class="button cancel " t-on-click="cancel">
+                    Close
+                </div>
+                <div class="button confirm disable highlight" t-on-click="confirm">
+                    Confirm
+                </div>
+            </footer>
+        </div>
+    </t>
+
+</templates>
