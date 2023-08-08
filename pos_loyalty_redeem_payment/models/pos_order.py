@@ -47,15 +47,14 @@ class PosOrder(models.Model):
 
     @api.model
     def get_loy_card_reports_from_order(self, order_ids):
-        card_ids = (
+        coupons = (
             self.env["pos.order"].browse(order_ids).mapped("payment_ids.coupon_id")
         )
-        loy_cards = self.env["loyalty.card"].search([("id", "in", card_ids.ids)])
-        if not loy_cards:
+        if not coupons:
             return False
         report_per_program = {}
         coupon_per_report = defaultdict(list)
-        for coupon in loy_cards:
+        for coupon in coupons:
             trigger = "create"
             if coupon.points == 0:
                 trigger = "points_reach"
