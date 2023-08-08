@@ -59,7 +59,10 @@ class PosOrder(models.Model):
             trigger = "create"
             if coupon.points == 0:
                 trigger = "points_reach"
-            if coupon.program_id not in report_per_program:
+            if (
+                coupon.program_id not in report_per_program
+                or not report_per_program[coupon.program_id]
+            ):
                 report_per_program[
                     coupon.program_id
                 ] = coupon.program_id.communication_plan_ids.filtered(
