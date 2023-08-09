@@ -39,9 +39,10 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
                 (employee) => employee.pin && employee.role == "manager"
             );
             // TODO: What should happend when an attendant has the same password as any other manager?
-            if (managers.find((m) => m.pin == Sha1.hash(inputPin))) {
+            const selected_manager = managers.find((m) => m.pin == Sha1.hash(inputPin));
+            if (selected_manager) {
                 cleanNumBuffer();
-                return true;
+                return selected_manager;
             }
             await component.showPopup("ErrorPopup", {
                 title: component.env._t("Incorrect Password"),
@@ -64,40 +65,41 @@ odoo.define("pos_employee_access_right.PosComponent", function (require) {
             return _superTrigger.apply(this, arguments);
         }
         if (!this.env.pos.get_cashier().job_id) {
+            const selected_manager = await getManagerPassword(this);
+            if (!selected_manager) {
+                return false;
+            }
+            this.env.pos.set_cashier(selected_manager);
+            return _superTrigger.apply(this, arguments);
+        }
+        const job_position = this.env.pos.get_cashier().job_id[0];
+        let access_right = this.env.pos.get_employee_access(
+            job_position,
+            this.constructor.name,
+            eventType,
+            payload
+        );
+        if (access_right.length == 0) {
+            return _superTrigger.apply(this, arguments);
+        }
+        access_right = access_right[0];
+        if (access_right.permission == "allowed") {
+            return _superTrigger.apply(this, arguments);
+        } else if (access_right.permission == "partially_allowed") {
             if (!(await getManagerPassword(this))) {
                 return false;
             }
             return _superTrigger.apply(this, arguments);
-        } else {
-            const job_position = this.env.pos.get_cashier().job_id[0];
-            let access_right = this.env.pos.get_employee_access(
-                job_position,
-                this.constructor.name,
-                eventType,
-                payload
-            );
-            if (access_right.length == 0) {
-                return _superTrigger.apply(this, arguments);
-            }
-            access_right = access_right[0];
-            if (access_right.permission == "allowed") {
-                return _superTrigger.apply(this, arguments);
-            } else if (access_right.permission == "partially_allowed") {
-                if (!(await getManagerPassword(this))) {
-                    return false;
-                }
-                return _superTrigger.apply(this, arguments);
-            } else if (access_right.permission == "not_allowed") {
-                return this.showPopup("ErrorPopup", {
-                    title: this.env._t("No Permission"),
-                    body: this.env._t(
-                        "You don't have permission to do this action in the POS."
-                    ),
-                    accessIgnore: true,
-                });
-            }
-            return _superTrigger.apply(this, arguments);
+        } else if (access_right.permission == "not_allowed") {
+            return this.showPopup("ErrorPopup", {
+                title: this.env._t("No Permission"),
+                body: this.env._t(
+                    "You don't have permission to do this action in the POS."
+                ),
+                accessIgnore: true,
+            });
         }
+        return _superTrigger.apply(this, arguments);
     };
 
     return PosComponent;
