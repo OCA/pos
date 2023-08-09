@@ -28,6 +28,7 @@ class PosEmployeeAccessSecurity(models.Model):
         string="Job Position",
         comodel_name="hr.job",
         required=True,
+        company_dependent=True,
     )
     permission = fields.Selection(
         string="Permission",
