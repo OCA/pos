@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="pos_config_view_form_inherit_kiosk" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.kiosk</field>
+        <field name='model'>pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name='arch' type='xml'>
+            <xpath expr='//h2[@name="order"]' position='before'>
+                <h2 name='pos_kiosk'>Kiosk Mode</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name='is_kiosk_mode' />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="is_kiosk_mode" />
+                            <div class="text-muted">
+                                Enable Kiosk Mode
+                            </div>
+                        </div>
+                    </div>
+
+                    <div attrs="{'invisible': [('is_kiosk_mode', '=', False)]}">                    
+                        <div class="col-12 col-lg-6 o_setting_box" style="width: 200px; margin: 5%"> 
+                            <field name='banner_image' string="Banner Image" widget="image" />
+                            <label for="banner_image" />
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" style="width: 200px; margin: 5%">
+                            <field name='top_banner_image' string="Top Banner Image" widget="image" />
+                            <label for="top_banner_image" />
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box" style="width: 200px; margin: 5%">
+                            <field name='logo_image' widget="image" />
+                            <label for="logo_image" />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

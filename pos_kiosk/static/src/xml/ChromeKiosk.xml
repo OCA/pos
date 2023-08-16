@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ChromeKiosk" owl="1">
+        <div class="pos bg-white w-screen h-screen relative">
+            <div class="pos-receipt-print"></div>
+            <t t-if="state.uiState === 'READY'">
+                <div
+                    class="w-full h-12 p-2 bg-white flex justify-between items-center gap-2"
+                >
+                    <div class="w-28 h-8 relative">
+                        <img class="w-full h-full object-contain" t-att-src="logoHeaderURL" alt="Logo" />
+                    </div>
+
+                    <div class="flex gap-4 items-center justify-end">
+                        <div class="flex gap-2 items-center">
+                            <div
+                                class="px-3 py-2 rounded-lg flex justify-center items-center gap-2"
+                                t-on-click="syncOrders()"
+                            >
+                                <i class="fa fa-refresh" />
+                                <t t-if="blockedOrders">
+                                    <div
+                                        class="text-gray-900 text-sm font-medium leading-tight flex justify-between"
+                                    >
+                                        Sincronizar <t
+                                            t-esc="blockedOrdersNumber"
+                                        /> pedidos
+                                    </div>
+                                </t>
+                                <t t-else="">
+                                    <div
+                                        class="text-gray-900 text-sm font-medium leading-tight flex justify-between"
+                                    >
+                                        Atualizar
+                                    </div>
+                                </t>
+                            </div>
+
+                            <div
+                                class="w-4 h-px origin-top-left rotate-90 border border-gray-200"
+                            />
+
+                            <div
+                                class="px-3 py-2 rounded-lg flex justify-center items-center gap-2"
+                                t-on-click="trigger('close-pos')"
+                            >
+                                <i class="fa fa-sign-out" />
+                                <div
+                                    class="text-gray-900 text-sm font-medium leading-tight"
+                                >
+                                    Sair
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <t
+                    isShown="!tempScreen.isShown"
+                    t-component="mainScreen.component"
+                    t-props="mainScreenProps"
+                    t-key="mainScreen.name"
+                />
+                <t
+                    t-if="tempScreen.isShown"
+                    t-component="tempScreen.component"
+                    t-props="tempScreenProps"
+                    t-key="tempScreen.name"
+                />
+            </t>
+
+            <div t-if="popup.isShown" class="popups">
+                <t
+                    t-component="popup.component"
+                    t-props="popupProps"
+                    t-key="popup.name"
+                />
+            </div>
+        </div>
+    </t>
+
+</templates>

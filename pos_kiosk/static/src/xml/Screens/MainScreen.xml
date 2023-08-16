@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="MainScreen" owl="1">
+        <div>
+            <div class="relative w-screen h-[10%] overflow-hidden opacity-30">
+                <img class="w-full h-[30vh] object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
+            </div>
+
+            <div class="w-screen left-0 top-[10%] absolute flex-col justify-start items-center inline-flex overscroll-contain max-h-[80%] overflow-y-auto">
+                <div class="self-stretch py-8 justify-center items-center inline-flex">
+                    <div class="grow shrink basis-0 h-[100px] justify-center items-center gap-4 flex">
+                        <t t-foreach='categories' t-as='category' t-key='category.id'>
+                            <div t-attf-class="w-36 h-36 bg-white rounded-xl shadow flex-col justify-center items-center gap-2 inline-flex {{ category.id === selectedCategoryId ? 'bg-red-500' : '' }}" t-on-click="setCategory(category.id)">
+                                <div class="w-10 h-10 py-0.5 justify-center items-center inline-flex"></div>
+                                <div t-attf-class="text-sm font-bold leading-tight {{ category.id === selectedCategoryId ? 'text-white' : 'text-gray-600' }}">
+                                    <t t-esc="category.name" />
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <div class="flex-col justify-start items-center flex">
+                    <t t-foreach='sub_categories' t-as='subcategory' t-key='subcategory.id'>
+                        <div class="h-[20%] p-8 mt-6 mb-8 py-4 flex-col justify-center items-center gap-4 flex">
+                            <div class="self-stretch justify-start items-center gap-2 inline-flex">
+                                <div class="text-justify text-gray-600 text-lg font-semibold leading-7">
+                                    <t t-esc='subcategory.name' />
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap justify-center items-center gap-4">
+                                <t t-foreach='subcategory.productList' t-as='product' t-key='product.id'>
+                                    <div class="w-60 h-60 bg-gray-50 border-2 border-gray-200 rounded-xl flex-col justify-center items-center inline-flex" t-on-click='addProduct(product.id)'>
+                                        <img class="w-60 h-44 relative" t-att-src="productImageURL(product.id)" t-att-alt="product.display_name" />
+                                        <div class="h-16 p-4 flex-col justify-center items-start flex">
+                                            <div class="text-justify text-gray-900 text-sm font-normal leading-tight">
+                                                <t t-esc='getProductName(product.id)' />
+                                            </div>
+                                            <div class="justify-center items-center gap-2 inline-flex">
+                                                <div class="text-justify text-gray-800 text-sm font-bold leading-tight">
+                                                    <t t-esc='getProductPrice(product.id)'/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+
+            </div>
+
+            <t t-if='haveProduct()'>
+                <div class="w-screen px-8 py-6 left-0 bottom-0 absolute bg-gray-100 justify-start items-center gap-4 inline-flex">
+                    <div class="h-20 justify-start items-center gap-8 flex">
+                        <div class="w-[185px] px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 flex" t-on-click="openCart">
+                            <div class="justify-center items-center gap-2 flex">
+                                <div class="w-8 h-8 relative">
+                                    <i class="fa fa-shopping-cart"/>
+                                </div>
+                                <div class="flex-col justify-center items-start gap-1 inline-flex">
+                                    <div class="text-justify text-gray-800 text-base font-bold leading-none">
+                                        <t t-esc='getTotalItems()' /> Itens
+                                    </div>
+                                    <div class="text-justify text-gray-800 text-sm font-normal leading-[14px]">
+                                        Ver carrinho
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grow shrink basis-0 h-20 px-8 py-[26px] bg-red-500 rounded-lg justify-between items-center gap-8 flex" t-on-click="openPaymentScreen">
+                        <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
+                            <t t-esc="getTotalValue()" />
+                        </div>
+                        <div class="justify-start items-center gap-2 flex">
+                            <div class="text-justify text-gray-50 text-xl font-semibold leading-7" t-on-click="openPaymentScreen">
+                                Finalizar
+                            </div>
+                            <div class="w-6 h-6 relative" />
+                        </div>
+                    </div>
+                </div>
+            </t>
+
+        </div>
+    </t>
+
+</templates>

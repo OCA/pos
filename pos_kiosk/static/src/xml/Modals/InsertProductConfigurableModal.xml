@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="InsertProductConfigurableModal" owl="1">
+        <div class="fixed inset-0 flex justify-center items-center z-50">
+            <div class="w-[700px] h-[800px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex">
+                <div class="w-[700px] h-[300px] relative bg-gray-200 rounded-tl-xl rounded-tr-xl">
+                    <img class="w-[700px] h-[300px]" t-att-src="productImageURL" t-att-alt="props.product.display_name" />
+                    <div class="p-6 left-[612px] top-0 absolute justify-start items-center gap-2 inline-flex">
+                        <div class="p-2 bg-gray-100 rounded-[100px] justify-start items-center gap-2 flex" t-on-click="cancel">
+                            <div class="w-6 h-6 px-[0.25rem] relative">
+                                <i class="fa fa-times" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="self-stretch h-24 px-8 py-6 flex-col justify-center items-start flex">
+                    <div class="text-justify text-gray-900 text-lg font-semibold leading-7">
+                        <t t-esc="productName" />
+                    </div>
+                    <div class="justify-center items-center gap-2 inline-flex">
+                        <div class="text-justify text-gray-800 text-sm font-bold leading-tight">
+                            <t t-esc="productPrice" />
+                        </div>
+                    </div>
+                </div>
+                <div class="self-stretch h-[0px] border border-gray-200" />
+                <div class="w-full flex-col justify-center items-start inline-flex">
+                    <div class="self-stretch px-8 pb-2 bg-gray-50 justify-start items-start gap-2 inline-flex">
+                        <div class="text-gray-900 text-base font-semibold leading-normal">
+                            Escolha a melhor opção
+                        </div>
+                    </div>
+                    <div class="self-stretch h-44 flex-col justify-center items-start flex">
+                        <t t-foreach="attributes" t-as="attribute" t-key="attribute.id">
+                            <div class="w-full px-8 py-2 bg-gray-100 justify-start items-start gap-2 inline-flex">
+                                <t t-esc="attribute.name" />
+                            </div>
+                            <t t-foreach="attribute.values" t-as="value" t-key="value.id">
+                                <div class="self-stretch px-8 py-2 justify-start items-center gap-4 inline-flex">
+                                    <div class="grow shrink basis-0 flex-col justify-start items-start gap-2 inline-flex">
+                                        <div class="justify-start items-center gap-3 inline-flex">
+                                            <input type="radio" t-model="state.selected_value" t-att-name="attribute.id" t-attf-id="{{ attribute.id }}_{{ value.id }}" t-att-value="value.id"/>
+                                            <label t-attf-for="{{ attribute.id }}_{{ value.id }}">
+                                                <div class="text-gray-900 text-base font-medium leading-normal">
+                                                    <t t-esc="value.name" />
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+                <div class="self-stretch p-8 justify-start items-center gap-4 inline-flex">
+                    <div class="w-[216px] self-stretch rounded-lg border border-gray-400 justify-start items-center flex">
+                        <div class="w-12 h-12 py-3 px-8 relative opacity-50 rounded-tl-xl rounded-bl-xl" t-on-click="removeQuantity">
+                            <i class="fa fa-minus" />
+                        </div>
+                        <div class="w-[72px] self-stretch py-2 px-6 justify-center items-center gap-2 flex">
+                            <div class="text-center text-gray-900 text-2xl font-bold leading-loose">
+                                <t t-esc="productQuantity" />
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 py-3 px-8 relative rounded-tr-xl rounded-br-xl" t-on-click="addQuantity">
+                            <i class="fa fa-plus" />
+                        </div>
+                    </div>
+                    <div class="grow shrink basis-0 h-[76px] px-8 py-6 bg-red-500 rounded-lg justify-between items-center gap-8 flex" t-on-click="confirm">
+                        <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
+                            Adicionar
+                        </div>
+                        <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
+                            <t t-esc="productTotalPrice" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

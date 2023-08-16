@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KioskReceiptScreen" owl="1">
+        <div>
+            <div class="w-screen bg-white flex-col justify-start items-start inline-flex">
+                <div class="relative w-screen h-[10%] overflow-hidden opacity-30">
+                    <img class="w-full h-[30vh] object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
+                </div>
+
+                <div class="w-screen grow shrink basis-0 py-20 flex-col justify-start items-center flex">
+                    <div class="h-[5%] px-8 pt-2 pb-12 flex-col justify-center items-center gap-4 flex">
+                        <div class="text-justify text-gray-700 text-4xl font-bold leading-10">
+                            Obrigado pelo o seu pedido
+                        </div>
+                        <div class="text-justify text-gray-500 text-2xl font-normal leading-loose">
+                            Volte sempre!
+                        </div>
+                    </div>
+                    <div class="px-8 py-14 justify-center items-center gap-4 inline-flex">
+                        <div class="flex-col justify-center items-center gap-8 inline-flex">
+                            <div class="h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 inline-flex" t-on-click="makeOtherOrder()">
+                                <div class="justify-start items-center gap-2 flex">
+                                    <div class="text-justify text-gray-50 text-xl font-semibold leading-7">
+                                        Fazer outro pedido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="h-20 px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 inline-flex">
+                                <div class="text-justify text-gray-800 text-xl font-semibold leading-7" t-on-click="printReceipt()">
+                                    Imprimir cupom fiscal
+                                </div>
+                            </div>
+                            <div class="h-20 px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 inline-flex" t-on-click="endedSession()">
+                                <div class="text-justify text-gray-800 text-xl font-semibold leading-7">
+                                    Encerrar sessão
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: none;">
+                <OrderReceipt order="currentOrder" t-ref="order-receipt" />
+            </div>
+        </div>
+    </t>
+
+</templates>

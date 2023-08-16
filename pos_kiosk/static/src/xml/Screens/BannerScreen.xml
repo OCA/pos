@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="BannerScreen" owl="1">
+        <div class='h-screen relative'>
+            <img class='h-full w-full object-cover' t-att-src="bannerURL" alt="Banner Image" />
+            <div class='absolute inset-x-0 bottom-0 flex justify-center items-center pb-16' t-on-click="clickNextScreen">
+                <div class='px-12 py-8 bg-zinc-800 rounded-lg text-center'>
+                    <div class='text-white text-6xl font-bold leading-[60px]'>
+                        Iniciar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>
