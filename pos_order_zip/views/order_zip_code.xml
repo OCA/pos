@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+        <!-- Tree View -->
+        <record id="view_order_zip_code_tree" model="ir.ui.view">
+            <field name="name">order.zip.code.tree</field>
+            <field name="model">order.zipcode</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="zip_code" />
+                    <field name="state_id" />
+                    <field name="country_id" />
+                    <field name="order_count" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_order_zip_code_form" model="ir.ui.view">
+            <field name="name">order.zip.code.form</field>
+            <field name="model">order.zipcode</field>
+            <field name="arch" type="xml">
+                <form string="Zip Codes">
+                    <sheet>
+                        <group>
+                            <field name="zip_code" />
+                            <field name="city" />
+                            <field name="county" />
+                            <field name="state_id" />
+                            <field name="country_id" />
+                            <field name="order_count" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search View -->
+        <record id="view_order_zip_code_search" model="ir.ui.view">
+            <field name="name">order.zip.code.search</field>
+            <field name="model">order.zipcode</field>
+            <field name="arch" type="xml">
+                <search string="Search Zip Codes">
+                    <field name="zip_code" />
+                    <field name="state_id" />
+                    <field name="country_id" />
+                    <group expand="0" string="Group By">
+                        <filter
+                        string="State"
+                        domain="[]"
+                        context="{'group_by':'state_id'}"
+                        name="state"
+                    />
+                        <filter
+                        string="Country"
+                        domain="[]"
+                        context="{'group_by':'country_id'}"
+                        name="country"
+                    />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_order_zip_code" model="ir.actions.act_window">
+            <field name="name">Zip Codes</field>
+            <field name="res_model">order.zipcode</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click To Add Zip Codes.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+        name="Zip Codes"
+        id="order_zip_code"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_order_zip_code"
+    />
+</odoo>
