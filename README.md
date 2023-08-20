@@ -88,7 +88,7 @@ addon | version | maintainers | summary
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 12.0.1.0.0 |  | POS Stock Picking Invoice Link
 [pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 12.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 12.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier data
-[pos_tare](pos_tare/) | 12.0.1.0.3 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Manage Tare in Point Of Sale module
+[pos_tare](pos_tare/) | 12.0.1.0.4 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Manage Tare in Point Of Sale module
 [pos_ticket_logo](pos_ticket_logo/) | 12.0.1.0.0 |  | Pos Ticket Logo
 [pos_ticket_salesman_firstname](pos_ticket_salesman_firstname/) | 12.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Pos Ticket Salesman Firstname
 [pos_ticket_static_qrcode](pos_ticket_static_qrcode/) | 12.0.1.0.0 |  | PoS Ticket Static QrCode
