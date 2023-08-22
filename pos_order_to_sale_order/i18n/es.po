@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-31 08:15+0000\n"
-"Last-Translator: FLNerea <nerea.fernandez@factorlibre.com>\n"
+"PO-Revision-Date: 2023-08-22 18:15+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_res_config_settings
@@ -65,13 +65,13 @@ msgstr "Crear borradores de pedidos de venta"
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Invoiced Sale Order"
-msgstr ""
+msgstr "Crear orden de venta facturada"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
 msgid "Create Invoiced Sale Orders"
-msgstr ""
+msgstr "Crear órdenes de venta facturadas"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
@@ -79,7 +79,7 @@ msgstr ""
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Order"
-msgstr ""
+msgstr "Crear pedido"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
@@ -91,7 +91,7 @@ msgstr "Crear pedidos de venta"
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Discard"
-msgstr ""
+msgstr "Descartar"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
@@ -113,6 +113,11 @@ msgid ""
 " The Invoice will be generated and confirm.\n"
 " Only invoice payment process will be possible."
 msgstr ""
+"Si está marcada, el cajero tendrá la posibilidad de crear un Pedido de venta "
+"confirmado, basado en el borrador de Pedido PoS actual.\n"
+"La recogida correspondiente se marcará como entregada.\n"
+" La factura se generará y confirmará.\n"
+" Sólo será posible el proceso de pago de la factura."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
@@ -153,12 +158,12 @@ msgstr "Configuración del punto de venta"
 #. module: pos_order_to_sale_order
 #: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Sale Order Creation"
-msgstr ""
+msgstr "Creación de orden de venta"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Órdenes de venta"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order_line
