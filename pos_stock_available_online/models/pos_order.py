@@ -1,5 +1,6 @@
 from odoo import api, models
 
+
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
