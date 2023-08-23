@@ -15,7 +15,9 @@ class PosOrder(models.Model):
                 warehouse_info = []
                 for product in products:
                     # prepared first main warehouse info
-                    warehouse_info = [config.main_warehouse_id._prepare_vals_for_pos(product)]
+                    warehouse_info = [
+                        config.main_warehouse_id._prepare_vals_for_pos(product)
+                    ]
                     # prepared additional warehouses info
                     for warehouse in config.additional_warehouse_ids:
                         warehouse_info.append(warehouse._prepare_vals_for_pos(product))
