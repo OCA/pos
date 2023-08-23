@@ -19,8 +19,8 @@
                     class="detail"
                     name="pos_comment"
                     style="height: 100px;"
+                    t-model="changes.pos_comment"
                     t-on-change="captureChange"
-                    t-att-value="props.partner.pos_comment || ''"
                     placeholder="Comment"
                 />
             </div>
