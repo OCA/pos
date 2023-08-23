@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-14 15:23+0000\n"
-"PO-Revision-Date: 2022-05-14 15:23+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-09-03 13:39+0000\n"
+"Last-Translator: Grégory Moka Tourisme <gregory@mokatourisme.fr>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_event_sale
 #. openerp-web
@@ -45,17 +46,17 @@ msgstr "Participants"
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_available_event_stage_ids
 msgid "Available Event Stages"
-msgstr ""
+msgstr "Étapes disponibles"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_available_event_tag_ids
 msgid "Available Event Tags"
-msgstr ""
+msgstr "Étiquettes disponibles"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_available_event_type_ids
 msgid "Available Event Types"
-msgstr ""
+msgstr "Types disponibles"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event_ticket__available_in_pos
@@ -81,6 +82,10 @@ msgid ""
 "                        for this Point of Sale, otherwise they won't be "
 "shown here."
 msgstr ""
+"En plus de la configuration des filtres sur la configuration du point de "
+"vente, assurez vous que les articles liés aux billets de l'événement sont "
+"disponibles sur ce point de vente, sinon, les billets associés ne seront pas "
+"affichés."
 
 #. module: pos_event_sale
 #. openerp-web
@@ -101,7 +106,7 @@ msgstr "Fermer"
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
 #, python-format
 msgid "Country"
-msgstr ""
+msgstr "Pays"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__currency_id
@@ -135,7 +140,7 @@ msgstr "Inscription à l'événement"
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order__event_registrations_count
 msgid "Event Registration Count"
-msgstr ""
+msgstr "Nombre d'inscription"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order__event_registration_ids
@@ -161,7 +166,7 @@ msgstr "Étiquettes d'Événement"
 #. module: pos_event_sale
 #: model:ir.model,name:pos_event_sale.model_event_type_ticket
 msgid "Event Template Ticket"
-msgstr ""
+msgstr "Modèle de billet"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_order_line__event_ticket_id
@@ -180,7 +185,7 @@ msgstr "Billet d'événement non trouvé : %d"
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
 msgid "Event Types"
-msgstr ""
+msgstr "Types d'événement"
 
 #. module: pos_event_sale
 #. openerp-web
@@ -222,6 +227,8 @@ msgid ""
 "Limit the available events for this Point of Sale.\n"
 "Leave empty to load all stages."
 msgstr ""
+"Limiter les événements disponibles pour ce point de vente.\n"
+"Laissez vide pour charger toutes les étapes."
 
 #. module: pos_event_sale
 #: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_available_event_tag_ids
@@ -229,6 +236,8 @@ msgid ""
 "Limit the available events for this Point of Sale.\n"
 "Leave empty to load all tags."
 msgstr ""
+"Limiter les événements disponibles pour ce point de vente.\n"
+"Laissez vide pour charger toutes les étiquettes."
 
 #. module: pos_event_sale
 #: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_available_event_type_ids
@@ -236,21 +245,23 @@ msgid ""
 "Limit the available events for this Point of Sale.\n"
 "Leave empty to load all types."
 msgstr ""
+"Limiter les événements disponibles pour ce point de vente.\n"
+"Laissez vide pour charger tous les types."
 
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.pos_config_view_form
 msgid "Load"
-msgstr ""
+msgstr "Charger"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_event_load_days_after
 msgid "Load future events (days)"
-msgstr ""
+msgstr "Charger les événements à venir (en jours)"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_pos_config__iface_event_load_days_before
 msgid "Load past events (days)"
-msgstr ""
+msgstr "Charger les événements passés (en jour)"
 
 #. module: pos_event_sale
 #. openerp-web
@@ -264,7 +275,7 @@ msgstr ""
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventFilters.js:0
 #, python-format
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: pos_event_sale
 #. openerp-web
@@ -279,6 +290,8 @@ msgid ""
 "Number of days before today, to load past events.\n"
 "Set to -1 to load all past events."
 msgstr ""
+"Nombre de jours avant aujourd'hui pour charger les événements passés.\n"
+"Renseignez -1 pour charger tous les événements."
 
 #. module: pos_event_sale
 #: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_event_load_days_after
@@ -286,6 +299,8 @@ msgid ""
 "Number of days in the future to load events.\n"
 "Set to -1 to load all future events."
 msgstr ""
+"Nombre de jour à venir pour charger les événements.\n"
+"Renseignez -1 pour charger tous les événements futurs."
 
 #. module: pos_event_sale
 #. openerp-web
@@ -314,12 +329,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_event__pos_price_subtotal
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_session__pos_price_subtotal
 msgid "POS Sales (Tax Excluded)"
-msgstr ""
+msgstr "Vente PdV (hors taxe)"
 
 #. module: pos_event_sale
 #: model:ir.model.fields,field_description:pos_event_sale.field_event_registration__pos_config_id
 msgid "Point of Sale"
-msgstr ""
+msgstr "Point de vente"
 
 #. module: pos_event_sale
 #: model:ir.model,name:pos_event_sale.model_pos_config
@@ -346,7 +361,7 @@ msgstr "Rapport sur les commandes au point de vente"
 #: code:addons/pos_event_sale/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
 #, python-format
 msgid "Product"
-msgstr ""
+msgstr "Article"
 
 #. module: pos_event_sale
 #: code:addons/pos_event_sale/models/pos_order_line.py:0
@@ -357,7 +372,7 @@ msgstr "Remboursé sur %s"
 #. module: pos_event_sale
 #: model:ir.model.fields,help:pos_event_sale.field_pos_config__iface_event_sale
 msgid "Sell events on this point of sale."
-msgstr ""
+msgstr "Vendre des événements depuis ce point de vente"
 
 #. module: pos_event_sale
 #. openerp-web
@@ -427,7 +442,7 @@ msgstr "Aujourd'hui"
 #. module: pos_event_sale
 #: model_terms:ir.ui.view,arch_db:pos_event_sale.view_event_form_inherit_ticket
 msgid "Total POS Sales for this event"
-msgstr ""
+msgstr "Ventes PdV totales pour cet événement"
 
 #. module: pos_event_sale
 #. openerp-web
