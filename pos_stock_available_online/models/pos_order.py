@@ -1,13 +1,12 @@
-from odoo import api, fields, models, _
-
+from odoo import api, models
 
 class PosOrder(models.Model):
-    _inherit = 'pos.order'
+    _inherit = "pos.order"
 
     @api.model
     def create_from_ui(self, orders, draft=False):
         order_ids = super(PosOrder, self).create_from_ui(orders, draft)
-        for order in self.sudo().browse([o['id'] for o in order_ids]):
+        for order in self.sudo().browse([o["id"] for o in order_ids]):
             config = order.config_id
             # send quantity notification after order
             if config and config.display_product_quantity:
