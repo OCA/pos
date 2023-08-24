@@ -198,7 +198,18 @@ odoo.define("pos_restricted_customer_list.point_of_sale.screens", function(requi
 
             var fields = {};
             this.$(".client-details-contents .detail").each(function(idx, el) {
-                fields[el.name] = el.value;
+                if (self.integer_client_details.includes(el.name)){
+                    var parsed_value = parseInt(el.value, 10);
+                    if (isNaN(parsed_value)){
+                        fields[el.name] = false;
+                    }
+                    else{
+                        fields[el.name] = parsed_value
+                    }
+                }
+                else{
+                    fields[el.name] = el.value || false;
+                }
             });
 
             if (!fields.name) {
