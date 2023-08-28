@@ -1,7 +1,7 @@
 {
     "name": "PoS Product multi barcode",
     "summary": "Make product multi barcodes usable in the point of sale",
-    "version": "14.0.1.0.2",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Akretion, Odoo Community Association (OCA)",
@@ -13,9 +13,11 @@
         "point_of_sale",
         "product_multi_barcode",
     ],
-    "data": [
-        "templates/assets.xml",
-    ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_product_multi_barcode/static/src/js/db.js",
+        ]
+    },
     "demo": [],
     "qweb": [],
 }
