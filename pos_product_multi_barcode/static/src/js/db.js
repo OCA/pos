@@ -2,9 +2,6 @@ odoo.define("pos_product_multi_barcode.db", function (require) {
     "use strict";
 
     var PosDB = require("point_of_sale.DB");
-    var models = require("point_of_sale.models");
-
-    models.load_fields("product.product", ["barcodes_json"]);
 
     PosDB.include({
         _product_search_string: function (product) {
