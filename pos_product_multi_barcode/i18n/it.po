@@ -17,26 +17,28 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_product_multi_barcode
-#: model:ir.model.fields,field_description:pos_product_multi_barcode.field_product_product__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_product_multi_barcode
-#: model:ir.model.fields,field_description:pos_product_multi_barcode.field_product_product__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_product_multi_barcode
-#: model:ir.model.fields,field_description:pos_product_multi_barcode.field_product_product____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
+#: model:ir.model,name:pos_product_multi_barcode.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
 
 #. module: pos_product_multi_barcode
 #: model:ir.model,name:pos_product_multi_barcode.model_product_product
-msgid "Product"
-msgstr "Prodotto"
+msgid "Product Variant"
+msgstr ""
 
 #. module: pos_product_multi_barcode
 #: model:ir.model.fields,field_description:pos_product_multi_barcode.field_product_product__barcodes_json
 msgid "barcode list"
 msgstr "elenco codici a barre"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Product"
+#~ msgstr "Prodotto"
