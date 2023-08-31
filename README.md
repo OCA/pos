@@ -31,7 +31,7 @@ addon | version | maintainers | summary
 [pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.0 |  | Use vouchers as payment method in pos orders
 [pos_margin](pos_margin/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_membership](pos_membership/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Implement features of membership module in the Point of sale UI.
-[pos_order_remove_line](pos_order_remove_line/) | 16.0.1.1.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
+[pos_order_remove_line](pos_order_remove_line/) | 16.0.1.2.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
 [pos_order_reorder](pos_order_reorder/) | 16.0.0.1.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Simple Re-order in the Point of Sale
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 16.0.1.0.5 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_order_to_sale_order_report](pos_order_to_sale_order_report/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Report will be downloaded after the sales order is created.
