@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets" inherit_id="pos_kiosk.assets">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/pos_restaurant/static/src/css/restaurant.css" />
+
+            <script type="text/javascript" src="/pos_restaurant/static/src/js/notes.js" />
+            <script type="text/javascript" src="/pos_restaurant/static/src/js/multiprint.js" />
+            <script type="text/javascript" src="/pos_kiosk_restaurant/static/src/js/Screens/KioskPaymentScreen.js" />
+        </xpath>
+    </template>
+
+</odoo>
