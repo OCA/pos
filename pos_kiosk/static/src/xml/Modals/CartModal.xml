@@ -3,63 +3,48 @@
 
     <t t-name="CartModal" owl="1">
         <div class="fixed bottom-0 inset-x-0 z-50">
-            <div class="w-screen h-[332px] border-t-2 border-gray-200 bg-white rounded-tl-xl rounded-tr-xl flex-col justify-start items-start inline-flex">
-                <div class="self-stretch pl-8 justify-between items-center gap-2 inline-flex">
-                    <div class="text-justify text-gray-600 text-lg font-semibold leading-7">
+            <div class="container">
+                <div class="heading flex justify-between w-full">
+                    <div class="title flex flex-row items-center">
                         Seu carrinho
                     </div>
-                    <div class="p-6 justify-start items-center gap-2 flex">
-                        <div class="p-2 bg-gray-100 rounded-[100px] justify-start items-center gap-2 flex" t-on-click="cancel">
-                            <div class="w-6 h-6 px-[0.25rem] relative">
-                                <i class="fa fa-times" />
-                            </div>
-                        </div>
+                    <div class="close-button w-6 h-6 relative" t-on-click="cancel">
+                        <i class="fa fa-times" />
                     </div>
                 </div>
-                <div class="self-stretch h-[100px] flex-col justify-start items-start flex overscroll-contain max-h-[80%] overflow-y-auto">
+
+
+                <div class="product-details overscroll-contain max-h-[80%] overflow-y-auto">
                     <t t-foreach="orderlines" t-as="orderline" t-key="orderline.id">
-                        <div class="self-stretch px-8 py-4 justify-between items-center gap-8 inline-flex">
-                        <div class="justify-start items-center gap-8 flex">
-                            <img class="w-[68px] h-[68px] relative bg-gray-200 rounded-lg" t-att-src="productImageURL(orderline.product)" />
-                            <div class="flex-col justify-center items-start inline-flex">
-                                <div class="text-justify text-gray-900 text-base font-normal leading-normal">
-                                    <t t-esc="orderline.get_full_product_name()" />
-                                </div>
-                                <div class="justify-center items-center gap-2 inline-flex">
-                                    <div class="text-justify text-gray-800 text-sm font-bold leading-tight">
-                                        <t t-esc="getProductPrice(orderline.product)"/>
-                                    </div>
+                        <div class="product-container">
+                            <img class="product-image" t-att-src="productImageURL(orderline.product)" />
+                            <div class="product-text">
+                                <div class="product-name" t-esc="orderline.get_full_product_name()"></div>
+                                <div class="product-prices">
+                                    <div class="original-price" t-esc="getProductPrice(orderline.product)"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="flex-col justify-start items-center gap-2 inline-flex">
-                            <div class="rounded-lg border border-gray-400 justify-start items-center inline-flex">
-                                <div class="w-12 h-12 py-3 px-4 opacity-50 rounded-tl-xl rounded-bl-xl justify-center items-center flex" t-on-click="removeQuantity(orderline)">
-                                    <i class="fa fa-minus" />
+                            <div class="quantity-container">
+                                <div class="quantity-button" t-on-click="removeQuantity(orderline)">
+                                    <i class="fa fa-minus"></i>
                                 </div>
-                                <div class="w-12 h-12 px-[17px] py-2 justify-center items-center gap-2 flex">
-                                    <div class="text-center text-gray-900 text-xl font-bold leading-7">
-                                        <t t-esc="orderline.quantity" />
-                                    </div>
-                                </div>
-                                <div class="w-12 h-12 py-3 px-4 relative rounded-tr-xl rounded-br-xl" t-on-click="addQuantity(orderline)">
-                                    <i class="fa fa-plus" />
+                                <div class="item-number" t-esc="orderline.quantity"></div>
+                                <div class="quantity-button" t-on-click="addQuantity(orderline)">
+                                    <i class="fa fa-plus"></i>
                                 </div>
                             </div>
-                        </div>
                         </div>
                     </t>
                 </div>
                 <t t-if="checkCurrentScreen()">
-                    <div class="self-stretch h-36 p-8 flex-col justify-start items-start gap-2 flex" t-on-click="openPaymentScreen">
-                        <div class="self-stretch h-20 px-8 bg-red-500 rounded-lg justify-between items-center gap-8 inline-flex">
-                            <div class="w-[490px] flex-col justify-start items-start inline-flex">
-                                <div class="text-justify text-gray-50 text-base font-normal leading-normal"><t t-esc="getTotalItens()" /> Itens</div>
-                                <div class="text-justify text-gray-50 text-lg font-semibold leading-7"><t t-esc="getTotalValue()" /></div>
+                    <div class="total-and-checkout">
+                        <div class="total-and-checkout-container bg-red-500" t-on-click="openPaymentScreen">
+                            <div class="total-and-price-text">
+                                <div class="total-items-text"><t t-esc="getTotalItens()" /> Itens</div>
+                                <div class="total-price-text"><t t-esc="getTotalValue()" /></div>
                             </div>
-                            <div class="justify-start items-center gap-2 flex">
-                                <div class="text-justify text-gray-50 text-xl font-semibold leading-7">Finalizar</div>
-                                <div class="w-6 h-6 relative" />
+                            <div class="checkout-button">
+                                <div class="checkout-text">Finalizar</div>
                             </div>
                         </div>
                     </div>

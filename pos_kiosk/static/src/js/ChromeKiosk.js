@@ -295,6 +295,40 @@ odoo.define("pos_kiosk.ChromeKiosk", function (require) {
             }
 
             this._disableBackspaceBack();
+            this._replaceCrashmanager();
+        }
+
+        // replaces the error handling of the existing crashmanager which
+        // uses jquery dialog to display the error, to use the pos popup
+        // instead
+        _replaceCrashmanager() {
+            var self = this;
+            CrashManager.include({
+                show_warning: function (error) {
+                    if (self.env.pos) {
+                        // self == this component
+                        self.showPopup('ErrorPopup', {
+                            title: error.data.title.toString(),
+                            body: error.data.message,
+                        });
+                    } else {
+                        // this == CrashManager instance
+                        this._super(error);
+                    }
+                },
+                show_error: function (error) {
+                    if (self.env.pos) {
+                        // self == this component
+                        self.showPopup('ErrorPopup', {
+                            title: error.type,
+                            body: error.message + '\n' + error.data.debug + '\n',
+                        });
+                    } else {
+                        // this == CrashManager instance
+                        this._super(error);
+                    }
+                },
+            });
         }
 
         _disableBackspaceBack() {

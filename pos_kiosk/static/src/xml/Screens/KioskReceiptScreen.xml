@@ -3,17 +3,17 @@
 
     <t t-name="KioskReceiptScreen" owl="1">
         <div>
-            <div class="w-screen bg-white flex-col justify-start items-start inline-flex">
-                <div class="relative w-screen h-[10%] overflow-hidden opacity-30">
-                    <img class="w-full h-[30vh] object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
+            <div class="receipt bg-white flex-col justify-start items-start inline-flex">
+                <div class="relative overflow-hidden opacity-30">
+                    <img class="w-full object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
                 </div>
 
-                <div class="w-screen grow shrink basis-0 py-20 flex-col justify-start items-center flex">
-                    <div class="h-[5%] px-8 pt-2 pb-12 flex-col justify-center items-center gap-4 flex">
-                        <div class="text-justify text-gray-700 text-4xl font-bold leading-10">
+                <div class="title-container absolute grow shrink basis-0 flex-col justify-start items-center flex z-10">
+                    <div class="px-8 pt-2 pb-12 flex-col justify-center items-center gap-4 flex">
+                        <div class="main-title text-justify text-gray-700 font-bold">
                             Obrigado pelo o seu pedido
                         </div>
-                        <div class="text-justify text-gray-500 text-2xl font-normal leading-loose">
+                        <div class="sub-title text-justify text-gray-500 font-normale">
                             Volte sempre!
                         </div>
                     </div>

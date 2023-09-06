@@ -31,7 +31,7 @@ odoo.define("pos_kiosk.InsertProductModal", function (require) {
 
         get productImageURL() {
             const product = this.props.product;
-            return `/web/image?model=product.product&field=image_128&id=${product.id}&write_date=${product.write_date}&unique=1`;
+            return `/web/image?model=product.product&field=image_1920&id=${product.id}&write_date=${product.write_date}&unique=1`;
         }
 
         addQuantity() {

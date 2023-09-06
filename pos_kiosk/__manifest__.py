@@ -21,6 +21,8 @@
         "static/src/xml/Modals/InsertProductConfigurableModal.xml",
         "static/src/xml/Modals/CartModal.xml",
         "static/src/xml/Screens/KioskReceiptScreen.xml",
+        "static/src/xml/Screens/KioskClientScreen.xml",
+        "static/src/xml/Modals/ErrorModal.xml",
     ],
     "installable": True,
     "auto_install": False,

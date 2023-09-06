@@ -3,7 +3,7 @@ odoo.define("pos_kiosk.MainScreen", function (require) {
 
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
-    const { useListener } = require('web.custom_hooks');
+    const {useListener} = require("web.custom_hooks");
 
     class MainScreen extends PosComponent {
         constructor() {
@@ -35,7 +35,7 @@ odoo.define("pos_kiosk.MainScreen", function (require) {
             // Const category = this.env.pos.db.category_by_id[category_id];
 
             this.category_id = category_id;
-            this.env.pos.set('selectedCategoryId', category_id)
+            this.env.pos.set("selectedCategoryId", category_id);
             this.sub_categories = [];
 
             for (const key in this.env.pos.db.category_by_id) {
@@ -88,51 +88,68 @@ odoo.define("pos_kiosk.MainScreen", function (require) {
 
         productImageURL(product_id) {
             const product = this.env.pos.db.product_by_id[product_id];
-            return `/web/image?model=product.product&field=image_128&id=${product.id}&write_date=${product.write_date}&unique=1`;
+            return `/web/image?model=product.product&field=image_1920&id=${product.id}&write_date=${product.write_date}&unique=1`;
         }
 
         get topBannerLogo() {
             const pos_config = this.env.pos.config;
-            return `/web/image?model=pos.config&field=top_banner_image&id=${pos_config.id}&write_date=${pos_config.write_date}&unique=1`
+            return `/web/image?model=pos.config&field=top_banner_image&id=${pos_config.id}&write_date=${pos_config.write_date}&unique=1`;
         }
 
         async addProduct(product_id) {
             const product = this.env.pos.db.product_by_id[product_id];
             const options = await this.getOptions(product);
-        
+
             if (!options.confirm) return;
-        
+
             this.env.pos.get_order().add_product(product, options.payload);
             this.render();
         }
-        
+
         async getOptions(product) {
             let confirm = false;
             let payload = {};
-        
-            if (this.env.pos.config.product_configurator && this.hasAttributes(product)) {
-                const { confirmed, payload: attrPayload } = await this.showConfigurableProductPopup(product);
+            let options = {};
+
+            if (
+                this.env.pos.config.product_configurator &&
+                this.hasAttributes(product)
+            ) {
+                const {
+                    confirmed,
+                    payload: attrPayload,
+                } = await this.showConfigurableProductPopup(product);
                 confirm = confirmed;
                 payload = attrPayload;
             } else {
-                const { confirmed, payload: prodPayload } = await this.showRegularProductPopup(product);
+                const {
+                    confirmed,
+                    payload: prodPayload,
+                } = await this.showRegularProductPopup(product);
                 confirm = confirmed;
                 payload = prodPayload;
             }
-        
-            const options = {
-                quantity: payload.quantity || 1,
-                price_extra: payload.priceExtra || 0.00,
-                description: payload.selectedAttributes ? payload.selectedAttributes.join(', ') : '',
-            };
-        
-            return { confirm: confirm, payload: options };
+
+            if (payload) {
+                options = {
+                    quantity: payload.productQuantity || 1,
+                    price_extra: payload.priceExtra || 0.0,
+                    description: payload.selectedAttributes
+                        ? payload.selectedAttributes.join(", ")
+                        : "",
+                };
+            }
+
+            return {confirm: confirm, payload: options};
         }
-        
+
         hasAttributes(product) {
-            return _.some(product.attribute_line_ids, (id) => id in this.env.pos.attributes_by_ptal_id);
+            return _.some(
+                product.attribute_line_ids,
+                (id) => id in this.env.pos.attributes_by_ptal_id
+            );
         }
-        
+
         async showConfigurableProductPopup(product) {
             const attributes = this.getAttributeList(product);
             return this.showPopup("InsertProductConfigurableModal", {
@@ -140,13 +157,13 @@ odoo.define("pos_kiosk.MainScreen", function (require) {
                 attributes,
             });
         }
-        
+
         async showRegularProductPopup(product) {
             return this.showPopup("InsertProductModal", {
                 product,
             });
         }
-        
+
         getAttributeList(product) {
             return _.map(
                 product.attribute_line_ids,
@@ -193,7 +210,7 @@ odoo.define("pos_kiosk.MainScreen", function (require) {
         }
 
         get selectedCategoryId() {
-            return this.env.pos.get('selectedCategoryId');
+            return this.env.pos.get("selectedCategoryId");
         }
     }
 

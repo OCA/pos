@@ -3,7 +3,7 @@ odoo.define("pos_kiosk.InsertProductConfigurableModal", function (require) {
 
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
     const Registries = require("point_of_sale.Registries");
-    const { useState } = owl.hooks;
+    const {useState} = owl.hooks;
 
     class InsertProductConfigurableModal extends AbstractAwaitablePopup {
         constructor() {
@@ -12,7 +12,7 @@ odoo.define("pos_kiosk.InsertProductConfigurableModal", function (require) {
             this.attributes = this.props.attributes;
             this.state = {
                 selected_value: 0,
-            }
+            };
         }
 
         async confirm() {
@@ -23,12 +23,12 @@ odoo.define("pos_kiosk.InsertProductConfigurableModal", function (require) {
 
         checkSelectedAttribute() {
             var selected = false;
-            this.attributes.forEach(attribute => {
-                attribute.values.forEach(value => {
+            this.attributes.forEach((attribute) => {
+                attribute.values.forEach((value) => {
                     if (value.id === parseFloat(this.state.selected_value)) {
                         selected = true;
                     }
-                })
+                });
             });
             return selected;
         }
@@ -37,20 +37,20 @@ odoo.define("pos_kiosk.InsertProductConfigurableModal", function (require) {
             var selected_attributes = [];
             var price_extra = 0.0;
 
-            this.attributes.forEach(attribute => {
-                attribute.values.forEach(value => {
+            this.attributes.forEach((attribute) => {
+                attribute.values.forEach((value) => {
                     if (value.id === parseFloat(this.state.selected_value)) {
                         selected_attributes.push(value.name);
                         price_extra += value.price_extra;
                     }
-                })
+                });
             });
 
             return {
                 productQuantity: this.props.productQuantity,
                 selectedAttributes: selected_attributes,
                 priceExtra: price_extra,
-            }
+            };
         }
 
         get productQuantity() {
@@ -79,7 +79,7 @@ odoo.define("pos_kiosk.InsertProductConfigurableModal", function (require) {
 
         get productImageURL() {
             const product = this.props.product;
-            return `/web/image?model=product.product&field=image_128&id=${product.id}&write_date=${product.write_date}&unique=1`;
+            return `/web/image?model=product.product&field=image_1920&id=${product.id}&write_date=${product.write_date}&unique=1`;
         }
     }
     InsertProductConfigurableModal.template = "InsertProductConfigurableModal";

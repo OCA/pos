@@ -2,13 +2,11 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="BannerScreen" owl="1">
-        <div class='h-screen relative'>
-            <img class='h-full w-full object-cover' t-att-src="bannerURL" alt="Banner Image" />
-            <div class='absolute inset-x-0 bottom-0 flex justify-center items-center pb-16' t-on-click="clickNextScreen">
-                <div class='px-12 py-8 bg-zinc-800 rounded-lg text-center'>
-                    <div class='text-white text-6xl font-bold leading-[60px]'>
-                        Iniciar
-                    </div>
+        <div class="banner relative">
+            <img class="image w-full h-full object-cover" t-att-src="bannerURL" alt="Banner Image" />
+            <div class="container-button absolute bg-zinc-800 rounded-[20px] justify-center items-center inline-flex sm:absolute sm:left-1/4 md:left-1/3 lg:left-480px lg:top-1567px" t-on-click="clickNextScreen">
+                <div class="button text-white font-semibold font-Inter sm:text-2xl md:text-3xl lg:text-4xl">
+                    Iniciar
                 </div>
             </div>
         </div>

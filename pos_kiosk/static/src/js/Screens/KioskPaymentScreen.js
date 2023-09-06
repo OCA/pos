@@ -53,36 +53,13 @@ odoo.define("pos_kiosk.KioskPaymentScreen", function (require) {
             return this.order.paymentlines.length > 0;
         }
 
-        async finalizeOrder() {
-            const currentOrder = this.order;
-
-            if (currentOrder.orderlines.length === 0) {
-                return;
-            }
-
-            currentOrder.initialize_validation_date();
-            currentOrder.finalized = true;
-
-            let syncedOrderBackendIds = [];
-
-            try {
-                syncedOrderBackendIds = await this.env.pos.push_single_order(
-                    currentOrder
-                );
-            } catch (error) {
-                if (error instanceof Error) {
-                    throw error;
-                } else {
-                    throw new Error(error.message);
-                }
-            }
-            
-            this.showScreen("KioskReceiptScreen");
+        nextScreen() {
+            this.showScreen("KioskClientScreen");
         }
 
         get topBannerLogo() {
             const pos_config = this.env.pos.config;
-            return `/web/image?model=pos.config&field=top_banner_image&id=${pos_config.id}&write_date=${pos_config.write_date}&unique=1`
+            return `/web/image?model=pos.config&field=top_banner_image&id=${pos_config.id}&write_date=${pos_config.write_date}&unique=1`;
         }
     }
 

@@ -7,7 +7,7 @@
 
             <script type="text/javascript" src="/pos_restaurant/static/src/js/notes.js" />
             <script type="text/javascript" src="/pos_restaurant/static/src/js/multiprint.js" />
-            <script type="text/javascript" src="/pos_kiosk_restaurant/static/src/js/Screens/KioskPaymentScreen.js" />
+            <script type="text/javascript" src="/pos_kiosk_restaurant/static/src/js/Screens/KioskClientScreen.js" />
         </xpath>
     </template>
 
