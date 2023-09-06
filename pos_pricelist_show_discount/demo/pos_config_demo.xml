@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="point_of_sale.pos_config_main" model="pos.config">
+        <field name="pricelist_id" ref="pricelist_pos" />
+        <field name="use_pricelist" eval="True" />
+        <field
+            name="available_pricelist_ids"
+            eval="[(6, 0, [
+                ref('pricelist_pos'),
+                ref('pricelist_discount_reference'),
+            ])]"
+        />
+        <field name="display_discount_from_pricelist" eval="True" />
+        <field name="discount_pricelist_id" ref="pricelist_discount_reference" />
+    </record>
+</odoo>
