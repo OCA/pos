@@ -1,0 +1,54 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_takeout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-06 18:24+0000\n"
+"PO-Revision-Date: 2023-09-06 18:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_takeout
+#: model_terms:ir.ui.view,arch_db:pos_takeout.view_pos_config_form
+msgid "Button to set if the customer is eating here or taking out."
+msgstr "Botão para definir se o cliente irá comer aqui ou levar."
+
+#. module: pos_takeout
+#. openerp-web
+#: code:addons/pos_takeout/static/src/xml/TakeOutButton.xml:0
+#, python-format
+msgid "Eat Here"
+msgstr "Comer Aqui"
+
+#. module: pos_takeout
+#: model:ir.model.fields,field_description:pos_takeout.field_pos_order__eat_here
+msgid "Is the customer eating here"
+msgstr "Cliente irá comer aqui"
+
+#. module: pos_takeout
+#: model:ir.model.fields,field_description:pos_takeout.field_pos_config__iface_show_takeout_option
+msgid "Show Take Out Option"
+msgstr "Exibir Opção de Comer Aqui/Levar"
+
+#. module: pos_takeout
+#: model:ir.model.fields,help:pos_takeout.field_pos_config__iface_show_takeout_option
+msgid ""
+"Shows a button on the POS UI to set if the customer is eating here, or "
+"taking out."
+msgstr ""
+"Mostra um botão na interface do PDV para definir se o cliente irá comer aqui, ou "
+"levar."
+
+#. module: pos_takeout
+#. openerp-web
+#: code:addons/pos_takeout/static/src/xml/TakeOutButton.xml:0
+#, python-format
+msgid "Take Out"
+msgstr "Levar"
