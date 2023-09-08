@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="assets"
+        name="pos_plate_number assets"
+        inherit_id="point_of_sale.assets"
+    >
+        <xpath expr="." position="inside">
+            <link
+                rel="stylesheet"
+                type="text/css"
+                href="/pos_plate_number/static/src/css/pos_plate_number.css"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_plate_number/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_plate_number/static/src/js/Screens/PaymentScreen/PaymentScreen.js"
+            />
+        </xpath>
+    </template>
+</odoo>

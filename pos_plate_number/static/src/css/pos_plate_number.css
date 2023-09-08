@@ -1,0 +1,10 @@
+.plate-number-button {
+    margin-top: 10px;
+}
+
+.receipt-plate-number {
+    margin-top: 20px;
+    text-align: center;
+    background: rgb(25, 25, 25);
+    color: white;
+}
