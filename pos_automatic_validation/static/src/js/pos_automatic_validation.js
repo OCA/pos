@@ -25,22 +25,22 @@ odoo.define('pos_automatic_validation.pos_automatic_validation', function (requi
     screens.PaymentScreenWidget.include({
         show: function(){
             this._super();
-            $('.next').hide();
+            // this.$('.next').hide();
         },
 
-        click_paymentmethods: function(id) {
-            var self = this;
-            this._super.apply(this, arguments);
-            var selected_line = this.pos.get_order().selected_paymentline;
-            if (selected_line) {
-                var auto_validation = selected_line.get_automatic_validation();
-                if (auto_validation == false) {
-                    $('.next').show();
-                } else {
-                    $('.next').show();
-                }
-            }
-        },
+        // click_paymentmethods: function(id) {
+        //     var self = this;
+        //     this._super.apply(this, arguments);
+        //     var selected_line = this.pos.get_order().selected_paymentline;
+        //     if (selected_line) {
+        //         var auto_validation = selected_line.get_automatic_validation();
+        //         if (auto_validation == false) {
+        //             this.$('.next').show();
+        //         } else {
+        //             this.$('.next').show();
+        //         }
+        //     }
+        // },
 
         render_paymentlines: function() {
             this._super();
@@ -54,13 +54,20 @@ odoo.define('pos_automatic_validation.pos_automatic_validation', function (requi
             var selected_line = order.selected_paymentline;
             if (selected_line) {
                 var auto_validation = selected_line.get_automatic_validation();
-                if (!auto_validation) { return; }
+                if (!auto_validation) {
+                    this.$('.next').show();
+                    return;
+                }
+                this.$('.next').hide();
                 if (this._check_auto_validation_timer) {
                     clearTimeout(this._check_auto_validation_timer);
                 }
                 this._check_auto_validation_timer = setTimeout(function() {
                     self.check_auto_validation();
                 }, 1000);
+            }
+            else {
+                this.$('.next').show();
             }
         },
 
