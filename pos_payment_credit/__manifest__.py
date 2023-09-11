@@ -17,6 +17,7 @@
         "views/assets.xml",
         'views/account_journal_view.xml',
         'views/res_partner_view.xml',
+        'views/pos_config.xml',
         'wizard/pos_make_payment_view.xml',
     ],
     "qweb": [

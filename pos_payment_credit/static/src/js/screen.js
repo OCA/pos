@@ -17,6 +17,7 @@
             }
             else {
                 this.$('.js_customer_credit').text("");
+                this.$('.js_customer_credit_payment').text("");
             }
         },
         click_paymentmethods: function(id) {
@@ -37,20 +38,25 @@
                 self.order_changes();
                 self.render_paymentlines();
                 self.$('.paymentline.selected .edit').text(amountFormatted);
-                self.gui.show_popup('confirm', {
-                    'title': _t('Confirming'),
-                    'body': _t("Pay using the member's available credit?"),
-                    confirm: function () {},
-                    cancel: function () {
-                        var selectedPaymentLineEle = $('.paymentline.selected');
-                        if (selectedPaymentLineEle) {
-                            var paymentLineId = $(selectedPaymentLineEle[0]).find('.delete-button').data('cid');
-                            if(paymentLineId){
-                                self.click_delete_paymentline(paymentLineId);   
+                if (this.pos.config.auto_apply_credit_amount){
+                    this.$('.js_customer_credit_payment').text( _t("A refund of ") + amountFormatted + _t(" will be applied"));
+                }
+                else {
+                    self.gui.show_popup('confirm', {
+                        'title': _t('Confirming'),
+                        'body': _t("Pay using the member's available credit?"),
+                        confirm: function () {},
+                        cancel: function () {
+                            var selectedPaymentLineEle = $('.paymentline.selected');
+                            if (selectedPaymentLineEle) {
+                                var paymentLineId = $(selectedPaymentLineEle[0]).find('.delete-button').data('cid');
+                                if(paymentLineId){
+                                    self.click_delete_paymentline(paymentLineId);   
+                                }
                             }
-                        }
-                    },
-                });
+                        },
+                    });
+                }
             }
         },
         payment_input: function(input) {
@@ -69,11 +75,10 @@
                 var line_amount = line.get_amount();
                 var amount =  Math.min(due_amount, line_amount);
                 var inamount = Math.max(0, Math.min(amount, client.credit_amount));
+                var amountFormatted = self.format_currency_no_symbol(inamount);
                 if (line_amount != inamount){
                     // Update the buffer
                     self.inputbuffer = inamount.toString();
-
-                    var amountFormatted = self.format_currency_no_symbol(inamount);
                     line.set_amount(inamount);
                     self.order_changes();
                     self.render_paymentlines();
@@ -83,7 +88,54 @@
                         body: _t('The credit amount is invalid!'),
                     });
                 }
+                this.$('.js_customer_credit_payment').text( _t("A refund of ") + amountFormatted + _t(" will be applied"));
             }
+        },
+        render_paymentlines: function(){
+            this._super.apply(this, arguments);
+            var order = this.pos.get_order();
+            var line = order.selected_paymentline;
+            if(line === undefined && this.pos.config.auto_apply_credit_amount){  // Render for the first time
+                var amount = order.get_due(line);
+                var client = this.pos.get_client();
+                if (amount && client && client.credit_amount && client.credit_amount.toFixed(4) > 0){
+                    var cashregister = _.find(this.pos.cashregisters,
+                        function (cashregister) {
+                            return cashregister.journal.is_credit;
+                        });
+                    if (cashregister){
+                        this.click_paymentmethods(cashregister.journal.id);
+                    }
+                }
+            }
+        },
+        click_delete_paymentline: function(cid){
+            var lines = this.pos.get_order().get_paymentlines();
+            for ( var i = 0; i < lines.length; i++ ) {
+                if (lines[i].cid === cid) {
+                    if (lines[i].get_credit_payment()){
+                        this.$('.js_customer_credit_payment').text('');
+                    }
+                    break;
+                }
+            }
+            this._super.apply(this, arguments);
+        },
+        finalize_validation: function() {
+            var self = this;
+            var order = this.pos.get_order();
+            var lines = order.get_paymentlines();
+            var credit_payment = 0;
+            for ( var i = 0; i < lines.length; i++ ) {
+                if (lines[i].get_credit_payment()){
+                    credit_payment += lines[i].amount;
+                }
+            }
+            if (credit_payment > 0){
+                var client = this.pos.get_client();
+                client.credit_amount -= credit_payment
+            }
+            this._super.apply(this, arguments);
         },
     });
     screens.ClientListScreenWidget.include({

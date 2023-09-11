@@ -16,11 +16,32 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_credit
+#. openerp-web
+#: code:addons/pos_payment_credit/static/src/js/screen.js:42
+#: code:addons/pos_payment_credit/static/src/js/screen.js:91
+#, python-format
+msgid " will be applied"
+msgstr " sera appliqué"
+
+#. module: pos_payment_credit
+#. openerp-web
+#: code:addons/pos_payment_credit/static/src/js/screen.js:42
+#: code:addons/pos_payment_credit/static/src/js/screen.js:91
+#, python-format
+msgid "A refund of "
+msgstr "Un avoir de "
+
+#. module: pos_payment_credit
 #: model:ir.model.fields,field_description:pos_payment_credit.field_account_bank_statement_import_journal_creation__is_credit
 #: model:ir.model.fields,field_description:pos_payment_credit.field_account_journal__is_credit
 #: model:ir.model.fields,field_description:pos_payment_credit.field_pos_make_payment__is_credit
 msgid "Allow to add credit for members"
 msgstr "Permettre d'allouer un crédit aux membres"
+
+#. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_pos_config__auto_apply_credit_amount
+msgid "Automatic Pay by Credit Amount"
+msgstr "Paiement automatique par montant de crédit"
 
 #. module: pos_payment_credit
 #: model:ir.model.fields,field_description:pos_payment_credit.field_res_partner__credit_amount
@@ -103,3 +124,10 @@ msgstr ""
 #, python-format
 msgid "The credit amount is invalid!"
 msgstr "Le montant du crédit saisi est incorrect"
+
+#. module: pos_payment_credit
+#: model_terms:ir.ui.view,arch_db:pos_payment_credit.pos_config_view_form_inherit
+msgid "You have to add a Credit Journal to Payment Methods. \n"
+"                            When this option is on, a new payment line for Credit Journal will be added automatically."
+msgstr "Vous devez ajouter un journal de crédit aux méthodes de paiement. \n"
+"                            Lorsque cette option est activée, une nouvelle ligne de paiement pour le journal de crédit sera ajoutée automatiquement."

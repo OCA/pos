@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="pos_config_view_form_inherit" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='payment_methods']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="payment_credit_option">
+                    <div class="o_setting_left_pane">
+                        <field name="auto_apply_credit_amount"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="auto_apply_credit_amount"/>
+                        <div class="text-muted">
+                            You have to add a Credit Journal to Payment Methods. 
+                            When this option is on, a new payment line for Credit Journal will be added automatically.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

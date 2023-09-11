@@ -11,6 +11,8 @@
                     </t>
                 </t>
             </div>
+            <div class="js_customer_credit_payment" style="line-height: 73px;font-size: 16px; text-align: center; color: red;">
+            </div>
         </t>
     </t>
     <t t-extend="ClientDetails">
@@ -21,6 +23,13 @@
                     <t t-esc='widget.format_currency(partner.credit_amount)' />
                 </span>
             </div>
+        </t>
+    </t>
+    <t t-extend="PaymentScreen-Paymentmethods">
+        <t t-jquery='.paymentmethod' t-operation='attributes'>
+            <attribute name="t-att-style">
+                cashregister.journal.is_credit and 'bottom: 0px; position: absolute; width: 90%;' or ''
+            </attribute>
         </t>
     </t>
 </templates>
