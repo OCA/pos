@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='pos_iface_big_scrollbars']/../.."
+                position="after"
+            >
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="pos_minimize_menu">
+                    <div class="o_setting_left_pane" />
+                    <div class="o_setting_right_pane">
+                        <label for="pos_iface_important_buttons" />
+                        <div class="text-muted">
+                            Set technical names of buttons that will be displayed in the main point of sale screen. Other buttons will be available by clicking on the button 'More...'
+                        </div>
+                        <div class="content-group mt16">
+                            <field
+                                name="pos_iface_important_buttons"
+                                placeholder="e.g. OrderlineCustomerNoteButton"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
