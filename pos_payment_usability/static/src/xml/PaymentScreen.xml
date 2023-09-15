@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2023-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PaymentScreen"
+        t-inherit="point_of_sale.PaymentScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//PaymentScreenNumpad" position="before">
+            <div
+                t-if="!env.isMobile"
+                class="button next validation"
+                t-att-class="{ highlight: currentOrder.is_paid() and currentOrder._isValidEmptyOrder() }"
+                t-on-click="() => this.trigger('validate-order')"
+            >
+                <div class="pay-circle">
+                    <i
+                        class="fa fa-chevron-right"
+                        role="img"
+                        aria-label="Pay"
+                        title="Pay"
+                    />
+                </div>
+                <span class="next_text">Validate</span>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
