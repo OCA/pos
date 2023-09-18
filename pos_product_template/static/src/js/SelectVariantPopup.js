@@ -77,9 +77,8 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
             useListener("click-attribute-value", this._clickAttributeValue);
 
             attributes.forEach((attribute) => {
-                const productAttribute = this.env.pos.db.product_attribute_by_id[
-                    attribute.id
-                ];
+                const productAttribute =
+                    this.env.pos.db.product_attribute_by_id[attribute.id];
                 attribute.sequence = productAttribute.sequence;
             });
 
@@ -145,12 +144,11 @@ odoo.define("pos_product_template.SelectVariantPopup", function (require) {
                             if (
                                 value.attribute_id[0] === selected_ptav.attribute_id[0]
                             ) {
-                                const selected_ptav_test_list = selected_ptav_ids.filter(
-                                    function (id) {
+                                const selected_ptav_test_list =
+                                    selected_ptav_ids.filter(function (id) {
                                         // Test if ptav is available if this ptav is not selected
                                         return id !== selected_ptav_id;
-                                    }
-                                );
+                                    });
                                 const product_ids = Array.from(
                                     self._get_product_ids_for_ptav(
                                         selected_ptav_test_list
