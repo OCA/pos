@@ -24,7 +24,7 @@ addon | version | maintainers | summary
 [pos_access_right](pos_access_right/) | 14.0.1.0.2 |  | Point of Sale - Extra Access Right for certain actions
 [pos_backend_communication](pos_backend_communication/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Communicate with odoo's backend from POS.
 [pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.1.1 |  | POS cash in-out reason
-[pos_customer_display](pos_customer_display/) | 14.0.1.0.1 |  | Manage LED Customer Display device from POS front end
+[pos_customer_display](pos_customer_display/) | 14.0.1.1.0 |  | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 14.0.1.0.0 |  | Point of Sale Require Customer
 [pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.1 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 |  | Add a default customer in pos order
