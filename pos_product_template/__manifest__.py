@@ -10,13 +10,15 @@
         "point_of_sale",
     ],
     "data": [
-        "views/assets.xml",
         "views/pos_config_view.xml",
     ],
-    "qweb": [
-        "static/src/xml/ppt.xml",
-        "static/src/xml/SelectVariantPopup.xml",
-    ],
+    "assets": {
+        "web.assets_qweb": ["pos_product_template/static/src/xml/**/*.xml"],
+        "point_of_sale.assets": [
+            "pos_product_template/static/src/**/*.js",
+            "pos_product_template/static/src/css/ppt.css",
+        ],
+    },
     "demo": [
         "demo/product_attribute_value.xml",
         "demo/product_product.xml",

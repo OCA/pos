@@ -5,7 +5,7 @@
 <template>
     <t t-name="SelectVariantPopup" owl="1">
         <div role="dialog" class="modal-dialog">
-            <div class="popup popup-text popup-lg pxxopup-select-variant">
+            <div class="popup popup-text popup-med pxxopup-select-variant">
                 <header class="title">
                     <t t-esc="state.template.name" />
                 </header>
