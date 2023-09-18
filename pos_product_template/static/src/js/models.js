@@ -164,7 +164,8 @@ odoo.define("pos_product_template.models", function (require) {
                     }
                 });
 
-                template.product_template_attribute_value_ids = product_template_attribute_value_ids;
+                template.product_template_attribute_value_ids =
+                    product_template_attribute_value_ids;
             });
         },
 
@@ -176,18 +177,16 @@ odoo.define("pos_product_template.models", function (require) {
 
         add_product_attribute_values: function (product_attribute_values) {
             product_attribute_values.forEach((attribute_value) => {
-                this.product_attribute_value_by_id[
-                    attribute_value.id
-                ] = attribute_value;
+                this.product_attribute_value_by_id[attribute_value.id] =
+                    attribute_value;
             });
         },
         add_product_template_attribute_values: function (
             product_template_attribute_values
         ) {
             product_template_attribute_values.forEach((attribute_value) => {
-                this.product_template_attribute_value_by_id[
-                    attribute_value.id
-                ] = attribute_value;
+                this.product_template_attribute_value_by_id[attribute_value.id] =
+                    attribute_value;
             });
         },
     });
