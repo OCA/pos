@@ -39,6 +39,9 @@ odoo.define("pos_customer_display.models", function (require) {
 
         after_load_server_data: function () {
             this.proxy.load_customer_display_format_file();
+            if (this.config.iface_customer_display) {
+                this.config.use_proxy = true;
+            }
             return PosModelSuper.prototype.after_load_server_data.call(this);
         },
     });
