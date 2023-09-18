@@ -8,6 +8,10 @@
 
    * Giovanni Serra <giovanni@gslab.it>
 
+* `Aures Tic <https://aurestic.es>`_:
+
+   * Jose Zambudio <jose@aurestic.es>
+
 Funders
 -------
 
