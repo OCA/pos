@@ -45,9 +45,9 @@ class PosOrder(models.Model):
     def distribute_decimals(self, *arg, **kwarg):
         total = sum([r["price"] for r in kwarg["lines"]])
         numbers = []
-        for l in kwarg["lines"]:
-            a = l["price"] - (l["manual_discount"] * l["price"] / 100)
-            part = l["price"] / total
+        for line in kwarg["lines"]:
+            a = line["price"] - (line["manual_discount"] * line["price"] / 100)
+            part = line["price"] / total
             fixed_disc = kwarg["amount"] * part
             numbers.append(a - fixed_disc)
         result = []
