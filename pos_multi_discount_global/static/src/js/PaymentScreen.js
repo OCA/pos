@@ -6,7 +6,6 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
     const NumberBuffer = require("point_of_sale.NumberBuffer");
     const PaymentScreen = require("point_of_sale.PaymentScreen");
     const Registries = require("point_of_sale.Registries");
-    var utils = require("web.utils");
 
     const MultiDiscountPaymentScreen = (PaymentScreen) =>
         class extends PaymentScreen {
@@ -41,9 +40,9 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                         lines[i].percent_discount = 0;
                         lines[i].set_discount(lines[i].manual_discount);
                     }
-                    var lines = order.paymentlines.models;
-                    for (var i = 0; i < lines.length; i++) {
-                        order.remove_paymentline(lines[i]);
+                    var payment_lines = order.paymentlines.models;
+                    for (var ind = 0; ind < payment_lines.length; ind++) {
+                        order.remove_paymentline(payment_lines[ind]);
                     }
                 }
             }
@@ -113,12 +112,10 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                 if (this.env.pos.config.split_fixed_discount) {
                     var order = this.env.pos.get_order();
                     var lines = order.get_orderlines();
-                    var total = order.get_total_without_tax();
                     // Var current_discount = order.get_total_discount();
                     var product = this.env.pos.db.get_product_by_id(
                         this.env.pos.config.rounding_product_id[0]
                     );
-                    var abs_discount_amount = 0;
                     if (product === undefined) {
                         await this.showPopup("ErrorPopup", {
                             title: this.env._t("No rounding product found"),
@@ -132,12 +129,12 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                         this.reset_fixed_discount();
 
                         var dict_lines = [];
-                        _(order.get_orderlines()).each(function (l) {
+                        _(order.get_orderlines()).each(function (ord_line) {
                             dict_lines.push({
-                                manual_discount: l.manual_discount,
-                                fixed_discount: l.fixed_discount,
-                                discount: l.discount,
-                                price: l.price,
+                                manual_discount: ord_line.manual_discount,
+                                fixed_discount: ord_line.fixed_discount,
+                                discount: ord_line.discount,
+                                price: ord_line.price,
                             });
                         });
                         this.rpc({
