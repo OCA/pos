@@ -42,7 +42,7 @@ class PosOrder(models.Model):
         return res
 
     @api.model
-    def distribute_decimals(self, *arg, **kwarg):
+    def distribute_decimals(self, *arg, **kwarg):  # noqa: C901
         total = sum([r["price"] for r in kwarg["lines"]])
         numbers = []
         for line in kwarg["lines"]:
