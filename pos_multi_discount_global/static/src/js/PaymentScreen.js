@@ -101,6 +101,7 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                     var order = this.env.pos.get_order();
                     var lines = order.get_orderlines();
                     var total = order.get_total_without_tax();
+
                     // Var current_discount = order.get_total_discount();
                     var product = this.env.pos.db.get_product_by_id(
                         this.env.pos.config.rounding_product_id[0]
@@ -117,8 +118,29 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                     }
                     if (disc_type === "fixed") {
                         this.reset_fixed_discount();
-                        total = order.get_total_without_tax();
-                        this.process_fixed_discount(amount, order);
+
+                        var dict_lines = [];
+                        _(order.get_orderlines()).each(function (l) {
+                            dict_lines.push({
+                                manual_discount: l.manual_discount,
+                                fixed_discount: l.fixed_discount,
+                                discount: l.discount,
+                                price: l.price,
+                            });
+                        });
+                        this.rpc({
+                            model: "pos.order",
+                            method: "distribute_decimals",
+                            args: [false],
+                            kwargs: {lines: dict_lines, amount: amount},
+                        }).then(function (result) {
+                            order.fixed_discount = amount;
+                            for (const ind in lines) {
+                                lines[ind].fixed_discount = result[ind];
+                                lines[ind].set_discount(lines[ind].manual_discount);
+                            }
+                        });
+                        // This.process_fixed_discount(amount, order);
                         abs_discount_amount = amount;
                     } else if (disc_type === "percent") {
                         this.reset_percent_discount();
@@ -127,24 +149,24 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                         abs_discount_amount = (amount * total) / 100;
                     }
                     var new_total = order.get_total_without_tax();
-                    if (
-                        abs_discount_amount > 0 &&
-                        total - abs_discount_amount !== new_total
-                    ) {
-                        var diff = round_pr(
-                            new_total - (total - abs_discount_amount),
-                            0.01
-                        );
-                        if (diff !== 0) {
-                            if (
-                                (diff < 0 &&
-                                    this.env.pos.config.only_positive_discount) ||
-                                !this.env.pos.config.only_positive_discount
-                            ) {
-                                this.apply_discount_with_product(-diff);
-                            }
-                        }
-                    }
+                    // If (
+                    //     abs_discount_amount > 0 &&
+                    //     total - abs_discount_amount !== new_total
+                    // ) {
+                    //     var diff = round_pr(
+                    //         new_total - (total - abs_discount_amount),
+                    //         0.01
+                    //     );
+                    //     if (diff !== 0) {
+                    //         if (
+                    //             (diff < 0 &&
+                    //                 this.env.pos.config.only_positive_discount) ||
+                    //             !this.env.pos.config.only_positive_discount
+                    //         ) {
+                    //             // this.apply_discount_with_product(-diff);
+                    //         }
+                    //     }
+                    // }
                     order.select_orderline(lines[0]);
                     order.deselect_orderline();
                 }
@@ -191,6 +213,7 @@ odoo.define("pos_multi_discount_global.PaymentScreen", function (require) {
                 }
             }
             process_percent_discount(amount, order) {
+                this.reset_fixed_discount();
                 order.percent_discount = amount;
                 var total = order.get_total_without_tax();
                 var discount = Number(Math.round(amount + "e2") + "e-2");

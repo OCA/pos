@@ -41,6 +41,73 @@ class PosOrder(models.Model):
         )
         return res
 
+    @api.model
+    def distribute_decimals(self, *arg, **kwarg):
+        total = sum([r["price"] for r in kwarg["lines"]])
+        numbers = []
+        for l in kwarg["lines"]:
+            a = l["price"] - (l["manual_discount"] * l["price"] / 100)
+            part = l["price"] / total
+            fixed_disc = kwarg["amount"] * part
+            numbers.append(a - fixed_disc)
+        result = []
+        done_ins = []
+        for i in range(len(numbers)):
+            num1 = numbers[i]
+            frac1 = int(str(num1).split(".")[1])
+            whole1 = int(str(num1).split(".")[0])
+            if frac1 == 0:
+                result.append(whole1)
+                done_ins.append(i)
+        for i in range(len(numbers)):
+            num1 = numbers[i]
+            frac1 = int(str(num1).split(".")[1])
+            whole1 = int(str(num1).split(".")[0])
+            for j in range(len(numbers)):
+                if i == j or i in done_ins or j in done_ins:
+                    continue
+                num2 = numbers[j]
+                frac2 = int(str(num2).split(".")[1])
+                whole2 = int(str(num2).split(".")[0])
+                decimal_sum = frac1 + frac2
+
+                if decimal_sum in [10, 100]:
+                    if (((whole1 + 1) % 2) == 0) and (((whole2 + 1) % 2) == 0):
+                        if frac1 > frac2:
+                            result.extend([whole1 + 1, whole2])
+                            done_ins.extend([i, j])
+                        if frac1 <= frac2:
+                            result.extend([whole1, whole2 + 1])
+                            done_ins.extend([i, j])
+                    elif ((whole1 + 1) % 2) != 0 and ((whole2 + 1) % 2) != 0:
+                        if frac1 > frac2:
+                            result.extend([whole1 + 1, whole2])
+                            done_ins.extend([i, j])
+                        if frac1 <= frac2:
+                            result.extend([whole1, whole2 + 1])
+                            done_ins.extend([i, j])
+                    elif ((whole1 + 1) % 2) == 0:
+                        result.extend([whole1 + 1, whole2])
+                        done_ins.extend([i, j])
+                    elif ((whole2 + 1) % 2) == 0:
+                        result.extend([whole1, whole2 + 1])
+                        done_ins.extend([i, j])
+                else:
+                    continue
+        for i in range(len(numbers)):
+            if i not in done_ins:
+                result.append(numbers[i])
+        fin_res = []
+        for ind in range(len(result)):
+            orig_price = kwarg["lines"][ind]["price"]
+            after_man_disc = (
+                orig_price - orig_price * kwarg["lines"][ind]["manual_discount"] / 100
+            )
+            abs_disc = after_man_disc - result[ind]
+            fin = round(abs_disc * 100 / after_man_disc, 2)
+            fin_res.append(fin)
+        return fin_res
+
 
 class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
