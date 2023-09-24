@@ -76,6 +76,8 @@ setuptools.setup(
         'odoo12-addon-pos_supplierinfo_barcode',
         'odoo12-addon-pos_supplierinfo_search',
         'odoo12-addon-pos_tare',
+        'odoo12-addon-pos_ticket_extra_company_info',
+        'odoo12-addon-pos_ticket_extra_company_info_l10n_fr',
         'odoo12-addon-pos_ticket_logo',
         'odoo12-addon-pos_ticket_salesman_firstname',
         'odoo12-addon-pos_ticket_static_qrcode',
