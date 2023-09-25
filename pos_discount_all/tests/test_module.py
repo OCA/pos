@@ -33,6 +33,10 @@ class TestUi(TestPointOfSaleHttpCommon):
             }
         )
 
+        # Make the test compatible with pos_minimize_menu
+        if "iface_important_buttons" in self.main_pos_config._fields:
+            self.main_pos_config.iface_important_buttons = "SetPricelistButton"
+
         self.env["product.product"].create(
             {
                 "name": "Generic Product",
