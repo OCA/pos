@@ -19,6 +19,7 @@ setuptools.setup(
         'odoo-addon-pos_loyalty_redeem_payment>=16.0dev,<16.1dev',
         'odoo-addon-pos_margin>=16.0dev,<16.1dev',
         'odoo-addon-pos_membership>=16.0dev,<16.1dev',
+        'odoo-addon-pos_minimize_menu>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_remove_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_reorder>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_to_sale_order>=16.0dev,<16.1dev',
