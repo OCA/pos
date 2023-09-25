@@ -13,6 +13,10 @@ class TestUi(TestPointOfSaleHttpCommon):
     def test_pos_order_to_sale_order(self):
         self.main_pos_config.open_ui()
 
+        # Make the test compatible with pos_minimize_menu
+        if "iface_important_buttons" in self.main_pos_config._fields:
+            self.main_pos_config.iface_important_buttons = "CreateOrderButton"
+
         before_orders = self.env["sale.order"].search(
             [("partner_id", "=", self.env.ref("base.res_partner_address_31").id)],
             order="id",
