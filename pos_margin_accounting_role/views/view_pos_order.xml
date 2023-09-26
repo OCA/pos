@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <record id="view_pos_order_form_ext" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="pos_margin.view_pos_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[@name='order_total']/field[@name='margin']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='order_total']/field[@name='margin_percent']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lines']/tree/field[@name='purchase_price']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lines']/tree/field[@name='margin']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lines']/tree/field[@name='margin_percent']" position="attributes">
+                <attribute name="groups">account.group_account_user</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="view_pos_order_tree_ext" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="pos_margin.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="margin" position="attributes">
+                 <attribute name="groups">account.group_account_user</attribute>
+            </field>
+
+            <field name="margin_percent" position="attributes">
+                 <attribute name="groups">account.group_account_user</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
