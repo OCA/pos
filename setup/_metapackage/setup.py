@@ -8,6 +8,7 @@ setuptools.setup(
     description="Meta package for oca-pos Odoo addons",
     version=version,
     install_requires=[
+        'odoo-addon-pos_access_right>=16.0dev,<16.1dev',
         'odoo-addon-pos_customer_comment>=16.0dev,<16.1dev',
         'odoo-addon-pos_default_partner>=16.0dev,<16.1dev',
         'odoo-addon-pos_discount_all>=16.0dev,<16.1dev',

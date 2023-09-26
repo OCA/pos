@@ -21,6 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[pos_access_right](pos_access_right/) | 16.0.1.0.0 |  | Point of Sale - Extra Access Right for certain actions
 [pos_customer_comment](pos_customer_comment/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Display Customer comment in the PoS front office and allow to edit and save it by the cashier
 [pos_default_partner](pos_default_partner/) | 16.0.1.0.0 |  | Add a default customer in pos order
 [pos_discount_all](pos_discount_all/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Display discount amount on PoS cashier screen and print it on ticketcalculated from the difference between a sale with default pricelist
