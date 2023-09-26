@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2016-Today: La Louve (<http://www.lalouve.net/>)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo noupdate="1">
+
+    <record id="group_negative_qty" model="res.groups">
+        <field name="name">Point of Sale - Negative Quantity</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
+    <record id="group_discount" model="res.groups">
+        <field name="name">Point of Sale - Discount</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
+    <record id="group_change_unit_price" model="res.groups">
+        <field name="name">Point of Sale - Unit Price Change</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
+    <record id="group_multi_order" model="res.groups">
+        <field name="name">Point of Sale - Many Orders</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
+    <record id="group_delete_order" model="res.groups">
+        <field name="name">Point of Sale - Delete Order</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
+    <record id="group_payment" model="res.groups">
+        <field name="name">Point of Sale - Payment</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
+</odoo>
