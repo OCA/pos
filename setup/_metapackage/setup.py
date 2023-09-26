@@ -28,6 +28,7 @@ setuptools.setup(
         'odoo13-addon-pos_session_pay_invoice',
         'odoo13-addon-pos_stock_picking_invoice_link',
         'odoo13-addon-pos_timeout',
+        'odoo13-addon-pos_user_restriction',
     ],
     classifiers=[
         'Programming Language :: Python',

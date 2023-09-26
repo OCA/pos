@@ -41,6 +41,7 @@ addon | version | maintainers | summary
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 13.0.1.0.0 |  | Pay and receive invoices from PoS Session
 [pos_stock_picking_invoice_link](pos_stock_picking_invoice_link/) | 13.0.1.0.0 |  | POS Stock Picking Invoice Link
 [pos_timeout](pos_timeout/) | 13.0.1.0.2 |  | Set the timeout of the point of sale
+[pos_user_restriction](pos_user_restriction/) | 13.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Restrict some users to see and use only certain points of sale
 
 [//]: # (end addons)
 
