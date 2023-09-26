@@ -1,0 +1,56 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_user_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config__assigned_user_ids
+msgid "Assigned users"
+msgstr "Usuarios asignados"
+
+#. module: pos_user_restriction
+#: model:ir.model,name:pos_user_restriction.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,help:pos_user_restriction.field_pos_config__assigned_user_ids
+#: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
+msgid "Restrict some users to only access their assigned points of sale. In order to apply the restriction, the user needs the 'User: Assigned POS Only' group"
+msgstr ""
+"Restrinja a algunos usuarios para que solo accedan a sus puntos de venta "
+"asignados. Para aplicar la restricción, el usuario necesita el grupo "
+"'Usuario: PdV asignado solo'"
+
+#. module: pos_user_restriction
+#: model:res.groups,comment:pos_user_restriction.group_assigned_points_of_sale_user
+msgid "The user will have access to her assigned points of sale."
+msgstr "El usuario tendrá acceso a sus puntos de venta asignados."
+
+#. module: pos_user_restriction
+#: model:res.groups,name:pos_user_restriction.group_assigned_points_of_sale_user
+msgid "User: Assigned POS Only"
+msgstr "Usuario: Solo PdV asignado"
+
+#. module: pos_user_restriction
+#: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: pos_user_restriction
+#: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
+msgid "Users assigned to this point of sale"
+msgstr "Usuarios asignados a este punto de venta"
