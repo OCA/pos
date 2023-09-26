@@ -14,42 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
-#, python-format
-msgid "!hasMinusControlRights"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
-#, python-format
-msgid "!hasNewOrdersControlRights"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
-#, python-format
-msgid "!hasPaymentControlRights"
-msgstr ""
-
-#. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__id
-msgid "ID"
-msgstr ""
-
-#. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
 msgid "Point of Sale - Allow Discount"
 msgstr ""
@@ -103,6 +67,11 @@ msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_access_right
+#: model:ir.model,name:pos_access_right.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
 msgid ""
 "This field is there to pass the id of the 'PoS - Allow Discount' Group to "
@@ -142,25 +111,4 @@ msgstr ""
 msgid ""
 "This field is there to pass the id of the 'PoS - Payment' Group to the Point"
 " of Sale Frontend."
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
-#, python-format
-msgid "{'disabled-mode': !hasMinusControlRights}"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
-#, python-format
-msgid "{'disabled-mode': !hasNewOrdersControlRights}"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
-#, python-format
-msgid "{'disabled-mode': !hasPaymentControlRights}"
 msgstr ""
