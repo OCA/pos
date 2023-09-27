@@ -39,7 +39,9 @@ odoo.define("pos_customer_required_fields.ClientDetailsEdit", function (require)
                         processedChanges[field_name] === ""
                     ) {
                         verified = false;
-                        var field_label = $("[name='" + field_name +"']").prev().text() ;
+                        var field_label = $("[name='" + field_name + "']")
+                            .prev()
+                            .text();
                         return self.showPopup("ErrorPopup", {
                             title: _t("Field " + field_label + " is required"),
                         });
