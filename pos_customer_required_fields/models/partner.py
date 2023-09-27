@@ -11,20 +11,20 @@ class ResPartner(models.Model):
     def get_required_customer_fields(self):
         res = []
         # only these fields present in Edit Customer Details form of the POS
-        pos_fields = [
-            "street",
-            "city",
-            "zip",
-            "state_id",
-            "country_id",
-            "lang",
-            "email",
-            "phone",
-            "barcode",
-            "vat",
-        ]
+        # pos_fields = [
+        #     "street",
+        #     "city",
+        #     "zip",
+        #     "state_id",
+        #     "country_id",
+        #     "lang",
+        #     "email",
+        #     "phone",
+        #     "barcode",
+        #     "vat",
+        # ]
         restrictions = self.env["custom.field.restriction"].search(
-            [("model_name", "=", self._name), ("field_name", "in", pos_fields)]
+            [("model_name", "=", self._name)]
         )
         if not restrictions:
             return res
