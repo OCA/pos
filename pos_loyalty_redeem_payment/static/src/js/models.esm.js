@@ -13,7 +13,7 @@ export const RedeemPaymentOrder = (OriginalOrder) =>
 
         wait_for_push_order() {
             let result = super.wait_for_push_order(...arguments);
-            result = Boolean(result || this.has_redeem_payment_lines());
+            result = Boolean(result ||  this.pos.config.allow_auto_print_giftcard && this.has_redeem_payment_lines());
             return result;
         }
     };

@@ -156,7 +156,7 @@ export const CouponPosPaymentScreen = (OriginalPaymentScreen) =>
         }
 
         async _postPushOrderResolve(order, order_server_ids) {
-            if (order.has_redeem_payment_lines()) {
+            if ( this.pos.config.allow_auto_print_giftcard && order.has_redeem_payment_lines()) {
                 const payload = await this.rpc({
                     model: "pos.order",
                     method: "get_loy_card_reports_from_order",
