@@ -9,7 +9,7 @@
         />
         <field name="arch" type="xml">
             <xpath
-                expr="//notebook/page[@name='fields']//field[@name='group_ids']"
+                expr="//notebook/page[@name='custom_required_restriction']//field[@name='group_ids']"
                 position="after"
             >
                 <field name="apply_in_pos" />
