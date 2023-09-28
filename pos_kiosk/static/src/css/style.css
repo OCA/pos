@@ -120,6 +120,7 @@
   .main-screen .category-container {
     top: 5%;
     margin-bottom: 10px;
+    overflow-x: auto;
   }
 
   .main-screen .category-container .category {
@@ -583,76 +584,581 @@
 /* Kiosk  */
 @media (min-width: 1080px) {
 
-  /* Banner Screen */
-
-  .banner {
-    width: 1080px;
-    height: 1920px;
+   /* Banner Screen */
+   .banner {
+    width: 100%;
+    height: 100%;
   }
 
   .banner .image {
-    width: 1080px;
-    height: 1920px;
+    width: 100%;
+    height: 100%;
   }
 
   .banner .container-button {
-    padding: 32px 48px;
-    left: 480px;
-    top: 1567px;
+    padding: 26px 41px;
+    left: 40%;
+    top: 85%;
+    justify-content: center;
   }
 
   .banner .container-button .button {
-    font-size: 60x;
-    line-height: 60px;
+    font-size: 61px;
+    line-height: 61px;
   }
 
   /* Main Screen */
 
   .payment {
-    width: 1080px;
-    height: 1462px;
+    width: 100%;
+    height: 820px;
   }
 
   .payment .title-container {
-    width: 1080px;
-    height: 168px;
-    padding-top: 32px;
-    padding-bottom: 48px;
-    padding-left: 32px;
-    padding-right: 32px;
+    width: 100%;
+    height: 128px;
+    margin-top: 7.5%;
+    padding: 5% 4%;
   }
 
   .payment .title-container .main-title {
-    font-size: 36px;
-    line-height: 40px;
+    font-size: 30px;
+    line-height: 36px;
   }
 
   .payment .title-container .sub-title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .payment .payment-container {
+    width: 75%;
+    height: 100%;
+    margin-top: 10%;
   }
 
   .payment .payment-container .item {
+    width: 150px;
+    height: 100px;
   }
 
   .payment .cart {
+    padding: 10px;
   }
 
   .client {
+    width: 100%;
+    height: 820px;
   }
 
   .client .title-container {
+    width: 100%;
+    height: 128px;
+    margin-top: 7.5%;
+    padding: 5% 4%;
   }
 
   .client .title-container .main-title {
+    font-size: 30px;
+    line-height: 36px;
   }
 
   .client .title-container .sub-title {
+    font-size: 20px;
+    line-height: 28px;
   }
-  
+
   .client .container-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .receipt {
+    width: 100%;
+    height: 820px;
+  }
+
+  .receipt .title-container {
+    width: 100%;
+    height: 128px;
+    margin-top: 7.5%;
+    padding: 5% 4%;
+  }
+
+  .receipt .title-container .main-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  .receipt .title-container .sub-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .main-screen {
+    width: 100%;
+    height: 820px;
+  }
+
+  .main-screen .category-container {
+    top: 5%;
+    margin-bottom: 10px;
+  }
+
+  .main-screen .category-container .category {
+    width: 250px;
+    height: 200px;
+    overflow-x: auto;
+  }
+
+  .main-screen .product-list {
+    max-height: 80%;
+  }
+
+  .main-screen .product {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 20rem;
+    height: 22rem;
+  }
+
+  .main-screen .product .product-image {
+    height: 14rem;
+  }
+
+  /* Estilos para o contêiner principal */
+  .cart-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 192px;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background: #F3F4F6;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+    display: inline-flex;
+  }
+
+  /* Estilos para o painel esquerdo */
+  .left-panel {
+    flex: 1 1 0;
+    height: 128px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 64px;
+    display: flex;
+  }
+
+  /* Estilos para o botão do carrinho */
+  .button-container {
+    width: 300px;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px #9CA3AF solid;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+  }
+
+  /* Estilos para o ícone do carrinho */
+  .icon-container {
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+  }
+
+  .circle {
+    width: 64px;
+    height: 64px;
+    position: relative;
+  }
+
+  .line {
+    width: 45.34px;
+    height: 45.34px;
+    left: 10.66px;
+    top: 10.66px;
+    position: absolute;
+    border: 3px #09090B solid;
+  }
+
+  /* Estilos para o texto do carrinho */
+  .text-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    display: inline-flex;
+  }
+
+  .item-count {
+    text-align: justify;
+    color: #1F2937;
+    font-size: 28px;
+    font-family: Inter;
+    font-weight: 1400;
+    line-height: 28px;
+    word-wrap: break-word;
+  }
+
+  .item-description {
+    text-align: justify;
+    color: #1F2937;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 800;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para o contêiner de preço */
+  .price-container {
+    width: 346px;
+    flex: 2 2 0;
+    height: 128px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 52px;
+    padding-bottom: 52px;
+    border-radius: 16px;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  /* Estilos para o preço */
+  .price {
+    text-align: justify;
+    color: #F9FAFB;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 1200;
+    line-height: 48px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para o contêiner de finalizar */
+  .checkout-container {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+  }
+
+  /* Estilos para o texto de finalizar */
+  .checkout-text {
+    text-align: justify;
+    color: #F9FAFB;
+    font-size: 36px;
+    font-family: Inter;
+    font-weight: 1200;
+    line-height: 56px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para a seta */
+  .arrow-container {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+
+  .arrow {
+    width: 30.86px;
+    height: 24px;
+    left: 34px;
+    top: 32px;
+    position: absolute;
+    transform: rotate(-180deg);
+    transform-origin: 0 0;
+    border: 4px #F9FAFB solid;
+  }
+
+  /* Estilos para o contêiner principal */
+  .container {
+    width: 1668px;
+    height: 664px;
+    background: white;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+  }
+
+  /* Estilos para o título "Seu carrinho" */
+  .title {
+    color: #4B5563;
+    font-size: 36px;
+    font-family: Inter;
+    font-weight: 1200;
+    line-height: 56px;
+    word-wrap: break-word;
+  }
+
+  .heading {
+    width: 1668px;
+    height: 176px;
+    padding-left: 64px;
+    justify-content: space-between;
+    align-items: center;
+    display: inline-flex;
+  }
+
+  /* Estilos para as linhas do ícone do carrinho */
+  .line {
+    width: 24px;
+    height: 24px;
+    left: 12px;
+    top: 12px;
+    position: absolute;
+    border: 4px #374151 solid;
+  }
+
+  /* Estilos para os detalhes do produto */
+  .product-details {
+    align-self: stretch;
+    height: 200px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+  }
+
+  /* Estilos para o contêiner do produto */
+  .product-container {
+    align-self: stretch;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    justify-content: space-between;
+    align-items: center;
+    display: inline-flex;
+  }
+
+  /* Estilos para a imagem do produto */
+  .product-image {
+    width: 132px;
+    height: 132px;
+    position: relative;
+    background: #E5E7EB;
+    border-radius: 16px;
+  }
+
+  /* Estilos para os detalhes do produto */
+  .product-text {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    display: inline-flex;
+  }
+
+  /* Estilos para o nome do produto */
+  .product-name {
+    text-align: justify;
+    color: #111827;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 800;
+    line-height: 48px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para os preços do produto */
+  .product-prices {
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    display: inline-flex;
+  }
+
+  /* Estilos para o preço original do produto */
+  .original-price {
+    text-align: justify;
+    color: #4B5563;
+    font-size: 28px;
+    font-family: Inter;
+    font-weight: 800;
+    line-height: 40px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para o preço atual do produto */
+  .current-price {
+    text-align: justify;
+    color: #1F2937;
+    font-size: 28px;
+    font-family: Inter;
+    font-weight: 1400;
+    line-height: 40px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para o contêiner de quantidade */
+  .quantity-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px #9CA3AF solid;
+    justify-content: flex-start;
+    align-items: center;
+    display: inline-flex;
+  }
+
+  /* Estilos para o botão de quantidade */
+  .quantity-button {
+    width: 96px;
+    height: 96px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    opacity: 0.50;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  /* Estilos para a seta do botão de quantidade */
+  .arrow {
+    width: 27.74px;
+    height: 32px;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+  }
+
+  /* Estilos para as partes da seta */
+  .arrow-part {
+    width: 10.66px;
+    height: 6.40px;
+    border: 2px #3B3B3B solid;
+  }
+
+  /* Estilos para o número de itens */
+  .item-number {
+    width: 96px;
+    height: 96px;
+    padding-left: 34px;
+    padding-right: 34px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+  }
+
+  /* Estilos para o total e o botão de finalização */
+  .total-and-checkout {
+    align-self: stretch;
+    height: 288px;
+    padding: 64px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    display: flex;
+  }
+
+  /* Estilos para o contêiner do total e do botão de finalização */
+  .total-and-checkout-container {
+    align-self: stretch;
+    height: 120px;
+    padding-left: 64px;
+    padding-right: 64px;
+    border-radius: 16px;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    display: inline-flex;
+  }
+
+  /* Estilos para o texto do total e do preço */
+  .total-and-price-text {
+    width: 980px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    display: inline-flex;
+  }
+
+  /* Estilos para o texto do total de itens */
+  .total-items-text {
+    text-align: justify;
+    color: #F9FAFB;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 800;
+    line-height: 48px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para o texto do preço */
+  .total-price-text {
+    text-align: justify;
+    color: #F9FAFB;
+    font-size: 36px;
+    font-family: Inter;
+    font-weight: 1200;
+    line-height: 56px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para o botão de finalização */
+  .checkout-button {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+  }
+
+  /* Estilos para o texto do botão de finalização */
+  .checkout-text {
+    text-align: justify;
+    color: #F9FAFB;
+    font-size: 40px;
+    font-family: Inter;
+    font-weight: 1200;
+    line-height: 56px;
+    word-wrap: break-word;
+  }
+
+  /* Estilos para a seta do botão de finalização */
+  .checkout-arrow {
+    width: 48px;
+    height: 48px;
+    position: relative;
+  }
+
+  /* Estilos para a parte da seta do botão de finalização */
+  .checkout-arrow-part {
+    width: 36px;
+    height: 28px;
+    left: 44px;
+    top: 28px;
+    position: absolute;
+    transform: rotate(-180deg);
+    transform-origin: 0 0;
+    border: 4px #F9FAFB solid;
   }
 }
