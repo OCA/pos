@@ -1,0 +1,34 @@
+<odoo>
+
+    <record id="view_model_form_inherit" model="ir.ui.view">
+        <field name="name">view.model.form.inherit</field>
+        <field name="model">ir.model</field>
+        <field
+            name="inherit_id"
+            ref="web_field_required_invisible_manager.view_model_form_inherit"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//notebook/page[@name='fields']//field[@name='group_ids']"
+                position="after"
+            >
+                <field name="apply_in_pos" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_custom_field_restriction_form" model="ir.ui.view">
+        <field name="name">custom.field.restriction.form.view.inherit</field>
+        <field name="model">custom.field.restriction</field>
+        <field
+            name="inherit_id"
+            ref="web_field_required_invisible_manager.view_custom_field_restriction_form"
+        />
+        <field name="arch" type="xml">
+            <field name="group_ids" position="after">
+                <field name="apply_in_pos" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

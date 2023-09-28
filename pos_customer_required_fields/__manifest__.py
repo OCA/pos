@@ -12,6 +12,6 @@
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale", "web_field_required_invisible_manager"],
-    "data": ["views/templates.xml"],
+    "data": ["views/templates.xml", "views/views.xml"],
     "installable": True,
 }

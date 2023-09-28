@@ -24,7 +24,10 @@ class ResPartner(models.Model):
         #     "vat",
         # ]
         restrictions = self.env["custom.field.restriction"].search(
-            [("model_name", "=", self._name)]
+            [
+                ("model_name", "=", self._name),
+                ("apply_in_pos", "=", True)
+             ]
         )
         if not restrictions:
             return res
