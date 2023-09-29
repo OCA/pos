@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div style="display: none;">
+            <div class="order-receipt-kiosk" style="display: none;">
                 <OrderReceipt order="currentOrder" t-ref="order-receipt" />
             </div>
         </div>

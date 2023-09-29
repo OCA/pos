@@ -8,7 +8,7 @@
 
             <div class="w-full w-[700px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex z-50">
                 <div class="w-full h-[300px] relative bg-white rounded-xl ">
-                    <img class="w-full md:h-[300px] object-contain" t-att-src="productImageURL" t-att-alt="props.product.display_name"/>
+                    <img class="w-full h-full md:h-[300px] object-contain" t-att-src="productImageURL" t-att-alt="props.product.display_name"/>
                     <div class="p-6 lg:left-[612px] top-0 absolute justify-start items-center gap-2 inline-flex">
                         <div class="p-2 bg-white rounded-[100px] justify-start items-center gap-2 flex" t-on-click="cancel">
                             <div class="w-6 h-6 px-[0.25rem] relative">

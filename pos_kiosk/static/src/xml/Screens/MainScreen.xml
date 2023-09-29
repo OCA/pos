@@ -8,7 +8,7 @@
             </div>
 
             <div class="main-screen left-0 top-[10%] absolute flex-col justify-start items-center inline-flex ">
-                <div class="category-container self-stretch justify-center items-center inline-flex">
+                <div class="category-container self-stretch justify-start items-center inline-flex">
                     <div class="grow shrink basis-0 h-[100px] justify-center items-center gap-4 flex">
                         <t t-foreach='categories' t-as='category' t-key='category.id'>
                             <div t-attf-class="category bg-white rounded-xl shadow flex-col justify-center items-center gap-2 inline-flex {{ category.id === selectedCategoryId ? 'bg-red-500' : '' }}" t-on-click="setCategory(category.id)">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center max-h-[80vh] flex-grow overflow-y-auto overscroll-contain">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center max-h-[70vh] flex-grow overflow-y-auto overscroll-contain">
                     <t t-foreach='sub_categories' t-as='subcategory' t-key='subcategory.id'>
                         <div class="p-8 mt-2 mb-2 py-4 flex-col justify-center items-center gap-4 flex">
                             <div class="self-stretch justify-start items-center gap-2 inline-flex">

@@ -48,10 +48,10 @@
   .payment .payment-container {
     width: 75%;
     height: 100%;
-    margin-top: 15%;
+    margin-top: 25%;
     display: grid;
     gap: 8px;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 0.75fr));
+    grid-template-columns: repeat(auto-fill, minmax(125px, 0.75fr));
   }
 
   .payment .payment-container .item {
@@ -121,6 +121,18 @@
     top: 5%;
     margin-bottom: 10px;
     overflow-x: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .grow.shrink.basis-0.h-\[100px\].justify-center.items-center.gap-4.flex {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  img.product-image.justify-center.relative.rounded-xl {
+    width: 100%;
   }
 
   .main-screen .category-container .category {
