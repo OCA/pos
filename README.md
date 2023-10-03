@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [pos_product_display_default_code](pos_product_display_default_code/) | 16.0.1.0.0 |  | pos: display product default code before product name
 [pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Display product info by one click in Point of Sale
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
+[pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.0 | [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Print multiple sale orders in POS
 [pos_stock_available_online](pos_stock_available_online/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Show the available quantity of products in the Point of Sale
 
 [//]: # (end addons)
