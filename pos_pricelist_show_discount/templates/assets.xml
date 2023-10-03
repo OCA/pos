@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr=".">
+            <script
+                type="text/javascript"
+                src="/pos_pricelist_show_discount/static/src/js/models.js"
+            />
+        </xpath>
+    </template>
+    <template id="assets_tests" inherit_id="web.assets_tests">
+        <xpath expr=".">
+            <script
+                type="text/javascript"
+                src="/pos_pricelist_show_discount/static/tests/tours/helpers/ProductScreenCustomTourMethods.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_pricelist_show_discount/static/tests/tours/pos_discount_ref_pricelist_tour.js"
+            />
+        </xpath>
+    </template>
+</odoo>
