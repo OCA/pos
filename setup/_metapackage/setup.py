@@ -34,6 +34,7 @@ setuptools.setup(
         'odoo14-addon-pos_payment_change',
         'odoo14-addon-pos_payment_method_cashdro',
         'odoo14-addon-pos_payment_terminal',
+        'odoo14-addon-pos_pricelist_show_discount',
         'odoo14-addon-pos_product_display_default_code',
         'odoo14-addon-pos_product_multi_barcode',
         'odoo14-addon-pos_product_sort',
