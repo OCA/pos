@@ -90,14 +90,15 @@ odoo.define("pos_pricelist_show_discount.models", function (require) {
 
         export_as_JSON: function () {
             const res = orderline_super.export_as_JSON.apply(this, arguments);
-            res.get_discount_pricelist_str = this.get_discount_pricelist_str;
-            res.get_taxed_lst_unit_price = this.get_taxed_lst_unit_price;
+            res.get_discount_pricelist_str = this.get_discount_pricelist_str();
+            res.get_taxed_lst_unit_price = this.get_taxed_lst_unit_price();
             return res;
         },
+
         export_for_printing: function () {
             const res = orderline_super.export_for_printing.apply(this, arguments);
-            res.get_discount_pricelist_str = this.get_discount_pricelist_str;
-            res.get_taxed_lst_unit_price = this.get_taxed_lst_unit_price;
+            res.get_discount_pricelist_str = this.get_discount_pricelist_str();
+            res.get_taxed_lst_unit_price = this.get_taxed_lst_unit_price();
             return res;
         },
     });
