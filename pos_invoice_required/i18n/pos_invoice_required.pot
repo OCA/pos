@@ -1,0 +1,74 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_invoice_required
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_invoice_required
+#. openerp-web
+#: code:addons/pos_invoice_required/static/src/js/screens.js:0
+#, python-format
+msgid "Invoice Not Required"
+msgstr ""
+
+#. module: pos_invoice_required
+#. openerp-web
+#: code:addons/pos_invoice_required/static/src/js/screens.js:0
+#, python-format
+msgid "Invoice Required"
+msgstr ""
+
+#. module: pos_invoice_required
+#: model:ir.model.fields.selection,name:pos_invoice_required.selection__pos_config__require_invoice__no
+msgid "No Invoice"
+msgstr ""
+
+#. module: pos_invoice_required
+#: model:ir.model.fields.selection,name:pos_invoice_required.selection__pos_config__require_invoice__optional
+msgid "Optional"
+msgstr ""
+
+#. module: pos_invoice_required
+#. openerp-web
+#: code:addons/pos_invoice_required/static/src/js/screens.js:0
+#, python-format
+msgid "Please do not select invoice for this order."
+msgstr ""
+
+#. module: pos_invoice_required
+#. openerp-web
+#: code:addons/pos_invoice_required/static/src/js/screens.js:0
+#, python-format
+msgid "Please select invoice for this order."
+msgstr ""
+
+#. module: pos_invoice_required
+#: model:ir.model,name:pos_invoice_required.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_invoice_required
+#: model:ir.model,name:pos_invoice_required.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_invoice_required
+#: model:ir.model.fields,field_description:pos_invoice_required.field_pos_config__require_invoice
+#: model:ir.model.fields,field_description:pos_invoice_required.field_pos_order__require_invoice
+#: model_terms:ir.ui.view,arch_db:pos_invoice_required.view_pos_config_form_required_invoice
+msgid "Require Invoice"
+msgstr ""
+
+#. module: pos_invoice_required
+#: model:ir.model.fields.selection,name:pos_invoice_required.selection__pos_config__require_invoice__required
+msgid "Required"
+msgstr ""
