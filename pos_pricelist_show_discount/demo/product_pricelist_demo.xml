@@ -2,7 +2,6 @@
 <odoo noupdate="1">
     <record id="pricelist_discount_reference" model="product.pricelist">
         <field name="name">Discount Reference Pricelist</field>
-        <field name="currency_id" ref="base.USD" />
     </record>
 
     <record id="pricelist_discount_reference_item_1" model="product.pricelist.item">
@@ -30,7 +29,6 @@
     <record id="pricelist_pos" model="product.pricelist">
         <field name="name">Pos Pricelist</field>
         <field name="discount_policy">without_discount</field>
-        <field name="currency_id" ref="base.USD" />
     </record>
 
     <record id="pricelist_pos_item_1" model="product.pricelist.item">
