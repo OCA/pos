@@ -9,33 +9,33 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-09 03:25+0000\n"
-"PO-Revision-Date: 2020-07-27 11:19+0000\n"
-"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"PO-Revision-Date: 2023-10-09 06:09+0000\n"
+"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "<p>Money in.</p>"
-msgstr ""
+msgstr "<p>Entrada de dinero.</p>"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "<p>Money out.</p>"
-msgstr ""
+msgstr "<p>Salida de dinero.</p>"
 
 #. module: pos_cash_move_reason
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "<p>Move reason: %s</p><p>Reason: %s</p> <p>Amount: %s</p>"
-msgstr ""
+msgstr "<p>Razón del movimiento: %s</p><p>Razón: %s</p> <p>Importe: %s</p>"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
@@ -43,8 +43,8 @@ msgid ""
 "<span class=\"o_stat_text\">Put</span>\n"
 "                        <span class=\"o_stat_text\">Money In</span>"
 msgstr ""
-"<span class = \"o_stat_text\">Poner</span>\n"
-"..........................<span class = \"o_stat_text\">Dinero en</span>"
+"<span class=\"o_stat_text\">Poner</span>\n"
+"                        <span class=\"o_stat_text\">Dinero</span>"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
@@ -52,8 +52,8 @@ msgid ""
 "<span class=\"o_stat_text\">Take</span>\n"
 "                        <span class=\"o_stat_text\">Money Out</span>"
 msgstr ""
-"<span class = \"o_stat_text\">Tomar</span>\n"
-"..........................<span class = \"o_stat_text\">Dinero fuera</span>"
+"<span class=\"o_stat_text\">Sacar</span>\n"
+"                        <span class=\"o_stat_text\">Dinero</span>"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__journal_ids
@@ -69,7 +69,7 @@ msgstr "Activo"
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__allowed_pos_ids
 msgid "Allowed POS"
-msgstr ""
+msgstr "POS permitidos"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__amount
