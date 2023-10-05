@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_config_form_required_invoice">
+        <field name="name">view.pos.config.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_journal_id']" position="attributes">
+                <attribute
+                    name="attrs"
+                >{'required': ['|', ('module_account', '=', True), ('require_invoice', '=', 'required')]}</attribute>
+            </xpath>
+            <div id="iface_invoicing" position="after">
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="require_invoice">
+                    <div class="o_setting_right_pane">
+                        <label for="require_invoice" string="Require Invoice" />
+                        <div class="text-muted">
+                            Require Invoice
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field
+                                    name="require_invoice"
+                                    class="o_light_label"
+                                    widget="radio"
+                                    attrs="{'readonly': [('module_account', '=', False)]}"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</odoo>
