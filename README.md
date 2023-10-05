@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [pos_event_sale](pos_event_sale/) | 13.0.1.0.1 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Sell events from Point of Sale
 [pos_fix_search_limit](pos_fix_search_limit/) | 13.0.1.0.2 |  | Increase search in the PoS
 [pos_fixed_discount](pos_fixed_discount/) | 13.0.1.0.1 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
+[pos_invoice_required](pos_invoice_required/) | 13.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Point of Sale Require Invoice
 [pos_margin](pos_margin/) | 13.0.2.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_order_mgmt](pos_order_mgmt/) | 13.0.1.1.0 |  | Manage old POS Orders from the frontend
 [pos_order_remove_line](pos_order_remove_line/) | 13.0.1.1.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
