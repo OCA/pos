@@ -30,7 +30,7 @@ msgid ""
 "Defines the value of the client-side timeout for the creation of PoS "
 "Order(s) from the POS UI.\n"
 " The value is expressed in seconds, for a single order.\n"
-" If not defined, the default Odoo value will be used: 30 seconds.\n"
+" If not defined, the default Odoo value will be used: 7.5 seconds.\n"
 " If the call contains more than one order (after a long disconnection period "
 "for example, or if the previous call raised the timeout),\n"
 " the effective timeout value applied will be equal to the defined timeout "
@@ -39,17 +39,13 @@ msgstr ""
 
 #. module: pos_timeout
 #: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
 msgid "PoS Order(s) Timeout"
 msgstr ""
 
 #. module: pos_timeout
 #: model:ir.model,name:pos_timeout.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
-
-#. module: pos_timeout
-#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
-msgid "Technical settings"
 msgstr ""
 
 #~ msgid "pos.config"
