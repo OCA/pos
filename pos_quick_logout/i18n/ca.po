@@ -44,4 +44,5 @@ msgstr "Configuració del punt de venda"
 #. module: pos_quick_logout
 #: model:ir.model.fields,help:pos_quick_logout.field_pos_config__logout_timeout
 msgid "Time out for automatic logout for sessions in this POS"
-msgstr "Temps d'espera per al tancament automàtic de les sessions en aquest TPV"
+msgstr ""
+"Temps d'espera per al tancament automàtic de les sessions en aquest TPV"
