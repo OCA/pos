@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_invoicing
+# 	* pos_invoicing
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,9 @@ msgstr ""
 
 #. module: pos_invoicing
 #: model:ir.model.fields,help:pos_invoicing.field_account_invoice__pos_pending_payment
-msgid "Indicates an invoice for which there are pending payments in the Point of Sale. \n"
+msgid ""
+"Indicates an invoice for which there are pending payments in the Point of "
+"Sale. \n"
 "The invoice will be marked as paid when the session will be closed."
 msgstr ""
 "Indica una fattura per la quale ci sono pgamanti in sospeso nel punto "
@@ -53,7 +55,9 @@ msgstr "Sessione punto vendita"
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/pos_order.py:62
 #, python-format
-msgid "Unable to create an invoice from the order %s because the amount taxes are not the same. %s != %s"
+msgid ""
+"Unable to create an invoice from the order %s because the amount taxes are "
+"not the same. %s != %s"
 msgstr ""
 "Impossibile creare una fattura dall'ordine %s perché il valore delle tasse "
 "non è lo stesso. %s != %s"
@@ -61,7 +65,9 @@ msgstr ""
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/pos_order.py:48
 #, python-format
-msgid "Unable to create an invoice from the order %s because the amount totals are not the same. %s != %s"
+msgid ""
+"Unable to create an invoice from the order %s because the amount totals are "
+"not the same. %s != %s"
 msgstr ""
 "Impossibile creare una fattura dall'ordine %s perché il valore totale non è "
 "lo stesso. %s != %s"
@@ -69,7 +75,9 @@ msgstr ""
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/account_invoice.py:37
 #, python-format
-msgid "You can not realize this action on the invoice(s) %s because there are pending payments in the Point of Sale."
+msgid ""
+"You can not realize this action on the invoice(s) %s because there are "
+"pending payments in the Point of Sale."
 msgstr ""
 "Non si può eseguire questa azione sulla fattura(e) %s perché ci sono "
 "pagamenti in sospeso nel punto vendita."
@@ -77,7 +85,9 @@ msgstr ""
 #. module: pos_invoicing
 #: code:addons/pos_invoicing/models/account_payment.py:17
 #, python-format
-msgid "You can not realize this action on the payments(s) %s because there are pending payments in the Point of Sale."
+msgid ""
+"You can not realize this action on the payments(s) %s because there are "
+"pending payments in the Point of Sale."
 msgstr ""
 "Non si può eseguire questa azione nel pagamento(i) %s perché ci sono "
 "pagamenti in sospeso nel punto vendita."
