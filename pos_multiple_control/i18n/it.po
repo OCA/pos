@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_multiple_control
+# 	* pos_multiple_control
 #
 msgid ""
 msgstr ""
@@ -268,7 +268,9 @@ msgstr "ID"
 #. module: pos_multiple_control
 #: model:ir.model.fields,help:pos_multiple_control.field_account_bank_statement_import_journal_creation__pos_control
 #: model:ir.model.fields,help:pos_multiple_control.field_account_journal__pos_control
-msgid "If you want this journal to be controled at closing of point of sale, check this option"
+msgid ""
+"If you want this journal to be controled at closing of point of sale, check "
+"this option"
 msgstr ""
 "Se si vuole che questo registro venga controllato alla chiusura del punto "
 "vendita, selezionare questa opzione"
@@ -529,8 +531,10 @@ msgstr "Valida il saldo"
 #. module: pos_multiple_control
 #: code:addons/pos_multiple_control/models/account_bank_statement.py:134
 #, python-format
-msgid "We can't autosolve this difference. \n"
-"You need to configure the Point Of Sale config and choose a pos move reason for autosolving this difference."
+msgid ""
+"We can't autosolve this difference. \n"
+"You need to configure the Point Of Sale config and choose a pos move reason "
+"for autosolving this difference."
 msgstr ""
 "Non si puà salvare automaticamente questa differenza.\n"
 "Bisogna configurare il punto vendita e scegliere una causale movimento POS "
@@ -554,7 +558,9 @@ msgstr "Procedura guidata"
 #. module: pos_multiple_control
 #: code:addons/pos_multiple_control/models/pos_session.py:135
 #, python-format
-msgid "You can not close this session because the journal %s (from %s) has a not null difference: %s%s \n"
+msgid ""
+"You can not close this session because the journal %s (from %s) has a not "
+"null difference: %s%s \n"
 " You have to change his starting or ending balance"
 msgstr ""
 "Non si può chiudere questa sessione perché il registro %s (da %s) non ha una "
@@ -564,7 +570,8 @@ msgstr ""
 #. module: pos_multiple_control
 #: code:addons/pos_multiple_control/models/pos_session.py:110
 #, python-format
-msgid "You can not end this session because there are some draft orders: \n"
+msgid ""
+"You can not end this session because there are some draft orders: \n"
 "\n"
 "- %s"
 msgstr ""
@@ -575,7 +582,8 @@ msgstr ""
 #. module: pos_multiple_control
 #: code:addons/pos_multiple_control/models/pos_session.py:174
 #, python-format
-msgid "You cannot create two active sessions related to the same point of sale!"
+msgid ""
+"You cannot create two active sessions related to the same point of sale!"
 msgstr "Non si possono aprire due sessioni relative allo stesso punto vendita!"
 
 #. module: pos_multiple_control
