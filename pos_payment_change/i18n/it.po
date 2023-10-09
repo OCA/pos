@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_payment_change
+# 	* pos_payment_change
 #
 msgid ""
 msgstr ""
@@ -68,7 +68,8 @@ msgstr "Creato il"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:72
 #, python-format
-msgid "Differences between the two values for the POS Order '%s':\n"
+msgid ""
+"Differences between the two values for the POS Order '%s':\n"
 "\n"
 " * Total of all the new payments %s;\n"
 " * Total of the POS Order %s;\n"
@@ -145,11 +146,15 @@ msgstr "Politica modifica pagamento"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
-msgid "Payment Change Policy when users want to change the payment lines of a given PoS Order.\n"
-"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, and create a new PoS Order with the correct payment lines.\n"
+msgid ""
+"Payment Change Policy when users want to change the payment lines of a given "
+"PoS Order.\n"
+"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
+"and create a new PoS Order with the correct payment lines.\n"
 "* 'Update Payments': Odoo will change payment lines.\n"
 "\n"
-"Note : In some countries the 'Update Payments' Option is not allowed by law, because orders history shouldn't not be altered."
+"Note : In some countries the 'Update Payments' Option is not allowed by law, "
+"because orders history shouldn't not be altered."
 msgstr ""
 "Politica modifica del pagamento quando gli utenti vogliono modificare le "
 "righe del pagamento.\n"
@@ -194,7 +199,8 @@ msgstr "Rimborsa e rivendi"
 #: code:addons/pos_payment_change/models/pos_order.py:43
 #, python-format
 msgid "The payments of the Order %s (Ref: %s) has been changed by %s at %s."
-msgstr "Il pagamento dell'ordine %s (Rif: %s) è stato modificato da %s alle %s."
+msgstr ""
+"Il pagamento dell'ordine %s (Rif: %s) è stato modificato da %s alle %s."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
@@ -205,7 +211,9 @@ msgstr "Totale"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_config.py:43
 #, python-format
-msgid "Unable to use the 'Update Payments' options for companies that have unalterable accounting."
+msgid ""
+"Unable to use the 'Update Payments' options for companies that have "
+"unalterable accounting."
 msgstr ""
 "Impossibile utilizzare l'opzione 'Aggiorna pagamenti' per le nazioni che "
 "hanno la contabilità inalterabile."
@@ -230,7 +238,9 @@ msgstr "Procedura guidata"
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:102
 #, python-format
-msgid "You can not change payments of the POS '%s' because the associated session '%s' has been closed!"
+msgid ""
+"You can not change payments of the POS '%s' because the associated session "
+"'%s' has been closed!"
 msgstr ""
 "Non si possono modificare i pagamenti del POS '%s' perché la sessione "
 "associata '%s' è stata chiusa!"
