@@ -17,21 +17,14 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_partner_firstname
-#. openerp-web
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
-#, python-format
-msgid "!props.partner.is_company"
-msgstr "!props.partner.is_company"
-
-#. module: pos_partner_firstname
-#. openerp-web
-#: code:addons/pos_partner_firstname/static/src/js/ClientDetailsEdit.js:0
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/js/PartnerDetailsEdit.js:0
 #, python-format
 msgid "Both Customer First and Last Name Are Required"
 msgstr "Sia il nome che il cognome del cliente sono obbligatori"
 
 #. module: pos_partner_firstname
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
 msgid "Company"
@@ -43,47 +36,50 @@ msgid "Contact"
 msgstr "Contatto"
 
 #. module: pos_partner_firstname
-#: model:ir.model.fields,field_description:pos_partner_firstname.field_res_partner__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_partner_firstname
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
 msgid "First Name"
 msgstr "Nome"
 
 #. module: pos_partner_firstname
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
 msgid "FirstName"
 msgstr "Nome"
 
 #. module: pos_partner_firstname
-#: model:ir.model.fields,field_description:pos_partner_firstname.field_res_partner__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_partner_firstname
-#: model:ir.model.fields,field_description:pos_partner_firstname.field_res_partner____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: pos_partner_firstname
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
 msgid "Last Name"
 msgstr "Cognome"
 
 #. module: pos_partner_firstname
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
 #, python-format
 msgid "LastName"
 msgstr "Cognome"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#, python-format
+#~ msgid "!props.partner.is_company"
+#~ msgstr "!props.partner.is_company"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
 
 #, python-format
 #~ msgid "Name"
