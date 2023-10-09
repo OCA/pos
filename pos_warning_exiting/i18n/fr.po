@@ -18,21 +18,14 @@ msgstr ""
 
 #. module: pos_warning_exiting
 #. openerp-web
-#: code:addons/pos_warning_exiting/static/src/js/gui.js:32
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid " - Table: "
 msgstr ""
 
 #. module: pos_warning_exiting
 #. openerp-web
-#: code:addons/pos_warning_exiting/static/src/js/gui.js:40
-#, python-format
-msgid "Draft Orders"
-msgstr "Ventes en brouillon"
-
-#. module: pos_warning_exiting
-#. openerp-web
-#: code:addons/pos_warning_exiting/static/src/js/gui.js:74
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid ""
 "It seems that you do not have a network connection at the moment. If you "
@@ -45,21 +38,28 @@ msgstr ""
 
 #. module: pos_warning_exiting
 #. openerp-web
-#: code:addons/pos_warning_exiting/static/src/js/gui.js:73
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid "Network Connection Lost"
 msgstr "Connexion au réseau perdu"
 
 #. module: pos_warning_exiting
 #. openerp-web
-#: code:addons/pos_warning_exiting/static/src/js/gui.js:28
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid "Offline Orders"
+msgstr ""
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid "Order #"
 msgstr "Vente #"
 
 #. module: pos_warning_exiting
 #. openerp-web
-#: code:addons/pos_warning_exiting/static/src/js/gui.js:41
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
 #, python-format
 msgid ""
 "You have some draft unpaid orders. You can exit temporarily the Point of "
@@ -68,3 +68,7 @@ msgstr ""
 "Vous avez une ou plusieurs ventes en brouillon non payées. Vous pouvez "
 "fermer temporairement le point de vente, mais vous perdrez ces ventes en "
 "brouillon si vous fermez la session : "
+
+#, python-format
+#~ msgid "Draft Orders"
+#~ msgstr "Ventes en brouillon"
