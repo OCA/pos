@@ -21,13 +21,13 @@ msgstr ""
 
 #. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:25
+#: code:addons/pos_customer_required/static/src/js/screens.js:0
 #, python-format
 msgid "An anonymous order cannot be confirmed"
 msgstr "Una comanda anònima no pot ser confirmada"
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_make_payment.py:23
+#: code:addons/pos_customer_required/models/pos_make_payment.py:0
 #, python-format
 msgid ""
 "An anonymous order cannot be confirmed.\n"
@@ -37,19 +37,19 @@ msgstr ""
 "Si us plau seleccioneu un client per a aquesta comanda."
 
 #. module: pos_customer_required
-#: code:addons/pos_customer_required/models/pos_order.py:22
+#: code:addons/pos_customer_required/models/pos_order.py:0
 #, python-format
 msgid "Customer is required for this order and is missing."
 msgstr "En necessari que hi hagi un client per a aquesta comanda i no hi és."
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__no
 msgid "Optional"
 msgstr "Opcional"
 
 #. module: pos_customer_required
 #. openerp-web
-#: code:addons/pos_customer_required/static/src/js/pos_customer_required.js:26
+#: code:addons/pos_customer_required/static/src/js/screens.js:0
 #, python-format
 msgid "Please select a customer for this order."
 msgstr "Si us plau seleccioneu un client per a aquesta comanda."
@@ -60,14 +60,14 @@ msgid "Point of Sale Configuration"
 msgstr "Configuració del punt de venda"
 
 #. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_make_payment
+msgid "Point of Sale Make Payment Wizard"
+msgstr ""
+
+#. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Comandes al punt de venda"
-
-#. module: pos_customer_required
-#: model:ir.model,name:pos_customer_required.model_pos_make_payment
-msgid "Point of Sale Payment"
-msgstr "Pagament del Punt de Venda"
 
 #. module: pos_customer_required
 #: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
@@ -91,14 +91,17 @@ msgstr ""
 "* 'Requerit abans d'entrar la comanda';"
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__payment
 msgid "Required before paying"
 msgstr "Requerit abans de pagar"
 
 #. module: pos_customer_required
-#: selection:pos.config,require_customer:0
+#: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__order
 msgid "Required before starting the order"
 msgstr "Requerit abans d'entrar la comanda"
+
+#~ msgid "Point of Sale Payment"
+#~ msgstr "Pagament del Punt de Venda"
 
 #~ msgid "Require customer"
 #~ msgstr "Client requerit "
