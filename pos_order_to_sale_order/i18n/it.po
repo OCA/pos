@@ -88,8 +88,8 @@ msgstr "Crea ordini di vendita"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed Sale"
-" Order, based on the current draft PoS Order."
+"If checked, the cashier will have the possibility to create a confirmed Sale "
+"Order, based on the current draft PoS Order."
 msgstr ""
 "Se impostato, il cassiere avrà la possibilità di creare un ordine di vendita "
 "confermato, in base all'attuale bozza di ordine POS."
@@ -97,8 +97,10 @@ msgstr ""
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
-" the according picking will be marked as delivered. Only invoices process will be possible."
+"If checked, the cashier will have the possibility to create a confirmed sale "
+"Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered. Only invoices process "
+"will be possible."
 msgstr ""
 "Se impostato, il cassiere avrà la possibilità di creare un ordine di vendita "
 "confermato, in base all'attuale bozza di ordine POS.\n"
