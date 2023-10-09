@@ -44,8 +44,8 @@ msgstr "Mostrar la cantidad de productos disponibles en el TPV para"
 #: model:ir.model.fields,help:pos_stock_available_online.field_pos_config__additional_warehouse_ids
 #: model:ir.model.fields,help:pos_stock_available_online.field_res_config_settings__pos_additional_warehouse_ids
 msgid ""
-"For the selected warehouses will be displayed quantity of available products"
-" in the POS"
+"For the selected warehouses will be displayed quantity of available products "
+"in the POS"
 msgstr ""
 "Para los almacenes seleccionados se mostrará la cantidad de productos "
 "disponibles en el TPV"
