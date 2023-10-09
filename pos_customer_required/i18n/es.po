@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_customer_required
+# 	* pos_customer_required
 #
 msgid ""
 msgstr ""
@@ -26,7 +26,8 @@ msgstr "Un pedido anónimo no puede ser confirmado"
 #. module: pos_customer_required
 #: code:addons/pos_customer_required/models/pos_make_payment.py:23
 #, python-format
-msgid "An anonymous order cannot be confirmed.\n"
+msgid ""
+"An anonymous order cannot be confirmed.\n"
 "Please select a customer for this order."
 msgstr ""
 "Un pedido anónimo no puede ser confirmado.\n"
@@ -76,7 +77,8 @@ msgstr "Cliente requerido"
 #. module: pos_customer_required
 #: model:ir.model.fields,help:pos_customer_required.field_pos_config__require_customer
 #: model:ir.model.fields,help:pos_customer_required.field_pos_order__require_customer
-msgid "Require customer for orders in this point of sale:\n"
+msgid ""
+"Require customer for orders in this point of sale:\n"
 "* 'Optional' (customer is optional);\n"
 "* 'Required before paying';\n"
 "* 'Required before starting the order';"
