@@ -19,10 +19,6 @@ msgstr ""
 #. module: pos_hide_cost_price_and_margin
 #. openerp-web
 #: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
 #, python-format
 msgid "env.pos.config.iface_display_margin"
 msgstr "env.pos.config.iface_display_margin"
