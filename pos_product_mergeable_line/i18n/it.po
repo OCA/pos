@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_product_mergeable_line
+# 	* pos_product_mergeable_line
 #
 msgid ""
 msgstr ""
@@ -19,7 +19,9 @@ msgstr ""
 #. module: pos_product_mergeable_line
 #: model:ir.model.fields,help:pos_product_mergeable_line.field_product_product__pos_mergeable_line
 #: model:ir.model.fields,help:pos_product_mergeable_line.field_product_template__pos_mergeable_line
-msgid "If unchecked, the product will never be merged with a previous line, in the Point of sale."
+msgid ""
+"If unchecked, the product will never be merged with a previous line, in the "
+"Point of sale."
 msgstr ""
 "Se non settata, il prodotto non verrà mail unito con una riga precedente nel "
 "punto vendita."
