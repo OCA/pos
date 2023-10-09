@@ -24,7 +24,6 @@ msgstr "Contatto"
 #. module: pos_partner_lang
 #. openerp-web
 #: code:addons/pos_partner_lang/static/src/xml/screens.xml:0
-#: code:addons/pos_partner_lang/static/src/xml/screens.xml:0
 #, python-format
 msgid "Language"
 msgstr "Lingua"
