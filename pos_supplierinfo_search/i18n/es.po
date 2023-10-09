@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_supplierinfo_search
+# 	* pos_supplierinfo_search
 #
 msgid ""
 msgstr ""
@@ -17,6 +17,21 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: pos_supplierinfo_search
+#: model:ir.model.fields,field_description:pos_supplierinfo_search.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_supplierinfo_search
+#: model:ir.model.fields,field_description:pos_supplierinfo_search.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_supplierinfo_search
+#: model:ir.model.fields,field_description:pos_supplierinfo_search.field_product_template____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_supplierinfo_search
 #: model:ir.model,name:pos_supplierinfo_search.model_product_template
 msgid "Product Template"
 msgstr "Plantilla de producto"
@@ -26,3 +41,10 @@ msgstr "Plantilla de producto"
 #: model:ir.model.fields,field_description:pos_supplierinfo_search.field_product_template__supplier_data_json
 msgid "Supplier data dict"
 msgstr "Dict de datos del proveedor"
+
+#. module: pos_supplierinfo_search
+#: model:ir.model.fields,help:pos_supplierinfo_search.field_product_product__supplier_data_json
+#: model:ir.model.fields,help:pos_supplierinfo_search.field_product_template__supplier_data_json
+msgid ""
+"Technical field: Used in POS frontend to search products by supplierinfo"
+msgstr ""
