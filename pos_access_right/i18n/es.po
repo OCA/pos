@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_access_right
+# 	* pos_access_right
 #
 msgid ""
 msgstr ""
@@ -125,42 +125,54 @@ msgstr "Configuración del punto de venta"
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
-msgid "This field is there to pass the id of the 'PoS - Allow Discount' Group to the Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Allow Discount' Group to "
+"the Point of Sale Frontend."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Permitir "
 "descuento' al Frontend del punto de venta."
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_negative_qty_id
-msgid "This field is there to pass the id of the 'PoS - Allow Negative Quantity' Group to the Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Allow Negative Quantity' "
+"Group to the Point of Sale Frontend."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Permitir "
 "cantidad negativa' al Frontend del punto de venta."
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_change_unit_price_id
-msgid "This field is there to pass the id of the 'PoS - Allow Unit Price Change' Group to the Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Allow Unit Price Change' "
+"Group to the Point of Sale Frontend."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Permitir "
 "cambio de precio unitario' al Frontend del punto de venta."
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_delete_order_id
-msgid "This field is there to pass the id of the 'PoS - Delete Order' Group to the Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Delete Order' Group to the "
+"Point of Sale Frontend."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Eliminar "
 "pedido' al Frontend del punto de venta."
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_multi_order_id
-msgid "This field is there to pass the id of the 'PoS - Many Orders Group to the Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Many Orders Group to the "
+"Point of Sale Frontend."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Muchos "
 "pedidos' al punto de venta frontend."
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
-msgid "This field is there to pass the id of the 'PoS - Payment' Group to the Point of Sale Frontend."
+msgid ""
+"This field is there to pass the id of the 'PoS - Payment' Group to the Point "
+"of Sale Frontend."
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Pago' al "
 "Frontend del punto de venta."
