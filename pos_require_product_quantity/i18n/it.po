@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_require_product_quantity
+# 	* pos_require_product_quantity
 #
 msgid ""
 msgstr ""
@@ -42,7 +42,9 @@ msgstr "Richiede quantità prodotto nel POS"
 
 #. module: pos_require_product_quantity
 #: model_terms:ir.ui.view,arch_db:pos_require_product_quantity.view_pos_config_form
-msgid "Show pop-up when product quantity is set to 0 for one or more order lines when clicking on \"Payment\" button."
+msgid ""
+"Show pop-up when product quantity is set to 0 for one or more order lines "
+"when clicking on \"Payment\" button."
 msgstr ""
 "Visualizza pop-up quando la quantità prodotto è impostata a 0per uno o più "
 "righe ordine quando si clicca il pulsante \"Pagamento\"."
