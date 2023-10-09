@@ -18,35 +18,35 @@ msgstr ""
 
 #. module: pos_fixed_discount
 #. openerp-web
-#: code:addons/pos_fixed_discount/static/src/xml/discount_templates.xml:7
+#: code:addons/pos_fixed_discount/static/src/xml/discount_templates.xml:0
 #, python-format
 msgid "Discount (%)"
 msgstr "Sconto (%)"
 
 #. module: pos_fixed_discount
 #. openerp-web
-#: code:addons/pos_fixed_discount/static/src/xml/discount_templates.xml:14
+#: code:addons/pos_fixed_discount/static/src/xml/discount_templates.xml:0
 #, python-format
 msgid "Discount (Amount)"
 msgstr "Sconto (importo)"
 
 #. module: pos_fixed_discount
 #. openerp-web
-#: code:addons/pos_fixed_discount/static/src/js/discount.js:15
+#: code:addons/pos_fixed_discount/static/src/js/FixedDiscountButton.js:0
 #, python-format
 msgid "Discount Amount"
 msgstr "Importo sconto"
 
 #. module: pos_fixed_discount
 #. openerp-web
-#: code:addons/pos_fixed_discount/static/src/js/discount.js:28
+#: code:addons/pos_fixed_discount/static/src/js/FixedDiscountButton.js:0
 #, python-format
 msgid "No discount product found"
 msgstr "Nessun prodotto sconto trovato"
 
 #. module: pos_fixed_discount
 #. openerp-web
-#: code:addons/pos_fixed_discount/static/src/js/discount.js:29
+#: code:addons/pos_fixed_discount/static/src/js/FixedDiscountButton.js:0
 #, python-format
 msgid ""
 "The discount product seems misconfigured. Make sure it is flagged as 'Can be "
