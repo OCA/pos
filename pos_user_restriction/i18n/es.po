@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_user_restriction
+# 	* pos_user_restriction
 #
 msgid ""
 msgstr ""
@@ -29,7 +29,9 @@ msgstr "Configuración del punto de venta"
 #. module: pos_user_restriction
 #: model:ir.model.fields,help:pos_user_restriction.field_pos_config__assigned_user_ids
 #: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
-msgid "Restrict some users to only access their assigned points of sale. In order to apply the restriction, the user needs the 'User: Assigned POS Only' group"
+msgid ""
+"Restrict some users to only access their assigned points of sale. In order "
+"to apply the restriction, the user needs the 'User: Assigned POS Only' group"
 msgstr ""
 "Restrinja a algunos usuarios para que solo accedan a sus puntos de venta "
 "asignados. Para aplicar la restricción, el usuario necesita el grupo "
