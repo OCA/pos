@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_session_pay_invoice
+# 	* pos_session_pay_invoice
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Collect Payment</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Collect Payment</span>\n"
 "                        <span class=\"o_stat_text\">from Invoice</span>"
 msgstr ""
 "<span class=\"o_stat_text\">Encaisser une</span>\n"
@@ -26,12 +27,13 @@ msgstr ""
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
-msgid "<span class=\"o_stat_text\">Pay</span>\n"
+msgid ""
+"<span class=\"o_stat_text\">Pay</span>\n"
 "                        <span class=\"o_stat_text\">Invoice</span>"
 msgstr ""
 "<span class=\"o_stat_text\">Payer une</span>\n"
-"                        <span class=\"o_stat_text\">facture "
-"fournisseur</span>"
+"                        <span class=\"o_stat_text\">facture fournisseur</"
+"span>"
 
 #. module: pos_session_pay_invoice
 #: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:52
