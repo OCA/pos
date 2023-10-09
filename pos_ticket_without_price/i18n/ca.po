@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_ticket_without_price
+# 	* pos_ticket_without_price
 #
 msgid ""
 msgstr ""
