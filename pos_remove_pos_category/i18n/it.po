@@ -20,17 +20,23 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_remove_pos_category
-#: model:ir.ui.view,arch_db:pos_remove_pos_category.product_category_list_view
+#: model_terms:ir.ui.view,arch_db:pos_remove_pos_category.product_category_list_view
 msgid "Available in POS"
 msgstr "Disponibile nel POS"
 
 #. module: pos_remove_pos_category
-#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_available_in_pos
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__available_in_pos
 msgid "Available in the Point of Sale"
 msgstr "Disponibile nel POS"
 
 #. module: pos_remove_pos_category
-#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category_available_in_pos
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_product__pos_categ_id
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_template__pos_categ_id
+msgid "Category used in the Point of Sale."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category__available_in_pos
 msgid ""
 "Check if you want this category to appear in Point Of Sale.\n"
 "If you uncheck, children categories will becomes invisible too, whatever "
@@ -41,19 +47,25 @@ msgstr ""
 "singolarmente."
 
 #. module: pos_remove_pos_category
-#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_image
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__image
 msgid "Image"
 msgstr "Immagine"
 
 #. module: pos_remove_pos_category
-#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category_image_medium
-msgid "Image medium"
-msgstr "Immagine media"
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__image_medium
+msgid "Image Medium"
+msgstr ""
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_ir_module_module
 msgid "Module"
 msgstr "Module"
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_product__pos_categ_id
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_template__pos_categ_id
+msgid "Point of Sale Category"
+msgstr ""
 
 #. module: pos_remove_pos_category
 #: model:ir.model,name:pos_remove_pos_category.model_product_category
@@ -66,11 +78,14 @@ msgid "Product Template"
 msgstr "Modello prodotto"
 
 #. module: pos_remove_pos_category
-#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category_image
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category__image
 msgid "Show Image Category in Form View"
 msgstr "Visualizza categoria immagine nella maschera"
 
 #. module: pos_remove_pos_category
-#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category_image_medium
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category__image_medium
 msgid "Show image category button in POS"
 msgstr "Visualizza pulsante categoria immagine nel POS"
+
+#~ msgid "Image medium"
+#~ msgstr "Immagine media"
