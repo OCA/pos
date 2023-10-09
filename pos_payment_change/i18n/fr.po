@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:79
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid " (Refund Order: %s ; Resale Order: %s)"
 msgstr " (Remboursement: %s ; Revente : %s)"
@@ -66,7 +66,7 @@ msgid "Created on"
 msgstr "Créé le"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
+#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:0
 #, python-format
 msgid ""
 "Differences between the two values for the POS Order '%s':\n"
@@ -84,6 +84,8 @@ msgstr ""
 "Veuillez changer les paiements."
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_order__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__display_name
@@ -91,6 +93,8 @@ msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_order__id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__id
@@ -98,12 +102,8 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_payment_change
-#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_journal_id
-#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_journal_id
-msgid "Journal"
-msgstr "Journal"
-
-#. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_order____last_update
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard____last_update
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line____last_update
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line____last_update
@@ -167,6 +167,12 @@ msgstr ""
 "altéré."
 
 #. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_payment_method_id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_payment_method_id
+msgid "Payment Method"
+msgstr ""
+
+#. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard
 msgid "PoS Payment Change Wizard"
 msgstr "Assistant de changement de paiement du Point de Vente"
@@ -194,12 +200,12 @@ msgid "Point of Sale Orders"
 msgstr "Commandes du point de vente"
 
 #. module: pos_payment_change
-#: selection:pos.config,payment_change_policy:0
+#: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__refund
 msgid "Refund and Resale"
 msgstr "Retourner et revendre"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:43
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid "The payments of the Order %s (Ref: %s) has been changed by %s at %s."
 msgstr "Les paiements de la commande %s (Réf: %s) ont été changés par %s à %s."
@@ -211,7 +217,7 @@ msgid "Total"
 msgstr "Total"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_config.py:43
+#: code:addons/pos_payment_change/models/pos_config.py:0
 #, python-format
 msgid ""
 "Unable to use the 'Update Payments' options for companies that have "
@@ -221,7 +227,7 @@ msgstr ""
 "qui ont une comptabilité inaltérable."
 
 #. module: pos_payment_change
-#: selection:pos.config,payment_change_policy:0
+#: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__update
 msgid "Update Payments"
 msgstr "Modifier les paiements"
 
@@ -238,7 +244,7 @@ msgid "Wizard"
 msgstr "Assistant"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:97
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid ""
 "You can not change payments of the POS '%s' because the associated session "
@@ -246,3 +252,6 @@ msgid ""
 msgstr ""
 "Vous ne pouvez pas changer les paiements de la Vente '%s' car la session "
 "associée '%s' a été clôturé !"
+
+#~ msgid "Journal"
+#~ msgstr "Journal"

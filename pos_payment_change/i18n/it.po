@@ -147,11 +147,14 @@ msgstr "Politica modifica pagamento"
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
 msgid ""
-"Payment Change Policy when users want to change the payment lines of a given PoS Order.\n"
-"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, and create a new PoS Order with the correct payment lines.\n"
+"Payment Change Policy when users want to change the payment lines of a given "
+"PoS Order.\n"
+"* 'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
+"and create a new PoS Order with the correct payment lines.\n"
 "* 'Update Payments': Odoo will change payment lines.\n"
 "\n"
-"Note : In some countries the 'Update Payments' Option is not allowed by law, because orders history shouldn't not be altered."
+"Note : In some countries the 'Update Payments' Option is not allowed by law, "
+"because orders history shouldn't not be altered."
 msgstr ""
 "Politica modifica del pagamento quando gli utenti vogliono modificare le "
 "righe del pagamento.\n"
@@ -202,7 +205,8 @@ msgstr "Rimborsa e rivendi"
 #: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid "The payments of the Order %s (Ref: %s) has been changed by %s at %s."
-msgstr "Il pagamento dell'ordine %s (Rif: %s) è stato modificato da %s alle %s."
+msgstr ""
+"Il pagamento dell'ordine %s (Rif: %s) è stato modificato da %s alle %s."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
