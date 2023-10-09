@@ -153,8 +153,8 @@ msgstr ""
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
 msgid ""
-"This field is there to pass the id of the 'PoS - Payment' Group to the Point"
-" of Sale Frontend."
+"This field is there to pass the id of the 'PoS - Payment' Group to the Point "
+"of Sale Frontend."
 msgstr ""
 "Questo campo è definito per passare l'ID del gruppo 'PoS - Pagamento' al "
 "frontend punto vendita."

@@ -19,57 +19,39 @@ msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:142
+#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
 #, python-format
-msgid "Change Unit Price - Unauthorized function"
-msgstr "Changer le prix unitaire - Fonctionnalité non autorisée"
+msgid "!hasMinusControlRights"
+msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:87
+#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
 #, python-format
-msgid "Delete Order - Unauthorized function"
-msgstr "Supprimer une commande de vente - Fonctionnalité non autorisée"
+msgid "!hasNewOrdersControlRights"
+msgstr ""
 
 #. module: pos_access_right
 #. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:135
+#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
 #, python-format
-msgid "Discount - Unauthorized function"
-msgstr "Remise - Fonctionnalité non autorisée"
+msgid "!hasPaymentControlRights"
+msgstr ""
 
 #. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:70
-#, python-format
-msgid "Many Orders - Unauthorized function"
-msgstr "Plusieurs Commandes simultanées - Fonctionnalité non autorisée"
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
-#, python-format
-msgid "Negative Quantity - Unauthorized function"
-msgstr "Quantité négative - Fonctionnalité non autorisée"
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__id
+msgid "ID"
+msgstr ""
 
 #. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
-#, python-format
-msgid "Payment - Unauthorized function"
-msgstr "Paiement - Fonctionnalité non autorisée"
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:71
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:88
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:136
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:143
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:167
-#, python-format
-msgid "Please ask your manager to do it."
-msgstr "Veuillez vous rapprocher d'un responsable"
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
@@ -177,6 +159,55 @@ msgid ""
 msgstr ""
 "Ce champs existe pour passer l'ID du groupe 'PdV - Paiement' au sein du "
 "point de vente tactile."
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
+#, python-format
+msgid "{'disabled-mode': !hasMinusControlRights}"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
+#, python-format
+msgid "{'disabled-mode': !hasNewOrdersControlRights}"
+msgstr ""
+
+#. module: pos_access_right
+#. openerp-web
+#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
+#, python-format
+msgid "{'disabled-mode': !hasPaymentControlRights}"
+msgstr ""
+
+#, python-format
+#~ msgid "Change Unit Price - Unauthorized function"
+#~ msgstr "Changer le prix unitaire - Fonctionnalité non autorisée"
+
+#, python-format
+#~ msgid "Delete Order - Unauthorized function"
+#~ msgstr "Supprimer une commande de vente - Fonctionnalité non autorisée"
+
+#, python-format
+#~ msgid "Discount - Unauthorized function"
+#~ msgstr "Remise - Fonctionnalité non autorisée"
+
+#, python-format
+#~ msgid "Many Orders - Unauthorized function"
+#~ msgstr "Plusieurs Commandes simultanées - Fonctionnalité non autorisée"
+
+#, python-format
+#~ msgid "Negative Quantity - Unauthorized function"
+#~ msgstr "Quantité négative - Fonctionnalité non autorisée"
+
+#, python-format
+#~ msgid "Payment - Unauthorized function"
+#~ msgstr "Paiement - Fonctionnalité non autorisée"
+
+#, python-format
+#~ msgid "Please ask your manager to do it."
+#~ msgstr "Veuillez vous rapprocher d'un responsable"
 
 #~ msgid "pos.config"
 #~ msgstr "pos.config"
