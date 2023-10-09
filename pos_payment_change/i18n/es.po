@@ -17,10 +17,12 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:79
+#. odoo-python
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid " (Refund Order: %(refund_order)s ; Resale Order: %(resale_order)s)"
-msgstr " (Orden de reembolso: %(refund_order)s ; Orden de reventa: %(resale_order)s)"
+msgstr ""
+" (Orden de reembolso: %(refund_order)s ; Orden de reventa: %(resale_order)s)"
 
 #. module: pos_payment_change
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_pos_config_form
@@ -66,20 +68,17 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:69
+#. odoo-python
+#: code:addons/pos_payment_change/wizards/pos_payment_change_wizard.py:0
 #, python-format
 msgid ""
-"Differences between the two values for the POS Order '%(name)s':"
+"Differences between the two values for the POS Order '%(name)s':\n"
 "\n"
-" * Total of all the new payments %(total)s;"
-" * Total of the POS Order %(amount_total)s;"
+" * Total of all the new payments %(total)s;\n"
+" * Total of the POS Order %(amount_total)s;\n"
 "\n"
 "Please change the payments."
 msgstr ""
-"Diferencias entre los dos valores para el pedido de TPV '%(name)s':\n"
-"  * Total de todos los nuevos pagos %(total)s;\n"
-"  * Total del pedido del punto de venta %(amount_total)s;\n"
-"Por favor cambie los pagos."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__display_name
@@ -94,12 +93,6 @@ msgstr "Nombre a mostrar"
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__id
 msgid "ID"
 msgstr "ID"
-
-#. module: pos_payment_change
-#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_journal_id
-#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_journal_id
-msgid "Journal"
-msgstr "Diario"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard____last_update
@@ -157,12 +150,18 @@ msgstr ""
 "Política de cambio de pago cuando los usuarios desean cambiar las líneas de "
 "pago de un pedido de TPV determinado.\n"
 "* 'Reembolso y reventa': Odoo reembolsará el pedido de posición actual para "
-"cancelarlo y creará un nuevo pedido de TPV con las líneas de pago correctas."
-"\n"
+"cancelarlo y creará un nuevo pedido de TPV con las líneas de pago "
+"correctas.\n"
 "* 'Actualizar pagos': Odoo cambiará las líneas de pago.\n"
 "\n"
 "Nota: En algunos países, la opción 'Actualizar pagos' no está permitida por "
 "ley, ya que el historial de pedidos no debe modificarse."
+
+#. module: pos_payment_change
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_payment_method_id
+#: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_payment_method_id
+msgid "Payment Method"
+msgstr ""
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard
@@ -190,15 +189,20 @@ msgid "Point of Sale Orders"
 msgstr "Pedidos de Punto de Venta"
 
 #. module: pos_payment_change
-#: selection:pos.config,payment_change_policy:0
+#: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__refund
 msgid "Refund and Resale"
 msgstr "Reembolso y reventa"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:43
+#. odoo-python
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
-msgid "The payments of the Order %(order)s (Ref: %(ref)s have been changed by %(user_name)s on %(today)s"
-msgstr "Los pagos de la orden %(order)s (Ref: %(ref)s) han sido modificados por %(user_name)s en %(today)s."
+msgid ""
+"The payments of the Order %(order)s (Ref: %(ref)s have been changed by "
+"%(user_name)s on %(today)s"
+msgstr ""
+"Los pagos de la orden %(order)s (Ref: %(ref)s) han sido modificados por "
+"%(user_name)s en %(today)s."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
@@ -207,7 +211,8 @@ msgid "Total"
 msgstr "Total"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_config.py:43
+#. odoo-python
+#: code:addons/pos_payment_change/models/pos_config.py:0
 #, python-format
 msgid ""
 "Unable to use the 'Update Payments' options for companies that have "
@@ -217,7 +222,7 @@ msgstr ""
 "tienen contabilidad inalterable."
 
 #. module: pos_payment_change
-#: selection:pos.config,payment_change_policy:0
+#: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__update
 msgid "Update Payments"
 msgstr "Actualizar pagos"
 
@@ -234,11 +239,27 @@ msgid "Wizard"
 msgstr "Asistente"
 
 #. module: pos_payment_change
-#: code:addons/pos_payment_change/models/pos_order.py:97
+#. odoo-python
+#: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid ""
-"You can not change payments of the POS '%(name)s' because the associated session "
-"'%(session)s' has been closed!"
+"You can not change payments of the POS '%(name)s' because the associated "
+"session '%(session)s' has been closed!"
 msgstr ""
 "¡No puede cambiar los pagos del TPV '%(name)s' porque la sesión asociada "
 "'%(session)s' se ha cerrado!"
+
+#, python-format
+#~ msgid ""
+#~ "Differences between the two values for the POS Order '%(name)s':\n"
+#~ " * Total of all the new payments %(total)s; * Total of the POS Order "
+#~ "%(amount_total)s;\n"
+#~ "Please change the payments."
+#~ msgstr ""
+#~ "Diferencias entre los dos valores para el pedido de TPV '%(name)s':\n"
+#~ "  * Total de todos los nuevos pagos %(total)s;\n"
+#~ "  * Total del pedido del punto de venta %(amount_total)s;\n"
+#~ "Por favor cambie los pagos."
+
+#~ msgid "Journal"
+#~ msgstr "Diario"
