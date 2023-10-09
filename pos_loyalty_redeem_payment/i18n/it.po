@@ -71,7 +71,8 @@ msgstr "Metodo di pagamento"
 #. module: pos_loyalty_redeem_payment
 #: model:ir.model.fields,help:pos_loyalty_redeem_payment.field_loyalty_program__redeem_method
 msgid ""
-"Payment Method: The Voucher/Gift Card is used as a payment method in PoS orders.\n"
+"Payment Method: The Voucher/Gift Card is used as a payment method in PoS "
+"orders.\n"
 "Discount: The Voucher/Gift Card is used as a discount."
 msgstr ""
 "Metodo di pagamento: il voucher/buono regalo è utilizzato come pagamento "
