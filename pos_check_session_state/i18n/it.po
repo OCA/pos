@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_check_session_state
+# 	* pos_check_session_state
 #
 msgid ""
 msgstr ""
@@ -63,7 +63,8 @@ msgstr "Il valore è impostato in secondi."
 #: code:addons/pos_check_session_state/static/src/js/chrome.js:47
 #, python-format
 msgid "This PoS window will be closed and you'll have to open a new session."
-msgstr "Questa schermata PoS verrà chiusa e si dovrà aprire una nuova sessione."
+msgstr ""
+"Questa schermata PoS verrà chiusa e si dovrà aprire una nuova sessione."
 
 #. module: pos_check_session_state
 #: code:addons/pos_check_session_state/models/pos_order.py:17
