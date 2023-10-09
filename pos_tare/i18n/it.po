@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_tare
+# 	* pos_tare
 #
 msgid ""
 msgstr ""
@@ -234,7 +234,8 @@ msgstr "Leggere un codice a barre per impostare la tara"
 
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_pos_config__iface_tare_method
-msgid "Select tare method:\n"
+msgid ""
+"Select tare method:\n"
 "* 'manual' : the scale screen has an extra tare input field;\n"
 "* 'barecode' : (scan a barcode to tare the selected order line;\n"
 "* 'both' : manual input and barcode methods are enabled;"
@@ -248,7 +249,9 @@ msgstr ""
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_product_product__tare_weight
 #: model:ir.model.fields,help:pos_tare.field_product_template__tare_weight
-msgid "Set here Constant tare weight for the given product. This tare will be substracted when the product is weighted"
+msgid ""
+"Set here Constant tare weight for the given product. This tare will be "
+"substracted when the product is weighted"
 msgstr ""
 "Impostare qui il peso tara costante per un certo prodotto. Questa tara verrà "
 "sottratta quando il prodotto viene pesato"
@@ -291,7 +294,8 @@ msgstr "Peso tara"
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:98
 #, python-format
-msgid "The quantity is lower or equal to zero. Are you sure you want to continue ?"
+msgid ""
+"The quantity is lower or equal to zero. Are you sure you want to continue ?"
 msgstr "La quantità è inferiore o uguale a zero. Sicuri di voler continuare?"
 
 #. module: pos_tare
@@ -344,7 +348,9 @@ msgstr "Prodotto pesato"
 #. openerp-web
 #: code:addons/pos_tare/static/src/js/screens.js:186
 #, python-format
-msgid "You can not set the tare. To be able to set the tare manually you have to change the tare input method in the POS configuration."
+msgid ""
+"You can not set the tare. To be able to set the tare manually you have to "
+"change the tare input method in the POS configuration."
 msgstr ""
 "Non si può impostare qui la tara. Per abilitare l'inserimento manuale della "
 "tara serve modificare il metodo di inserimento della tara nella "
