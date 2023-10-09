@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_unavailable_product_friendly_error
+# 	* pos_unavailable_product_friendly_error
 #
 msgid ""
 msgstr ""
@@ -20,7 +20,11 @@ msgstr ""
 #. openerp-web
 #: code:addons/pos_unavailable_product_friendly_error/static/src/js/models.js:21
 #, python-format
-msgid "Unable to load the point of sale, because a product on a pending order is not available. When confirming this popup, you'll be redirected to the product form to make it again available. Once done, you can resume the session of the Point of Sale."
+msgid ""
+"Unable to load the point of sale, because a product on a pending order is "
+"not available. When confirming this popup, you'll be redirected to the "
+"product form to make it again available. Once done, you can resume the "
+"session of the Point of Sale."
 msgstr ""
 "Impossibile caricare il punto vendita perché non è disponibile un prodotto "
 "in un ordine sospeso. Confermando questo messaggio, si verrà indirizzati "
