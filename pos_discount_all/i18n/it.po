@@ -20,8 +20,8 @@ msgstr ""
 #: model:ir.model.fields,help:pos_discount_all.field_product_product__is_discount
 #: model:ir.model.fields,help:pos_discount_all.field_product_template__is_discount
 msgid ""
-"Check this box if you use this product to realize discount on sale. If check"
-" the sale lines will be ignored when computing the amount without discount. "
+"Check this box if you use this product to realize discount on sale. If check "
+"the sale lines will be ignored when computing the amount without discount. "
 "If you use 'Pos Discount' Odoo module, you should check this box for the "
 "product you configured as the 'Discount Product' on your PoS config."
 msgstr ""
