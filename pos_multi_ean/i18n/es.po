@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_multi_ean
+# 	* pos_multi_ean
 #
 msgid ""
 msgstr ""
