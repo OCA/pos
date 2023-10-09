@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_order_line_no_unlink
+# 	* pos_order_line_no_unlink
 #
 msgid ""
 msgstr ""
@@ -24,7 +24,9 @@ msgstr "Righe ordine punto vendita"
 #. module: pos_order_line_no_unlink
 #: code:addons/pos_order_line_no_unlink/models/pos_order_line.py:17
 #, python-format
-msgid "You can only unlink PoS order lines that are related to orders in new or cancelled state."
+msgid ""
+"You can only unlink PoS order lines that are related to orders in new or "
+"cancelled state."
 msgstr ""
 "Si possono sganciare solo righe ordine PoS che sono relative a ordii in "
 "stato nuovo o annullato."
