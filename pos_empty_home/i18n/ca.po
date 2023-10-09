@@ -20,6 +20,11 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_empty_home
+#: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_empty_home
 #: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__iface_empty_home
 msgid "Empty Home"
 msgstr "Casa buida"
@@ -29,6 +34,16 @@ msgstr "Casa buida"
 #: model_terms:ir.ui.view,arch_db:pos_empty_home.view_pos_config_form
 msgid "Hide products if no category is selected."
 msgstr "Amaga els productes si no s'ha seleccionat cap categoria."
+
+#. module: pos_empty_home
+#: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_empty_home
+#: model:ir.model.fields,field_description:pos_empty_home.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: pos_empty_home
 #: model:ir.model,name:pos_empty_home.model_pos_config

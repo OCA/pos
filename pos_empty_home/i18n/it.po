@@ -52,8 +52,8 @@ msgstr "Configurazione punto vendita"
 #: code:addons/pos_empty_home/static/src/xml/pos_empty_home.xml:0
 #, python-format
 msgid ""
-"To select a product, please scan a barcode or search products by category or"
-" by name"
+"To select a product, please scan a barcode or search products by category or "
+"by name"
 msgstr ""
 "Per selezionare un prodotto, leggere un codice a barre o cercare un prodotto "
 "per nome o categoria"
