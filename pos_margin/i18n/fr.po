@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2021-06-11 14:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -33,8 +34,12 @@ msgstr "Afficher la marge et le taux de marge sur l'interface tactile"
 
 #. module: pos_margin
 #: model:ir.model.fields,help:pos_margin.field_pos_order__margin
-msgid "It gives profitability by calculating the difference between the Unit Price and the cost price."
-msgstr "Il donne la rentabilité en calculant la différence entre le prix unitaire et le prix de revient."
+msgid ""
+"It gives profitability by calculating the difference between the Unit Price "
+"and the cost price."
+msgstr ""
+"Il donne la rentabilité en calculant la différence entre le prix unitaire et "
+"le prix de revient."
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin
@@ -60,7 +65,7 @@ msgstr "Marge Totale"
 
 #. module: pos_margin
 #. openerp-web
-#: code:addons/pos_margin/static/src/xml/pos_margin.xml:26
+#: code:addons/pos_margin/static/src/xml/pos_margin.xml:0
 #, python-format
 msgid "Margin:"
 msgstr "Marge :"
@@ -89,4 +94,3 @@ msgstr "Rapport sur les commandes au point de vente"
 #: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
 msgid "Total"
 msgstr ""
-
