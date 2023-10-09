@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_default_empty_image
+# 	* pos_default_empty_image
 #
 msgid ""
 msgstr ""
@@ -25,7 +25,9 @@ msgstr "Dimensione carattere fissa"
 #. module: pos_default_empty_image
 #: model:ir.model.fields,help:pos_default_empty_image.field_pos_config__iface_fixed_font_size
 #: model_terms:ir.ui.view,arch_db:pos_default_empty_image.pos_config_view_form
-msgid "Font size of the product name, when it has no image. Set '0' will set adaptative font-size, depending on the length of the name."
+msgid ""
+"Font size of the product name, when it has no image. Set '0' will set "
+"adaptative font-size, depending on the length of the name."
 msgstr ""
 "La dimensione carattere del nome prodotto quando non ha immagine. Impostata "
 "a '0' imposterà la dimensione carattere adattiva, in funzione alla lunghezza "
