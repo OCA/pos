@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Cannot process transactions with zero or negative amount."
@@ -38,12 +38,7 @@ msgid "Check"
 msgstr "Talón"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
-msgid "Display Name"
-msgstr "Mostrar Nombre"
-
-#. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -54,16 +49,7 @@ msgstr ""
 "botón rojo del terminal de pago e inténtelo de nuevo."
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
-msgid "ID"
-msgstr "ID (identificación)"
-
-#. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación el"
-
-#. module: pos_payment_terminal
+#. odoo-python
 #: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
 #, python-format
 msgid "OCA Payment Terminal"
@@ -75,14 +61,14 @@ msgid "Payment Mode"
 msgstr "Forma de pago"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Payment Terminal Error"
 msgstr "Error de terminal de pago"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -94,6 +80,11 @@ msgstr "Pulse el botón rojo del terminal de pago para cancelar la transacción.
 #: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
 msgstr "Métodos de pago en el punto de venta"
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
@@ -108,6 +99,15 @@ msgid ""
 msgstr ""
 "El identificador del terminal tal y como lo conoce el proxy de hardware. "
 "Dejar vacío si el proxy sólo tiene un terminal conectado."
+
+#~ msgid "Display Name"
+#~ msgstr "Mostrar Nombre"
+
+#~ msgid "ID"
+#~ msgstr "ID (identificación)"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación el"
 
 #~ msgid "A payment terminal is available on the Proxy"
 #~ msgstr "Un terminal de pago está disponible en el Proxy"

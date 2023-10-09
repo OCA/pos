@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Cannot process transactions with zero or negative amount."
@@ -37,12 +37,7 @@ msgid "Check"
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -51,16 +46,7 @@ msgid ""
 msgstr ""
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
-msgid "ID"
-msgstr ""
-
-#. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: pos_payment_terminal
+#. odoo-python
 #: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
 #, python-format
 msgid "OCA Payment Terminal"
@@ -72,14 +58,14 @@ msgid "Payment Mode"
 msgstr ""
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Payment Terminal Error"
 msgstr ""
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -90,6 +76,11 @@ msgstr ""
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_session
+msgid "Point of Sale Session"
 msgstr ""
 
 #. module: pos_payment_terminal

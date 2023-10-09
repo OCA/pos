@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Cannot process transactions with zero or negative amount."
@@ -37,12 +37,7 @@ msgid "Check"
 msgstr "Conto"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -53,16 +48,7 @@ msgstr ""
 "sul pulsante rosso nel terminale di pagamento e riprovare."
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: pos_payment_terminal
+#. odoo-python
 #: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
 #, python-format
 msgid "OCA Payment Terminal"
@@ -74,14 +60,14 @@ msgid "Payment Mode"
 msgstr "Metodo di pagamento"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Payment Terminal Error"
 msgstr "Errore terminale pagamento"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -97,6 +83,11 @@ msgid "Point of Sale Payment Methods"
 msgstr "Metodi di pagamento punto vendita"
 
 #. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
 msgid "Terminal identifier"
 msgstr "Identificatore terminale"
@@ -109,6 +100,15 @@ msgid ""
 msgstr ""
 "L'identificativo del terminale come conosciuto dal dispositivo proxy. "
 "Lasciare vuoto se il proxy ha solo un terminale collegato."
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
 
 #~ msgid "pos.config"
 #~ msgstr "pos.config"
