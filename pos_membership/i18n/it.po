@@ -50,8 +50,8 @@ msgstr "Sessione punto vendita"
 #: model:ir.model.fields,help:pos_membership.field_res_partner__membership_state_text
 #: model:ir.model.fields,help:pos_membership.field_res_users__membership_state_text
 msgid ""
-"Technical field used to display the label of the field 'membership_state' in"
-" the Front End Point of sale UI"
+"Technical field used to display the label of the field 'membership_state' in "
+"the Front End Point of sale UI"
 msgstr ""
 "Campo tecnico utilizzato per visualizzare l'etichetta del campo "
 "'membership_state' nell'interfaccia front end del punto vendita"
