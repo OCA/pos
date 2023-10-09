@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_fixed_discount
+# 	* pos_fixed_discount
 #
 msgid ""
 msgstr ""
@@ -48,7 +48,9 @@ msgstr "Ez da deskontu produkturik aurkitu"
 #. openerp-web
 #: code:addons/pos_fixed_discount/static/src/js/discount.js:29
 #, python-format
-msgid "The discount product seems misconfigured. Make sure it is flagged as 'Can be Sold' and 'Available in Point of Sale'."
+msgid ""
+"The discount product seems misconfigured. Make sure it is flagged as 'Can be "
+"Sold' and 'Available in Point of Sale'."
 msgstr ""
 "Deskontua duen produktua gaizki konfiguratuta dagoela dirudi.Zihurtatu "
 "'Salgai' eta 'Salmenta puntuan erabilgarri' markatuta dagoela."
