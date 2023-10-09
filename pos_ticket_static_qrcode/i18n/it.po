@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_ticket_static_qrcode
+# 	* pos_ticket_static_qrcode
 #
 msgid ""
 msgstr ""
@@ -39,9 +39,11 @@ msgstr "Configurazione punto vendita"
 
 #. module: pos_ticket_static_qrcode
 #: model_terms:ir.ui.view,arch_db:pos_ticket_static_qrcode.pos_config_view_form
-msgid "QR Code to display on ticket to give the\n"
+msgid ""
+"QR Code to display on ticket to give the\n"
 "                            opportunity to customer to interact with\n"
-"                            its ticket. To visit site web, ask support, rate\n"
+"                            its ticket. To visit site web, ask support, "
+"rate\n"
 "                            service.\n"
 "                            If you provide a QRCode value it's recomanded\n"
 "                            to add a short message to invit and tell why\n"
@@ -75,7 +77,9 @@ msgstr "Valore codice QR"
 
 #. module: pos_ticket_static_qrcode
 #: model:ir.model.fields,help:pos_ticket_static_qrcode.field_pos_config__pos_ticket_static_qrcode_value
-msgid "QRCode value use to generate QRCOde, the value return when user scan that QRCode."
+msgid ""
+"QRCode value use to generate QRCOde, the value return when user scan that "
+"QRCode."
 msgstr ""
 "Valore codice QR utilizzato per generare il codice QR, valore restituito "
 "quando il cliente legge il codice QR."
