@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_customer_required_fields
+# 	* pos_customer_required_fields
 #
 msgid ""
 msgstr ""
@@ -29,7 +29,9 @@ msgstr "I(l) seguenti(e) campi(o) richiesti(o) non è(sono) impostati: %s."
 
 #. module: pos_customer_required_fields
 #: model:ir.model.fields,help:pos_customer_required_fields.field_pos_config__res_partner_required_fields_ids
-msgid "List of fields that are required while creating or updating a res partner from the point of sale."
+msgid ""
+"List of fields that are required while creating or updating a res partner "
+"from the point of sale."
 msgstr ""
 "Elenco dei campi richiesti dal punto vendtia nella creazione o aggiornamento "
 "di una maschera res_partner."
@@ -60,7 +62,9 @@ msgstr "Configurazione punto vendita"
 #. openerp-web
 #: code:addons/pos_customer_required_fields/static/src/js/screens.js:34
 #, python-format
-msgid "Some data on the customer you picked are missing. Use the customer screen to edit: "
+msgid ""
+"Some data on the customer you picked are missing. Use the customer screen to "
+"edit: "
 msgstr ""
 "Mancano alcuni dati del cliente selezionato. Utilizzare la maschera cliente "
 "per modificarli: "
@@ -68,15 +72,19 @@ msgstr ""
 #. module: pos_customer_required_fields
 #: model:ir.model.fields,help:pos_customer_required_fields.field_pos_config__res_partner_required_fields_names
 msgid "Technical fields to avoid adding ir.model.fields in pos model"
-msgstr "Campo tecnico per evitare di aggiungere ir.model.fields nel modello pos"
+msgstr ""
+"Campo tecnico per evitare di aggiungere ir.model.fields nel modello pos"
 
 #. module: pos_customer_required_fields
 #: model_terms:ir.ui.view,arch_db:pos_customer_required_fields.pos_config_view_form
-msgid "This ensure following fields are set in partner while\n"
+msgid ""
+"This ensure following fields are set in partner while\n"
 "                            creating from the pos order.\n"
 "\n"
-"                            Also if user pick an existing partner created in the\n"
-"                            backend without that field, user will be prompt to\n"
+"                            Also if user pick an existing partner created in "
+"the\n"
+"                            backend without that field, user will be prompt "
+"to\n"
 "                            add that information."
 msgstr ""
 "Questo assicura che i campi seguenti siano impostati nel partner\n"
@@ -84,6 +92,6 @@ msgstr ""
 "\n"
 "                            Inoltre se l'utente seleziona un partner "
 "esistente creato\n"
-"                            nel backend senza il campo, verrà chiesto all'"
-"utente\n"
+"                            nel backend senza il campo, verrà chiesto "
+"all'utente\n"
 "                            di aggiungere l'informazione."
