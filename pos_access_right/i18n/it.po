@@ -17,42 +17,6 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
-#, python-format
-msgid "!hasMinusControlRights"
-msgstr "!hasMinusControlRights"
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
-#, python-format
-msgid "!hasNewOrdersControlRights"
-msgstr "!hasNewOrdersControlRights"
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
-#, python-format
-msgid "!hasPaymentControlRights"
-msgstr "!hasPaymentControlRights"
-
-#. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_access_right
-#: model:ir.model.fields,field_description:pos_access_right.field_pos_config____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
 msgid "Point of Sale - Allow Discount"
 msgstr "Punto vendita - Consenti sconto"
@@ -106,6 +70,11 @@ msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
 
 #. module: pos_access_right
+#: model:ir.model,name:pos_access_right.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
 msgid ""
 "This field is there to pass the id of the 'PoS - Allow Discount' Group to "
@@ -153,29 +122,41 @@ msgstr ""
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_payment_id
 msgid ""
-"This field is there to pass the id of the 'PoS - Payment' Group to the Point"
-" of Sale Frontend."
+"This field is there to pass the id of the 'PoS - Payment' Group to the Point "
+"of Sale Frontend."
 msgstr ""
 "Questo campo è definito per passare l'ID del gruppo 'PoS - Pagamento' al "
 "frontend punto vendita."
 
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
 #, python-format
-msgid "{'disabled-mode': !hasMinusControlRights}"
-msgstr "{'disabled-mode': !hasMinusControlRights}"
+#~ msgid "!hasMinusControlRights"
+#~ msgstr "!hasMinusControlRights"
 
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
 #, python-format
-msgid "{'disabled-mode': !hasNewOrdersControlRights}"
-msgstr "{'disabled-mode': !hasNewOrdersControlRights}"
+#~ msgid "!hasNewOrdersControlRights"
+#~ msgstr "!hasNewOrdersControlRights"
 
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
 #, python-format
-msgid "{'disabled-mode': !hasPaymentControlRights}"
-msgstr "{'disabled-mode': !hasPaymentControlRights}"
+#~ msgid "!hasPaymentControlRights"
+#~ msgstr "!hasPaymentControlRights"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#, python-format
+#~ msgid "{'disabled-mode': !hasMinusControlRights}"
+#~ msgstr "{'disabled-mode': !hasMinusControlRights}"
+
+#, python-format
+#~ msgid "{'disabled-mode': !hasNewOrdersControlRights}"
+#~ msgstr "{'disabled-mode': !hasNewOrdersControlRights}"
+
+#, python-format
+#~ msgid "{'disabled-mode': !hasPaymentControlRights}"
+#~ msgstr "{'disabled-mode': !hasPaymentControlRights}"
