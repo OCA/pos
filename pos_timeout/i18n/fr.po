@@ -35,6 +35,21 @@ msgid ""
 msgstr ""
 
 #. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_timeout
 #: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
 #, fuzzy
 msgid "PoS Order(s) Timeout"
