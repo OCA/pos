@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_default_partner
+# 	* pos_default_partner
 #
 msgid ""
 msgstr ""
@@ -31,6 +31,24 @@ msgstr "Cliente predeterminado"
 #: model_terms:ir.ui.view,arch_db:pos_default_partner.pos_config_view_form
 msgid "Default customer to use if none is set"
 msgstr "Cliente predeterminado para usar si no se establece ninguno"
+
+#. module: pos_default_partner
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_default_partner
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_order__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_default_partner
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_default_partner.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: pos_default_partner
 #: model:ir.model,name:pos_default_partner.model_pos_config
