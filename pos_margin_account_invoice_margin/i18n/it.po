@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_margin_account_invoice_margin
+# 	* pos_margin_account_invoice_margin
 #
 msgid ""
 msgstr ""
