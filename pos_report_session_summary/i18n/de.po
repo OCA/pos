@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_report_session_summary
+# 	* pos_report_session_summary
 #
 msgid ""
 msgstr ""
@@ -125,4 +125,3 @@ msgstr "Zahlungsdetails:"
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
 msgid "Statement Summary"
 msgstr "Zahlungsübersicht"
-
