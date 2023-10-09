@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_session_closing_stock_error
+# 	* pos_session_closing_stock_error
 #
 msgid ""
 msgstr ""
@@ -32,8 +32,11 @@ msgstr ""
 #. module: pos_session_closing_stock_error
 #: code:addons/pos_session_closing_stock_error/models/pos_session.py:14
 #, python-format
-msgid "It's not possible to close the session %s because it has %i picking error(s).\n"
-"Please resolve them or enable 'Allow closing sessions with stock errors' in PoS Configuration: %s."
+msgid ""
+"It's not possible to close the session %s because it has %i picking "
+"error(s).\n"
+"Please resolve them or enable 'Allow closing sessions with stock errors' in "
+"PoS Configuration: %s."
 msgstr ""
 "Non è possibile chiudere la sessione %s perché ha %i errori.\n"
 "Risolverli per abilitare 'Consenti chiusura sessione con errori di "
