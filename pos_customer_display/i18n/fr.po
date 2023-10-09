@@ -18,29 +18,51 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: pos_customer_display
-#: selection:pos.config,customer_display_format:0
+#: model:ir.model.fields.selection,name:pos_customer_display.selection__pos_config__customer_display_format__2_20
 msgid "2 Lines of 20 Characters"
 msgstr "2 lignes de 20 caractères"
 
 #. module: pos_customer_display
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
+msgid "<span class=\"o_form_label\">LED Customer Display Configuration</span>"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__epos_customer_display
+msgid ""
+"Activate if you use an Epson LCD connected via USB (DM-D30, DM-D110 or DM-"
+"D210) to your Epson printer defined above that support the ePOS protocol."
+msgstr ""
+
+#. module: pos_customer_display
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
+msgid "Configure display and customize messages"
+msgstr ""
+
+#. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:94
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:0
 #, python-format
 msgid "Customer Account"
 msgstr "Compte client"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_format
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "Customer Display Format"
 msgstr "Format de l'afficheur client"
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:61
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:0
 #, python-format
 msgid "Deleting Line ..."
 msgstr "Suppression de la ligne ..."
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__iface_customer_display
@@ -66,10 +88,25 @@ msgstr ""
 "caisse est fermée"
 
 #. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__iface_customer_display
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "LED Customer Display"
 msgstr "Afficheur client LED"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__epos_customer_display
+msgid "LED Customer Display (Epson ePOS)"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_line_length
@@ -78,43 +115,51 @@ msgstr "Longueur des lignes de l'afficheur client (nombre de caractères)"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_line_length
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "Line Length"
 msgstr "Longueur des lignes"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l1
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "Next Customer (Line 1)"
 msgstr "Client suivant (ligne 1)"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l2
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "Next Customer (Line 2)"
 msgstr "Client suivant (ligne 2)"
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:99
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:0
 #, python-format
 msgid "No Customer Account"
 msgstr "Client non défini"
 
 #. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:0
+#, python-format
+msgid ""
+"On '%s', you activated the LED Customer Display both via the IoTbox and via "
+"Direct Devices. You can only select one of the two options."
+msgstr ""
+
+#. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "PoS Closed (Line 1)"
 msgstr "Caisse fermée (Ligne 1)"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
-#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "PoS Closed (Line 2)"
 msgstr "Caisse fermée (Ligne 2)"
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_config.py:64
+#: code:addons/pos_customer_display/models/pos_config.py:0
 #, python-format
 msgid "Point of Sale Closed"
 msgstr "Caisse fermée"
@@ -125,14 +170,14 @@ msgid "Point of Sale Configuration"
 msgstr "Paramétrage du point de vente"
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_config.py:60
+#: code:addons/pos_customer_display/models/pos_config.py:0
 #, python-format
 msgid "Point of Sale Open"
 msgstr "Caisse ouverte"
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:81
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:0
 #, python-format
 msgid "Returned: "
 msgstr "A rendre : "
@@ -156,13 +201,13 @@ msgstr ""
 "caisse est fermée"
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_config.py:66
+#: code:addons/pos_customer_display/models/pos_config.py:0
 #, python-format
 msgid "See you soon!"
 msgstr "Au revoir !"
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_config.py:93
+#: code:addons/pos_customer_display/models/pos_config.py:0
 #, python-format
 msgid ""
 "The message for customer display '%s' is too long: it has %d chars whereas "
@@ -173,20 +218,20 @@ msgstr ""
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:79
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:0
 #, python-format
 msgid "To Pay: "
 msgstr "A payer : "
 
 #. module: pos_customer_display
 #. openerp-web
-#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:86
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:0
 #, python-format
 msgid "Total"
 msgstr "Total"
 
 #. module: pos_customer_display
-#: code:addons/pos_customer_display/models/pos_config.py:62
+#: code:addons/pos_customer_display/models/pos_config.py:0
 #, python-format
 msgid "Welcome!"
 msgstr "Bienvenue !"
