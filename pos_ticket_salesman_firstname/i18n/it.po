@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_ticket_salesman_firstname
+# 	* pos_ticket_salesman_firstname
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,9 @@ msgstr ""
 
 #. module: pos_ticket_salesman_firstname
 #: model_terms:ir.ui.view,arch_db:pos_ticket_salesman_firstname.view_pos_config_form
-msgid "On the receipt, prints only the salesman's firstname instead of the full name."
+msgid ""
+"On the receipt, prints only the salesman's firstname instead of the full "
+"name."
 msgstr ""
 "Nella ricevuta, stampa solo il nome del venditore anzichè il nome completo."
 
