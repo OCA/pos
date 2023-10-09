@@ -43,6 +43,27 @@ msgid "Customer is required for this order and is missing."
 msgstr "En necessari que hi hagi un client per a aquesta comanda i no hi és."
 
 #. module: pos_customer_required
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_make_payment__display_name
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_customer_required
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_make_payment__id
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_customer_required
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_make_payment____last_update
+#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_customer_required
 #: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__no
 msgid "Optional"
 msgstr "Opcional"
@@ -61,15 +82,15 @@ msgid "Point of Sale Configuration"
 msgstr "Pagament del Punt de Venda "
 
 #. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_pos_make_payment
+msgid "Point of Sale Make Payment Wizard"
+msgstr ""
+
+#. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_order
 #, fuzzy
 msgid "Point of Sale Orders"
 msgstr "Punt de Venda "
-
-#. module: pos_customer_required
-#: model:ir.model,name:pos_customer_required.model_pos_make_payment
-msgid "Point of Sale Payment"
-msgstr "Pagament del Punt de Venda"
 
 #. module: pos_customer_required
 #: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
@@ -101,3 +122,6 @@ msgstr "Requerit abans de pagar"
 #: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__order
 msgid "Required before starting the order"
 msgstr "Requerit abans d'entrar la comanda"
+
+#~ msgid "Point of Sale Payment"
+#~ msgstr "Pagament del Punt de Venda"
