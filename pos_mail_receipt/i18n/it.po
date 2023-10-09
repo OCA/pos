@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_mail_receipt
+# 	* pos_mail_receipt
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,8 @@ msgstr ""
 
 #. module: pos_mail_receipt
 #: model:mail.template,body_html:pos_mail_receipt.email_send_ticket
-msgid "\n"
+msgid ""
+"\n"
 "Your Ticket ${object.pos_reference}\n"
 "            "
 msgstr ""
@@ -97,7 +98,9 @@ msgstr "Receipt_{}.pdf"
 #. openerp-web
 #: code:addons/pos_mail_receipt/static/src/js/screens.js:69
 #, python-format
-msgid "Synchronisation with the database is taking too long. Retry or contact the system administrator."
+msgid ""
+"Synchronisation with the database is taking too long. Retry or contact the "
+"system administrator."
 msgstr ""
 "La sincronizzazione con il database è lenta. Riprovare o contattare "
 "l'amministrazione di sistema."
