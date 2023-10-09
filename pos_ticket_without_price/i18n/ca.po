@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_ticket_without_price
+# 	* pos_ticket_without_price
 #
 msgid ""
 msgstr ""
@@ -18,24 +18,36 @@ msgstr ""
 
 #. module: pos_ticket_without_price
 #. openerp-web
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:7
+#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
-msgid "Print Ticket Without Price"
-msgstr "Imprimir tiquet sense preus"
+msgid "Print Receipt Without Price"
+msgstr ""
 
 #. module: pos_ticket_without_price
 #. openerp-web
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:14
+#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
-msgid "TICKET WITHOUT PRICE"
-msgstr "TIQUET REGAL"
+msgid "display: none;"
+msgstr ""
 
 #. module: pos_ticket_without_price
 #. openerp-web
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:20
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:23
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:26
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:29
+#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
 msgid "oe_hidden"
 msgstr "oe_hidden"
+
+#. module: pos_ticket_without_price
+#. openerp-web
+#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
+#, python-format
+msgid "pos-receipt pos-receipt-without-price"
+msgstr ""
+
+#, python-format
+#~ msgid "Print Ticket Without Price"
+#~ msgstr "Imprimir tiquet sense preus"
+
+#, python-format
+#~ msgid "TICKET WITHOUT PRICE"
+#~ msgstr "TIQUET REGAL"

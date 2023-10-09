@@ -33,8 +33,6 @@ msgstr "visualizza: niente;"
 #. module: pos_ticket_without_price
 #. openerp-web
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
-#: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
 msgid "oe_hidden"
 msgstr "oe_hidden"
