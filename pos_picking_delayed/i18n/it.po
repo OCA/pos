@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_picking_delayed
+# 	* pos_picking_delayed
 #
 msgid ""
 msgstr ""
@@ -18,7 +18,10 @@ msgstr ""
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_config__picking_creation_delayed
-msgid "Check this box if you want to delay the creation of the picking created by the PoS orders. If checked, the pickings will be created later, by a cron task."
+msgid ""
+"Check this box if you want to delay the creation of the picking created by "
+"the PoS orders. If checked, the pickings will be created later, by a cron "
+"task."
 msgstr ""
 "Selezionare questa opzione se si vuole ritardare la creazione del prelievo "
 "creato dagli ordini POS. Se selezionato, i prelievi verranno creati in un "
@@ -51,7 +54,9 @@ msgstr "Ordini punto vendita"
 
 #. module: pos_picking_delayed
 #: model:ir.model.fields,help:pos_picking_delayed.field_pos_order__has_picking_delayed
-msgid "This checkbox is checked if the generation of the picking has been delayed. The picking will be created by cron."
+msgid ""
+"This checkbox is checked if the generation of the picking has been delayed. "
+"The picking will be created by cron."
 msgstr ""
 "Questa opzione è selezionata se la generazione dei prelievi è stata "
 "ritardata. Il prelievo verrà creato da cron."
