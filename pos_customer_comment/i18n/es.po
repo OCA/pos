@@ -26,7 +26,6 @@ msgstr "Comentario del cajero"
 #. module: pos_customer_comment
 #. odoo-javascript
 #: code:addons/pos_customer_comment/static/src/xml/PartnerDetailsEdit.xml:0
-#: code:addons/pos_customer_comment/static/src/xml/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Comment"
 msgstr "Comentario"
@@ -55,7 +54,6 @@ msgstr "Contacto"
 
 #. module: pos_customer_comment
 #. odoo-javascript
-#: code:addons/pos_customer_comment/static/src/xml/PartnerLine.xml:0
 #: code:addons/pos_customer_comment/static/src/xml/PartnerLine.xml:0
 #, python-format
 msgid "Has PoS Comment"
