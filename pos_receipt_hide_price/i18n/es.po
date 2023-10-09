@@ -18,46 +18,23 @@ msgstr ""
 "X-Generator: Weblate 4.14.1\n"
 
 #. module: pos_receipt_hide_price
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_receipt_hide_price/static/src/xml/HidePrice.xml:0
 #, python-format
 msgid "Hide Price"
 msgstr "Ocultar precios"
 
 #. module: pos_receipt_hide_price
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_receipt_hide_price/static/src/xml/HidePrice.xml:0
 #, python-format
 msgid "Show Price"
 msgstr "Mostrar precios"
 
-#. module: pos_receipt_hide_price
-#. openerp-web
-#: code:addons/pos_receipt_hide_price/static/src/xml/ReceiptScreen.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/ReprintReceiptScreen.xml:0
 #, python-format
-msgid "hidePriceState"
-msgstr "ocultarPrecioEstado"
+#~ msgid "hidePriceState"
+#~ msgstr "ocultarPrecioEstado"
 
-#. module: pos_receipt_hide_price
-#. openerp-web
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
-#: code:addons/pos_receipt_hide_price/static/src/xml/OrderReceipt.xml:0
 #, python-format
-msgid "{'oe_hidden': priceHidden}"
-msgstr "{'oe_oculto': precioOculto}"
+#~ msgid "{'oe_hidden': priceHidden}"
+#~ msgstr "{'oe_oculto': precioOculto}"
