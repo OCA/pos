@@ -18,60 +18,6 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 
 #. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:142
-#, python-format
-msgid "Change Unit Price - Unauthorized function"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:87
-#, python-format
-msgid "Delete Order - Unauthorized function"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:135
-#, python-format
-msgid "Discount - Unauthorized function"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:70
-#, python-format
-msgid "Many Orders - Unauthorized function"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:115
-#, python-format
-msgid "Negative Quantity - Unauthorized function"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:166
-#, python-format
-msgid "Payment - Unauthorized function"
-msgstr ""
-
-#. module: pos_access_right
-#. openerp-web
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:71
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:88
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:116
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:136
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:143
-#: code:addons/pos_access_right/static/src/js/pos_access_right.js:167
-#, python-format
-msgid "Please ask your manager to do it."
-msgstr "Попросите менеджера выполнить это действие."
-
-#. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
 msgid "Point of Sale - Allow Discount"
 msgstr "Точка продаж - Разрешить Скидки"
@@ -112,7 +58,6 @@ msgstr "Точка продаж - Отрицательное количеств�
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_payment_id
 #: model:res.groups,name:pos_access_right.group_payment
 #, fuzzy
-#| msgid "Point of Sale - Discount"
 msgid "Point of Sale - Payment"
 msgstr "Точка продаж - Скидки"
 
@@ -125,6 +70,11 @@ msgstr "Точка продаж - Изменение цены за штуку"
 #: model:ir.model,name:pos_access_right.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Настройки Точки продаж"
+
+#. module: pos_access_right
+#: model:ir.model,name:pos_access_right.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_discount_id
@@ -167,3 +117,7 @@ msgid ""
 "This field is there to pass the id of the 'PoS - Payment' Group to the Point "
 "of Sale Frontend."
 msgstr ""
+
+#, python-format
+#~ msgid "Please ask your manager to do it."
+#~ msgstr "Попросите менеджера выполнить это действие."
