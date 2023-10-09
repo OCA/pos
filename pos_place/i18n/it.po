@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_place
+# 	* pos_place
 #
 msgid ""
 msgstr ""
@@ -146,7 +146,9 @@ msgstr "Selezionare un luogo"
 
 #. module: pos_place
 #: model:ir.model.fields,help:pos_place.field_pos_config__group_pos_place_user_id
-msgid "This field is there to pass the id of the pos place user group to the point of sale client."
+msgid ""
+"This field is there to pass the id of the pos place user group to the point "
+"of sale client."
 msgstr ""
 "Questo campo serve a trasferire l'ID del gruppo utente luogo POS al client "
 "punto vendita."
