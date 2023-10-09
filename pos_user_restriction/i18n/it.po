@@ -27,7 +27,16 @@ msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
 
 #. module: pos_user_restriction
-#: model:ir.model.fields,help:pos_user_restriction.field_pos_config__assigned_user_ids
+#: model:ir.model,name:pos_user_restriction.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,field_description:pos_user_restriction.field_pos_config__group_pos_user_id
+msgid "Point of Sale User Group"
+msgstr ""
+
+#. module: pos_user_restriction
 #: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
 msgid ""
 "Restrict some users to only access their assigned points of sale. In order "
@@ -38,9 +47,23 @@ msgstr ""
 "'Utente: solamente POS assegnati'"
 
 #. module: pos_user_restriction
+#: model:ir.model.fields,help:pos_user_restriction.field_pos_config__assigned_user_ids
+msgid ""
+"Restrict some users to only access their assigned points of sale.In order to "
+"apply the restriction, the user needs the 'User: Assigned POS Only' group"
+msgstr ""
+
+#. module: pos_user_restriction
 #: model:res.groups,comment:pos_user_restriction.group_assigned_points_of_sale_user
 msgid "The user will have access to her assigned points of sale."
 msgstr "L'utente avrà accesso ai propri punti vendita assegnati."
+
+#. module: pos_user_restriction
+#: model:ir.model.fields,help:pos_user_restriction.field_pos_config__group_pos_user_id
+msgid ""
+"This field is there to passthe id of the pos user group to the point of sale "
+"client."
+msgstr ""
 
 #. module: pos_user_restriction
 #: model:res.groups,name:pos_user_restriction.group_assigned_points_of_sale_user
@@ -48,6 +71,7 @@ msgid "User: Assigned POS Only"
 msgstr "Utente: solamente POS assegnati"
 
 #. module: pos_user_restriction
+#: model:ir.model,name:pos_user_restriction.model_res_users
 #: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
 msgid "Users"
 msgstr "Utenti"
