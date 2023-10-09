@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_warning_exiting
+# 	* pos_warning_exiting
 #
 msgid ""
 msgstr ""
@@ -34,7 +34,10 @@ msgstr "Ordini bozza"
 #. openerp-web
 #: code:addons/pos_warning_exiting/static/src/js/gui.js:74
 #, python-format
-msgid "It seems that you do not have a network connection at the moment. If you close this window, it will not be possible to re-sell until you get your connection back."
+msgid ""
+"It seems that you do not have a network connection at the moment. If you "
+"close this window, it will not be possible to re-sell until you get your "
+"connection back."
 msgstr ""
 "Sembra che non ci sia una connessione di rete al momento. Se si chiude "
 "questa finestra, non sarà possibile riprendere le vendite fino alla "
@@ -58,7 +61,9 @@ msgstr "Ordine n°"
 #. openerp-web
 #: code:addons/pos_warning_exiting/static/src/js/gui.js:41
 #, python-format
-msgid "You have some draft unpaid orders. You can exit temporarily the Point of Sale, but you will loose that orders if you close the session: "
+msgid ""
+"You have some draft unpaid orders. You can exit temporarily the Point of "
+"Sale, but you will loose that orders if you close the session: "
 msgstr ""
 "Ci sono alcune bozze di ordini non pagati. Si può uscire temporaneamente dal "
 "punto vendita ma si perderanno questi ordini se si chiude la sessione: "
