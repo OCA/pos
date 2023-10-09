@@ -18,21 +18,7 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
-#, python-format
-msgid "Back"
-msgstr "Indietro"
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "Check your internet connection and try again."
-msgstr "Controllare la connessione di rete e riprovare."
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Confirmed Sale Order"
 msgstr "Crea ordine di vendita confermato"
@@ -44,7 +30,7 @@ msgstr "Crea ordini di vendita confermati"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Delivered Sale Order"
 msgstr "Crea ordine di vendita consegnato"
@@ -56,7 +42,7 @@ msgstr "Crea ordini di vendita consegnati"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Draft Sale Order"
 msgstr "Crea ordine di vendita bozza"
@@ -68,17 +54,11 @@ msgstr "Crea bozze ordini di vendita"
 
 #. module: pos_order_to_sale_order
 #. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
-msgid "Create Sale Order"
-msgstr "Crea ordine di vendita"
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "Create Sale Order and discard the current PoS Order?"
-msgstr "Creare ordine di vendita ed eliminare il presente ordine POS?"
+msgid "Create Order"
+msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
@@ -86,10 +66,31 @@ msgid "Create Sale Orders"
 msgstr "Crea ordini di vendita"
 
 #. module: pos_order_to_sale_order
+#. openerp-web
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Discard"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order__display_name
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_order_to_sale_order
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order__id
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order_line__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed Sale"
-" Order, based on the current draft PoS Order."
+"If checked, the cashier will have the possibility to create a confirmed Sale "
+"Order, based on the current draft PoS Order."
 msgstr ""
 "Se impostato, il cassiere avrà la possibilità di creare un ordine di vendita "
 "confermato, in base all'attuale bozza di ordine POS."
@@ -97,8 +98,10 @@ msgstr ""
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
 msgid ""
-"If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
-" the according picking will be marked as delivered. Only invoices process will be possible."
+"If checked, the cashier will have the possibility to create a confirmed sale "
+"Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered. Only invoices process "
+"will be possible."
 msgstr ""
 "Se impostato, il cassiere avrà la possibilità di creare un ordine di vendita "
 "confermato, in base all'attuale bozza di ordine POS.\n"
@@ -115,18 +118,11 @@ msgstr ""
 "di vendita, in base alla bozza attuale di ordine POS."
 
 #. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
-#, python-format
-msgid "No customer defined"
-msgstr "Cliente non definito"
-
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/xml/pos_order_to_sale_order.xml:0
-#, python-format
-msgid "Order"
-msgstr "Ordine"
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order____last_update
+#: model:ir.model.fields,field_description:pos_order_to_sale_order.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr ""
 
 #. module: pos_order_to_sale_order
 #: code:addons/pos_order_to_sale_order/models/sale_order.py:0
@@ -154,27 +150,42 @@ msgstr "Ordine di vendita"
 msgid "Sales Order Line"
 msgstr "Riga ordine di vendita"
 
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
 #, python-format
-msgid "The order could not be sent"
-msgstr "L'ordine non può essere spedito"
+#~ msgid "Back"
+#~ msgstr "Indietro"
 
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
 #, python-format
-msgid ""
-"This operation will permanently discard the current PoS Order and create a "
-"Sale Order, based on the current order lines."
-msgstr ""
-"Questa operazione annullerà definitivamente l'ordine POS attuale e creerà un "
-"ordine di vendita, in base alle attuali righe ordine."
+#~ msgid "Check your internet connection and try again."
+#~ msgstr "Controllare la connessione di rete e riprovare."
 
-#. module: pos_order_to_sale_order
-#. openerp-web
-#: code:addons/pos_order_to_sale_order/static/src/js/screens.js:0
 #, python-format
-msgid "You should select a customer in order to create a Sale Order."
-msgstr "Bisogna selezionare un cliente per creare un ordine di vendita."
+#~ msgid "Create Sale Order"
+#~ msgstr "Crea ordine di vendita"
+
+#, python-format
+#~ msgid "Create Sale Order and discard the current PoS Order?"
+#~ msgstr "Creare ordine di vendita ed eliminare il presente ordine POS?"
+
+#, python-format
+#~ msgid "No customer defined"
+#~ msgstr "Cliente non definito"
+
+#, python-format
+#~ msgid "Order"
+#~ msgstr "Ordine"
+
+#, python-format
+#~ msgid "The order could not be sent"
+#~ msgstr "L'ordine non può essere spedito"
+
+#, python-format
+#~ msgid ""
+#~ "This operation will permanently discard the current PoS Order and create "
+#~ "a Sale Order, based on the current order lines."
+#~ msgstr ""
+#~ "Questa operazione annullerà definitivamente l'ordine POS attuale e creerà "
+#~ "un ordine di vendita, in base alle attuali righe ordine."
+
+#, python-format
+#~ msgid "You should select a customer in order to create a Sale Order."
+#~ msgstr "Bisogna selezionare un cliente per creare un ordine di vendita."
