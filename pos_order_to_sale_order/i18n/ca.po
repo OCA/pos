@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_order_to_sale_order
+# 	* pos_order_to_sale_order
 #
 msgid ""
 msgstr ""
@@ -88,15 +88,20 @@ msgstr "Crear comandes de venda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
-msgid "If checked, the cashier will have the possibility to create a confirmed Sale Order, based on the current draft PoS Order."
+msgid ""
+"If checked, the cashier will have the possibility to create a confirmed Sale "
+"Order, based on the current draft PoS Order."
 msgstr ""
 "Si està marcat, el caixer tindrà la possibilitat de crear comandes de venda "
 "confirmades a partir de la comanda del TPV en curs."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
-msgid "If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
-" the according picking will be marked as delivered. Only invoices process will be possible."
+msgid ""
+"If checked, the cashier will have the possibility to create a confirmed sale "
+"Order, based on the current draft PoS Order.\n"
+" the according picking will be marked as delivered. Only invoices process "
+"will be possible."
 msgstr ""
 "Si està marcat, el caixer tindrà la possibilitat de crear comandes de venda "
 "confirmades a partir de la comanda del TPV en curs.\n"
@@ -105,7 +110,9 @@ msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
-msgid "If checked, the cashier will have the possibility to create a draft Sale Order, based on the current draft PoS Order."
+msgid ""
+"If checked, the cashier will have the possibility to create a draft Sale "
+"Order, based on the current draft PoS Order."
 msgstr ""
 "Si està marcat, el caixer tindrà la possibilitat de crear comandes de venda "
 "en esborrany a partir de la comanda del TPV en curs."
@@ -154,7 +161,9 @@ msgstr "La comanda no es pot enviar"
 #. openerp-web
 #: code:addons/pos_order_to_sale_order/static/src/js/screens.js:105
 #, python-format
-msgid "This operation will permanently discard the current PoS Order and create a Sale Order, based on the current order lines."
+msgid ""
+"This operation will permanently discard the current PoS Order and create a "
+"Sale Order, based on the current order lines."
 msgstr ""
 "Aquesta operació descartarà de forma permanent l'actual comanda del TPV, "
 "conformada per les actuals línies de comanda."
