@@ -28,7 +28,7 @@ msgstr ""
 
 #. module: pos_quick_logout
 #. openerp-web
-#: code:addons/pos_quick_logout/static/src/xml/pos_quick_logout.xml:12
+#: code:addons/pos_quick_logout/static/src/xml/pos_quick_logout.xml:0
 #, python-format
 msgid "Log Out"
 msgstr "Desconectar"
@@ -45,8 +45,11 @@ msgstr "Configuración del punto de venta"
 
 #. module: pos_quick_logout
 #: model:ir.model.fields,help:pos_quick_logout.field_pos_config__logout_timeout
-msgid "Time out for automatic logout for sessions in this POS"
-msgstr "Tiempo para desconectar automáticamente la sesión de este TPV"
+msgid "Timeout (sec) for automatic session logout in this POS"
+msgstr ""
+
+#~ msgid "Time out for automatic logout for sessions in this POS"
+#~ msgstr "Tiempo para desconectar automáticamente la sesión de este TPV"
 
 #~ msgid "pos.config"
 #~ msgstr "Configuración del TPV"
