@@ -55,13 +55,16 @@ msgid "Created on"
 msgstr "Creado el"
 
 #. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__display_name
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__display_name
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__display_name
+#: model:ir.model.fields,field_description:pos_order_return.field_product_template__display_name
 msgid "Display Name"
 msgstr "Nombre a mostrar"
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:195
+#: code:addons/pos_order_return/models/pos_order.py:0
 #, python-format
 msgid ""
 "For legal and traceability reasons, you can not set a negative quantity (%d "
@@ -71,8 +74,11 @@ msgstr ""
 "negativa (%d %s of %s), sin en el asistente de devoluciones."
 
 #. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__id
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard__id
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__id
+#: model:ir.model.fields,field_description:pos_order_return.field_product_template__id
 msgid "ID"
 msgstr "ID"
 
@@ -82,8 +88,11 @@ msgid "Initial Quantity"
 msgstr "Cantidad inicial"
 
 #. module: pos_order_return
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line____last_update
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard____last_update
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line____last_update
+#: model:ir.model.fields,field_description:pos_order_return.field_product_template____last_update
 msgid "Last Modified on"
 msgstr "Última modificación en"
 
@@ -174,7 +183,7 @@ msgid "Refund Orders Quantity"
 msgstr "Cantidad de pedidos de devolución"
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:55
+#: code:addons/pos_order_return/models/pos_order.py:0
 #, python-format
 msgid "Return of %s"
 msgstr "Devolución de %s"
@@ -204,8 +213,8 @@ msgstr "Cantidad devuelta"
 #. module: pos_order_return
 #: model:product.product,uom_name:pos_order_return.product_product_returnable_bottle
 #: model:product.template,uom_name:pos_order_return.product_product_returnable_bottle_product_template
-msgid "Unit(s)"
-msgstr "Unidad(es)"
+msgid "Units"
+msgstr ""
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_partial_return_wizard_line__wizard_id
@@ -213,7 +222,7 @@ msgid "Wizard"
 msgstr "Asistente"
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:184
+#: code:addons/pos_order_return/models/pos_order.py:0
 #, python-format
 msgid ""
 "You can not return %d %s of %s because some refunds have already been done.\n"
@@ -223,7 +232,7 @@ msgstr ""
 " Cantidad máxima permitida : %d %s."
 
 #. module: pos_order_return
-#: code:addons/pos_order_return/models/pos_order.py:175
+#: code:addons/pos_order_return/models/pos_order.py:0
 #, python-format
 msgid ""
 "You can not return %d %s of %s because the original Order line only mentions "
@@ -231,11 +240,11 @@ msgid ""
 msgstr ""
 "No puede devolver %d %s de %s porque el pedido original solo menciona %d %s."
 
-#. module: pos_order_return
-#: model:product.product,weight_uom_name:pos_order_return.product_product_returnable_bottle
-#: model:product.template,weight_uom_name:pos_order_return.product_product_returnable_bottle_product_template
-msgid "kg"
-msgstr "kg"
+#~ msgid "Unit(s)"
+#~ msgstr "Unidad(es)"
+
+#~ msgid "kg"
+#~ msgstr "kg"
 
 #~ msgid "Lines of Point of Sale Orders"
 #~ msgstr "Líneas del Terminal Punto de Venta"
