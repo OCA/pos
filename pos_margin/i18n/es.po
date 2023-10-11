@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-10-11 12:37+0000\n"
+"PO-Revision-Date: 2023-10-11 15:38+0000\n"
 "Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -50,7 +50,7 @@ msgstr "Nombre para Mostrar"
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__id
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: pos_margin
 #: model:ir.model.fields,help:pos_margin.field_pos_order__margin
@@ -67,7 +67,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line____last_update
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última modificación en"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order__margin
@@ -77,33 +77,31 @@ msgstr "Margen"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_rate
-#, fuzzy
 msgid "Margin Rate"
 msgstr "Margen"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_report_pos_order__margin_total
 #: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_order_tree
-#, fuzzy
 msgid "Margin Total"
-msgstr "Margen"
+msgstr "Margen total"
 
 #. module: pos_margin
 #. openerp-web
 #: code:addons/pos_margin/static/src/xml/pos_margin.xml:0
 #, python-format
 msgid "Margin:"
-msgstr ""
+msgstr "Margen:"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuración del punto de venta"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order_line
 msgid "Point of Sale Order Lines"
-msgstr ""
+msgstr "Líneas de pedido del TPV"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order
@@ -113,7 +111,7 @@ msgstr "Pedidos del TPV"
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_report_pos_order
 msgid "Point of Sale Orders Report"
-msgstr ""
+msgstr "Informe de pedidos del punto de venta"
 
 #, fuzzy
 #~ msgid "Lines of Point of Sale Orders"
