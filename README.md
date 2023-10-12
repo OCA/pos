@@ -43,6 +43,7 @@ addon | version | maintainers | summary
 [pos_payment_change](pos_payment_change/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 16.0.1.0.1 |  | Point of sale: support generic payment terminal
 [pos_product_display_default_code](pos_product_display_default_code/) | 16.0.1.0.0 |  | pos: display product default code before product name
+[pos_product_packaging_multi_barcode](pos_product_packaging_multi_barcode/) | 16.0.1.0.0 |  | Make product packaging multi barcodes usable in the point of sale
 [pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Display product info by one click in Point of Sale
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.0 | [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Print multiple sale orders in POS
