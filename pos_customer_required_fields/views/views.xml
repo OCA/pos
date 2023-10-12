@@ -12,7 +12,10 @@
                 expr="//notebook/page[@name='custom_required_restriction']//field[@name='group_ids']"
                 position="after"
             >
-                <field name="apply_in_pos" />
+                <field
+                    name="apply_in_pos"
+                    attrs="{'column_invisible': [('parent.model', '!=', 'res.partner')]}"
+                />
             </xpath>
         </field>
     </record>
