@@ -29,7 +29,10 @@
         />
         <field name="arch" type="xml">
             <field name="group_ids" position="after">
-                <field name="apply_in_pos" />
+                <field
+                    name="apply_in_pos"
+                    attrs="{'invisible': [('model_name', '!=', 'res.partner')]}"
+                />
             </field>
         </field>
     </record>
