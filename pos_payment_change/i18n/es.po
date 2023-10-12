@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-19 15:33+0000\n"
-"Last-Translator: Patricia Lorenzo Bartolomé <lb.patri@gmail.com>\n"
+"PO-Revision-Date: 2023-10-12 13:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -79,6 +79,12 @@ msgid ""
 "\n"
 "Please change the payments."
 msgstr ""
+"Diferencias entre los dos valores para el pedido POS '%(name)s':\n"
+"\n"
+" * Total de todos los nuevos pagos %(total)s;\n"
+" * Total del Pedido TPV %(amount_total)s;\n"
+"\n"
+"Por favor, cambie los pagos."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__display_name
@@ -161,7 +167,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_payment_method_id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_payment_method_id
 msgid "Payment Method"
-msgstr ""
+msgstr "Método de Pago"
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard
@@ -202,7 +208,7 @@ msgid ""
 "%(user_name)s on %(today)s"
 msgstr ""
 "Los pagos de la orden %(order)s (Ref: %(ref)s) han sido modificados por "
-"%(user_name)s en %(today)s."
+"%(user_name)s en %(today)s"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
