@@ -23,7 +23,6 @@ msgstr "Mostra sempre gli sconti in base a un listino prezzi specifico"
 
 #. module: pos_pricelist_show_discount
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__discount_pricelist_id
-#: model:product.pricelist,name:pos_pricelist_show_discount.pricelist_discount_reference
 msgid "Discount Reference Pricelist"
 msgstr "Listino prezzi di riferimento sconti"
 
@@ -52,11 +51,6 @@ msgstr "Ultima modifica il"
 #: model:ir.model,name:pos_pricelist_show_discount.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
-
-#. module: pos_pricelist_show_discount
-#: model:product.pricelist,name:pos_pricelist_show_discount.pricelist_pos
-msgid "Pos Pricelist"
-msgstr "Listino Prezzi Pos"
 
 #. module: pos_pricelist_show_discount
 #: model_terms:ir.ui.view,arch_db:pos_pricelist_show_discount.pos_config_view_form
@@ -91,3 +85,6 @@ msgstr "sconto da"
 #, python-format
 msgid "display: none;"
 msgstr ""
+
+#~ msgid "Pos Pricelist"
+#~ msgstr "Listino Prezzi Pos"
