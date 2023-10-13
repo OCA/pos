@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-03-16 22:22+0000\n"
+"PO-Revision-Date: 2023-10-13 14:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_order_line__purchase_price
@@ -27,13 +27,13 @@ msgstr "Prezzo di costo"
 #. module: pos_margin
 #: model:ir.model.fields,field_description:pos_margin.field_pos_config__iface_display_margin
 msgid "Diplay Margin"
-msgstr ""
+msgstr "Visualizza margine"
 
 #. module: pos_margin
 #: model:ir.model.fields,help:pos_margin.field_pos_config__iface_display_margin
 #: model_terms:ir.ui.view,arch_db:pos_margin.view_pos_config_form
 msgid "Display Margin and Margin Rate in the frontend"
-msgstr ""
+msgstr "Visualizza margine e aliquota margine sul frontend"
 
 #. module: pos_margin
 #: model:ir.model.fields,help:pos_margin.field_pos_order__margin
@@ -71,12 +71,12 @@ msgstr "Totale margine"
 #: code:addons/pos_margin/static/src/xml/pos_margin.xml:0
 #, python-format
 msgid "Margin:"
-msgstr ""
+msgstr "Margine:"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_margin
 #: model:ir.model,name:pos_margin.model_pos_order_line
