@@ -20,7 +20,6 @@ msgstr ""
 
 #. module: pos_pricelist_show_discount
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__discount_pricelist_id
-#: model:product.pricelist,name:pos_pricelist_show_discount.pricelist_discount_reference
 msgid "Discount Reference Pricelist"
 msgstr ""
 
@@ -48,11 +47,6 @@ msgstr ""
 #. module: pos_pricelist_show_discount
 #: model:ir.model,name:pos_pricelist_show_discount.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
-
-#. module: pos_pricelist_show_discount
-#: model:product.pricelist,name:pos_pricelist_show_discount.pricelist_pos
-msgid "Pos Pricelist"
 msgstr ""
 
 #. module: pos_pricelist_show_discount
