@@ -7,19 +7,20 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-17 13:31+0000\n"
-"PO-Revision-Date: 2023-08-17 13:31+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-10-13 14:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_pricelist_show_discount
 #: model_terms:ir.ui.view,arch_db:pos_pricelist_show_discount.pos_config_view_form
 msgid "Always display discounts based on a specific pricelist."
-msgstr "Mostra sempre gli sconti in base a un listino prezzi specifico"
+msgstr "Mostra sempre gli sconti in base a un listino prezzi specifico."
 
 #. module: pos_pricelist_show_discount
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__discount_pricelist_id
@@ -30,7 +31,7 @@ msgstr "Listino prezzi di riferimento sconti"
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__display_discount_from_pricelist
 #: model_terms:ir.ui.view,arch_db:pos_pricelist_show_discount.pos_config_view_form
 msgid "Display Discount From Reference Pricelist"
-msgstr ""
+msgstr "Visualizza sconto dal listino di riferimento"
 
 #. module: pos_pricelist_show_discount
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__display_name
@@ -40,7 +41,7 @@ msgstr "Nome visualizzato"
 #. module: pos_pricelist_show_discount
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_pricelist_show_discount
 #: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config____last_update
@@ -84,7 +85,7 @@ msgstr "sconto da"
 #: code:addons/pos_pricelist_show_discount/static/src/xml/Orderline.xml:0
 #, python-format
 msgid "display: none;"
-msgstr ""
+msgstr "display: none;"
 
 #~ msgid "Pos Pricelist"
 #~ msgstr "Listino Prezzi Pos"
