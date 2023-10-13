@@ -1,16 +1,26 @@
 from odoo.exceptions import UserError, ValidationError
 from odoo.tests import Form, SavepointCase
 
+from .common import PosPricelistShowDiscountCommonSetup
 
-class TestPosConfigDiscountPricelist(SavepointCase):
+
+class TestPosConfigDiscountPricelist(
+    SavepointCase,
+    PosPricelistShowDiscountCommonSetup,
+):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        main_pricelist, discount_pricelist = cls.create_pricelists(cls.env)
+        cls.main_pos_config = cls.config_pos(
+            cls.env,
+            main_pricelist,
+            discount_pricelist,
+        )
         cls.pricelist_model = cls.env["product.pricelist"]
         cls.company_model = cls.env["res.company"]
         cls.USD = cls.env.ref("base.USD")
         cls.main_company = cls.env.ref("base.main_company")
-        cls.main_pos_config = cls.env.ref("point_of_sale.pos_config_main")
 
     def test_pos_discount_pricelist_no_change_while_open(self):
         self.main_pos_config.open_session_cb(check_coa=False)

@@ -17,8 +17,6 @@
         "views/pos_config_view.xml",
     ],
     "demo": [
-        "demo/product_pricelist_demo.xml",
-        "demo/pos_config_demo.xml",
         "demo/res_users_demo.xml",
     ],
     "qweb": [
