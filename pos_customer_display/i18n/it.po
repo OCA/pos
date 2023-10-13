@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-06-22 08:08+0000\n"
+"PO-Revision-Date: 2023-10-13 14:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -27,7 +27,7 @@ msgstr "Due righe di 20 caratteri"
 #. module: pos_customer_display
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "<span class=\"o_form_label\">LED Customer Display Configuration</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Configurazione display LED cliente</span>"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__epos_customer_display
@@ -35,11 +35,13 @@ msgid ""
 "Activate if you use an Epson LCD connected via USB (DM-D30, DM-D110 or DM-"
 "D210) to your Epson printer defined above that support the ePOS protocol."
 msgstr ""
+"Attivare se si utilizza un LCD Epson connesso via USB (DM-D30, DM-D110 or "
+"DM-D210) alla stampante Epson definita sopra che supporta il protocollo ePOS."
 
 #. module: pos_customer_display
 #: model_terms:ir.ui.view,arch_db:pos_customer_display.pos_config_view_form
 msgid "Configure display and customize messages"
-msgstr ""
+msgstr "Configurazione monitor e personalizza messaggi"
 
 #. module: pos_customer_display
 #. openerp-web
@@ -64,7 +66,7 @@ msgstr "Cancellazione riga ..."
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__iface_customer_display
@@ -92,7 +94,7 @@ msgstr ""
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__iface_customer_display
@@ -103,12 +105,12 @@ msgstr "LED schermo cliente"
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__epos_customer_display
 msgid "LED Customer Display (Epson ePOS)"
-msgstr ""
+msgstr "Video LED cliente (Epson ePOS)"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: pos_customer_display
 #: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_line_length
@@ -147,6 +149,8 @@ msgid ""
 "On '%s', you activated the LED Customer Display both via the IoTbox and via "
 "Direct Devices. You can only select one of the two options."
 msgstr ""
+"Su '%s', è stato attivato il monitor LED del cliente sia via l'IoTbox sia "
+"via dispositivi diretti. Si deve selezionare una delle due opzioni."
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
