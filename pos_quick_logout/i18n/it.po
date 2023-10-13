@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-03-22 15:22+0000\n"
+"PO-Revision-Date: 2023-10-13 14:36+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_quick_logout
 #: model_terms:ir.ui.view,arch_db:pos_quick_logout.view_pos_config_view_form_quick_logout
@@ -44,7 +44,7 @@ msgstr "Configurazione punto vendita"
 #. module: pos_quick_logout
 #: model:ir.model.fields,help:pos_quick_logout.field_pos_config__logout_timeout
 msgid "Timeout (sec) for automatic session logout in this POS"
-msgstr ""
+msgstr "Timeout (sec.) per uscita automatica dalla sessione in questo POS"
 
 #~ msgid "Time out for automatic logout for sessions in this POS"
 #~ msgstr "Timeout per l'uscita automatica dalla sessione POS"
