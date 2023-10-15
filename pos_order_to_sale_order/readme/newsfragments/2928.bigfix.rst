@@ -1,0 +1,1 @@
+Sale order line description computed by default with adding Customer note.

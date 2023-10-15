@@ -41,3 +41,37 @@ class TestUi(TestPointOfSaleHttpCommon):
         self.assertEqual(order.state, "sale")
         self.assertEqual(order.delivery_status, "full")
         self.assertEqual(order.invoice_status, "invoiced")
+
+    def test_prepare_from_pos(self):
+        self.partner = self.env["res.partner"].create({"name": "Test Partner"})
+        self.product = self.env["product.product"].create(
+            {"name": "Test Product", "default_code": "test_01"}
+        )
+
+        ICPSudo = self.env["ir.config_parameter"].sudo()
+        ICPSudo.set_param("pos_order_to_sale_order.sol_name_mode", "product_pos")
+        vals = self.env["sale.order.line"]._prepare_from_pos(
+            {
+                "product_id": self.product.id,
+                "qty": 100,
+                "discount": 0,
+                "price_unit": 14.2,
+                "customer_note": "Test Note",
+                "tax_ids": False,
+            }
+        )
+        self.assertEqual(
+            vals.get("name"), "Test Product\nTest Note", msg="Name must be the same"
+        )
+        ICPSudo.set_param("pos_order_to_sale_order.sol_name_mode", "multiline")
+        vals = self.env["sale.order.line"]._prepare_from_pos(
+            {
+                "product_id": self.product.id,
+                "qty": 100,
+                "discount": 0,
+                "price_unit": 14.2,
+                "customer_note": "Test Note",
+                "tax_ids": False,
+            }
+        )
+        self.assertNotIn("name", vals.keys(), msg="Name key must be contain in dict")
