@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-03-17 16:10+0000\n"
+"PO-Revision-Date: 2023-10-16 16:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
@@ -73,7 +73,7 @@ msgstr "Pagamento buoni pasto"
 #. module: pos_price_to_weight
 #: selection:barcode.rule,type:0
 msgid "Package"
-msgstr "Imballaggio"
+msgstr "Confezione"
 
 #. module: pos_price_to_weight
 #: model:ir.model,name:pos_price_to_weight.model_pos_config
