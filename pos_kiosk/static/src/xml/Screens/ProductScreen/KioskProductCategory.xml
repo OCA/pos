@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KioskProductCategory" owl="1">
+      <div class="w-full py-8 justify-center items-center inline-flex">
+          <div class="h-28 tablet:h-12 kiosk:h-18 justify-center items-center gap-8 flex">
+              <t t-foreach='categoriesList' t-as='category' t-key='category.id'>
+                  <div t-attf-class="w-32 h-32 bg-white rounded-xl shadow flex-col justify-center items-center gap-2 inline-flex {{ category.id === selectedCategoryId ? 'bg-red-500' : 'bg-slate-50' }}" t-on-click="trigger('switch-category', category.id)">
+                        <div class="w-10 h-10 relative">
+                            <img t-att-src="getCategoryImage(category.id)" />
+                        </div>
+                        <div t-attf-class="text-sm font-bold leading-tight {{ category.id === selectedCategoryId ? 'text-white' : 'text-gray-600' }}">
+                            <t t-esc="category.name" />
+                        </div>
+                  </div>
+              </t>
+          </div>
+      </div>
+    </t>
+
+</templates>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KioskHeader" owl="1">
+      <div>
+
+        <div class="w-full h-8 p-2 bg-white flex justify-between items-center gap-2">
+          <div class="w-28 h-6 relative">
+              <img
+                        class="w-full h-full object-contain"
+                        t-att-src="logoHeaderURL"
+                        alt="Logo"
+                    />
+          </div>
+
+          <div class="flex gap-4 items-center justify-end">
+              <div class="flex gap-2 items-center">
+                  <div
+                            class="px-3 py-2 rounded-lg flex justify-center items-center gap-2"
+                            t-on-click="syncOrders()"
+                        >
+                      <i class="fa fa-refresh" />
+                      <t t-if="blockedOrders">
+                          <div
+                                    class="text-gray-900 text-sm font-medium leading-tight flex justify-between"
+                                >
+                              Sync <t t-esc="blockedOrdersNumber" /> orders
+                          </div>
+                      </t>
+                      <t t-else="">
+                          <div
+                                    class="text-gray-900 text-sm font-medium leading-tight flex justify-between"
+                                >
+                              Update
+                          </div>
+                      </t>
+                  </div>
+
+                  <div
+                            class="w-4 mb-4 origin-top-left rotate-90 border border-gray-200"
+                        />
+
+                  <div
+                            class="px-3 py-2 rounded-lg flex justify-center items-center gap-2"
+                            t-on-click="trigger('close-pos')"
+                        >
+                      <i class="fa fa-sign-out" />
+                      <div class="text-gray-900 text-sm font-medium leading-tight">
+                          Close
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center">
+          <!-- <div class="relative w-full h-full bg-gradient-to-b from-transparent to-slate-200"></div> -->
+          <img
+                    class="w-full h-32 object-cover"
+                    t-att-src="topBannerLogo"
+                    alt="Banner Logo"
+                />
+        </div>
+      </div>
+    </t>
+
+</templates>

@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="MainScreen" owl="1">
+    <t t-name="KioskProductScreen" owl="1">
         <div>
-            <div class="relative w-screen h-[10%] overflow-hidden opacity-30" style="background: linear-gradient(to top, #ff0000, #00ff00);">
-                <img class="w-full h-[30vh] object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
-            </div>
+            <KioskHeader />
 
-            <div class="main-screen left-0 top-[10%] absolute flex-col justify-start items-center inline-flex ">
-                <div class="category-container self-stretch justify-start items-center inline-flex">
-                    <div class="grow shrink basis-0 h-[100px] justify-center items-center gap-4 flex">
-                        <t t-foreach='categories' t-as='category' t-key='category.id'>
-                            <div t-attf-class="category bg-white rounded-xl shadow flex-col justify-center items-center gap-2 inline-flex {{ category.id === selectedCategoryId ? 'bg-red-500' : '' }}" t-on-click="setCategory(category.id)">
-                                <div t-attf-class="text-sm font-bold leading-tight {{ category.id === selectedCategoryId ? 'text-white' : 'text-gray-600' }}"> 
-                                    <t t-esc="category.name" />
-                                </div>
-                            </div>
-                        </t>
-                    </div>
+            <div class="main-screen left-0 top-[10%] kiosk:top-[5%] absolute flex-col justify-start items-center">
+                <KioskProductCategory />
+
+                <div class="w-auto px-8 py-2 bg-white justify-start items-center gap-2 inline-flex">
+                    <p class="text-justify text-gray-700 text-2xl font-bold font-['Inter'] leading-loose">
+                        <t t-esc="getCategoryName()" />
+                    </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center max-h-[70vh] flex-grow overflow-y-auto overscroll-contain">
-                    <t t-foreach='sub_categories' t-as='subcategory' t-key='subcategory.id'>
+                <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center max-h-[70vh] flex-grow overflow-y-auto overscroll-contain">
+                    <t t-foreach='subCategoriesList' t-as='subcategory' t-key='subcategory.id'>
                         <div class="p-8 mt-2 mb-2 py-4 flex-col justify-center items-center gap-4 flex">
                             <div class="self-stretch justify-start items-center gap-2 inline-flex">
                                 <div class="text-justify text-gray-600 text-lg font-semibold leading-7">
@@ -47,10 +41,10 @@
                             </div>
                         </div>
                     </t>
-                </div>
+                </div>  -->
             </div>
 
-            <t t-if='haveProduct()'>
+            <!-- <t t-if='haveProduct()'>
                 <div class="cart-container">
                     <div class="left-panel">
                         <div class="button-container" t-on-click="openCart">
@@ -68,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-            </t>
+            </t> -->
         </div>
     </t>
 

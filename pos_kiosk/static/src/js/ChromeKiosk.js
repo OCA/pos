@@ -79,7 +79,7 @@ odoo.define("pos_kiosk.ChromeKiosk", function (require) {
                     `Accessing startScreen of Chrome component before 'state.uiState' to be 'READY' is not recommended.`
                 );
             }
-            return {name: "BannerScreen"};
+            return {name: "WelcomeScreen"};
         }
 
         async start() {
@@ -298,7 +298,7 @@ odoo.define("pos_kiosk.ChromeKiosk", function (require) {
             this._replaceCrashmanager();
         }
 
-        // replaces the error handling of the existing crashmanager which
+        // Replaces the error handling of the existing crashmanager which
         // uses jquery dialog to display the error, to use the pos popup
         // instead
         _replaceCrashmanager() {
@@ -306,25 +306,25 @@ odoo.define("pos_kiosk.ChromeKiosk", function (require) {
             CrashManager.include({
                 show_warning: function (error) {
                     if (self.env.pos) {
-                        // self == this component
-                        self.showPopup('ErrorPopup', {
+                        // Self == this component
+                        self.showPopup("ErrorPopup", {
                             title: error.data.title.toString(),
                             body: error.data.message,
                         });
                     } else {
-                        // this == CrashManager instance
+                        // This == CrashManager instance
                         this._super(error);
                     }
                 },
                 show_error: function (error) {
                     if (self.env.pos) {
-                        // self == this component
-                        self.showPopup('ErrorPopup', {
+                        // Self == this component
+                        self.showPopup("ErrorPopup", {
                             title: error.type,
-                            body: error.message + '\n' + error.data.debug + '\n',
+                            body: error.message + "\n" + error.data.debug + "\n",
                         });
                     } else {
-                        // this == CrashManager instance
+                        // This == CrashManager instance
                         this._super(error);
                     }
                 },
@@ -364,26 +364,6 @@ odoo.define("pos_kiosk.ChromeKiosk", function (require) {
                 },
                 false
             );
-        }
-
-        syncOrders() {
-            this.env.pos.push_orders(null, {show_error: true});
-            this.render();
-        }
-
-        get blockedOrders() {
-            if (this.env.pos.db.cache.orders) {
-                return this.env.pos.db.cache.orders.length > 0;
-            }
-        }
-
-        get blockedOrdersNumber() {
-            return this.env.pos.db.cache.orders.length;
-        }
-
-        get logoHeaderURL() {
-            const pos_config = this.env.pos.config;
-            return `/web/image?model=pos.config&field=logo_image&id=${pos_config.id}&write_date=${pos_config.write_date}&unique=1`
         }
     }
 

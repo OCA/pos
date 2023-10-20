@@ -52,13 +52,13 @@ odoo.define('pos_kiosk.KioskReceiptScreen', function (require) {
           makeOtherOrder() {
             this.env.pos.get_order().destroy();
             this.env.pos.set('selectedCategoryId', false);
-            this.showScreen("MainScreen");
+            this.showScreen("KioskProductScreen");
         }
 
         endedSession() {
             this.env.pos.get_order().destroy();
             this.env.pos.set('selectedCategoryId', false);
-            this.showScreen("BannerScreen");
+            this.showScreen("WelcomeScreen");
         }
 
         get topBannerLogo() {

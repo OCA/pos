@@ -30,6 +30,16 @@
         </script>
 
         <script src="https://cdn.tailwindcss.com" />
+        <script>
+            tailwind.config = {
+                "theme": {
+                    "screens": {
+                        "tablet": {'raw': '(min-height: 720px)'},
+                        "kiosk": {'raw': '(min-height: 1080px)'}
+                    }
+                }
+            }
+        </script>
 
         <t t-call="pos_kiosk.assets_common" />
         <script type="text/javascript" src="/pos_kiosk/static/src/js/main.js" />

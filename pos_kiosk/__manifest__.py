@@ -14,8 +14,10 @@
     ],
     "qweb": [
         "static/src/xml/ChromeKiosk.xml",
-        "static/src/xml/Screens/BannerScreen.xml",
-        "static/src/xml/Screens/MainScreen.xml",
+        "static/src/xml/Components/KioskHeader.xml",
+        "static/src/xml/Screens/WelcomeScreen.xml",
+        "static/src/xml/Screens/ProductScreen/KioskProductScreen.xml",
+        "static/src/xml/Screens/ProductScreen/KioskProductCategory.xml",
         "static/src/xml/Screens/KioskPaymentScreen.xml",
         "static/src/xml/Modals/InsertProductModal.xml",
         "static/src/xml/Modals/InsertProductConfigurableModal.xml",

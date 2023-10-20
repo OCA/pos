@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="WelcomeScreen" owl="1">
+        <div class="w-full h-full flex-col items-center inline-flex">
+            <div
+                class="max-w-full max-h-full w-full h-full flex justify-center items-center"
+            >
+                <img class="w-full h-auto" t-att-src="bannerURL" alt="Banner Image" />
+            </div>
+            <div
+                class="w-full flex justify-center items-center absolute bottom-0"
+                t-on-click="navigateToProductScreen"
+            >
+                <div
+                    class="text-white text-6xl font-bold font-['Inter'] leading-[60px] p-4 bg-zinc-800 rounded-lg mb-4 tablet:mb-32 kiosk:mb-64"
+                >
+                    Start
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

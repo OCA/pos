@@ -43,8 +43,14 @@
     <link rel="stylesheet" href="/pos_kiosk/static/src/css/style.css" />
 
     <script type="text/javascript" src="/pos_kiosk/static/src/js/ChromeKiosk.js" />
-    <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/BannerScreen.js"/>
-    <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/MainScreen.js"/>
+
+    <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/WelcomeScreen.js"/>
+
+    <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/ProductScreen/KioskProductScreen.js"/>
+    <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/ProductScreen/KioskProductCategory.js"/>
+
+    <script type="text/javascript" src="/pos_kiosk/static/src/js/Components/KioskHeader.js"/>
+
     <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/KioskPaymentScreen.js"/>
     <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/KioskReceiptScreen.js"/>
     <script type="text/javascript" src="/pos_kiosk/static/src/js/Screens/KioskClientScreen.js"/>

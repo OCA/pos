@@ -13,7 +13,7 @@ odoo.define("pos_kiosk.KioskPaymentScreen", function (require) {
 
         backScreen() {
             this.order.remove_paymentline(this.order.paymentlines.models[0]);
-            this.showScreen("MainScreen");
+            this.showScreen("KioskProductScreen");
         }
 
         countTotalItens() {

@@ -3,40 +3,8 @@
 
     <t t-name="ChromeKiosk" owl="1">
         <div class="pos bg-white w-screen h-screen relative">
-            <div class="pos-receipt-print"></div>
+            <div class="pos-receipt-print" />
             <t t-if="state.uiState === 'READY'">
-                <div class="w-full h-8 p-2 bg-white flex justify-between items-center gap-2">
-                    <div class="w-28 h-6 relative">
-                        <img class="w-full h-full object-contain" t-att-src="logoHeaderURL" alt="Logo" />
-                    </div>
-
-                    <div class="flex gap-4 items-center justify-end">
-                        <div class="flex gap-2 items-center">
-                            <div class="px-3 py-2 rounded-lg flex justify-center items-center gap-2" t-on-click="syncOrders()">
-                                <i class="fa fa-refresh" />
-                                <t t-if="blockedOrders">
-                                    <div class="text-gray-900 text-sm font-medium leading-tight flex justify-between">
-                                        Sincronizar <t t-esc="blockedOrdersNumber"/> pedidos
-                                    </div>
-                                </t>
-                                <t t-else="">
-                                    <div class="text-gray-900 text-sm font-medium leading-tight flex justify-between">
-                                        Atualizar
-                                    </div>
-                                </t>
-                            </div>
-
-                            <div class="w-4 h-px origin-top-left rotate-90 border border-gray-200"/>
-
-                            <div class="px-3 py-2 rounded-lg flex justify-center items-center gap-2" t-on-click="trigger('close-pos')">
-                                <i class="fa fa-sign-out" />
-                                <div class="text-gray-900 text-sm font-medium leading-tight" >
-                                    Sair
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <t
                     isShown="!tempScreen.isShown"
@@ -52,15 +20,23 @@
                 />
             </t>
 
-            <div t-if="['LOADING', 'CLOSING'].includes(state.uiState)" class="loader" t-transition="swing">
+            <div
+                t-if="['LOADING', 'CLOSING'].includes(state.uiState)"
+                class="loader"
+                t-transition="swing"
+            >
                 <div class="loader-feedback">
                     <h1 class="message">
                         <t t-esc="loading.message" />
                     </h1>
                     <div class="progressbar">
-                        <div class="progress" t-ref="progressbar"></div>
+                        <div class="progress" t-ref="progressbar" />
                     </div>
-                    <div t-if="loading.skipButtonIsShown" class="button skip" t-on-click="trigger('loading-skip-callback')">
+                    <div
+                        t-if="loading.skipButtonIsShown"
+                        class="button skip"
+                        t-on-click="trigger('loading-skip-callback')"
+                    >
                         Skip
                     </div>
                 </div>
