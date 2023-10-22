@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ResConfigSettings(models.TransientModel):
@@ -33,3 +33,11 @@ class ResConfigSettings(models.TransientModel):
         default="product_pos",
         config_parameter="pos_order_to_sale_order.sol_name_mode",
     )
+
+    @api.model
+    def set_values(self):
+        result = super(ResConfigSettings, self).set_values()
+        ICPSudo = self.env["ir.config_parameter"].sudo()
+        value = self.sol_name_mode or "product_pos"
+        ICPSudo.set_param("pos_order_to_sale_order.sol_name_mode", value)
+        return result

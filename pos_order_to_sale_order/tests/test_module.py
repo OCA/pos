@@ -3,7 +3,7 @@
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 
-from odoo.tests import tagged
+from odoo.tests import Form, tagged
 
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
 
@@ -75,3 +75,25 @@ class TestUi(TestPointOfSaleHttpCommon):
             }
         )
         self.assertNotIn("name", vals.keys(), msg="Name key must be contain in dict")
+
+    def test_config_settings_sol_name_mode(self):
+        Settings = self.env["res.config.settings"].with_user(self.env.user).create({})
+        with Form(Settings) as form:
+            form.sol_name_mode = "product_pos"
+        Settings.set_values()
+        Config = self.env["ir.config_parameter"].sudo()
+        self.assertEqual(
+            Config.get_param("pos_order_to_sale_order.sol_name_mode"), "product_pos"
+        )
+        with Form(Settings) as form:
+            form.sol_name_mode = "multiline"
+        Settings.set_values()
+        self.assertEqual(
+            Config.get_param("pos_order_to_sale_order.sol_name_mode"), "multiline"
+        )
+        with Form(Settings) as form:
+            form.sol_name_mode = False
+        Settings.set_values()
+        self.assertEqual(
+            Config.get_param("pos_order_to_sale_order.sol_name_mode"), "product_pos"
+        )

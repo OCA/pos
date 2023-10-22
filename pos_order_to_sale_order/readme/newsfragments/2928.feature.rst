@@ -1,0 +1,5 @@
+In Settings "Sales Order Line name composition mode" is added.
+This mode regulates preparing sale order line description at creating Sale Order from Point of Sale.
+Modes:
+- Product name + POS Comment
+- Sale Multiline Description
