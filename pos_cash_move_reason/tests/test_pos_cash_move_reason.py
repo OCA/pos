@@ -31,14 +31,9 @@ class TestPosCashMoveReason(TransactionCase):
 
     def test_take_money(self):
         # Open New Session
-        self.config.open_session_cb()
+        self.config._action_to_open_ui()
         session = self.PosSession.search(
             [("state", "=", "opening_control"), ("config_id", "=", self.config.id)]
-        )
-
-        # Get Cash Statement
-        statement = session.statement_ids.filtered(
-            lambda x: x.journal_id == self.cash_journal
         )
 
         # Take money to put in Bank
@@ -48,7 +43,7 @@ class TestPosCashMoveReason(TransactionCase):
             {
                 "move_reason_id": self.deposit_reason.id,
                 "journal_id": self.cash_journal.id,
-                "statement_id": statement.id,
+                "session_id": session.id,
                 "amount": 500,
                 "name": "Test Bank Deposit",
             }
@@ -62,7 +57,7 @@ class TestPosCashMoveReason(TransactionCase):
             [
                 ("account_id", "=", self.deposit_reason.expense_account_id.id),
                 ("debit", "=", 500.0),
-                ("id", "in", statement.move_line_ids.ids),
+                ("move_id", "in", session.statement_line_ids.mapped("move_id").ids),
             ]
         )
         # I check the created move line from the cash in
@@ -70,15 +65,10 @@ class TestPosCashMoveReason(TransactionCase):
 
     def test_take_invalid_amount(self):
         # Open New Session
-        self.config.open_session_cb()
+        self.config._action_to_open_ui()
         #
         session = self.PosSession.search(
             [("state", "=", "opening_control"), ("config_id", "=", self.config.id)]
-        )
-
-        # Get Cash Statement
-        statement = session.statement_ids.filtered(
-            lambda x: x.journal_id == self.cash_journal
         )
 
         # Enter Invalid money
@@ -89,14 +79,14 @@ class TestPosCashMoveReason(TransactionCase):
                 {
                     "move_reason_id": self.deposit_reason.id,
                     "journal_id": self.cash_journal.id,
-                    "statement_id": statement.id,
                     "amount": -100,
+                    "session_id": session.id,
                     "name": "Test Deposit",
                 }
             )
 
     def test_button_put_money(self):
-        self.config.open_session_cb()
+        self.config._action_to_open_ui()
         session = self.PosSession.search(
             [("state", "=", "opened"), ("config_id", "=", self.config.id)]
         )
