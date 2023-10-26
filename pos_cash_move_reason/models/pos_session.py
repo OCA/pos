@@ -41,5 +41,7 @@ class PosSession(models.Model):
             .sudo()
             .read()[0]
         )
-        action["context"] = {"default_move_type": move_type}
+        action["context"] = {
+            "default_move_type": move_type,
+        }
         return action

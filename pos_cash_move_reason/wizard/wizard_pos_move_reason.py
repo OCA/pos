@@ -43,12 +43,6 @@ class WizardPosMoveReason(models.TransientModel):
         readonly=True,
     )
 
-    statement_id = fields.Many2one(
-        comodel_name="account.bank.statement",
-        string="Bank Statement",
-        compute="_compute_statement_id",
-    )
-
     journal_ids = fields.Many2many(
         comodel_name="account.journal", related="move_reason_id.journal_ids"
     )
@@ -75,17 +69,6 @@ class WizardPosMoveReason(models.TransientModel):
         if any(w.amount <= 0 for w in self):
             raise UserError(_("Invalid Amount"))
 
-    @api.depends("journal_id", "session_id")
-    def _compute_statement_id(self):
-        for wizard in self:
-            statement = self.env["account.bank.statement"].browse()
-            if wizard.session_id and wizard.journal_id:
-                statements = wizard.session_id.statement_ids.filtered(
-                    lambda x, w=wizard: x.journal_id == w.journal_id
-                )
-                statement = fields.first(statements)
-            wizard.statement_id = statement
-
     def apply(self):
         self.ensure_one()
         AccountBankStatementLine = self.env["account.bank.statement.line"]
@@ -101,7 +84,7 @@ class WizardPosMoveReason(models.TransientModel):
             account_id = self.move_reason_id.expense_account_id.id
         return {
             "date": fields.Date.context_today(self),
-            "statement_id": self.statement_id.id,
+            "pos_session_id": self.session_id.id,
             "journal_id": self.journal_id.id,
             "amount": amount,
             "payment_ref": f"{self.session_id.name} - {self.name}",

@@ -20,7 +20,6 @@
                         name="journal_id"
                         attrs="{'invisible': [('move_reason_id', '=', False)]}"
                     />
-                    <field name="statement_id" invisible="1" />
                     <field name="journal_ids" invisible="1" />
                     <field name="name" />
                     <field name="amount" />
