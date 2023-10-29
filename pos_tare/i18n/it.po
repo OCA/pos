@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-16 16:37+0000\n"
+"PO-Revision-Date: 2023-10-29 17:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -218,7 +218,7 @@ msgstr "Modello prodotto"
 #: code:addons/pos_tare/static/src/xml/pos_tare.xml:82
 #, python-format
 msgid "Qty"
-msgstr "Qta."
+msgstr "Q.tà"
 
 #. module: pos_tare
 #. openerp-web
