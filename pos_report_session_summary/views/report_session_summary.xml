@@ -67,25 +67,25 @@
                                 <td class="text-right">
                                     <span
                                             t-field="statement.balance_start"
-                                            t-field-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
+                                            t-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
                                         />
                                 </td>
                                 <td class="text-right">
                                     <span
                                             t-field="statement.total_entry_encoding"
-                                            t-field-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
+                                            t-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
                                         />
                                 </td>
                                 <td class="text-right">
                                     <span
                                             t-field="statement.balance_end_real"
-                                            t-field-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
+                                            t-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
                                         />
                                 </td>
                                 <td class="text-right">
                                     <span
                                             t-field="statement.difference"
-                                            t-field-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
+                                            t-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
                                         />
                                 </td>
                                 <td
@@ -145,7 +145,7 @@
                                     <td class="text-right">
                                         <span
                                                 t-field="line.amount"
-                                                t-field-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
+                                                t-options='{"widget": "monetary", "display_currency": "statement.currency_id"}'
                                             />
                                     </td>
                                 </tr>
