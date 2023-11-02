@@ -3,27 +3,28 @@
 
     <t t-name="InsertProductConfigurableModal" owl="1">
         <div class="fixed inset-0 flex justify-center items-center z-50">
+
+            <div class="fixed inset-0 bg-gray-500 opacity-50" />
+
             <div
-                class="w-[700px] h-[800px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex"
+                class="w-[700px] h-[600px] tablet:h-[650px] kiosk:h-[750px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex z-50"
             >
                 <div
-                    class="w-[700px] h-[300px] relative bg-white rounded-tl-xl rounded-tr-xl"
+                    class="w-full h-[200px] tablet:h-[250px] kiosk:h-[350px] p-8 relative bg-white rounded-xl p-8 inline-flex items-center justify-center"
                 >
                     <img
-                        class="w-[700px] h-[300px] rounded-tl-xl"
+                        class="h-full object-contain"
                         t-att-src="productImageURL"
                         t-att-alt="props.product.display_name"
                     />
                     <div
-                        class="p-6 left-[612px] top-0 absolute justify-start items-center gap-2 inline-flex rounded-tl-xl"
+                        class="p-6 top-0 right-0 absolute justify-end items-center gap-2 inline-flex"
                     >
                         <div
-                            class="p-2 bg-white rounded-[100px] justify-start items-center gap-2 flex"
+                            class="p-2 bg-gray-100 rounded-[100px] justify-start items-center gap-2 flex"
                             t-on-click="cancel"
                         >
-                            <div class="w-6 h-6 px-[0.25rem] relative">
-                                <i class="fa fa-times" />
-                            </div>
+                            <i class="fa fa-times w-6 h-6 relative p-[7px]" />
                         </div>
                     </div>
                 </div>
@@ -46,16 +47,16 @@
                 <div class="self-stretch h-[0px] border border-gray-200" />
                 <div class="w-full flex-col justify-center items-start inline-flex">
                     <div
-                        class="self-stretch px-8 pb-2 bg-gray-50 justify-start items-start gap-2 inline-flex"
+                        class="self-stretch px-8 pb-4 pt-2 bg-gray-50 justify-start items-start gap-2 inline-flex"
                     >
                         <div
                             class="text-gray-900 text-base font-semibold leading-normal"
                         >
-                            Escolha a melhor opção
+                            Choose from the following options
                         </div>
                     </div>
                     <div
-                        class="self-stretch h-44 flex-col justify-center items-start flex"
+                        class="self-stretch h-32 pt-2 flex-col justify-center items-start flex"
                     >
                         <t t-foreach="attributes" t-as="attribute" t-key="attribute.id">
                             <div
@@ -135,7 +136,7 @@
                         <div
                             class="text-justify text-gray-50 text-lg font-semibold leading-7"
                         >
-                            Adicionar
+                            Add Product
                         </div>
                         <div
                             class="text-justify text-gray-50 text-lg font-semibold leading-7"

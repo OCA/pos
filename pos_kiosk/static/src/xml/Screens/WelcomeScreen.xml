@@ -13,7 +13,7 @@
                 t-on-click="navigateToProductScreen"
             >
                 <div
-                    class="text-white text-6xl font-bold font-['Inter'] leading-[60px] p-4 bg-zinc-800 rounded-lg mb-4 tablet:mb-32 kiosk:mb-64"
+                    class="text-white text-6xl font-bold leading-[60px] p-4 bg-zinc-800 rounded-lg mb-4 tablet:mb-32 kiosk:mb-64"
                 >
                     Start
                 </div>

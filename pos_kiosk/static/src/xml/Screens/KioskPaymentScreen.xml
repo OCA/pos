@@ -2,28 +2,42 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="KioskPaymentScreen" owl="1">
-        <div class="payment grow shrink basis-0 flex-col justify-start items-center inline-flex">
-            <div class="relative w-screen h-[10%] overflow-hidden opacity-30" style="background: linear-gradient(to top, #ff0000, #00ff00);">
-                <img class="w-full h-[30vh] object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
-            </div>
+        <div>
+            <KioskHeader />
 
-            <div class="title-container absolute inset-x-0 flex-col justify-start items-center flex">
+            <div
+                class="w-auto h-36 kiosk:h-44 kiosk:mb-40 px-8 pt-8 pb-12 flex-col justify-center items-center gap-4 flex mx-auto my-0"
+            >
                 <div class="flex-col justify-center items-center gap-4 flex">
-                    <div class="main-title text-justify text-black font-bold">
-                        Finalizar Pedido
+                    <div
+                        class="text-justify text-gray-900 text-4xl kiosk:text-6xl font-bold leading-10"
+                    >
+                        End Order
                     </div>
-                    <div class="sub-title text-justify text-black font-normal">
-                        Escolha sua forma de pagamento
+                    <div
+                        class="text-justify text-gray-500 text-2xl kiosk:text-4xl font-normal leading-loose"
+                    >
+                        Select a payment method
                     </div>
                 </div>
-
             </div>
-            
-            <div class="w-full px-2 py-3 justify-center items-center gap-12 flex">
-                <div class="payment-container justify-between items-center">
-                    <t t-foreach="payment_methods" t-as="payment_method" t-key="payment_method.id">
-                        <div class="item bg-white rounded-xl shadow border border-gray-300 flex-col justify-center items-center gap-4 inline-flex" t-on-click="addPaymentLine(payment_method)">
-                            <div class="text-gray-800 text-xl font-bold leading-7">
+
+            <div
+                class="w-auto h-36 kiosk:h-80 kiosk:p-8 kiosk:pb-20 kiosk:mt-40 px-4 justify-center items-center gap-12 flex mx-auto my-0"
+            >
+                <div class="w-auto h-auto justify-center items-center flex">
+                    <t
+                        t-foreach="payment_methods"
+                        t-as="payment_method"
+                        t-key="payment_method.id"
+                    >
+                        <div
+                            t-attf-class="w-32 h-32 kiosk:w-60 kiosk:h-60 ml-4 kiosk:ml-8 rounded-xl shadow border border-gray-100 flex-col justify-center items-center gap-4 inline-flex {{ methodPaymentLine === payment_method.id ? 'bg-gray-100' : 'bg-white' }}"
+                            t-on-click="addPaymentLine(payment_method)"
+                        >
+                            <div
+                                class="text-gray-700 text-xl kiosk:text-4xl font-bold leading-7"
+                            >
                                 <t t-esc="payment_method.name" />
                             </div>
                         </div>
@@ -31,54 +45,68 @@
                 </div>
             </div>
 
-            <div class="absolute top-[65vh] w-screen p-2 justify-center items-center gap-4 flex flex-col">
-                <div class="self-stretch items-center gap-8 flex flex-col">
-                    <div class="px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 flex" t-on-click="backScreen">
-                        <div class="text-justify text-gray-800 text-xl font-semibold leading-7">
-                            Voltar
+            <div
+                class="w-full h-36 p-8 kiosk:mt-40 justify-center items-center gap-4 flex mx-auto my-0 absolute bottom-0"
+            >
+                <div class="w-full self-stretch justify-between items-center flex">
+                    <div
+                        class="w-32 px-8 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 flex"
+                        t-on-click="backScreen"
+                    >
+                        <div
+                            class="text-justify text-gray-900 text-xl kiosk:text-3xl   font-semibold leading-7"
+                        >
+                            Back
                         </div>
                     </div>
 
-                    <div class="justify-center items-center gap-4 flex flex-col">
-                        <div class="justify-start items-center gap-4 flex flex-col">
-                            <div class="px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 flex" t-on-click="openCartModal">
+                    <div class="self-stretch justify-center items-center gap-4 flex">
+                        <div class="self-stretch justify-start items-center gap-4 flex">
+                            <div
+                                class="w-48 px-8 kiosk:w-60 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 flex"
+                                t-on-click="openCartModal"
+                            >
                                 <div class="justify-center items-center gap-2 flex">
-                                    <div class="flex-col justify-center items-start gap-1 inline-flex">
-                                        <div class="text-justify text-gray-800 text-base font-bold leading-none">
-                                            <i class="fa fa-shopping-cart" />
-                                            <t t-esc="countTotalItens()"/>
-                                            Itens
+                                    <i
+                                        class="fa fa-shopping-cart w-8 h-8 relative text-3xl"
+                                    />
+                                    <div
+                                        class="flex-col justify-center items-start gap-1 inline-flex"
+                                    >
+                                        <div
+                                            class="text-justify text-gray-900 text-base font-bold leading-none kiosk:text-xl"
+                                        >
+                                            <t t-esc="countTotalItens()" />
+                                            Items
                                         </div>
-                                        <div class="text-justify text-gray-800 text-sm font-normal leading-[14px]">
-                                            Ver carrinho
+                                        <div
+                                            class="text-justify text-gray-900 text-sm kiosk:text-xl font-normal leading-none"
+                                        >
+                                            See Cart
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <t t-if="hasPaymentline()">
-                                <div class="cart bg-red-500 rounded-lg justify-center items-center gap-8 flex" t-on-click="nextScreen()">
-                                    <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
-                                        <t t-esc="getTotalValue()" />
-                                    </div>
-                                    <div class="justify-start items-center gap-2 flex">
-                                        <div class="text-justify text-gray-50 text-xl font-semibold leading-7">
-                                            Finalizar pedido
-                                        </div>
-                                    </div>
+                            <div
+                                t-attf-class="w-auto self-stretch px-8 rounded-lg justify-center items-center gap-8 flex {{ hasPaymentline() ? 'bg-red-500' : 'bg-gray-400 opacity-40' }}"
+                                t-on-click="nextScreen()"
+                            >
+                                <div
+                                    class="text-justify text-gray-50 text-lg kiosk:text-3xl font-semibold leading-7"
+                                >
+                                    <t t-esc="getTotalValue()" />
                                 </div>
-                            </t>
-                            <t t-else="">
-                                <div class="cart bg-gray-400 rounded-lg justify-center items-center gap-8 flex">
-                                    <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
-                                        <t t-esc="getTotalValue()" />
+                                <div class="justify-start items-center gap-2 flex">
+                                    <div
+                                        class="text-justify text-gray-50 text-xl kiosk:text-3xl font-semibold leading-7"
+                                    >
+                                        End Order
                                     </div>
-                                    <div class="justify-start items-center gap-2 flex">
-                                        <div class="text-justify text-gray-50 text-xl font-semibold leading-7">
-                                            Finalizar pedido
-                                        </div>
-                                    </div>
+                                    <i
+                                        class="fa fa-arrow-right text-xl kiosk:text-3xl"
+                                    />
                                 </div>
-                            </t>
+                            </div>
                         </div>
                     </div>
                 </div>

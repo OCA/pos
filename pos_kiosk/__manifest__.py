@@ -3,7 +3,7 @@
     "version": "14.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": "Kiosk mode extension for the Point of Sale ",
-    "description": """This module allows you to use the Point of Sale in Kiosk mode.""",
+    "author": "KMEE, Odoo Community Association (OCA)",
     "depends": ["point_of_sale"],
     "development_status": "Alpha",
     "website": "https://github.com/OCA/pos",
@@ -15,6 +15,7 @@
     "qweb": [
         "static/src/xml/ChromeKiosk.xml",
         "static/src/xml/Components/KioskHeader.xml",
+        "static/src/xml/Components/KioskCartFooter.xml",
         "static/src/xml/Screens/WelcomeScreen.xml",
         "static/src/xml/Screens/ProductScreen/KioskProductScreen.xml",
         "static/src/xml/Screens/ProductScreen/KioskProductCategory.xml",

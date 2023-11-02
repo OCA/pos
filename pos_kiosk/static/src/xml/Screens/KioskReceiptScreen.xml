@@ -1,39 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-name="KioskReceiptScreen" owl="1">
         <div>
-            <div class="receipt bg-white flex-col justify-start items-start inline-flex">
-                <div class="relative overflow-hidden opacity-30">
-                    <img class="w-full object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
-                </div>
+            <div class="receipt">
 
-                <div class="title-container absolute grow shrink basis-0 flex-col justify-start items-center flex z-10">
-                    <div class="px-8 pt-2 pb-12 flex-col justify-center items-center gap-4 flex">
-                        <div class="main-title text-justify text-gray-700 font-bold">
-                            Obrigado pelo o seu pedido
+                <KioskHeader />
+
+                <div
+                    class="w-full h-96 py-2 kiosK:py-20 tablet:py-20 flex-col justify-start items-center inline-flex"
+                >
+                    <div
+                        class="self-stretch h-40 px-8 pt-2 kiosk:pt-8 tablet:pt-8 pb-8 kiosk:pb-12 tablet:pb-12 flex-col justify-center items-center gap-4 flex"
+                    >
+                        <div
+                            class="text-justify text-gray-900 text-4xl kiosk:text-6xl font-bold leading-10"
+                        >
+                            Thanks for your order!
                         </div>
-                        <div class="sub-title text-justify text-gray-500 font-normale">
-                            Volte sempre!
+                        <div
+                            class="text-justify text-gray-500 text-2xl kiosk:text-4xl font-normal leading-loose"
+                        >
+                            Come back soon!
                         </div>
                     </div>
-                    <div class="px-8 py-14 justify-center items-center gap-4 inline-flex">
-                        <div class="flex-col justify-center items-center gap-8 inline-flex">
-                            <div class="h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 inline-flex" t-on-click="makeOtherOrder()">
+                    <div
+                        class="w-96 px-8 py-6 kiosk:py-14 tablet:py-14 justify-center items-center gap-4 inline-flex"
+                    >
+                        <div
+                            class="w-full flex-col justify-center items-center gap-8 inline-flex"
+                        >
+                            <div
+                                class="self-stretch h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 inline-flex"
+                                t-on-click="makeOtherOrder()"
+                            >
                                 <div class="justify-start items-center gap-2 flex">
-                                    <div class="text-justify text-gray-50 text-xl font-semibold leading-7">
-                                        Fazer outro pedido
+                                    <div
+                                        class="text-justify text-gray-50 text-xl kiosk:text-2xl font-semibold leading-7"
+                                    >
+                                        Make another order
                                     </div>
                                 </div>
                             </div>
-                            <div class="h-20 px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 inline-flex">
-                                <div class="text-justify text-gray-800 text-xl font-semibold leading-7" t-on-click="printReceipt()">
-                                    Imprimir cupom fiscal
+                            <div
+                                class="self-stretch h-20 px-8 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 inline-flex"
+                            >
+                                <div
+                                    class="text-justify text-gray-900 text-xl kiosk:text-2xl font-semibold leading-7"
+                                    t-on-click="printReceipt()"
+                                >
+                                    Print receipt
                                 </div>
                             </div>
-                            <div class="h-20 px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 inline-flex" t-on-click="endedSession()">
-                                <div class="text-justify text-gray-800 text-xl font-semibold leading-7">
-                                    Encerrar sessão
+                            <div
+                                class="self-stretch h-20 px-8 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 inline-flex"
+                                t-on-click="endedSession()"
+                            >
+                                <div
+                                    class="text-justify text-gray-900 text-xl kiosk:text-2xl font-semibold leading-7"
+                                >
+                                    Ended session
                                 </div>
                             </div>
                         </div>

@@ -5,34 +5,71 @@
         <div>
             <KioskHeader />
 
-            <div class="main-screen left-0 top-[10%] kiosk:top-[5%] absolute flex-col justify-start items-center">
+            <div
+                class="main-screen left-0 top-[10%] kiosk:top-[5%] absolute flex-col justify-start items-center"
+            >
                 <KioskProductCategory />
 
-                <div class="w-auto px-8 py-2 bg-white justify-start items-center gap-2 inline-flex">
-                    <p class="text-justify text-gray-700 text-2xl font-bold font-['Inter'] leading-loose">
+                <!-- <div class="w-auto px-8 py-0 bg-white justify-start items-center gap-2 inline-flex">
+                    <p class="text-justify text-gray-700 text-2xl font-bold leading-loose">
                         <t t-esc="getCategoryName()" />
                     </p>
-                </div>
+                </div> -->
 
-                <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center items-center max-h-[70vh] flex-grow overflow-y-auto overscroll-contain">
-                    <t t-foreach='subCategoriesList' t-as='subcategory' t-key='subcategory.id'>
-                        <div class="p-8 mt-2 mb-2 py-4 flex-col justify-center items-center gap-4 flex">
-                            <div class="self-stretch justify-start items-center gap-2 inline-flex">
-                                <div class="text-justify text-gray-600 text-lg font-semibold leading-7">
+                <div
+                    t-attf-class="grid grid-cols-1 gap-4 justify-center items-center mt-4 tablet:mt-8 kiosk:mt-10 flex-grow overflow-y-auto overscroll-contain {{ haveProduct() ? 'max-h-[48vh] kiosk:max-h-[80vh] tablet:max-h-[67vh]' : 'max-h-[65vh] kiosk:max-h-[86vh] tablet:max-h-[80vh]' }}"
+                >
+                    <t
+                        t-foreach='subCategoriesList'
+                        t-as='subcategory'
+                        t-key='subcategory.id'
+                    >
+                        <div
+                            class="p-4 px-8 mt-2 mb-2 py-4 flex-col justify-center items-center gap-4 flex"
+                        >
+                            <div
+                                class="self-stretch justify-start items-center gap-2 inline-flex"
+                            >
+                                <div
+                                    class="text-justify text-gray-600 text-lg font-semibold leading-7"
+                                >
                                     <t t-esc='subcategory.name' />
                                 </div>
                             </div>
-                            <div class="flex flex-wrap justify-center items-center gap-4">
-                                <t t-foreach='subcategory.productList' t-as='product' t-key='product.id'>
-                                    <div class="product bg-gray-50 border-2 border-gray-200 rounded-xl flex-col justify-center items-center inline-flex" t-on-click='addProduct(product.id)'>
-                                        <img class="product-image justify-center relative rounded-xl" t-att-src="productImageURL(product.id)" t-att-alt="product.display_name"/>
-                                        <div class="h-16 p-4 flex-col justify-center items-start flex">
-                                            <div class="text-justify text-gray-900 text-sm font-normal leading-tight">
+                            <div
+                                class="flex flex-wrap justify-center items-center gap-4"
+                            >
+                                <t
+                                    t-foreach='subcategory.productList'
+                                    t-as='product'
+                                    t-key='product.id'
+                                >
+                                    <div
+                                        class="w-60 h-60 tablet:w-40 tablet:h-40 kiosk:w-60 kiosk:h-60 bg-gray-50 border-2 border-gray-200 rounded-xl flex-col justify-center items-center inline-flex"
+                                        t-on-click='addProduct(product.id)'
+                                    >
+                                        <img
+                                            class="w-auto h-40 tablet:w-auto tablet:h-20 kiosk:w-auto kiosk:h-40 py-2 relative rounded-xl"
+                                            t-att-src="productImageURL(product.id)"
+                                            t-att-alt="product.display_name"
+                                        />
+                                        <div
+                                            class="self-stretch h-16 p-4 flex-col justify-center items-start flex"
+                                        >
+                                            <div
+                                                class="text-justify text-gray-900 text-sm font-normal leading-tight"
+                                            >
                                                 <t t-esc='getProductName(product.id)' />
                                             </div>
-                                            <div class="justify-center items-center gap-2 inline-flex">
-                                                <div class="text-justify text-gray-800 text-sm font-bold leading-tight">
-                                                    <t t-esc='getProductPrice(product.id)'/>
+                                            <div
+                                                class="justify-center items-center gap-2 inline-flex"
+                                            >
+                                                <div
+                                                    class="text-justify text-gray-800 text-sm font-bold leading-tight"
+                                                >
+                                                    <t
+                                                        t-esc='getProductPrice(product.id)'
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
@@ -41,28 +78,12 @@
                             </div>
                         </div>
                     </t>
-                </div>  -->
+                </div>
             </div>
 
-            <!-- <t t-if='haveProduct()'>
-                <div class="cart-container">
-                    <div class="left-panel">
-                        <div class="button-container" t-on-click="openCart">
-                            <i class="fa fa-shopping-cart" />
-                            <div class="text-container">
-                                <div class="item-count"><t t-esc='getTotalItems()' /> Itens</div>
-                                <div class="item-description">Ver carrinho</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="price-container bg-red-500" t-on-click="openPaymentScreen">
-                        <div class="price"><t t-esc="getTotalValue()" /></div>
-                        <div class="checkout-container">
-                            <div class="checkout-text">Finalizar</div>
-                        </div>
-                    </div>
-                </div>
-            </t> -->
+            <t t-if="haveProduct()">
+                <KioskCartFooter />
+            </t>
         </div>
     </t>
 

@@ -21,18 +21,35 @@
                         </div>
                     </div>
 
-                    <div attrs="{'invisible': [('is_kiosk_mode', '=', False)]}">                    
-                        <div class="col-12 col-lg-6 o_setting_box" style="width: 200px; margin: 5%"> 
-                            <field name='banner_image' string="Banner Image" widget="image" />
+                    <div attrs="{'invisible': [('is_kiosk_mode', '=', False)]}">
+                        <div
+                            class="col-12 col-lg-6 o_setting_box"
+                            style="width: 200px; margin: 5%"
+                        >
+                            <field
+                                name='banner_image'
+                                string="Banner Image"
+                                widget="image"
+                            />
                             <label for="banner_image" />
                         </div>
 
-                        <div class="col-12 col-lg-6 o_setting_box" style="width: 200px; margin: 5%">
-                            <field name='top_banner_image' string="Top Banner Image" widget="image" />
+                        <div
+                            class="col-12 col-lg-6 o_setting_box"
+                            style="width: 200px; margin: 5%"
+                        >
+                            <field
+                                name='top_banner_image'
+                                string="Top Banner Image"
+                                widget="image"
+                            />
                             <label for="top_banner_image" />
                         </div>
 
-                        <div class="col-12 col-lg-6 o_setting_box" style="width: 200px; margin: 5%">
+                        <div
+                            class="col-12 col-lg-6 o_setting_box"
+                            style="width: 200px; margin: 5%"
+                        >
                             <field name='logo_image' widget="image" />
                             <label for="logo_image" />
                         </div>

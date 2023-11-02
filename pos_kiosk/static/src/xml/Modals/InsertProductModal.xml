@@ -4,48 +4,86 @@
     <t t-name="InsertProductModal" owl="1">
         <div class="fixed inset-0 flex justify-center items-center z-50">
 
-            <div class="fixed inset-0 bg-gray-500 opacity-50"></div>
+            <div class="fixed inset-0 bg-gray-500 opacity-50" />
 
-            <div class="w-full w-[700px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex z-50">
-                <div class="w-full h-[300px] relative bg-white rounded-xl ">
-                    <img class="w-full h-full md:h-[300px] object-contain" t-att-src="productImageURL" t-att-alt="props.product.display_name"/>
-                    <div class="p-6 lg:left-[612px] top-0 absolute justify-start items-center gap-2 inline-flex">
-                        <div class="p-2 bg-white rounded-[100px] justify-start items-center gap-2 flex" t-on-click="cancel">
-                            <div class="w-6 h-6 px-[0.25rem] relative">
-                                <i class="fa fa-times" />
-                            </div>
+            <div
+                class="w-[700px] h-[550px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex z-50"
+            >
+                <div
+                    class="w-full h-[300px] p-8 relative bg-white rounded-xl p-8 inline-flex items-center justify-center"
+                >
+                    <img
+                        class="h-full object-contain"
+                        t-att-src="productImageURL"
+                        t-att-alt="props.product.display_name"
+                    />
+                    <div
+                        class="p-6 top-0 right-0 absolute justify-end items-center gap-2 inline-flex"
+                    >
+                        <div
+                            class="p-2 bg-gray-100 rounded-[100px] justify-start items-center gap-2 flex"
+                            t-on-click="cancel"
+                        >
+                            <i class="fa fa-times w-6 h-6 relative p-[7px]" />
                         </div>
                     </div>
                 </div>
-                <div class="self-stretch h-24 px-8 py-6 flex-col justify-center items-start flex">
-                    <div class="text-justify text-gray-900 text-lg font-semibold leading-7">
+                <div
+                    class="self-stretch h-24 px-8 py-6 flex-col justify-center items-start flex"
+                >
+                    <div
+                        class="text-justify text-gray-900 text-lg font-semibold leading-7"
+                    >
                         <t t-esc="productName" />
                     </div>
                     <div class="justify-center items-center gap-2 inline-flex">
-                        <div class="text-justify text-gray-800 text-sm font-bold leading-tight">
+                        <div
+                            class="text-justify text-gray-800 text-sm font-bold leading-tight"
+                        >
                             <t t-esc="productPrice" />
                         </div>
                     </div>
                 </div>
                 <div class="self-stretch h-[0px] border border-gray-200" />
-                <div class="self-stretch p-8 justify-start items-center gap-4 inline-flex">
-                    <div class="w-[175px] self-stretch rounded-lg border border-gray-300 justify-start items-center flex">
-                        <div class="w-12 h-12 py-3 px-8 relative opacity-50 rounded-tl-xl rounded-bl-xl" t-on-click="removeQuantity">
+                <div
+                    class="self-stretch p-8 justify-start items-center gap-4 inline-flex"
+                >
+                    <div
+                        class="w-[175px] self-stretch rounded-lg border border-gray-300 justify-start items-center flex"
+                    >
+                        <div
+                            class="w-12 h-12 py-3 px-8 relative opacity-50 rounded-tl-xl rounded-bl-xl"
+                            t-on-click="removeQuantity"
+                        >
                             <i class="fa fa-minus" />
                         </div>
-                        <div class="w-[40px] self-stretch py-2 px-6 justify-center items-center gap-2 flex">
-                            <div class="text-center text-gray-900 text-2xl font-bold leading-loose">
+                        <div
+                            class="w-[40px] self-stretch py-2 px-6 justify-center items-center gap-2 flex"
+                        >
+                            <div
+                                class="text-center text-gray-900 text-2xl font-bold leading-loose"
+                            >
                                 <t t-esc="productQuantity" />
                             </div>
                         </div>
-                        <div class="w-12 h-12 py-3 px-8 relative rounded-tr-xl rounded-br-xl" t-on-click="addQuantity">
+                        <div
+                            class="w-12 h-12 py-3 px-8 relative rounded-tr-xl rounded-br-xl"
+                            t-on-click="addQuantity"
+                        >
                             <i class="fa fa-plus" />
                         </div>
                     </div>
-                    <div class="grow shrink basis-0 h-[76px] px-8 py-6 bg-red-500 rounded-lg justify-between items-center gap-4 flex" t-on-click="confirm">
-                        <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
-                            Adicionar 
-                            <div class="text-justify text-gray-50 text-lg font-semibold leading-7">
+                    <div
+                        class="w-full h-[76px] px-8 py-6 bg-red-500 rounded-lg justify-between items-center gap-4 flex"
+                        t-on-click="confirm"
+                    >
+                        <div
+                            class="text-justify text-gray-50 text-lg font-semibold leading-7"
+                        >
+                            Add Product
+                            <div
+                                class="text-justify text-gray-50 text-lg font-semibold leading-7"
+                            >
                                 <t t-esc="productTotalPrice" />
                             </div>
                         </div>

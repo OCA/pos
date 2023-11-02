@@ -1,19 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-name="ErrorModal" owl="1">
         <div class="fixed inset-0 flex justify-center items-center z-50">
-            <div class="w-[700px] h-[536px] bg-white rounded-xl shadow flex-col justify-start items-start inline-flex">
-                <p class="justify-center text-center text-gray-900 text-3xl font-semibold leading-9">
+
+            <div class="fixed inset-0 bg-gray-500 opacity-50" />
+
+            <div
+                class="w-[700px] h-[536px] p-12 bg-white rounded-xl shadow flex-col justify-start items-start inline-flex"
+            >
+                <p
+                    class="justify-center text-center text-gray-900 text-3xl font-semibold leading-9"
+                >
                     <t t-esc="props.title" />
                 </p>
-                <p class="self-stretch grow shrink basis-0 flex-col justify-center items-center gap-12 flex">
-                    <t t-esc="props.body" class="text-center text-gray-900 text-xl font-semibold leading-9" />
+                <p
+                    class="self-stretch grow shrink basis-0 flex-col justify-center items-center gap-12 flex"
+                >
+                    <t
+                        t-esc="props.body"
+                        class="text-center text-gray-900 text-3xl font-semibold leading-9"
+                    />
                 </p>
-                <div class="self-stretch p-8 justify-center items-center gap-8 inline-flex">
-                  <div class="grow shrink basis-0 h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 flex" t-on-click="confirm">
+                <div
+                    class="self-stretch p-8 justify-center items-center gap-8 inline-flex"
+                >
+                  <div
+                        class="grow shrink basis-0 h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 flex"
+                        t-on-click="confirm"
+                    >
                     <div class="justify-start items-center gap-2 flex">
-                        <div class="text-justify text-gray-50 text-xl font-semibold leading-7"><t t-esc="props.confirmText" /></div>
+                        <div
+                                class="text-justify text-gray-50 text-xl font-semibold leading-7"
+                            ><t t-esc="props.confirmText" /></div>
                     </div>
                   </div>
                 </div>

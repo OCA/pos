@@ -53,13 +53,23 @@ odoo.define("pos_kiosk.KioskPaymentScreen", function (require) {
             return this.order.paymentlines.length > 0;
         }
 
-        nextScreen() {
+        async nextScreen() {
+            if (this.order.paymentlines.length === 0) {
+                this.showPopup("ErrorPopup", {
+                    title: this.env._t("Payment Error"),
+                    body: this.env._t("Please select a payment method"),
+                });
+                return;
+            }
+
             this.showScreen("KioskClientScreen");
         }
 
-        get topBannerLogo() {
-            const pos_config = this.env.pos.config;
-            return `/web/image?model=pos.config&field=top_banner_image&id=${pos_config.id}&write_date=${pos_config.write_date}&unique=1`;
+        get methodPaymentLine() {
+            if (!this.order.paymentlines.length === 0) {
+                return false;
+            }
+            return this.order.paymentlines.models[0].payment_method.id;
         }
     }
 

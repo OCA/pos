@@ -2,50 +2,89 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="KioskClientScreen" owl="1">
-        <div class="client grow shrink basis-0 flex-col justify-start items-center inline-flex">
-            <div class="relative w-screen h-[10%] overflow-hidden opacity-30" style="background: linear-gradient(to top, #ff0000, #00ff00);">
-                <img class="w-full h-[30vh] object-cover" t-att-src="topBannerLogo" alt="Banner Logo" />
-            </div>
+        <div>
+            <KioskHeader />
 
-            <div class="title-container absolute inset-x-0 flex-col justify-start items-center flex z-10">
-                <div class="h-[12%] px-8 pt-3 pb-4 flex-col justify-center items-center gap-4 flex">
-                    <div class="main-title text-justify text-black font-bold">
-                        Para quem é o pedido?
-                    </div>
-                    <div class="sub-title text-justify text-black font-normal">
-                        Informe seu nome
-                    </div>
-                </div>
-            </div>
-
-            <div class="px-8 py-14 flex-col justify-center items-center gap-8 inline-flex">
-                <div class="flex-col justify-center items-start gap-4 flex">
-                    <div class="text-justify text-gray-900 text-lg font-normal leading-7">Seu nome</div>
-                    <input name="name" t-on-change="changeName" class="w-96 h-20 p-5 bg-white rounded-xl shadow-inner border border-gray-400 justify-start items-start gap-2 inline-flex" />
-                </div>
-
-                <div class="flex-col justify-center items-start gap-4 flex">
-                    <div class="text-justify text-gray-900 text-lg font-normal leading-7">CPF (opcional)</div>
-                    <input name="vat" t-on-change="changeVat" class="w-96 h-20 p-5 bg-white rounded-xl shadow-inner border border-gray-400 justify-start items-start gap-2 inline-flex" />
-                </div>
-            </div>
-
-            <div class="w-screen p-2 justify-center items-center gap-4">
-                <div class="self-stretch justify-between items-center gap-8 flex">
-
-                    <div class="px-8 py-5 rounded-lg border border-gray-400 justify-center items-center gap-2 flex" t-on-click="backScreen">
-                        <div class="text-justify text-gray-800 text-xl font-semibold leading-7">
-                            Voltar
+            <div
+                class="w-full h-96 tablet:pt-96 kiosk:pt-96 left-0 top-0 flex-col justify-end items-center inline-flex"
+            >
+                <div
+                    class="self-stretch h-96 pt-20 flex-col justify-start items-center inline-flex"
+                >
+                    <div
+                        class="self-stretch h-40 px-8 pt-8 flex-col justify-center items-center gap-4 flex"
+                    >
+                        <div
+                            class="text-justify text-gray-900 text-4xl kiosk:text-6xl font-bold leading-10"
+                        >
+                            Who is the order for?
+                        </div>
+                        <div
+                            class="text-justify text-gray-500 text-2xl kiosk:text-4xl font-normal leading-loose"
+                        >
+                            Enter your name
                         </div>
                     </div>
+                </div>
 
-                    <div t-attf-class="w-96 h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 inline-flex {{ currentOrder.client_name ? '' : 'opacity-40' }}" t-on-click="finalizeOrder()">
+                <div
+                    class="h-92 kiosk:h-96 px-8 pb-10 tablet:py-16 kiosk:py-16 kiosk:my-14 flex-col justify-center items-center gap-8 flex"
+                >
+                    <div class="flex-col justify-center items-start gap-4 flex">
+                        <div
+                            class="text-justify text-gray-900 text-lg kiosk:text-xl font-normal leading-77"
+                        >Your name</div>
+                        <input
+                            name="name"
+                            t-on-change="changeName"
+                            class="w-96 h-20 p-5 text-lg kiosk:text-xl bg-white rounded-xl shadow-inner border border-gray-400 justify-start items-start gap-2 inline-flex"
+                            autocomplete="off"
+                        />
+                    </div>
+
+                    <div class="w-full justify-between items-center inline-flex">
+                        <div class="flex-col justify-start items-start inline-flex">
+                            <div
+                                class="text-justify text-gray-700 text-lg kiosk:text-xl font-normal leading-7"
+                            >VAT (optional)</div>
+                            <input
+                                name="vat"
+                                t-on-change="changeVat"
+                                class="w-96 h-20 p-5 text-lg kiosk:text-xl bg-white rounded-xl shadow-inner border border-gray-400 justify-start items-start gap-2 inline-flex"
+                                autocomplete="off"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="w-full kiosk:mt-20 justify-center items-center gap-16 inline-flex"
+                >
+                    <div
+                        class="w-64 h-20 px-8 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 flex"
+                        t-on-click="backScreen"
+                    >
+                        <div
+                            class="text-justify text-gray-900 text-xl kiosk:text-2xl font-semibold leading-7"
+                        >
+                            Back
+                        </div>
+                    </div>
+                    <div
+                        t-attf-class="w-64 h-20 px-8 bg-red-500 rounded-lg justify-center items-center gap-8 flex {{ currentOrder.client_name ? '' : 'opacity-40' }}"
+                        t-on-click="finalizeOrder()"
+                    >
                         <div class="justify-start items-center gap-2 flex">
-                            <div class="text-justify text-gray-50 text-xl font-semibold leading-7">Continuar</div>
+                            <div
+                                class="text-justify text-gray-50 text-xl kiosk:text-2xl font-semibold leading-7"
+                            >
+                                Continue
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </t>
 
