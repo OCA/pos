@@ -28,7 +28,7 @@
                             name="lastname"
                             t-on-change="captureChange"
                             t-att-value="props.partner.lastname || ''"
-                            placeholder="LastName"
+                            placeholder="Last Name"
                         />
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         name="firstname"
                         t-on-change="captureChange"
                         t-att-value="props.partner.firstname || ''"
-                        placeholder="FirstName"
+                        placeholder="First Name"
                     />
                     </div>
                 </div>
