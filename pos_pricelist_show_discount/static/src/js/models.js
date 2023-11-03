@@ -39,9 +39,10 @@ odoo.define("pos_pricelist_show_discount.models", function (require) {
                     category = category.parent;
                 }
                 const date = moment();
-                const pricelist_items = _.filter(self.order.pricelist.items, function (
-                    item
-                ) {
+                const pricelist = self.pos.config.display_discount_from_pricelist
+                    ? self.pos.discount_pricelist
+                    : self.order.discount_pricelist;
+                const pricelist_items = _.filter(pricelist.items, function (item) {
                     return (
                         (!item.product_tmpl_id ||
                             item.product_tmpl_id[0] === self.product.product_tmpl_id) &&
