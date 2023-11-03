@@ -1,7 +1,7 @@
 {
     "name": "PoS show discount from pricelist",
     "summary": "PoS: show appropriate discount when discounting from pricelist",
-    "version": "14.0.1.0.3",
+    "version": "14.0.1.0.4",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Odoo Community Association (OCA), Ooops404, PyTech SRL, Akretion",

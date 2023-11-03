@@ -47,7 +47,7 @@ addon | version | maintainers | summary
 [pos_payment_change](pos_payment_change/) | 14.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 14.0.1.0.1 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.1.0 |  | Point of sale: support generic payment terminal
-[pos_pricelist_show_discount](pos_pricelist_show_discount/) | 14.0.1.0.3 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) [![pytech-bot](https://github.com/pytech-bot.png?size=30px)](https://github.com/pytech-bot) | PoS: show appropriate discount when discounting from pricelist
+[pos_pricelist_show_discount](pos_pricelist_show_discount/) | 14.0.1.0.4 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) [![pytech-bot](https://github.com/pytech-bot.png?size=30px)](https://github.com/pytech-bot) | PoS: show appropriate discount when discounting from pricelist
 [pos_product_display_default_code](pos_product_display_default_code/) | 14.0.1.0.1 |  | pos: display product default code before product name
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 14.0.1.0.2 |  | Make product multi barcodes usable in the point of sale
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 |  | sort the products by name in the point of sale instead of sorting them by the sequence field.
