@@ -55,7 +55,7 @@ addon | version | maintainers | summary
 [pos_product_template_configurator](pos_product_template_configurator/) | 14.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![isserver1](https://github.com/isserver1.png?size=30px)](https://github.com/isserver1) | Manage Product Template in Front End Point Of Sale via Configurator
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 14.0.1.0.1 |  | Add button to remove price from receipt.
 [pos_report_discount](pos_report_discount/) | 14.0.1.0.0 | [![dessanhemrayev](https://github.com/dessanhemrayev.png?size=30px)](https://github.com/dessanhemrayev) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | POS Report Discount
-[pos_report_session_summary](pos_report_session_summary/) | 14.0.1.0.2 |  | Adds a Session Summary PDF report on the POS session
+[pos_report_session_summary](pos_report_session_summary/) | 14.0.1.0.3 |  | Adds a Session Summary PDF report on the POS session
 [pos_require_product_quantity](pos_require_product_quantity/) | 14.0.1.0.0 |  | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
 [pos_reset_search](pos_reset_search/) | 14.0.1.0.1 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
 [pos_reuse_pricelist](pos_reuse_pricelist/) | 14.0.1.0.1 |  | PoS reuse pricelist

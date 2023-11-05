@@ -4,7 +4,7 @@
 
 {
     "name": "POS report Session Summary",
-    "version": "14.0.1.0.2",
+    "version": "14.0.1.0.3",
     "category": "Point Of Sale",
     "summary": "Adds a Session Summary PDF report on the POS session",
     "author": "Akretion, Odoo SA, Odoo Community Association (OCA)",
