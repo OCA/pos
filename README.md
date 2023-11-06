@@ -30,6 +30,7 @@ addon | version | maintainers | summary
 [pos_margin](pos_margin/) | 11.0.1.0.1 |  | Margin on PoS Order
 [pos_order_mgmt](pos_order_mgmt/) | 11.0.1.0.4 |  | Manage old POS Orders from the frontend
 [pos_order_return](pos_order_return/) | 11.0.1.0.1 |  | Point of Sale Order Return
+[pos_payment_change](pos_payment_change/) | 11.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_entries_globalization](pos_payment_entries_globalization/) | 11.0.1.0.1 |  | Globalize POS Payment
 [pos_picking_delayed](pos_picking_delayed/) | 11.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Delay the creation of the picking when PoS order is created
 [pos_price_to_weight](pos_price_to_weight/) | 11.0.1.0.1 |  | Compute weight based on barcodes with prices
