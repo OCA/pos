@@ -10,6 +10,6 @@ patch(PartnerDetailsEdit.prototype, {
             ...this.changes,
             birthdate_date: this.props.partner.birthdate_date || null,
         });
-    }
+    },
 });
 
