@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2023 Emanuel Cino
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
@@ -12,9 +11,9 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["point_of_sale", "partner_contact_birthdate"],
-    'assets': {
-        'point_of_sale._assets_pos': [
-            'pos_partner_birthdate/static/src/**/*',
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "pos_partner_birthdate/static/src/**/*",
         ]
     },
 }

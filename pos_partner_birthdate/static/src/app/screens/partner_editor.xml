@@ -9,7 +9,7 @@
         <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
             <div class="partner-detail col">
                 <label class="form-label label" for="state">Birthdate</label>
-                <br/>
+                <br />
                 <input
                     class="sm-form-control"
                     name="birthdate_date"
