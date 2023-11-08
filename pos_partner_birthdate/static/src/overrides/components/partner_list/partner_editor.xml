@@ -4,18 +4,16 @@
         t-name="pos_partner_birthdate.PartnerDetailsEdit"
         t-inherit="point_of_sale.PartnerDetailsEdit"
         t-inherit-mode="extension"
-        owl="1"
     >
         <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
             <div class="partner-detail col">
                 <label class="form-label label" for="state">Birthdate</label>
                 <br />
                 <input
-                    class="sm-form-control"
+                    class="detail form-control"
+                    t-model="changes.birthdate_date"
                     name="birthdate_date"
                     type="date"
-                    t-model="changes.birthdate_date"
-                    t-att-value="props.partner.birthdate_date || ''"
                     placeholder="Birthdate"
                 />
             </div>
