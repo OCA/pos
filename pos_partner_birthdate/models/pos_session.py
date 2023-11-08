@@ -10,4 +10,3 @@ class POSSession(models.Model):
         res = super()._loader_params_res_partner()
         res["search_params"]["fields"].append("birthdate_date")
         return res
-
