@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.0 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.0 |  | POS Lot Selection
-[pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.0 |  | Use vouchers as payment method in pos orders
+[pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.1 |  | Use vouchers as payment method in pos orders
 [pos_margin](pos_margin/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_membership](pos_membership/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Implement features of membership module in the Point of sale UI.
 [pos_minimize_menu](pos_minimize_menu/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Reduce size of the main menu of the point of sale.
