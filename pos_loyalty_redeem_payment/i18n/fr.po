@@ -158,7 +158,7 @@ msgstr "Un paiement électronique est déjà en cours."
 #: code:addons/pos_loyalty_redeem_payment/models/pos_config.py:0
 #, fuzzy, python-format
 msgid "This coupon has to be redeemed from payment mode (%s)."
-msgstr "Ce coupon a été remboursé."
+msgstr "Ce coupon doit être échangé à partir du mode de paiement (%s)"
 
 #. module: pos_loyalty_redeem_payment
 #: model:ir.model.fields,field_description:pos_loyalty_redeem_payment.field_pos_payment_method__used_for_loyalty_program
