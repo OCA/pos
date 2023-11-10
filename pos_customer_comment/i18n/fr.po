@@ -6,20 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-10 12:38+0000\n"
+"Last-Translator: LESTRAT21 <elodie@comptoirdecampagne.fr>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_customer_comment
 #: model:ir.model.fields,field_description:pos_customer_comment.field_res_partner__pos_comment
 #: model:ir.model.fields,field_description:pos_customer_comment.field_res_users__pos_comment
 #: model_terms:ir.ui.view,arch_db:pos_customer_comment.view_res_partner_form
 msgid "Cashier Comment"
-msgstr ""
+msgstr "Commentaire visible en caisse"
 
 #. module: pos_customer_comment
 #. odoo-javascript
@@ -27,7 +29,7 @@ msgstr ""
 #: code:addons/pos_customer_comment/static/src/xml/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Comment"
-msgstr ""
+msgstr "Commentaire"
 
 #. module: pos_customer_comment
 #: model:ir.model.fields,help:pos_customer_comment.field_res_partner__pos_comment
@@ -35,19 +37,19 @@ msgstr ""
 msgid ""
 "Comment that will be visible and editable in the Point of Sale for the  "
 "cashiers"
-msgstr ""
+msgstr "Commentaire visible et modifiable par la personne en caisse"
 
 #. module: pos_customer_comment
 #: model_terms:ir.ui.view,arch_db:pos_customer_comment.view_res_partner_form
 msgid ""
 "Comment that will be visible and editable in the Point of Sale for the "
 "cashiers"
-msgstr ""
+msgstr "Commentaire visible et modifiable par la personne en caisse"
 
 #. module: pos_customer_comment
 #: model:ir.model,name:pos_customer_comment.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #. module: pos_customer_comment
 #. odoo-javascript
@@ -55,9 +57,9 @@ msgstr ""
 #: code:addons/pos_customer_comment/static/src/xml/PartnerLine.xml:0
 #, python-format
 msgid "Has PoS Comment"
-msgstr ""
+msgstr "Il existe un commentaire pour ce client"
 
 #. module: pos_customer_comment
 #: model:ir.model,name:pos_customer_comment.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Session de caisse"
