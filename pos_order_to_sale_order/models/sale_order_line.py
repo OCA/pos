@@ -10,15 +10,9 @@ class SaleOrderLine(models.Model):
 
     @api.model
     def _prepare_from_pos(self, sequence, order_line_data):
-        ProductProduct = self.env["product.product"]
-        product = ProductProduct.browse(order_line_data["product_id"])
-        product_name = product.name
-        if order_line_data.get("customer_note"):
-            product_name += "\n" + order_line_data["customer_note"]
         return {
             "sequence": sequence,
             "product_id": order_line_data["product_id"],
-            "name": product_name,
             "product_uom_qty": order_line_data["qty"],
             "discount": order_line_data["discount"],
             "price_unit": order_line_data["price_unit"],
