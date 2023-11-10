@@ -18,3 +18,14 @@ class SaleOrderLine(models.Model):
             "price_unit": order_line_data["price_unit"],
             "tax_id": order_line_data["tax_ids"],
         }
+
+    def _get_sale_order_line_multiline_description_sale(self):
+        res = super()._get_sale_order_line_multiline_description_sale()
+
+        for (i, line_data) in enumerate(
+            self.env.context.get("pos_order_lines_data", [])
+        ):
+            if line_data.get("customer_note", False) and self.sequence == i + 1:
+                res += "\n" + line_data.get("customer_note")
+
+        return res
