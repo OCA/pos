@@ -6,7 +6,7 @@
     "name": "Point of Sale - Cashier Comment",
     "summary": "Display Customer comment in the PoS front office and allow"
     " to edit and save it by the cashier",
-    "version": "16.0.1.0.2",
+    "version": "15.0.1.0.0",
     "category": "Point of Sale",
     "maintainers": ["legalsylvain"],
     "author": "GRAP,Odoo Community Association (OCA)",
@@ -17,11 +17,13 @@
         "views/view_res_partner.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_customer_comment/static/src/css/pos_customer_comment.scss",
+        "web.assets_qweb": [
             "pos_customer_comment/static/src/xml/PartnerDetailsEdit.xml",
             "pos_customer_comment/static/src/xml/PartnerLine.xml",
-            "pos_customer_comment/static/src/js/PartnerDetailsEdit.esm.js",
+        ],
+        "point_of_sale.assets": [
+            "pos_customer_comment/static/src/css/pos_customer_comment.scss",
+            "pos_customer_comment/static/src/js/models.js",
         ],
         "web.assets_tests": [
             "pos_customer_comment/tests/tours/PosCustomerComment.tour.js",
