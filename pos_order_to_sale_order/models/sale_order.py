@@ -14,8 +14,8 @@ class SaleOrder(models.Model):
         session = PosSession.browse(order_data["pos_session_id"])
         SaleOrderLine = self.env["sale.order.line"]
         order_lines = [
-            Command.create(SaleOrderLine._prepare_from_pos(line[2]))
-            for line in order_data["lines"]
+            Command.create(SaleOrderLine._prepare_from_pos(i + 1, line_data[2]))
+            for (i, line_data) in enumerate(order_data["lines"])
         ]
         return {
             "partner_id": order_data["partner_id"],
