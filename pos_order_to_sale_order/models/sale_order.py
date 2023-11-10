@@ -31,18 +31,9 @@ class SaleOrder(models.Model):
     def create_order_from_pos(self, order_data, action):
         # Create Draft Sale order
         order_vals = self._prepare_from_pos(order_data)
-        sale_order = self.create(order_vals)
-
-        for (i, line_data) in enumerate(order_data["lines"]):
-            if line_data[2].get("customer_note", False):
-                order_line = sale_order.order_line.filtered(
-                    lambda x: x.sequence == i + 1
-                )
-                order_line.write(
-                    {
-                        "name": f"{order_line.name}\n{line_data[2].get('customer_note', False)}"
-                    }
-                )
+        sale_order = self.with_context(
+            pos_order_lines_data=[x[2] for x in order_data.get("lines", [])]
+        ).create(order_vals)
 
         # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:
