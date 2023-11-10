@@ -9,13 +9,14 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     @api.model
-    def _prepare_from_pos(self, order_line_data):
+    def _prepare_from_pos(self, sequence, order_line_data):
         ProductProduct = self.env["product.product"]
         product = ProductProduct.browse(order_line_data["product_id"])
         product_name = product.name
         if order_line_data.get("customer_note"):
             product_name += "\n" + order_line_data["customer_note"]
         return {
+            "sequence": sequence,
             "product_id": order_line_data["product_id"],
             "name": product_name,
             "product_uom_qty": order_line_data["qty"],
