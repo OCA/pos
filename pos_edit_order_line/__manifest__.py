@@ -15,6 +15,7 @@
     "depends": ["point_of_sale"],
     "external_dependencies": {},
     "demo": [],
+    "images": ["static/description/banner.png"],
     "data": ["views/res_config_settings_view.xml"],
     "assets": {
         "point_of_sale.assets": [
