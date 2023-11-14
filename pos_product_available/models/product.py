@@ -8,5 +8,4 @@ class ProductTemplate(models.Model):
     pos_center_ids = fields.Many2many(
         comodel_name='pos.config',
         string='PdV Visibles',
-    )   
-    
+    )
