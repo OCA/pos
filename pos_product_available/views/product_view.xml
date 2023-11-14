@@ -6,13 +6,13 @@
         <field name="inherit_id" ref="point_of_sale.product_template_form_view" />
         <field name="arch" type="xml">
             <xpath 
-                expr="//page[@name='pos']/group/group/field[@name='to_weight']" 
+                expr="//page[@name='pos']/group/group/field[@name='to_weight']"
                 position="after"
             >
-                <field 
-                    name="pos_center_ids" 
-                    attrs="{'invisible': [('available_in_pos', '=', False)]}" 
-                    options="{'no_create': True}" widget="many2many_tags" 
+                <field
+                    name="pos_center_ids"
+                    attrs="{'invisible': [('available_in_pos', '=', False)]}"
+                    options="{'no_create': True}" widget="many2many_tags"
                 />
             </xpath>
         </field>
