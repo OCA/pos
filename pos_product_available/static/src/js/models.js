@@ -19,7 +19,7 @@ odoo.define('point_of_sale.models', function (require) {
     var round_di = utils.round_decimals;
     var round_pr = utils.round_precision;
 
-    var exports = {};
+    var Exports = {};
 
     // The PosModel contains the Point Of Sale's representation of the backend.
     // Since the PoS must work in standalone ( Without connection to the server )
@@ -31,7 +31,7 @@ odoo.define('point_of_sale.models', function (require) {
     // There is a single instance of the PosModel for each Front-End instance, it is usually called
     // 'pos' and is available to all widgets extending PosWidget.
 
-    exports.PosModel = Backbone.Model.extend({
+    Exports.PosModel = Backbone.Model.extend({
         initialize: function (attributes) {
             Backbone.Model.prototype.initialize.call(this, attributes);
             var self = this;
@@ -456,7 +456,7 @@ odoo.define('point_of_sale.models', function (require) {
                         }
                         product.categ = _.findWhere(self.product_categories, { 'id': product.categ_id[0] });
                         product.pos = self;
-                        return new exports.Product({}, product);
+                        return new Exports.Product({}, product);
                     }));
                 },
             }, {
@@ -769,7 +769,7 @@ odoo.define('point_of_sale.models', function (require) {
         },
         // creates a new empty order and sets it as the current order
         add_new_order: function (options) {
-            var order = new exports.Order({}, { pos: this });
+            var order = new Exports.Order({}, { pos: this });
             this.get('orders').add(order);
             this.set('selectedOrder', order, options);
             return order;
@@ -789,7 +789,7 @@ odoo.define('point_of_sale.models', function (require) {
             for (var i = 0; i < jsons.length; i++) {
                 var json = jsons[i];
                 if (json.pos_session_id === this.pos_session.id) {
-                    orders.push(new exports.Order({}, {
+                    orders.push(new Exports.Order({}, {
                         pos: this,
                         json: json,
                     }));
@@ -798,7 +798,7 @@ odoo.define('point_of_sale.models', function (require) {
             for (var i = 0; i < jsons.length; i++) {
                 var json = jsons[i];
                 if (json.pos_session_id !== this.pos_session.id && (json.lines.length > 0 || json.statement_ids.length > 0)) {
-                    orders.push(new exports.Order({}, {
+                    orders.push(new Exports.Order({}, {
                         pos: this,
                         json: json,
                     }));
@@ -1301,7 +1301,7 @@ odoo.define('point_of_sale.models', function (require) {
                     } else if (existing_uids[order.uid]) {
                         report.unpaid_skipped_existing += 1;
                     } else {
-                        orders.push(new exports.Order({}, {
+                        orders.push(new Exports.Order({}, {
                             pos: this,
                             json: order,
                         }));
@@ -1331,7 +1331,7 @@ odoo.define('point_of_sale.models', function (require) {
             for (var i = 0; i < jsons.length; i++) {
                 var json = jsons[i];
                 if (json.pos_session_id === this.pos_session.id) {
-                    orders.push(new exports.Order({}, {
+                    orders.push(new Exports.Order({}, {
                         pos: this,
                         json: json,
                     }));
@@ -1671,20 +1671,20 @@ odoo.define('point_of_sale.models', function (require) {
      * @param {Object} ImplementedPaymentInterface - implemented
      * PaymentInterface
      */
-    exports.register_payment_method = function (use_payment_terminal, ImplementedPaymentInterface) {
-        exports.PosModel.prototype.electronic_payment_interfaces[use_payment_terminal] = ImplementedPaymentInterface;
+    Exports.register_payment_method = function (use_payment_terminal, ImplementedPaymentInterface) {
+        Exports.PosModel.prototype.electronic_payment_interfaces[use_payment_terminal] = ImplementedPaymentInterface;
     };
 
     // Add fields to the list of read fields when a model is loaded
     // by the point of sale.
     // e.g: module.load_fields("product.product",['price','category'])
 
-    exports.load_fields = function (model_name, fields) {
+    Exports.load_fields = function (model_name, fields) {
         if (!(fields instanceof Array)) {
             fields = [fields];
         }
 
-        var models = exports.PosModel.prototype.models;
+        var models = Exports.PosModel.prototype.models;
         for (var i = 0; i < models.length; i++) {
             var model = models[i];
             if (model.model === model_name) {
@@ -1738,13 +1738,13 @@ odoo.define('point_of_sale.models', function (require) {
     //   after:  [string] The model will be loaded after the (last loaded)
     //           named model. (applies to both model name and label)
     //
-    exports.load_models = function (models, options) {
+    Exports.load_models = function (models, options) {
         options = options || {};
         if (!(models instanceof Array)) {
             models = [models];
         }
 
-        var pmodels = exports.PosModel.prototype.models;
+        var pmodels = Exports.PosModel.prototype.models;
         var index = pmodels.length;
         if (options.before) {
             for (var i = 0; i < pmodels.length; i++) {
@@ -1765,7 +1765,7 @@ odoo.define('point_of_sale.models', function (require) {
         pmodels.splice.apply(pmodels, [index, 0].concat(models));
     };
 
-    exports.Product = Backbone.Model.extend({
+    Exports.Product = Backbone.Model.extend({
         initialize: function (attr, options) {
             _.extend(this, options);
         },
@@ -1887,7 +1887,7 @@ odoo.define('point_of_sale.models', function (require) {
     // An orderline represent one element of the content of a client's shopping cart.
     // An orderline contains a product, its quantity, its price, discount. etc.
     // An Order contains zero or more Orderlines.
-    exports.Orderline = Backbone.Model.extend({
+    Exports.Orderline = Backbone.Model.extend({
         initialize: function (attr, options) {
             this.pos = options.pos;
             this.order = options.order;
@@ -1932,12 +1932,12 @@ odoo.define('point_of_sale.models', function (require) {
             var pack_lot_lines = json.pack_lot_ids;
             for (var i = 0; i < pack_lot_lines.length; i++) {
                 var packlotline = pack_lot_lines[i][2];
-                var pack_lot_line = new exports.Packlotline({}, { 'json': _.extend({ ...packlotline }, { 'order_line': this }) });
+                var pack_lot_line = new Exports.Packlotline({}, { 'json': _.extend({ ...packlotline }, { 'order_line': this }) });
                 this.pack_lot_lines.add(pack_lot_line);
             }
         },
         clone: function () {
-            var orderline = new exports.Orderline({}, {
+            var orderline = new Exports.Orderline({}, {
                 pos: this.pos,
                 order: this.order,
                 product: this.product,
@@ -1996,7 +1996,7 @@ odoo.define('point_of_sale.models', function (require) {
             // Create new pack lot lines.
             let newPackLotLine;
             for (let newLotLine of newPackLotLines) {
-                newPackLotLine = new exports.Packlotline({}, { order_line: this });
+                newPackLotLine = new Exports.Packlotline({}, { order_line: this });
                 newPackLotLine.set({ lot_name: newLotLine.lot_name });
                 this.pack_lot_lines.add(newPackLotLine);
             }
@@ -2446,10 +2446,10 @@ odoo.define('point_of_sale.models', function (require) {
     });
 
     var OrderlineCollection = Backbone.Collection.extend({
-        model: exports.Orderline,
+        model: Exports.Orderline,
     });
 
-    exports.Packlotline = Backbone.Model.extend({
+    Exports.Packlotline = Backbone.Model.extend({
         defaults: {
             lot_name: null
         },
@@ -2483,7 +2483,7 @@ odoo.define('point_of_sale.models', function (require) {
         add: function () {
             var order_line = this.order_line,
                 index = this.collection.indexOf(this);
-            var new_lot_model = new exports.Packlotline({}, { 'order_line': this.order_line });
+            var new_lot_model = new Exports.Packlotline({}, { 'order_line': this.order_line });
             this.collection.add(new_lot_model, { at: index + 1 });
             return new_lot_model;
         },
@@ -2494,7 +2494,7 @@ odoo.define('point_of_sale.models', function (require) {
     });
 
     var PacklotlineCollection = Backbone.Collection.extend({
-        model: exports.Packlotline,
+        model: Exports.Packlotline,
         initialize: function (models, options) {
             this.order_line = options.order_line;
         },
@@ -2515,7 +2515,7 @@ odoo.define('point_of_sale.models', function (require) {
     });
 
     // Every Paymentline contains a cashregister and an amount of money.
-    exports.Paymentline = Backbone.Model.extend({
+    Exports.Paymentline = Backbone.Model.extend({
         initialize: function (attributes, options) {
             this.pos = options.pos;
             this.order = options.order;
@@ -2618,7 +2618,7 @@ odoo.define('point_of_sale.models', function (require) {
         },
 
         // returns the associated cashregister
-        //exports as JSON for server communication
+        //Exports as JSON for server communication
         export_as_JSON: function () {
             return {
                 name: time.datetime_to_str(new Date()),
@@ -2632,7 +2632,7 @@ odoo.define('point_of_sale.models', function (require) {
                 transaction_id: this.transaction_id,
             };
         },
-        //exports as JSON for receipt printing
+        //Exports as JSON for receipt printing
         export_for_printing: function () {
             return {
                 cid: this.cid,
@@ -2650,14 +2650,14 @@ odoo.define('point_of_sale.models', function (require) {
     });
 
     var PaymentlineCollection = Backbone.Collection.extend({
-        model: exports.Paymentline,
+        model: Exports.Paymentline,
     });
 
     // An order more or less represents the content of a client's shopping cart (the OrderLines)
     // plus the associated payment information (the Paymentlines)
     // there is always an active ('selected') order in the Pos, a new one is created
     // automaticaly once an order is completed and sent to the server.
-    exports.Order = Backbone.Model.extend({
+    Exports.Order = Backbone.Model.extend({
         initialize: function (attributes, options) {
             Backbone.Model.prototype.initialize.apply(this, arguments);
             var self = this;
@@ -2789,14 +2789,14 @@ odoo.define('point_of_sale.models', function (require) {
             for (var i = 0; i < orderlines.length; i++) {
                 var orderline = orderlines[i][2];
                 if (this.pos.db.get_product_by_id(orderline.product_id)) {
-                    this.add_orderline(new exports.Orderline({}, { pos: this.pos, order: this, json: orderline }));
+                    this.add_orderline(new Exports.Orderline({}, { pos: this.pos, order: this, json: orderline }));
                 }
             }
 
             var paymentlines = json.statement_ids;
             for (var i = 0; i < paymentlines.length; i++) {
                 var paymentline = paymentlines[i][2];
-                var newpaymentline = new exports.Paymentline({}, { pos: this.pos, order: this, json: paymentline });
+                var newpaymentline = new Exports.Paymentline({}, { pos: this.pos, order: this, json: paymentline });
                 this.paymentlines.add(newpaymentline);
 
                 if (i === paymentlines.length - 1) {
@@ -3078,7 +3078,7 @@ odoo.define('point_of_sale.models', function (require) {
             }
             this.assert_editable();
             options = options || {};
-            var line = new exports.Orderline({}, { pos: this.pos, order: this, product: product });
+            var line = new Exports.Orderline({}, { pos: this.pos, order: this, product: product });
             this.fix_tax_included_price(line);
 
             if (options.quantity !== undefined) {
@@ -3172,7 +3172,7 @@ odoo.define('point_of_sale.models', function (require) {
             if (this.electronic_payment_in_progress()) {
                 return false;
             } else {
-                var newPaymentline = new exports.Paymentline({}, { order: this, payment_method: payment_method, pos: this.pos });
+                var newPaymentline = new Exports.Paymentline({}, { order: this, payment_method: payment_method, pos: this.pos });
                 newPaymentline.set_amount(this.get_due());
                 this.paymentlines.add(newPaymentline);
                 this.select_paymentline(newPaymentline);
@@ -3595,16 +3595,16 @@ odoo.define('point_of_sale.models', function (require) {
     });
 
     var OrderCollection = Backbone.Collection.extend({
-        model: exports.Order,
+        model: Exports.Order,
     });
 
-    // exports = {
+    // Exports = {
     //     PosModel: PosModel,
     //     load_fields: load_fields,
     //     load_models: load_models,
     //     Orderline: Orderline,
     //     Order: Order,
     // };
-    return exports;
+    return Exports;
 
 });
