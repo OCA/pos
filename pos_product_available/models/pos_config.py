@@ -7,6 +7,6 @@ class PosConfig(models.Model):
 
     available_product = fields.Boolean()
     available_product_ids = fields.Many2many(
-        comodel_name='product.template',
-        string='Available Products',
+        comodel_name="product.template",
+        string="Available Products",
     )
