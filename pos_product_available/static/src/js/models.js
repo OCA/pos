@@ -3606,5 +3606,4 @@ odoo.define('point_of_sale.models', function (require) {
     //     Order: Order,
     // };
     return Exports;
-
 });
