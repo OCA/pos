@@ -1,6 +1,5 @@
 from odoo import fields, models
 
-
 class ProductTemplate(models.Model):
     _inherit = "product.template"
     _description = "Point of Sale Visible Product"
@@ -9,4 +8,3 @@ class ProductTemplate(models.Model):
         comodel_name="pos.config",
         string="PdV Visibles",
     )
-    
