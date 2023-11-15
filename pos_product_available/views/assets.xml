@@ -5,10 +5,7 @@
 	 inherit_id="point_of_sale.assets"
 	 name="point_of_sale assets inherit"
     >
-		<xpath
-	     expr="//script[contains(@src, '/point_of_sale/static/src/js/models.js')]"
-	     position="replace"
-		>
+	<xpath expr="." position="inside">
 			<script type="text/javascript" src="/pos_product_available/static/src/js/models.js" />
 		</xpath>
 	</template>

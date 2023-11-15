@@ -8,8 +8,8 @@
     "license": "AGPL-3",
     "depends": ["product", "point_of_sale"],
     'data': [
+        "views/assets.xml",
         "views/product_view.xml",
         "views/pos_config_view.xml",
-        "views/point_of_sale.xml",
     ],
 }
