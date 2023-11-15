@@ -7,7 +7,7 @@
     "version": "14.0.0.1.0",
     "license": "AGPL-3",
     "depends": ["product", "point_of_sale"],
-    'data': [
+    "data": [
         "views/assets.xml",
         "views/product_view.xml",
         "views/pos_config_view.xml",

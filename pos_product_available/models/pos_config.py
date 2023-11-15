@@ -10,3 +10,4 @@ class PosConfig(models.Model):
         comodel_name="product.template",
         string="Available Products",
     )
+    

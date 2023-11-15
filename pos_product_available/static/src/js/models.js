@@ -14,7 +14,7 @@ odoo.define("pos_product_available.models", function (require) {
                 ["available_in_pos", "=", true],
                 "|",
                 ["company_id", "=", self.config.company_id[0]],
-                ["company_id", "=", false]
+                ["company_id", "=", false],
             ];
             if (
                 self.config.limit_categories &&
@@ -24,7 +24,7 @@ odoo.define("pos_product_available.models", function (require) {
                 domain.push([
                     "pos_categ_id",
                     "in",
-                    self.config.iface_available_categ_ids
+                    self.config.iface_available_categ_ids,
                 ]);
                 if (
                     self.config.available_product &&
@@ -34,7 +34,7 @@ odoo.define("pos_product_available.models", function (require) {
                     domain.push([
                         "product_tmpl_id",
                         "in",
-                        self.config.available_product_ids
+                        self.config.available_product_ids,
                     ]);
                 }
             }

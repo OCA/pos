@@ -9,3 +9,4 @@ class ProductTemplate(models.Model):
         comodel_name="pos.config",
         string="PdV Visibles",
     )
+    

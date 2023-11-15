@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 	<template
-		id="pos_assets_inherit"
-		inherit_id="point_of_sale.assets"
-		name="point_of_sale assets inherit"
-	>
+	id="pos_assets_inherit"
+	inherit_id="point_of_sale.assets"
+	name="point_of_sale assets inherit"
+>
 		<xpath expr="." position="inside">
 			<script type="text/javascript" src="/pos_product_available/static/src/js/models.js" />
 		</xpath>
