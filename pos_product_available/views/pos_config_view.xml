@@ -21,7 +21,10 @@
                         <div class="text-muted">
                             Products available for this Point of Sale
                         </div>
-                        <div class="content-group mt16" attrs="{'invisible': [('available_product', '=', False)]}">
+                        <div
+                            class="content-group mt16"
+                            attrs="{'invisible': [('available_product', '=', False)]}"
+                        >
                             <field
                                 name="available_product_ids"
                                 domain="[('available_in_pos','=', True), ('pos_categ_id', 'in', iface_available_categ_ids)]"
