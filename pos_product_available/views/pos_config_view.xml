@@ -19,15 +19,15 @@
                     <div class="o_setting_right_pane">
                         <label for="available_product" />
                         <div class="text-muted">
-                            Products for this PdV
+                            Products available for this Point of Sale
                         </div>
-                        <div class="content-group mt16" attrs="{'invisible': True}">
+                        <div class="content-group mt16" attrs="{'invisible': [('available_product', '=', False)]}">
                             <field
                                 name="available_product_ids"
                                 domain="[('available_in_pos','=', True), ('pos_categ_id', 'in', iface_available_categ_ids)]"
                                 options="{'no_create': True}"
                                 widget="many2many_tags"
-                                attrs="{'readonly': [('has_active_session','=', True)]}"
+                                attrs="{'readonly': True}"
                             />
                         </div>
                     </div>
