@@ -1,0 +1,104 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_disable_rescue_session
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-22 12:11+0000\n"
+"PO-Revision-Date: 2023-11-22 12:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_disable_rescue_session
+#: model_terms:ir.ui.view,arch_db:pos_disable_rescue_session.pos_config_view_form
+msgid "Disable Rescue Session"
+msgstr "Désactiver la session de sauvetage"
+
+#. module: pos_disable_rescue_session
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_config__disable_rescue_session
+msgid "Disable rescue session"
+msgstr "Désactiver la session de sauvetage"
+
+#. module: pos_disable_rescue_session
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_order__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: pos_disable_rescue_session
+#. openerp-web
+#: code:addons/pos_disable_rescue_session/static/src/xml/RescueSessionUnavailableErrorPopup.xml:0
+#, python-format
+msgid "Don't show again"
+msgstr "Ne plus afficher"
+
+#. module: pos_disable_rescue_session
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_order__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_disable_rescue_session
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_disable_rescue_session.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: pos_disable_rescue_session
+#. openerp-web
+#: code:addons/pos_disable_rescue_session/static/src/xml/RescueSessionUnavailableErrorPopup.xml:0
+#, python-format
+msgid "Ok"
+msgstr ""
+
+#. module: pos_disable_rescue_session
+#: model:ir.model,name:pos_disable_rescue_session.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_disable_rescue_session
+#: model:ir.model,name:pos_disable_rescue_session.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: pos_disable_rescue_session
+#: model_terms:ir.ui.view,arch_db:pos_disable_rescue_session.pos_config_view_form
+msgid ""
+"Prevent the creation of a rescue session for remaining orders when the POS "
+"is closed."
+msgstr ""
+"Désactive la création d'une session de sauvetage pour les commandes restantes "
+"lorsque le point de vente est fermé."
+
+#. module: pos_disable_rescue_session
+#: model:ir.model.fields,help:pos_disable_rescue_session.field_pos_config__disable_rescue_session
+msgid ""
+"Prevent the creation of a rescue session for remaining orders when the POS is closed.\n"
+"These orders will be recovered on the next session."
+msgstr ""
+"Désactive la création d'une session de sauvetage pour les commandes restantes "
+"lorsque le point de vente est fermé.\n"
+"Ces commandes seront récupérées lors de la prochaine session."
+
+#. module: pos_disable_rescue_session
+#. openerp-web
+#: code:addons/pos_disable_rescue_session/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Session Is Closed"
+msgstr "Session fermée"
+
+#. module: pos_disable_rescue_session
+#: code:addons/pos_disable_rescue_session/models/pos_order.py:0
+#, python-format
+msgid ""
+"This PoS session has been closed and the rescue session is disabled for this"
+" PoS."
+msgstr ""
+"Cette session de point de vente a été fermée et la session de sauvetage est "
+"désactivée pour ce point de vente."
