@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright 2023 Akretion (http://www.akretion.com).
+  @author Florian Mounier <florian.mounier@akretion.com>
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+  <record id="view_pos_session_form" model="ir.ui.view">
+    <field name="model">pos.session</field>
+    <field name="inherit_id" ref="point_of_sale.view_pos_session_form" />
+    <field name="arch" type="xml">
+
+      <xpath
+                expr="//page[@name='cash_control']//field[@name='cash_real_transaction']"
+                position="attributes"
+            >
+        <attribute name="name">total_real_cash_payments</attribute>
+      </xpath>
+
+      <xpath
+                expr="//page[@name='cash_control']/group/group/div/group[2]"
+                position="after"
+            >
+        <group
+                    style="margin:0;padding:0;"
+                    attrs="{'invisible' : ['|', ('state', '!=', 'closed'), ('cash_real_total_in', '=', 0)]}"
+                >
+          <field
+                        style="text-align:right;margin:0;padding:0;"
+                        name="cash_real_total_in"
+                        widget="monetary"
+                        options="{'currency_field': 'currency_id'}"
+                        string="+ Cash In"
+                    />
+        </group>
+        <group
+                    style="margin:0;padding:0;"
+                    attrs="{'invisible' : ['|', ('state', '!=', 'closed'), ('cash_real_total_out', '=', 0)]}"
+                >
+          <field
+                        style="text-align:right;margin:0;padding:0;"
+                        name="cash_real_total_out"
+                        widget="monetary"
+                        options="{'currency_field': 'currency_id'}"
+                        string="- Cash Out"
+                    />
+        </group>
+      </xpath>
+
+
+      <xpath
+                expr="//page[@name='cash_control']//field[@name='cash_register_total_entry_encoding']"
+                position="attributes"
+            >
+        <attribute name="name">total_cash_payments</attribute>
+      </xpath>
+
+      <xpath expr="//page[@name='cash_control']/group/group/div/group" position="after">
+        <group
+                    style="margin:0;padding:0;"
+                    attrs="{'invisible' : ['|', ('state', 'in', ['opening_control', 'closed']), ('cash_register_total_in', '=', 0)]}"
+                >
+          <field
+                        style="text-align:right;margin:0;padding:0;"
+                        name="cash_register_total_in"
+                        widget="monetary"
+                        options="{'currency_field': 'currency_id'}"
+                        string="+ Cash In"
+                    />
+        </group>
+        <group
+                    style="margin:0;padding:0;"
+                    attrs="{'invisible' : ['|', ('state', 'in', ['opening_control', 'closed']), ('cash_register_total_out', '=', 0)]}"
+                >
+          <field
+                        style="text-align:right;margin:0;padding:0;"
+                        name="cash_register_total_out"
+                        widget="monetary"
+                        options="{'currency_field': 'currency_id'}"
+                        string="- Cash Out"
+                    />
+        </group>
+      </xpath>
+
+
+      <page name="cash_control" position="after">
+        <page
+                    string="Cash In/Out"
+                    name="cash_details"
+                    attrs="{'invisible' : [('cash_control', '=', False)]}"
+                >
+          <group>
+            <field name="cash_register_statement_line_ids" string="Statements">
+              <tree readonly="1" decoration-muted="is_reconciled">
+                <field name="is_reconciled" invisible="1" />
+                <field name="currency_id" invisible="1" />
+                <field name="payment_ref" />
+                <field
+                                    name="amount"
+                                    widget='monetary'
+                                    options="{'currency_field': 'currency_id'}"
+                                />
+              </tree>
+            </field>
+          </group>
+        </page>
+      </page>
+    </field>
+  </record>
+</odoo>
