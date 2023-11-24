@@ -14,8 +14,8 @@ class SaleOrder(models.Model):
         session = PosSession.browse(order_data["pos_session_id"])
         SaleOrderLine = self.env["sale.order.line"]
         order_lines = [
-            Command.create(SaleOrderLine._prepare_from_pos(line[2]))
-            for line in order_data["lines"]
+            Command.create(SaleOrderLine._prepare_from_pos(i + 1, line_data[2]))
+            for (i, line_data) in enumerate(order_data["lines"])
         ]
         return {
             "partner_id": order_data["partner_id"],
@@ -31,7 +31,9 @@ class SaleOrder(models.Model):
     def create_order_from_pos(self, order_data, action):
         # Create Draft Sale order
         order_vals = self._prepare_from_pos(order_data)
-        sale_order = self.create(order_vals)
+        sale_order = self.with_context(
+            pos_order_lines_data=[x[2] for x in order_data.get("lines", [])]
+        ).create(order_vals)
 
         # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:

@@ -9,17 +9,23 @@ class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
 
     @api.model
-    def _prepare_from_pos(self, order_line_data):
-        ProductProduct = self.env["product.product"]
-        product = ProductProduct.browse(order_line_data["product_id"])
-        product_name = product.name
-        if order_line_data.get("customer_note"):
-            product_name += "\n" + order_line_data["customer_note"]
+    def _prepare_from_pos(self, sequence, order_line_data):
         return {
+            "sequence": sequence,
             "product_id": order_line_data["product_id"],
-            "name": product_name,
             "product_uom_qty": order_line_data["qty"],
             "discount": order_line_data["discount"],
             "price_unit": order_line_data["price_unit"],
             "tax_id": order_line_data["tax_ids"],
         }
+
+    def _get_sale_order_line_multiline_description_sale(self):
+        res = super()._get_sale_order_line_multiline_description_sale()
+
+        for (i, line_data) in enumerate(
+            self.env.context.get("pos_order_lines_data", [])
+        ):
+            if line_data.get("customer_note", False) and self.sequence == i + 1:
+                res += "\n" + line_data.get("customer_note")
+
+        return res
