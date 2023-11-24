@@ -1,0 +1,32 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* pos_bank_statement_line_no_change
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_bank_statement_line_no_change
+#: model:ir.model,name:pos_bank_statement_line_no_change.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr ""
+
+#. module: pos_bank_statement_line_no_change
+#: code:addons/pos_bank_statement_line_no_change/models/account_bank_statement_line.py:22
+#, python-format
+msgid "You can not alter bank statement lines that are related to orders in paid, done or invoiced state."
+msgstr ""
+
+#. module: pos_bank_statement_line_no_change
+#: code:addons/pos_bank_statement_line_no_change/models/account_bank_statement_line.py:32
+#, python-format
+msgid "You can not unlink bank statement lines that are related to orders in paid, done or invoiced state."
+msgstr ""
+

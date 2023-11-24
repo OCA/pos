@@ -1,0 +1,20 @@
+#. module: pos_bank_statement_line_no_change
+#: model:ir.model,name:pos_bank_statement_line_no_change.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr ""
+
+#. module: pos_bank_statement_line_no_change
+#: code:addons/pos_bank_statement_line_no_change/models/account_bank_statement_line.py:22
+#, python-format
+msgid ""
+"You can not alter bank statement lines that are related to orders in paid, "
+"done or invoiced state."
+msgstr ""
+
+#. module: pos_bank_statement_line_no_change
+#: code:addons/pos_bank_statement_line_no_change/models/account_bank_statement_line.py:32
+#, python-format
+msgid ""
+"You can not unlink bank statement lines that are related to orders in paid, "
+"done or invoiced state."
+msgstr ""
