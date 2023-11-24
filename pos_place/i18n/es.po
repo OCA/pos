@@ -104,6 +104,7 @@ msgstr "Lugar:"
 #. module: pos_place
 #: model:ir.actions.act_window,name:pos_place.action_pos_place
 #: model:ir.ui.menu,name:pos_place.menu_pos_place
+#: model:ir.ui.menu,name:pos_place.menu_pos_place_account
 msgid "Places"
 msgstr "Lugares"
 

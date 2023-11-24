@@ -147,8 +147,12 @@ msgstr "Choisir un emplacement"
 
 #. module: pos_place
 #: model:ir.model.fields,help:pos_place.field_pos_config__group_pos_place_user_id
-msgid "This field is there to pass the id of the pos place user group to the point of sale client."
-msgstr "Ce champ sert à passer l'identifiant du groupe 'utilisateur des emplacements' dans le point de vente."
+msgid ""
+"This field is there to pass the id of the pos place user group to the point "
+"of sale client."
+msgstr ""
+"Ce champ sert à passer l'identifiant du groupe 'utilisateur des "
+"emplacements' dans le point de vente."
 
 #. module: pos_place
 #: model:ir.model.fields,field_description:pos_place.field_pos_config__use_pos_place
