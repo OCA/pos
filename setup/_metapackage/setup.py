@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo12-addon-pos_accented_search',
         'odoo12-addon-pos_access_right',
+        'odoo12-addon-pos_bank_statement_line_no_change',
         'odoo12-addon-pos_cache_user_restriction',
         'odoo12-addon-pos_cash_control_multiple_config',
         'odoo12-addon-pos_cash_move_reason',

@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_accented_search](pos_accented_search/) | 12.0.1.0.1 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Product search works regardless of accented characters
 [pos_access_right](pos_access_right/) | 12.0.1.0.2 |  | Point of Sale - Extra Access Right for certain actions
+[pos_bank_statement_line_no_change](pos_bank_statement_line_no_change/) | 12.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Prevent to write or unlink bank statements lines related to paid or invoiced Pos Orders
 [pos_cache_user_restriction](pos_cache_user_restriction/) | 12.0.1.0.0 | [![GSLabIt](https://github.com/GSLabIt.png?size=30px)](https://github.com/GSLabIt) | Allow access to pos cache to restricted users
 [pos_cash_control_multiple_config](pos_cash_control_multiple_config/) | 12.0.1.0.2 |  | Handle correctly opening balance in a multi point of sale context with Cash control enabled.
 [pos_cash_move_reason](pos_cash_move_reason/) | 12.0.3.2.1 |  | POS cash in-out reason
