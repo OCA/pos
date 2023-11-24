@@ -5,7 +5,7 @@
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Odoo Community Association (OCA), Ooops404, PyTech SRL, Akretion",
-    "maintainers": ["aleuffre", "pytech-bot"],
+    "maintainers": ["aleuffre", "renda-dev"],
     "license": "AGPL-3",
     "application": False,
     "installable": True,
