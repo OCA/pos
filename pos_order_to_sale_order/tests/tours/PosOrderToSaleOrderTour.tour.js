@@ -32,6 +32,31 @@ odoo.define("pos_order_to_sale_order.tour.PosOrderToSaleOrderTour", function (re
             trigger: ".product-list .product-name:contains('Whiteboard Pen')",
         },
         {
+            content:
+                "Test pos_order_to_sale_order: Order a 'Wall Shelf Unit' (price 1.98)",
+            trigger: ".product-list .product-name:contains('Wall Shelf Unit')",
+        },
+        {
+            content: "Test pos_order_to_sale_order: Click on More...",
+            trigger: "div.control-button:contains('More...')",
+            skip_trigger: "div.control-button span:contains('Customer Note')",
+        },
+        {
+            context:
+                "Test pos_order_to_sale_order: Customer Note for 'Wall Shelf Unit'",
+            trigger: "div.control-button span:contains('Customer Note')",
+        },
+        {
+            context:
+                "Test pos_order_to_sale_order: Set Customer Note for product 'Whiteboard'",
+            trigger: ".popups .popup-textarea .popup-textarea-wrap textarea",
+            run: "text Product Note",
+        },
+        {
+            context: "Test pos_order_to_sale_order: Confirm Customer Note",
+            trigger: ".modal-dialog .confirm",
+        },
+        {
             content: "Test pos_order_to_sale_order: Click on 'Customer' Button",
             trigger: "button.set-partner",
         },
