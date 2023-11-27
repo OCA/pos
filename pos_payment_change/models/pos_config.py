@@ -36,7 +36,7 @@ class PosConfig(models.Model):
         module_states = (
             self.env["ir.module.module"]
             .sudo()
-            .search([("name", "=", "l10n_fr_certification")])
+            .search([("name", "=", "l10n_fr_pos_cert")])
             .mapped("state")
         )
         if "installed" not in module_states:
