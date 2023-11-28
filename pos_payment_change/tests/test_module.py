@@ -195,3 +195,26 @@ class TestModule(TransactionCase):
             self._change_payment(
                 order, self.cash_payment_method, 10, self.bank_payment_method, 90
             )
+
+    def test_04_payment_change_security(self):
+        self.pos_config.payment_change_policy = "refund"
+        self._initialize_journals_open_session()
+        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
+
+        # the demo user should be able to do this
+        user_demo = self.env.ref("base.user_demo")
+        wizard = (
+            self.PosPaymentChangeWizard.with_user(user_demo)
+            .with_context(active_id=order.id)
+            .create({})
+        )
+        self.PosPaymentChangeWizardNewLine.with_user(user_demo).with_context(
+            active_id=order.id
+        ).create(
+            {
+                "wizard_id": wizard.id,
+                "new_payment_method_id": self.cash_payment_method.id,
+                "amount": 100.0,
+            }
+        )
+        wizard.button_change_payment()
