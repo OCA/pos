@@ -6,7 +6,7 @@
 from datetime import datetime
 
 from odoo import _, fields, models
-from odoo.exceptions import Warning as UserError
+from odoo.exceptions import UserError
 from odoo.tools import float_is_zero
 
 
