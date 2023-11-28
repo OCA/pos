@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import Command, fields
+from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests.common import TransactionCase
 
@@ -23,22 +23,6 @@ class TestModule(TransactionCase):
         ]
         self.product = self.env.ref("product.product_product_3")
         self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
-        self.pos_user = self.env["res.users"].create(
-            {
-                "login": "john",
-                "partner_id": self.env["res.partner"]
-                .create(
-                    {
-                        "name": "John the Pos Tester",
-                    }
-                )
-                .id,
-                "groups_id": [
-                    Command.link(self.env.ref("point_of_sale.group_pos_user").id),
-                    Command.link(self.env.ref("base.group_user").id),
-                ],
-            }
-        )
 
     def _initialize_journals_open_session(self):
         account_id = self.env.company.account_default_pos_receivable_account_id
@@ -217,13 +201,14 @@ class TestModule(TransactionCase):
         self._initialize_journals_open_session()
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
-        # a pos user should be able to do this
+        # the demo user should be able to do this
+        user_demo = self.env.ref("base.user_demo")
         wizard = (
-            self.PosPaymentChangeWizard.with_user(self.pos_user)
+            self.PosPaymentChangeWizard.with_user(user_demo)
             .with_context(active_id=order.id)
             .create({})
         )
-        self.PosPaymentChangeWizardNewLine.with_user(self.pos_user).with_context(
+        self.PosPaymentChangeWizardNewLine.with_user(user_demo).with_context(
             active_id=order.id
         ).create(
             {
