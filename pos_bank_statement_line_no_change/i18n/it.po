@@ -6,27 +6,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-11-30 15:36+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_bank_statement_line_no_change
 #: model:ir.model,name:pos_bank_statement_line_no_change.model_account_bank_statement_line
 msgid "Bank Statement Line"
-msgstr ""
+msgstr "Linea estratto conto"
 
 #. module: pos_bank_statement_line_no_change
 #: code:addons/pos_bank_statement_line_no_change/models/account_bank_statement_line.py:22
 #, python-format
 msgid "You can not alter bank statement lines that are related to orders in paid, done or invoiced state."
 msgstr ""
+"Non si possono modificare le righe dell'estratto conto che sono collegate a "
+"ordini in stato in pagamento, evasi o fatturati."
 
 #. module: pos_bank_statement_line_no_change
 #: code:addons/pos_bank_statement_line_no_change/models/account_bank_statement_line.py:32
 #, python-format
 msgid "You can not unlink bank statement lines that are related to orders in paid, done or invoiced state."
 msgstr ""
+"Non si possono scollegare le righe dell'estratto conto che sono collegate a "
+"ordini in stato in pagamento, evasi o fatturati."
