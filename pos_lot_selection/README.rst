@@ -68,6 +68,13 @@ Authors
 * Tecnativa
 * Camptocamp
 
+Contributors
+------------
+
+-  Tecnativa
+-  Camptocamp
+-  Nguyen Minh Chien <chien@trobz.com>
+
 Maintainers
 -----------
 
