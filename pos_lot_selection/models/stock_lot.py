@@ -21,8 +21,8 @@ class ProductionLot(models.Model):
         )
 
         lots = lots.filtered(
-            lambda l: float_compare(
-                l.product_qty, 0, precision_digits=l.product_uom_id.rounding
+            lambda rec: float_compare(
+                rec.product_qty, 0, precision_digits=rec.product_uom_id.rounding
             )
             > 0
         )
