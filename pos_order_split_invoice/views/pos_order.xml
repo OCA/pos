@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="view_pos_pos_form">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <field name="pos_reference" position="after">
+                <field name="splitting_move_id" invisible="not splitting_move_id" />
+            </field>
+            <xpath
+                expr="//field[@name='lines']//tree//field[@name='price_unit']"
+                position="after"
+            >
+                <field name="split_invoice_amount" optional="hide" widget="monetary" />
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

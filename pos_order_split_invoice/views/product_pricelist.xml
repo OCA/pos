@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="product_pricelist_form_view">
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view" />
+        <field name="arch" type="xml">
+            <group name="pricelist_discounts" position="after">
+                <group name="pricelist_split_invoice" string="Splitting">
+                    <field name="split_invoice_partner_id" />
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_pricelist_item_form_view">
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view" />
+        <field name="arch" type="xml">
+            <field name="price" position="after">
+                <field name="base" invisible="compute_price != 'split'" />
+                <field
+                    name="base_pricelist_id"
+                    invisible="compute_price != 'split'"
+                    readonly="base != 'pricelist'"
+                    required="compute_price == 'split' and base == 'pricelist'"
+                />
+                <field name="split_base" invisible="compute_price != 'split'" />
+                <field
+                    name="split_base_pricelist_id"
+                    invisible="compute_price != 'split' or split_base != 'pricelist'"
+                    readonly="split_base != 'pricelist'"
+                    required="compute_price == 'split' and split_base == 'pricelist'"
+                />
+                <label
+                    for="split_percentage"
+                    string="Split percentage"
+                    invisible="compute_price != 'split'"
+                />
+                <div class="o_row" invisible="compute_price != 'split'">
+                    <field name="split_percentage" />
+                    <span>%</span>
+                </div>
+            </field>
+            <group name="pricelist_rule_base" position="inside">
+                <div
+                    class="alert alert-info"
+                    role="alert"
+                    style="white-space: pre;"
+                    invisible="compute_price != 'split'"
+                >
+                    <field name="rule_tip" />
+                </div>
+            </group>
+        </field>
+    </record>
+
+
+
+</odoo>
