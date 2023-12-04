@@ -1,17 +1,13 @@
 /** @odoo-module **/
-const {useState} = owl;
-import PartnerDetailsEdit from "point_of_sale.PartnerDetailsEdit";
-import Registries from "point_of_sale.Registries";
+import {PartnerDetailsEdit} from "@point_of_sale/app/screens/partner_list/partner_editor/partner_editor";
+import {patch} from "@web/core/utils/patch";
 
-const PartnerDetailsEditBirthdate = (OriginalPartnerDetailsEdit) =>
-    class extends OriginalPartnerDetailsEdit {
-        setup() {
-            super.setup();
-            this.changes = useState({
-                ...this.changes,
-                birthdate_date: this.props.partner.birthdate_date || null,
-            });
-        }
-    };
-
-Registries.Component.extend(PartnerDetailsEdit, PartnerDetailsEditBirthdate);
+patch(PartnerDetailsEdit.prototype, {
+    setup() {
+        super.setup(...arguments);
+        this.changes.birthdate_date = this.props.partner.birthdate_date || null;
+    },
+    _today() {
+        return new Date().toISOString().split("T")[0];
+    },
+});

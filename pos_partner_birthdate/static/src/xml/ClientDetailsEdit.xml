@@ -6,15 +6,17 @@
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//div[hasclass('partner-details-left')]" position="inside">
-            <div class="partner-detail">
-                <span class="label">Birthdate</span>
+        <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
+
+            <div class="partner-detail col">
+                <label class="form-label label" for="birthdate_date">Birthdate</label>
                 <input
-                    class="detail"
+                    class="detail birthdate_date form-control"
+                    id="birthdate_date"
                     name="birthdate_date"
                     type="date"
+                    t-att-max="_today()"
                     t-model="changes.birthdate_date"
-                    t-on-change="captureChange"
                     placeholder="Birthdate"
                 />
             </div>
