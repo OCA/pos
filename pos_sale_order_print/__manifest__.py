@@ -3,13 +3,12 @@
 
 {
     "name": "Point of Sale Print Sales Orders",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Sales/Point of Sale",
     "summary": "Print multiple sale orders in POS",
     "depends": ["point_of_sale", "pos_sale"],
     "website": "https://github.com/OCA/pos",
     "author": "Cetmix, Odoo Community Association (OCA)",
-    "maintainers": ["CetmixGitDrone"],
     "images": ["static/description/banner.png"],
     "installable": True,
     "data": ["views/res_config_settings_view.xml"],
