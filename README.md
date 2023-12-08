@@ -35,9 +35,9 @@ addon | version | maintainers | summary
 [pos_membership](pos_membership/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Implement features of membership module in the Point of sale UI.
 [pos_minimize_menu](pos_minimize_menu/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Reduce size of the main menu of the point of sale.
 [pos_order_remove_line](pos_order_remove_line/) | 16.0.1.2.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
-[pos_order_reorder](pos_order_reorder/) | 16.0.0.1.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Simple Re-order in the Point of Sale
+[pos_order_reorder](pos_order_reorder/) | 16.0.0.1.1 |  | Simple Re-order in the Point of Sale
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 16.0.1.0.7 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
-[pos_order_to_sale_order_report](pos_order_to_sale_order_report/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Report will be downloaded after the sales order is created.
+[pos_order_to_sale_order_report](pos_order_to_sale_order_report/) | 16.0.1.0.1 |  | Report will be downloaded after the sales order is created.
 [pos_partner_birthdate](pos_partner_birthdate/) | 16.0.1.0.4 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 16.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_payment_change](pos_payment_change/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
@@ -45,10 +45,10 @@ addon | version | maintainers | summary
 [pos_product_display_default_code](pos_product_display_default_code/) | 16.0.1.0.0 |  | pos: display product default code before product name
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 16.0.1.0.0 |  | Make product multi barcodes usable in the point of sale
 [pos_product_packaging_multi_barcode](pos_product_packaging_multi_barcode/) | 16.0.1.0.0 |  | Make product packaging multi barcodes usable in the point of sale
-[pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Display product info by one click in Point of Sale
+[pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.1 |  | Display product info by one click in Point of Sale
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
-[pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.0 | [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Print multiple sale orders in POS
-[pos_stock_available_online](pos_stock_available_online/) | 16.0.1.0.0 | [![GabbasovDinar](https://github.com/GabbasovDinar.png?size=30px)](https://github.com/GabbasovDinar) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Show the available quantity of products in the Point of Sale
+[pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.1 |  | Print multiple sale orders in POS
+[pos_stock_available_online](pos_stock_available_online/) | 16.0.1.0.1 |  | Show the available quantity of products in the Point of Sale
 
 [//]: # (end addons)
 

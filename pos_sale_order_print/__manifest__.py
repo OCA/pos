@@ -3,7 +3,7 @@
 
 {
     "name": "Point of Sale Print Sales Orders",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Sales/Point of Sale",
     "summary": "Print multiple sale orders in POS",
     "depends": ["point_of_sale", "pos_sale"],
