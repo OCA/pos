@@ -9,7 +9,6 @@
     "depends": ["point_of_sale", "pos_sale"],
     "website": "https://github.com/OCA/pos",
     "author": "Cetmix, Odoo Community Association (OCA)",
-    "maintainers": ["CetmixGitDrone"],
     "images": ["static/description/banner.png"],
     "installable": True,
     "data": ["views/res_config_settings_view.xml"],

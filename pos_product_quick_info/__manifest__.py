@@ -7,7 +7,6 @@
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
     "website": "https://github.com/OCA/pos",
-    "maintainers": ["GabbasovDinar", "CetmixGitDrone"],
     "images": ["static/description/banner.png"],
     "data": ["views/res_config_settings_view.xml"],
     "assets": {
