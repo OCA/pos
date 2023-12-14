@@ -1,0 +1,82 @@
+/*
+    Copyright 2023 Camptocamp SA (https://www.camptocamp.com).
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+*/
+
+.pos .popup.product-label-popup {
+    form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1em;
+        text-align: left;
+        font-size: 1rem;
+
+        @media (min-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        & > section {
+            height: fit-content;
+            display: grid;
+            grid-template-columns: fit-content(150px) 1fr;
+            gap: 1em;
+            padding: 0.5em;
+
+            & > div {
+                display: contents;
+            }
+        }
+
+        label {
+            line-height: 1.75em;
+            font-family: inherit;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            font-size: 1em;
+            font-family: inherit;
+            border: none;
+            background: white;
+            width: auto;
+            min-height: auto;
+            padding: 0.25em 0.5em;
+            border-radius: 0.2em;
+            box-shadow: 0px 0px 0px 1px gainsboro inset;
+
+            &:focus {
+                outline: none;
+                box-shadow: 0px 0px 0px 3px $primary;
+            }
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        select {
+            padding: 0.25em;
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0;
+            border: none;
+            display: grid;
+            grid-template-columns: fit-content(2em) auto;
+            row-gap: 0.5em;
+
+            & > label {
+                font-weight: normal;
+            }
+        }
+
+        input[type="radio"] {
+            box-shadow: none;
+            margin: 0;
+            margin-right: 0.5em;
+        }
+    }
+}

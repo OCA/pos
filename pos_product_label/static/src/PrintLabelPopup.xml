@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PrintLabelPopup" owl="1">
+        <div class="popup popup-text popup-med product-label-popup">
+            <header class="title">Choose Labels Layout</header>
+            <main class="body">
+                <form>
+                    <section>
+                        <div>
+                            <label for="quantityToPrint">Quantity to Print</label>
+                            <select t-model="data.quantityToPrint" id="quantityToPrint">
+                                <option value="order">Order Quantities</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div t-if="data.quantityToPrint == 'custom'">
+                            <label for="quantity">Quantity</label>
+                            <input
+                                type="number"
+                                t-model="data.quantity"
+                                id="quantity"
+                            />
+                        </div>
+                        <div>
+                            <label for="format">Format</label>
+                            <fieldset name="format">
+                                <t
+                                    t-foreach="printFormatOptions"
+                                    t-as="format"
+                                    t-key="format"
+                                >
+                                    <input
+                                        type="radio"
+                                        t-model="data.format"
+                                        t-att-id="format"
+                                        t-att-value="format"
+                                    />
+                                    <label
+                                        t-att-for="format"
+                                        t-esc="printFormatOptions[format]"
+                                    />
+                                </t>
+                            </fieldset>
+                        </div>
+                    </section>
+                    <section>
+                        <div>
+                            <label for="extraContent">Extra Content</label>
+                            <textarea
+                                rows="4"
+                                t-model="data.extraContent"
+                                id="extraContent"
+                            />
+                        </div>
+                    </section>
+                </form>
+            </main>
+            <footer class="footer">
+                <div class="button highlight confirm" t-on-click="confirm">
+                    Print
+                </div>
+                <div class="button cancel" t-on-click="cancel">
+                    Cancel
+                </div>
+            </footer>
+        </div>
+    </t>
+
+</templates>
