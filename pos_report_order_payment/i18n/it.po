@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-06-20 14:08+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-12-14 11:35+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -112,13 +112,13 @@ msgstr "Pagato"
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_amount
 msgid "Paid Amount"
-msgstr "Imposto pagato"
+msgstr "Importo pagato"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__payment_journal_id
 #: model_terms:ir.ui.view,arch_db:pos_report_order_payment.view_report_pos_order_payment_search
 msgid "Payment Journal"
-msgstr "Registro pagamento"
+msgstr "Registro pagamenti"
 
 #. module: pos_report_order_payment
 #: model:ir.model.fields,field_description:pos_report_order_payment.field_report_pos_order_payment__pos_categ_id
