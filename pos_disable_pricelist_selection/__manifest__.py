@@ -7,6 +7,7 @@
     "license": "LGPL-3",
     "category": "Purchase",
     "website": "https://github.com/OCA/pos",
+    "maintainers": ["ilyasprogrammer"],
     "depends": ["point_of_sale"],
     "external_dependencies": {},
     "demo": [],
