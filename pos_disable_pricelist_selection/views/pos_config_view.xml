@@ -18,6 +18,34 @@
                     <field name="hide_pricelist_button" />
                 </div>
             </xpath>
+            <xpath expr="//field[@name='available_pricelist_ids']/.." position="after">
+                <div
+                    class="row mt16"
+                    attrs="{'invisible': [('hide_pricelist_button','=', True)]}"
+                >
+                    <label
+                        for="selectable_pricelist_ids"
+                        class="col-lg-3 o_light_label"
+                    />
+                    <field
+                        name="selectable_pricelist_ids"
+                        widget="many2many_tags"
+                        attrs="{'required': [('hide_pricelist_button','=', False)]}"
+                    />
+                </div>
+                <div
+                    class="text-muted"
+                    attrs="{'invisible': [('hide_pricelist_button','=', True)]}"
+                >
+                    Make sure Default Pricelist is within selectable pricelists.
+                </div>
+            </xpath>
+            <field name="pricelist_id" position="before">
+                <field name="pricelist_id_domain" invisible="1" />
+            </field>
+            <field name="pricelist_id" position="attributes">
+                <attribute name="domain">pricelist_id_domain</attribute>
+            </field>
         </field>
     </record>
 </odoo>

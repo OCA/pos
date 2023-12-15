@@ -6,6 +6,14 @@
                 type="text/javascript"
                 src="/pos_disable_pricelist_selection/static/src/js/ProductScreen.js"
             />
+            <script
+                type="text/javascript"
+                src="/pos_disable_pricelist_selection/static/src/js/PosModel.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_disable_pricelist_selection/static/src/js/SetPricelistButton.js"
+            />
         </xpath>
     </template>
 </odoo>
