@@ -27,6 +27,8 @@ odoo.define("pos_sale_pos_event_sale.models", function (require) {
                 );
                 this.event_ticket_id =
                     saleOrderLine.event_ticket_id && saleOrderLine.event_ticket_id[0];
+                // Force a recomputation through getEventSaleDescription
+                this.full_product_name = undefined;
             } else {
                 return OrderlineSuper.setQuantityFromSOL.apply(this, arguments);
             }
