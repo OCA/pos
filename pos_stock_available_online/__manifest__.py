@@ -1,6 +1,6 @@
 {
     "name": "Point of Sale Stock Available Online",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "category": "Sales/Point of Sale",
     "summary": "Show the available quantity of products in the Point of Sale ",
     "depends": ["point_of_sale", "stock_available", "base_automation"],

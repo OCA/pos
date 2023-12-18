@@ -48,7 +48,7 @@ addon | version | maintainers | summary
 [pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.1 |  | Display product info by one click in Point of Sale
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.1 |  | Print multiple sale orders in POS
-[pos_stock_available_online](pos_stock_available_online/) | 16.0.1.0.1 |  | Show the available quantity of products in the Point of Sale
+[pos_stock_available_online](pos_stock_available_online/) | 16.0.1.0.2 |  | Show the available quantity of products in the Point of Sale
 
 [//]: # (end addons)
 
