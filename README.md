@@ -17,7 +17,11 @@ Odoo modules for Point of Sale.
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[pos_partner_birthdate](pos_partner_birthdate/) | 17.0.1.0.0 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 
 [//]: # (end addons)
 
