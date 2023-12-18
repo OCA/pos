@@ -32,6 +32,7 @@ addon | version | maintainers | summary
 [pos_lot_selection](pos_lot_selection/) | 15.0.1.0.1 |  | POS Lot Selection
 [pos_payment_change](pos_payment_change/) | 15.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_product_display_default_code](pos_product_display_default_code/) | 15.0.1.0.0 |  | pos: display product default code before product name
+[pos_product_template](pos_product_template/) | 15.0.1.0.0 |  | Manage Product Template in Front End Point Of Sale
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 15.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_report_session_summary](pos_report_session_summary/) | 15.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
 [pos_sale_pos_event_sale](pos_sale_pos_event_sale/) | 15.0.1.0.1 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Glue module between pos_sale and pos_event_sale
