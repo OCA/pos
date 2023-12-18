@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="PartnerDetailsEdit"
+        t-inherit="point_of_sale.PartnerDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
+
+            <div class="partner-detail col">
+                <label class="form-label label" for="birthdate_date">Birthdate</label>
+                <input
+                    class="detail birthdate_date form-control"
+                    id="birthdate_date"
+                    name="birthdate_date"
+                    type="date"
+                    t-att-max="_today()"
+                    t-model="changes.birthdate_date"
+                    placeholder="Birthdate"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>
