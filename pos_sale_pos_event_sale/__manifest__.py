@@ -5,7 +5,7 @@
 {
     "name": "POS Sale and POS Event Sale",
     "summary": "Glue module between pos_sale and pos_event_sale",
-    "version": "15.0.1.0.0",
+    "version": "15.0.1.0.1",
     "author": "Moka Tourisme, Odoo Community Association (OCA)",
     "maintainers": ["ivantodorovich"],
     "website": "https://github.com/OCA/pos",

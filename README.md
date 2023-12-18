@@ -33,7 +33,7 @@ addon | version | maintainers | summary
 [pos_product_display_default_code](pos_product_display_default_code/) | 15.0.1.0.0 |  | pos: display product default code before product name
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 15.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_report_session_summary](pos_report_session_summary/) | 15.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
-[pos_sale_pos_event_sale](pos_sale_pos_event_sale/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Glue module between pos_sale and pos_event_sale
+[pos_sale_pos_event_sale](pos_sale_pos_event_sale/) | 15.0.1.0.1 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Glue module between pos_sale and pos_event_sale
 [pos_sale_pos_event_sale_session](pos_sale_pos_event_sale_session/) | 15.0.1.0.0 | [![ivantodorovich](https://github.com/ivantodorovich.png?size=30px)](https://github.com/ivantodorovich) | Glue module between pos_sale and pos_event_sale_session
 [pos_supplierinfo_barcode](pos_supplierinfo_barcode/) | 15.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier barcode
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 15.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Search products by supplier data
