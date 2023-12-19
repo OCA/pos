@@ -36,6 +36,7 @@ setuptools.setup(
         'odoo-addon-pos_product_packaging_multi_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_quick_info>=16.0dev,<16.1dev',
         'odoo-addon-pos_receipt_hide_price>=16.0dev,<16.1dev',
+        'odoo-addon-pos_reset_search>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_order_print>=16.0dev,<16.1dev',
         'odoo-addon-pos_stock_available_online>=16.0dev,<16.1dev',
     ],
