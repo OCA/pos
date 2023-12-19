@@ -6,44 +6,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2023-12-19 16:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Choose Labels Layout"
-msgstr ""
+msgstr "Scegliere disposizione etichette"
 
 #. module: pos_product_label
 #: model:ir.model,name:pos_product_label.model_product_label_layout
 msgid "Choose the sheet layout to print the labels"
-msgstr ""
+msgstr "Scegliere la disposizione del foglio per la stampa etichette"
 
 #. module: pos_product_label
 #: model:ir.model,name:pos_product_label.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Custom"
-msgstr ""
+msgstr "Personalizzato"
 
 #. module: pos_product_label
 #: model:ir.model.fields,help:pos_product_label.field_pos_config__iface_product_label
@@ -51,44 +53,45 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:pos_product_label.res_config_settings_view_form
 msgid "Display a button to print Product Labels for ordered products"
 msgstr ""
+"Visualizza un pulsante per stampare etichetteprodoto per i prodotti ordinati"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Extra Content"
-msgstr ""
+msgstr "Contenuto aggiuntivo"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Format"
-msgstr ""
+msgstr "Formato"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Order Quantities"
-msgstr ""
+msgstr "Quantità ordine"
 
 #. module: pos_product_label
 #: model:ir.model,name:pos_product_label.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_product_label
 #: model:ir.model,name:pos_product_label.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Print"
-msgstr ""
+msgstr "Stampa"
 
 #. module: pos_product_label
 #. odoo-javascript
@@ -97,24 +100,24 @@ msgstr ""
 #: code:addons/pos_product_label/static/src/PrintLabelButton.xml:0
 #, python-format
 msgid "Print Labels"
-msgstr ""
+msgstr "Stampa etichette"
 
 #. module: pos_product_label
 #: model:ir.model.fields,field_description:pos_product_label.field_pos_config__iface_product_label
 #: model:ir.model.fields,field_description:pos_product_label.field_res_config_settings__iface_product_label
 msgid "Print Product Labels"
-msgstr ""
+msgstr "Stampa etichette prodotto"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Quantity"
-msgstr ""
+msgstr "Quantità"
 
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
 #, python-format
 msgid "Quantity to Print"
-msgstr ""
+msgstr "Quantità da stampare"
