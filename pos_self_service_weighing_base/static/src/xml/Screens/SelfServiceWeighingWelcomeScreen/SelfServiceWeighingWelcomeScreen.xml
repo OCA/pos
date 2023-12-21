@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2023 Coop IT Easy SC
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_self_service_weighing_base.SelfServiceWeighingWelcomeScreen" owl="1">
+        <div class="screen">
+            <div class="screen-full-width">
+                    <div class="self-service-action-buttons">
+                        <SelfServiceWeighingActionButton t-if="env.isDebug()" />
+                    </div>
+                </div>
+        </div>
+    </t>
+</templates>

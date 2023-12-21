@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2023 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+
+    <record model="ir.ui.view" id="pos_config_view_form">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='module_pos_restaurant']/../../.."
+                position="after"
+            >
+
+                <div
+                    class="row mt16 o_settings_container"
+                    invisible="not context.get('pos_config_create_mode', False)"
+                >
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        id="is_self_service_weighing_point"
+                    >
+                        <div class="o_setting_left_pane">
+                            <field name="is_self_service_weighing_point" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="is_self_service_weighing_point" />
+                            <div
+                                class="text-muted mb16"
+                                id="is_self_service_weighing_point_text"
+                            >
+                                Use this PoS as a Self-Service weighing station
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

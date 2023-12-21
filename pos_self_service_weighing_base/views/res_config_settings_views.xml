@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+SPDX-FileCopyrightText: 2023 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='pos_module_pos_restaurant']/../.."
+                position="after"
+            >
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field
+                            name="pos_is_self_service_weighing_point"
+                            attrs="{'readonly': [('pos_has_active_session', '=', True)]}"
+                        />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_is_self_service_weighing_point" />
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
