@@ -23,7 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_access_right](pos_access_right/) | 14.0.1.0.2 |  | Point of Sale - Extra Access Right for certain actions
 [pos_backend_communication](pos_backend_communication/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Communicate with odoo's backend from POS.
-[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.1.1 |  | POS cash in-out reason
+[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.1.2 |  | POS cash in-out reason
 [pos_customer_display](pos_customer_display/) | 14.0.1.1.0 |  | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 14.0.1.0.0 |  | Point of Sale Require Customer
 [pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.1 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
@@ -35,7 +35,7 @@ addon | version | maintainers | summary
 [pos_fixed_discount](pos_fixed_discount/) | 14.0.1.0.2 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 14.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 |  | Hide useless Banknote buttons in the PoS (+10, +20, +50)
-[pos_margin](pos_margin/) | 14.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
+[pos_margin](pos_margin/) | 14.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_no_cash_bank_statement](pos_no_cash_bank_statement/) | 14.0.1.0.3 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Generate bank statements for all payment methods, not only cash
 [pos_order_mgmt](pos_order_mgmt/) | 14.0.1.0.1 |  | Manage old POS Orders from the frontend
 [pos_order_product_search](pos_order_product_search/) | 14.0.1.0.0 |  | Search for orders by product fields
@@ -44,7 +44,7 @@ addon | version | maintainers | summary
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_partner_birthdate](pos_partner_birthdate/) | 14.0.1.0.2 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 14.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
-[pos_payment_change](pos_payment_change/) | 14.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
+[pos_payment_change](pos_payment_change/) | 14.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 14.0.1.0.1 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.1.0 |  | Point of sale: support generic payment terminal
 [pos_pricelist_show_discount](pos_pricelist_show_discount/) | 14.0.1.0.5 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) [![renda-dev](https://github.com/renda-dev.png?size=30px)](https://github.com/renda-dev) | PoS: show appropriate discount when discounting from pricelist
