@@ -22,7 +22,28 @@ class TestModule(TransactionCase):
             "pos.payment.change.wizard.new.line"
         ]
         self.product = self.env.ref("product.product_product_3")
-        self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
+        self.pricelist = self.env["product.pricelist"].create(
+            {
+                "name": "Test pricelist",
+                "item_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "applied_on": "3_global",
+                            "compute_price": "formula",
+                            "base": "list_price",
+                        },
+                    )
+                ],
+            }
+        )
+        self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy(
+            {
+                "available_pricelist_ids": [(6, 0, self.pricelist.ids)],
+                "pricelist_id": self.pricelist.id,
+            }
+        )
 
     def _initialize_journals_open_session(self):
         account_id = self.env.company.account_default_pos_receivable_account_id
