@@ -13,8 +13,34 @@ class TestPosCashMoveReason(SavepointCase):
         cls.PosSession = cls.env["pos.session"]
         cls.WizardReason = cls.env["wizard.pos.move.reason"]
         cls.AccountMoveLine = cls.env["account.move.line"]
-
-        cls.config = cls.env.ref("point_of_sale.pos_config_main").copy()
+        cls.pricelist = cls.env["product.pricelist"].create(
+            {
+                "name": "Test pricelist",
+                "item_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "applied_on": "3_global",
+                            "compute_price": "formula",
+                            "base": "list_price",
+                        },
+                    )
+                ],
+            }
+        )
+        cls.config = cls.env.ref("point_of_sale.pos_config_main").copy(
+            {
+                "available_pricelist_ids": [(6, 0, cls.pricelist.ids)],
+                "pricelist_id": cls.pricelist.id,
+            }
+        )
+        cls.config.write(
+            {
+                "available_pricelist_ids": [(6, 0, cls.pricelist.ids)],
+                "pricelist_id": cls.pricelist.id,
+            }
+        )
         cls.cash_journal = cls.env["account.journal"].search(
             [
                 ("type", "=", "cash"),
