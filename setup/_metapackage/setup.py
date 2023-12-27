@@ -14,6 +14,7 @@ setuptools.setup(
         'odoo-addon-pos_discount_all>=16.0dev,<16.1dev',
         'odoo-addon-pos_edit_order_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_escpos_status>=16.0dev,<16.1dev',
+        'odoo-addon-pos_financial_risk>=16.0dev,<16.1dev',
         'odoo-addon-pos_global_discount_in_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_selection>=16.0dev,<16.1dev',

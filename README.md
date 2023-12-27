@@ -27,6 +27,7 @@ addon | version | maintainers | summary
 [pos_discount_all](pos_discount_all/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Display discount amount on PoS cashier screen and print it on ticketcalculated from the difference between a sale with default pricelist
 [pos_edit_order_line](pos_edit_order_line/) | 16.0.1.0.1 |  | POS Edit Order Line
 [pos_escpos_status](pos_escpos_status/) | 16.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
+[pos_financial_risk](pos_financial_risk/) | 16.0.1.0.0 | [![geomer198](https://github.com/geomer198.png?size=30px)](https://github.com/geomer198) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Point of Sale Fonancial Risk
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.0 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.0 |  | POS Lot Selection
