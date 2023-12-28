@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="test_partner" model="res.partner">
+        <field name="name">Test Partner</field>
+        <field name="risk_sale_order_limit">1.0</field>
+        <field name="credit_limit">1.0</field>
+    </record>
+
+</odoo>
