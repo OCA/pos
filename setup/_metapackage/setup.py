@@ -27,6 +27,7 @@ setuptools.setup(
         'odoo-addon-pos_order_to_sale_order>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_to_sale_order_delivery>=16.0dev,<16.1dev',
         'odoo-addon-pos_order_to_sale_order_report>=16.0dev,<16.1dev',
+        'odoo-addon-pos_order_to_sale_order_sale_financial_risk>=16.0dev,<16.1dev',
         'odoo-addon-pos_partner_birthdate>=16.0dev,<16.1dev',
         'odoo-addon-pos_partner_firstname>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_change>=16.0dev,<16.1dev',
