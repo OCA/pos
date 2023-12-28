@@ -35,8 +35,23 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: pos_disable_pricelist_selection
+#: model_terms:ir.ui.view,arch_db:pos_disable_pricelist_selection.pos_config_view_form
+msgid "Make sure Default Pricelist is within selectable pricelists."
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
 #: model:ir.model,name:pos_disable_pricelist_selection.model_pos_config
 msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__pricelist_id_domain
+msgid "Pricelist Id Domain"
+msgstr ""
+
+#. module: pos_disable_pricelist_selection
+#: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__selectable_pricelist_ids
+msgid "Selectable Pricelists"
 msgstr ""
 
 #. module: pos_disable_pricelist_selection
