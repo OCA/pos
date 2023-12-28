@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [pos_customer_required](pos_customer_required/) | 14.0.1.0.0 |  | Point of Sale Require Customer
 [pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.1 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 |  | Add a default customer in pos order
-[pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.1.0.1 |  | Disable Pricelist selection button in POS
+[pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.2.0.0 | [![ilyasprogrammer](https://github.com/ilyasprogrammer.png?size=30px)](https://github.com/ilyasprogrammer) | Disable Pricelist selection button in POS
 [pos_edit_order_line](pos_edit_order_line/) | 14.0.1.0.2 |  | POS Edit Order Line
 [pos_empty_home](pos_empty_home/) | 14.0.1.0.0 |  | Point of Sale - Hide products if no category is selected
 [pos_escpos_status](pos_escpos_status/) | 14.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
