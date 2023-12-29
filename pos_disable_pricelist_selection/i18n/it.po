@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-09 00:17+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"PO-Revision-Date: 2023-12-29 12:33+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_disable_pricelist_selection
 #: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__display_name
@@ -41,6 +41,8 @@ msgstr "Ultima modifica il"
 #: model_terms:ir.ui.view,arch_db:pos_disable_pricelist_selection.pos_config_view_form
 msgid "Make sure Default Pricelist is within selectable pricelists."
 msgstr ""
+"Assicurati che il listino prezzi predefinito sia incluso tra i listini "
+"selezionabili."
 
 #. module: pos_disable_pricelist_selection
 #: model:ir.model,name:pos_disable_pricelist_selection.model_pos_config
@@ -50,12 +52,12 @@ msgstr "Configurazione punto vendita"
 #. module: pos_disable_pricelist_selection
 #: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__pricelist_id_domain
 msgid "Pricelist Id Domain"
-msgstr ""
+msgstr "Dominio ID listino prezzi"
 
 #. module: pos_disable_pricelist_selection
 #: model:ir.model.fields,field_description:pos_disable_pricelist_selection.field_pos_config__selectable_pricelist_ids
 msgid "Selectable Pricelists"
-msgstr ""
+msgstr "Listini prezzi selezionabili"
 
 #. module: pos_disable_pricelist_selection
 #. openerp-web
