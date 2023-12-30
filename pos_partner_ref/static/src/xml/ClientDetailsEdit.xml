@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="PartnerDetailsEdit"
+        t-inherit="point_of_sale.PartnerDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
+
+            <div class="partner-detail col">
+                <label class="form-label label" for="ref">Reference</label>
+                <input
+                    class="detail ref form-control"
+                    id="ref"
+                    name="ref"
+                    t-model="changes.ref"
+                    placeholder="Reference"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>
