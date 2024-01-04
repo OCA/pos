@@ -7,7 +7,9 @@ const {DateTime} = luxon;
 patch(PartnerLine.prototype, {
     get formatedBirthdate() {
         return formatDate(
-            DateTime.fromJSDate(new Date(this.props.partner.birthdate_date))
+            DateTime.fromJSDate(new Date(this.props.partner.birthdate_date)).setZone(
+                "UTC"
+            )
         );
     },
 });
