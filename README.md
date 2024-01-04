@@ -40,7 +40,7 @@ addon | version | maintainers | summary
 [pos_order_mgmt](pos_order_mgmt/) | 14.0.1.0.1 |  | Manage old POS Orders from the frontend
 [pos_order_product_search](pos_order_product_search/) | 14.0.1.0.0 |  | Search for orders by product fields
 [pos_order_remove_line](pos_order_remove_line/) | 14.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
-[pos_order_return](pos_order_return/) | 14.0.1.0.3 |  | Point of Sale Order Return
+[pos_order_return](pos_order_return/) | 14.0.1.0.4 |  | Point of Sale Order Return
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_partner_birthdate](pos_partner_birthdate/) | 14.0.1.0.2 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 14.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
