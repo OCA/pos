@@ -145,7 +145,12 @@ class PosOrder(models.Model):
             if abs(to_return[move.product_id]) < move.quantity:
                 move.quantity = abs(to_return[move.product_id])
             to_return[move.product_id] -= move.quantity
-        picking = self.env["stock.picking"].browse(wizard.create_returns()["res_id"])
+        picking = self.env["stock.picking"].browse()
+        # Avoid empty returns which will block the validation
+        if any(wizard.product_return_moves.mapped("quantity")):
+            picking = self.env["stock.picking"].browse(
+                wizard.create_returns()["res_id"]
+            )
         normal_picking = self.env["stock.picking"]._create_picking_from_pos_order_lines(
             self._get_picking_destination().id,
             order_lines,
