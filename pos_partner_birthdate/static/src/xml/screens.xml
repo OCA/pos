@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
     <t
+        t-name="PartnerListScreen"
+        t-inherit="point_of_sale.PartnerListScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//table[hasclass('partner-list')]//th[hasclass('partner-line-email')]"
+            position="before"
+        >
+            <th class="partner-line-birthdate py-2">Birthdate</th>
+        </xpath>
+    </t>
+    <t
+        t-name="PartnerLine"
+        t-inherit="point_of_sale.PartnerLine"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//td[hasclass('partner-line-email')]" position="before">
+            <td class="partner-line-birthdate">
+                <span t-esc="formatedBirthdate" t-if="props.partner.birthdate_date" />
+            </td>
+        </xpath>
+    </t>
+    <t
         t-name="PartnerDetailsEdit"
         t-inherit="point_of_sale.PartnerDetailsEdit"
         t-inherit-mode="extension"

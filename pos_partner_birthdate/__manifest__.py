@@ -14,8 +14,9 @@
     "depends": ["point_of_sale", "partner_contact_birthdate"],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_partner_birthdate/static/src/xml/ClientDetailsEdit.xml",
+            "pos_partner_birthdate/static/src/xml/screens.xml",
             "pos_partner_birthdate/static/src/js/ClientDetailsEdit.esm.js",
+            "pos_partner_birthdate/static/src/js/PartnerLine.esm.js",
         ]
     },
 }
