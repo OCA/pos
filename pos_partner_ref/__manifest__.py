@@ -18,6 +18,7 @@
         "point_of_sale._assets_pos": [
             "pos_partner_ref/static/src/xml/screens.xml",
             "pos_partner_ref/static/src/js/ClientDetailsEdit.esm.js",
+            "pos_partner_ref/static/src/js/PosDB.esm.js",
         ]
     },
 }
