@@ -45,7 +45,7 @@ odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
                         processedChanges.lastname === ""
                     ) {
                         return this.showPopup("ErrorPopup", {
-                            title: _t("Both Customer First and Last Name Are Required"),
+                            title: _t("Both customer first name and last name are required."),
                         });
                     }
                     if (
