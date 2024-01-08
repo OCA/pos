@@ -1,25 +1,21 @@
 /** @odoo-module */
-
 /*
-    Copyright 2022 Camptocamp SA
+    Copyright 2023 Dixmit
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 */
 
-import {PosStore} from "@point_of_sale/app/store/pos_store";
-import {patch} from "@web/core/utils/patch";
-import {session} from "@web/session";
+import {Orderline, Product} from "@point_of_sale/app/store/models";
 
-patch(PosStore.prototype, {
-    async getProductLots(product) {
-        try {
-            return await this.orm.silent.call(
-                "stock.lot",
-                "get_available_lots_for_pos",
-                [product.id, session.user_companies.current_company]
-            );
-        } catch (error) {
-            console.error(error);
-            return [];
-        }
+import {patch} from "@web/core/utils/patch";
+patch(Product.prototype, {
+    getAddProductOptions() {
+        this.pos.selectedProduct = this;
+        return super.getAddProductOptions(...arguments);
+    },
+});
+patch(Orderline.prototype, {
+    editPackLotLines() {
+        this.pos.selectedProduct = this.product;
+        return super.editPackLotLines(...arguments);
     },
 });
