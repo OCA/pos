@@ -5,7 +5,7 @@
 
     <t t-inherit="point_of_sale.EditListPopup" t-inherit-mode="extension">
         <EditListInput position="attributes">
-            <attribute name="lots">props.lots</attribute>
+            <attribute name="lots">data.lots</attribute>
         </EditListInput>
     </t>
 
@@ -20,9 +20,9 @@
                         t-foreach="props.lots"
                         t-as="lot"
                         t-key="lot_index"
-                        t-att-value="lot"
+                        t-att-value="get_lot_name(lot)"
                     >
-                        <t t-esc="lot" />
+                        <t t-esc="get_lot_name(lot)" />
                     </option>
                 </t>
             </datalist>
