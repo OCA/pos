@@ -71,9 +71,23 @@ Authors
 Contributors
 ------------
 
--  Tecnativa
 -  Camptocamp
--  Nguyen Minh Chien <chien@trobz.com>
+
+   -  Iryna Vyshnevska
+   -  Ivan Todorovich
+   -  Maksym Yankin
+
+-  Dixmit
+
+   -  Enric Tobella
+
+-  Tecnativa
+
+   -  David Vidal
+
+-  Trobz Consulting
+
+   -  Nguyen Minh Chien chien@trobz.com
 
 Maintainers
 -----------

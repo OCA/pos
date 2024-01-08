@@ -1,4 +1,8 @@
 /** @odoo-module */
+/*
+    Copyright 2023 Trobz Consulting
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
+*/
 
 import * as Chrome from "@point_of_sale/../tests/tours/helpers/ChromeTourMethods";
 import * as ReceiptScreen from "@point_of_sale/../tests/tours/helpers/ReceiptScreenTourMethods";
