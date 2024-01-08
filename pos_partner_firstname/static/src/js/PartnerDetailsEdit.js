@@ -1,12 +1,22 @@
 odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
     "use strict";
 
+    const {useState} = owl;
     const {_t} = require("web.core");
     const PartnerDetailsEdit = require("point_of_sale.PartnerDetailsEdit");
     const Registries = require("point_of_sale.Registries");
 
     const PosPartnerDetailsEdit = (PartnerDetailsEdit) =>
         class extends PartnerDetailsEdit {
+            setup() {
+                super.setup();
+                this.changes = useState({
+                    ...this.changes,
+                    firstname: this.props.partner.firstname || null,
+                    lastname: this.props.partner.lastname || null,
+                    is_company: this.props.partner.is_company || false,
+                });
+            }
             constructor() {
                 super(...arguments);
                 this.rpc({
@@ -35,7 +45,7 @@ odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
                         processedChanges[key] = value;
                     }
                 }
-                const checked = $(".is_company").is(":checked");
+                const checked = this.changes.is_company;
                 if (!checked) {
                     if (
                         (!this.props.partner.firstname &&
@@ -48,48 +58,15 @@ odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
                             title: _t("Both Customer First and Last Name Are Required"),
                         });
                     }
-                    if (
-                        (!this.props.partner.name && !processedChanges.name) ||
-                        processedChanges.name === ""
-                    ) {
-                        this.props.partner.name = this._update_partner_name(
-                            processedChanges.lastname,
-                            processedChanges.firstname
-                        );
-                    }
-                } else if (
-                    processedChanges.is_company &&
-                    (processedChanges.firstname || processedChanges.lastname)
-                ) {
+                    this.changes.name = this._update_partner_name(
+                        processedChanges.lastname,
+                        processedChanges.firstname
+                    );
+                    processedChanges.name = this.changes.name;
+                } else if (checked) {
                     this.changes.lastname = this.changes.firstname = undefined;
                 }
                 super.saveChanges();
-            }
-            captureChange(event) {
-                super.captureChange(event);
-                if (event.target.name === "is_company") {
-                    const checked = event.currentTarget.checked;
-                    $(".is_person")
-                        .toArray()
-                        .forEach(function (el) {
-                            $(el).css("display", !checked ? "block" : "none");
-                        });
-
-                    this.changes[event.target.name] = checked;
-                    $(".client-name").attr("readonly", !checked);
-                    if (!checked) {
-                        const lastname = this.props.partner.lastname
-                            ? this.props.partner.lastname
-                            : "";
-                        const firstname = this.props.partner.firstname
-                            ? this.props.partner.firstname
-                            : "";
-                        this.props.partner.name = this._update_partner_name(
-                            lastname,
-                            firstname
-                        );
-                    }
-                }
             }
         };
 
