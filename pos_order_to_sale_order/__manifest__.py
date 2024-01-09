@@ -12,10 +12,13 @@
     "maintainers": ["legalsylvain"],
     "development_status": "Production/Stable",
     "website": "https://github.com/OCA/pos",
-    "data": ["views/view_pos_config.xml", "views/assets.xml"],
-    "qweb": [
-        "static/src/xml/CreateOrderButton.xml",
-        "static/src/xml/CreateOrderPopup.xml",
-    ],
+    "data": ["views/view_pos_config.xml"],
+    "assets": {
+        "web.assets_qweb": ["pos_order_to_sale_order/static/src/xml/**/*.xml"],
+        "point_of_sale.assets": [
+            "pos_order_to_sale_order/static/src/**/*.js",
+            "pos_order_to_sale_order/static/src/css/pos.css",
+        ],
+    },
     "installable": True,
 }
