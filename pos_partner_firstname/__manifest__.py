@@ -5,7 +5,7 @@
 {
     "name": "POS Partner Firstname",
     "summary": "POS Support of partner firstname",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
@@ -20,10 +20,10 @@
         "partner_firstname",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_partner_firstname/static/src/js/PartnerDetailsEdit.js",
-            "pos_partner_firstname/static/src/js/PartnerScreen.js",
-            "pos_partner_firstname/static/src/xml/pos.xml",
+        "point_of_sale._assets_pos": [
+            "pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js",
+            "pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml",
+            "pos_partner_firstname/static/src/app/PartnerDetailsEdit.scss",
         ],
     },
 }

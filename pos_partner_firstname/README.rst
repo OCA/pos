@@ -85,6 +85,7 @@ Contributors
 -  Lorenzo Battistini
    (`https://takobi.online <https://takobi.online>`__)
 -  Dhara Solanki <dhara.solanki@initos.com>
+-  Enric Tobella (`https://www.dixmit.com <https://www.dixmit.com>`__)
 
 Maintainers
 -----------
