@@ -17,19 +17,20 @@ POS Partner Firstname
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/16.0/pos_partner_firstname
+    :target: https://github.com/OCA/pos/tree/17.0/pos_partner_firstname
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_partner_firstname
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_partner_firstname
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-The module adds the support of the fields of the partner_firstname module within the point of sale interface,
-allowing to view and edit them in the given customer view.
+The module adds the support of the fields of the partner_firstname
+module within the point of sale interface, allowing to view and edit
+them in the given customer view.
 
 **Table of contents**
 
@@ -41,12 +42,23 @@ Known issues / Roadmap
 
 Some features we would need to cover in the future:
 
-* When the field ``name`` is set to be readonly the module must prevent the field to have red border and the possibility to have the cursor, and change the background color of the name field could be user friendly.
-* In back office, the name *OR* the surname is mandatory. In front office, the name *AND* the surname is mandatory. Should be great to have a similar behaviour.
-* In back office, default is "company". In front office, default is "individual". The behaviour should however depend by *B2B* or *B2C* setting in order to set the right default.
-* In individual mode, in back office, it is possible to select the parent company. In individual mode, in front office, it is not possible. However we would also have to say that odoo doesn't permit the parent company selection.
+-  When the field ``name`` is set to be readonly the module must prevent
+   the field to have red border and the possibility to have the cursor,
+   and change the background color of the name field could be user
+   friendly.
+-  In back office, the name *OR* the surname is mandatory. In front
+   office, the name *AND* the surname is mandatory. Should be great to
+   have a similar behaviour.
+-  In back office, default is "company". In front office, default is
+   "individual". The behaviour should however depend by *B2B* or *B2C*
+   setting in order to set the right default.
+-  In individual mode, in back office, it is possible to select the
+   parent company. In individual mode, in front office, it is not
+   possible. However we would also have to say that odoo doesn't permit
+   the parent company selection.
 
-The ticket referencing the above information can be read at https://github.com/OCA/pos/pull/775
+The ticket referencing the above information can be read at
+`https://github.com/OCA/pos/pull/775 <https://github.com/OCA/pos/pull/775>`__
 
 Bug Tracker
 ===========
@@ -54,7 +66,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_partner_firstname%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_partner_firstname%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -62,19 +74,20 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Roberto Fichera
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Roberto Fichera <roberto.fichera@levelprime.com>
-* Lorenzo Battistini (https://takobi.online)
-* Dhara Solanki <dhara.solanki@initos.com>
+-  Roberto Fichera <roberto.fichera@levelprime.com>
+-  Lorenzo Battistini
+   (`https://takobi.online <https://takobi.online>`__)
+-  Dhara Solanki <dhara.solanki@initos.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -94,6 +107,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-robyf70| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_partner_firstname>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_partner_firstname>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
