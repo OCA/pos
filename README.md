@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_partner_birthdate](pos_partner_birthdate/) | 17.0.1.0.0 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
+[pos_partner_birthdate](pos_partner_birthdate/) | 17.0.1.1.0 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_ref](pos_partner_ref/) | 17.0.1.0.0 | [![invitu](https://github.com/invitu.png?size=30px)](https://github.com/invitu) | Adds the partner ref in the customer screen of POS
 
 [//]: # (end addons)
