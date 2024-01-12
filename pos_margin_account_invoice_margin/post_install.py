@@ -2,8 +2,10 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, SUPERUSER_ID
 import logging
+
+from odoo import SUPERUSER_ID, api
+
 logger = logging.getLogger(__name__)
 
 
@@ -15,9 +17,8 @@ def set_margin_on_pos_invoices(cr, registry):
 
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
-        orders = env["pos.order"].search([
-            ("margin_percent", "!=", 100),
-            ("state", "=", "invoiced")]
+        orders = env["pos.order"].search(
+            [("margin_percent", "!=", 100), ("state", "=", "invoiced")]
         )
 
         count = 1
@@ -26,9 +27,7 @@ def set_margin_on_pos_invoices(cr, registry):
             logger.info(
                 "{count}/{total_count}: Compute margin for"
                 " invoice related to {order_name}".format(
-                    count=count,
-                    total_count=total_count,
-                    order_name=order.name
+                    count=count, total_count=total_count, order_name=order.name
                 )
             )
 
