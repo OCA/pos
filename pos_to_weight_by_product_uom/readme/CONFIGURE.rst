@@ -1,14 +1,10 @@
 * active settings "Allow using different units of measure" in Settings > Configuration > Sales >  Quotations and Sales Orders >  Product Features
 
 
-* During the creation of a category, tick the box 'To weigh'.
+* During the creation of a category, tick the box 'To Weigh With Scale'.
 
-.. image:: ../static/description/uom_categ_change_toweigh.png
-   :alt: Change the field 'To weigh' for every category
+.. image:: ../static/description/uom_category_form.png
+   :alt: Change the field 'To Weigh With Scale' for every weighable category
    :width: 400
 
-* You can set every product existing with the new 'To weigh' parameter
-
-.. image:: ../static/description/uom_categ_button_toweigh.png
-   :alt: Set 'to weigh' in each product of this category
-   :width: 900
+Note: During the installation, the UoM Category 'Weight' is checked.

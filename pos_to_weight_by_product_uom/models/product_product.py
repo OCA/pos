@@ -10,7 +10,7 @@ class ProductProduct(models.Model):
 
     @api.onchange("uom_id", "uom_po_id")
     def _onchange_uom(self):
-        res = super(ProductProduct, self)._onchange_uom()
+        res = super()._onchange_uom()
         if self.uom_id:
-            self.to_weight = self.uom_id.to_weigh
+            self.to_weight = self.uom_id.category_id.to_weight
         return res

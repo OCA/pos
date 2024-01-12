@@ -8,23 +8,18 @@
         <field name="inherit_id" ref="uom.product_uom_categ_form_view" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="to_weigh" />
-                <button
-                    name="action_recompute_to_weigh"
-                    string="Set 'to weigh' in each product of this category"
-                    type="object"
-                />
+                <field name="to_weight" />
             </field>
         </field>
     </record>
 
     <record id="view_uom_category_tree" model="ir.ui.view">
         <field name="model">uom.category</field>
+        <field name="inherit_id" ref="uom.product_uom_categ_tree_view" />
         <field name="arch" type="xml">
-            <tree>
-                <field name="name" />
-                <field name="to_weigh" />
-            </tree>
+            <field name="name" position="after">
+                <field name="to_weight" />
+            </field>
         </field>
     </record>
 
