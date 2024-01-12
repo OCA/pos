@@ -2,7 +2,7 @@ This module is a glue module between two OCA modules,
 ``pos_margin`` (same repository) and ``account_invoice_margin``
 (OCA/margin-analysis).
 
-With this module, invoices created from point of sale has correct
+With this module, invoices created from point of sale have correct
 margin.
 
 **Note**
