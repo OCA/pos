@@ -5,9 +5,9 @@ from odoo import api, models
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
-    @api.onchange('uom_id')
+    @api.onchange("uom_id")
     def _onchange_uom_id(self):
         res = super(ProductTemplate, self)._onchange_uom_id()
         if self.uom_id:

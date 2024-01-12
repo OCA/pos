@@ -6,9 +6,9 @@ from odoo import api, models
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
-    @api.onchange('uom_id', 'uom_po_id')
+    @api.onchange("uom_id", "uom_po_id")
     def _onchange_uom(self):
         res = super(ProductProduct, self)._onchange_uom()
         if self.uom_id:

@@ -5,8 +5,6 @@ from odoo import fields, models
 
 
 class UomUom(models.Model):
-    _inherit = 'uom.uom'
+    _inherit = "uom.uom"
 
-    to_weigh = fields.Boolean(
-        related='category_id.to_weigh',
-        readonly=True)
+    to_weigh = fields.Boolean(related="category_id.to_weigh", readonly=True)
