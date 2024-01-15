@@ -3,7 +3,7 @@
 
     <t t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
         <xpath expr="//input[@name='name']" position="attributes">
-            <attribute name="t-att-readonly">!props.partner.is_company</attribute>
+            <attribute name="t-att-readonly">!changes.is_company</attribute>
         </xpath>
         <xpath expr="//div[@class='partner-details-left']/div[1]" position="before">
             <div class="partner-detail">
@@ -12,14 +12,14 @@
                     type='checkbox'
                     class='detail o_checkbox checkbox is_company'
                     name='is_company'
-                    t-att-checked="props.partner.is_company ? 'checked' : null"
+                    t-att-checked="changes.is_company ? 'checked' : null"
                     t-on-change="captureChange"
-                    t-att-value="props.partner.is_company"
+                    t-model="changes.is_company"
                 />
                 <div
                     class="is_person"
                     t-on-change="captureChange"
-                    t-attf-style="display: {{!props.partner.is_company ? 'block': 'none'}};"
+                    t-attf-style="display: {{!changes.is_company ? 'block': 'none'}};"
                 >
                     <div class='partner-detail'>
                         <span class='label'>Last Name</span>
@@ -27,7 +27,7 @@
                             class='detail lastname person'
                             name="lastname"
                             t-on-change="captureChange"
-                            t-att-value="props.partner.lastname || ''"
+                            t-model="changes.lastname"
                             placeholder="LastName"
                         />
                     </div>
@@ -36,7 +36,7 @@
                 <div
                 class="is_person"
                 t-on-change="captureChange"
-                t-attf-style="display: {{!props.partner.is_company ? 'block': 'none'}};"
+                t-attf-style="display: {{!changes.is_company ? 'block': 'none'}};"
             >
                     <div class='partner-detail'>
                         <span class='label'>First Name</span>
@@ -44,7 +44,7 @@
                         class='detail firstname person'
                         name="firstname"
                         t-on-change="captureChange"
-                        t-att-value="props.partner.firstname || ''"
+                        t-model="changes.firstname"
                         placeholder="FirstName"
                     />
                     </div>
