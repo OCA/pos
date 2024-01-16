@@ -5,26 +5,19 @@
     "name": "Point of Sale - Technical Pricelists",
     "summary": "Prevent technical pricelists from being"
     " displayed in the Point of Sale front-end UI",
-    "version": "12.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
-    "depends": [
-        "point_of_sale",
-        "sale_pricelist_technical",
-    ],
-    "data": [
-        "views/templates.xml",
-    ],
-    "qweb": [
-        "static/src/xml/pos_pricelist_technical.xml",
-    ],
-    "images": [
-        "static/description/pos_front_end_ui.png",
-        "static/description/pos_config_form.png",
-    ],
+    "depends": ["point_of_sale", "sale_pricelist_technical"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_pricelist_technical/static/src/js/SetPricelistButton.esm.js",
+            "pos_pricelist_technical/static/src/xml/PartnerDetailsEdit.xml",
+        ],
+    },
     "installable": True,
     "auto_install": True,
 }
