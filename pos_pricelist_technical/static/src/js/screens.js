@@ -10,26 +10,25 @@ odoo.define("pos_pricelist_technical.screens", function (require) {
     var screens = require("point_of_sale.screens");
 
     screens.set_pricelist_button.include({
-
         /* Overwrite button_click function to remove technical pricelist
-        */
+         */
         button_click: function () {
             var self = this;
 
-            /*Begin of the changes */
-            var pricelists = _.filter(self.pos.pricelists, function(pricelist) {
-                return ! pricelist.is_technical;
+            /* Begin of the changes */
+            var pricelists = _.filter(self.pos.pricelists, function (pricelist) {
+                return !pricelist.is_technical;
             });
-            /*End of the changes */
+            /* End of the changes */
 
             pricelists = _.map(pricelists, function (pricelist) {
                 return {
                     label: pricelist.name,
-                    item: pricelist
+                    item: pricelist,
                 };
             });
 
-            self.gui.show_popup("selection",{
+            self.gui.show_popup("selection", {
                 title: _t("Select pricelist"),
                 list: pricelists,
                 confirm: function (pricelist) {
@@ -38,9 +37,8 @@ odoo.define("pos_pricelist_technical.screens", function (require) {
                 },
                 is_selected: function (pricelist) {
                     return pricelist.id === self.pos.get_order().pricelist.id;
-                }
+                },
             });
         },
-
     });
 });
