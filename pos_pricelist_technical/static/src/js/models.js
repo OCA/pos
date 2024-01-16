@@ -10,5 +10,4 @@ odoo.define("pos_pricelist_technical.models", function (require) {
     var models = require("point_of_sale.models");
 
     models.load_fields("product.pricelist", ["is_technical"]);
-
 });
