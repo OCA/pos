@@ -5,12 +5,17 @@
 {
     "name": "Point of Sale - Extra Company Info",
     "summary": "Add extra company infos on the ticket",
-    "version": "12.0.1.0.2",
+    "version": "16.0.1.0.0",
     "category": "Sales/Point Of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "GRAP, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "qweb": ["static/src/xml/pos_ticket_extra_company_info.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_ticket_extra_company_info/static/src/js/models.esm.js",
+            "pos_ticket_extra_company_info/static/src/xml/OrderReceipt.xml",
+        ],
+    },
     "installable": True,
 }
