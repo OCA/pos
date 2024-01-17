@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_order_copy.CopyOrderButton">
+        <div
+            class="control-button customer-button btn rounded-0 fw-bolder text-truncate"
+            t-attf-class="{{this.prescriber ? 'btn-primary' : 'btn-light'}}"
+            t-on-click="() => this.onClick()"
+        >
+            <i class="fa fa-clone me-1" />
+            <span> </span>
+            <span>Duplicate Order</span>
+        </div>
+    </t>
+</templates>
