@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2024 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+  <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+       <xpath expr="//t[@t-if='receipt.company.vat']" position="after">
+            <div t-if="receipt.company.siret">
+                SIRET:<t t-esc="receipt.company.siret" />
+            </div>
+       </xpath>
+    </t>
+
+</templates>
