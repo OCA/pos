@@ -79,7 +79,7 @@ const PrintSaleOrderManagementScreen = (OriginalSaleOrderManagementScreen) =>
             return {confirmed, payload};
         }
         showPopup(name, props) {
-            if (name == "SelectionPopup" && this.additionalSelectionList) {
+            if (name === "SelectionPopup" && this.additionalSelectionList) {
                 props.list = [...props.list, ...this.additionalSelectionList];
             }
             return super.showPopup(name, props).then(({confirmed, payload}) => {
