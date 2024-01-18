@@ -1,7 +1,7 @@
 /** @odoo-module **/
 
-import SaleOrderManagementScreen from "pos_sale.SaleOrderManagementScreen";
 import Registries from "point_of_sale.Registries";
+import SaleOrderManagementScreen from "pos_sale.SaleOrderManagementScreen";
 
 const PrintSaleOrderManagementScreen = (OriginalSaleOrderManagementScreen) =>
     class extends OriginalSaleOrderManagementScreen {
