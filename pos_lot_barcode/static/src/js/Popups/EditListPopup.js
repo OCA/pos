@@ -9,8 +9,8 @@ odoo.define("pos_lot_barcode.EditListPopup", function (require) {
     const Registries = require("point_of_sale.Registries");
     const {useBarcodeReader} = require("point_of_sale.custom_hooks");
 
-    const PosLotBarcodeEditListPopup = (EditListPopup) =>
-        class extends EditListPopup {
+    const PosLotBarcodeEditListPopup = (OriginalEditListPopup) =>
+        class extends OriginalEditListPopup {
             setup() {
                 super.setup();
                 useBarcodeReader({

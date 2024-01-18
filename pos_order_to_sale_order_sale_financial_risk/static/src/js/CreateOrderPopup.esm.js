@@ -3,8 +3,8 @@
 import CreateOrderPopup from "point_of_sale.CreateOrderPopup";
 import Registries from "point_of_sale.Registries";
 
-export const CreateOrderPopupRisk = (CreateOrderPopup) =>
-    class CreateOrderPopupRisk extends CreateOrderPopup {
+export const CreateOrderPopupRisk = (OriginalCreateOrderPopup) =>
+    class extends OriginalCreateOrderPopup {
         /**
          *  Calculate risk amount by order
          * @returns {Promise<*>} order total

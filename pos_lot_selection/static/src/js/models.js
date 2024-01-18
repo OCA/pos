@@ -8,8 +8,8 @@ odoo.define("pos_lot_selection.models", function (require) {
     const {PosGlobalState} = require("point_of_sale.models");
     const Registries = require("point_of_sale.Registries");
 
-    const LotSelectPosGlobalState = (PosGlobalState) =>
-        class extends PosGlobalState {
+    const LotSelectPosGlobalState = (OriginalPosGlobalState) =>
+        class extends OriginalPosGlobalState {
             async getProductLots(product) {
                 try {
                     return await this.env.services.rpc(

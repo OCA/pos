@@ -3,8 +3,8 @@
 import CreateOrderPopup from "point_of_sale.CreateOrderPopup";
 import Registries from "point_of_sale.Registries";
 
-const PosSaleOrderReportCreateOrderPopup = (CreateOrderPopup) =>
-    class extends CreateOrderPopup {
+const PosSaleOrderReportCreateOrderPopup = (OriginalCreateOrderPopup) =>
+    class extends OriginalCreateOrderPopup {
         async _downloadSaleOrderReport(saleOrderId) {
             try {
                 const report = this.env.pos.config.iface_sale_order_report_id;

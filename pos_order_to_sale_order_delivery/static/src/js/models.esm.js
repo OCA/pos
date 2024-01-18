@@ -3,8 +3,8 @@
 import {Order} from "point_of_sale.models";
 import Registries from "point_of_sale.Registries";
 
-const PosOrderToSaleOrderDeliveryOrder = (Order) =>
-    class PosOrderToSaleOrderDeliveryOrder extends Order {
+const PosOrderToSaleOrderDeliveryOrder = (OriginalOrder) =>
+    class extends OriginalOrder {
         constructor() {
             super(...arguments);
             this.delivery_carrier = false;

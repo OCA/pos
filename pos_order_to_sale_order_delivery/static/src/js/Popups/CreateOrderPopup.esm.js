@@ -5,8 +5,8 @@ import Registries from "point_of_sale.Registries";
 
 const {useState} = owl;
 
-const PosDeliveryCarrierCreateOrderPopup = (CreateOrderPopup) =>
-    class extends CreateOrderPopup {
+const PosDeliveryCarrierCreateOrderPopup = (OriginalCreateOrderPopup) =>
+    class extends OriginalCreateOrderPopup {
         // @override
         setup() {
             super.setup();

@@ -11,8 +11,8 @@ import field_utils from "web.field_utils";
 // Overload models.Order
 // /////////////////////////////
 
-const OrderMargin = (Order) =>
-    class extends Order {
+const OrderMargin = (OriginalOrder) =>
+    class extends OriginalOrder {
         get_margin() {
             return this.get_orderlines().reduce(
                 (margin, line) => margin + line.get_margin(),
@@ -35,8 +35,8 @@ Registries.Model.extend(Order, OrderMargin);
 // /////////////////////////////
 // Overload models.OrderLine
 // /////////////////////////////
-const OrderLineMargin = (Orderline) =>
-    class extends Orderline {
+const OrderLineMargin = (OriginalOrderline) =>
+    class extends OriginalOrderline {
         get_purchase_price() {
             // Overload the function to use another field that the default standard_price
             return this.product.standard_price;

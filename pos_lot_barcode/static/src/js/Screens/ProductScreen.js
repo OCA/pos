@@ -11,8 +11,8 @@ odoo.define("pos_lot_barcode.ProductScreen", function (require) {
     const {isConnectionError} = require("point_of_sale.utils");
     const {_lt} = require("@web/core/l10n/translation");
 
-    const PosLotBarcodeProductScreen = (ProductScreen) =>
-        class extends ProductScreen {
+    const PosLotBarcodeProductScreen = (OriginalProductScreen) =>
+        class extends OriginalProductScreen {
             setup() {
                 super.setup();
                 this.scan_lots_active = true;

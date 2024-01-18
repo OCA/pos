@@ -8,8 +8,8 @@ odoo.define("pos_lot_selection.ProductScreen", function (require) {
     const ProductScreen = require("point_of_sale.ProductScreen");
     const Registries = require("point_of_sale.Registries");
 
-    const PosLotSaleProductScreen = (ProductScreen) =>
-        class extends ProductScreen {
+    const PosLotSaleProductScreen = (OriginalProductScreen) =>
+        class extends OriginalProductScreen {
             /**
              * @override
              */

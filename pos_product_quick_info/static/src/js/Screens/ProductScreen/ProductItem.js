@@ -4,8 +4,8 @@ odoo.define("pos_product_quick_info.ProductItem", function (require) {
     const ProductItem = require("point_of_sale.ProductItem");
     const Registries = require("point_of_sale.Registries");
 
-    const QuickInfoProductItem = (ProductItem) =>
-        class QuickInfoProductItem extends ProductItem {
+    const QuickInfoProductItem = (OriginalProductItem) =>
+        class extends OriginalProductItem {
             async onProductInfoClick(event) {
                 event.stopPropagation();
                 return await super.onProductInfoClick(...arguments);

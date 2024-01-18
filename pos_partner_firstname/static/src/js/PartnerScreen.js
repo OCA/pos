@@ -4,8 +4,8 @@ odoo.define("pos_partner_firstname.PartnerListScreen", function (require) {
     const PartnerListScreen = require("point_of_sale.PartnerListScreen");
     const Registries = require("point_of_sale.Registries");
 
-    const PosPartnerListScreen = (PartnerListScreen) =>
-        class extends PartnerListScreen {
+    const PosPartnerListScreen = (OriginalPartnerListScreen) =>
+        class extends OriginalPartnerListScreen {
             back() {
                 super.back();
                 if (this.props.partner) {

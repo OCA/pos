@@ -8,8 +8,8 @@ odoo.define("pos_escpos_status.ProxyStatus", function (require) {
     var Registries = require("point_of_sale.Registries");
     var ProxyStatus = require("point_of_sale.ProxyStatus");
 
-    const EscposProxyStatus = (ProxyStatus) =>
-        class EscposProxyStatus extends ProxyStatus {
+    const EscposProxyStatus = (OriginalProxyStatus) =>
+        class extends OriginalProxyStatus {
             _setStatus(newStatus) {
                 if (newStatus.drivers.escpos) {
                     newStatus.drivers.printer = newStatus.drivers.escpos;
