@@ -3,8 +3,8 @@
 import ProductsWidget from "point_of_sale.ProductsWidget";
 import Registries from "point_of_sale.Registries";
 
-const StockProductsWidget = (ProductsWidget) =>
-    class StockProductsWidget extends ProductsWidget {
+const StockProductsWidget = (OriginalProductsWidget) =>
+    class extends OriginalProductsWidget {
         setup() {
             super.setup();
             this.env.services.bus_service.addChannel(this._getChannelName());
