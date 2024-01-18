@@ -3,8 +3,8 @@
 import SaleOrderManagementScreen from "pos_sale.SaleOrderManagementScreen";
 import Registries from "point_of_sale.Registries";
 
-const PrintSaleOrderManagementScreen = (SaleOrderManagementScreen) =>
-    class PrintSaleOrderManagementScreen extends SaleOrderManagementScreen {
+const PrintSaleOrderManagementScreen = (OriginalSaleOrderManagementScreen) =>
+    class extends OriginalSaleOrderManagementScreen {
         async _onClickSaleOrder(event) {
             // Add a "Print" option to the selection list
             this.additionalSelectionList = [
