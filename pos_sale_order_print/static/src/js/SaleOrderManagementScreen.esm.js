@@ -18,8 +18,9 @@ const PrintSaleOrderManagementScreen = (OriginalSaleOrderManagementScreen) =>
         }
         async _printSaleOrder(confirmed, payload) {
             // Reset confirmed, payload, and additionalSelectionList
-            confirmed = false;
-            payload = false;
+            // eslint-disable-next-line no-param-reassign
+            confirmed = payload = false;
+
             this.additionalSelectionList = false;
             if (
                 this.env.pos.config.print_sales_order_ids &&
