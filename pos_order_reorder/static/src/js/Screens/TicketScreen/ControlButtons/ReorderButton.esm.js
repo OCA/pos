@@ -1,8 +1,8 @@
 /** @odoo-module **/
 
+import {Orderline} from "point_of_sale.models";
 import PosComponent from "point_of_sale.PosComponent";
 import Registries from "point_of_sale.Registries";
-import {Orderline} from "point_of_sale.models";
 
 class ReorderButton extends PosComponent {
     get isEmptyOrder() {
