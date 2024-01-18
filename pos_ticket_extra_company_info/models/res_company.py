@@ -8,10 +8,11 @@ from odoo import fields, models
 class ResCompany(models.Model):
     _inherit = "res.company"
 
-    pos_ticket_address = fields.Char(compute="_compute_pos_ticket_address")
+    pos_ticket_address = fields.Html(compute="_compute_pos_ticket_address")
 
     def _compute_pos_ticket_address(self):
         for company in self:
             company.pos_ticket_address = company.partner_id.with_context(
                 show_address_only=True,
+                html_format=True,
             )._get_name()
