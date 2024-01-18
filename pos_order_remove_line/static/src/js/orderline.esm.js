@@ -7,8 +7,8 @@
 import Orderline from "point_of_sale.Orderline";
 import Registries from "point_of_sale.Registries";
 
-const PosOrderline = (Orderline) =>
-    class extends Orderline {
+const PosOrderline = (OriginalOrderline) =>
+    class extends OriginalOrderline {
         async removeLine(ev) {
             ev.stopPropagation();
             ev.preventDefault();
