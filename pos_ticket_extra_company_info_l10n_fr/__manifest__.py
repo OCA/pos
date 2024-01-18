@@ -5,16 +5,18 @@
 {
     "name": "Point of Sale - Extra Company Info (France)",
     "summary": "Add siret company infos on the ticket",
-    "version": "12.0.1.0.2",
+    "version": "16.0.1.0.0",
     "category": "Sales/Point Of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "GRAP, Odoo Community Association (OCA)",
+    "maintainers": ["legalsylvain"],
     "license": "AGPL-3",
-    "depends": [
-        "pos_ticket_extra_company_info",
-        "l10n_fr",
-    ],
-    "data": ["views/templates.xml"],
-    "qweb": ["static/src/xml/pos_ticket_extra_company_info_l10n_fr.xml"],
+    "depends": ["point_of_sale", "l10n_fr"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_ticket_extra_company_info_l10n_fr/static/src/js/models.esm.js",
+            "pos_ticket_extra_company_info_l10n_fr/static/src/xml/OrderReceipt.xml",
+        ],
+    },
     "installable": True,
 }
