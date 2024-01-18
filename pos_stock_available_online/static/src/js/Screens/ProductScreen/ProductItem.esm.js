@@ -5,8 +5,8 @@ import Registries from "point_of_sale.Registries";
 import {format} from "web.field_utils";
 import utils from "web.utils";
 
-const StockProductItem = (ProductItem) =>
-    class StockProductItem extends ProductItem {
+const StockProductItem = (OriginalProductItem) =>
+    class extends OriginalProductItem {
         format_quantity(quantity) {
             const unit = this.env.pos.units_by_id[this.props.product.uom_id[0]];
             var formattedQuantity = `${quantity}`;
