@@ -4,8 +4,8 @@ odoo.define("pos_access_right.TicketScreen", function (require) {
     const Registries = require("point_of_sale.Registries");
     const TicketScreen = require("point_of_sale.TicketScreen");
 
-    const PosTicketScreen = (TicketScreen) =>
-        class extends TicketScreen {
+    const PosTicketScreen = (OriginalTicketScreen) =>
+        class extends OriginalTicketScreen {
             get hasNewOrdersControlRights() {
                 return this.env.pos.user.hasGroupMultiOrder;
             }

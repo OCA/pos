@@ -1,10 +1,10 @@
 /** @odoo-module **/
 
-import SaleOrderManagementScreen from "pos_sale.SaleOrderManagementScreen";
 import Registries from "point_of_sale.Registries";
+import SaleOrderManagementScreen from "pos_sale.SaleOrderManagementScreen";
 
-const PrintSaleOrderManagementScreen = (SaleOrderManagementScreen) =>
-    class PrintSaleOrderManagementScreen extends SaleOrderManagementScreen {
+const PrintSaleOrderManagementScreen = (OriginalSaleOrderManagementScreen) =>
+    class extends OriginalSaleOrderManagementScreen {
         async _onClickSaleOrder(event) {
             // Add a "Print" option to the selection list
             this.additionalSelectionList = [
@@ -18,8 +18,9 @@ const PrintSaleOrderManagementScreen = (SaleOrderManagementScreen) =>
         }
         async _printSaleOrder(confirmed, payload) {
             // Reset confirmed, payload, and additionalSelectionList
-            confirmed = false;
-            payload = false;
+            // eslint-disable-next-line no-param-reassign
+            confirmed = payload = false;
+
             this.additionalSelectionList = false;
             if (
                 this.env.pos.config.print_sales_order_ids &&
@@ -78,7 +79,7 @@ const PrintSaleOrderManagementScreen = (SaleOrderManagementScreen) =>
             return {confirmed, payload};
         }
         showPopup(name, props) {
-            if (name == "SelectionPopup" && this.additionalSelectionList) {
+            if (name === "SelectionPopup" && this.additionalSelectionList) {
                 props.list = [...props.list, ...this.additionalSelectionList];
             }
             return super.showPopup(name, props).then(({confirmed, payload}) => {

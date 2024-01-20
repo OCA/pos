@@ -3,8 +3,8 @@
 import {Order} from "point_of_sale.models";
 import Registries from "point_of_sale.Registries";
 
-const PosSaleFinancialRiskOrder = (Order) =>
-    class PosSaleFinancialRiskOrder extends Order {
+const PosSaleFinancialRiskOrder = (OriginalOrder) =>
+    class extends OriginalOrder {
         constructor() {
             super(...arguments);
             this.bypass_risk = false;

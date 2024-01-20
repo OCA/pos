@@ -19,13 +19,15 @@ odoo.define("pos_payment_terminal.models", function (require) {
     var OCAPaymentTerminal = require("pos_payment_terminal.payment");
     models.register_payment_method("oca_payment_terminal", OCAPaymentTerminal);
 
-    const PosPaymentTerminalPosGlobalState = (PosGlobalState) =>
-        class PosPaymentTerminalPosGlobalState extends PosGlobalState {
+    const PosPaymentTerminalPosGlobalState = (OriginalPosGlobalState) =>
+        class extends OriginalPosGlobalState {
             // @override
             async after_load_server_data() {
                 for (var payment_method_id in this.payment_methods) {
                     var payment_method = this.payment_methods[payment_method_id];
-                    if (payment_method.use_payment_terminal == "oca_payment_terminal") {
+                    if (
+                        payment_method.use_payment_terminal === "oca_payment_terminal"
+                    ) {
                         this.config.use_proxy = true;
                     }
                 }
@@ -34,8 +36,8 @@ odoo.define("pos_payment_terminal.models", function (require) {
         };
     Registries.Model.extend(PosGlobalState, PosPaymentTerminalPosGlobalState);
 
-    const PosPaymentTerminalPayment = (Payment) =>
-        class PosPaymentTerminalPayment extends Payment {
+    const PosPaymentTerminalPayment = (OriginalPayment) =>
+        class extends OriginalPayment {
             constructor() {
                 super(...arguments);
                 // Id of the terminal transaction, used to find the payment

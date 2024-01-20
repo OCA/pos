@@ -13,7 +13,7 @@ class ChooseDeliveryCarrierPopup extends AbstractAwaitablePopup {
     }
     onChange(carrierId) {
         const selected = this.props.chooses.find(
-            (item) => parseInt(carrierId) === item.carrier_id[0]
+            (item) => parseInt(carrierId, 10) === item.carrier_id[0]
         );
         this.state.choose = selected;
     }

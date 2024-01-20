@@ -6,8 +6,8 @@ odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
     const PartnerDetailsEdit = require("point_of_sale.PartnerDetailsEdit");
     const Registries = require("point_of_sale.Registries");
 
-    const PosPartnerDetailsEdit = (PartnerDetailsEdit) =>
-        class extends PartnerDetailsEdit {
+    const PosPartnerDetailsEdit = (OriginalPartnerDetailsEdit) =>
+        class extends OriginalPartnerDetailsEdit {
             setup() {
                 super.setup();
                 this.changes = useState({
@@ -40,7 +40,7 @@ odoo.define("pos_partner_firstname.PartnerDetailsEdit", function (require) {
                 const processedChanges = {};
                 for (const [key, value] of Object.entries(this.changes)) {
                     if (this.intFields.includes(key)) {
-                        processedChanges[key] = parseInt(value) || false;
+                        processedChanges[key] = parseInt(value, 10) || false;
                     } else {
                         processedChanges[key] = value;
                     }

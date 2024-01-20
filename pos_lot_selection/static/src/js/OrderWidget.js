@@ -8,8 +8,8 @@ odoo.define("pos_lot_selection.CustomOrderWidget", function (require) {
     const Registries = require("point_of_sale.Registries");
     const OrderWidget = require("point_of_sale.OrderWidget");
 
-    const CustomOrderWidget = (OrderWidget) =>
-        class extends OrderWidget {
+    const CustomOrderWidget = (OriginalOrderWidget) =>
+        class extends OriginalOrderWidget {
             /**
              * @override
              */

@@ -4,8 +4,8 @@ odoo.define("pos_global_discount_in_line.GlobalLineDiscount", function (require)
     const DiscountButton = require("pos_discount.DiscountButton");
     const Registries = require("point_of_sale.Registries");
 
-    const GlobalLineDiscount = (DiscountButton) =>
-        class extends DiscountButton {
+    const GlobalLineDiscount = (OriginalDiscountButton) =>
+        class extends OriginalDiscountButton {
             async onClick() {
                 // Replaced to remove rounding
                 var self = this;

@@ -3,8 +3,8 @@
 import PaymentScreen from "point_of_sale.PaymentScreen";
 import Registries from "point_of_sale.Registries";
 
-export const PaymentScreenRisk = (PaymentScreen) =>
-    class PaymentScreenRisk extends PaymentScreen {
+export const PaymentScreenRisk = (OriginalPaymentScreen) =>
+    class extends OriginalPaymentScreen {
         setup() {
             super.setup();
             this.paymentMethodsFromConfigBase = this.payment_methods_from_config;
