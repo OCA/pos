@@ -4,7 +4,7 @@
 
 {
     "name": "POS ESC/Pos printer Status",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point Of Sale",
     "summary": "Point of sale: fetch status for 'escpos' driver",
     "author": "Odoo Community Association (OCA)",

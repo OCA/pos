@@ -1,6 +1,6 @@
 {
     "name": "Sale Financial Risk in POS",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Sales/Point of Sale",
     "summary": "Sale Financial Risk control for Sales Orders created from POS",
     "depends": ["sale_financial_risk", "pos_order_to_sale_order_delivery"],

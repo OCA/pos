@@ -4,7 +4,7 @@
 
 {
     "name": "POS Lot Selection",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point of Sale",
     "author": "Tecnativa, Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",

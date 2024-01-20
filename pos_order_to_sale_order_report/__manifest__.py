@@ -1,6 +1,6 @@
 {
     "name": "PoS Order To Sale Order: Report",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "category": "Sales/Point of Sale",
     "summary": "Report will be downloaded after the sales order is created.",
     "depends": ["pos_order_to_sale_order"],

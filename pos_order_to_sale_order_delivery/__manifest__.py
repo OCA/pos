@@ -1,6 +1,6 @@
 {
     "name": "PoS Order To Sale Order: Delivery",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Sales/Point of Sale",
     "summary": "Compatibility of pos_order_to_sale_order and delivery modules",
     "depends": ["pos_order_to_sale_order", "delivery"],

@@ -1,6 +1,6 @@
 {
     "name": "PoS Product Quick Info",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "summary": "Display product info by one click in Point of Sale",
     "author": "Cetmix, Odoo Community Association (OCA)",
     "category": "Point Of Sale",
