@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_order_attachment.AttachmentPopup">
+        <div class="popup popup-attachment">
+            <div class="modal-header">
+                <h4 class="modal-title title drag-handle">Attachments</h4>
+            </div>
+            <main class="modal-body">
+                <div class="d-flex flex-column">
+                <t
+                        t-foreach="state.attachments"
+                        t-as="attachment"
+                        t-key="attachment.id"
+                    >
+                    <Attachment attachment="attachment" imagesHeight="100" />
+                </t>
+            </div>
+            </main>
+            <footer class="footer modal-footer">
+                <div class="button close btn btn-lg btn-primary" t-on-click="cancel">
+                    Close
+                </div>
+                <div class="button close btn btn-lg btn-secondary">
+                    <FileUploader
+                        fileUploadClass="'account_file_uploader'"
+                        multiUpload="true"
+                        onUploaded.bind="onFileUploaded"
+                    ><t t-set-slot="toggler">Add Attachment</t>
+                    </FileUploader>
+                </div>
+            </footer>
+        </div>
+    </t>
+    <t t-name="pos_order_attachment.Attachment">
+        <div class="d-flex flex-grow-1 flex-wrap mt-1 mx-1">
+            <div
+                t-att-aria-label="props.attachment.filename"
+                class="o-mail-AttachmentImage d-flex position-relative flex-shrink-0 mw-100 mb-1 me-1"
+                t-att-title="props.attachment.name"
+                t-att-class="{ 'o-isUploading': props.attachment.uploading }"
+                tabindex="0"
+                aria-label="View image"
+                role="menuitem"
+                t-att-data-mimetype="props.attachment.mimetype"
+                t-if="props.attachment.isImage"
+                t-on-click="fileView.bind(this)"
+            >
+                        <img
+                    class="img img-fluid my-0 mx-auto o-viewable"
+                    t-att-class="{ 'opacity-25': props.attachment.uploading }"
+                    t-att-src="getImageUrl()"
+                    t-att-alt="props.attachment.name"
+                    t-attf-style="max-width: min(100%, {{ imagesWidth }}px); max-height: {{ props.imagesHeight }}px;"
+                />
+                        <div
+                    t-if="props.attachment.uploading"
+                    class="position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center justify-content-center"
+                    title="Uploading"
+                >
+                            <i class="fa fa-spin fa-spinner" />
+                        </div>
+                        <div
+                    class="position-absolute top-0 bottom-0 start-0 end-0 p-2 text-white opacity-0 opacity-100-hover d-flex align-items-end flax-wrap flex-column"
+                >
+                            <div
+                        t-if="!ui.isSmall"
+                        class="btn btn-sm btn-dark rounded opacity-75 opacity-100-hover"
+                        tabindex="0"
+                        aria-label="Remove"
+                        role="menuitem"
+                        t-on-click.stop="() => this.onClickUnlink()"
+                        title="Remove"
+                    >
+                                <i class="fa fa-trash" />
+                            </div>
+                            <div
+                        t-if="canDownload() and !ui.isSmall"
+                        class="btn btn-sm btn-dark rounded opacity-75 opacity-100-hover mt-auto"
+                        t-on-click.stop="() => this.onClickDownload()"
+                        title="Download"
+                    >
+                        <i class="fa fa-download" />
+                    </div>
+                </div>
+            </div>
+            <div
+                t-att-aria-label="props.attachment.filename"
+                t-att-title="props.attachment.name"
+                class="o-mail-AttachmentCard d-flex rounded mb-1 me-1 mw-100 overflow-auto bg-300"
+                t-att-class="{
+                    'o-viewable': props.attachment.isViewable,
+                    'o-isUploading': props.attachment.uploading,
+                }"
+                tabindex="0"
+                aria-label="View image"
+                role="menuitem"
+                t-att-data-mimetype="props.attachment.mimetype"
+                t-if="!props.attachment.isImage"
+                t-on-click="fileView.bind(this)"
+            >
+                <div
+                    class="o-mail-AttachmentCard-image o_image flex-shrink-0 m-1"
+                    role="menuitem"
+                    aria-label="Preview"
+                    t-att-tabindex="-1"
+                    t-att-aria-disabled="false"
+                    t-att-data-mimetype="this.props.attachment.mimetype"
+                />
+                <div
+                    class="overflow-auto d-flex justify-content-center flex-column px-1"
+                >
+                    <div
+                        t-if="this.props.attachment.name"
+                        class="text-truncate"
+                        t-out="this.props.attachment.name"
+                    />
+                    <small
+                        t-if="this.props.attachment.extension"
+                        class="text-uppercase"
+                        t-esc="this.props.attachment.extension"
+                    />
+                </div>
+                <div
+                    class="o-mail-AttachmentCard-aside position-relative rounded-end overflow-hidden o-hasMultipleActions d-flex flex-column"
+                >
+                    <div
+                        t-if="this.props.attachment.uploading"
+                        class="d-flex justify-content-center align-items-center w-100 h-100"
+                        title="Uploading"
+                    >
+                        <i class="fa fa-spin fa-spinner" />
+                    </div>
+                    <button
+                        class="o-mail-AttachmentCard-unlink btn top-0 justify-content-center align-items-center d-flex w-100 h-100 rounded-0 border-0 bg-300"
+                        t-on-click.stop="() => this.onClickUnlink()"
+                        title="Remove"
+                    >
+                        <i class="fa fa-trash" role="img" aria-label="Remove" />
+                    </button>
+                    <!-- t-attf-class overridden in extensions -->
+                    <button
+                        class="btn d-flex justify-content-center align-items-center w-100 h-100 rounded-0"
+                        t-attf-class="bg-300"
+                        t-on-click.stop="() => this.onClickDownload()"
+                        title="Download"
+                    >
+                        <i class="fa fa-download" role="img" aria-label="Download" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
