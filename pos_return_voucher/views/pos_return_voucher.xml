@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_pos_return_voucher_form" model="ir.ui.view">
+        <field name="name">view.pos.pos.return.voucher.form</field>
+        <field name="model">pos.return.voucher</field>
+        <field name="arch" type="xml">
+            <form string="Point of Sale Orders" create="0">
+                <header>
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <group name="pos_return_fields">
+                        <group>
+                            <field name="order_id" />
+                            <field name="pos_reference" />
+                            <field name="date_order" />
+                            <field name="max_validity_date" />
+                        </group>
+                        <group>
+                            <field name="user_id" />
+                            <field name="amount" />
+                            <field name="remaining_amount" />
+                        </group>
+                    </group>
+                    <group string="Redeemed Orders" name="redeemed_orders">
+                        <field name="redeemed_order_ids" nolabel="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_pos_pos_return_voucher_tree" model="ir.ui.view">
+        <field name="name">view.pos.pos.return.voucher.tree</field>
+        <field name="model">pos.return.voucher</field>
+        <field name="arch" type="xml">
+            <tree
+                create="0"
+                decoration-info="state == 'active'"
+                decoration-muted="state == 'expired'"
+                decoration-success="state == 'done'"
+            >
+                <field name="state" invisible="1" />
+                <field name="order_id" />
+                <field name="pos_reference" />
+                <field name="max_validity_date" />
+                <field name="user_id" />
+                <field name="remaining_amount" />
+                <field name="amount" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_pos_pos_return_voucher" model="ir.actions.act_window">
+        <field name="name">Return vouchers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.return.voucher</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="False" />
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No return vouchers found
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_pos_return_voucher"
+        parent="point_of_sale.menu_point_of_sale"
+        action="action_pos_pos_return_voucher"
+        sequence="110"
+        groups="point_of_sale.group_pos_user"
+    />
+
+</odoo>
