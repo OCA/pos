@@ -41,6 +41,7 @@ setuptools.setup(
         'odoo-addon-pos_receipt_hide_price>=16.0dev,<16.1dev',
         'odoo-addon-pos_reset_search>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_order_print>=16.0dev,<16.1dev',
+        'odoo-addon-pos_sale_product_config_no_variant>=16.0dev,<16.1dev',
         'odoo-addon-pos_stock_available_online>=16.0dev,<16.1dev',
     ],
     classifiers=[
