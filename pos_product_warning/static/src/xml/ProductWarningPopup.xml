@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ProductWarningPopup" owl="1">
+        <div class="popup popup-selection">
+            <header class="title drag-handle">
+                <t t-esc="props.title" />
+            </header>
+            <div class="selection scrollable-y">
+                <t t-foreach="props.list" t-as="item" t-key="item_index">
+                    <div
+                        class="selection-item"
+                        style="line-height: 25px;padding: 10px;"
+                    >
+                        <t t-esc="item" />
+                    </div>
+                </t>
+            </div>
+            <footer class="footer">
+                <div class="button confirm" t-on-click="confirm">
+                    Ok
+                </div>
+                <div class="button cancel" t-on-click="cancel">
+                    Cancel
+                </div>
+            </footer>
+        </div>
+    </t>
+
+</templates>
