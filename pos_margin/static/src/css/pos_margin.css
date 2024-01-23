@@ -1,0 +1,8 @@
+.pos .order .orderline .order-line-margin {
+    font-weight: normal;
+    color: #888;
+}
+
+.pos .order .orderline .order-line-margin.margin-negative {
+    color: #f00;
+}

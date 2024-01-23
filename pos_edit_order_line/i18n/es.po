@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-06 18:23+0000\n"
-"Last-Translator: Fernando <fernandolachica@gmail.com>\n"
+"PO-Revision-Date: 2023-08-22 18:15+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_edit_order_line
 #: model:ir.model.fields,field_description:pos_edit_order_line.field_pos_config__allow_edit_order_line
@@ -26,6 +26,13 @@ msgstr "Permitir editar ticket"
 #: model_terms:ir.ui.view,arch_db:pos_edit_order_line.res_config_settings_view_form
 msgid "Allow edit Order Line in popup"
 msgstr "Permitir editar ticket en un popup"
+
+#. module: pos_edit_order_line
+#. odoo-javascript
+#: code:addons/pos_edit_order_line/static/src/js/EditOrderPopup.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
 
 #. module: pos_edit_order_line
 #: model:ir.model,name:pos_edit_order_line.model_res_config_settings
@@ -85,6 +92,13 @@ msgstr "Producto"
 #, python-format
 msgid "Quantity"
 msgstr "Cantidad"
+
+#. module: pos_edit_order_line
+#. odoo-javascript
+#: code:addons/pos_edit_order_line/static/src/js/EditOrderPopup.js:0
+#, python-format
+msgid "Save"
+msgstr "Guardar"
 
 #. module: pos_edit_order_line
 #. odoo-javascript

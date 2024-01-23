@@ -1,0 +1,30 @@
+.pos .js_class_add_shipping_method {
+    margin-right: 0px !important;
+    line-height: initial !important;
+    padding: 5px;
+}
+.pos .delivery-carrier-popup .details {
+    text-align: left;
+}
+.pos .delivery-carrier-popup .cost {
+    padding: 10px 0;
+}
+.pos .delivery-carrier-popup .alert-info {
+    clear: both;
+    color: #0e616e;
+    background-color: #d1ecf1;
+    border-color: #b9e3ea;
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-top-width: 1px;
+    border-right-color: transparent;
+    border-right-width: 1px;
+    border-bottom-color: transparent;
+    border-bottom-width: 1px;
+    border-left-color: transparent;
+    border-left-width: 1px;
+    border-radius: 0.25rem;
+}

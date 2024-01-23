@@ -1,7 +1,7 @@
 {
     "name": "Point of Sale - Global Discount in Line",
     "summary": "Order discount in line instead of discount product",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point Of Sale",
     "author": "Ilyas, Ooops404, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",

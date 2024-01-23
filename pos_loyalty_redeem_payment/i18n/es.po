@@ -1,0 +1,188 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_loyalty_redeem_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-18 15:59+0000\n"
+"PO-Revision-Date: 2023-08-22 18:15+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,field_description:pos_loyalty_redeem_payment.field_pos_payment__coupon_id
+msgid "Coupon"
+msgstr "Cupón"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields.selection,name:pos_loyalty_redeem_payment.selection__loyalty_program__redeem_method__discount
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid "Enter Code"
+msgstr "Ingresar código"
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid "Gift Card"
+msgstr "Tarjeta regalo"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,help:pos_loyalty_redeem_payment.field_pos_payment_method__used_for_loyalty_program
+msgid "In PoS interface, this method allows to redeem a gift card."
+msgstr "En la interfaz PoS, este método permite canjear una tarjeta regalo."
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model,name:pos_loyalty_redeem_payment.model_loyalty_program
+msgid "Loyalty Program"
+msgstr "Programa de Lealtad"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,field_description:pos_loyalty_redeem_payment.field_loyalty_program__pos_payment_method_ids
+msgid "POS Payment Methods"
+msgstr "Métodos de pago"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields.selection,name:pos_loyalty_redeem_payment.selection__loyalty_program__redeem_method__payment_method
+msgid "Payment Method"
+msgstr "Método de pago"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,help:pos_loyalty_redeem_payment.field_loyalty_program__redeem_method
+msgid ""
+"Payment Method: The Voucher/Gift Card is used as a payment method in PoS "
+"orders.\n"
+"Discount: The Voucher/Gift Card is used as a discount."
+msgstr ""
+"Método de pago: el vale o tarjeta regalo se usa como método de pago en "
+"pedidos TPV.\n"
+"Descuento: el vale o tarjeta regalo se usa como descuento en pedidos TPV."
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,help:pos_loyalty_redeem_payment.field_loyalty_program__pos_payment_method_ids
+msgid "Payment methods that can be used to redeem coupons of this program."
+msgstr ""
+"Métodos de pago que pueden ser utilizados para canjear cupones de este "
+"programa."
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model,name:pos_loyalty_redeem_payment.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model,name:pos_loyalty_redeem_payment.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos en el punto de venta"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model,name:pos_loyalty_redeem_payment.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pago en el punto de venta"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model,name:pos_loyalty_redeem_payment.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Pagos en el punto de venta"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model,name:pos_loyalty_redeem_payment.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,field_description:pos_loyalty_redeem_payment.field_pos_payment_method__program_id
+msgid "Program"
+msgstr "Programa"
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,field_description:pos_loyalty_redeem_payment.field_loyalty_program__redeem_method
+msgid "Redemption Method"
+msgstr "Método de canje"
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid "Set amount to redeem, up to %s"
+msgstr "Establece el importe a redimir, hasta %s"
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid ""
+"That coupon code has already been scanned and activated. Please, process "
+"pending orders."
+msgstr ""
+"El código ha sido escaneado y activado. Por favor, procese las órdenes "
+"pendientes."
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,help:pos_loyalty_redeem_payment.field_pos_payment__coupon_id
+msgid "The coupon used as payment method."
+msgstr "El cupón usado como método de pago."
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid "There is already an electronic payment in progress."
+msgstr "Hay un pago electrónico en progreso."
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-python
+#: code:addons/pos_loyalty_redeem_payment/models/pos_config.py:0
+#, python-format
+msgid "This coupon has to be redeemed from payment mode (%s)."
+msgstr "Este cupón tiene que ser redimido desde modos de pago (%s)."
+
+#. module: pos_loyalty_redeem_payment
+#: model:ir.model.fields,field_description:pos_loyalty_redeem_payment.field_pos_payment_method__used_for_loyalty_program
+msgid "Used for loyalty program"
+msgstr "Utilizado para programas de fidelización"
+
+#. module: pos_loyalty_redeem_payment
+#. odoo-javascript
+#: code:addons/pos_loyalty_redeem_payment/static/src/js/PaymentScreen.esm.js:0
+#, python-format
+msgid ""
+"You tried to redeem %s, but maximum for this gift card in this order is %s"
+msgstr ""
+"Has intentado redimir %s, pero el máximo para esta tarjeta regalo en este "
+"pedido es %s"
+
+#~ msgid "Coupon ({}) must be redeemed from 'Insert Code' of product screen."
+#~ msgstr ""
+#~ "El cupón ({}) debe ser canjeado desde 'Insertar Código' de la pantalla de "
+#~ "productos."
+
+#~ msgid "Voucher"
+#~ msgstr "Vale"
+
+#~ msgid "Voucher or Gift Card"
+#~ msgstr "Vale o tarjeta regalo"
+
+#~ msgid "Vouchers"
+#~ msgstr "Vales"

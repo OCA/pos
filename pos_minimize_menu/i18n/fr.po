@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_minimize_menu
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: pos_minimize_menu
+#: model:ir.model,name:pos_minimize_menu.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_minimize_menu
+#: model:ir.model.fields,field_description:pos_minimize_menu.field_pos_config__iface_important_buttons
+#: model:ir.model.fields,field_description:pos_minimize_menu.field_res_config_settings__pos_iface_important_buttons
+msgid "Important Buttons"
+msgstr ""
+
+#. module: pos_minimize_menu
+#: model:ir.model,name:pos_minimize_menu.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_minimize_menu
+#: model_terms:ir.ui.view,arch_db:pos_minimize_menu.view_res_config_settings_form
+msgid ""
+"Set technical names of buttons that will be displayed in the main point of "
+"sale screen. Other buttons will be available by clicking on the button "
+"'More...'"
+msgstr ""
+
+#. module: pos_minimize_menu
+#: model:ir.model.fields,help:pos_minimize_menu.field_pos_config__iface_important_buttons
+#: model:ir.model.fields,help:pos_minimize_menu.field_res_config_settings__pos_iface_important_buttons
+msgid ""
+"Set technical names of buttons that will be displayed in the main point of "
+"sale screen. Other buttons will be available by clicking on the button "
+"'More...'."
+msgstr ""
+
+#. module: pos_minimize_menu
+#: model_terms:ir.ui.view,arch_db:pos_minimize_menu.view_res_config_settings_form
+msgid "e.g. OrderlineCustomerNoteButton"
+msgstr ""

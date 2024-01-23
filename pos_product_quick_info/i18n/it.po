@@ -35,7 +35,6 @@ msgstr "Visualizza informazioni prodotto con un clic"
 #. module: pos_product_quick_info
 #. odoo-javascript
 #: code:addons/pos_product_quick_info/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
-#: code:addons/pos_product_quick_info/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
 #, python-format
 msgid "Info"
 msgstr "Informazioni"

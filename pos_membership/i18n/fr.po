@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_membership
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-14 14:51+0000\n"
+"PO-Revision-Date: 2023-11-10 12:38+0000\n"
+"Last-Translator: LESTRAT21 <elodie@comptoirdecampagne.fr>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_membership
+#: model:ir.model,name:pos_membership.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: pos_membership
+#. odoo-javascript
+#: code:addons/pos_membership/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Invoice Required"
+msgstr "Facture requise"
+
+#. module: pos_membership
+#. odoo-javascript
+#: code:addons/pos_membership/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Membership State"
+msgstr "Etat de l'adhésion"
+
+#. module: pos_membership
+#: model:ir.model.fields,field_description:pos_membership.field_res_partner__membership_state_text
+#: model:ir.model.fields,field_description:pos_membership.field_res_users__membership_state_text
+msgid "Membership State Text"
+msgstr "Texte de l'tatde l'adhésion"
+
+#. module: pos_membership
+#: model:ir.model,name:pos_membership.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#. module: pos_membership
+#: model:ir.model.fields,help:pos_membership.field_res_partner__membership_state_text
+#: model:ir.model.fields,help:pos_membership.field_res_users__membership_state_text
+msgid ""
+"Technical field used to display the label of the field 'membership_state' in "
+"the Front End Point of sale UI"
+msgstr ""
+"Champs technique utilisé pour afficher la description du champ "
+"'membership_state' dans l'interface tactile du point de vente"
+
+#. module: pos_membership
+#. odoo-javascript
+#: code:addons/pos_membership/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "You should create an invoice if you sell membership products."
+msgstr "Vous devez créer une facture si vous vendez des articles d'adhésion."

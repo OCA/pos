@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Cannot process transactions with zero or negative amount."
@@ -34,12 +34,7 @@ msgid "Check"
 msgstr "Chèque"
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
-
-#. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -50,16 +45,7 @@ msgstr ""
 "rouge du lecteur CB et essayez à nouveau."
 
 #. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_payment_terminal
-#: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
-msgid "Last Modified on"
-msgstr "Dernière modification le"
-
-#. module: pos_payment_terminal
+#. odoo-python
 #: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
 #, python-format
 msgid "OCA Payment Terminal"
@@ -71,14 +57,14 @@ msgid "Payment Mode"
 msgstr "Mode de paiement"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Payment Terminal Error"
 msgstr "Erreur - Lecteur CB"
 
 #. module: pos_payment_terminal
-#. openerp-web
+#. odoo-javascript
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid ""
@@ -92,6 +78,11 @@ msgid "Point of Sale Payment Methods"
 msgstr "Modes de paiement du point de vente"
 
 #. module: pos_payment_terminal
+#: model:ir.model,name:pos_payment_terminal.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
 msgid "Terminal identifier"
 msgstr ""
@@ -102,6 +93,15 @@ msgid ""
 "The identifier of the terminal as known by the hardware proxy. Leave empty "
 "if the proxy has only one terminal connected."
 msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière modification le"
 
 #~ msgid "Cannot process transactions with negative amount."
 #~ msgstr "Impossible d'envoyer des montants négatifs au lecteur CB"

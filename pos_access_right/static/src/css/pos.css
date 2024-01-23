@@ -1,0 +1,17 @@
+.pos .actionpad .button.pay.disabled-mode,
+.pos .actionpad .button.pay.disabled-mode:hover {
+    background: #c7c7c7;
+    color: #a5a1a1;
+    cursor: not-allowed;
+}
+
+.pos .ticket-screen .controls button.highlight.disabled-mode:hover {
+    background: #c7c7c7;
+    border: solid 1px rgb(220, 220, 220);
+    color: #a5a1a1;
+    cursor: not-allowed;
+}
+
+.pos .ticket-screen .pointer.disabled-mode:hover {
+    cursor: not-allowed;
+}

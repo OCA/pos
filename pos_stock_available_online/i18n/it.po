@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_stock_available_online
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-03-30 10:23+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.1\n"
+
+#. module: pos_stock_available_online
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__additional_warehouse_ids
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_additional_warehouse_ids
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Additional Warehouses"
+msgstr "Magazzini aggiuntivi"
+
+#. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni configurazione"
+
+#. module: pos_stock_available_online
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__display_product_quantity
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_display_product_quantity
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Display Product Quantity"
+msgstr "Visualizza quantità prdotto"
+
+#. module: pos_stock_available_online
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Display the quantity of available products in the POS for"
+msgstr "Visualizza la quantità dei prodotti disponibili nel POS per"
+
+#. module: pos_stock_available_online
+#: model:ir.model.fields,help:pos_stock_available_online.field_pos_config__additional_warehouse_ids
+#: model:ir.model.fields,help:pos_stock_available_online.field_res_config_settings__pos_additional_warehouse_ids
+msgid ""
+"For the selected warehouses will be displayed quantity of available products "
+"in the POS"
+msgstr ""
+"Per il magazzino selezionato verrà visualizzata nel POS la quantità "
+"disponibile del prodotto"
+
+#. module: pos_stock_available_online
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Mark quantity red if below or equal this value."
+msgstr "Evidenzia in rosso la quantità se inferiore o uguale a questo valore."
+
+#. module: pos_stock_available_online
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__minimum_product_quantity_alert
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_minimum_product_quantity_alert
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Minimum Product Quantity Alert"
+msgstr "Allerta quantità minima prodotto"
+
+#. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configurazione punto vendita"
+
+#. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessione punto vendita"
+
+#. module: pos_stock_available_online
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Product Quantity"
+msgstr "Quantità prodotto"
+
+#. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_stock_quant
+msgid "Quants"
+msgstr "Quanti"
+
+#. module: pos_stock_available_online
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Show quantity in the following warehouses in additional to"
+msgstr "Mostra le quantità nei magazzini seguenti in aggiunta a"
+
+#. module: pos_stock_available_online
+#. odoo-javascript
+#: code:addons/pos_stock_available_online/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
+#, python-format
+msgid "Total"
+msgstr "Totale"
+
+#. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_stock_warehouse
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__main_warehouse_id
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_main_warehouse_id
+msgid "Warehouse"
+msgstr "Magazzino"
+
+#. module: pos_stock_available_online
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "Warehouses must belong to the same company as POS."
+msgstr "Il magazzino deve appartenere alla stessa azienda del POS."
+
+#. module: pos_stock_available_online
+#: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
+msgid "warehouse"
+msgstr "magazzino"

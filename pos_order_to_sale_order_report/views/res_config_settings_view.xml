@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field
+            name="inherit_id"
+            ref="pos_order_to_sale_order.view_res_config_settings_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='pos_iface_create_invoiced_sale_order']/../.."
+                position="after"
+            >
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Report</span>
+                        <div class="text-muted">
+                            This report will be downloaded after the sales order is created.
+                        </div>
+                        <div class="content-group mt16">
+                            <field name="pos_iface_create_sale_order" invisible="1" />
+                            <field
+                                name="pos_iface_sale_order_report_id"
+                                attrs="{'invisible': [('pos_iface_create_sale_order', '=', False)]}"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

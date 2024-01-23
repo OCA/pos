@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_res_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field
+            name="inherit_id"
+            ref="pos_order_to_sale_order.view_res_config_settings_form"
+        />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='pos_iface_create_invoiced_sale_order']/../.."
+                position="after"
+            >
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field
+                            name="pos_iface_sale_order_allow_delivery"
+                            string="Allow Delivery"
+                        />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_iface_sale_order_allow_delivery" />
+                        <div class="text-muted">
+                            The specified shipping methods will be available in the PoS during the creation of the Sale Order
+                        </div>
+                        <div class="content-group mt16">
+                            <div
+                                class="row"
+                                attrs="{'invisible': [('pos_iface_sale_order_allow_delivery', '=', False)]}"
+                            >
+                                <field
+                                    name="pos_iface_sale_order_delivery_carrier_ids"
+                                    attrs="{'required': [('pos_iface_sale_order_allow_delivery', '=', True)]}"
+                                    widget="many2many_tags"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

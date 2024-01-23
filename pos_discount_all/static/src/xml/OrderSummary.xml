@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2022-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="OrderSummary"
+        t-inherit="point_of_sale.OrderSummary"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[@t-if='_tax.hasTax']" position="after">
+            <t
+                t-set="_discount_amount"
+                t-value="props.order.get_discount_amount_with_tax_without_any_discount()"
+            />
+            <div t-if="_discount_amount" class="subentry">
+                Discount Amount:
+                <span class="value discount-amount">
+                    <t t-esc="env.pos.format_currency(_discount_amount)" />
+                </span>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

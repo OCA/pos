@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ChromeInherit"
+        t-inherit="point_of_sale.Chrome"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//Notification" position="attributes">
+            <attribute
+                name="duration"
+            >state.notification.duration == 2000 ? 5000 : state.notification.duration</attribute>
+        </xpath>
+    </t>
+
+</templates>

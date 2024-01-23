@@ -1,0 +1,69 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_partner_firstname
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-11-04 00:47+0000\n"
+"Last-Translator: Alexis de Lattre <alexis@via.ecp.fr>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/js/PartnerDetailsEdit.js:0
+#, python-format
+msgid "Both Customer First and Last Name Are Required"
+msgstr "Les champs prénom et nom de famille sont obligatoires."
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "Company"
+msgstr "Société"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "First Name"
+msgstr "Prénom"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "FirstName"
+msgstr "Prénom"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#, python-format
+msgid "LastName"
+msgstr "Nom de famille"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
