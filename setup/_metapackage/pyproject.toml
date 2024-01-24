@@ -1,9 +1,10 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "17.0.20240117.0"
+version = "17.0.20240124.0"
 dependencies = [
     "odoo-addon-pos_lot_selection>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_birthdate>=17.0dev,<17.1dev",
+    "odoo-addon-pos_partner_firstname>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_ref>=17.0dev,<17.1dev",
 ]
 classifiers=[
