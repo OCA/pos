@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,49 +15,42 @@ msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/js/PartnerDetailsEdit.js:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
-msgid "Both Customer First and Last Name Are Required"
+msgid "Customer firstname or lastname is required"
 msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
 #, python-format
-msgid "Company"
-msgstr ""
-
-#. module: pos_partner_firstname
-#: model:ir.model,name:pos_partner_firstname.model_res_partner
-msgid "Contact"
+msgid "Firstname"
 msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
 #, python-format
-msgid "First Name"
+msgid "Lastname"
 msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
-msgid "FirstName"
+msgid "Missing information"
 msgstr ""
 
 #. module: pos_partner_firstname
-#. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
-#, python-format
-msgid "Last Name"
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_pos_config__partner_names_order
+msgid "Partner Names Order"
 msgstr ""
 
 #. module: pos_partner_firstname
-#. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
-#, python-format
-msgid "LastName"
+#: model:ir.model,name:pos_partner_firstname.model_pos_config
+msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_partner_firstname
