@@ -37,11 +37,17 @@ patch(PartnerDetailsEdit.prototype, {
                     body: _t("Customer firstname or lastname is required"),
                 });
             }
-            this.changes.name = this._updatePartnerName(this.changes);
+            this.changes.name = this._updatePartnerName(
+                this.changes.firstname,
+                this._getLastName(this.changes)
+            );
         }
         super.saveChanges();
     },
-    _updatePartnerName({lastname, firstname}) {
+    _getLastName(changes) {
+        return changes.lastname;
+    },
+    _updatePartnerName(firstname, lastname) {
         let name = null;
         if (!lastname) {
             return firstname;
