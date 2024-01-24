@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/models.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/ProductScreen.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/SetSaleOrderButton.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/OrderManagementScreen/MobileSaleOrderManagementScreen.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderFetcher.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderList.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementControlPanel.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js"
+                />
+                <script
+                    type="text/javascript"
+                    src="/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js"
+                />
+            </xpath>
+
+            <xpath expr="//link[@id='pos-stylesheet']" position="after">
+                <link
+                    rel="stylesheet"
+                    href="/pos_sale_order_load/static/src/css/pos.css"
+                />
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
