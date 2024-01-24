@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_sale_product_config_no_variant
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_sale_product_config_no_variant
+#: model:ir.model.fields,field_description:pos_sale_product_config_no_variant.field_pos_order_line__product_no_variant_attribute_value_ids
+msgid "Extra Values"
+msgstr ""
+
+#. module: pos_sale_product_config_no_variant
+#. odoo-javascript
+#: code:addons/pos_sale_product_config_no_variant/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Lot/Serial Number(s) Required"
+msgstr ""
+
+#. module: pos_sale_product_config_no_variant
+#: model:ir.model,name:pos_sale_product_config_no_variant.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr ""
+
+#. module: pos_sale_product_config_no_variant
+#: model:ir.model,name:pos_sale_product_config_no_variant.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_sale_product_config_no_variant
+#: model:ir.model,name:pos_sale_product_config_no_variant.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
