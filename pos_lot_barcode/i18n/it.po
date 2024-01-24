@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-09 13:22+0000\n"
+"PO-Revision-Date: 2024-01-24 17:34+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_lot_barcode
 #. odoo-javascript
@@ -46,7 +46,7 @@ msgstr ""
 #: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
-msgstr "Richiesto lotto/numero(i) di serie"
+msgstr "Richiesto numero(i) di lotto/serie"
 
 #. module: pos_lot_barcode
 #. odoo-javascript
