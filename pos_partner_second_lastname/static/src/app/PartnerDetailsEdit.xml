@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
+        <xpath expr="//input[@name='lastname']/.." position="after">
+
+            <div class="partner-detail col" t-if="!changes.is_company">
+                <label class="form-label label" for="lastname2">Second Lastname</label>
+                    <input
+                    class="detail form-control"
+                    name="lastname2"
+                    t-model="changes.lastname2"
+                    t-att-value="changes.lastname2 || ''"
+                    placeholder="Second Lastname"
+                />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
