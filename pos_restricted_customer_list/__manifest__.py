@@ -3,21 +3,24 @@
 
 {
     "name": "POS: restricted customer list",
-    "version": "13.0.1.0.0",
+    "version": "16.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sales/Point Of Sale",
     "summary": "This module will limit the download of customer data to "
     "only those customers where this has been specifically "
     "requested.",
     "author": "Therp BV, Odoo Community Association (OCA)",
-    "website": "https://odoo-community.org/",
+    "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
     "data": [
-        "views/assets_backend.xml",
         "views/res_partner.xml",
-        "views/pos_config.xml",
+        "views/res_config_settings.xml",
     ],
-    "qweb": ["static/src/xml/pos.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_restricted_customer_list/static/src/js/PartnerDetailsEdit.js",
+        ],
+    },
     "installable": True,
 }
