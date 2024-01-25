@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosOrderToSaleOrderButton" owl="1">
+        <span class="control-button js_create_sale_order">
+            <i class="fa fa-pencil-square-o" />
+            <span> </span>
+            <span>Create Sale Order</span>
+        </span>
+    </t>
+
+</templates>
