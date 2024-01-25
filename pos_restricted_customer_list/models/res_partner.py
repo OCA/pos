@@ -7,7 +7,10 @@ from odoo import api, fields, models
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    available_in_pos = fields.Boolean(string="Available for POS", default=False,)
+    available_in_pos = fields.Boolean(
+        string="Available for POS",
+        default=False,
+    )
 
     @api.model
     def create_from_ui(self, partner):

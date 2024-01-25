@@ -1,39 +1,78 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# * pos_restricted_customer_list
+# 	* pos_restricted_customer_list
 #
-# Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0\n"
+"Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-25 08:42+0000\n"
-"PO-Revision-Date: 2017-06-09 03:25+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
-"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
-"Language: fr\n"
+"POT-Creation-Date: 2024-08-01 08:04+0000\n"
+"PO-Revision-Date: 2024-08-01 08:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: \n"
 
 #. module: pos_restricted_customer_list
-#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_res_partner_available_in_pos
+#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_res_partner__available_in_pos
+#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_res_users__available_in_pos
 msgid "Available for POS"
-msgstr "Disponible dans le PDV"
+msgstr "Disponible sur le PdV"
+
+#. module: pos_restricted_customer_list
+#: model:ir.model,name:pos_restricted_customer_list.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
 
 #. module: pos_restricted_customer_list
 #: model:ir.model,name:pos_restricted_customer_list.model_res_partner
-msgid "Partner"
-msgstr "Partenaire"
+msgid "Contact"
+msgstr ""
 
 #. module: pos_restricted_customer_list
-#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_pos_config_partner_category_id
+#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_pos_config__partner_category_id
 msgid "Customer tag"
-msgstr "Catégorie client"
+msgstr "Etiquette client"
 
 #. module: pos_restricted_customer_list
-#: model_terms:ir.ui.view,arch_db:pos_restricted_customer_list.pos_config_view_form
-msgid "Partner tag allowing to show only customers who belong to it"
-msgstr "Catégorie permettant de ne montrer que les clients qui lui appartiennent"
+#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_pos_config__pos_partner_category
+msgid "Filter partner from category"
+msgstr "Filtrer les partenaires depuis les catégories"
+
+#. module: pos_restricted_customer_list
+#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_res_config_settings__pos_partner_category
+msgid "Filter partner from category (PoS)"
+msgstr "Filtrer les partenaires depuis les catégories (PdV)"
+
+#. module: pos_restricted_customer_list
+#: model_terms:ir.ui.view,arch_db:pos_restricted_customer_list.res_config_settings_view_form
+msgid "Filter partner from selected category"
+msgstr "Filtrer les partenaires depuis les catégories sélectionnées"
+
+#. module: pos_restricted_customer_list
+#: model_terms:ir.ui.view,arch_db:pos_restricted_customer_list.res_config_settings_view_form
+msgid "Partner Category"
+msgstr "Catégorie partenaire"
+
+#. module: pos_restricted_customer_list
+#: model:ir.model.fields,field_description:pos_restricted_customer_list.field_res_config_settings__pos_partner_category_id
+msgid "Partner Category (PoS)"
+msgstr "Catégorie partenaire (PdV)"
+
+#. module: pos_restricted_customer_list
+#: model:ir.model.fields,help:pos_restricted_customer_list.field_pos_config__partner_category_id
+#: model:ir.model.fields,help:pos_restricted_customer_list.field_res_config_settings__pos_partner_category_id
+msgid "Partner tag allowing to show only customers who belong to it."
+msgstr "Catégorie de partenaire pour afficher seulement les clients qui y appartiennent."
+
+#. module: pos_restricted_customer_list
+#: model:ir.model,name:pos_restricted_customer_list.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_restricted_customer_list
+#: model:ir.model,name:pos_restricted_customer_list.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
