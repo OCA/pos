@@ -33,6 +33,14 @@ msgid "Mergeable Line"
 msgstr "Ligne regroupable"
 
 #. module: pos_product_mergeable_line
+#: model:ir.model,name:pos_product_mergeable_line.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_product_mergeable_line
 #: model:ir.model,name:pos_product_mergeable_line.model_product_template
-msgid "Product Template"
-msgstr "Modèle d'article"
+msgid "Product"
+msgstr ""
+
+#~ msgid "Product Template"
+#~ msgstr "Modèle d'article"
