@@ -1,0 +1,2 @@
+- Akim Juillerat \<<akim.juillerat@camptocamp.com>\>
+- Nguyen Minh Chien \<<chien@trobz.com>\>

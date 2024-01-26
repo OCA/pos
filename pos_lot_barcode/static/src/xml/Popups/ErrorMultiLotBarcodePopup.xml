@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_lot_barcode.ErrorMultiLotBarcodePopup">
+        <div class="popup popup-barcode popup-error">
+            <header class="title drag-handle modal-header">
+                <h5 class="modal-title">Multiple Products Matching Barcode: <span
+                        class="fst-italic"
+                        t-esc="props.code"
+                    />
+                </h5>
+            </header>
+            <main class="modal-body">
+                <p><t t-esc="translatedMessage" /></p>
+                <ul>
+                    <t t-foreach="props.products" t-as="prod" t-key="prod_index">
+                        <li><t t-esc="prod" /></li>
+                    </t>
+                </ul>
+            </main>
+            <footer class="footer modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-primary cancel"
+                    t-on-click="confirm"
+                >Ok</button>
+            </footer>
+        </div>
+    </t>
+</templates>
