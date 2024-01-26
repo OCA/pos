@@ -14,8 +14,8 @@ odoo.define("pos_product_mergeable_line.models", function (require) {
     const OrderlineSuper = models.Orderline.prototype;
 
     models.Orderline = models.Orderline.extend({
-        can_be_merged_with: function(orderline){
-            if (! orderline.product.pos_mergeable_line) {
+        can_be_merged_with: function (orderline) {
+            if (!orderline.product.pos_mergeable_line) {
                 return false;
             }
             return OrderlineSuper.can_be_merged_with.apply(this, arguments);
