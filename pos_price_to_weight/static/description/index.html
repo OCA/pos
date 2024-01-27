@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -369,30 +368,29 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:b0443f725649e14ed47bb43b7e7815d98a6f850cf45bffdd6f66b8eee3ac1b76
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/12.0/pos_price_to_weight"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_price_to_weight"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=12.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/16.0/pos_price_to_weight"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_price_to_weight"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module extends Odoo Point Of Sale features, to allow to scan barcode
 with price and to compute according quantity.</p>
 <p>In Odoo by default, there are three types of barcode rules for products.</p>
 <ul class="simple">
-<li>‘Unit Product’ (type=’product’). Scanning a product will add a unit of this
+<li>‘Unit Product’ (<tt class="docutils literal">type=product</tt>). Scanning a product will add a unit of this
 product to the current order.</li>
-<li>‘Priced product’ (type=’price’). A price is extracted from the barcode, and
+<li>‘Priced product’ (<tt class="docutils literal">type=price</tt>). A price is extracted from the barcode, and
 a new line with the given price and a quantity = 1 is added to the current
 order.</li>
-<li>‘Weighted product’ (type=’weight). A weight is extracted from the barcode,
+<li>‘Weighted product’ (<tt class="docutils literal">type=weight</tt>). A weight is extracted from the barcode,
 and a new line with the given weight, and a computed price
 (quantity * Unit price) is added to the current order.</li>
 </ul>
 <p>This module add a new option:</p>
 <ul class="simple">
-<li>‘Priced Product (Computed Weight)’ (type=’price_to_weight’). A price is
+<li>‘Priced Product (Computed Weight)’ (<tt class="docutils literal">type=price_to_weight</tt>). A price is
 extracted from the barcode, and a new line with the given price, and a
 computed quantity (Price / Unit Price) is added to the current order.</li>
 </ul>
-<img alt="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/barcode_rule.png" src="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/barcode_rule.png" style="width: 800px;" />
 <p>This module is usefull in shops with products scaled, to manage correctly
 stock quantities.</p>
-<p>Samples</p>
+<p><strong>Samples</strong></p>
 <ul class="simple">
 <li>Given a product with a unit price of 1,50€ / kg</li>
 <li><dl class="first docutils">
@@ -406,13 +404,34 @@ stock quantities.</p>
 </dd>
 </dl>
 </li>
+<li>On the product we so set ‘0212345000007’ in the barcode field.</li>
+<li><dl class="first docutils">
+<dt>if the scanned barcode is 0212345002650:</dt>
+<dd><ul class="first last">
+<li>{NNNDD} is 00265, the price is so 2,65€</li>
+<li>the according quantity is 2,65€ / 1,5 €/kg = 1,767 kg</li>
 </ul>
-<p>if {NNNDD} is 00265, the price is so 2,65€ and the according quantity is
-2,65€ / 1,5 €/kg = 1,767 kg</p>
-<img alt="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_test_1.png" src="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_test_1.png" style="width: 800px;" />
-<p>if {NNNDD} is 00810, the price is so 8,10€ and the according quantity is
-8,10€ / 1,5 €/kg = 5,400 kg</p>
-<img alt="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_test_2.png" src="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_test_2.png" style="width: 800px;" />
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure">
+<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/pos_test_1.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/pos_test_1.png" />
+</div>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>if the scanned barcode is 0212345008102:</dt>
+<dd><ul class="first last">
+<li>{NNNDD} is 00810, the price is so 8,10€</li>
+<li>the according quantity is 8,10€ / 1,5 €/kg = 5,400 kg</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="figure">
+<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/pos_test_2.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/pos_test_2.png" />
+</div>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -432,21 +451,17 @@ stock quantities.</p>
 <ul class="simple">
 <li>Go to Point of Sale &gt; Configuration &gt; Barcode Nomenclatures</li>
 <li>Edit your barcode rules, according to your barcodes settings</li>
-<li>Go to Point of Sale &gt; Configuration &gt; Point of Sale</li>
-<li>Select the ‘Unit Price’ field that will be used to convert the price to weight.</li>
 </ul>
-<img alt="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_config_form.png" src="https://raw.githubusercontent.com/OCA/pos/12.0/pos_price_to_weight/static/description/pos_config_form.png" style="width: 800px;" />
-<p><strong>Note:</strong></p>
-<p>By default, this is the field <tt class="docutils literal">list_price</tt> that will be used.
-If you want to use a custom field, it should be loaded in the javascript file calling</p>
-<p><tt class="docutils literal"><span class="pre">models.load_fields(&quot;product.product&quot;,</span> <span class="pre">['my_custom_field']);</span></tt></p>
+<div class="figure">
+<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/barcode_rule.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/barcode_rule.png" />
+</div>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-2">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_price_to_weight%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_price_to_weight%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -462,7 +477,6 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <h2><a class="toc-backref" href="#toc-entry-5">Contributors</a></h2>
 <ul class="simple">
 <li>Sylvain LE GAL &lt;<a class="reference external" href="https://twitter.com/legalsylvain">https://twitter.com/legalsylvain</a>&gt;</li>
-<li>Druidoo &lt;<a class="reference external" href="https://www.druidoo.io">https://www.druidoo.io</a>&gt;</li>
 </ul>
 </div>
 <div class="section" id="other-credits">
@@ -476,7 +490,7 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/12.0/pos_price_to_weight">OCA/pos</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/16.0/pos_price_to_weight">OCA/pos</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
