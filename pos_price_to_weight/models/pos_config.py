@@ -5,7 +5,7 @@ from odoo import fields, models
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     pos_price_to_weight_price_field_id = fields.Many2one(
         string="Price To Weight Field",
@@ -16,7 +16,8 @@ class PosConfig(models.Model):
     )
 
     pos_price_to_weight_price_field_name = fields.Char(
-        related="pos_price_to_weight_price_field_id.name")
+        related="pos_price_to_weight_price_field_id.name"
+    )
 
     def _default_pos_price_to_weight_price_field_id(self):
         return self.env.ref("product.field_product_product__list_price")
