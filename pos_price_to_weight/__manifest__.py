@@ -1,5 +1,5 @@
 # Copyright (C) 2017-Today: La Louve (<http://www.lalouve.net/>)
-# Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+# Copyright (C) 2019-Today: GRAP (http://www.grap.coop)
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
@@ -11,16 +11,16 @@
     "author": "La Louve, GRAP, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
-    "depends": [
-        "point_of_sale",
-    ],
-    "data": [
-        "data/barcode_rule.xml",
-        "views/assets.xml",
-        "views/view_pos_config.xml",
-    ],
+    "depends": ["point_of_sale"],
+    "data": [],
     "demo": [
+        "demo/barcode_rule.xml",
         "demo/product_product.xml",
     ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_price_to_weight/static/src/js/ProductScreen.js",
+        ],
+    },
     "installable": True,
 }
