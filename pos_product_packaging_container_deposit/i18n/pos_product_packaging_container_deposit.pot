@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_packaging_container_deposit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_product_packaging_container_deposit
+#: model:ir.model.fields,field_description:pos_product_packaging_container_deposit.field_product_packaging__container_deposit_product_id
+msgid "Container Deposit Product"
+msgstr ""
+
+#. module: pos_product_packaging_container_deposit
+#: model:ir.model.fields,field_description:pos_product_packaging_container_deposit.field_pos_order_line__is_container_deposit
+msgid "Is Container Deposit"
+msgstr ""
+
+#. module: pos_product_packaging_container_deposit
+#: model:ir.model,name:pos_product_packaging_container_deposit.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr ""
+
+#. module: pos_product_packaging_container_deposit
+#: model:ir.model,name:pos_product_packaging_container_deposit.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_product_packaging_container_deposit
+#: model:ir.model,name:pos_product_packaging_container_deposit.model_product_packaging
+msgid "Product Packaging"
+msgstr ""
