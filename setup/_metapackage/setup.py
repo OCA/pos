@@ -43,6 +43,7 @@ setuptools.setup(
         'odoo-addon-pos_sale_order_print>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_product_config_no_variant>=16.0dev,<16.1dev',
         'odoo-addon-pos_stock_available_online>=16.0dev,<16.1dev',
+        'odoo-addon-pos_to_weight_by_product_uom>=16.0dev,<16.1dev',
     ],
     classifiers=[
         'Programming Language :: Python',
