@@ -1,0 +1,61 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_to_weight_by_product_uom
+#
+# Translators:
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-08 04:01+0000\n"
+"PO-Revision-Date: 2022-04-13 13:05+0000\n"
+"Last-Translator: Noel estudillo <noelestudilloviera@gmail.com>\n"
+"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: pos_to_weight_by_product_uom
+#: model:uom.category,name:pos_to_weight_by_product_uom.uom_category_to_weigh
+msgid "Demo - New Category To Weigh"
+msgstr "Demo - Nova Categoria de Pes"
+
+#. module: pos_to_weight_by_product_uom
+#: model:uom.uom,name:pos_to_weight_by_product_uom.uom_uom_to_weigh
+msgid "Demo - New Uom To Weigh"
+msgstr "Demostració: nou Uom per pesar"
+
+#. module: pos_to_weight_by_product_uom
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_product
+msgid "Product"
+msgstr "Producte"
+
+#. module: pos_to_weight_by_product_uom
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_template
+msgid "Product Template"
+msgstr "Plantilla del producte"
+
+#. module: pos_to_weight_by_product_uom
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Producte Unitat de Mesura"
+
+#. module: pos_to_weight_by_product_uom
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_category
+msgid "Product UoM Categories"
+msgstr "Categories de UoM de producte"
+
+#. module: pos_to_weight_by_product_uom
+#: model_terms:ir.ui.view,arch_db:pos_to_weight_by_product_uom.view_uom_category_form
+msgid "Set 'to weigh' in each product of this category"
+msgstr "Establiu \"pesar\" a cada producte d'aquesta categoria"
+
+#. module: pos_to_weight_by_product_uom
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_category__to_weigh
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_uom__to_weigh
+msgid "To weigh"
+msgstr "Pesar"
