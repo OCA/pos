@@ -20,24 +20,9 @@ msgstr ""
 "X-Generator: Weblate 3.10\n"
 
 #. module: pos_to_weight_by_product_uom
-#: model:uom.category,name:pos_to_weight_by_product_uom.uom_category_to_weigh
-msgid "Demo - New Category To Weigh"
-msgstr "Demo - Nueva categoría para pesar"
-
-#. module: pos_to_weight_by_product_uom
-#: model:uom.uom,name:pos_to_weight_by_product_uom.uom_uom_to_weigh
-msgid "Demo - New Uom To Weigh"
-msgstr "Demo - Nueva Udm para pesar"
-
-#. module: pos_to_weight_by_product_uom
-#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_product
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_template
 msgid "Product"
 msgstr "Producto"
-
-#. module: pos_to_weight_by_product_uom
-#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
 
 #. module: pos_to_weight_by_product_uom
 #: model:ir.model,name:pos_to_weight_by_product_uom.model_uom_uom
@@ -50,12 +35,27 @@ msgid "Product UoM Categories"
 msgstr "Categorías de UdM de productos"
 
 #. module: pos_to_weight_by_product_uom
-#: model_terms:ir.ui.view,arch_db:pos_to_weight_by_product_uom.view_uom_category_form
-msgid "Set 'to weigh' in each product of this category"
-msgstr "Establezca 'pesar' en cada producto de esta categoría"
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: pos_to_weight_by_product_uom
-#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_category__to_weigh
-#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_uom__to_weigh
-msgid "To weigh"
-msgstr "Pesar"
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_category__to_weight
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_uom__to_weight
+msgid "To Weigh With Scale"
+msgstr ""
+
+#~ msgid "Demo - New Category To Weigh"
+#~ msgstr "Demo - Nueva categoría para pesar"
+
+#~ msgid "Demo - New Uom To Weigh"
+#~ msgstr "Demo - Nueva Udm para pesar"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
+
+#~ msgid "Set 'to weigh' in each product of this category"
+#~ msgstr "Establezca 'pesar' en cada producto de esta categoría"
+
+#~ msgid "To weigh"
+#~ msgstr "Pesar"

@@ -21,24 +21,9 @@ msgstr ""
 "%100==4 ? 2 : 3);\n"
 
 #. module: pos_to_weight_by_product_uom
-#: model:uom.category,name:pos_to_weight_by_product_uom.uom_category_to_weigh
-msgid "Demo - New Category To Weigh"
-msgstr "Demo - nova kategorija za tehtanje"
-
-#. module: pos_to_weight_by_product_uom
-#: model:uom.uom,name:pos_to_weight_by_product_uom.uom_uom_to_weigh
-msgid "Demo - New Uom To Weigh"
-msgstr "Demo - nova EM za tehtanje"
-
-#. module: pos_to_weight_by_product_uom
-#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_product
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_template
 #, fuzzy
 msgid "Product"
-msgstr "Predloga proizvoda"
-
-#. module: pos_to_weight_by_product_uom
-#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_template
-msgid "Product Template"
 msgstr "Predloga proizvoda"
 
 #. module: pos_to_weight_by_product_uom
@@ -53,12 +38,27 @@ msgid "Product UoM Categories"
 msgstr "Kateg. EM proizvoda"
 
 #. module: pos_to_weight_by_product_uom
-#: model_terms:ir.ui.view,arch_db:pos_to_weight_by_product_uom.view_uom_category_form
-msgid "Set 'to weigh' in each product of this category"
-msgstr "Nastavite 'za tehtanje' pri vsakem proizvodu te kategorije"
+#: model:ir.model,name:pos_to_weight_by_product_uom.model_product_product
+msgid "Product Variant"
+msgstr ""
 
 #. module: pos_to_weight_by_product_uom
-#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_category__to_weigh
-#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_uom__to_weigh
-msgid "To weigh"
-msgstr "Za tehtanje"
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_category__to_weight
+#: model:ir.model.fields,field_description:pos_to_weight_by_product_uom.field_uom_uom__to_weight
+msgid "To Weigh With Scale"
+msgstr ""
+
+#~ msgid "Demo - New Category To Weigh"
+#~ msgstr "Demo - nova kategorija za tehtanje"
+
+#~ msgid "Demo - New Uom To Weigh"
+#~ msgstr "Demo - nova EM za tehtanje"
+
+#~ msgid "Product Template"
+#~ msgstr "Predloga proizvoda"
+
+#~ msgid "Set 'to weigh' in each product of this category"
+#~ msgstr "Nastavite 'za tehtanje' pri vsakem proizvodu te kategorije"
+
+#~ msgid "To weigh"
+#~ msgstr "Za tehtanje"
