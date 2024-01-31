@@ -1,0 +1,1 @@
+Removes information from POS receipt.
