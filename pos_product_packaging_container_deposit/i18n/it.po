@@ -6,35 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-02-01 09:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_product_packaging_container_deposit
 #: model:ir.model.fields,field_description:pos_product_packaging_container_deposit.field_product_packaging__container_deposit_product_id
 msgid "Container Deposit Product"
-msgstr ""
+msgstr "Prodotto deposito contenitore"
 
 #. module: pos_product_packaging_container_deposit
 #: model:ir.model.fields,field_description:pos_product_packaging_container_deposit.field_pos_order_line__is_container_deposit
 msgid "Is Container Deposit"
-msgstr ""
+msgstr "È un deposito contenitore"
 
 #. module: pos_product_packaging_container_deposit
 #: model:ir.model,name:pos_product_packaging_container_deposit.model_pos_order_line
 msgid "Point of Sale Order Lines"
-msgstr ""
+msgstr "Righe ordine punto vendita"
 
 #. module: pos_product_packaging_container_deposit
 #: model:ir.model,name:pos_product_packaging_container_deposit.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_product_packaging_container_deposit
 #: model:ir.model,name:pos_product_packaging_container_deposit.model_product_packaging
 msgid "Product Packaging"
-msgstr ""
+msgstr "Imballaggio prodotto"
