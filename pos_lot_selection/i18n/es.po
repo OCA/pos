@@ -17,13 +17,28 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_lot_selection
+#: model:ir.model.fields,field_description:pos_lot_selection.field_product_product__available_lot_for_pos_ids
+msgid "Available Lot For Pos"
+msgstr ""
+
+#. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_stock_lot
 msgid "Lot/Serial"
 msgstr "Lote/Número de serie"
 
 #. module: pos_lot_selection
 #. odoo-javascript
-#: code:addons/pos_lot_selection/static/src/js/EditListPopup.js:0
+#: code:addons/pos_lot_selection/static/src/js/EditListPopup.esm.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
 msgstr "Lote/Número(s) de serie Obligatorio"
+
+#. module: pos_lot_selection
+#: model:ir.model,name:pos_lot_selection.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_lot_selection
+#: model:ir.model,name:pos_lot_selection.model_product_product
+msgid "Product Variant"
+msgstr ""
