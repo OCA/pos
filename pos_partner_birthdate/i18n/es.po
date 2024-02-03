@@ -18,7 +18,7 @@ msgstr ""
 
 #. module: pos_partner_birthdate
 #. odoo-javascript
-#: code:addons/pos_partner_birthdate/static/src/xml/ClientDetailsEdit.xml:0
+#: code:addons/pos_partner_birthdate/static/src/xml/screens.xml:0
 #, python-format
 msgid "Birthdate"
 msgstr "Fecha de Nacimiento"
