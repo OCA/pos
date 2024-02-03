@@ -18,55 +18,73 @@ msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/js/PartnerDetailsEdit.js:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
-msgid "Both Customer First and Last Name Are Required"
-msgstr "Sia il nome che il cognome del cliente sono obbligatori"
+msgid "Customer firstname or lastname is required"
+msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
 #, python-format
-msgid "Company"
-msgstr "Azienda"
-
-#. module: pos_partner_firstname
-#: model:ir.model,name:pos_partner_firstname.model_res_partner
-msgid "Contact"
-msgstr "Contatto"
+msgid "Firstname"
+msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
 #, python-format
-msgid "First Name"
-msgstr "Nome"
+msgid "Lastname"
+msgstr ""
 
 #. module: pos_partner_firstname
 #. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
-msgid "FirstName"
-msgstr "Nome"
+msgid "Missing information"
+msgstr ""
 
 #. module: pos_partner_firstname
-#. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
-#, python-format
-msgid "Last Name"
-msgstr "Cognome"
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_pos_config__partner_names_order
+msgid "Partner Names Order"
+msgstr ""
 
 #. module: pos_partner_firstname
-#. odoo-javascript
-#: code:addons/pos_partner_firstname/static/src/xml/pos.xml:0
-#, python-format
-msgid "LastName"
-msgstr "Cognome"
+#: model:ir.model,name:pos_partner_firstname.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
 
 #. module: pos_partner_firstname
 #: model:ir.model,name:pos_partner_firstname.model_pos_session
 msgid "Point of Sale Session"
 msgstr "Sessione punto vendita"
+
+#, python-format
+#~ msgid "Both Customer First and Last Name Are Required"
+#~ msgstr "Sia il nome che il cognome del cliente sono obbligatori"
+
+#, python-format
+#~ msgid "Company"
+#~ msgstr "Azienda"
+
+#~ msgid "Contact"
+#~ msgstr "Contatto"
+
+#, python-format
+#~ msgid "First Name"
+#~ msgstr "Nome"
+
+#, python-format
+#~ msgid "FirstName"
+#~ msgstr "Nome"
+
+#, python-format
+#~ msgid "Last Name"
+#~ msgstr "Cognome"
+
+#, python-format
+#~ msgid "LastName"
+#~ msgstr "Cognome"
 
 #, python-format
 #~ msgid "!props.partner.is_company"
