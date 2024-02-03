@@ -18,32 +18,21 @@ msgstr ""
 
 #. module: pos_lot_barcode
 #. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
 #, python-format
 msgid "Cancel"
 msgstr "Annulla"
 
 #. module: pos_lot_barcode
 #. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
 #, python-format
 msgid "Error"
 msgstr "Errore"
 
 #. module: pos_lot_barcode
 #. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
-#, python-format
-msgid ""
-"Lot is not loaded. Tried loading the lot from the server but there is a "
-"network error."
-msgstr ""
-"Il lotto non è caricato. Errore di connessione nel tentativo di caricare il "
-"lotto dal server."
-
-#. module: pos_lot_barcode
-#. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.js:0
+#: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.esm.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
 msgstr "Richiesto lotto/numero(i) di serie"
@@ -52,19 +41,12 @@ msgstr "Richiesto lotto/numero(i) di serie"
 #. odoo-javascript
 #: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
 #, python-format
-msgid "Multiple Products Matching Barcode"
-msgstr "Codice a barre corrispondente a prodotti multipli"
+msgid "Multiple Products Matching Barcode:"
+msgstr ""
 
 #. module: pos_lot_barcode
 #. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
-#, python-format
-msgid "Network Error"
-msgstr "Errore di rete"
-
-#. module: pos_lot_barcode
-#. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
 #: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
 #, python-format
 msgid "Ok"
@@ -72,7 +54,7 @@ msgstr "Ok"
 
 #. module: pos_lot_barcode
 #. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.js:0
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
 #, python-format
 msgid ""
 "The Point of Sale can not process the scanned barcode, as it matches "
@@ -81,13 +63,26 @@ msgstr ""
 "Il punto vendita non riesce ad elaborare il codice a barre letto perché "
 "corrisponde a più prodotti:"
 
-#. module: pos_lot_barcode
-#. odoo-javascript
-#: code:addons/pos_lot_barcode/static/src/js/Screens/ProductScreen.js:0
 #, python-format
-msgid ""
-"The Point of Sale could not find any product, lot, client, employee or "
-"action associated with the scanned barcode."
-msgstr ""
-"Il punto vendita non trova alcun prodotto, lotto, cliente, dipendente o "
-"azione associata al codice a barre letto."
+#~ msgid ""
+#~ "Lot is not loaded. Tried loading the lot from the server but there is a "
+#~ "network error."
+#~ msgstr ""
+#~ "Il lotto non è caricato. Errore di connessione nel tentativo di caricare "
+#~ "il lotto dal server."
+
+#, python-format
+#~ msgid "Multiple Products Matching Barcode"
+#~ msgstr "Codice a barre corrispondente a prodotti multipli"
+
+#, python-format
+#~ msgid "Network Error"
+#~ msgstr "Errore di rete"
+
+#, python-format
+#~ msgid ""
+#~ "The Point of Sale could not find any product, lot, client, employee or "
+#~ "action associated with the scanned barcode."
+#~ msgstr ""
+#~ "Il punto vendita non trova alcun prodotto, lotto, cliente, dipendente o "
+#~ "azione associata al codice a barre letto."
