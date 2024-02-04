@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-02 16:37+0000\n"
+"PO-Revision-Date: 2024-02-04 13:37+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 #. module: pos_lot_selection
 #: model:ir.model.fields,field_description:pos_lot_selection.field_product_product__available_lot_for_pos_ids
 msgid "Available Lot For Pos"
-msgstr ""
+msgstr "Lotti disponibili per il POS"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_stock_lot
@@ -36,9 +36,9 @@ msgstr "Richiesto numero(i) lotto/seriale"
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
