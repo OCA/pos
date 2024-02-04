@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-04 00:47+0000\n"
-"Last-Translator: Alexis de Lattre <alexis@via.ecp.fr>\n"
+"PO-Revision-Date: 2024-02-04 12:37+0000\n"
+"Last-Translator: Cyril VINH-TUNG <cyril@invitu.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -21,38 +21,38 @@ msgstr ""
 #: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
 msgid "Customer firstname or lastname is required"
-msgstr ""
+msgstr "Le prénom ou le nom de famille doit être saisi"
 
 #. module: pos_partner_firstname
 #. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Firstname"
-msgstr ""
+msgstr "Prénom"
 
 #. module: pos_partner_firstname
 #. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Lastname"
-msgstr ""
+msgstr "Nom de famille"
 
 #. module: pos_partner_firstname
 #. odoo-javascript
 #: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
 msgid "Missing information"
-msgstr ""
+msgstr "Information manquante"
 
 #. module: pos_partner_firstname
 #: model:ir.model.fields,field_description:pos_partner_firstname.field_pos_config__partner_names_order
 msgid "Partner Names Order"
-msgstr ""
+msgstr "Ordre des noms du client"
 
 #. module: pos_partner_firstname
 #: model:ir.model,name:pos_partner_firstname.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuration du point de vente"
 
 #. module: pos_partner_firstname
 #: model:ir.model,name:pos_partner_firstname.model_pos_session
