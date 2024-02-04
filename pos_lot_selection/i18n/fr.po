@@ -6,37 +6,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-02-04 12:37+0000\n"
+"Last-Translator: Cyril VINH-TUNG <cyril@invitu.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_lot_selection
 #: model:ir.model.fields,field_description:pos_lot_selection.field_product_product__available_lot_for_pos_ids
 msgid "Available Lot For Pos"
-msgstr ""
+msgstr "Lot disponible pour Pdv"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_stock_lot
 msgid "Lot/Serial"
-msgstr ""
+msgstr "Lot/Série"
 
 #. module: pos_lot_selection
 #. odoo-javascript
 #: code:addons/pos_lot_selection/static/src/js/EditListPopup.esm.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
-msgstr ""
+msgstr "Lot/numéro(s) de série requis"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Session du point de vente"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante de produit"
