@@ -1,4 +1,5 @@
-* Go to Point of Sale > Configuration > Point of Sale
+* Go to Point of Sale. 
+* Choose the view list.
 * Edit your point of sale, and select a value for the field
   'Payment Change Policy'.
 
