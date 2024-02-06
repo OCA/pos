@@ -29,7 +29,10 @@ odoo.define("pos_reset_search.ProductScreen", function (require) {
                             ProductsWidgetControlPanel = ProductWidgetChildren[key];
                         }
                     }
-                    if (ProductsWidgetControlPanel) {
+                    if (
+                        ProductsWidgetControlPanel &&
+                        ProductsWidgetControlPanel.component.searchWordInput.el
+                    ) {
                         ProductsWidgetControlPanel.component._clearSearch();
                     }
                 }
