@@ -43,7 +43,10 @@ class PosConfig(models.Model):
 
     @api.onchange("selectable_pricelist_ids")
     def onchange_selectable_pricelist_ids(self):
-        if self.pricelist_id.id not in self.selectable_pricelist_ids.ids:
+        if (
+            self.selectable_pricelist_ids
+            and self.pricelist_id.id not in self.selectable_pricelist_ids.ids
+        ):
             self.update({"pricelist_id": self.selectable_pricelist_ids[0].id})
 
     @api.onchange("available_pricelist_ids")
