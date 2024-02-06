@@ -47,6 +47,7 @@ setuptools.setup(
         'odoo14-addon-pos_reset_search',
         'odoo14-addon-pos_return_voucher',
         'odoo14-addon-pos_reuse_pricelist',
+        'odoo14-addon-pos_sale_order_load',
         'odoo14-addon-pos_session_pay_invoice',
         'odoo14-addon-pos_show_clock',
         'odoo14-addon-pos_show_config_name',

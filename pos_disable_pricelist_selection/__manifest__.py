@@ -1,6 +1,6 @@
 {
     "name": "Disable Pricelist selection button in POS",
-    "version": "14.0.2.0.0",
+    "version": "14.0.2.0.1",
     "summary": "Disable Pricelist selection button in POS",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "contributors": "Cetmix",

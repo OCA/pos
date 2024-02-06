@@ -28,7 +28,7 @@ addon | version | maintainers | summary
 [pos_customer_required](pos_customer_required/) | 14.0.1.0.0 |  | Point of Sale Require Customer
 [pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.1 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 |  | Add a default customer in pos order
-[pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.2.0.0 | [![ilyasprogrammer](https://github.com/ilyasprogrammer.png?size=30px)](https://github.com/ilyasprogrammer) | Disable Pricelist selection button in POS
+[pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.2.0.1 | [![ilyasprogrammer](https://github.com/ilyasprogrammer.png?size=30px)](https://github.com/ilyasprogrammer) | Disable Pricelist selection button in POS
 [pos_edit_order_line](pos_edit_order_line/) | 14.0.1.0.2 |  | POS Edit Order Line
 [pos_empty_home](pos_empty_home/) | 14.0.1.0.0 |  | Point of Sale - Hide products if no category is selected
 [pos_escpos_status](pos_escpos_status/) | 14.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
@@ -60,6 +60,7 @@ addon | version | maintainers | summary
 [pos_reset_search](pos_reset_search/) | 14.0.1.0.1 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
 [pos_return_voucher](pos_return_voucher/) | 14.0.1.0.0 |  | Point of Sale - Manage return vouchers
 [pos_reuse_pricelist](pos_reuse_pricelist/) | 14.0.1.0.1 |  | PoS reuse pricelist
+[pos_sale_order_load](pos_sale_order_load/) | 14.0.1.0.1 |  | Point of sale: Import a sales order in an active session of POS
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 14.0.1.1.0 |  | Pay and receive invoices from PoS Session
 [pos_show_clock](pos_show_clock/) | 14.0.1.0.0 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) [![ygcarvalh](https://github.com/ygcarvalh.png?size=30px)](https://github.com/ygcarvalh) [![felipezago](https://github.com/felipezago.png?size=30px)](https://github.com/felipezago) | Point of Sale: Display Current Date and Time on POS sreen
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 |  | Point of sale: show pos config name
