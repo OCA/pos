@@ -1,10 +1,8 @@
-odoo.define('pos_sale.SaleOrderFetcher', function (require) {
-    'use strict';
+odoo.define("pos_sale_order_load.SaleOrderFetcher", function (require) {
+    "use strict";
 
-    const { Gui } = require('point_of_sale.Gui');
-    const { isConnectionError } = require('point_of_sale.utils');
-
-    const { EventBus } = owl;
+    const {EventBus} = owl.core;
+    const {Gui} = require("point_of_sale.Gui");
 
     class SaleOrderFetcher extends EventBus {
         constructor() {
@@ -14,9 +12,8 @@ odoo.define('pos_sale.SaleOrderFetcher', function (require) {
             this.totalCount = 0;
         }
 
-
         /**
-         * for nPerPage = 10
+         * For nPerPage = 10
          * +--------+----------+
          * | nItems | lastPage |
          * +--------+----------+
@@ -41,23 +38,22 @@ odoo.define('pos_sale.SaleOrderFetcher', function (require) {
          */
         async fetch() {
             try {
-                let limit, offset;
                 // Show orders from the backend.
-                offset =
-                    this.nPerPage +
-                    (this.currentPage - 1 - 1) *
-                        this.nPerPage;
-                limit = this.nPerPage;
+                const offset =
+                    this.nPerPage + (this.currentPage - 1 - 1) * this.nPerPage;
+                const limit = this.nPerPage;
                 this.ordersToShow = await this._fetch(limit, offset);
-
-                this.trigger('update');
+                this.trigger("update");
             } catch (error) {
-                if (isConnectionError(error)) {
-                    Gui.showPopup('ErrorPopup', {
-                        title: this.comp.env._t('Network Error'),
-                        body: this.comp.env._t('Unable to fetch orders if offline.'),
+                if (
+                    error.message &&
+                    [100, 200, 404, -32098].includes(error.message.code)
+                ) {
+                    Gui.showPopup("ErrorPopup", {
+                        title: this.comp.env._t("Network Error"),
+                        body: this.comp.env._t("Unable to fetch orders if offline."),
                     });
-                    Gui.setSyncStatus('error');
+                    Gui.setSyncStatus("error");
                 } else {
                     throw error;
                 }
@@ -68,25 +64,36 @@ odoo.define('pos_sale.SaleOrderFetcher', function (require) {
          * If the order is already in cache, the full information about that
          * order is not fetched anymore, instead, we use info from cache.
          *
-         * @param {number} limit
-         * @param {number} offset
+         * @param {Number} limit
+         * @param {Number} offset
          */
         async _fetch(limit, offset) {
             const sale_orders = await this._getOrderIdsForCurrentPage(limit, offset);
-
             this.totalCount = sale_orders.length;
             return sale_orders;
         }
         async _getOrderIdsForCurrentPage(limit, offset) {
-            let domain = [['currency_id', '=', this.comp.env.pos.currency.id]].concat(this.searchDomain || []);
-            const saleOrders = await this.rpc({
-                model: 'sale.order',
-                method: 'search_read',
-                args: [domain, ['name', 'partner_id', 'amount_total', 'date_order', 'state', 'user_id', 'amount_unpaid'], offset, limit],
+            const domain = [["currency_id", "=", this.comp.env.pos.currency.id]].concat(
+                this.searchDomain || []
+            );
+            return await this.rpc({
+                model: "sale.order",
+                method: "search_read",
+                args: [
+                    domain,
+                    [
+                        "name",
+                        "partner_id",
+                        "amount_total",
+                        "date_order",
+                        "state",
+                        "user_id",
+                    ],
+                    offset,
+                    limit,
+                ],
                 context: this.comp.env.session.user_context,
             });
-
-            return saleOrders;
         }
 
         nextPage() {
@@ -102,10 +109,10 @@ odoo.define('pos_sale.SaleOrderFetcher', function (require) {
             }
         }
         /**
-         * @param {integer|undefined} id id of the cached order
+         *
          * @returns {Array<models.Order>}
          */
-        get(id) {
+        get() {
             return this.ordersToShow;
         }
         setSearchDomain(searchDomain) {
@@ -123,9 +130,9 @@ odoo.define('pos_sale.SaleOrderFetcher', function (require) {
         }
 
         async rpc() {
-            Gui.setSyncStatus('connecting');
+            Gui.setSyncStatus("connecting");
             const result = await this.comp.rpc(...arguments);
-            Gui.setSyncStatus('connected');
+            Gui.setSyncStatus("connected");
             return result;
         }
     }

@@ -83,12 +83,60 @@
     color: white;
 }
 
-/* Utility classes */
-
-.order-management-screen .self-end {
-    align-self: flex-end;
+.pos .orders {
+    overflow-y: auto;
+    font-size: medium;
 }
 
-.order-management-screen .text-gray {
-    color: #808080;
+.pos .orders .header-row {
+    display: flex;
+    background: #868686;
+    color: white;
+}
+
+@media screen and (min-width: 768px) {
+    .pos .orders .order-row {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .pos .orders .order-row:nth-child(odd) {
+        background: #ddd;
+    }
+
+    .pos .orders .order-row:nth-child(even) {
+        background: white;
+    }
+}
+@media screen and (max-width: 768px) {
+    .pos .orders .order-row {
+        margin: 5px;
+        border: 1px solid #c9ccd2; /* $border-color */
+        background: white; /* $o-view-background-color */
+    }
+}
+
+.pos .orders .order-row:hover,
+.pos .orders .order-row.highlight {
+    color: white;
+    background-color: rgb(110, 200, 155);
+}
+
+.pos .orders .col {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .pos .orders .col.end {
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pos .orders .order-row > .col > div:first-child {
+        font-weight: bold;
+    }
 }

@@ -1,54 +1,62 @@
-odoo.define('pos_sale.SetSaleOrderButton', function(require) {
-    'use strict';
+odoo.define("pos_sale_order_load.SetSaleOrderButton", function (require) {
+    "use strict";
 
-    const PosComponent = require('point_of_sale.PosComponent');
-    const ProductScreen = require('point_of_sale.ProductScreen');
-    const { useListener } = require("@web/core/utils/hooks");
-    const Registries = require('point_of_sale.Registries');
-    const { isConnectionError } = require('point_of_sale.utils');
-    const { Gui } = require('point_of_sale.Gui');
+    const PosComponent = require("point_of_sale.PosComponent");
+    const ProductScreen = require("point_of_sale.ProductScreen");
+    const {useListener} = require("web.custom_hooks");
+    const Registries = require("point_of_sale.Registries");
 
     class SetSaleOrderButton extends PosComponent {
-        setup() {
-            super.setup();
-            useListener('click', this.onClick);
+        constructor() {
+            super(...arguments);
+            useListener("click", this.onClick);
+        }
+        mounted() {
+            this.env.pos
+                .get("orders")
+                .on("add remove change", () => this.render(), this);
+            this.env.pos.on("change:selectedOrder", () => this.render(), this);
+        }
+        willUnmount() {
+            this.env.pos.get("orders").off("add remove change", null, this);
+            this.env.pos.off("change:selectedOrder", null, this);
         }
         get currentOrder() {
             return this.env.pos.get_order();
         }
         async onClick() {
-          try {
-              // ping the server, if no error, show the screen
-              // Use rpc from services which resolves even when this
-              // component is destroyed (removed together with the popup).
-              await this.env.services.rpc({
-                  model: 'sale.order',
-                  method: 'browse',
-                  args: [[]],
-                  kwargs: { context: this.env.session.user_context },
-              });
-              // LegacyComponent doesn't work the same way as before.
-              // We need to use Gui here to show the screen. This will work
-              // because ui methods in Gui is bound to the root component.
-              const screen = this.env.isMobile ? 'MobileSaleOrderManagementScreen' : 'SaleOrderManagementScreen';
-              Gui.showScreen(screen);
-          } catch (error) {
-              if (isConnectionError(error)) {
-                  this.showPopup('ErrorPopup', {
-                      title: this.env._t('Network Error'),
-                      body: this.env._t('Cannot access order management screen if offline.'),
-                  });
-              } else {
-                  throw error;
-              }
-          }
+            try {
+                // Ping the server, if no error, show the screen
+                await this.rpc({
+                    model: "sale.order",
+                    method: "browse",
+                    args: [[]],
+                    kwargs: {context: this.env.session.user_context},
+                });
+                this.trigger("close-popup");
+                this.showScreen("SaleOrderManagementScreen");
+            } catch (error) {
+                if (
+                    error.message &&
+                    [100, 200, 404, -32098].includes(error.message.code)
+                ) {
+                    this.showPopup("ErrorPopup", {
+                        title: this.env._t("Network Error"),
+                        body: this.env._t(
+                            "Cannot access order management screen if offline."
+                        ),
+                    });
+                } else {
+                    throw error;
+                }
+            }
         }
     }
-    SetSaleOrderButton.template = 'SetSaleOrderButton';
+    SetSaleOrderButton.template = "SetSaleOrderButton";
 
     ProductScreen.addControlButton({
         component: SetSaleOrderButton,
-        condition: function() {
+        condition: function () {
             return true;
         },
     });

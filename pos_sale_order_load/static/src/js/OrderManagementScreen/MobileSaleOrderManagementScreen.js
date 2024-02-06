@@ -1,26 +1,30 @@
-odoo.define('point_of_sale.MobileSaleOrderManagementScreen', function (require) {
-    const SaleOrderManagementScreen = require('pos_sale.SaleOrderManagementScreen');
-    const Registries = require('point_of_sale.Registries');
-    const { useListener } = require("@web/core/utils/hooks");
+odoo.define("pos_sale_order_load.MobileSaleOrderManagementScreen", function (require) {
+    "use strict";
 
-    const { useState } = owl;
+    const SaleOrderManagementScreen = require("pos_sale_order_load.SaleOrderManagementScreen");
+    const Registries = require("point_of_sale.Registries");
+    const {useListener} = require("web.custom_hooks");
+    const {useState} = owl.hooks;
 
     const MobileSaleOrderManagementScreen = (SaleOrderManagementScreen) => {
         class MobileSaleOrderManagementScreen extends SaleOrderManagementScreen {
-            setup() {
-                super.setup();
-                useListener('click-order', this._onShowDetails)
-                this.mobileState = useState({ showDetails: false });
+            constructor() {
+                super(...arguments);
+                useListener("click-order", this._onShowDetails);
+                this.mobileState = useState({showDetails: false});
             }
             _onShowDetails() {
                 this.mobileState.showDetails = true;
             }
         }
-        MobileSaleOrderManagementScreen.template = 'MobileSaleOrderManagementScreen';
+        MobileSaleOrderManagementScreen.template = "MobileSaleOrderManagementScreen";
         return MobileSaleOrderManagementScreen;
     };
 
-    Registries.Component.addByExtending(MobileSaleOrderManagementScreen, SaleOrderManagementScreen);
+    Registries.Component.addByExtending(
+        MobileSaleOrderManagementScreen,
+        SaleOrderManagementScreen
+    );
 
     return MobileSaleOrderManagementScreen;
 });

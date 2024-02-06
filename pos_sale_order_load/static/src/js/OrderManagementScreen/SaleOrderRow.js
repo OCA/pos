@@ -1,9 +1,8 @@
-odoo.define('pos_sale.SaleOrderRow', function (require) {
-    'use strict';
+odoo.define("pos_sale_order_load.SaleOrderRow", function (require) {
+    "use strict";
 
-    const PosComponent = require('point_of_sale.PosComponent');
-    const Registries = require('point_of_sale.Registries');
-    const utils = require('web.utils');
+    const PosComponent = require("point_of_sale.PosComponent");
+    const Registries = require("point_of_sale.Registries");
 
     /**
      * @props {models.Order} order
@@ -16,7 +15,9 @@ odoo.define('pos_sale.SaleOrderRow', function (require) {
         }
         get highlighted() {
             const highlightedOrder = this.props.highlightedOrder;
-            return !highlightedOrder ? false : highlightedOrder.backendId === this.props.order.backendId;
+            return !highlightedOrder
+                ? false
+                : highlightedOrder.backendId === this.props.order.backendId;
         }
 
         // Column getters //
@@ -25,34 +26,22 @@ odoo.define('pos_sale.SaleOrderRow', function (require) {
             return this.order.name;
         }
         get date() {
-            return moment(this.order.date_order).format('YYYY-MM-DD hh:mm A');
+            return moment(this.order.date_order).format("YYYY-MM-DD hh:mm A");
         }
-        get partner() {
-            const partner = this.order.partner_id;
-            return partner ? partner[1] : null;
+        get customer() {
+            const customer = this.order.partner_id;
+            return customer ? customer[1] : null;
         }
         get total() {
             return this.env.pos.format_currency(this.order.amount_total);
         }
-        /**
-         * Returns true if the order has unpaid amount, but the unpaid amount
-         * should not be the same as the total amount.
-         * @returns {boolean}
-         */
-        get showAmountUnpaid() {
-            const isFullAmountUnpaid = utils.float_is_zero(Math.abs(this.order.amount_total - this.order.amount_unpaid), this.env.pos.currency.decimal_places);
-            return !isFullAmountUnpaid && !utils.float_is_zero(this.order.amount_unpaid, this.env.pos.currency.decimal_places);
-        }
-        get amountUnpaidRepr() {
-            return this.env.pos.format_currency(this.order.amount_unpaid);
-        }
         get state() {
-            let state_mapping = {
-              'draft': this.env._t('Quotation'),
-              'sent': this.env._t('Quotation Sent'),
-              'sale': this.env._t('Sales Order'),
-              'done': this.env._t('Locked'),
-              'cancel': this.env._t('Cancelled'),
+            const state_mapping = {
+                draft: this.env._t("Quotation"),
+                sent: this.env._t("Quotation Sent"),
+                sale: this.env._t("Sales Order"),
+                done: this.env._t("Locked"),
+                cancel: this.env._t("Cancelled"),
             };
 
             return state_mapping[this.order.state];
@@ -62,7 +51,7 @@ odoo.define('pos_sale.SaleOrderRow', function (require) {
             return salesman ? salesman[1] : null;
         }
     }
-    SaleOrderRow.template = 'SaleOrderRow';
+    SaleOrderRow.template = "SaleOrderRow";
 
     Registries.Component.add(SaleOrderRow);
 

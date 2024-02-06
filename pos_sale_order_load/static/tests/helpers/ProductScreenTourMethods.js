@@ -1,16 +1,16 @@
-odoo.define('pos_sale.tour.ProductScreenTourMethods', function (require) {
-    'use strict';
+odoo.define("pos_sale.tour.ProductScreenTourMethods", function (require) {
+    "use strict";
 
-    const { createTourMethods } = require('point_of_sale.tour.utils');
-    const { Do, Check, Execute } = require('point_of_sale.tour.ProductScreenTourMethods');
+    const {createTourMethods} = require("point_of_sale.tour.utils");
+    const {Do, Check, Execute} = require("point_of_sale.tour.ProductScreenTourMethods");
 
     class DoExt extends Do {
         clickQuotationButton() {
             return [
                 {
-                    content: 'click quotation button',
-                    trigger: '.o_sale_order_button',
-                }
+                    content: "click quotation button",
+                    trigger: ".o_sale_order_button",
+                },
             ];
         }
 
@@ -23,7 +23,7 @@ odoo.define('pos_sale.tour.ProductScreenTourMethods', function (require) {
                 {
                     content: `click on select the order`,
                     trigger: `.selection-item:contains('Settle the order')`,
-                }
+                },
             ];
         }
 
@@ -36,7 +36,7 @@ odoo.define('pos_sale.tour.ProductScreenTourMethods', function (require) {
                 {
                     content: `click on select the order`,
                     trigger: `.selection-item:contains('Settle the order')`,
-                }
+                },
             ];
         }
 
@@ -57,20 +57,20 @@ odoo.define('pos_sale.tour.ProductScreenTourMethods', function (require) {
                 {
                     content: `click on ok button`,
                     trigger: `.button.confirm`,
-                }
+                },
             ];
         }
     }
 
-    class CheckExt extends Check{
+    class CheckExt extends Check {
         checkCustomerNotes(note) {
             return [
                 {
                     content: `check customer notes`,
                     trigger: `.orderline-note:contains(${note})`,
-                }
+                },
             ];
         }
     }
-    return createTourMethods('ProductScreen', DoExt, CheckExt, Execute);
+    return createTourMethods("ProductScreen", DoExt, CheckExt, Execute);
 });

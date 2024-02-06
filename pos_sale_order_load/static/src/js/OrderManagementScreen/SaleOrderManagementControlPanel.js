@@ -1,25 +1,24 @@
-odoo.define('pos_sale.SaleOrderManagementControlPanel', function (require) {
-    'use strict';
+odoo.define("pos_sale_order_load.SaleOrderManagementControlPanel", function (require) {
+    "use strict";
 
-    const { useAutofocus, useListener } = require("@web/core/utils/hooks");
-    const PosComponent = require('point_of_sale.PosComponent');
-    const Registries = require('point_of_sale.Registries');
-    const SaleOrderFetcher = require('pos_sale.SaleOrderFetcher');
-    const contexts = require('point_of_sale.PosContext');
-
-    const { useState } = owl;
+    const {useContext} = owl.hooks;
+    const {useAutofocus, useListener} = require("web.custom_hooks");
+    const PosComponent = require("point_of_sale.PosComponent");
+    const Registries = require("point_of_sale.Registries");
+    const SaleOrderFetcher = require("pos_sale_order_load.SaleOrderFetcher");
+    const contexts = require("point_of_sale.PosContext");
 
     // NOTE: These are constants so that they are only instantiated once
     // and they can be used efficiently by the OrderManagementControlPanel.
-    const VALID_SEARCH_TAGS = new Set(['date', 'customer', 'client', 'name', 'order']);
+    const VALID_SEARCH_TAGS = new Set(["date", "customer", "client", "name", "order"]);
     const FIELD_MAP = {
-        date: 'date_order',
-        customer: 'partner_id.display_name',
-        client: 'partner_id.display_name',
-        name: 'name',
-        order: 'name',
+        date: "date_order",
+        customer: "partner_id.display_name",
+        client: "partner_id.display_name",
+        name: "name",
+        order: "name",
     };
-    const SEARCH_FIELDS = ['name', 'partner_id.display_name', 'date_order'];
+    const SEARCH_FIELDS = ["name", "partner_id.display_name", "date_order"];
 
     /**
      * @emits close-screen
@@ -28,21 +27,24 @@ odoo.define('pos_sale.SaleOrderManagementControlPanel', function (require) {
      * @emits search
      */
     class SaleOrderManagementControlPanel extends PosComponent {
-        setup() {
-            super.setup();
-            this.orderManagementContext = useState(contexts.orderManagement);
-            useListener('clear-search', this._onClearSearch);
-            useAutofocus();
+        constructor() {
+            super(...arguments);
+            // We are using context because we want the `searchString` to be alive
+            // even if this component is destroyed (unmounted).
+            this.orderManagementContext = useContext(contexts.orderManagement);
+            useListener("clear-search", this._onClearSearch);
+            useAutofocus({selector: "input"});
 
-            let currentPartner = this.env.pos.get_order().get_partner();
-            if (currentPartner) {
-                this.orderManagementContext.searchString = currentPartner.name;
+            const currentClient = this.env.pos.get_client();
+            if (currentClient) {
+                this.orderManagementContext.searchString = currentClient.name;
             }
-            SaleOrderFetcher.setSearchDomain(this._computeDomain());
+            const domain = this._computeDomain();
+            SaleOrderFetcher.setSearchDomain(domain);
         }
         onInputKeydown(event) {
-            if (event.key === 'Enter') {
-                this.trigger('search', this._computeDomain());
+            if (event.key === "Enter") {
+                this.trigger("search", this._computeDomain());
             }
         }
         get showPageControls() {
@@ -51,7 +53,7 @@ odoo.define('pos_sale.SaleOrderManagementControlPanel', function (require) {
         get pageNumber() {
             const currentPage = SaleOrderFetcher.currentPage;
             const lastPage = SaleOrderFetcher.lastPage;
-            return isNaN(lastPage) ? '' : `(${currentPage}/${lastPage})`;
+            return isNaN(lastPage) ? "" : `(${currentPage}/${lastPage})`;
         }
         get validSearchTags() {
             return VALID_SEARCH_TAGS;
@@ -93,33 +95,46 @@ odoo.define('pos_sale.SaleOrderManagementControlPanel', function (require) {
          * ```
          */
         _computeDomain() {
-            let domain = [['state', '!=', 'cancel'],['invoice_status', '!=', 'invoiced']];
+            let domain = [
+                ["state", "!=", "cancel"],
+                ["invoice_status", "!=", "invoiced"],
+            ];
             const input = this.orderManagementContext.searchString.trim();
             if (!input) return domain;
 
-            const searchConditions = this.orderManagementContext.searchString.split(/[,&]\s*/);
+            const searchConditions = this.orderManagementContext.searchString.split(
+                /[,&]\s*/
+            );
             if (searchConditions.length === 1) {
-                let cond = searchConditions[0].split(/:\s*/);
+                const cond = searchConditions[0].split(/:\s*/);
                 if (cond.length === 1) {
-                  domain = domain.concat(Array(this.searchFields.length - 1).fill('|'));
-                  domain = domain.concat(this.searchFields.map((field) => [field, 'ilike', `%${cond[0]}%`]));
-                  return domain;
+                    domain = domain.concat(
+                        Array(this.searchFields.length - 1).fill("|")
+                    );
+                    domain = domain.concat(
+                        this.searchFields.map((field) => [
+                            field,
+                            "ilike",
+                            `%${cond[0]}%`,
+                        ])
+                    );
+                    return domain;
                 }
             }
 
-            for (let cond of searchConditions) {
-                let [tag, value] = cond.split(/:\s*/);
+            for (const cond of searchConditions) {
+                const [tag, value] = cond.split(/:\s*/);
                 if (!this.validSearchTags.has(tag)) continue;
-                domain.push([this.fieldMap[tag], 'ilike', `%${value}%`]);
+                domain.push([this.fieldMap[tag], "ilike", `%${value}%`]);
             }
             return domain;
         }
         _onClearSearch() {
-            this.orderManagementContext.searchString = '';
-            this.onInputKeydown({ key: 'Enter' });
+            this.orderManagementContext.searchString = "";
+            this.onInputKeydown({key: "Enter"});
         }
     }
-    SaleOrderManagementControlPanel.template = 'SaleOrderManagementControlPanel';
+    SaleOrderManagementControlPanel.template = "SaleOrderManagementControlPanel";
 
     Registries.Component.add(SaleOrderManagementControlPanel);
 
