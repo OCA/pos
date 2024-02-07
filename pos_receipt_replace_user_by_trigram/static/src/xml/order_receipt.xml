@@ -1,0 +1,12 @@
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('cashier')]//div[2]" position="replace">
+            <t t-if="replace_user_by_trigram">
+                <div>Served by <t t-esc="receipt.cashier_trigram" /></div>
+            </t>
+            <t t-else="">
+                <div>Served by <t t-esc="receipt.cashier" /></div>
+            </t>
+        </xpath>
+    </t>
+</templates>
