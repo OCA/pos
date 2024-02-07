@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_users_form_inherit" model="ir.ui.view">
+        <field name="name">Add Trigram</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="partner_firstname.view_users_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='firstname']" position="after">
+                <field name="pos_trigram" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
