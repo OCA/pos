@@ -1,0 +1,1 @@
+Replace User by Trigram in POS receipt.
