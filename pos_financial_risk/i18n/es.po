@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_financial_risk
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_financial_risk
+#. odoo-javascript
+#: code:addons/pos_financial_risk/static/src/xml/PaymentScreen.xml:0
+#, python-format
+msgid "(remainder"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model_terms:ir.ui.view,arch_db:pos_financial_risk.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Credit Limit Restricted</span>"
+msgstr ""
+
+#. module: pos_financial_risk
+#. odoo-javascript
+#: code:addons/pos_financial_risk/static/src/xml/PaymentScreen.xml:0
+#, python-format
+msgid "Blocked due to credit limit reached"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model:ir.model,name:pos_financial_risk.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model:ir.model.fields,field_description:pos_financial_risk.field_pos_config__payment_credit_limit_restricted_ids
+#: model:ir.model.fields,field_description:pos_financial_risk.field_pos_payment_method__credit_limit_restricted
+#: model:ir.model.fields,field_description:pos_financial_risk.field_res_config_settings__pos_payment_credit_limit_restricted_ids
+msgid "Credit Limit Restricted"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model_terms:ir.ui.view,arch_db:pos_financial_risk.res_config_settings_view_form
+msgid "Payment methods with credit limit restricted"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model:ir.model,name:pos_financial_risk.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model:ir.model,name:pos_financial_risk.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_financial_risk
+#: model:ir.model,name:pos_financial_risk.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
