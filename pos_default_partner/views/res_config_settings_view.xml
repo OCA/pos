@@ -7,27 +7,19 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='pos_accounting_section']" position="inside">
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_right_pane">
-                        <div>
-                            <label
-                                string="Default customer"
-                                for="pos_default_partner_id"
-                            />
-                            <div class="text-muted">
-                                Default customer to use if none is set
-                            </div>
-                            <div class="content-group mt16">
-                                <field
-                                    name="pos_default_partner_id"
-                                    colspan="4"
-                                    nolabel="1"
-                                />
-                            </div>
-                        </div>
+            <xpath expr="//block[@id='pos_accounting_section']" position="inside">
+                <setting>
+                    <label string="Default customer" for="pos_default_partner_id" />
+                    <i
+                        class="fa fa-info-circle me-1"
+                        title="This setting is common to all PoS."
+                        pos-data-toggle="tooltip"
+                    />
+                    <div class="text-muted">
+                        Default customer to use if none is set
                     </div>
-                </div>
+                    <field name="pos_default_partner_id" colspan="4" nolabel="1" />
+                </setting>
             </xpath>
         </field>
     </record>
