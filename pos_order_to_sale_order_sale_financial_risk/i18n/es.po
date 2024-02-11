@@ -6,20 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-02-11 18:34+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_order_to_sale_order_sale_financial_risk
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order_sale_financial_risk/static/src/js/CreateOrderPopup.esm.js:0
 #, python-format
 msgid "Financial risk exceeded.\n"
-msgstr ""
+msgstr "Riesgo financiero sobrepasado.\n"
 
 #. module: pos_order_to_sale_order_sale_financial_risk
 #. odoo-javascript
@@ -27,28 +29,28 @@ msgstr ""
 #: code:addons/pos_order_to_sale_order_sale_financial_risk/static/src/js/CreateOrderPopup.esm.js:0
 #, python-format
 msgid "Partner risk exceeded"
-msgstr ""
+msgstr "Riesgo para el socio superado"
 
 #. module: pos_order_to_sale_order_sale_financial_risk
 #: model:ir.model,name:pos_order_to_sale_order_sale_financial_risk.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sesiones del Punto de Venta"
 
 #. module: pos_order_to_sale_order_sale_financial_risk
 #: model:ir.model,name:pos_order_to_sale_order_sale_financial_risk.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Orden de Ventas"
 
 #. module: pos_order_to_sale_order_sale_financial_risk
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order_sale_financial_risk/static/src/js/CreateOrderPopup.esm.js:0
 #, python-format
 msgid "This sale order exceeds the financial risk.\n"
-msgstr ""
+msgstr "Este pedido excede el riesgo financiero.\n"
 
 #. module: pos_order_to_sale_order_sale_financial_risk
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order_sale_financial_risk/static/src/js/CreateOrderPopup.esm.js:0
 #, python-format
 msgid "This sale order exceeds the sales orders risk.\n"
-msgstr ""
+msgstr "Este pedido excede el riesgo en pedidos.\n"
