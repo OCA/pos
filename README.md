@@ -42,7 +42,7 @@ addon | version | maintainers | summary
 [pos_order_to_sale_order_report](pos_order_to_sale_order_report/) | 16.0.1.0.2 |  | Report will be downloaded after the sales order is created.
 [pos_order_to_sale_order_sale_financial_risk](pos_order_to_sale_order_sale_financial_risk/) | 16.0.1.0.1 | [![geomer198](https://github.com/geomer198.png?size=30px)](https://github.com/geomer198) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Sale Financial Risk control for Sales Orders created from POS
 [pos_partner_birthdate](pos_partner_birthdate/) | 16.0.1.0.4 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
-[pos_partner_firstname](pos_partner_firstname/) | 16.0.1.0.2 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
+[pos_partner_firstname](pos_partner_firstname/) | 16.0.1.0.3 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_partner_sale_warning](pos_partner_sale_warning/) | 16.0.1.0.0 |  | Show partner sales warning in POS
 [pos_payment_change](pos_payment_change/) | 16.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_terminal](pos_payment_terminal/) | 16.0.1.0.2 |  | Point of sale: support generic payment terminal
