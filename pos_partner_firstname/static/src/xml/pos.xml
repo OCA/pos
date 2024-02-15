@@ -3,7 +3,9 @@
 
     <t t-inherit="point_of_sale.PartnerDetailsEdit" t-inherit-mode="extension">
         <xpath expr="//input[@name='name']" position="attributes">
-            <attribute name="t-att-readonly">!changes.is_company</attribute>
+            <attribute
+                name="t-attf-style"
+            >display: {{changes.is_company ? 'block': 'none'}}</attribute>
         </xpath>
         <xpath expr="//div[@class='partner-details-left']/div[1]" position="before">
             <div class="partner-detail">
