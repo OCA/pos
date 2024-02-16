@@ -5,7 +5,7 @@
 {
     "name": "POS Partner Firstname",
     "summary": "POS Support of partner firstname",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
