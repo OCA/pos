@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2024 Dixmit
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+    <record model="ir.ui.view" id="res_config_settings_view_form">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pos_ship_later']/.." position="after">
+                <setting
+                    string="Check expiry"
+                    help="Check the expiry of lots when the lot is introduced."
+                >
+                    <field name="pos_check_lot_expiry" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
