@@ -1,0 +1,136 @@
+/*
+ * SPDX-FileCopyrightText: 2024 Coop IT Easy SC
+ *
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+.pos .positionzero {
+    top: 0px;
+}
+
+.pos .weight-widget .weight {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    padding-right: 30px;
+    font-size: 56px;
+    border-radius: 3px;
+    font-family: Inconsolata;
+    text-shadow: 0px 2px 0px rgb(210, 210, 210);
+    box-shadow: 0px 2px 0px rgb(225, 225, 225) inset;
+}
+.pos .self-service-control-buttons {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 8px 16px 0px 16px;
+    margin-top: auto;
+    overflow-y: auto;
+}
+
+.pos .self-service-control-buttons .button {
+    flex-grow: 1;
+    background: #e2e2e2;
+    border: solid 1px #bfbfbf;
+    color: #4a4f59;
+    display: inline-block;
+    line-height: 76px;
+    min-width: 80px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0px 10px;
+    font-size: 36px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all linear 150ms;
+
+    &:hover {
+        background: #efefef;
+    }
+
+    &:active {
+        background: black;
+        color: white;
+        border-color: black;
+    }
+}
+
+.pos .self-service-control-buttons .button .fa {
+    margin-right: 6px;
+}
+
+/* Not implemented */
+.pos .self-service-control-buttons .button.highlight {
+    background: #6ec89b !important;
+    border: solid 1px #64af8a !important;
+    color: white !important;
+}
+
+/* Not implemented */
+.pos .self-service-control-buttons .button.altlight {
+    background: #7f82ac !important;
+    border: solid 1px #756a99 !important;
+    color: white !important;
+}
+
+/* Not implemented */
+.pos .self-service-control-buttons .button.disabled,
+.pos .self-service-control-buttons .button.disabled:active {
+    background: #e2e2e2;
+    border: solid 1px #bebebe;
+    opacity: 0.5;
+    cursor: default;
+    color: inherit;
+}
+
+.pos .self-service-action-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    margin: auto;
+    overflow-y: auto;
+}
+
+.pos .self-service-action-buttons .button {
+    display: flex;
+    background: #ececec;
+    color: #4a4f59;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 1px #bfbfbf;
+    border-radius: 3px;
+    margin: 6px;
+    padding: 10px;
+    font-size: 55px;
+    cursor: pointer;
+    transition: all linear 150ms;
+
+    &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        color: inherit;
+    }
+
+    &:hover {
+        background: #f7f7f7;
+    }
+
+    &:active {
+        background: black;
+        color: white;
+        border-color: black;
+    }
+}
+
+.pos .self-service-action-buttons .button .ico {
+    display: inline-block;
+    background-size: contain;
+    width: 170px;
+    height: 170px;
+    order: 2;
+}
+
+.foodbox {
+    background-image: url("../../img/empty_foodbox_on_scale.svg");
+}
