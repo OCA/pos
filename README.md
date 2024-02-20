@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [pos_margin](pos_margin/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_membership](pos_membership/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Implement features of membership module in the Point of sale UI.
 [pos_minimize_menu](pos_minimize_menu/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Reduce size of the main menu of the point of sale.
+[pos_order_new_line](pos_order_new_line/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to create a new order line, instead of merging the quantity with a previous line
 [pos_order_remove_line](pos_order_remove_line/) | 16.0.1.2.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
 [pos_order_reorder](pos_order_reorder/) | 16.0.0.1.2 |  | Simple Re-order in the Point of Sale
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 16.0.1.0.7 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
