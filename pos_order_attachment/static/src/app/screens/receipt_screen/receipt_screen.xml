@@ -3,7 +3,7 @@
     <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
         <xpath
             expr="//div[hasclass('validation-buttons')]/button[@name='done']"
-            position="after"
+            position="before"
         >
             <button
                 class="button next validation btn btn-primary w-100 py-5 rounded-0 fs-2"
@@ -19,6 +19,16 @@
                 />
                 Attachments
             </button>
+        </xpath>
+        <xpath expr="//div[hasclass('switchpane')]/div[@name='done']" position="before">
+            <div
+                class="btn-switchpane validation-button btn btn-primary flex-fill d-flex justify-content-center align-items-center rounded-0 fw-bolder fs-1"
+                t-att-class="{ highlight: !locked }"
+                t-on-click="showAttachments"
+                name="attachments"
+            >
+                Attachments
+            </div>
         </xpath>
     </t>
 </templates>
