@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.ProductsWidget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('product-list')]" position="attributes">
+            <attribute name="t-attf-style">
+                grid-template-columns: repeat(auto-fill, minmax({{env.pos.config.product_title_min_width or 122 }}px, 1fr)) !important;
+            </attribute>
+        </xpath>
+    </t>
+
+</templates>
