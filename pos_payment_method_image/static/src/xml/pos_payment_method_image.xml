@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+License LGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PaymentScreen"
+        t-inherit="point_of_sale.PaymentScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('payment-name')]" position="replace">
+            <div class="payment-method-display">
+                <div>
+                    <img
+                        class="payment-method-icon"
+                        t-att-src="paymentMethodImage(paymentMethod.id)"
+                    />
+                </div>
+                <span class="payment-name">
+                    <t t-esc="paymentMethod.name" />
+                </span>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
