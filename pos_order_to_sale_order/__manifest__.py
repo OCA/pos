@@ -16,8 +16,8 @@
     "assets": {
         "point_of_sale.assets": [
             "pos_order_to_sale_order/static/src/css/pos.css",
-            "pos_order_to_sale_order/static/src/js/CreateOrderButton.js",
-            "pos_order_to_sale_order/static/src/js/CreateOrderPopup.js",
+            "pos_order_to_sale_order/static/src/js/CreateOrderButton.esm.js",
+            "pos_order_to_sale_order/static/src/js/CreateOrderPopup.esm.js",
             "pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml",
             "pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml",
         ],
