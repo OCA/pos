@@ -39,7 +39,7 @@ class PosSession(models.Model):
                             0,
                             {
                                 "journal_id": pay_method.cash_journal_id.id,
-                                "name": self.name,
+                                "name": "%s %s" % (self.name, pay_method.name),
                             },
                         )
                         for pay_method in payment_methods_bank_statement
