@@ -1,97 +1,18 @@
 /** @odoo-module **/
-/* Copyright (C) 2014-Today Akretion (https://www.akretion.com)
-    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
-    @author Navarromiguel (https://github.com/navarromiguel)
-    @author Raphaël Reverdy (https://www.akretion.com)
-    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
-*/
+// /* Copyright (C) 2014-Today Akretion (https://www.akretion.com)
+//     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+//     @author Navarromiguel (https://github.com/navarromiguel)
+//     @author Raphaël Reverdy (https://www.akretion.com)
+//     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+// */
 
 import PosDB from "point_of_sale.DB";
-import models from "point_of_sale.models";
-
-models.PosModel.prototype.models.some(function (model) {
-    if (model.model !== "product.product") {
-        return false;
-    }
-    // Add name and product_template_attribute_value_ids to list of fields
-    // to fetch for product.product
-    ["name", "product_template_attribute_value_ids"].forEach(function (field) {
-        if (model.fields.indexOf(field) === -1) {
-            model.fields.push(field);
-        }
-    });
-    // Exit early the iteration of this.models
-    return true;
-});
-
-// Add our new models
-models.load_models([
-    {
-        model: "product.template",
-        fields: [
-            "name",
-            "display_name",
-            "product_variant_ids",
-            "product_variant_count",
-        ],
-        domain: function () {
-            return [
-                ["sale_ok", "=", true],
-                ["available_in_pos", "=", true],
-            ];
-        },
-        context: function (self) {
-            return {
-                pricelist: self.pricelists[0].id,
-                display_default_code: false,
-            };
-        },
-        loaded: function (self, templates) {
-            // If pos_cache
-            if (Object.keys(self.db.product_by_id).length > 0) {
-                self.db.add_templates(templates);
-            } else {
-                self.db.raw_templates = templates;
-            }
-        },
-    },
-    {
-        model: "product.attribute",
-        fields: ["name", "value_ids", "sequence"],
-        loaded: function (self, attributes) {
-            self.db.add_product_attributes(attributes);
-        },
-    },
-    {
-        model: "product.attribute.value",
-        fields: ["name", "attribute_id"],
-        loaded: function (self, values) {
-            self.db.add_product_attribute_values(values);
-        },
-    },
-    {
-        model: "product.template.attribute.value",
-        fields: [
-            "name",
-            "attribute_id",
-            "product_tmpl_id",
-            "product_attribute_value_id",
-            "ptav_product_variant_ids",
-        ],
-        domain: function () {
-            return [["product_tmpl_id.available_in_pos", "=", true]];
-        },
-        loaded: function (self, values) {
-            self.db.add_product_template_attribute_values(values);
-        },
-    },
-]);
 
 PosDB.include({
     // The maximum number of results returned by a search
     product_search_limit: 314159265,
     product_display_limit: 10,
-    // Can't change limit because it's also used in partner search
+    //     // Can't change limit because it's also used in partner search
     init: function (options) {
         this.template_by_id = {};
         this.product_attribute_by_id = {};

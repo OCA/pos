@@ -10,7 +10,7 @@
         "point_of_sale",
     ],
     "data": [
-        "views/pos_config_view.xml",
+        "views/res_config_settings.xml",
     ],
     "assets": {
         "web.assets_qweb": ["pos_product_template/static/src/xml/**/*.xml"],
