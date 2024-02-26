@@ -1,6 +1,6 @@
 {
     "name": "POS - Product Template",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "author": "Akretion,Odoo Community Association (OCA)",
     "summary": "Manage Product Template in Front End Point Of Sale",
