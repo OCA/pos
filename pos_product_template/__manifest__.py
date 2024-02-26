@@ -1,22 +1,22 @@
 {
     "name": "POS - Product Template",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "author": "Akretion,Odoo Community Association (OCA)",
-    "summary": "Manage Product Template in Front End Point Of Sale",
+    "summary": "Manage product template in front end point of sale",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
     ],
     "data": [
-        "views/pos_config_view.xml",
+        "views/res_config_settings.xml",
     ],
     "assets": {
-        "web.assets_qweb": ["pos_product_template/static/src/xml/**/*.xml"],
         "point_of_sale.assets": [
             "pos_product_template/static/src/**/*.js",
             "pos_product_template/static/src/css/ppt.css",
+            "pos_product_template/static/src/xml/**/*.xml",
         ],
     },
     "demo": [
