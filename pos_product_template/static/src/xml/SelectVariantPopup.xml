@@ -21,10 +21,10 @@
                                     class="attribute"
                                 >
                                     <div
-                                        class="attribute-name button selected"
+                                        class="attribute-name category"
                                         t-att-data-attribute-id="attribute.id"
                                     >
-                                        <t t-esc="attribute.name" />
+                                        <t t-esc="attribute.name" />:
                                     </div>
                                     <div class='value-list-container'>
                                         <div
@@ -35,7 +35,8 @@
                                         >
                                             <AttributeValueItem
                                                 attributeValue="value"
-                                                t-att-class="{selected: state.ptav_id_selected[value.id], unavailable: state.ptav_unavailable_ids.includes(value.id)}"
+                                                stateSelected="state.ptav_id_selected[value.id]"
+                                                stateUnavailable="state.ptav_unavailable_ids.includes(value.id)"
                                             />
                                         </div>
                                     </div>

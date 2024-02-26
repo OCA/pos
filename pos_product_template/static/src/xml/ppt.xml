@@ -10,16 +10,11 @@
         <article
             class="product"
             tabindex="0"
-            t-on-keypress="spaceClickProduct"
-            t-on-click="trigger('click-product-template', props.product)"
             t-att-data-product-id="props.product.id"
             t-attf-aria-labelledby="article_product_{{props.product.id}}"
         >
             <div class="product-img">
-                <img
-                    t-att-src="imageTmpUrl"
-                    t-att-alt="props.product.template.display_name"
-                />
+                <img t-att-src="imageTmpUrl" t-att-alt="props.product.display_name" />
                 <!-- TODO
                 can be variable
                 <span class="price-tag">
@@ -34,9 +29,8 @@
     <t t-name="AttributeValueItem" owl="1">
         <article
             class="attributeValue"
+            t-att-class="{ selected: props.stateSelected, unavailable: props.stateUnavailable}"
             tabindex="0"
-            t-on-keypress="spaceClickProduct"
-            t-on-click="trigger('click-attribute-value', props.attributeValue)"
             t-att-data-attributeValue-id="props.attributeValue.id"
             t-attf-aria-labelledby="attribute_value_{{props.attributeValue.id}}"
         >

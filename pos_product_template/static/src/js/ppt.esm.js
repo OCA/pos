@@ -11,7 +11,7 @@ import ProductItem from "point_of_sale.ProductItem";
 import ProductScreen from "point_of_sale.ProductScreen";
 import ProductsWidget from "point_of_sale.ProductsWidget";
 import Registries from "point_of_sale.Registries";
-import {useListener} from "web.custom_hooks";
+import {useListener} from "@web/core/utils/hooks";
 
 /* ********************************************************
     Overload: point_of_sale.ProductListWidget
@@ -24,8 +24,8 @@ import {useListener} from "web.custom_hooks";
 
 const PPTProductScreen = (ProductScreen) =>
     class extends ProductScreen {
-        constructor(parent, props) {
-            super(parent, props);
+        setup() {
+            super.setup();
             useListener("click-product-template", this._clickProductTemplate);
         }
         async _clickProductTemplate(event) {
@@ -43,45 +43,64 @@ const PPTProductScreen = (ProductScreen) =>
 const PPTProductsWidget = (ProductsWidget) =>
     class extends ProductsWidget {
         get productsToDisplay() {
-            var tmpl_seen = [];
-            var res = super.productsToDisplay
-                .filter(function (product) {
-                    if (tmpl_seen.indexOf(product.product_tmpl_id) === -1) {
-                        // First time we see it, display it
-                        tmpl_seen.push(product.product_tmpl_id);
-                        return true;
-                    }
-                    return false;
-                })
-                .slice(0, this.env.pos.db.product_display_limit);
+            const tmpl_seen = [];
+            let res = super.productsToDisplay;
+            if (this.env.pos.config.iface_show_product_template) {
+                res = super.productsToDisplay
+                    .filter(function (product) {
+                        if (tmpl_seen.indexOf(product.product_tmpl_id) === -1) {
+                            // First time we see it, display it
+                            tmpl_seen.push(product.product_tmpl_id);
+                            return true;
+                        }
+                        return false;
+                    })
+                    .slice(0, this.env.pos.db.product_display_limit);
+            }
             return res;
         }
     };
 
 const PPTProductItem = (ProductItem) =>
     class extends ProductItem {
-        constructor(parent, props) {
-            // Reuse ProductItem but change only
-            // the template for product.template
-            super(parent, props);
-            if (props.forceVariant) {
-                // In order to not recurse indefinitly
-            } else if (props.product.product_variant_count > 1) {
-                var qweb = this.env.qweb;
-                this.__owl__.renderFn = qweb.render.bind(qweb, "ProductTemplateItem");
+        setup() {
+            super.setup();
+            if (this.props.forceVariant) {
+                // In order to not recurse indefinitely
+            } else if (
+                this.env.pos.config.iface_show_product_template &&
+                this.props.product.product_variant_count > 1
+            ) {
+                useListener("click", this.onClick);
+                const ctx = Object.assign(Object.create(this), {this: this});
+                this.__owl__.renderFn = this.__owl__.app
+                    .getTemplate("ProductTemplateItem")
+                    .bind(this, ctx, this);
             }
         }
         get imageTmpUrl() {
             const product = this.props.product;
-            return `/web/image?model=product.template&field=image_128&id=${product.template.id}&write_date=${product.write_date}&unique=1`;
+            return `/web/image?model=product.template&field=image_128&id=${product.product_tmpl_id}&write_date=${product.write_date}&unique=1`;
+        }
+        async onClick() {
+            // Display our select-variant popup when needed
+            // chain call to clickProduct
+            const product = this.props.product;
+            const ret = await this.showPopup("SelectVariantPopup", {
+                template_id: product.product_tmpl_id,
+            });
+            if (ret.confirmed && ret.payload)
+                this.trigger("click-product", ret.payload);
         }
     };
 
 class AttributeValueItem extends PosComponent {
-    spaceClickProduct(event) {
-        if (event.which === 32) {
-            this.trigger("click-product", this.props.product);
-        }
+    setup() {
+        super.setup();
+        useListener("click", this.onClick);
+    }
+    onClick(event) {
+        this.trigger("click-attribute-value", event);
     }
 }
 

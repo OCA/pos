@@ -6,13 +6,13 @@
 
 import AbstractAwaitablePopup from "point_of_sale.AbstractAwaitablePopup";
 import Registries from "point_of_sale.Registries";
-import {useListener} from "web.custom_hooks";
-const {useState} = owl.hooks;
+import {useListener} from "@web/core/utils/hooks";
+import {useState} from "@odoo/owl";
 
 class SelectVariantPopup extends AbstractAwaitablePopup {
-    constructor(parent, props) {
-        super(parent, props);
-        var template = this.env.pos.db.get_template_by_id(props.template_id);
+    setup() {
+        super.setup();
+        const template = this.env.pos.db.get_template_by_id(this.props.template_id);
         this.state = useState({
             ptav: [],
             attributes: [],
@@ -27,7 +27,7 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
     }
 
     willUpdateProps(nextProp) {
-        var template = this.env.pos.db.get_template_by_id(nextProp.template_id);
+        const template = this.env.pos.db.get_template_by_id(nextProp.template_id);
         this._mountPopup(template);
         super.willUpdateProps(nextProp);
     }
@@ -39,7 +39,7 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
         this.state.products = [];
         this.state.ptav_id_selected = {};
 
-        var ptav = Array.from(
+        const ptav = Array.from(
             new Set(
                 template.product_template_attribute_value_ids.map((x) =>
                     this.env.pos.db.get_product_template_attribute_value_by_id(x)
@@ -47,10 +47,10 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
             )
         );
 
-        var attributes_by_id = {};
+        const attributes_by_id = {};
         ptav.forEach((x) => {
-            var id = x.attribute_id[0];
-            var value_id = x.product_attribute_value_id[0];
+            const id = x.attribute_id[0];
+            const value_id = x.product_attribute_value_id[0];
             attributes_by_id[id] = attributes_by_id[id] || {
                 attribute: x.attribute_id,
                 values_id: {},
@@ -59,7 +59,7 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
             attributes_by_id[id].values_id[value_id] = true;
             attributes_by_id[id].ptav[x.id] = x;
         });
-        var attributes = Object.values(attributes_by_id).map((x) => {
+        const attributes = Object.values(attributes_by_id).map((x) => {
             x.ptav = Object.values(x.ptav);
             x.id = x.attribute[0];
             x.name = x.attribute[1];
@@ -70,7 +70,7 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
 
         ptav.forEach((x) => (this.all_ptav[x.id] = x));
 
-        var products = this.refreshProducts();
+        const products = this.refreshProducts();
         useListener("click-product", this._clickProduct);
         useListener("click-attribute-value", this._clickAttributeValue);
 
@@ -93,37 +93,40 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
         return this.confirm();
     }
     async _clickAttributeValue(event) {
-        var value_id = event.detail.id;
+        if (event.target.classList.contains("unavailable")) {
+            return false;
+        }
+        const value_id = event.target.dataset.attributevalueId;
         // Init
-        var ptav = this.state.ptav_id_selected;
+        const ptav = this.state.ptav_id_selected;
         ptav[value_id] = ptav[value_id] || false;
         // Toggle
         ptav[value_id] = !ptav[value_id];
 
-        var avat = {};
-        var attributes_stringify = JSON.parse(JSON.stringify(this.state.attributes));
+        const avat = {};
+        const attributes_stringify = JSON.parse(JSON.stringify(this.state.attributes));
         _.each(attributes_stringify, function (at) {
             _.each(at.ptav, function (av) {
                 avat[av.id] = at.id;
             });
         });
 
-        var ptav_stringify = JSON.parse(JSON.stringify(this.state.ptav_id_selected));
+        const ptav_stringify = JSON.parse(JSON.stringify(this.state.ptav_id_selected));
         _.each(Object.keys(ptav_stringify), function (ptav_s) {
-            if (parseInt(ptav_s, 10) !== value_id && avat[ptav_s] === avat[value_id]) {
+            if (ptav_s !== value_id && avat[ptav_s] === avat[value_id]) {
                 ptav[ptav_s] = false;
             }
         });
 
         this.state.products = this.refreshProducts();
-        var self = this;
-        var selected_ptav_ids = Object.keys(self.state.ptav_id_selected).filter(
+        const self = this;
+        const selected_ptav_ids = Object.keys(self.state.ptav_id_selected).filter(
             (x) => self.state.ptav_id_selected[x]
         );
         this.state.ptav_unavailable_ids = this.state.ptav
             .filter(function (value) {
                 // Remove ptav if no available product corresponds
-                var res = self.state.products.every(function (product) {
+                let res = self.state.products.every(function (product) {
                     return (
                         value.ptav_product_variant_ids.includes(product.id) === false
                     );
@@ -165,9 +168,7 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
     }
     async click_confirm() {
         if (this.state.all_attributes_chosen !== true) {
-            throw new Error(
-                "You can only confirm when all attributes are chosen and there is a variant available"
-            );
+            return false;
         }
         this.product_selected = this.state.products[0];
         return this.confirm();
@@ -177,8 +178,8 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
     }
     _get_product_ids_for_ptav(ptav_list) {
         function intersection(setA, setB) {
-            var elements = new Set();
-            for (var elem of setB) {
+            const elements = new Set();
+            for (const elem of setB) {
                 if (setA.has(elem)) {
                     elements.add(elem);
                 }
@@ -187,8 +188,8 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
         }
 
         function union(setA, setB) {
-            var elements = new Set(setA);
-            for (var elem of setB) {
+            const elements = new Set(setA);
+            for (const elem of setB) {
                 elements.add(elem);
             }
             return elements;
@@ -215,10 +216,10 @@ class SelectVariantPopup extends AbstractAwaitablePopup {
         return variants_ids;
     }
     refreshProducts() {
-        var ptav = Object.keys(this.state.ptav_id_selected).filter(
+        const ptav = Object.keys(this.state.ptav_id_selected).filter(
             (x) => this.state.ptav_id_selected[x]
         );
-        var variants_ids = this._get_product_ids_for_ptav(ptav);
+        const variants_ids = this._get_product_ids_for_ptav(ptav);
         return Array.from(variants_ids).map((x) => {
             return this.env.pos.db.get_product_by_id(x);
         });

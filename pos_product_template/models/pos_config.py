@@ -14,3 +14,9 @@ class PosConfig(models.Model):
         help="If selected the product variant selection screen will show the variants,"
         " else it will only allow to confirm once all the attributes are chosen.",
     )
+
+    iface_show_product_template = fields.Boolean(
+        string="Shows product template in TPV",
+        default=True,
+        help="Enables product templates in TPV",
+    )

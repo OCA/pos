@@ -1,14 +1,26 @@
 /*  ********* Variant Selector PopUp  ************************************** */
 .pos .modal-dialog .select-variant-products {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2px;
+    margin-top: 10px;
 }
 
 .pos .modal-dialog .select-variant-products article {
     font-size: 12px;
+}
+
+.pos .popup .attribute-name.category {
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: bold;
 }
 
 /*  ********* Attribut Display  ******************************************** */
@@ -35,12 +47,17 @@
     background-color: white;
 }
 
-.attributeValue.unavailable {
-    color: grey;
+.attributeValue > div.attribute-name.button {
+    background-color: #f5f5f5;
 }
 
-.attributeValue.selected {
-    color: red;
+.attributeValue.unavailable div.attribute-name.button {
+    color: grey;
+    cursor: not-allowed !important;
+}
+
+.attributeValue.selected div.attribute-name.button {
+    color: black;
 }
 
 .pos .attribute .attribute-value {
@@ -58,6 +75,7 @@
     height: 15px;
     text-align: right;
 }
+
 .pos .attribute .attribute-value .attribute-value-name {
     width: 100%;
     height: 25px;
@@ -81,4 +99,10 @@
     border-radius: 2px;
     font-size: 9px;
     margin-right: 3px;
+}
+
+.disabled {
+    background: #e0e2e6;
+    color: #80848f !important;
+    cursor: not-allowed !important;
 }

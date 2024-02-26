@@ -12,6 +12,12 @@
 
    * Jose Zambudio <jose@aurestic.es>
 
+* `Factor Libre <https://factorlibre.com>`_:
+
+  * Daniel Duque (daniel.duque@factorlibre.com)
+  * Adriana Saiz (adriana.saiz@factorlibre.com)
+  * Pablo De Andrés (pablo.deandres@factorlibre.com)
+
 Funders
 -------
 

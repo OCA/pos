@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pos_interface_section']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="iface_show_product_template" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="iface_show_product_template"
+                            string="Show product template in TPV"
+                        />
+                        <div class="text-muted">
+                            Shows product template in the product selection screen.
+                        </div>
+                    </div>
+                </div>
+                <div
+                    attrs="{'invisible': [('iface_show_product_template', '=', False)]}"
+                    class="col-12 col-lg-6 o_setting_box"
+                >
+                    <div class="o_setting_left_pane">
+                        <field name="iface_product_template_show_variants" />
+                    </div>
+                    <div
+                        attrs="{'invisible': [('iface_show_product_template', '=', False)]}"
+                        class="o_setting_right_pane"
+                    >
+                        <label
+                            for="iface_product_template_show_variants"
+                            string="Show product template variants"
+                        />
+                        <div class="text-muted">
+                            Product variant selection screen will show the variants,
+                            else it will only allow to confirm once all the attributes are chosen.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

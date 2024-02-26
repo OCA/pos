@@ -1,97 +1,22 @@
 /** @odoo-module **/
-/* Copyright (C) 2014-Today Akretion (https://www.akretion.com)
-    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
-    @author Navarromiguel (https://github.com/navarromiguel)
-    @author Raphaël Reverdy (https://www.akretion.com)
-    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
-*/
+// /* Copyright (C) 2014-Today Akretion (https://www.akretion.com)
+//     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+//     @author Navarromiguel (https://github.com/navarromiguel)
+//     @author Raphaël Reverdy (https://www.akretion.com)
+//     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+// */
 
 import PosDB from "point_of_sale.DB";
-import models from "point_of_sale.models";
+import {PosGlobalState} from "point_of_sale.models";
+import Registries from "point_of_sale.Registries";
 
-models.PosModel.prototype.models.some(function (model) {
-    if (model.model !== "product.product") {
-        return false;
-    }
-    // Add name and product_template_attribute_value_ids to list of fields
-    // to fetch for product.product
-    ["name", "product_template_attribute_value_ids"].forEach(function (field) {
-        if (model.fields.indexOf(field) === -1) {
-            model.fields.push(field);
-        }
-    });
-    // Exit early the iteration of this.models
-    return true;
-});
-
-// Add our new models
-models.load_models([
-    {
-        model: "product.template",
-        fields: [
-            "name",
-            "display_name",
-            "product_variant_ids",
-            "product_variant_count",
-        ],
-        domain: function () {
-            return [
-                ["sale_ok", "=", true],
-                ["available_in_pos", "=", true],
-            ];
-        },
-        context: function (self) {
-            return {
-                pricelist: self.pricelists[0].id,
-                display_default_code: false,
-            };
-        },
-        loaded: function (self, templates) {
-            // If pos_cache
-            if (Object.keys(self.db.product_by_id).length > 0) {
-                self.db.add_templates(templates);
-            } else {
-                self.db.raw_templates = templates;
-            }
-        },
-    },
-    {
-        model: "product.attribute",
-        fields: ["name", "value_ids", "sequence"],
-        loaded: function (self, attributes) {
-            self.db.add_product_attributes(attributes);
-        },
-    },
-    {
-        model: "product.attribute.value",
-        fields: ["name", "attribute_id"],
-        loaded: function (self, values) {
-            self.db.add_product_attribute_values(values);
-        },
-    },
-    {
-        model: "product.template.attribute.value",
-        fields: [
-            "name",
-            "attribute_id",
-            "product_tmpl_id",
-            "product_attribute_value_id",
-            "ptav_product_variant_ids",
-        ],
-        domain: function () {
-            return [["product_tmpl_id.available_in_pos", "=", true]];
-        },
-        loaded: function (self, values) {
-            self.db.add_product_template_attribute_values(values);
-        },
-    },
-]);
+const {markRaw} = owl;
 
 PosDB.include({
     // The maximum number of results returned by a search
     product_search_limit: 314159265,
     product_display_limit: 10,
-    // Can't change limit because it's also used in partner search
+    //     // Can't change limit because it's also used in partner search
     init: function (options) {
         this.template_by_id = {};
         this.product_attribute_by_id = {};
@@ -103,7 +28,7 @@ PosDB.include({
         // Change the limit only the time of the search
         this.product_display_limit = this.limit;
         this.limit = this.product_search_limit;
-        var res = this._super(category_id);
+        const res = this._super(category_id);
         this.limit = this.product_display_limit;
         return res;
     },
@@ -111,7 +36,7 @@ PosDB.include({
         // Change the limit only the time of the search
         this.product_display_limit = this.limit;
         this.limit = this.product_search_limit;
-        var res = this._super(category_id, query);
+        const res = this._super(category_id, query);
         this.limit = this.product_display_limit;
         return res;
     },
@@ -133,14 +58,14 @@ PosDB.include({
     },
     add_templates: function (templates) {
         templates.forEach((template) => {
-            var product_template_attribute_value_ids = [];
+            const product_template_attribute_value_ids = [];
             // Store Templates
             this.template_by_id[template.id] = template;
 
             // Update Product information
-            var tmpl_attribute_value_ids = new Set();
+            const tmpl_attribute_value_ids = new Set();
             template.product_variant_ids.forEach((variant_id) => {
-                var variant = this.get_product_by_id(variant_id);
+                const variant = this.get_product_by_id(variant_id);
                 if (
                     variant !== undefined &&
                     variant.product_template_attribute_value_ids
@@ -189,3 +114,29 @@ PosDB.include({
         });
     },
 });
+
+export const PosGlobalStateExtend = (OriginalPosGlobalState) =>
+    class extends OriginalPosGlobalState {
+        constructor(obj) {
+            super(obj);
+            this.db = markRaw(this.db);
+        }
+
+        async _processData(loadedData) {
+            await super._processData(...arguments);
+            if (this.env.pos.config.iface_show_product_template) {
+                this.product_template = loadedData["product.template"];
+                this.product_attribute = loadedData["product.attribute"];
+                this.product_attribute_value = loadedData["product.attribute.value"];
+                this.product_template_attribute_value =
+                    loadedData["product.template.attribute.value"];
+                this.db.add_templates(this.product_template);
+                this.db.add_product_attributes(this.product_attribute);
+                this.db.add_product_template_attribute_values(
+                    this.product_template_attribute_value
+                );
+            }
+        }
+    };
+
+Registries.Model.extend(PosGlobalState, PosGlobalStateExtend);
