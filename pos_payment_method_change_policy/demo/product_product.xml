@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="profit_product" model="product.product">
+        <field name="name">No Change Product</field>
+        <field name="type">service</field>
+        <field name="available_in_pos" eval="True" />
+        <field name="taxes_id" eval="[(6, 0, [])]" />
+    </record>
+
+</odoo>

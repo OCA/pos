@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PaymentScreenStatus" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('payment-status-change')]" position="attributes">
+            <attribute name="t-if">props.order.get_change()</attribute>
+        </xpath>
+
+        <xpath
+            expr="//div[hasclass('payment-status-change')]/span[hasclass('label')]"
+            position="replace"
+        >
+            <span
+                class="label"
+                t-if="props.order.get_change_policy() === 'cash'"
+            >Change</span>
+            <span
+                class="label label-warning"
+                t-if="props.order.get_change_policy() === 'profit_product'"
+            >Customer Loss</span>
+        </xpath>
+    </t>
+
+</templates>

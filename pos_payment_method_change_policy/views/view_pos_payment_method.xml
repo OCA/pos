@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_payment_method_form" model="ir.ui.view">
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field name="change_policy" />
+                <field
+                    name="change_product_id"
+                    attrs="{
+                    'required': [('change_policy', '=', 'profit_product')],
+                    'invisible': [('change_policy', '!=', 'profit_product')],
+                    }"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
