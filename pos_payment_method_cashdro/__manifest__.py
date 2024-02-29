@@ -3,7 +3,7 @@
 {
     "name": "PoS Payment Method CashDro",
     "summary": "Allows to pay with CashDro Terminals on the Point of Sale",
-    "version": "14.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Tecnativa, Odoo Community Association (OCA)",
@@ -12,8 +12,9 @@
         "point_of_sale",
     ],
     "data": [
-        "views/assets.xml",
         "views/pos_payment_method_views.xml",
     ],
-    "installable": True,
+    "assets": {
+        "point_of_sale.assets": ["pos_payment_method_cashdro/static/src/js/*.js"],
+    },
 }
