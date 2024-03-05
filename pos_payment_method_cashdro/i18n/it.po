@@ -32,26 +32,25 @@ msgid "Cashdro User"
 msgstr "Utente Cashdro"
 
 #. module: pos_payment_method_cashdro
-#: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_payment_method_cashdro
-#: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_payment_method_cashdro
 #: model:ir.model.fields,help:pos_payment_method_cashdro.field_pos_payment_method__cashdro_host
 msgid "It must be reachable by the PoS in the store"
 msgstr "Deve essere raggiungibile dal POS nel negozio"
 
 #. module: pos_payment_method_cashdro
-#: model:ir.model.fields,field_description:pos_payment_method_cashdro.field_pos_payment_method____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: pos_payment_method_cashdro
 #: model:ir.model,name:pos_payment_method_cashdro.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
 msgstr "Metodi di pagamento punto vendita"
+
+#. module: pos_payment_method_cashdro
+#: model:ir.model,name:pos_payment_method_cashdro.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
