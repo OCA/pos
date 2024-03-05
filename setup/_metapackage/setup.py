@@ -33,6 +33,7 @@ setuptools.setup(
         'odoo-addon-pos_partner_firstname>=16.0dev,<16.1dev',
         'odoo-addon-pos_partner_sale_warning>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_change>=16.0dev,<16.1dev',
+        'odoo-addon-pos_payment_method_cashdro>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_method_image>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_terminal>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_display_default_code>=16.0dev,<16.1dev',
