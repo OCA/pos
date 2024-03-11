@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-31 08:15+0000\n"
-"Last-Translator: FLNerea <nerea.fernandez@factorlibre.com>\n"
+"PO-Revision-Date: 2024-03-11 09:52+0000\n"
+"Last-Translator: AdrianaSaiz <adrianasaizdelafuente@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_stock_available_online
 #: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__additional_warehouse_ids
@@ -92,7 +92,7 @@ msgstr "Indicar la cantidad en los siguientes almacenes además de"
 #: code:addons/pos_stock_available_online/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
 #, python-format
 msgid "Total"
-msgstr "Indicar la cantidad en los siguientes almacenes además de"
+msgstr "Total"
 
 #. module: pos_stock_available_online
 #: model:ir.model,name:pos_stock_available_online.model_stock_warehouse
