@@ -1,0 +1,22 @@
+.no_combination {
+    color: #997404;
+    background-color: #fff3cd;
+    border-color: #ffecb5;
+    display: block;
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.tzo_confirm {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: $primary !important;
+    border-color: $primary !important;
+    color: white !important;
+    &:disabled {
+        background-color: rgba($primary, 0.7) !important;
+    }
+}
