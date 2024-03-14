@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_timeout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-20 00:43+0000\n"
+"PO-Revision-Date: 2018-01-20 00:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "<span class=\"o_form_label\">Timeout</span>"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,help:pos_timeout.field_pos_config__pos_order_timeout
+msgid ""
+"Defines the value of the client-side timeout for the creation of PoS "
+"Order(s) from the POS UI.\n"
+" The value is expressed in seconds, for a single order.\n"
+" If not defined, the default Odoo value will be used: 30 seconds.\n"
+" If the call contains more than one order (after a long disconnection period "
+"for example, or if the previous call raised the timeout),\n"
+" the effective timeout value applied will be equal to the defined timeout "
+"value multiplied by the number of orders.\n"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
+#, fuzzy
+msgid "PoS Order(s) Timeout"
+msgstr "Timeout des commandes"
+
+#. module: pos_timeout
+#: model:ir.model,name:pos_timeout.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "Technical settings"
+msgstr ""
+
+#~ msgid "pos.config"
+#~ msgstr "pos.config"
+
+#~ msgid ""
+#~ "Define the timeout for the creation of PoS Order in the Front Office UI.\n"
+#~ " The value is expressed in seconds.\n"
+#~ " If not defined, the default Odoo value will be used (30 seconds)."
+#~ msgstr ""
+#~ "Définit le timeout pour la création des commandes de vente dans la partie "
+#~ "front office du point de vente.\n"
+#~ " La valeur est exprimée en secondes.\n"
+#~ " Si elle n'est pas définie, la valeur par défaut de Odoo sera utilisée. "
+#~ "(30 secondes)."
