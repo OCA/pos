@@ -4,6 +4,7 @@ import NumberBuffer from "point_of_sale.NumberBuffer";
 import PaymentScreen from "point_of_sale.PaymentScreen";
 import Registries from "point_of_sale.Registries";
 import session from "web.session";
+import utils from "web.utils";
 
 export const CouponPosPaymentScreen = (OriginalPaymentScreen) =>
     class extends OriginalPaymentScreen {
@@ -96,18 +97,25 @@ export const CouponPosPaymentScreen = (OriginalPaymentScreen) =>
             );
             if (confirmed) {
                 const new_amount = parseFloat(amount.replace(",", "."));
-                if (new_amount <= maxVoucherAmount) {
-                    return new_amount;
-                }
-                this.showPopup("ErrorPopup", {
-                    body: _.str.sprintf(
-                        this.env._t(
-                            "You tried to redeem %s, but maximum for this gift card in this order is %s"
+                if (
+                    new_amount > maxVoucherAmount &&
+                    !utils.float_is_zero(
+                        maxVoucherAmount - new_amount,
+                        this.env.pos.currency.decimal_places
+                    )
+                ) {
+                    this.showPopup("ErrorPopup", {
+                        body: _.str.sprintf(
+                            this.env._t(
+                                "You tried to redeem %s, but maximum for this gift card in this order is %s"
+                            ),
+                            this.env.pos.format_currency(new_amount),
+                            this.env.pos.format_currency(maxVoucherAmount)
                         ),
-                        this.env.pos.format_currency(new_amount),
-                        this.env.pos.format_currency(maxVoucherAmount)
-                    ),
-                });
+                    });
+                    return;
+                }
+                return new_amount;
             }
             return 0;
         }
