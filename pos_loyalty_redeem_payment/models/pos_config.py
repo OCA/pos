@@ -1,8 +1,10 @@
-from odoo import _, models
+from odoo import _, fields, models
 
 
 class PosConfig(models.Model):
     _inherit = "pos.config"
+
+    allow_auto_print_giftcard = fields.Boolean(default=True)
 
     def _get_program_ids(self):
         ret = super()._get_program_ids()
