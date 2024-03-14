@@ -152,6 +152,16 @@ export const CouponPosPaymentScreen = (OriginalPaymentScreen) =>
                 this.applyProgramAsPaymentMethod(paymentMethod);
                 return;
             }
+            if (
+                (order.get_due() < 0 || order.get_subtotal() < 0) &&
+                paymentMethod.used_for_loyalty_program
+            ) {
+                this.showPopup("ErrorPopup", {
+                    title: this.env._t("Error"),
+                    body: this.env._t("You cannot use this payment method for refund"),
+                });
+                return;
+            }
             super.addNewPaymentLine(...arguments);
         }
 
