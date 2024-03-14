@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_price_to_weight
+#
+# Translators:
+# enjolras <yo@miguelrevilla.com>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2020-07-27 11:19+0000\n"
+"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Alias"
+msgstr "Alias"
+
+#. module: pos_price_to_weight
+#: model:product.product,name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.template,name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+msgid "Apples (with Price To Weight Barcode)"
+msgstr "Manzanas (con código de barras de precio)"
+
+#. module: pos_price_to_weight
+#: model:ir.model,name:pos_price_to_weight.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Regla de código de barras"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Cashier"
+msgstr "Cajero"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Client"
+msgstr "Cliente"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Discounted Product"
+msgstr "Producto con descuento"
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_name
+msgid "Field Name"
+msgstr "Nombre del campo"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Lot"
+msgstr "Lote"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Meal Voucher Payment"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Package"
+msgstr "Paquete"
+
+#. module: pos_price_to_weight
+#: model:ir.model,name:pos_price_to_weight.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_id
+msgid "Price To Weight Field"
+msgstr "Campo de precio a peso"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Priced Product"
+msgstr "Producto con precio"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Priced Product (Computed Weight)"
+msgstr "Producto con precio (precio calculado)"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Tare"
+msgstr "Tara"
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: pos_price_to_weight
+#: model_terms:ir.ui.view,arch_db:pos_price_to_weight.view_pos_config_form
+msgid "Unit Price field used when converting scanned weight to price."
+msgstr ""
+"Campo de precio unitario utilizado al convertir el peso escaneado en precio."
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Unit Product"
+msgstr "Producto unitario"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Weighted Product"
+msgstr "Producto ponderado"
+
+#. module: pos_price_to_weight
+#: model:product.product,uom_name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.product,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.template,uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+#: model:product.template,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+msgid "kg"
+msgstr "kg"
