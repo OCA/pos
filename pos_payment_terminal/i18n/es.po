@@ -10,22 +10,22 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2020-07-27 11:19+0000\n"
-"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"PO-Revision-Date: 2024-03-19 11:36+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_payment_terminal
 #. openerp-web
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Cannot process transactions with zero or negative amount."
-msgstr ""
+msgstr "No se pueden procesar transacciones con importe cero o negativo."
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields.selection,name:pos_payment_terminal.selection__pos_payment_method__oca_payment_terminal_mode__card
@@ -40,7 +40,7 @@ msgstr "Talón"
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Mostrar Nombre"
 
 #. module: pos_payment_terminal
 #. openerp-web
@@ -50,34 +50,36 @@ msgid ""
 "Failed to send the amount to pay to the payment terminal. Press the red "
 "button on the payment terminal and try again."
 msgstr ""
+"No se ha podido enviar el importe a pagar al terminal de pago. Pulse el "
+"botón rojo del terminal de pago e inténtelo de nuevo."
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: pos_payment_terminal
 #: code:addons/pos_payment_terminal/models/pos_payment_method.py:0
 #, python-format
 msgid "OCA Payment Terminal"
-msgstr ""
+msgstr "Terminal de Pago OCA"
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_mode
 msgid "Payment Mode"
-msgstr ""
+msgstr "Modo de Pago"
 
 #. module: pos_payment_terminal
 #. openerp-web
 #: code:addons/pos_payment_terminal/static/src/js/payment_terminal.js:0
 #, python-format
 msgid "Payment Terminal Error"
-msgstr ""
+msgstr "Error de Terminal de Pago"
 
 #. module: pos_payment_terminal
 #. openerp-web
@@ -86,17 +88,17 @@ msgstr ""
 msgid ""
 "Please press the red button on the payment terminal to cancel the "
 "transaction."
-msgstr ""
+msgstr "Pulse el botón rojo del terminal de pago para cancelar la transacción."
 
 #. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "Métodos de Pago en el Punto de Venta"
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,field_description:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
 msgid "Terminal identifier"
-msgstr ""
+msgstr "Identificador de Terminal"
 
 #. module: pos_payment_terminal
 #: model:ir.model.fields,help:pos_payment_terminal.field_pos_payment_method__oca_payment_terminal_id
@@ -104,6 +106,8 @@ msgid ""
 "The identifier of the terminal as known by the hardware proxy. Leave empty "
 "if the proxy has only one terminal connected."
 msgstr ""
+"El identificador del terminal tal y como lo conoce el proxy de hardware. "
+"Dejar vacío si el proxy sólo tiene un terminal conectado."
 
 #~ msgid "A payment terminal is available on the Proxy"
 #~ msgstr "Un terminal de pago está disponible en el Proxy"
