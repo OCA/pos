@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_pricelist_show_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_pricelist_show_discount
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_show_discount.pos_config_view_form
+msgid "Always display discounts based on a specific pricelist."
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__discount_pricelist_id
+msgid "Discount Reference Pricelist"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__display_discount_from_pricelist
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_show_discount.pos_config_view_form
+msgid "Display Discount From Reference Pricelist"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model.fields,field_description:pos_pricelist_show_discount.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model,name:pos_pricelist_show_discount.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model_terms:ir.ui.view,arch_db:pos_pricelist_show_discount.pos_config_view_form
+msgid "Reference Pricelist"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: code:addons/pos_pricelist_show_discount/models/pos_config.py:0
+#, python-format
+msgid ""
+"The discount pricelist must belong to no company or the company of the point"
+" of sale."
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#: model:ir.model.fields,help:pos_pricelist_show_discount.field_pos_config__discount_pricelist_id
+msgid "The pricelist used as reference to calculate discounts."
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#. openerp-web
+#: code:addons/pos_pricelist_show_discount/static/src/xml/Orderline.xml:0
+#, python-format
+msgid "discount from"
+msgstr ""
+
+#. module: pos_pricelist_show_discount
+#. openerp-web
+#: code:addons/pos_pricelist_show_discount/static/src/xml/Orderline.xml:0
+#, python-format
+msgid "display: none;"
+msgstr ""
