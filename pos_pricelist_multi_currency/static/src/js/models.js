@@ -109,8 +109,8 @@ odoo.define("pos_pricelist_multi_currency.models", function (require) {
             res = this._export_convert_currency(res);
             const order = this.pos.get_order();
             if (order) {
-                const cur = this.env.pos.pricelists.filter(
-                    (pl) => pl.id == this.env.pos.get_order().pricelist.id
+                const cur = this.pos.pricelists.filter(
+                    (pl) => pl.id == order.pricelist.id
                 )[0].currency_id;
                 res.currency_id = cur[0];
             }
@@ -188,8 +188,8 @@ odoo.define("pos_pricelist_multi_currency.models", function (require) {
             res = this._export_convert_currency(res);
             const order = this.pos.get_order();
             if (order) {
-                const cur = this.env.pos.pricelists.filter(
-                    (pl) => pl.id == this.env.pos.get_order().pricelist.id
+                const cur = this.pos.pricelists.filter(
+                    (pl) => pl.id == order.pricelist.id
                 )[0].currency_id;
                 res.currency_id = cur[0];
             }
@@ -232,8 +232,8 @@ odoo.define("pos_pricelist_multi_currency.models", function (require) {
             res = this._export_convert_currency(res);
             const order = this.pos.get_order();
             if (order) {
-                const cur = this.env.pos.pricelists.filter(
-                    (pl) => pl.id == this.env.pos.get_order().pricelist.id
+                const cur = this.pos.pricelists.filter(
+                    (pl) => pl.id == order.pricelist.id
                 )[0].currency_id;
                 res.currency_id = cur[0];
             }
