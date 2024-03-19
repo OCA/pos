@@ -19,9 +19,10 @@ odoo.define("pos_pricelist_multi_currency.models", function (require) {
         },
 
         format_currency: function (amount, precision) {
-            this.currency = this.env.pos.db.currency_by_id[
-                this.env.pos.get_order().pricelist.currency_id[0]
-            ];
+            const cur = this.env.pos.pricelists.filter(
+                (pl) => pl.id == this.env.pos.get_order().pricelist.id
+            )[0].currency_id;
+            this.currency = this.env.pos.db.currency_by_id[cur[0]];
             return posmodel_super.format_currency.call(this, amount, precision);
         },
 
