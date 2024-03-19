@@ -140,7 +140,7 @@ odoo.define("pos_pricelist_multi_currency.models", function (require) {
             const cur = this.pos.pricelists.filter(
                 (pl) => pl.id == this.pos.get_order().pricelist.id
             )[0].currency_id;
-            const to_currency = this.env.pos.db.currency_by_id[cur[0]];
+            const to_currency = this.pos.db.currency_by_id[cur[0]];
             if (from_currency === to_currency) {
                 return this.price;
             }
