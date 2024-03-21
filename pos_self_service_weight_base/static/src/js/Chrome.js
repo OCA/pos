@@ -23,6 +23,10 @@ odoo.define("pos_self_service_weight_base.Chrome", function (require) {
                 }
                 return result;
             }
+
+            showTicketButton() {
+                return this.env.pos && this.env.pos.config && !this.env.pos.config.is_self_service_weight_point;
+            }
         };
 
     Registries.Component.extend(Chrome, SelfServiceChrome);

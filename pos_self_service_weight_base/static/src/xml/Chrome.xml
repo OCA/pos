@@ -12,16 +12,8 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//div[hasclass('pos-topheader')]" position="attributes">
-            <attribute
-                name="t-att-class"
-            >{ oe_hidden: state.uiState !== 'READY' || env.pos.config.is_self_service_weight_point }</attribute>
-        </xpath>
-
-        <xpath expr="//div[hasclass('pos-content')]" position="attributes">
-            <t t-if="env.pos.config.ifaceself_service">
-                <attribute name="class">pos-content positionzero</attribute>
-            </t>
+        <xpath expr="//TicketButton" position="attributes">
+            <attribute name="t-if">showTicketButton()</attribute>
         </xpath>
     </t>
 
