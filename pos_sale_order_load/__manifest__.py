@@ -4,7 +4,7 @@
 {
     "name": "POS Sale Order Load",
     "summary": """Point of sale: Import a sales order in an active session of POS""",
-    "version": "14.0.1.0.1",
+    "version": "14.0.1.0.2",
     "author": "Cetmix, KMEE, Odoo SA, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "LGPL-3",
