@@ -18,7 +18,7 @@ odoo.define("pos_self_service_weight_base.Chrome", function (require) {
             get startScreen() {
                 // Calling super first because it logs an error in some cases.
                 var result = super.startScreen;
-                if (this.env.pos.config.iface_self_service) {
+                if (this.env.pos.config.is_self_service_weight_point) {
                     return {name: "SelfServiceScreen"};
                 }
                 return result;

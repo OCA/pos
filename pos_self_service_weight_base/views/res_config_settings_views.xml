@@ -17,12 +17,12 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 <div class="col-12 col-lg-6 o_setting_box">
                     <div class="o_setting_left_pane">
                         <field
-                            name="pos_iface_self_service"
+                            name="pos_is_self_service_weight_point"
                             attrs="{'readonly': [('pos_has_active_session', '=', True)]}"
                         />
                     </div>
                     <div class="o_setting_right_pane">
-                        <label for="pos_iface_self_service" />
+                        <label for="pos_is_self_service_weight_point" />
                     </div>
                 </div>
             </xpath>

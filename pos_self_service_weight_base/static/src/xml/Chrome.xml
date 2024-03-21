@@ -15,7 +15,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <xpath expr="//div[hasclass('pos-topheader')]" position="attributes">
             <attribute
                 name="t-att-class"
-            >{ oe_hidden: state.uiState !== 'READY' || env.pos.config.iface_self_service }</attribute>
+            >{ oe_hidden: state.uiState !== 'READY' || env.pos.config.is_self_service_weight_point }</attribute>
         </xpath>
 
         <xpath expr="//div[hasclass('pos-content')]" position="attributes">
