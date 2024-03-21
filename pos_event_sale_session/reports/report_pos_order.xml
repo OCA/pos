@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Iván Todorovich <ivan.todorovich@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="view_report_pos_order_search" model="ir.ui.view">
+        <field name="model">report.pos.order</field>
+        <field name="inherit_id" ref="pos_event_sale.view_report_pos_order_search" />
+        <field name="arch" type="xml">
+            <filter name="event_event" position="after">
+                <filter
+                    string="Event Session"
+                    name="event_session"
+                    context="{'group_by': 'event_session_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+</odoo>
