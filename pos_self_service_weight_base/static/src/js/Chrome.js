@@ -8,12 +8,12 @@ odoo.define("pos_self_service_weight_base.Chrome", function (require) {
     const Chrome = require("point_of_sale.Chrome");
     const Registries = require("point_of_sale.Registries");
 
-    const SelfServiceChrome = (Chrome_) =>
-        class extends Chrome_ {
+    const SelfServiceChrome = (Chrome) =>
+        class extends Chrome {
             /**
              * @override
              * `SelfServiceScreen` is the start screen if the POS is configured
-             * as a self-service pos..
+             *  as a self-service pos.
              */
             get startScreen() {
                 // Calling super first because it logs an error in some cases.
