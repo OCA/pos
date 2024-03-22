@@ -62,7 +62,10 @@ class ProductPricelistItem(models.Model):
 
     def _compute_base_price(self, product, quantity, uom, date, currency):
         result = super()._compute_base_price(product, quantity, uom, date, currency)
-        if self.compute_price == "split":
+        print(result, self.compute_price)
+        if self.compute_price == "split" and not self.env.context.get(
+            "pos_get_total_price"
+        ):
             return result - self._compute_split_price(
                 product, quantity, uom, date, currency
             )
