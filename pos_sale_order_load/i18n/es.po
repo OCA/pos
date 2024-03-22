@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-03-21 22:35+0000\n"
+"PO-Revision-Date: 2024-03-22 22:35+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -236,27 +236,27 @@ msgstr "Líneas de Pedidos Transferidas al Punto de Venta"
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "Percentage of %s"
-msgstr "Porcentaje de (%)"
+msgstr "Porcentaje de %s"
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuración del PDV"
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_pos_order_line
 msgid "Point of Sale Order Lines"
-msgstr ""
+msgstr "Líneas de Pedidos en el Punto de Venta"
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Pedidos en el Punto de Venta"
 
 #. module: pos_sale_order_load
 #: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order__pos_order_count
 msgid "Pos Order Count"
-msgstr ""
+msgstr "Recuento de Pedidos en el Pdv"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -264,42 +264,42 @@ msgstr ""
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
 #, python-format
 msgid "Previous Order List"
-msgstr ""
+msgstr "Lista de Pedidos Anteriores"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "Products not available in POS"
-msgstr ""
+msgstr "Productos no disponibles en el PDV"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
 #, python-format
 msgid "Quotation"
-msgstr ""
+msgstr "Presupuesto"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
 #, python-format
 msgid "Quotation Sent"
-msgstr ""
+msgstr "Presupuesto Enviado"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/SetSaleOrderButton.xml:0
 #, python-format
 msgid "Quotation/Order"
-msgstr ""
+msgstr "Presupuesto/Pedido"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "SN/Lots Loading"
-msgstr ""
+msgstr "SN/Lotes Carga"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -307,12 +307,12 @@ msgstr ""
 #: code:addons/pos_sale_order_load/static/src/xml/ProductScreen/Orderline.xml:0
 #, python-format
 msgid "SO"
-msgstr ""
+msgstr "SO"
 
 #. module: pos_sale_order_load
 #: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order__sale_order_count
 msgid "Sale Order Count"
-msgstr ""
+msgstr "Recuento de Orden de Venta"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -320,26 +320,26 @@ msgstr ""
 #: model:ir.model,name:pos_sale_order_load.model_sale_order
 #, python-format
 msgid "Sales Order"
-msgstr ""
+msgstr "Órdenes de Venta"
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Línea de Orden de Ventas"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
 #, python-format
 msgid "Salesman"
-msgstr ""
+msgstr "Vendedor"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
 #, python-format
 msgid "Salesperson"
-msgstr ""
+msgstr "Vendedor/a"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -347,14 +347,14 @@ msgstr ""
 #: code:addons/pos_sale_order_load/static/src/xml/SetSaleOrderButton.xml:0
 #, python-format
 msgid "Set Sale Order"
-msgstr ""
+msgstr "Establecer Orden de Venta"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "Settle the order"
-msgstr ""
+msgstr "Liquidar el pedido"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -364,11 +364,13 @@ msgid ""
 "Some of the products in your Sale Order are not available in POS, do you "
 "want to import them?"
 msgstr ""
+"Algunos de los productos de su Pedido de Venta no están disponibles en TPV, ¿"
+"desea importarlos?"
 
 #. module: pos_sale_order_load
 #: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__sale_order_line_id
 msgid "Source Sale Order Line"
-msgstr ""
+msgstr "Línea de Pedido de Venta en Origen"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -376,24 +378,24 @@ msgstr ""
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
 #, python-format
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "There was a problem in loading the %s customer."
-msgstr ""
+msgstr "Hubo un problema al cargar el cliente %s."
 
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
 msgid "This product will be applied when down payment is made"
-msgstr ""
+msgstr "Este producto se aplicará cuando se realice el pago inicial"
 
 #. module: pos_sale_order_load
 #: model:ir.model.fields,help:pos_sale_order_load.field_pos_config__down_payment_product_id
 msgid "This product will be used as down payment on a sale order."
-msgstr ""
+msgstr "Este producto se utilizará como anticipo de un pedido de venta."
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -401,7 +403,7 @@ msgstr ""
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
 #, python-format
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.view_pos_order_form_inherit_pos_sale_order_load
@@ -409,6 +411,8 @@ msgid ""
 "Transfered<br/>\n"
 "                                from Sale"
 msgstr ""
+"Transferido<br/>\n"
+" de Venta"
 
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.view_order_form_inherit_pos_sale_order_load
@@ -416,6 +420,8 @@ msgid ""
 "Transfered<br/>\n"
 "                                to POS"
 msgstr ""
+"Transferido<br/>\n"
+" a TPV"
 
 #. module: pos_sale_order_load
 #. openerp-web
