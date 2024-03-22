@@ -1,0 +1,17 @@
+.partner-map-popup {
+    max-width: 90% !important;
+    height: 90% !important;
+}
+
+.partner-map-body {
+    height: 80% !important;
+    padding: 0.5rem;
+}
+
+.map-addr-input {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 40px !important;
+    width: 100% !important;
+}

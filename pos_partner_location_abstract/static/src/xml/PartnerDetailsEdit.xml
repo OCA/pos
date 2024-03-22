@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+
+     <t
+        t-name="PartnerDetailsEdit"
+        t-inherit="point_of_sale.PartnerDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//input[@name='name']" position="after">
+            <button
+                t-if="accessToMap"
+                class="button partner-location"
+                t-on-click="openMap"
+                style="font-size: 24px"
+            >
+                <i class="fa fa-map-marker" />
+            </button>
+        </xpath>
+        <xpath expr="//div[hasclass('partner-details-left')]" position="inside">
+            <div class="partner-detail">
+                <span class="label">Lat</span>
+                <input
+                    class="detail"
+                    name="partner_latitude"
+                    t-model="changes.partner_latitude"
+                    t-on-change="captureChange"
+                    placeholder="Latitude"
+                    style="width: 170px"
+                />
+            </div>
+            <div class="partner-detail">
+                <span class="label">Long</span>
+                <input
+                    class="detail"
+                    name="partner_longitude"
+                    t-model="changes.partner_longitude"
+                    t-on-change="captureChange"
+                    placeholder="Longitude"
+                    style="width: 170px"
+                />
+            </div>
+        </xpath>
+     </t>
+
+</templates>
