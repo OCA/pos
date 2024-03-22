@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2024-03-22 22:35+0000\n"
+"PO-Revision-Date: 2024-03-23 00:46+0000\n"
 "Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: Spanish (https://www.transifex.com/oca/teams/23907/es/)\n"
 "Language: es\n"
@@ -153,6 +153,9 @@ msgid ""
 "On '%s', you activated the LED Customer Display both via the IoTbox and via "
 "Direct Devices. You can only select one of the two options."
 msgstr ""
+"En '%s', ha activado el LED Mostrar Cliente tanto a través de la IoTbox como "
+"a través de Dispositivos Directos. Solo puede seleccionar una de las dos "
+"opciones."
 
 #. module: pos_customer_display
 #: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
