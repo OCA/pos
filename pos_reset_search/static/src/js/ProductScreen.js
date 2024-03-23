@@ -23,7 +23,7 @@ odoo.define("pos_reset_search.ProductScreen", function (require) {
                             ProductWidgetChildren[key].el.className ===
                             "products-widget-control"
                         ) {
-                            ProductWidget = ProductWidgetChildren[key];
+                            ProductsWidgetControlPanel = ProductWidgetChildren[key];
                         }
                     }
                     if (ProductsWidgetControlPanel) {
