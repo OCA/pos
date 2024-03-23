@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+  Copyright 2023 Akretion (http://www.akretion.com).
+  @author Florian Mounier <florian.mounier@akretion.com>
+  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div[hasclass('row')][2]" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="disable_rescue_session">
+                    <div class="o_setting_left_pane">
+                        <field name="disable_rescue_session" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="disable_rescue_session"
+                            string="Disable Rescue Session"
+                        />
+                        <div class="text-muted mb16">
+                            Prevent the creation of a rescue session for remaining orders when the POS is closed.
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
