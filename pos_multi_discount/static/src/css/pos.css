@@ -1,0 +1,18 @@
+.payment-screen .discount-controls {
+    margin-top: 10px;
+}
+
+.payment-screen .paymentlines-empty .fixed_discount_line {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.payment-screen .fixed_discount_label {
+    font-size: 16px;
+    padding-right: 7px;
+}
+
+.payment-screen .fixed_discount_amount {
+    font-size: 16px;
+}
