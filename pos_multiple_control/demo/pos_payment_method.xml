@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <data>
+        <record id="cash_payment_method" model="pos.payment.method">
+            <field name="name">Cash Payment Method</field>
+            <field name="is_cash_count" eval="True" />
+            <field
+                name="receivable_account_id"
+                ref="pos_multiple_control.register_account_receivable"
+            />
+            <field name="cash_journal_id" ref="cash_journal" />
+        </record>
+    </data>
+</odoo>

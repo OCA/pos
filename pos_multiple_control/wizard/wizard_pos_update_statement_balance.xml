@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="view_wizard_update_bank_statement_form" model="ir.ui.view">
+        <field name="model">wizard.update.bank.statement</field>
+        <field name="arch" type="xml">
+            <form string="Update Balance">
+                <sheet>
+                    <h2>Handling <field name="journal_id" readonly="1" /> for <field
+                            name="balance_moment"
+                            readonly="1"
+                        /></h2>
+                    <group>
+                        <group string="What Odoo counts" colspan="1">
+                            <field name="currency_id" invisible="1" />
+                            <field
+                                name="balance_start"
+                                readonly="1"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                            />
+                            <label
+                                for="total_entry_encoding"
+                                attrs="{'invisible' : [('balance_moment', '=', 'opening_control')]}"
+                                string="+ Transactions"
+                            />
+                            <field
+                                name="total_entry_encoding"
+                                nolabel="1"
+                                attrs="{'invisible' : [('balance_moment', '=', 'opening_control')]}"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                            />
+                            <label
+                                for="balance_end"
+                                attrs="{'invisible' : [('balance_moment', '=', 'opening_control')]}"
+                                string="= Theoretical Closing Balances"
+                            />
+                            <field
+                                name="balance_end"
+                                nolabel="1"
+                                attrs="{'invisible' : [('balance_moment', '=', 'opening_control')]}"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                            />
+                        </group>
+                        <group string="Calculate the balance" colspan="3">
+                            <field name="balance_moment" invisible="1" />
+                            <field
+                                name="balance_start_real"
+                                readonly="1"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                                attrs="{'invisible' : [('balance_moment', '=', 'ending')]}"
+                            />
+                            <field
+                                name="balance_end_real"
+                                readonly="1"
+                                widget="monetary"
+                                options="{'currency_field': 'currency_id'}"
+                                attrs="{'invisible' : [('balance_moment', '=', 'starting')]}"
+                            />
+                            <field name="cashbox_lines">
+                                <tree editable="bottom">
+                                    <field name="currency_id" invisible="1" />
+                                    <field name="balance_moment" invisible="1" />
+                                    <field name="coin_value" />
+                                    <field
+                                        name="number"
+                                        widget="numeric_step"
+                                        options="{'step': 1, 'min': 0}"
+                                    />
+                                    <field
+                                        name="subtotal"
+                                        sum="Balance total"
+                                        widget="monetary"
+                                        options="{'currency_field': 'currency_id'}"
+                                    />
+
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="action_confirm"
+                        string="Validate the balance"
+                        type="object"
+                        class="btn-primary"
+                    />
+                    <button class="btn-secondary" special="cancel" string="Cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_update_bank_statement" model="ir.actions.act_window">
+        <field name="name">Update Balances</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wizard.update.bank.statement</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
