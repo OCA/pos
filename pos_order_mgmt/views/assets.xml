@@ -12,6 +12,10 @@
             />
             <script
                 type="text/javascript"
+                src="/pos_order_mgmt/static/src/js/ProductScreen.js"
+            />
+            <script
+                type="text/javascript"
                 src="/pos_order_mgmt/static/src/js/RefundOrderButton.js"
             />
             <script

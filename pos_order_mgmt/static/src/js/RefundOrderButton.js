@@ -69,6 +69,8 @@ odoo.define("pos_order_mgmt.RefundOrderButton", function (require) {
                     merge: false,
                     extras: {
                         return_pack_lot_names: orderline.pack_lot_names,
+                        returned_orderline_id: orderline.id,
+                        max_return_qty: quantity,
                     },
                 });
             });
