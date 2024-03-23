@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KioskPaymentScreen" owl="1">
+        <div>
+            <KioskHeader />
+
+            <div
+                class="w-auto h-36 kiosk:h-44 kiosk:mb-40 px-8 pt-8 pb-12 flex-col justify-center items-center gap-4 flex mx-auto my-0"
+            >
+                <div class="flex-col justify-center items-center gap-4 flex">
+                    <div
+                        class="text-justify text-gray-900 text-4xl kiosk:text-6xl font-bold leading-10"
+                    >
+                        End Order
+                    </div>
+                    <div
+                        class="text-justify text-gray-500 text-2xl kiosk:text-4xl font-normal leading-loose"
+                    >
+                        Select a payment method
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="w-auto h-36 kiosk:h-80 kiosk:p-8 kiosk:pb-20 kiosk:mt-40 px-4 justify-center items-center gap-12 flex mx-auto my-0"
+            >
+                <div class="w-auto h-auto justify-center items-center flex">
+                    <t
+                        t-foreach="payment_methods"
+                        t-as="payment_method"
+                        t-key="payment_method.id"
+                    >
+                        <div
+                            t-attf-class="w-32 h-32 kiosk:w-60 kiosk:h-60 ml-4 kiosk:ml-8 rounded-xl shadow border border-gray-100 flex-col justify-center items-center gap-4 inline-flex {{ methodPaymentLine === payment_method.id ? 'bg-gray-100' : 'bg-white' }}"
+                            t-on-click="addPaymentLine(payment_method)"
+                        >
+                            <div
+                                class="text-gray-700 text-xl kiosk:text-4xl font-bold leading-7"
+                            >
+                                <t t-esc="payment_method.name" />
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+
+            <div
+                class="w-full h-36 p-8 kiosk:mt-40 justify-center items-center gap-4 flex mx-auto my-0 absolute bottom-0"
+            >
+                <div class="w-full self-stretch justify-between items-center flex">
+                    <div
+                        class="w-32 px-8 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 flex"
+                        t-on-click="backScreen"
+                    >
+                        <div
+                            class="text-justify text-gray-900 text-xl kiosk:text-3xl   font-semibold leading-7"
+                        >
+                            Back
+                        </div>
+                    </div>
+
+                    <div class="self-stretch justify-center items-center gap-4 flex">
+                        <div class="self-stretch justify-start items-center gap-4 flex">
+                            <div
+                                class="w-48 px-8 kiosk:w-60 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 flex"
+                                t-on-click="openCartModal"
+                            >
+                                <div class="justify-center items-center gap-2 flex">
+                                    <i
+                                        class="fa fa-shopping-cart w-8 h-8 relative text-3xl"
+                                    />
+                                    <div
+                                        class="flex-col justify-center items-start gap-1 inline-flex"
+                                    >
+                                        <div
+                                            class="text-justify text-gray-900 text-base font-bold leading-none kiosk:text-xl"
+                                        >
+                                            <t t-esc="countTotalItens()" />
+                                            Items
+                                        </div>
+                                        <div
+                                            class="text-justify text-gray-900 text-sm kiosk:text-xl font-normal leading-none"
+                                        >
+                                            See Cart
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                t-attf-class="w-auto self-stretch px-8 rounded-lg justify-center items-center gap-8 flex {{ hasPaymentline() ? 'bg-red-500' : 'bg-gray-400 opacity-40' }}"
+                                t-on-click="nextScreen()"
+                            >
+                                <div
+                                    class="text-justify text-gray-50 text-lg kiosk:text-3xl font-semibold leading-7"
+                                >
+                                    <t t-esc="getTotalValue()" />
+                                </div>
+                                <div class="justify-start items-center gap-2 flex">
+                                    <div
+                                        class="text-justify text-gray-50 text-xl kiosk:text-3xl font-semibold leading-7"
+                                    >
+                                        End Order
+                                    </div>
+                                    <i
+                                        class="fa fa-arrow-right text-xl kiosk:text-3xl"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

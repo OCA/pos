@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="KioskCartFooter" owl="1">
+        <div
+            class="w-full h-32 px-8 py-6 border-t border-gray-200 rounded-t-xl bg-gray-50 justify-start items-center gap-4 inline-flex absolute bottom-0"
+        >
+            <div class="h-20 justify-start items-center gap-8 flex">
+                <div
+                    class="w-48 px-8 py-5 rounded-lg border border-gray-300 justify-center items-center gap-2 flex"
+                    t-on-click="openCart"
+                >
+                    <i class="fa fa-shopping-cart text-xl" />
+                    <div class="flex-col justify-center items-center gap-1 inline-flex">
+                        <div
+                            class="text-justify text-gray-900 text-base font-bold leading-none"
+                        ><t t-esc='getTotalItems()' /> Items</div>
+                        <div
+                            class="text-justify text-gray-900 text-sm font-normal leading-non"
+                        >See Cart Shop</div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="grow shrink basis-0 h-20 px-8 py-6 bg-red-500 rounded-lg justify-between items-center flex"
+                t-on-click="openPaymentScreen"
+            >
+                <div
+                    class="text-justify text-gray-50 text-lg font-semibold leading-7"
+                ><t t-esc="getTotalValue()" /></div>
+                <div class="justify-start items-center gap-2 flex">
+                    <div
+                        class="text-justify text-gray-50 text-xl font-semibold leading-7"
+                    >Finalize Order</div>
+                    <i class="fa fa-arrow-right text-xl" />
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

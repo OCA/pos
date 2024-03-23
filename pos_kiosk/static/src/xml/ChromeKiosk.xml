@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="ChromeKiosk" owl="1">
+        <div class="pos bg-white w-screen h-screen relative">
+            <div class="pos-receipt-print" />
+            <t t-if="state.uiState === 'READY'">
+
+                <t
+                    isShown="!tempScreen.isShown"
+                    t-component="mainScreen.component"
+                    t-props="mainScreenProps"
+                    t-key="mainScreen.name"
+                />
+                <t
+                    t-if="tempScreen.isShown"
+                    t-component="tempScreen.component"
+                    t-props="tempScreenProps"
+                    t-key="tempScreen.name"
+                />
+            </t>
+
+            <div
+                t-if="['LOADING', 'CLOSING'].includes(state.uiState)"
+                class="loader"
+                t-transition="swing"
+            >
+                <div class="loader-feedback">
+                    <h1 class="message">
+                        <t t-esc="loading.message" />
+                    </h1>
+                    <div class="progressbar">
+                        <div class="progress" t-ref="progressbar" />
+                    </div>
+                    <div
+                        t-if="loading.skipButtonIsShown"
+                        class="button skip"
+                        t-on-click="trigger('loading-skip-callback')"
+                    >
+                        Skip
+                    </div>
+                </div>
+            </div>
+
+            <div t-if="popup.isShown" class="popups">
+                <t
+                    t-component="popup.component"
+                    t-props="popupProps"
+                    t-key="popup.name"
+                />
+            </div>
+        </div>
+    </t>
+
+</templates>
