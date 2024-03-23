@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets" name="pos_takeout assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/pos_takeout/static/src/js/models.js" />
+            <script
+                type="text/javascript"
+                src="/pos_takeout/static/src/js/TakeOutButton.js"
+            />
+        </xpath>
+    </template>
+</odoo>
