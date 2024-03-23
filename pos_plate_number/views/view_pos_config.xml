@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pos_config_form" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@name='order']" position="before">
+                <div class="row o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="use_plate_number" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="use_plate_number" />
+                            <div class="text-muted">
+                                Use Plate Number
+                            </div>
+                            <div
+                                class="content-group mt16"
+                                attrs="{'invisible': [('use_plate_number', '=', False)]}"
+                            >
+                                <div class="row mt16">
+                                    <label
+                                        for="plate_number_generation"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                    <field
+                                        name="plate_number_generation"
+                                        class="col-lg-3"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
