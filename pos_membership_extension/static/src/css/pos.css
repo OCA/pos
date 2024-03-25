@@ -1,0 +1,24 @@
+/*
+    Copyright (C) 2022-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+*/
+
+.pos .product .membership-forbidden-tag {
+    color: white;
+    background: rgba(255, 76, 76, 0.5);
+    border-radius: 2px;
+    padding: 1px 4px;
+}
+
+.product-info-popup .allowed-membership-category {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    max-width: 200px;
+    color: inherit;
+    line-height: 1.1;
+}
