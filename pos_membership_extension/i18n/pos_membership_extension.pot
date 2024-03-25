@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * pos_membership_extension
+# 	* pos_membership_extension
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 16:06+0000\n"
-"PO-Revision-Date: 2022-09-08 16:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -20,7 +17,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_membership_extension.field_product_product__allowed_membership_category_ids
 #: model:ir.model.fields,field_description:pos_membership_extension.field_product_template__allowed_membership_category_ids
 msgid "Allowed Membership categories"
-msgstr "Catégories d'adhésions authorisées"
+msgstr ""
 
 #. module: pos_membership_extension
 #: model:ir.model.fields,help:pos_membership_extension.field_product_product__allowed_membership_category_ids
@@ -29,29 +26,27 @@ msgid ""
 "If set, the product will be sallable only to customer that belong to the "
 "given membership categories"
 msgstr ""
-"Si défini, le produit ne pourra être vendu qu'à des clients qui "
-"appartiennent aux catégories d'adhésions définies ici."
 
 #. module: pos_membership_extension
 #. odoo-javascript
 #: code:addons/pos_membership_extension/static/src/js/ProductScreen.js:0
 #, python-format
 msgid "Incorrect Membership"
-msgstr "Adhésion incorrecte"
+msgstr ""
 
 #. module: pos_membership_extension
 #. odoo-javascript
 #: code:addons/pos_membership_extension/static/src/xml/ProductInfoPopup.xml:0
 #, python-format
 msgid "Membership Categories:"
-msgstr "Catégories d'adhésions : "
+msgstr ""
 
 #. module: pos_membership_extension
 #. odoo-javascript
 #: code:addons/pos_membership_extension/static/src/js/models.js:0
 #, python-format
 msgid "Order Line Removal"
-msgstr "Retrait d'une ligne de vente"
+msgstr ""
 
 #. module: pos_membership_extension
 #. odoo-javascript
@@ -61,13 +56,11 @@ msgid ""
 "Please select a customer that belong to one of the related membership "
 "categories."
 msgstr ""
-"Veuillez sélectionner un client qui appartient à l'une des catégories "
-"d'adhésions."
 
 #. module: pos_membership_extension
 #: model:ir.model,name:pos_membership_extension.model_pos_session
 msgid "Point of Sale Session"
-msgstr "Session du point de vente"
+msgstr ""
 
 #. module: pos_membership_extension
 #: model:ir.model,name:pos_membership_extension.model_product_template
@@ -87,13 +80,11 @@ msgstr ""
 #. module: pos_membership_extension
 #. odoo-javascript
 #: code:addons/pos_membership_extension/static/src/js/models.js:0
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "The following lines has been removed, as the product cannot be sold to this "
 "partner: ${bad_product_text}"
 msgstr ""
-"La ligne de vente du produit '' a été retirée, car elle ne peux pas être "
-"vendu à ce client."
 
 #. module: pos_membership_extension
 #. odoo-javascript
@@ -101,4 +92,3 @@ msgstr ""
 #, python-format
 msgid "This product can not be sold because of membership rules"
 msgstr ""
-"Ce produit ne peut pas être vendu à cause de règles liées à l'adhésion."
