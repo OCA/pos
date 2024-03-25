@@ -12,8 +12,7 @@ const PosOrderline = (OriginalOrderline) =>
         async removeLine(ev) {
             ev.stopPropagation();
             ev.preventDefault();
-            this.selectLine();
-            this.trigger("update-selected-orderline", {buffer: null, key: "Backspace"});
+            this.props.line.set_quantity("remove", null);
         }
     };
 Registries.Component.extend(Orderline, PosOrderline);
