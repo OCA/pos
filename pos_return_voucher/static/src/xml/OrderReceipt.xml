@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="OrderReceipt"
+        t-inherit="point_of_sale.OrderReceipt"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//div[hasclass('after-footer')]//t[@t-foreach='receipt.paymentlines']"
+            position="before"
+        >
+            <div
+                t-if="receipt.return_voucher &amp;&amp; receipt.uid"
+                class="pos-payment-terminal-receipt"
+            >
+                <div class="return-voucher-barcode">
+                    <img
+                        alt="Barcode return voucher"
+                        t-att-src="'/report/barcode/Code128/' + receipt.uid + '?humanreadable=1'"
+                        style="width:100%;height:4rem"
+                    />
+                </div>
+                <div class="return-voucher-info">
+                    <t t-if="receipt.return_voucher_expire_date">
+                        You have until <t
+                            t-esc="receipt.return_voucher_expire_date"
+                        /> to redeem the discount voucher, keep this ticket for the discount voucher.
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

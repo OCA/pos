@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="SetReturnVoucherPopup" owl="1">
+        <div role="dialog" class="modal-dialog set-return-voucher-popup">
+            <div class="popup popup-text">
+                <header class="title">
+                    <t t-esc="props.title" />
+                </header>
+                <main class="full-content">
+                    <table
+                        t-if="state.id"
+                        class="pos-return-voucher-data"
+                        style="margin: auto;width: 90%;"
+                    >
+                        <tr>
+                            <td>Reference</td>
+                            <td><t t-esc="state.pos_reference" /></td>
+                        </tr>
+                        <tr t-if="state.max_validity_date">
+                            <td>Expire date</td>
+                            <td>
+                                <t t-esc="datetime_to_str(state.max_validity_date)" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Amount</td>
+                            <td>
+                                <t t-if="state.remaining_amount &lt; state.amount">
+                                    <span style="text-decoration: line-through;">
+                                        <t
+                                            t-esc="props.pos.format_currency(state.amount)"
+                                        />
+                                    </span>
+                                </t>
+                                <span> <t
+                                        t-esc="props.pos.format_currency(state.remaining_amount)"
+                                    />
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                    <input
+                        t-model="state.name"
+                        t-ref="inputName"
+                        t-on-change="searchReturnVoucher"
+                        type="text"
+                        name="name"
+                    />
+                </main>
+                <footer class="footer">
+                    <div class="button confirm" t-on-click="confirm">
+                        <t t-esc="props.confirmText" />
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 Aures Tic - Jose Zambudio
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_pos_form_inh_pos_return_voucher" model="ir.ui.view">
+        <field name="name">pos.order.view.form.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='payment_ids']//tree/field[@name='amount']"
+                position="before"
+            >
+                <field name="emitted_return_voucher_id" optional="hide" />
+                <field name="redeemed_return_voucher_id" optional="hide" />
+            </xpath>
+            <xpath expr="//field[@name='fiscal_position_id']" position="after">
+                <field name="emitted_return_voucher_id" />
+            </xpath>
+            <xpath expr="//field[@name='payment_ids']" position="after">
+                <separator string="Return voucher redeemed" />
+                <field name="redeemed_return_voucher_ids" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
