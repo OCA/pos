@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Iván Todorovich <ivan.todorovich@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="pos_event_sale.EventTicketsPopup" t-inherit-mode="extension">
+        <EventTicketList position="attributes">
+            <attribute name="session" t-translation="off">props.session</attribute>
+        </EventTicketList>
+    </t>
+
+</templates>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Iván Todorovich <ivan.todorovich@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="pos_event_sale.EventList" t-inherit-mode="extension">
+        <EventItem position="attributes">
+            <attribute name="t-if" t-translation="off">!event.use_sessions</attribute>
+        </EventItem>
+        <xpath expr="//div[hasclass('event-list')]" position="inside">
+            <t t-if="props.sessions?.length">
+                <t t-foreach="props.sessions" t-as="session" t-key="session.id">
+                    <EventItem event="session.getEvent()" session="session" />
+                </t>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

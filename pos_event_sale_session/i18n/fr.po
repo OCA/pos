@@ -1,0 +1,78 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_event_sale_session
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-29 10:20+0000\n"
+"PO-Revision-Date: 2022-01-29 11:22+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: pos_event_sale_session
+#: model:ir.model.fields,field_description:pos_event_sale_session.field_event_session__pos_order_line_ids
+msgid "All the PoS Order Lines pointing to this event"
+msgstr ""
+
+#. module: pos_event_sale_session
+#: model:ir.model.fields,field_description:pos_event_sale_session.field_pos_order_line__event_session_id
+#: model:ir.model.fields,field_description:pos_event_sale_session.field_report_pos_order__event_session_id
+#: model_terms:ir.ui.view,arch_db:pos_event_sale_session.view_report_pos_order_search
+msgid "Event Session"
+msgstr "Séance"
+
+#. module: pos_event_sale_session
+#. openerp-web
+#: code:addons/pos_event_sale_session/static/src/js/db.js:0
+#, python-format
+msgid "Event Session not found: %d"
+msgstr ""
+
+#. module: pos_event_sale_session
+#: model:ir.model,name:pos_event_sale_session.model_event_session
+msgid "Event session"
+msgstr "Séance"
+
+#. module: pos_event_sale_session
+#: model_terms:ir.ui.view,arch_db:pos_event_sale_session.view_event_session_form
+msgid "POS Sales"
+msgstr ""
+
+#. module: pos_event_sale_session
+#: model:ir.model.fields,field_description:pos_event_sale_session.field_event_session__pos_price_subtotal
+msgid "POS Sales (Tax Excluded)"
+msgstr ""
+
+#. module: pos_event_sale_session
+#: model:ir.model,name:pos_event_sale_session.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Lignes des commandes du point de vente"
+
+#. module: pos_event_sale_session
+#: model:ir.model,name:pos_event_sale_session.model_report_pos_order
+msgid "Point of Sale Orders Report"
+msgstr "Rapport sur les commandes au point de vente"
+
+#. module: pos_event_sale_session
+#: model_terms:ir.ui.view,arch_db:pos_event_sale_session.view_event_session_form
+msgid "Total POS Sales for this event"
+msgstr ""
+
+#. module: pos_event_sale_session
+#. openerp-web
+#: code:addons/pos_event_sale_session/static/src/js/models/Order.js:0
+#, python-format
+msgid ""
+"Unable to check session's availability. Check your internet connection and "
+"try again please."
+msgstr ""
+"Impossible de vérifier la disponibilité de la séance. Veuillez vérifiez "
+"votre connexion internet et réessayez."
