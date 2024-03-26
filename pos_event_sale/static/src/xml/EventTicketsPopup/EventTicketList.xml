@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventTicketList" owl="1">
+        <div class="event-ticket-list-container">
+            <div class="touch-scrollable scrollable-y">
+                <div t-if="props.eventTickets.length != 0" class="event-ticket-list">
+                    <t
+                        t-foreach="props.eventTickets"
+                        t-as="eventTicket"
+                        t-key="eventTicket.id"
+                    >
+                        <EventTicketItem eventTicket="eventTicket" />
+                    </t>
+                </div>
+                <div t-else="" class="event-ticket-list-empty">
+                    <p>There are no available event tickets for this event.</p>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2021 Camptocamp (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+
+    <record id="view_report_pos_order_search" model="ir.ui.view">
+        <field name="model">report.pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_report_pos_order_search" />
+        <field name="arch" type="xml">
+            <filter name="product_category" position="after">
+                <filter
+                    string="Event"
+                    name="event_event"
+                    context="{'group_by': 'event_id'}"
+                />
+                <filter
+                    string="Event Ticket"
+                    name="event_ticket"
+                    context="{'group_by': 'event_ticket_id'}"
+                />
+            </filter>
+        </field>
+    </record>
+
+</odoo>
