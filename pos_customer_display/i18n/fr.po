@@ -1,0 +1,207 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_customer_display
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-11 23:50+0000\n"
+"PO-Revision-Date: 2020-06-14 16:19+0000\n"
+"Last-Translator: Sylvain LE GAL <sylvain.legal@grap.coop>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_customer_display
+#: selection:pos.config,customer_display_format:0
+msgid "2 Lines of 20 Characters"
+msgstr "2 lignes de 20 caractères"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:94
+#, python-format
+msgid "Customer Account"
+msgstr "Compte client"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_format
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Customer Display Format"
+msgstr "Format de l'afficheur client"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:61
+#, python-format
+msgid "Deleting Line ..."
+msgstr "Suppression de la ligne ..."
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/chrome.js:27
+#: code:addons/pos_customer_display/static/src/js/chrome.js:29
+#, python-format
+msgid "Display"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__iface_customer_display
+msgid "Display data on the customer display"
+msgstr "Afficher les données sur l'afficheur client"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_next_l1
+msgid ""
+"First line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+"Première ligne du message de l'afficheur client qui est affiché après le "
+"démarrage de la caisse et également après validation d'une commande client"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
+msgid ""
+"First line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+"Première ligne du message de l'afficheur client qui est affiché quand la "
+"caisse est fermée"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__iface_customer_display
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "LED Customer Display"
+msgstr "Afficheur client LED"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_line_length
+msgid "Length of the LEDs lines of the customer display"
+msgstr "Longueur des lignes de l'afficheur client (nombre de caractères)"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_line_length
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Line Length"
+msgstr "Longueur des lignes"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l1
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Next Customer (Line 1)"
+msgstr "Client suivant (ligne 1)"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_next_l2
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "Next Customer (Line 2)"
+msgstr "Client suivant (ligne 2)"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:99
+#, python-format
+msgid "No Customer Account"
+msgstr "Client non défini"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/chrome.js:29
+#, python-format
+msgid "Offline"
+msgstr ""
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l1
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "PoS Closed (Line 1)"
+msgstr "Caisse fermée (Ligne 1)"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,field_description:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
+#: model_terms:ir.ui.view,arch_db:pos_customer_display.view_pos_config_form
+msgid "PoS Closed (Line 2)"
+msgstr "Caisse fermée (Ligne 2)"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:64
+#, python-format
+msgid "Point of Sale Closed"
+msgstr "Caisse fermée"
+
+#. module: pos_customer_display
+#: model:ir.model,name:pos_customer_display.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:60
+#, python-format
+msgid "Point of Sale Open"
+msgstr "Caisse ouverte"
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:81
+#, python-format
+msgid "Returned: "
+msgstr "A rendre : "
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_next_l2
+msgid ""
+"Second line of the message on the customer display which is displayed after "
+"starting POS and also after validation of an order"
+msgstr ""
+"Deuxième ligne du message de l'afficheur client qui est affiché après le "
+"démarrage de la caisse et également après validation d'une commande client"
+
+#. module: pos_customer_display
+#: model:ir.model.fields,help:pos_customer_display.field_pos_config__customer_display_msg_closed_l2
+msgid ""
+"Second line of the message on the customer display which is displayed when "
+"POS is closed"
+msgstr ""
+"Deuxième ligne du message de l'afficheur client qui est affiché quand la "
+"caisse est fermée"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:66
+#, python-format
+msgid "See you soon!"
+msgstr "Au revoir !"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:93
+#, python-format
+msgid ""
+"The message for customer display '%s' is too long: it has %d chars whereas "
+"the maximum is %d chars."
+msgstr ""
+"Le message de l'afficheur client '%s' est trop long : il contient %d "
+"caractères alors que le maximum est de %d caractères."
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:79
+#, python-format
+msgid "To Pay: "
+msgstr "A payer : "
+
+#. module: pos_customer_display
+#. openerp-web
+#: code:addons/pos_customer_display/static/src/js/customer_display_2_20.js:86
+#, python-format
+msgid "Total"
+msgstr "Total"
+
+#. module: pos_customer_display
+#: code:addons/pos_customer_display/models/pos_config.py:62
+#, python-format
+msgid "Welcome!"
+msgstr "Bienvenue !"
