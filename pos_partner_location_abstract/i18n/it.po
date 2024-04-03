@@ -1,0 +1,146 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_partner_location_abstract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
+#, python-format
+msgid "Address"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
+#, python-format
+msgid "An unknown error prevents us from loading product information."
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
+#, python-format
+msgid "Cannot access map functions!"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
+#, python-format
+msgid "Cannot access product information screen if offline."
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
+#, python-format
+msgid "Close"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
+#, python-format
+msgid "Confirm"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#: model:ir.model,name:pos_partner_location_abstract.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
+#, python-format
+msgid "Customer"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#: model:ir.model.fields,field_description:pos_partner_location_abstract.field_pos_config__geolocalize_tech_name
+msgid "Geolocalize Tech Name"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Lat"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Latitude"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
+#, python-format
+msgid "Location"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Long"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Longitude"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
+#, python-format
+msgid "Map Error"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
+#, python-format
+msgid "Network Error"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#: model:ir.model,name:pos_partner_location_abstract.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#: model:ir.model,name:pos_partner_location_abstract.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#: model:ir.model.fields,field_description:pos_partner_location_abstract.field_res_partner__qr_code_url
+#: model:ir.model.fields,field_description:pos_partner_location_abstract.field_res_users__qr_code_url
+msgid "Qr Code Url"
+msgstr ""
+
+#. module: pos_partner_location_abstract
+#. odoo-javascript
+#: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
+#, python-format
+msgid "Unknown error"
+msgstr ""
