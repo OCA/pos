@@ -6,20 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-04-03 13:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
 #, python-format
 msgid "Address"
-msgstr ""
+msgstr "Indirizzo"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
@@ -27,120 +29,121 @@ msgstr ""
 #, python-format
 msgid "An unknown error prevents us from loading product information."
 msgstr ""
+"Un errore sconosciuto impedisce il caricamento delle informazioni prodotto."
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
 #, python-format
 msgid "Cannot access map functions!"
-msgstr ""
+msgstr "Impossibile accedere alle funzioni nmappa!"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
 #, python-format
 msgid "Cannot access product information screen if offline."
-msgstr ""
+msgstr "Non si può accedere alla schermata informazioni prodotto se offline."
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
 #, python-format
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
 #, python-format
 msgid "Confirm"
-msgstr ""
+msgstr "Conferma"
 
 #. module: pos_partner_location_abstract
 #: model:ir.model,name:pos_partner_location_abstract.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
 #, python-format
 msgid "Customer"
-msgstr ""
+msgstr "Cliente"
 
 #. module: pos_partner_location_abstract
 #: model:ir.model.fields,field_description:pos_partner_location_abstract.field_pos_config__geolocalize_tech_name
 msgid "Geolocalize Tech Name"
-msgstr ""
+msgstr "Nome tecnico geolocalizzazione"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Lat"
-msgstr ""
+msgstr "Lat"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Latitude"
-msgstr ""
+msgstr "Latitudine"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerMapEdit.xml:0
 #, python-format
 msgid "Location"
-msgstr ""
+msgstr "Ubicazione"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Long"
-msgstr ""
+msgstr "Lon"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/xml/PartnerDetailsEdit.xml:0
 #, python-format
 msgid "Longitude"
-msgstr ""
+msgstr "Longitudine"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
 #, python-format
 msgid "Map Error"
-msgstr ""
+msgstr "Errore mappa"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
 #, python-format
 msgid "Network Error"
-msgstr ""
+msgstr "Errore di rete"
 
 #. module: pos_partner_location_abstract
 #: model:ir.model,name:pos_partner_location_abstract.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_partner_location_abstract
 #: model:ir.model,name:pos_partner_location_abstract.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_partner_location_abstract
 #: model:ir.model.fields,field_description:pos_partner_location_abstract.field_res_partner__qr_code_url
 #: model:ir.model.fields,field_description:pos_partner_location_abstract.field_res_users__qr_code_url
 msgid "Qr Code Url"
-msgstr ""
+msgstr "URL codice Qr"
 
 #. module: pos_partner_location_abstract
 #. odoo-javascript
 #: code:addons/pos_partner_location_abstract/static/src/js/PartnerDetailsMapEdit.esm.js:0
 #, python-format
 msgid "Unknown error"
-msgstr ""
+msgstr "Errore sconosciuto"
