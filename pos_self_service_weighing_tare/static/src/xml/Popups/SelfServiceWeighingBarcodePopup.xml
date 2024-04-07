@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_self_service_weighing_tare.SelfServiceWeighingBarcodePopup" owl="1">
+        <div class="popup self-service-barcode-popup">
+            <header>
+                <div class="title">Tare Barcode</div>
+            </header>
+            <main class="body">
+                <div>Barcode : <t t-esc="props.barcode" /></div>
+            </main>
+            <footer class="footer">
+                <div class="button highlight" t-on-click="cancel">Discard</div>
+            </footer>
+        </div>
+    </t>
+</templates>

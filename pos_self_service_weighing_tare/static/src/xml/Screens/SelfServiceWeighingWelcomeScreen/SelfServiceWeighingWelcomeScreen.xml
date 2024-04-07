@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2024 Coop IT Easy SC
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_self_service_weighing_tare.SelfServiceWeighingWelcomeScreen"
+        t-inherit="pos_self_service_weighing_base.SelfServiceWeighingWelcomeScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('self-service-action-buttons')]" position="inside">
+            <SelfServiceWeighingTareScreenButton />
+        </xpath>
+    </t>
+</templates>

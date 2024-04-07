@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2024 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_self_service_weighing_tare.SelfServiceWeighingTareScreenButton"
+        owl="1"
+    >
+        <button class="button">
+            <t t-esc="name" />
+            <i t-attf-class="fa {{ faSymbol }}" />
+        </button>
+    </t>
+
+</templates>
