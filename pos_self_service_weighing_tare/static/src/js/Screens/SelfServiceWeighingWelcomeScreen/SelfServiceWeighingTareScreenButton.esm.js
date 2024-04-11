@@ -5,9 +5,9 @@
 
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
-import SelfServiceWeighingActionButton from "pos_self_service_weighing_base.SelfServiceWeighingActionButton";
+import SelfServiceWeighingWelcomeButton from "pos_self_service_weighing_base.SelfServiceWeighingWelcomeButton";
 
-class SelfServiceWeighingTareScreenButton extends SelfServiceWeighingActionButton {
+class SelfServiceWeighingTareScreenButton extends SelfServiceWeighingWelcomeButton {
     get name() {
         return "Print Tare Labels";
     }

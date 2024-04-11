@@ -6,10 +6,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-name="pos_self_service_weighing_tare.SelfServiceWeighingPrintTareButton" owl="1">
+    <t t-name="pos_self_service_weighing_base.SelfServiceWeighingWelcomeButton" owl="1">
         <button class="button">
+            <t t-out="name" />
             <i t-attf-class="fa {{ faSymbol }}" />
-            <t t-esc="name" />
         </button>
     </t>
 

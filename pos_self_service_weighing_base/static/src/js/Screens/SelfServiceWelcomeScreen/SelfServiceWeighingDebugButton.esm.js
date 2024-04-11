@@ -1,14 +1,14 @@
-/** @odoo-module alias=pos_self_service_weighing_base.SelfServiceWeighingActionButton **/
+/** @odoo-module alias=pos_self_service_weighing_base.SelfServiceWeighingDebugButton **/
 // SPDX-FileCopyrightText: 2024 Coop IT Easy SC
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import {Gui} from "point_of_sale.Gui";
-import PosComponent from "point_of_sale.PosComponent";
 import Registries from "point_of_sale.Registries";
+import SelfServiceWeighingWelcomeButton from "./SelfServiceWeighingWelcomeButton.esm";
 import {useListener} from "@web/core/utils/hooks";
 
-class SelfServiceWeighingActionButton extends PosComponent {
+class SelfServiceWeighingDebugButton extends SelfServiceWeighingWelcomeButton {
     get name() {
         return "Base Action";
     }
@@ -27,7 +27,7 @@ class SelfServiceWeighingActionButton extends PosComponent {
     }
 }
 
-SelfServiceWeighingActionButton.template =
-    "pos_self_service_weighing_base.SelfServiceWeighingActionButton";
-Registries.Component.add(SelfServiceWeighingActionButton);
-export default SelfServiceWeighingActionButton;
+SelfServiceWeighingDebugButton.template =
+    "pos_self_service_weighing_base.SelfServiceWeighingWelcomeButton";
+Registries.Component.add(SelfServiceWeighingDebugButton);
+export default SelfServiceWeighingDebugButton;

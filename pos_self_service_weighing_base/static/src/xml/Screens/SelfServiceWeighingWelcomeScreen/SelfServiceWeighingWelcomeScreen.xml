@@ -8,7 +8,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <div class="screen">
             <div class="screen-full-width">
                     <div class="self-service-action-buttons">
-                        <SelfServiceWeighingActionButton t-if="env.isDebug()" />
+                        <SelfServiceWeighingDebugButton t-if="env.isDebug()" />
                     </div>
                 </div>
         </div>
