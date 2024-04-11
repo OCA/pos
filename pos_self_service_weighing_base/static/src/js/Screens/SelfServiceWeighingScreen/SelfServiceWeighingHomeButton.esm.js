@@ -6,7 +6,6 @@
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingControlButton from "pos_self_service_weighing_base.SelfServiceWeighingControlButton";
-import {useListener} from "@web/core/utils/hooks";
 
 class SelfServiceWeighingHomeButton extends SelfServiceWeighingControlButton {
     get name() {
@@ -15,11 +14,6 @@ class SelfServiceWeighingHomeButton extends SelfServiceWeighingControlButton {
 
     get faSymbol() {
         return "fa-home";
-    }
-
-    setup() {
-        super.setup();
-        useListener("click", this._onClick);
     }
 
     async _onClick() {
