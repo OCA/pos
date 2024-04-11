@@ -6,10 +6,11 @@
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingControlButton from "pos_self_service_weighing_base.SelfServiceWeighingControlButton";
+import {_t} from "web.core";
 
 class SelfServiceWeighingHomeButton extends SelfServiceWeighingControlButton {
     get name() {
-        return "Home";
+        return _t("Home");
     }
 
     get faSymbol() {

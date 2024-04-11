@@ -6,11 +6,12 @@
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingWelcomeButton from "./SelfServiceWeighingWelcomeButton.esm";
+import {_t} from "web.core";
 import {useListener} from "@web/core/utils/hooks";
 
 class SelfServiceWeighingDebugButton extends SelfServiceWeighingWelcomeButton {
     get name() {
-        return "Base Action";
+        return _t("Base Action");
     }
 
     get faSymbol() {
