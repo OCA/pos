@@ -15,6 +15,10 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <xpath expr="//TicketButton" position="attributes">
             <attribute name="t-if">showTicketButton()</attribute>
         </xpath>
+
+        <xpath expr="//HeaderButton" position="attributes">
+            <attribute name="t-if">showHeaderButton()</attribute>
+        </xpath>
     </t>
 
 

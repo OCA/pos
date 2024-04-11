@@ -59,6 +59,7 @@ Contributors
 * `Coop IT Easy SC, Odoo Community Association (OCA) <https://github.com/OCA/pos>`_:
 
   * Carmen Bianca BAKKER
+  * Robin Keunen
 
 Maintainers
 ~~~~~~~~~~~
@@ -76,10 +77,13 @@ promote its widespread use.
 .. |maintainer-carmenbianca| image:: https://github.com/carmenbianca.png?size=40px
     :target: https://github.com/carmenbianca
     :alt: carmenbianca
+.. |maintainer-robinkeunen| image:: https://github.com/robinkeunen.png?size=40px
+    :target: https://github.com/robinkeunen
+    :alt: robinkeunen
 
-Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-carmenbianca| 
+|maintainer-carmenbianca| |maintainer-robinkeunen| 
 
 This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_self_service_weighing_base>`_ project on GitHub.
 

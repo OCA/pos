@@ -22,23 +22,35 @@ const SelfServiceWeighingChrome = (Chrome) =>
             return result;
         }
 
-        showTicketButton() {
-            /**
-             * The ticket button should not be displayed if the POS
-             * is a self-service weighing station.
-             * Returns False if the `is_self_service_weighing_point` is checked.
-             */
+        _is_self_service_weighing_point() {
             return (
                 this.env.pos &&
                 this.env.pos.config &&
-                !this.env.pos.config.is_self_service_weighing_point
+                this.env.pos.config.is_self_service_weighing_point
             );
         }
 
+        showTicketButton() {
+            /**
+             * No orders are issued in weighing point.
+             */
+            return !this._is_self_service_weighing_point();
+        }
+
+        showHeaderButton() {
+            /**
+             * The user should not be able to close the session. The session
+             * can be closed from the Odoo backend.
+             * */
+            return !this._is_self_service_weighing_point();
+        }
+
         showCashMoveButton() {
+            /**
+             * No cash is used in the weighing point.
+             */
             return (
-                super.showCashMoveButton() &&
-                !this.env.pos.config.is_self_service_weighing_point
+                super.showCashMoveButton() && !this._is_self_service_weighing_point()
             );
         }
     };
