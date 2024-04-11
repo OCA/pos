@@ -22,6 +22,6 @@ class SelfServiceWeighingTareScreenButton extends SelfServiceWeighingWelcomeButt
 }
 
 SelfServiceWeighingTareScreenButton.template =
-    "pos_self_service_weighing_tare.SelfServiceWeighingTareScreenButton";
+    "pos_self_service_weighing_base.SelfServiceWeighingWelcomeButton";
 Registries.Component.add(SelfServiceWeighingTareScreenButton);
 export default SelfServiceWeighingTareScreenButton;
