@@ -6,17 +6,18 @@
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingWelcomeButton from "pos_self_service_weighing_base.SelfServiceWeighingWelcomeButton";
+import {_t} from "web.core";
 
 class SelfServiceWeighingTareScreenButton extends SelfServiceWeighingWelcomeButton {
     get name() {
-        return "Print Tare Labels";
+        return _t("Print Tare Labels");
     }
 
     get faSymbol() {
         return "fa-barcode";
     }
 
-    async _onClick() {
+    async onClick() {
         Gui.showScreen("SelfServiceWeighingTareScreen");
     }
 }
