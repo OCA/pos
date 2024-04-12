@@ -12,7 +12,7 @@
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
-    "maintainers": ["carmenbianca"],
+    "maintainers": ["carmenbianca", "robinkeunen"],
     "license": "AGPL-3",
     "application": False,
     "depends": [

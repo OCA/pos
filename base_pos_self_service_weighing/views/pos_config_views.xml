@@ -19,14 +19,20 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                     class="row mt16 o_settings_container"
                     invisible="not context.get('pos_config_create_mode', False)"
                 >
-                    <div class="col-12 col-lg-6 o_setting_box" id="iface_self_service">
+                    <div
+                        class="col-12 col-lg-6 o_setting_box"
+                        id="is_self_service_weighing_point"
+                    >
                         <div class="o_setting_left_pane">
-                            <field name="iface_self_service" />
+                            <field name="is_self_service_weighing_point" />
                         </div>
                         <div class="o_setting_right_pane">
-                            <label for="iface_self_service" />
-                            <div class="text-muted mb16" id="iface_self_service_text">
-                                Use your PoS as self-service
+                            <label for="is_self_service_weighing_point" />
+                            <div
+                                class="text-muted mb16"
+                                id="is_self_service_weighing_point_text"
+                            >
+                                Use this PoS as a Self-Service weighing station
                             </div>
                         </div>
                     </div>
