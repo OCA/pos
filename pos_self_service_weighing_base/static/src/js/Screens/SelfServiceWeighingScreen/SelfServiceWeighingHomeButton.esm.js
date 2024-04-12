@@ -17,7 +17,7 @@ class SelfServiceWeighingHomeButton extends SelfServiceWeighingControlButton {
         return "fa-home";
     }
 
-    async _onClick() {
+    async onClick() {
         Gui.showScreen("SelfServiceWeighingWelcomeScreen");
     }
 }

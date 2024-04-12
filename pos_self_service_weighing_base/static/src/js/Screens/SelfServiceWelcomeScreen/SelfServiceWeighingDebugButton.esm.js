@@ -20,10 +20,10 @@ class SelfServiceWeighingDebugButton extends SelfServiceWeighingWelcomeButton {
 
     setup() {
         super.setup();
-        useListener("click", this._onClick);
+        useListener("click", this.onClick);
     }
 
-    async _onClick() {
+    async onClick() {
         Gui.showScreen("AbstractSelfServiceWeighingScreen");
     }
 }

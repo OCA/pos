@@ -18,13 +18,13 @@ class SelfServiceWeighingControlButton extends PosComponent {
 
     setup() {
         super.setup();
-        useListener("click", this._onClick);
+        useListener("click", this.onClick);
     }
 
-    async _onClick() {
+    async onClick() {
         await this.showPopup("ErrorPopup", {
             title: "Error",
-            body: "_onclick Not Implemented",
+            body: "onClick Not Implemented",
         });
     }
 }
