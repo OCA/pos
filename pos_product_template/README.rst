@@ -17,28 +17,30 @@ POS - Product Template
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/15.0/pos_product_template
+    :target: https://github.com/OCA/pos/tree/17.0/pos_product_template
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-15-0/pos-15-0-pos_product_template
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_product_template
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=15.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-    * In Point Of Sale Front End - Products list:
-        * Display only one product per template;
-        * Display template name instead of product name;
-        * Display products quantity instead of price;
-        * Click on template displays an extra screen to select Variant;
+   -  In Point Of Sale Front End - Products list:
 
-    * In Point Of Sale Front End - Variants list:
-        * Display all the products of the selected variant;
-        * Click on a attribute value filters products;
-        * Click on a product adds it to the current Order or display normal
-          extra screen if it is a weightable product;
+      -  Display only one product per template;
+      -  Display template name instead of product name;
+      -  Display products quantity instead of price;
+      -  Click on template displays an extra screen to select Variant;
+
+   -  In Point Of Sale Front End - Variants list:
+
+      -  Display all the products of the selected variant;
+      -  Click on a attribute value filters products;
+      -  Click on a product adds it to the current Order or display
+         normal extra screen if it is a weightable product;
 
 **Table of contents**
 
@@ -48,13 +50,14 @@ POS - Product Template
 Usage
 =====
 
-Open the Point of Sale, search an article with variants.
-You will see one article instead of all the variants.
+Open the Point of Sale, search an article with variants. You will see
+one article instead of all the variants.
 
 Known issues / Roadmap
 ======================
 
-* Templates with lot of variants are not shown. See https://github.com/OCA/pos/pull/135
+-  Templates with lot of variants are not shown. See
+   https://github.com/OCA/pos/pull/135
 
 Bug Tracker
 ===========
@@ -62,7 +65,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_product_template%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_product_template%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -70,36 +73,40 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Akretion
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sylvain LE GAL (https://twitter.com/legalsylvain)
-* Navarromiguel (https://github.com/navarromiguel)
-* Damendieta (https://github.com/damendieta)
-* Raphaël Reverdy (https://akretion.com)
-* Pedro Guirao (https://ingenieriacloud.com)
+-  Sylvain LE GAL (https://twitter.com/legalsylvain)
 
-* `Ooops <https://www.ooops404.com>`_:
+-  Navarromiguel (https://github.com/navarromiguel)
 
-   * Giovanni Serra <giovanni@gslab.it>
+-  Damendieta (https://github.com/damendieta)
 
-* `Aures Tic <https://aurestic.es>`_:
+-  Raphaël Reverdy (https://akretion.com)
 
-   * Jose Zambudio <jose@aurestic.es>
+-  Pedro Guirao (https://ingenieriacloud.com)
+
+-  `Ooops <https://www.ooops404.com>`__:
+
+      -  Giovanni Serra <giovanni@gslab.it>
+
+-  `Aures Tic <https://aurestic.es>`__:
+
+      -  Jose Zambudio <jose@aurestic.es>
 
 Funders
--------
+~~~~~~~
 
 The development of this module has been financially supported by:
 
-* Akretion
+-  Akretion
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -111,6 +118,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/15.0/pos_product_template>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_product_template>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
