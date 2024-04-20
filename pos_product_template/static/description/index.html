@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -275,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -301,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -381,8 +381,8 @@ ul.auto-toc {
 </li>
 <li>In Point Of Sale Front End - Variants list:<ul>
 <li>Display all the products of the selected variant;</li>
-<li>Click on a attribute value filters products;</li>
-<li>Click on a product adds it to the current Order or display
+<li>Click on a attribute value to make your own choice and confirm;</li>
+<li>Or click on a product adds it to the current Order or display
 normal extra screen if it is a weightable product;</li>
 </ul>
 </li>
@@ -436,15 +436,19 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="contributors">
 <h2><a class="toc-backref" href="#toc-entry-6">Contributors</a></h2>
 <ul>
-<li><p class="first">Sylvain LE GAL (<a class="reference external" href="https://twitter.com/legalsylvain">https://twitter.com/legalsylvain</a>)</p>
+<li><p class="first">Sylvain LE GAL
+(<a class="reference external" href="https://twitter.com/legalsylvain">https://twitter.com/legalsylvain</a>)</p>
 </li>
-<li><p class="first">Navarromiguel (<a class="reference external" href="https://github.com/navarromiguel">https://github.com/navarromiguel</a>)</p>
+<li><p class="first">Navarromiguel
+(<a class="reference external" href="https://github.com/navarromiguel">https://github.com/navarromiguel</a>)</p>
 </li>
-<li><p class="first">Damendieta (<a class="reference external" href="https://github.com/damendieta">https://github.com/damendieta</a>)</p>
+<li><p class="first">Damendieta
+(<a class="reference external" href="https://github.com/damendieta">https://github.com/damendieta</a>)</p>
 </li>
 <li><p class="first">Raphaël Reverdy (<a class="reference external" href="https://akretion.com">https://akretion.com</a>)</p>
 </li>
-<li><p class="first">Pedro Guirao (<a class="reference external" href="https://ingenieriacloud.com">https://ingenieriacloud.com</a>)</p>
+<li><p class="first">Pedro Guirao
+(<a class="reference external" href="https://ingenieriacloud.com">https://ingenieriacloud.com</a>)</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://www.ooops404.com">Ooops</a>:</p>
 <blockquote>
@@ -460,6 +464,19 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 </ul>
 </blockquote>
 </li>
+<li><p class="first"><a class="reference external" href="https://www.dixmit.com">Dixmit</a>:</p>
+<blockquote>
+<ul class="simple">
+<li>Luís Rodríguez</li>
+</ul>
+</blockquote>
+<!--  -->
+<blockquote>
+<ul class="simple">
+<li>Enric Tobella</li>
+</ul>
+</blockquote>
+</li>
 </ul>
 <div class="section" id="funders">
 <h3><a class="toc-backref" href="#toc-entry-7">Funders</a></h3>
@@ -472,7 +489,9 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-8">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>

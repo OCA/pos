@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductsWidget" t-inherit-mode="extension">
+        <xpath expr="//ProductCard" position="attributes">
+            <attribute name="t-if">product.template_variants === 1</attribute>
+        </xpath>
+        <xpath expr="//ProductCard" position="after">
+            <ProductTemplateCard
+                class="pos.productViewMode"
+                name="product.template_name"
+                productId="product.id"
+                productTmplId="product.product_tmpl_id"
+                product="product"
+                template_variants="product.template_variants"
+                price="product.getFormattedUnitPrice()"
+                imageUrl="pos.show_product_images and product.getImageTmplUrl"
+                onClick="() =>this.pos.addProductToCurrentOrder(product)"
+                t-if="product.template_variants > 1"
+            />
+        </xpath>
+    </t>
+</templates>

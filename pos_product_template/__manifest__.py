@@ -13,10 +13,10 @@
         "views/res_config_settings_view.xml",
     ],
     "assets": {
-        "web.assets_qweb": ["pos_product_template/static/src/xml/**/*.xml"],
         "point_of_sale._assets_pos": [
-            "pos_product_template/static/src/components/*.js",
+            "pos_product_template/static/src/pos/**/*.js",
             "pos_product_template/static/src/css/ppt.css",
+            "pos_product_template/static/src/pos/**/*.xml",
         ],
     },
     "demo": [

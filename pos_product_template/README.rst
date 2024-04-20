@@ -38,8 +38,8 @@ POS - Product Template
    -  In Point Of Sale Front End - Variants list:
 
       -  Display all the products of the selected variant;
-      -  Click on a attribute value filters products;
-      -  Click on a product adds it to the current Order or display
+      -  Click on a attribute value to make your own choice and confirm;
+      -  Or click on a product adds it to the current Order or display
          normal extra screen if it is a weightable product;
 
 **Table of contents**
@@ -57,7 +57,7 @@ Known issues / Roadmap
 ======================
 
 -  Templates with lot of variants are not shown. See
-   https://github.com/OCA/pos/pull/135
+   `https://github.com/OCA/pos/pull/135 <https://github.com/OCA/pos/pull/135>`__
 
 Bug Tracker
 ===========
@@ -80,15 +80,19 @@ Authors
 Contributors
 ------------
 
--  Sylvain LE GAL (https://twitter.com/legalsylvain)
+-  Sylvain LE GAL
+   (`https://twitter.com/legalsylvain <https://twitter.com/legalsylvain>`__)
 
--  Navarromiguel (https://github.com/navarromiguel)
+-  Navarromiguel
+   (`https://github.com/navarromiguel <https://github.com/navarromiguel>`__)
 
--  Damendieta (https://github.com/damendieta)
+-  Damendieta
+   (`https://github.com/damendieta <https://github.com/damendieta>`__)
 
--  Raphaël Reverdy (https://akretion.com)
+-  Raphaël Reverdy (`https://akretion.com <https://akretion.com>`__)
 
--  Pedro Guirao (https://ingenieriacloud.com)
+-  Pedro Guirao
+   (`https://ingenieriacloud.com <https://ingenieriacloud.com>`__)
 
 -  `Ooops <https://www.ooops404.com>`__:
 
@@ -97,6 +101,14 @@ Contributors
 -  `Aures Tic <https://aurestic.es>`__:
 
       -  Jose Zambudio <jose@aurestic.es>
+
+-  `Dixmit <https://www.dixmit.com>`__:
+
+      -  Luís Rodríguez
+
+   ..
+
+      -  Enric Tobella
 
 Funders
 ~~~~~~~
