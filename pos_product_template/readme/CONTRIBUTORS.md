@@ -16,6 +16,12 @@
 
   > - Jose Zambudio \<<jose@aurestic.es>\>
 
+- [Dixmit](https://www.dixmit.com):
+
+  > - Luís Rodríguez
+
+  > - Enric Tobella
+
 ## Funders
 
 The development of this module has been financially supported by:
