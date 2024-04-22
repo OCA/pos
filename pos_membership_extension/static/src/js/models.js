@@ -53,14 +53,15 @@ odoo.define("pos_membership_extension.models", function (require) {
              * @returns {Boolean} In any case, return the result of the super function.
              */
             set_partner(partner) {
-                var self = this;
                 var bad_product_list = [];
-                this.orderlines.forEach(function (orderline) {
+                var i = this.orderlines.length;
+                while (i--) {
+                    var orderline = this.orderlines[i];
                     if (!orderline.product.get_membership_allowed(partner)) {
                         bad_product_list.push(orderline.product.display_name);
-                        self.orderlines.remove(orderline);
+                        this.orderlines.splice(i, 1);
                     }
-                });
+                }
                 if (bad_product_list.length !== 0) {
                     var bad_product_text = bad_product_list.join(", ");
                     Gui.showPopup("ErrorPopup", {
