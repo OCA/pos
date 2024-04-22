@@ -10,10 +10,8 @@ odoo.define("pos_membership_extension.models", function (require) {
 
     var _t = core._t;
 
-    // eslint-disable-next-line no-shadow
-    const OverloadProduct = (Product) =>
-        // eslint-disable-next-line no-shadow
-        class OverloadProduct extends Product {
+    const OverloadProduct = (OriginalProduct) =>
+        class extends OriginalProduct {
             /**
              * Return if it's allowed to sell the product to the partner.
              *
@@ -39,10 +37,8 @@ odoo.define("pos_membership_extension.models", function (require) {
         };
     Registries.Model.extend(Product, OverloadProduct);
 
-    // eslint-disable-next-line no-shadow
-    const OverloadOrder = (Order) =>
-        // eslint-disable-next-line no-shadow
-        class OverloadOrder extends Order {
+    const OverloadOrder = (OriginalOrder) =>
+        class extends OriginalOrder {
             /**
              * Overloaded function.
              * Check if the product of the order lines are allowed by the
