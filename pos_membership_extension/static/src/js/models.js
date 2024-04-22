@@ -69,7 +69,6 @@ odoo.define("pos_membership_extension.models", function (require) {
                             `The following lines has been removed, as the product cannot be sold to this partner: ${bad_product_text}`
                         ),
                     });
-                    return;
                 }
 
                 return super.set_partner(...arguments);
