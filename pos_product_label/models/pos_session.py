@@ -8,6 +8,17 @@ from odoo.tools import plaintext2html
 class PosSession(models.Model):
     _inherit = "pos.session"
 
+    def _prepare_product_label_layout_data(self, data):
+        vals = {
+            "product_ids": [Command.set(data["product_ids"])],
+            "custom_quantity": data["custom_quantity"],
+            "print_format": data["print_format"],
+            "extra_html": (
+                plaintext2html(data["extra_html"]) if data.get("extra_html") else False
+            ),
+        }
+        return vals
+
     def print_product_labels(self, data):
         """Print product labels from the POS.
 
@@ -19,18 +30,8 @@ class PosSession(models.Model):
             - print_format: str
             - extra_html: str
         """
-        wizard = self.env["product.label.layout"].create(
-            {
-                "product_ids": [Command.set(data["product_ids"])],
-                "custom_quantity": data["custom_quantity"],
-                "print_format": data["print_format"],
-                "extra_html": (
-                    plaintext2html(data["extra_html"])
-                    if data.get("extra_html")
-                    else False
-                ),
-            }
-        )
+        vals = self._prepare_product_label_layout_data(data)
+        wizard = self.env["product.label.layout"].create(vals)
         if data.get("pos_quantity") == "order":
             wizard = wizard.with_context(
                 force_label_qty_by_product=data.get("order_quantity_by_product", {})
