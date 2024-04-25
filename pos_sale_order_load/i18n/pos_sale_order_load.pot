@@ -26,6 +26,11 @@ msgid "<span class=\"o_form_label\">Down Payment Product</span>"
 msgstr ""
 
 #. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "<span class=\"o_form_label\">Load products to pos</span>"
+msgstr ""
+
+#. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
@@ -138,6 +143,17 @@ msgid "ID"
 msgstr ""
 
 #. module: pos_sale_order_load
+#: model:ir.model.fields,help:pos_sale_order_load.field_pos_config__load_products_to_pos
+msgid ""
+"If set missing products will be loaded to pos without separate confirmation"
+msgstr ""
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "If set products will be loaded to pos without cofirmation"
+msgstr ""
+
+#. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
@@ -170,6 +186,11 @@ msgstr ""
 #: code:addons/pos_sale_order_load/models/pos_order.py:0
 #, python-format
 msgid "Linked Sale Orders"
+msgstr ""
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__load_products_to_pos
+msgid "Load Products To Pos"
 msgstr ""
 
 #. module: pos_sale_order_load
@@ -313,6 +334,11 @@ msgstr ""
 #: model:ir.model,name:pos_sale_order_load.model_sale_order
 #, python-format
 msgid "Sales Order"
+msgstr ""
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "Sales Order Import"
 msgstr ""
 
 #. module: pos_sale_order_load
