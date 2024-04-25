@@ -58,6 +58,7 @@ addon | version | maintainers | summary
 [pos_product_packaging_container_deposit](pos_product_packaging_container_deposit/) | 16.0.1.0.0 |  | Add the container deposit fees in a POS order
 [pos_product_packaging_multi_barcode](pos_product_packaging_multi_barcode/) | 16.0.1.0.0 |  | Make product packaging multi barcodes usable in the point of sale
 [pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.2 |  | Display product info by one click in Point of Sale
+[pos_receipt_hide_info](pos_receipt_hide_info/) | 16.0.1.0.0 |  | Removes Information from POS receipt.
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_receipt_replace_user_by_trigram](pos_receipt_replace_user_by_trigram/) | 16.0.1.0.0 |  | Replace User by Trigram in POS receipt.
 [pos_receipt_replace_user_by_trigram_hr](pos_receipt_replace_user_by_trigram_hr/) | 16.0.1.0.0 |  | Link module between pos_receipt_replace_user_by_trigram and pos_hr

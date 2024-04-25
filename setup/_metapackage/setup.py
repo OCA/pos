@@ -45,6 +45,7 @@ setuptools.setup(
         'odoo-addon-pos_product_packaging_container_deposit>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_packaging_multi_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_quick_info>=16.0dev,<16.1dev',
+        'odoo-addon-pos_receipt_hide_info>=16.0dev,<16.1dev',
         'odoo-addon-pos_receipt_hide_price>=16.0dev,<16.1dev',
         'odoo-addon-pos_receipt_replace_user_by_trigram>=16.0dev,<16.1dev',
         'odoo-addon-pos_receipt_replace_user_by_trigram_hr>=16.0dev,<16.1dev',
