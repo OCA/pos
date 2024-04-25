@@ -11,3 +11,7 @@ class PosConfig(models.Model):
         string="Down Payment Product",
         help="This product will be used as down payment on a sale order.",
     )
+
+    load_products_to_pos = fields.Boolean(
+        help="If set missing products will be loaded to pos without separate confirmation",
+    )

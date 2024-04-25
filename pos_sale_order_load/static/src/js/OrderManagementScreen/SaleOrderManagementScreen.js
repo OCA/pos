@@ -138,16 +138,21 @@ odoo.define("pos_sale_order_load.SaleOrderManagementScreen", function (require) 
                                 !this.env.pos.db.get_product_by_id(line.product_id[0])
                         )
                         .map((line) => line.product_id[0]);
+                    var load_products = false;
                     if (product_to_add_in_pos.length) {
-                        const {confirmed} = await this.showPopup("ConfirmPopup", {
-                            title: this.env._t("Products not available in POS"),
-                            body: this.env._t(
-                                "Some of the products in your Sale Order are not available in POS, do you want to import them?"
-                            ),
-                            confirmText: this.env._t("Yes"),
-                            cancelText: this.env._t("No"),
-                        });
-                        if (confirmed) {
+                        if (!this.env.pos.config.load_products_to_pos) {
+                            load_products = await this.showPopup("ConfirmPopup", {
+                                title: this.env._t("Products not available in POS"),
+                                body: this.env._t(
+                                    "Some of the products in your Sale Order are not available in POS, do you want to import them?"
+                                ),
+                                confirmText: this.env._t("Yes"),
+                                cancelText: this.env._t("No"),
+                            });
+                        } else {
+                            load_products = true;
+                        }
+                        if (load_products) {
                             await this.env.pos._addProducts(product_to_add_in_pos);
                         }
                     }
