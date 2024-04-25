@@ -29,6 +29,11 @@ msgid "<span class=\"o_form_label\">Down Payment Product</span>"
 msgstr "<span class=\"o_form_label\">Abajo Pago Producto</span>"
 
 #. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "<span class=\"o_form_label\">Load products to pos</span>"
+msgstr ""
+
+#. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
@@ -143,12 +148,25 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_sale_order_load
+#: model:ir.model.fields,help:pos_sale_order_load.field_pos_config__load_products_to_pos
+msgid ""
+"If set missing products will be loaded to pos without separate confirmation"
+msgstr ""
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "If set products will be loaded to pos without cofirmation"
+msgstr ""
+
+#. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid ""
-"It seems that you didn't configure a down payment product in your point of sale.\n"
-"                    You can go to your point of sale configuration to choose one."
+"It seems that you didn't configure a down payment product in your point of "
+"sale.\n"
+"                    You can go to your point of sale configuration to choose "
+"one."
 msgstr ""
 "Parece que no has configurado un producto de anticipo en tu punto de venta.\n"
 " Puedes ir a la configuración de tu punto de venta para elegir uno."
@@ -180,6 +198,11 @@ msgid "Linked Sale Orders"
 msgstr "Órdenes de Venta Vinculadas"
 
 #. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__load_products_to_pos
+msgid "Load Products To Pos"
+msgstr ""
+
+#. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
 #, python-format
@@ -197,14 +220,12 @@ msgstr "Error en la red"
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
-#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
 #, python-format
 msgid "Next Order List"
 msgstr "Lista de Próximos Pedidos"
 
 #. module: pos_sale_order_load
 #. openerp-web
-#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "No"
@@ -261,7 +282,6 @@ msgstr "Recuento de Pedidos en el Pdv"
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
-#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
 #, python-format
 msgid "Previous Order List"
 msgstr "Lista de Pedidos Anteriores"
@@ -304,7 +324,6 @@ msgstr "SN/Lotes Carga"
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/ProductScreen/Orderline.xml:0
-#: code:addons/pos_sale_order_load/static/src/xml/ProductScreen/Orderline.xml:0
 #, python-format
 msgid "SO"
 msgstr "SO"
@@ -321,6 +340,11 @@ msgstr "Recuento de Orden de Venta"
 #, python-format
 msgid "Sales Order"
 msgstr "Órdenes de Venta"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "Sales Order Import"
+msgstr ""
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_sale_order_line
@@ -344,7 +368,6 @@ msgstr "Vendedor/a"
 #. module: pos_sale_order_load
 #. openerp-web
 #: code:addons/pos_sale_order_load/static/src/xml/SetSaleOrderButton.xml:0
-#: code:addons/pos_sale_order_load/static/src/xml/SetSaleOrderButton.xml:0
 #, python-format
 msgid "Set Sale Order"
 msgstr "Establecer Orden de Venta"
@@ -364,8 +387,8 @@ msgid ""
 "Some of the products in your Sale Order are not available in POS, do you "
 "want to import them?"
 msgstr ""
-"Algunos de los productos de su Pedido de Venta no están disponibles en TPV, ¿"
-"desea importarlos?"
+"Algunos de los productos de su Pedido de Venta no están disponibles en TPV, "
+"¿desea importarlos?"
 
 #. module: pos_sale_order_load
 #: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__sale_order_line_id
@@ -439,7 +462,6 @@ msgstr "¿Qué es lo que quieres hacer?"
 
 #. module: pos_sale_order_load
 #. openerp-web
-#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
 #, python-format
 msgid "Yes"
