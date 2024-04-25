@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record
+        id="pos_receipt_hide_user_res_config_settings_view_form_inherit"
+        model="ir.ui.view"
+    >
+        <field
+            name="name"
+        >pos.receipt.hide.user.res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pos_bills_and_receipts_section']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box" id="hide_info">
+                    <div class="o_setting_left_pane">
+                        <field name="pos_hide_user" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_hide_user" />
+                    </div>
+                    <br />
+                    <div class="o_setting_left_pane">
+                        <field name="pos_hide_company_email" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_hide_company_email" />
+                    </div>
+                    <br />
+                    <div class="o_setting_left_pane">
+                        <field name="pos_hide_company_phone" />
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="pos_hide_company_phone" />
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

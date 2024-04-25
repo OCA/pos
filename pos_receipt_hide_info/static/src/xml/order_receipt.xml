@@ -1,0 +1,13 @@
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('cashier')]" position="attributes">
+            <attribute name="t-att-class">{'oe_hidden': hideUser}</attribute>
+        </xpath>
+        <xpath expr="//div/t[@t-if='receipt.company.phone']/div" position="attributes">
+            <attribute name="t-att-class">{'oe_hidden': hideCompanyPhone}</attribute>
+        </xpath>
+        <xpath expr="//div/t[@t-if='receipt.company.email']/div" position="attributes">
+            <attribute name="t-att-class">{'oe_hidden': hideCompanyEmail}</attribute>
+        </xpath>
+    </t>
+</templates>
