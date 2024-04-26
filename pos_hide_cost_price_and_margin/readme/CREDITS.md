@@ -1,2 +1,1 @@
-The development of this module for 15.0 was financially supported by
-Camptocamp
+The migration of this module from 15.0 to 17.0 was financially supported by Camptocamp
