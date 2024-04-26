@@ -28,13 +28,19 @@ PoS Hide Cost and Margin
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of point of sale to hide cost and
-margin on product detail.
+By default since odoo v16.0, Margin/Cost is hidden for PoS/User. But you
+also want it hidden for PoS/Manager, in some contexts. Installing this
+module will hide it for every user
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+
 
 Changelog
 =========
@@ -68,12 +74,13 @@ Contributors
 -  `Trobz <https://trobz.com>`__:
 
    -  Hai Lang <hailn@trobz.com>
+   -  Tri Doan <tridm@trobz.com>
 
 Other credits
 -------------
 
-The development of this module for 15.0 was financially supported by
-Camptocamp
+The migration of this module from 15.0 to 17.0 was financially supported
+by Camptocamp
 
 Maintainers
 -----------

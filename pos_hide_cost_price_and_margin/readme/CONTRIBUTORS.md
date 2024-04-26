@@ -1,2 +1,3 @@
 - [Trobz](https://trobz.com):  
   - Hai Lang \<<hailn@trobz.com>\>
+  - Tri Doan \<<tridm@trobz.com>\>

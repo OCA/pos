@@ -4,8 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-26 10:08+0000\n"
+"PO-Revision-Date: 2024-04-26 10:08+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -14,12 +16,47 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_hide_cost_price_and_margin
-#. openerp-web
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#: code:addons/pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml:0
-#, python-format
-msgid "env.pos.config.iface_display_margin"
+#: model:ir.model,name:pos_hide_cost_price_and_margin.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model:ir.model.fields,field_description:pos_hide_cost_price_and_margin.field_pos_config__is_margins_costs_accessible_to_every_user
+msgid "Margins & Costs"
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model:ir.model.fields,field_description:pos_hide_cost_price_and_margin.field_pos_config__is_margins_costs_accessible_to_admin
+#: model:ir.model.fields,field_description:pos_hide_cost_price_and_margin.field_res_config_settings__pos_is_margins_costs_accessible_to_admin
+#: model_terms:ir.ui.view,arch_db:pos_hide_cost_price_and_margin.res_config_settings_view_form
+msgid "Margins & Costs (Admin)"
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model_terms:ir.ui.view,arch_db:pos_hide_cost_price_and_margin.res_config_settings_view_form
+msgid "Margins &amp; Costs (every user)"
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model:ir.model,name:pos_hide_cost_price_and_margin.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model_terms:ir.ui.view,arch_db:pos_hide_cost_price_and_margin.res_config_settings_view_form
+msgid "Show margins & costs on product information for Admin"
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model:ir.model.fields,help:pos_hide_cost_price_and_margin.field_pos_config__is_margins_costs_accessible_to_admin
+#: model:ir.model.fields,help:pos_hide_cost_price_and_margin.field_res_config_settings__pos_is_margins_costs_accessible_to_admin
+msgid ""
+"When disabled, margin and cost of product are hide in the Product info."
+msgstr ""
+
+#. module: pos_hide_cost_price_and_margin
+#: model:ir.model.fields,help:pos_hide_cost_price_and_margin.field_pos_config__is_margins_costs_accessible_to_every_user
+msgid ""
+"When disabled, only PoS manager can view the margin and cost of product "
+"among the Product info."
 msgstr ""

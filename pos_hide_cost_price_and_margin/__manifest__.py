@@ -4,7 +4,7 @@
 {
     "name": "PoS Hide Cost and Margin",
     "summary": "Hide Cost and Margin on PoS",
-    "version": "15.0.1.0.1",
+    "version": "17.0.1.0.0",
     "category": "Point Of Sale",
     "author": "CampToCamp, Odoo Community Association (OCA)",
     "maintainers": [],
@@ -13,10 +13,12 @@
     "depends": [
         "point_of_sale",
     ],
-    "data": [],
+    "data": [
+        "views/res_config_settings_views.xml",
+    ],
     "assets": {
-        "web.assets_qweb": [
-            "pos_hide_cost_price_and_margin/static/src/xml/pos_margin.xml",
+        "point_of_sale.assets_prod": [
+            "pos_hide_cost_price_and_margin/static/src/js/**/*",
         ],
     },
     "installable": True,
