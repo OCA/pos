@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-02-07 12:36+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2024-04-29 14:40+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "<span class=\"o_form_label\">Prodotto per acconto</span>"
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
 msgid "<span class=\"o_form_label\">Load products to pos</span>"
-msgstr ""
+msgstr "<span class=\"o_form_label\">Carica prodotti nel POS</span>"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -150,11 +150,13 @@ msgstr "ID"
 msgid ""
 "If set missing products will be loaded to pos without separate confirmation"
 msgstr ""
+"Se impostata, i prodotti mancanti verranno caricati nel POS senza una "
+"conferma separata"
 
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
 msgid "If set products will be loaded to pos without cofirmation"
-msgstr ""
+msgstr "Se impostata, i prodottoi verranno caricati nel POS senza conferma"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -198,7 +200,7 @@ msgstr "Ordini di vendita relazionati"
 #. module: pos_sale_order_load
 #: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__load_products_to_pos
 msgid "Load Products To Pos"
-msgstr ""
+msgstr "Carica prodotti nel POS"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -342,7 +344,7 @@ msgstr "Ordine di vendita"
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
 msgid "Sales Order Import"
-msgstr ""
+msgstr "Importazione ordine di vendita"
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_sale_order_line
