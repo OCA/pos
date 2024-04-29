@@ -17,19 +17,20 @@ Point of Sale - Cashier Comment
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/16.0/pos_customer_comment
+    :target: https://github.com/OCA/pos/tree/17.0/pos_customer_comment
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_customer_comment
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_customer_comment
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of point of sale module, to allow display and edit
-customer note field in the point of sale UI for the cashier.
+This module extends the functionality of point of sale module, to allow
+display and edit customer note field in the point of sale UI for the
+cashier.
 
 **Table of contents**
 
@@ -39,27 +40,32 @@ customer note field in the point of sale UI for the cashier.
 Usage
 =====
 
-* Go to your partner view and write or edit new PoS comments
+-  Go to your partner view and write or edit new PoS comments
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_customer_comment/static/description/res_partner_form.png
+|image1|
 
-* Then Open your Point of sale
+-  Then Open your Point of sale
 
-in the customer tree view, a new icon is available to mention that the customer
-has a PoS Comment to read:
+in the customer tree view, a new icon is available to mention that the
+customer has a PoS Comment to read:
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_customer_comment/static/description/pos_customer_tree.png
+|image2|
 
 It is possible to see or edit the comment in the customer form view:
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_customer_comment/static/description/pos_customer_form.png
+|image3|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_customer_comment/static/description/res_partner_form.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_customer_comment/static/description/pos_customer_tree.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_customer_comment/static/description/pos_customer_form.png
 
 Known issues / Roadmap
 ======================
 
-For the time being, there is no HTML widget available in the point of sale.
-For that reason, the Cashier comment (``pos_comment``) is a simple Text field.
-If a widget is available in odoo, it could be great to switch to a HTML field text.
+For the time being, there is no HTML widget available in the point of
+sale. For that reason, the Cashier comment (``pos_comment``) is a simple
+Text field. If a widget is available in odoo, it could be great to
+switch to a HTML field text.
 
 Bug Tracker
 ===========
@@ -67,7 +73,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_customer_comment%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_customer_comment%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -75,25 +81,26 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * GRAP
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sylvain LE GAL (https://twitter.com/legalsylvain)
-* Juan Carlos Bonilla <juancarlos.bonilla@factorlibre.com>
+-  Sylvain LE GAL (https://twitter.com/legalsylvain)
+-  Juan Carlos Bonilla <juancarlos.bonilla@factorlibre.com>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 The development of this module has been financially supported by:
 
-* UGESS, Union Nationale des Groupements des épiceries Sociales et Solidaires (https://ugess.org/)
+-  UGESS, Union Nationale des Groupements des épiceries Sociales et
+   Solidaires (https://ugess.org/)
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -113,6 +120,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_customer_comment>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_customer_comment>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
