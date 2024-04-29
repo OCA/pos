@@ -5,7 +5,6 @@
         t-name="TicketScreen"
         t-inherit="point_of_sale.TicketScreen"
         t-inherit-mode="extension"
-        owl="1"
     >
         <xpath
             expr="//div[hasclass('ticket-screen')]//button[hasclass('highlight')]"

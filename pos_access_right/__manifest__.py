@@ -4,7 +4,7 @@
 
 {
     "name": "Point of Sale - Extra Access Right",
-    "version": "16.0.1.0.1",
+    "version": "17.0.1.0.1",
     "category": "Point Of Sale",
     "summary": "Point of Sale - Extra Access Right for certain actions",
     "author": "La Louve, GRAP, Odoo Community Association (OCA)",
