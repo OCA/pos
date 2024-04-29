@@ -10,7 +10,6 @@
         t-name="PartnerDetailsEdit"
         t-inherit="point_of_sale.PartnerDetailsEdit"
         t-inherit-mode="extension"
-        owl="1"
     >
         <xpath expr="//select[@name='country_id']/.." position="after">
             <div class="partner-detail partner-detail-pos-comment">
