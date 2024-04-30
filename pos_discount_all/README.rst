@@ -70,15 +70,15 @@ Make an order. for exemple, - select the product 'Conference chair
 
 The total discount is 1$ + 10% \* 39.40 = 4.94$
 
-|image|
+|image2|
 
 Note, the discount displayed on the ticket is updated, to take into
 account all the discount.
 
-|image1|
+|image3|
 
-.. |image| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_discount_all/static/description/order_summary.png
-.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_discount_all/static/description/pos_receipt.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_discount_all/static/description/order_summary.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_discount_all/static/description/pos_receipt.png
 
 Development
 ===========
@@ -127,6 +127,9 @@ Contributors
 ------------
 
 -  Sylvain LE GAL (https://twitter.com/legalsylvain)
+-  `Binhex <https://binhex.cloud//com>`__:
+
+   -  David Luis Mora <d.luis@binhex.cloud>
 
 Other credits
 -------------

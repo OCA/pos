@@ -5,9 +5,9 @@ Make an order. for exemple, - select the product 'Conference chair
 
 The total discount is 1\$ + 10% \* 39.40 = 4.94\$
 
-![image](../static/description/order_summary.png)
+![image2](../static/description/order_summary.png)
 
 Note, the discount displayed on the ticket is updated, to take into
 account all the discount.
 
-![image](../static/description/pos_receipt.png)
+![image3](../static/description/pos_receipt.png)
