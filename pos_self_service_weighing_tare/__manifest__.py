@@ -23,4 +23,7 @@
             "pos_self_service_weighing_tare/static/src/xml/**/*.xml",
         ],
     },
+    "point_of_sale.qunit_suite_tests": [
+        "pos_self_service_weighing_tare/static/tests/unit/**/*",
+    ],
 }
