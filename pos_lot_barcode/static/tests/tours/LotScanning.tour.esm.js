@@ -6,7 +6,7 @@ import * as PaymentScreen from "@point_of_sale/../tests/tours/helpers/PaymentScr
 import * as ProductScreen from "@point_of_sale/../tests/tours/helpers/ProductScreenTourMethods";
 import * as ReceiptScreen from "@point_of_sale/../tests/tours/helpers/ReceiptScreenTourMethods";
 import {registry} from "@web/core/registry";
-import {scan_barcode} from "@point_of_sale/../tests/tours/helpers/utils";
+import { scan_barcode } from "@point_of_sale/../tests/tours/helpers/utils";
 
 registry.category("web_tour.tours").add("LotScanningTour", {
     test: true,
