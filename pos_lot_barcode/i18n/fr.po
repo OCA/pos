@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-02-04 12:37+0000\n"
+"PO-Revision-Date: 2024-05-05 07:20+0000\n"
 "Last-Translator: Cyril VINH-TUNG <cyril@invitu.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -42,7 +42,7 @@ msgstr "Lot/Numéro(s) de série requis"
 #: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
 #, python-format
 msgid "Multiple Products Matching Barcode:"
-msgstr "Plusieurs produits correspondant au code barre:"
+msgstr "Plusieurs produits correspondant au code barre :"
 
 #. module: pos_lot_barcode
 #. odoo-javascript
@@ -61,4 +61,4 @@ msgid ""
 "multiple products:"
 msgstr ""
 "Le point de vente ne peut pas traiter le code barre scanné car il correspond "
-"à plusieurs produits:"
+"à plusieurs produits :"
