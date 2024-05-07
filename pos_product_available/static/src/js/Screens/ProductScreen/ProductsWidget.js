@@ -6,7 +6,6 @@ odoo.define("pos_product_available.ProductsWidget", function (require) {
 
     const PosProductsAvailableWidget = (ProductsWidget) =>
         class extends ProductsWidget {
-
             get productsToDisplay() {
                 let list = [];
                 let products = [];
