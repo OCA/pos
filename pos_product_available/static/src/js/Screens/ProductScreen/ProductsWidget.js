@@ -56,5 +56,5 @@ odoo.define("pos_product_available.ProductsWidget", function (require) {
 
     Registries.Component.extend(ProductsWidget, PosProductsAvailableWidget);
 
-    return ProductsWidget;  
+    return ProductsWidget;
 });
