@@ -13,7 +13,6 @@
     ],
     "assets": {
         "point_of_sale.assets": [
-            # Here includes the lib and POS UI assets.
             "pos_product_available/static/src/js/Screens/ProductScreen/ProductsWidget.js",
         ],
     },
