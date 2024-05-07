@@ -1,4 +1,4 @@
-odoo.define("pos_product_available.ProductsWidget", function(require) {
+odoo.define("pos_product_available.ProductsWidget", function (require) {
     "use strict";
 
     var ProductsWidget = require("point_of_sale.ProductsWidget");
@@ -10,13 +10,13 @@ odoo.define("pos_product_available.ProductsWidget", function(require) {
             get productsToDisplay() {
                 let list = [];
                 let products = [];
-                let available_product = this.env.pos.config.available_product
-                console.log(available_product)
-                let available_product_ids = this.env.pos.config.available_product_ids
+                let available_product = this.env.pos.config.available_product;
+                console.log(available_product);
+                let available_product_ids = this.env.pos.config.available_product_ids;
                 if (this.searchWord !== "") {
                     if (available_product == true) {
                         products = this.env.pos.db.search_product_in_category(
-                            this.selectedCategoryId, 
+                            this.selectedCategoryId,
                             this.searchWord
                         );
                         products.forEach(function (product) {
@@ -33,25 +33,25 @@ odoo.define("pos_product_available.ProductsWidget", function(require) {
                         );
                     }
                 } else if (available_product == true) {
-                        products = this.env.pos.db.get_product_by_category(
-                            this.selectedCategoryId
-                        );
-                        products.forEach(function (product) {
-                            available_product_ids.forEach(function (product_available) {
-                                if (product.product_tmpl_id == product_available) {
-                                    list.push(product);
-                                }
-                            });
+                    products = this.env.pos.db.get_product_by_category(
+                        this.selectedCategoryId
+                    );
+                    products.forEach(function (product) {
+                        available_product_ids.forEach(function (product_available) {
+                            if (product.product_tmpl_id == product_available) {
+                                list.push(product);
+                            }
                         });
-                    } else {
-                        list = this.env.pos.db.get_product_by_category(
-                            this.selectedCategoryId
-                        );
-                    }
+                    });
+                } else {
+                    list = this.env.pos.db.get_product_by_category(
+                        this.selectedCategoryId
+                    );
+                }
                 return list.sort(function (a, b) {
-                    return a.display_name.localeCompare(b.display_name)
+                    return a.display_name.localeCompare(b.display_name);
                 });
-            }
+            };
     }
 
     Registries.Component.extend(ProductsWidget, PosProductsAvailableWidget);

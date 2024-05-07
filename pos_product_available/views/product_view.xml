@@ -9,7 +9,7 @@
                 expr="//group[@name='pos']/field[@name='pos_categ_id']"
                 position="after"
             >
-                <field 
+                <field
                     name="pos_center_ids"
                     attrs="{'invisible': [('available_in_pos', '=', False)]}"
                     options="{'no_create': True}"

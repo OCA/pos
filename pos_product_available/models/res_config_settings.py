@@ -7,7 +7,7 @@ class PosConfig(models.Model):
     available_product = fields.Boolean()
     available_product_ids = fields.Many2many(
         comodel_name="product.template",
-        string="Restrict products for this point of sale"
+        string="Restrict products for this point of sale",
     )
 
 class ResConfigSettings(models.TransientModel):
@@ -21,7 +21,7 @@ class ResConfigSettings(models.TransientModel):
         "product.template",
         string="Restrict products for this point of sale",
         compute="_compute_pos_available_product_ids",
-        readonly=False, 
+        readonly=False,
         store=True,
     )
 
