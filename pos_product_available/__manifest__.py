@@ -7,14 +7,14 @@
     "version": "16.0.0.1.0",
     "license": "AGPL-3",
     "depends": ["product", "point_of_sale"],
-    'data': [
+    "data": [
         "views/product_view.xml",
         "views/res_config_settings_view.xml",
     ],
-    'assets': {
-        'point_of_sale.assets': [
+    "assets": {
+        "point_of_sale.assets": [
             # Here includes the lib and POS UI assets.
-            'pos_product_available/static/src/js/Screens/ProductScreen/ProductsWidget.js',
+            "pos_product_available/static/src/js/Screens/ProductScreen/ProductsWidget.js",
         ],
     }
 }
