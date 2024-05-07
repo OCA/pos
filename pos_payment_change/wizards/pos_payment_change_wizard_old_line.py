@@ -12,6 +12,7 @@ class PosPaymentChangeWizardOldLine(models.TransientModel):
     wizard_id = fields.Many2one(
         comodel_name="pos.payment.change.wizard",
         required=True,
+        ondelete="cascade",
     )
 
     old_payment_method_id = fields.Many2one(

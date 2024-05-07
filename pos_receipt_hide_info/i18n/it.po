@@ -1,0 +1,45 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_receipt_hide_info
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-04-29 10:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_receipt_hide_info
+#: model:ir.model,name:pos_receipt_hide_info.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni configurazione"
+
+#. module: pos_receipt_hide_info
+#: model:ir.model.fields,field_description:pos_receipt_hide_info.field_pos_config__hide_company_email
+#: model:ir.model.fields,field_description:pos_receipt_hide_info.field_res_config_settings__pos_hide_company_email
+msgid "Hide Company Email in POS receipt?"
+msgstr "Nascondere l'e-mail dell'azienda nella ricevuta POS?"
+
+#. module: pos_receipt_hide_info
+#: model:ir.model.fields,field_description:pos_receipt_hide_info.field_pos_config__hide_company_phone
+#: model:ir.model.fields,field_description:pos_receipt_hide_info.field_res_config_settings__pos_hide_company_phone
+msgid "Hide Company Phone in POS receipt?"
+msgstr "Nascondere il telefono dell'azienda nella ricevuta POS?"
+
+#. module: pos_receipt_hide_info
+#: model:ir.model.fields,field_description:pos_receipt_hide_info.field_pos_config__hide_user
+#: model:ir.model.fields,field_description:pos_receipt_hide_info.field_res_config_settings__pos_hide_user
+msgid "Hide User in POS receipt?"
+msgstr "Nascondere l'utente nella ricevuta POS?"
+
+#. module: pos_receipt_hide_info
+#: model:ir.model,name:pos_receipt_hide_info.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configurazione punto vendita"

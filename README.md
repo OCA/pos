@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_access_right](pos_access_right/) | 16.0.1.0.1 |  | Point of Sale - Extra Access Right for certain actions
 [pos_customer_comment](pos_customer_comment/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Display Customer comment in the PoS front office and allow to edit and save it by the cashier
+[pos_daily_sales_reports_category_only](pos_daily_sales_reports_category_only/) | 16.0.1.0.0 |  | Show Sales Reports by Category
 [pos_default_partner](pos_default_partner/) | 16.0.1.0.0 |  | Add a default customer in pos order
 [pos_discount_all](pos_discount_all/) | 16.0.1.0.1 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Display discount amount on PoS cashier screen and print it on ticketcalculated from the difference between a sale with default pricelist
 [pos_edit_order_line](pos_edit_order_line/) | 16.0.1.0.1 |  | POS Edit Order Line
@@ -31,7 +32,7 @@ addon | version | maintainers | summary
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.1 |  | Order discount in line instead of discount product
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.1 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.1 |  | POS Lot Selection
-[pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.1 |  | Use vouchers as payment method in pos orders
+[pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.2 |  | Use vouchers as payment method in pos orders
 [pos_margin](pos_margin/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
 [pos_membership](pos_membership/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Implement features of membership module in the Point of sale UI.
 [pos_membership_extension](pos_membership_extension/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Prevent to sale product in the point of sale to customer that don't belong to membership categories
@@ -48,7 +49,7 @@ addon | version | maintainers | summary
 [pos_partner_location_abstract](pos_partner_location_abstract/) | 16.0.1.0.0 |  | POS Partner Location Abstract
 [pos_partner_location_google_map](pos_partner_location_google_map/) | 16.0.1.0.0 |  | POS Partner Location Google Map
 [pos_partner_sale_warning](pos_partner_sale_warning/) | 16.0.1.0.0 |  | Show partner sales warning in POS
-[pos_payment_change](pos_payment_change/) | 16.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
+[pos_payment_change](pos_payment_change/) | 16.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 16.0.1.0.0 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_payment_method_image](pos_payment_method_image/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add images on Payment Methods available in the PoS
 [pos_payment_terminal](pos_payment_terminal/) | 16.0.1.0.2 |  | Point of sale: support generic payment terminal
@@ -58,7 +59,10 @@ addon | version | maintainers | summary
 [pos_product_packaging_container_deposit](pos_product_packaging_container_deposit/) | 16.0.1.0.0 |  | Add the container deposit fees in a POS order
 [pos_product_packaging_multi_barcode](pos_product_packaging_multi_barcode/) | 16.0.1.0.0 |  | Make product packaging multi barcodes usable in the point of sale
 [pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.2 |  | Display product info by one click in Point of Sale
+[pos_receipt_hide_info](pos_receipt_hide_info/) | 16.0.1.0.0 |  | Removes Information from POS receipt.
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 16.0.1.0.0 |  | Add button to remove price from receipt.
+[pos_receipt_replace_user_by_trigram](pos_receipt_replace_user_by_trigram/) | 16.0.1.0.0 |  | Replace User by Trigram in POS receipt.
+[pos_receipt_replace_user_by_trigram_hr](pos_receipt_replace_user_by_trigram_hr/) | 16.0.1.0.0 |  | Link module between pos_receipt_replace_user_by_trigram and pos_hr
 [pos_reset_search](pos_reset_search/) | 16.0.1.0.0 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
 [pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.2 |  | Print multiple sale orders in POS
 [pos_sale_product_config_no_variant](pos_sale_product_config_no_variant/) | 16.0.1.0.0 | [![ursais](https://github.com/ursais.png?size=30px)](https://github.com/ursais) | Manage Point Of Sale via Configurator of no variant

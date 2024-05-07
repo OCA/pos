@@ -10,6 +10,7 @@ setuptools.setup(
     install_requires=[
         'odoo-addon-pos_access_right>=16.0dev,<16.1dev',
         'odoo-addon-pos_customer_comment>=16.0dev,<16.1dev',
+        'odoo-addon-pos_daily_sales_reports_category_only>=16.0dev,<16.1dev',
         'odoo-addon-pos_default_partner>=16.0dev,<16.1dev',
         'odoo-addon-pos_discount_all>=16.0dev,<16.1dev',
         'odoo-addon-pos_edit_order_line>=16.0dev,<16.1dev',
@@ -45,7 +46,10 @@ setuptools.setup(
         'odoo-addon-pos_product_packaging_container_deposit>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_packaging_multi_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_quick_info>=16.0dev,<16.1dev',
+        'odoo-addon-pos_receipt_hide_info>=16.0dev,<16.1dev',
         'odoo-addon-pos_receipt_hide_price>=16.0dev,<16.1dev',
+        'odoo-addon-pos_receipt_replace_user_by_trigram>=16.0dev,<16.1dev',
+        'odoo-addon-pos_receipt_replace_user_by_trigram_hr>=16.0dev,<16.1dev',
         'odoo-addon-pos_reset_search>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_order_print>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_product_config_no_variant>=16.0dev,<16.1dev',

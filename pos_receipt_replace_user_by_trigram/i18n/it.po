@@ -1,0 +1,57 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_receipt_replace_user_by_trigram
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-04-22 09:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_receipt_replace_user_by_trigram
+#: model:ir.model,name:pos_receipt_replace_user_by_trigram.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni configurazione"
+
+#. module: pos_receipt_replace_user_by_trigram
+#: model:ir.model,name:pos_receipt_replace_user_by_trigram.model_res_partner
+msgid "Contact"
+msgstr "Contatto"
+
+#. module: pos_receipt_replace_user_by_trigram
+#: model:ir.model,name:pos_receipt_replace_user_by_trigram.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configurazione punto vendita"
+
+#. module: pos_receipt_replace_user_by_trigram
+#: model:ir.model,name:pos_receipt_replace_user_by_trigram.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessione punto vendita"
+
+#. module: pos_receipt_replace_user_by_trigram
+#: model:ir.model.fields,field_description:pos_receipt_replace_user_by_trigram.field_res_partner__pos_trigram
+#: model:ir.model.fields,field_description:pos_receipt_replace_user_by_trigram.field_res_users__pos_trigram
+msgid "Pos Trigram"
+msgstr "Trigramma POS"
+
+#. module: pos_receipt_replace_user_by_trigram
+#: model:ir.model.fields,field_description:pos_receipt_replace_user_by_trigram.field_pos_config__replace_user_by_trigram
+#: model:ir.model.fields,field_description:pos_receipt_replace_user_by_trigram.field_res_config_settings__pos_replace_user_by_trigram
+msgid "Replace User by trigram in POS receipt"
+msgstr "Sostituisce l'utente con il trigramma nelle ricevute POS"
+
+#. module: pos_receipt_replace_user_by_trigram
+#. odoo-javascript
+#: code:addons/pos_receipt_replace_user_by_trigram/static/src/xml/order_receipt.xml:0
+#: code:addons/pos_receipt_replace_user_by_trigram/static/src/xml/order_receipt.xml:0
+#, python-format
+msgid "Served by"
+msgstr "Servito da"

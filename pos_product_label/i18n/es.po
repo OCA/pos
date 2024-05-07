@@ -97,8 +97,6 @@ msgstr "Imprimir"
 #. module: pos_product_label
 #. odoo-javascript
 #: code:addons/pos_product_label/static/src/PrintLabelButton.xml:0
-#: code:addons/pos_product_label/static/src/PrintLabelButton.xml:0
-#: code:addons/pos_product_label/static/src/PrintLabelButton.xml:0
 #, python-format
 msgid "Print Labels"
 msgstr "Imprimir Etiquetas"
@@ -122,3 +120,17 @@ msgstr "Cantidad"
 #, python-format
 msgid "Quantity to Print"
 msgstr "Cantidad a Imprimir"
+
+#. module: pos_product_label
+#. odoo-javascript
+#: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
+#, python-format
+msgid "custom"
+msgstr ""
+
+#. module: pos_product_label
+#. odoo-javascript
+#: code:addons/pos_product_label/static/src/PrintLabelPopup.xml:0
+#, python-format
+msgid "order"
+msgstr ""

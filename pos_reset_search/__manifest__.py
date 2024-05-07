@@ -14,7 +14,7 @@
     ],
     "assets": {
         "point_of_sale.assets": [
-            "/pos_reset_search/static/src/js/Screens/ProductScreen/ProductScreen.js",
+            "/pos_reset_search/static/src/js/Screens/**/*",
         ],
     },
     "installable": True,
