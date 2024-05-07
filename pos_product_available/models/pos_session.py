@@ -15,7 +15,7 @@ class PosSession(models.Model):
                         (
                             "product_tmpl_id",
                             "in",
-                            self.config_id.available_product_ids.ids
+                            self.config_id.available_product_ids.ids,
                         )
                     ],
                 ]

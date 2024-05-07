@@ -10,6 +10,7 @@ class PosConfig(models.Model):
         string="Restrict products for this point of sale",
     )
 
+
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
     _description = "Point of Sale Config Visible Products"
