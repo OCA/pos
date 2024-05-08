@@ -1,0 +1,467 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_sale_order_load
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-04-29 14:40+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "(tax incl.)"
+msgstr "(IVA incl.)"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "<span class=\"o_form_label\">Down Payment Product</span>"
+msgstr "<span class=\"o_form_label\">Prodotto per acconto</span>"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "<span class=\"o_form_label\">Load products to pos</span>"
+msgstr "<span class=\"o_form_label\">Carica prodotti nel POS</span>"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Apply a down payment"
+msgstr "Applica un anticipo"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#, python-format
+msgid "Back"
+msgstr "Indietro"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/MobileSaleOrderManagementScreen.xml:0
+#, python-format
+msgid "Back to list"
+msgstr "Torna alla lista"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#, python-format
+msgid "Cancelled"
+msgstr "Annullato"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/SetSaleOrderButton.js:0
+#, python-format
+msgid "Cannot access order management screen if offline."
+msgstr "Non puoi accedere alla schermata gestione ordini se sei offline."
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#, python-format
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Customer loading error"
+msgstr "Errore caricamento cliente"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#, python-format
+msgid "Date"
+msgstr "Data"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.message_body
+msgid "Delivered from"
+msgstr "Consegnato da"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__display_name
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order__display_name
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Nome visualizzato"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Do you want to load the SN/Lots linked to the Sales Order?"
+msgstr "Vuoi caricare i Seriali/Lotti legati all'ordine di vendita?"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__down_payment_details
+msgid "Down Payment Details"
+msgstr "Dettagli acconto"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__down_payment_product_id
+msgid "Down Payment Product"
+msgstr "Prodotto acconto"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#, python-format
+msgid "E.g. customer: Steward, date: 2020-05-09"
+msgstr "Es. cliente: Steward, data: 05-09-2024"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/ReceiptScreen/OrderReceipt.xml:0
+#, python-format
+msgid "From"
+msgstr "Da"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__id
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order__id
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,help:pos_sale_order_load.field_pos_config__load_products_to_pos
+msgid ""
+"If set missing products will be loaded to pos without separate confirmation"
+msgstr ""
+"Se impostata, i prodotti mancanti verranno caricati nel POS senza una "
+"conferma separata"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "If set products will be loaded to pos without cofirmation"
+msgstr "Se impostata, i prodottoi verranno caricati nel POS senza conferma"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid ""
+"It seems that you didn't configure a down payment product in your point of "
+"sale.\n"
+"                    You can go to your point of sale configuration to choose "
+"one."
+msgstr ""
+"Sembra che non hai configurato un prodotto per l'acconto nel punto vendita.\n"
+"                    Vai nelle impostazioni e configurane uno."
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line____last_update
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order____last_update
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: pos_sale_order_load
+#: code:addons/pos_sale_order_load/models/sale_order.py:0
+#, python-format
+msgid "Linked POS Orders"
+msgstr "Ordine POS relazionato"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__sale_order_origin_id
+msgid "Linked Sale Order"
+msgstr "SO relazionato"
+
+#. module: pos_sale_order_load
+#: code:addons/pos_sale_order_load/models/pos_order.py:0
+#, python-format
+msgid "Linked Sale Orders"
+msgstr "Ordini di vendita relazionati"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__load_products_to_pos
+msgid "Load Products To Pos"
+msgstr "Carica prodotti nel POS"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#, python-format
+msgid "Locked"
+msgstr "Bloccato"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderFetcher.js:0
+#: code:addons/pos_sale_order_load/static/src/js/SetSaleOrderButton.js:0
+#, python-format
+msgid "Network Error"
+msgstr "Errore di rete"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#, python-format
+msgid "Next Order List"
+msgstr "Prossima lista ordini"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "No"
+msgstr "No"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "No down payment product"
+msgstr "Nessun prodotto acconto"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#, python-format
+msgid "Order"
+msgstr "Ordine"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order__pos_order_line_ids
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order_line__pos_order_line_ids
+msgid "Order lines Transfered to Point of Sale"
+msgstr "Righe ordine trasferite al POS"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Percentage of %s"
+msgstr "Percentuale di %s"
+
+#. module: pos_sale_order_load
+#: model:ir.model,name:pos_sale_order_load.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configurazione punto vendita"
+
+#. module: pos_sale_order_load
+#: model:ir.model,name:pos_sale_order_load.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Righe ordine punto vendita"
+
+#. module: pos_sale_order_load
+#: model:ir.model,name:pos_sale_order_load.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Ordini punto vendita"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_sale_order__pos_order_count
+msgid "Pos Order Count"
+msgstr "Numero ordini POS"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderManagementControlPanel.xml:0
+#, python-format
+msgid "Previous Order List"
+msgstr "Lista ordini precedente"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Products not available in POS"
+msgstr "Prodotti non disponibili nel POS"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#, python-format
+msgid "Quotation"
+msgstr "Preventivo"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#, python-format
+msgid "Quotation Sent"
+msgstr "Preventivo inviato"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/SetSaleOrderButton.xml:0
+#, python-format
+msgid "Quotation/Order"
+msgstr "Preventivo/ordine"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "SN/Lots Loading"
+msgstr "Caricamento SN/lotti"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "SO"
+msgstr "SO"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order__sale_order_count
+msgid "Sale Order Count"
+msgstr "Numero ordini di vendita"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderRow.js:0
+#: model:ir.model,name:pos_sale_order_load.model_sale_order
+#, python-format
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "Sales Order Import"
+msgstr "Importazione ordine di vendita"
+
+#. module: pos_sale_order_load
+#: model:ir.model,name:pos_sale_order_load.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Riga ordine di vendita"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#, python-format
+msgid "Salesman"
+msgstr "Addetto alle vendite"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#, python-format
+msgid "Salesperson"
+msgstr "Addetto vendite"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/SetSaleOrderButton.xml:0
+#, python-format
+msgid "Set Sale Order"
+msgstr "Imposta ordine di vendita"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Settle the order"
+msgstr "Regola l'ordine"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid ""
+"Some of the products in your Sale Order are not available in POS, do you "
+"want to import them?"
+msgstr ""
+"Alcuni dei prodotti nel tuo SO non sono disponibili nel POS, vuoi importarli?"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_order_line__sale_order_line_id
+msgid "Source Sale Order Line"
+msgstr "Riga ordine di vendita di origine"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#, python-format
+msgid "State"
+msgstr "Stato"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "There was a problem in loading the %s customer."
+msgstr "C'è stato un problema nel caricare il cliente %s."
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
+msgid "This product will be applied when down payment is made"
+msgstr "Questo prodotto verrà applicato al pagamento di un acconto"
+
+#. module: pos_sale_order_load
+#: model:ir.model.fields,help:pos_sale_order_load.field_pos_config__down_payment_product_id
+msgid "This product will be used as down payment on a sale order."
+msgstr "Questo prodotto sarà usato come acconto in un SO."
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderList.xml:0
+#: code:addons/pos_sale_order_load/static/src/xml/OrderManagementScreen/SaleOrderRow.xml:0
+#, python-format
+msgid "Total"
+msgstr "Totale"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.view_pos_order_form_inherit_pos_sale_order_load
+msgid ""
+"Transfered<br/>\n"
+"                                from Sale"
+msgstr ""
+"Trasferito<br/>\n"
+"                                dalle vendite"
+
+#. module: pos_sale_order_load
+#: model_terms:ir.ui.view,arch_db:pos_sale_order_load.view_order_form_inherit_pos_sale_order_load
+msgid ""
+"Transfered<br/>\n"
+"                                to POS"
+msgstr ""
+"Trasferito<br/>\n"
+"                                al POS"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderFetcher.js:0
+#, python-format
+msgid "Unable to fetch orders if offline."
+msgstr "Non posso recuperare gli ordini se offline."
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "What do you want to do?"
+msgstr "Cosa vuoi fare?"
+
+#. module: pos_sale_order_load
+#. openerp-web
+#: code:addons/pos_sale_order_load/static/src/js/OrderManagementScreen/SaleOrderManagementScreen.js:0
+#, python-format
+msgid "Yes"
+msgstr "Sì"

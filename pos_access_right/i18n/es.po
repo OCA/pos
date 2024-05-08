@@ -6,51 +6,51 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-07-27 11:19+0000\n"
-"Last-Translator: Daniel Martinez Vila <daniel.martinez@qubiq.es>\n"
+"PO-Revision-Date: 2024-03-21 22:35+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
 #, python-format
 msgid "!hasMinusControlRights"
-msgstr ""
+msgstr "¡tieneDerechosMenosControlados!"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
 #, python-format
 msgid "!hasNewOrdersControlRights"
-msgstr ""
+msgstr "¡Tiene derechos de control de nuevos pedidos!"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
 #, python-format
 msgid "!hasPaymentControlRights"
-msgstr ""
+msgstr "¡Tiene derechos de control de pagos!"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nombre para Mostrar"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID (identificación)"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Última Modificación el"
 
 #. module: pos_access_right
 #: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_discount_id
@@ -164,21 +164,21 @@ msgstr ""
 #: code:addons/pos_access_right/static/src/xml/NumpadWidget.xml:0
 #, python-format
 msgid "{'disabled-mode': !hasMinusControlRights}"
-msgstr ""
+msgstr "{'disabled-mode': !hasMinusControlRights}"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/xml/TicketScreen.xml:0
 #, python-format
 msgid "{'disabled-mode': !hasNewOrdersControlRights}"
-msgstr ""
+msgstr "{'disabled-mode': !hasNewOrdersControlRights}"
 
 #. module: pos_access_right
 #. openerp-web
 #: code:addons/pos_access_right/static/src/xml/ActionpadWidget.xml:0
 #, python-format
 msgid "{'disabled-mode': !hasPaymentControlRights}"
-msgstr ""
+msgstr "{'disabled-mode': !hasPaymentControlRights}"
 
 #, python-format
 #~ msgid "Change Unit Price - Unauthorized function"

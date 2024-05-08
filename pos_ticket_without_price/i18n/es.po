@@ -7,28 +7,29 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-11 15:47+0000\n"
-"PO-Revision-Date: 2019-12-11 15:47+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2024-02-23 14:34+0000\n"
+"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_ticket_without_price
 #. openerp-web
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
 msgid "Print Receipt Without Price"
-msgstr ""
+msgstr "Imprimir recibo sin precio"
 
 #. module: pos_ticket_without_price
 #. openerp-web
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
 msgid "display: none;"
-msgstr ""
+msgstr "display: none;"
 
 #. module: pos_ticket_without_price
 #. openerp-web
@@ -42,7 +43,7 @@ msgstr "oe_hidden"
 #: code:addons/pos_ticket_without_price/static/src/xml/pos.xml:0
 #, python-format
 msgid "pos-receipt pos-receipt-without-price"
-msgstr ""
+msgstr "pos-receipt pos-receipt-without-price"
 
 #, python-format
 #~ msgid "Print Ticket Without Price"

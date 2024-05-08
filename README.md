@@ -23,31 +23,31 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_access_right](pos_access_right/) | 14.0.1.0.2 |  | Point of Sale - Extra Access Right for certain actions
 [pos_backend_communication](pos_backend_communication/) | 14.0.1.0.1 | [![hparfr](https://github.com/hparfr.png?size=30px)](https://github.com/hparfr) | Communicate with odoo's backend from POS.
-[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.1.1 |  | POS cash in-out reason
+[pos_cash_move_reason](pos_cash_move_reason/) | 14.0.1.1.2 |  | POS cash in-out reason
 [pos_customer_display](pos_customer_display/) | 14.0.1.1.0 |  | Manage LED Customer Display device from POS front end
 [pos_customer_required](pos_customer_required/) | 14.0.1.0.0 |  | Point of Sale Require Customer
 [pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 14.0.1.0.1 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) | Point of Sale: Show VAT number at Customer Tree View
 [pos_default_partner](pos_default_partner/) | 14.0.1.0.0 |  | Add a default customer in pos order
-[pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.1.0.1 |  | Disable Pricelist selection button in POS
+[pos_disable_pricelist_selection](pos_disable_pricelist_selection/) | 14.0.2.0.1 | [![ilyasprogrammer](https://github.com/ilyasprogrammer.png?size=30px)](https://github.com/ilyasprogrammer) | Disable Pricelist selection button in POS
 [pos_edit_order_line](pos_edit_order_line/) | 14.0.1.0.2 |  | POS Edit Order Line
 [pos_empty_home](pos_empty_home/) | 14.0.1.0.0 |  | Point of Sale - Hide products if no category is selected
 [pos_escpos_status](pos_escpos_status/) | 14.0.1.0.0 |  | Point of sale: fetch status for 'escpos' driver
 [pos_fixed_discount](pos_fixed_discount/) | 14.0.1.0.2 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Allow to apply discounts with fixed amount
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 14.0.1.0.0 |  | Order discount in line instead of discount product
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 14.0.1.0.1 |  | Hide useless Banknote buttons in the PoS (+10, +20, +50)
-[pos_margin](pos_margin/) | 14.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
-[pos_no_cash_bank_statement](pos_no_cash_bank_statement/) | 14.0.1.0.3 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Generate bank statements for all payment methods, not only cash
+[pos_margin](pos_margin/) | 14.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Margin on PoS Order
+[pos_no_cash_bank_statement](pos_no_cash_bank_statement/) | 14.0.1.1.0 | [![alexis-via](https://github.com/alexis-via.png?size=30px)](https://github.com/alexis-via) | Generate bank statements for all payment methods, not only cash
 [pos_order_mgmt](pos_order_mgmt/) | 14.0.1.0.1 |  | Manage old POS Orders from the frontend
 [pos_order_product_search](pos_order_product_search/) | 14.0.1.0.0 |  | Search for orders by product fields
 [pos_order_remove_line](pos_order_remove_line/) | 14.0.1.0.0 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | Add button to remove POS order line.
-[pos_order_return](pos_order_return/) | 14.0.1.0.3 |  | Point of Sale Order Return
+[pos_order_return](pos_order_return/) | 14.0.1.0.4 |  | Point of Sale Order Return
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 14.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
 [pos_partner_birthdate](pos_partner_birthdate/) | 14.0.1.0.2 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 14.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
-[pos_payment_change](pos_payment_change/) | 14.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
+[pos_payment_change](pos_payment_change/) | 14.0.1.0.3 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 14.0.1.0.1 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_payment_terminal](pos_payment_terminal/) | 14.0.2.1.0 |  | Point of sale: support generic payment terminal
-[pos_pricelist_show_discount](pos_pricelist_show_discount/) | 14.0.1.0.4 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) [![pytech-bot](https://github.com/pytech-bot.png?size=30px)](https://github.com/pytech-bot) | PoS: show appropriate discount when discounting from pricelist
+[pos_pricelist_show_discount](pos_pricelist_show_discount/) | 14.0.1.0.5 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) [![renda-dev](https://github.com/renda-dev.png?size=30px)](https://github.com/renda-dev) | PoS: show appropriate discount when discounting from pricelist
 [pos_product_display_default_code](pos_product_display_default_code/) | 14.0.1.0.1 |  | pos: display product default code before product name
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 14.0.1.0.2 |  | Make product multi barcodes usable in the point of sale
 [pos_product_sort](pos_product_sort/) | 14.0.1.0.0 |  | sort the products by name in the point of sale instead of sorting them by the sequence field.
@@ -58,7 +58,9 @@ addon | version | maintainers | summary
 [pos_report_session_summary](pos_report_session_summary/) | 14.0.1.0.3 |  | Adds a Session Summary PDF report on the POS session
 [pos_require_product_quantity](pos_require_product_quantity/) | 14.0.1.0.0 |  | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
 [pos_reset_search](pos_reset_search/) | 14.0.1.0.1 | [![fkawala](https://github.com/fkawala.png?size=30px)](https://github.com/fkawala) | Point of Sale - Clear product search when user clicks on a product.
+[pos_return_voucher](pos_return_voucher/) | 14.0.1.0.0 |  | Point of Sale - Manage return vouchers
 [pos_reuse_pricelist](pos_reuse_pricelist/) | 14.0.1.0.1 |  | PoS reuse pricelist
+[pos_sale_order_load](pos_sale_order_load/) | 14.0.1.0.3 |  | Point of sale: Import a sales order in an active session of POS
 [pos_session_pay_invoice](pos_session_pay_invoice/) | 14.0.1.1.0 |  | Pay and receive invoices from PoS Session
 [pos_show_clock](pos_show_clock/) | 14.0.1.0.0 | [![mileo](https://github.com/mileo.png?size=30px)](https://github.com/mileo) [![ygcarvalh](https://github.com/ygcarvalh.png?size=30px)](https://github.com/ygcarvalh) [![felipezago](https://github.com/felipezago.png?size=30px)](https://github.com/felipezago) | Point of Sale: Display Current Date and Time on POS sreen
 [pos_show_config_name](pos_show_config_name/) | 14.0.1.0.0 |  | Point of sale: show pos config name

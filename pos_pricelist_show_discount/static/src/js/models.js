@@ -1,6 +1,9 @@
 odoo.define("pos_pricelist_show_discount.models", function (require) {
     "use strict";
     const models = require("point_of_sale.models");
+    const utils = require("web.utils");
+
+    const round_pr = utils.round_precision;
 
     const order_super = models.Order.prototype;
     models.Order = models.Order.extend({
@@ -27,53 +30,21 @@ odoo.define("pos_pricelist_show_discount.models", function (require) {
     const orderline_super = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
         get_lst_price: function () {
+            const rounding = this.pos.currency.rounding;
             const default_pricelist = this.pos.default_pricelist;
             this.pos.default_pricelist = this.pos.discount_pricelist;
-            let lst_price = orderline_super.get_lst_price.apply(this, arguments);
-            if (this.display_discount_policy() === "without_discount") {
-                const self = this;
-                const category_ids = [];
-                let category = self.product.categ;
-                while (category) {
-                    category_ids.push(category.id);
-                    category = category.parent;
-                }
-                const date = moment();
-                const pricelist = self.pos.config.display_discount_from_pricelist
-                    ? self.pos.discount_pricelist
-                    : self.order.discount_pricelist;
-                const pricelist_items = _.filter(pricelist.items, function (item) {
-                    return (
-                        (!item.product_tmpl_id ||
-                            item.product_tmpl_id[0] === self.product.product_tmpl_id) &&
-                        (!item.product_id || item.product_id[0] === self.product.id) &&
-                        (!item.categ_id ||
-                            _.contains(category_ids, item.categ_id[0])) &&
-                        (!item.date_start ||
-                            moment.utc(item.date_start).isSameOrBefore(date)) &&
-                        (!item.date_end ||
-                            moment.utc(item.date_end).isSameOrAfter(date))
-                    );
-                });
-
-                _.find(pricelist_items, function (rule) {
-                    if (rule.base === "pricelist") {
-                        lst_price = self.product.get_price(
-                            rule.base_pricelist,
-                            self.quantity
-                        );
-                    }
-                });
-            }
+            const lst_price = orderline_super.get_lst_price.apply(this, arguments);
             this.pos.default_pricelist = default_pricelist;
-            return lst_price;
+            // Round here to avoid "0% discount" errors
+            return round_pr(lst_price, rounding);
         },
 
         /*
         New custom discount line
         */
         get_discount_pricelist_str: function () {
-            const lst_price = this.get_taxed_lst_unit_price();
+            const rounding = this.pos.currency.rounding;
+            const lst_price = round_pr(this.get_taxed_lst_unit_price(), rounding);
             const unit_price_discounted = this.get_display_price_one();
             return (((lst_price - unit_price_discounted) * 100) / lst_price).toFixed(2);
         },

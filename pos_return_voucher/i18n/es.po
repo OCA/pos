@@ -1,0 +1,308 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_return_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-22 22:35+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_return_voucher
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.pos_config_view_form_inh_pos_return_voucher
+msgid "<span class=\"o_form_label\">Validity days</span>"
+msgstr "<span class=\"o_form_label\">Días de validez</span>"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields.selection,name:pos_return_voucher.selection__pos_return_voucher__state__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/xml/SetReturnVoucherPopup.xml:0
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__amount
+#, python-format
+msgid "Amount"
+msgstr "Importe"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "Barcode return voucher"
+msgstr "Vale de devolución con código de barras"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__create_uid
+msgid "Created by"
+msgstr "Creado Por"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__order_id
+msgid "Created from order"
+msgstr "Creado a partir de un pedido"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__date_order
+msgid "Date"
+msgstr "Fecha"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_config__display_name
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_order__display_name
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment__display_name
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment_method__display_name
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__display_name
+msgid "Display Name"
+msgstr "Mostrar Nombre"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields.selection,name:pos_return_voucher.selection__pos_return_voucher__state__done
+msgid "Done"
+msgstr "Realizado/a"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment__emitted_return_voucher_id
+msgid "Emitted Return Voucher"
+msgstr "Comprobante de Devolución Emitido"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_order__emitted_return_voucher_id
+msgid "Emitted return voucher"
+msgstr "Vale de devolución emitido"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/js/SetReturnVoucherPopup.js:0
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/xml/SetReturnVoucherPopup.xml:0
+#, python-format
+msgid "Expire date"
+msgstr "Fecha de expiración"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields.selection,name:pos_return_voucher.selection__pos_return_voucher__state__expired
+msgid "Expired"
+msgstr "Expiración"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_config__id
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_order__id
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment__id
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment_method__id
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,help:pos_return_voucher.field_pos_config__return_voucher_validity
+msgid ""
+"If you leave this option empty, the vouchers will have an indefinite date, "
+"i.e., they will never expire."
+msgstr ""
+"Si deja esta opción vacía, los vales tendrán una fecha indefinida, es decir, "
+"nunca caducarán."
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_config____last_update
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_order____last_update
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment____last_update
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment_method____last_update
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación el"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización el"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__max_validity_date
+msgid "Max Validity Date"
+msgstr "Fecha de Validez Máxima"
+
+#. module: pos_return_voucher
+#: model_terms:ir.actions.act_window,help:pos_return_voucher.action_pos_pos_return_voucher
+msgid "No return vouchers found"
+msgstr "No se han encontrado vales de devolución"
+
+#. module: pos_return_voucher
+#: model:ir.model,name:pos_return_voucher.model_pos_return_voucher
+msgid "POS return voucher"
+msgstr "Vale de devolución PDV"
+
+#. module: pos_return_voucher
+#: model:ir.model,name:pos_return_voucher.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del PDV"
+
+#. module: pos_return_voucher
+#: model:ir.model,name:pos_return_voucher.model_pos_order
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.view_pos_pos_return_voucher_form
+msgid "Point of Sale Orders"
+msgstr "Pedidos en el Punto de Venta"
+
+#. module: pos_return_voucher
+#: model:ir.model,name:pos_return_voucher.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de Pago del Punto de Venta"
+
+#. module: pos_return_voucher
+#: model:ir.model,name:pos_return_voucher.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Pagos en el Punto de Venta"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__pos_reference
+msgid "Receipt Number"
+msgstr "Número de Recibo"
+
+#. module: pos_return_voucher
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.view_pos_pos_return_voucher_form
+msgid "Redeemed Orders"
+msgstr "Pedidos Reembolsados"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment__redeemed_return_voucher_id
+msgid "Redeemed Return Voucher"
+msgstr "Vale de Devolución Canjeado"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__redeemed_order_ids
+msgid "Redeemed on order"
+msgstr "Canjeado por pedido"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_order__redeemed_return_voucher_ids
+msgid "Redeemed return vouchers"
+msgstr "Bonos de devolución canjeados"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/xml/SetReturnVoucherPopup.xml:0
+#, python-format
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__remaining_amount
+msgid "Remaining Amount"
+msgstr "Importe Restante"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_payment_method__return_voucher
+msgid "Return Voucher"
+msgstr "Vale de Devolución"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_config__return_voucher_validity
+msgid "Return Voucher Validity"
+msgstr "Validez del Vale de Devolución"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/js/SetReturnVoucherPopup.js:0
+#, python-format
+msgid "Return voucher not found."
+msgstr "Vale de devolución no encontrado."
+
+#. module: pos_return_voucher
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.view_pos_pos_form_inh_pos_return_voucher
+msgid "Return voucher redeemed"
+msgstr "Vale de devolución canjeado"
+
+#. module: pos_return_voucher
+#: model:ir.actions.act_window,name:pos_return_voucher.action_pos_pos_return_voucher
+#: model:ir.ui.menu,name:pos_return_voucher.menu_pos_return_voucher
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.pos_config_view_form_inh_pos_return_voucher
+msgid "Return vouchers"
+msgstr "Vales de Devolución"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/js/PaymentScreen.js:0
+#, python-format
+msgid "Set return voucher"
+msgstr "Establecer vale de devolución"
+
+#. module: pos_return_voucher
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.pos_config_view_form_inh_pos_return_voucher
+msgid "Set return voucher life days"
+msgstr "Establecer días de vida del bono de devolución"
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__state
+msgid "State"
+msgstr "Provincia"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/js/SetReturnVoucherPopup.js:0
+#, python-format
+msgid ""
+"The return voucher expired on ${this.datetime_to_str(\n"
+"                                voucherData.max_validity_date\n"
+"                            )}"
+msgstr ""
+"El vale devuelto caducó el ${this.datetime_to_str(\n"
+" voucherData.max_validity_date\n"
+" )}"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/js/SetReturnVoucherPopup.js:0
+#, python-format
+msgid "The return voucher has already been used."
+msgstr "El vale de devolución ya ha sido utilizado."
+
+#. module: pos_return_voucher
+#: model:ir.model.fields,field_description:pos_return_voucher.field_pos_return_voucher__user_id
+msgid "User"
+msgstr "Usuario"
+
+#. module: pos_return_voucher
+#: model_terms:ir.ui.view,arch_db:pos_return_voucher.pos_config_view_form_inh_pos_return_voucher
+msgid "Validity days"
+msgstr "Días de validez"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid "You have until"
+msgstr "Tienes hasta el"
+
+#. module: pos_return_voucher
+#. openerp-web
+#: code:addons/pos_return_voucher/static/src/xml/OrderReceipt.xml:0
+#, python-format
+msgid ""
+"to redeem the discount voucher, keep this ticket for the discount voucher."
+msgstr ""
+"para canjear el vale de descuento, conserve este ticket para el vale de "
+"descuento."

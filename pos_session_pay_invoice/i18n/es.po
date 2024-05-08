@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-08-09 11:11+0000\n"
-"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
+"PO-Revision-Date: 2024-03-23 00:46+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -64,7 +64,7 @@ msgstr "Cancelar"
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
 msgid "Cash invoice in"
-msgstr ""
+msgstr "Factura al contado en"
 
 #. module: pos_session_pay_invoice
 #: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
@@ -153,7 +153,7 @@ msgstr "Modo de pago"
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_count
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_count
 msgid "Payment Method Count"
-msgstr ""
+msgstr "Método de Pago Recuento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_ids
@@ -198,12 +198,12 @@ msgstr "No hay caja registradora para esta sesión de TPV"
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_pos_box_cash_invoice_in
 msgid "pos box cash invoice in"
-msgstr ""
+msgstr "factura de caja en efectivo en"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model,name:pos_session_pay_invoice.model_pos_box_cash_invoice_out
 msgid "pos box cash invoice out"
-msgstr ""
+msgstr "caja pdv factura en efectivo"
 
 #~ msgid ""
 #~ "<span class=\"o_stat_text\">Collect Payment</span>\n"

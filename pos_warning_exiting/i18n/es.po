@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_warning_exiting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-01-02 18:33+0000\n"
+"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid " - Table: "
+msgstr " - Tabla: "
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid ""
+"It seems that you do not have a network connection at the moment. If you "
+"close this window, it will not be possible to re-sell until you get your "
+"connection back."
+msgstr ""
+"Parece que no tiene conexión de red en este momento. Si cierra esta ventana, "
+"no será posible continuar la venta hasta que recupere su conexión."
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid "Network Connection Lost"
+msgstr "Conexión de red perdida"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid "Offline Orders"
+msgstr "Pedidos no sincronizados"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid "Order #"
+msgstr "Pedido #"
+
+#. module: pos_warning_exiting
+#. openerp-web
+#: code:addons/pos_warning_exiting/static/src/js/chrome.js:0
+#, python-format
+msgid ""
+"You have some draft unpaid orders. You can exit temporarily the Point of "
+"Sale, but you will loose that orders if you close the session: "
+msgstr ""
+"Tiene algún pedido en borrador. Puede salir temporalmente del Punto de "
+"Venta, pero perderá esos pedidos si cierra la sesión: "
