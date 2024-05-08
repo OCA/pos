@@ -35,13 +35,9 @@ odoo.define("pos_product_available.ProductsWidget", function (require) {
                     products = this.env.pos.db.get_product_by_category(
                         this.selectedCategoryId
                     );
-                    products.forEach(function (product) {
-                        available_product_ids.forEach(function (product_available) {
-                            if (product.product_tmpl_id == product_available) {
-                                list.push(product);
-                            }
-                        });
-                    });
+                    list = products.filter(product => 
+                        available_product_ids.includes(product.product_tmpl_id)
+                    );
                 } else {
                     list = this.env.pos.db.get_product_by_category(
                         this.selectedCategoryId

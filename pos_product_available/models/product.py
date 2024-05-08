@@ -6,5 +6,5 @@ class ProductTemplate(models.Model):
     _description = "Point of Sale Visible Product"
 
     pos_center_ids = fields.Many2many(
-        comodel_name="pos.config", string="POS Available", store=True
+        "pos.config", string="POS Available", store=True
     )
