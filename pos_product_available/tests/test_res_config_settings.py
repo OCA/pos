@@ -1,5 +1,4 @@
 from odoo.tests.common import TransactionCase
-from odoo.exceptions import ValidationError
 
 
 class TestPosConfig(TransactionCase):
@@ -18,7 +17,7 @@ class TestPosConfig(TransactionCase):
             {
                 "name": "Test POS",
                 "available_product": True,
-                "available_product_ids": [(6, 0, [self.product1.id, self.product2.id])]
+                "available_product_ids": [(6, 0, [self.product1.id, self.product2.id])],
             }
         )
 

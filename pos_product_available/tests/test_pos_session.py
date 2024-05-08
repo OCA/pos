@@ -1,5 +1,3 @@
-# FILEPATH: /media/odoo16/practice_addons/pos_product_available/tests/test_pos_session.py
-
 from odoo.tests.common import TransactionCase
 
 
@@ -19,7 +17,7 @@ class TestPosSession(TransactionCase):
             {
                 "name": "POS Config 1",
                 "available_product": True,
-                "available_product_ids": [(6, 0, [self.product_template.id])]
+                "available_product_ids": [(6, 0, [self.product_template.id])],
             }
         )
 
@@ -37,7 +35,7 @@ class TestPosSession(TransactionCase):
         # Check if the domain is set correctly
         self.assertIn(
             ("product_tmpl_id", "in", self.pos_config_1.available_product_ids.ids),
-            result["search_params"]["domain"]
+            result["search_params"]["domain"],
         )
 
     def test__loader_params_product_product_without_available_product(self):
@@ -50,5 +48,5 @@ class TestPosSession(TransactionCase):
         # Check if the domain is not modified
         self.assertNotIn(
             ("product_tmpl_id", "in", self.pos_config_1.available_product_ids.ids),
-            result["search_params"]["domain"]
+            result["search_params"]["domain"],
         )
