@@ -35,7 +35,7 @@ odoo.define("pos_product_available.ProductsWidget", function (require) {
                     products = this.env.pos.db.get_product_by_category(
                         this.selectedCategoryId
                     );
-                    list = products.filter((product) => 
+                    list = products.filter((product) =>
                         available_product_ids.includes(product.product_tmpl_id)
                     );
                 } else {
