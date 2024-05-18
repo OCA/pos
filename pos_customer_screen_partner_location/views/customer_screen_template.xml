@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="customer_screen_pos">
+        <t t-call="web.frontend_layout">
+            <t t-set="no_header" t-value="True" />
+            <t t-set="no_footer" t-value="True" />
+            <div
+                class="card o_customer_screen h-100"
+                t-att-data-id="partner.id"
+                t-att-data-pos_id="config_id"
+            >
+                <div class="card-header text-center">
+                    <h5>Customer
+                        <t t-esc="partner.name" />
+                        Location
+                    </h5>
+                </div>
+                <div class="card-body partner-map-body" t-ref="map-container" />
+                <div class="card-footer" style="display: flex !important;">
+                    <input
+                        class="flex-grow-1 map-addr-input form-control"
+                        name="address"
+                        t-ref="addr-input"
+                        placeholder="Address"
+                    />
+                    <button class="btn btn-light cancel ">
+                        Close
+                    </button>
+                    <button class="btn btn-primary confirm disable highlight">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PartnerDetailsEdit"
+        t-inherit="point_of_sale.PartnerDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//button[hasclass('partner-location')]" position="after">
+            <button
+                t-if="accessToMap"
+                class="button customer-location"
+                t-on-click="openCustomerMap"
+                style="font-size: 24px"
+            >
+                <i class="fa fa-fw fa-desktop" />
+            </button>
+        </xpath>
+    </t>
+
+</templates>
