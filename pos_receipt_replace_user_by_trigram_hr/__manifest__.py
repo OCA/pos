@@ -14,4 +14,5 @@
         "pos_hr",
         "pos_receipt_replace_user_by_trigram",
     ],
+    "auto_install": True,
 }
