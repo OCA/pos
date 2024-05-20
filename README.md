@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [pos_partner_sale_warning](pos_partner_sale_warning/) | 16.0.1.0.0 |  | Show partner sales warning in POS
 [pos_payment_change](pos_payment_change/) | 16.0.1.0.4 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 16.0.1.0.0 |  | Allows to pay with CashDro Terminals on the Point of Sale
+[pos_payment_method_change_policy](pos_payment_method_change_policy/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Adds alternative way to handle Change in Point of Sale.
 [pos_payment_method_image](pos_payment_method_image/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Add images on Payment Methods available in the PoS
 [pos_payment_terminal](pos_payment_terminal/) | 16.0.1.0.2 |  | Point of sale: support generic payment terminal
 [pos_product_display_default_code](pos_product_display_default_code/) | 16.0.1.0.0 |  | pos: display product default code before product name
