@@ -43,7 +43,8 @@ class PosOrder(models.Model):
             self._get_html_link(),
         )
         new_move.message_post(body=message)
-        new_move.action_post()
+        if new_move.auto_post == "no":
+            new_move.action_post()
         return new_move
 
     def _prepare_splitting_invoice_vals(self):
