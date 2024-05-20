@@ -24,8 +24,7 @@ patch(PosStore.prototype, {
                     [product.id],
                     product.get_price(
                         this.pricelists.find(
-                            (pricelist) =>
-                                pricelist.id === rule.split_base_pricelist_id[0]
+                            (pricelist) => pricelist.id === rule.base_pricelist_id[0]
                         ),
                         quantity
                     ),
