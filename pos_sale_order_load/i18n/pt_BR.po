@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-11-07 14:50+0000\n"
-"PO-Revision-Date: 2024-05-20 19:39+0000\n"
+"PO-Revision-Date: 2024-05-21 00:16+0000\n"
 "Last-Translator: Rodrigo Macedo <sottomaiormacedotec@users.noreply."
 "translation.odoo-community.org>\n"
 "Language-Team: \n"
@@ -159,7 +159,7 @@ msgstr ""
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
 msgid "If set products will be loaded to pos without cofirmation"
-msgstr ""
+msgstr "Se os produtos definidos serão carregados para pdv sem confirmação"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -205,7 +205,7 @@ msgstr "Pedidos de venda vinculados"
 #. module: pos_sale_order_load
 #: model:ir.model.fields,field_description:pos_sale_order_load.field_pos_config__load_products_to_pos
 msgid "Load Products To Pos"
-msgstr ""
+msgstr "Carregar produtos no Pdv"
 
 #. module: pos_sale_order_load
 #. openerp-web
@@ -349,7 +349,7 @@ msgstr "Pedido de venda"
 #. module: pos_sale_order_load
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_load.pos_config_view_form_pos_sale_order_load
 msgid "Sales Order Import"
-msgstr ""
+msgstr "Importação de pedidos de vendas"
 
 #. module: pos_sale_order_load
 #: model:ir.model,name:pos_sale_order_load.model_sale_order_line
