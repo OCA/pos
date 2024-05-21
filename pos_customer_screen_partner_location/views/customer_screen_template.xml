@@ -16,12 +16,11 @@
                         Location
                     </h5>
                 </div>
-                <div class="card-body partner-map-body" t-ref="map-container" />
+                <div class="card-body partner-map-body" />
                 <div class="card-footer" style="display: flex !important;">
                     <input
                         class="flex-grow-1 map-addr-input form-control"
                         name="address"
-                        t-ref="addr-input"
                         placeholder="Address"
                     />
                     <button class="btn btn-light cancel ">
