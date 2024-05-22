@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-05-22 17:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_payment_method_change_policy
 #. odoo-javascript
@@ -22,47 +24,49 @@ msgid ""
 "\n"
 "Then, reload your Point of Sale."
 msgstr ""
+"\n"
+"Quindi, ricaricare il punto vendita."
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model.fields.selection,name:pos_payment_method_change_policy.selection__pos_payment_method__change_policy__cash
 msgid "Cash"
-msgstr ""
+msgstr "Contanti"
 
 #. module: pos_payment_method_change_policy
 #. odoo-javascript
 #: code:addons/pos_payment_method_change_policy/static/src/xml/PaymentScreen.xml:0
 #, python-format
 msgid "Change"
-msgstr ""
+msgstr "Cambio"
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model.fields,field_description:pos_payment_method_change_policy.field_pos_payment_method__change_policy
 msgid "Change Policy"
-msgstr ""
+msgstr "Politica cambio"
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model.fields,field_description:pos_payment_method_change_policy.field_pos_payment_method__change_product_id
 msgid "Change Product"
-msgstr ""
+msgstr "Prodotto cambio"
 
 #. module: pos_payment_method_change_policy
 #. odoo-javascript
 #: code:addons/pos_payment_method_change_policy/static/src/xml/PaymentScreen.xml:0
 #, python-format
 msgid "Customer Loss"
-msgstr ""
+msgstr "Perdita cliente"
 
 #. module: pos_payment_method_change_policy
 #. odoo-javascript
 #: code:addons/pos_payment_method_change_policy/static/src/js/PaymentScreen.esm.js:0
 #, python-format
 msgid "Error: Unavailable Product."
-msgstr ""
+msgstr "Errore: prodotto non disponibile."
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model.fields.selection,name:pos_payment_method_change_policy.selection__pos_payment_method__change_policy__profit_product
 msgid "Exceptional Profit Product"
-msgstr ""
+msgstr "Prodotto con profitto eccezionale"
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model.fields,help:pos_payment_method_change_policy.field_pos_payment_method__change_policy
@@ -71,11 +75,17 @@ msgid ""
 " * 'Cash': (Default). the cashier will give back money in cash method.\n"
 " * 'Exceptional Profit Product': an extra PoS Order Line will be added in the PoS Order of the surplus amount. This will be an exceptional gain for the seller, and a loss for the customer."
 msgstr ""
+"Metodo per gestire il resto del cambio.\n"
+" * 'Contanti' (predefinito): il cassiere restituirà denaro con il metodo "
+"contanti.\n"
+" * 'Prodotto con profitto eccezionale': verrà aggiunta una riga ordine POS "
+"aggiuntiva per il valore del surplus. Questo sarà un guadagno eccezionale "
+"per il venditore e un perdita per il cliente."
 
 #. module: pos_payment_method_change_policy
 #: model:product.template,name:pos_payment_method_change_policy.profit_product_product_template
 msgid "No Change Product"
-msgstr ""
+msgstr "Nessun prodotto cambio"
 
 #. module: pos_payment_method_change_policy
 #. odoo-javascript
@@ -86,16 +96,19 @@ msgid ""
 "available in the point of sale : \n"
 "\n"
 msgstr ""
+"Rendere il seguente prodotto\n"
+"disponibile nel punto vendita: \n"
+"\n"
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model,name:pos_payment_method_change_policy.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "Metodi pagamento punto vendita"
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model,name:pos_payment_method_change_policy.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_payment_method_change_policy
 #. odoo-python
@@ -105,6 +118,8 @@ msgid ""
 "The field 'Change Product' is required if the 'Change policy' is set to "
 "'Exceptional Profit Product'."
 msgstr ""
+"Il campo 'Prodotto cambio' è richiesto se la 'Politica cambio' è impostata a "
+"'Prodotto profitto eccezionale'."
 
 #. module: pos_payment_method_change_policy
 #: model:ir.model.fields,help:pos_payment_method_change_policy.field_pos_payment_method__change_product_id
@@ -112,3 +127,5 @@ msgid ""
 "This product will be used if customer pays more that the amount of the "
 "receipt, to add an extra order line when confirming order."
 msgstr ""
+"Questo prodotto verrà utilizzato se il cliente paga più del valore della "
+"ricevuta, per aggiungere una riga ordine extra alla conferma dell'ordine."
