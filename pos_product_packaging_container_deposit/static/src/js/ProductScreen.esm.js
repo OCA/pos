@@ -22,6 +22,13 @@ odoo.define(
                             selectedLine.container_deposit_line_id
                         );
                         if (checkDepositLine) return;
+
+                        // for (container_deposit_line in selectedLine.container_deposit_line_ids){
+                        //     const checkDepositLine = this.currentOrder.get_orderline(
+                        //         container_deposit_line
+                        //     );
+                        //     if (checkDepositLine) return;
+                        // }
                     }
                     const packaging =
                         this.env.pos.db.product_packaging_by_barcode[code.base_code];
@@ -33,7 +40,7 @@ odoo.define(
                     }
                     const deposit_product =
                         this.env.pos.db.product_packaging_by_barcode[code.base_code]
-                            .container_deposit_product_id;
+                            .container_deposit_product_ids;
                     if (!deposit_product) return;
 
                     const currentQuantity = selectedLine.get_quantity();
@@ -45,7 +52,7 @@ odoo.define(
                     );
                     if (this.env.pos.isProductQtyZero(deposit_qty)) return;
 
-                    // Add deposit to the order.
+                    // Add deposit to the order. WARNING NEED TO BE UPDATE
                     let product = this.env.pos.db.get_product_by_id(deposit_product[0]);
                     if (!product) {
                         await this.env.pos._addProducts([deposit_product[0]], false);
