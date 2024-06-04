@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-06-04 11:34+0000\n"
+"Last-Translator: Daniel Duque <danieldqmrt@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_product_mergeable_line
 #: model:ir.model.fields,help:pos_product_mergeable_line.field_product_product__pos_mergeable_line
@@ -21,19 +23,21 @@ msgid ""
 "If unchecked, the product will never be merged with a previous line, in the "
 "Point of sale."
 msgstr ""
+"Si está desmarcado, al añadir el producto al carrito del Punto de venta no "
+"se fusionará con líneas previas."
 
 #. module: pos_product_mergeable_line
 #: model:ir.model.fields,field_description:pos_product_mergeable_line.field_product_product__pos_mergeable_line
 #: model:ir.model.fields,field_description:pos_product_mergeable_line.field_product_template__pos_mergeable_line
 msgid "Mergeable Line"
-msgstr ""
+msgstr "Unificar líneas de pedido"
 
 #. module: pos_product_mergeable_line
 #: model:ir.model,name:pos_product_mergeable_line.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sesión TPV"
 
 #. module: pos_product_mergeable_line
 #: model:ir.model,name:pos_product_mergeable_line.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Producto"
