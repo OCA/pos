@@ -17,25 +17,20 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_pricelist_technical
-#. openerp-web
-#: code:addons/pos_pricelist_technical/static/src/xml/pos_pricelist_technical.xml:7
-#, python-format
-msgid "! pricelist.is_technical"
-msgstr ""
-
-#. module: pos_pricelist_technical
 #: model:ir.model,name:pos_pricelist_technical.model_pos_order
 msgid "Point of Sale Orders"
 msgstr "Commandes du point de vente"
+
+#. module: pos_pricelist_technical
+#: model:ir.model,name:pos_pricelist_technical.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
 
 #. module: pos_pricelist_technical
 #: model:ir.model.fields,field_description:pos_pricelist_technical.field_pos_order__pricelist_id
 msgid "Pricelist"
 msgstr "Liste de prix"
 
-#. module: pos_pricelist_technical
-#. openerp-web
-#: code:addons/pos_pricelist_technical/static/src/js/screens.js:33
 #, python-format
-msgid "Select pricelist"
-msgstr "Choisir une liste de prix"
+#~ msgid "Select pricelist"
+#~ msgstr "Choisir une liste de prix"
