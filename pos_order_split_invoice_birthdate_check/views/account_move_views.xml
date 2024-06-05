@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_move_form_split_birthdate_check" model="ir.ui.view">
+        <field name="name">view.move.form.split.birthdate.check</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="pos_order_split_invoice.account_move_form_view" />
+        <field name="arch" type="xml">
+            <field name='splitting_partner_id' position="after">
+                <field name='splitting_partner_birthdate' />
+            </field>
+        </field>
+    </record>
+</odoo>
