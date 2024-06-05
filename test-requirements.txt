@@ -1,0 +1,1 @@
+odoo17-addon-pos_order_split_invoice @ git+https://github.com/OCA/pos.git@refs/pull/1129/head#subdirectory=setup/pos_order_split_invoice
