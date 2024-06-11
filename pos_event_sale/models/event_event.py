@@ -42,15 +42,14 @@ class Event(models.Model):
         date_now = fields.Datetime.now()
         sale_price_by_event = {}
         if self.ids:
-            event_subtotals = self.env["pos.order.line"].read_group(
+            event_subtotals = self.env["pos.order.line"]._read_group(
                 [
                     ("event_id", "in", self.ids),
                     ("order_id.state", "!=", "cancel"),
                     ("price_subtotal", "!=", 0),
                 ],
-                ["event_id", "currency_id", "price_subtotal:sum"],
                 ["event_id", "currency_id"],
-                lazy=False,
+                ["price_subtotal:sum"],
             )
             currency_ids = [
                 event_subtotal["currency_id"][0] for event_subtotal in event_subtotals

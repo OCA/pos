@@ -20,10 +20,10 @@ class PosOrder(models.Model):
     )
 
     def _compute_event_registrations_count(self):
-        count = self.env["event.registration"].read_group(
+        count = self.env["event.registration"]._read_group(
             [("pos_order_id", "in", self.ids)],
-            fields=["pos_order_id"],
             groupby=["pos_order_id"],
+            aggregates=["__count"],
         )
         count_map = {x["pos_order_id"][0]: x["pos_order_id_count"] for x in count}
         for rec in self:
