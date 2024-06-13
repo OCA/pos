@@ -4,7 +4,7 @@
 {
     'name': 'POS Remove POS Category',
     'version': '10.0.2.0.1',
-    'author': 'Akretion, Camptocamp SA, ACSONE SA/NV, '
+    'author': 'Akretion, Camptocamp, ACSONE SA/NV, '
               'Odoo Community Association (OCA)',
     'category': 'Sales Management',
     'depends': [
