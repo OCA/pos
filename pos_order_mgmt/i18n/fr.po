@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-15 20:54+0000\n"
-"PO-Revision-Date: 2020-03-19 11:13+0000\n"
-"Last-Translator: Simon Mas <simon.mas@druidoo.io>\n"
+"PO-Revision-Date: 2024-06-13 22:40+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
@@ -26,36 +26,38 @@ msgstr "Autoriser à dupliquer des commandes réalisées dans l'interface tactil
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Allows to return already done orders in the frontend"
 msgstr ""
+"Autoriser à effectuer le retour des commandes déjà effectuées dans "
+"l'interface tactile"
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/CopyOrderButton.xml:0
 #, python-format
 msgid "Copy Order"
-msgstr ""
+msgstr "Dupliquer la commande"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__display_name
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom d'affichage"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_copy_done_order
 msgid "Duplicate Orders"
-msgstr "Copier une commande réalisée"
+msgstr "Dupliquer des commandes"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__id
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config____last_update
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
@@ -72,19 +74,19 @@ msgstr "Commandes du point de vente"
 #: code:addons/pos_order_mgmt/static/src/js/RefundOrderButton.js:0
 #, python-format
 msgid "Refund "
-msgstr "Rembourse "
+msgstr "Remboursement "
 
 #. module: pos_order_mgmt
 #. openerp-web
 #: code:addons/pos_order_mgmt/static/src/xml/RefundOrderButton.xml:0
 #, python-format
 msgid "Refund Order"
-msgstr ""
+msgstr "Remboursement de la commande"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Return Orders"
-msgstr "Commande retournée"
+msgstr "Remboursement des commandes"
 
 #~ msgid "Allows to manage already done orders in the frontend."
 #~ msgstr ""
