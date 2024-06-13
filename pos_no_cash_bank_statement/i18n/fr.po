@@ -6,18 +6,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-06-13 22:41+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
 msgid "Bank/Cash Journal"
-msgstr ""
+msgstr "Journal de banque / Espèces"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
@@ -28,56 +30,62 @@ msgid ""
 " closing, which will generate accounting entries in the bank journal, which "
 "will be automatically reconciled with the sale journal entry."
 msgstr ""
+"Par défaut, Odoo génère un relevé de caisse/de banque à la clôture de la "
+"session POS uniquement pour les méthodes de paiement en espèces. Si vous "
+"activez cette option pour une méthode de paiement autre qu'en espèces, Odoo "
+"générera un relevé bancaire à la clôture de la session, ce qui générera des "
+"écritures comptables dans le journal de banque, qui seront automatiquement "
+"réconciliées avec l'entrée du journal de vente."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__display_name
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom d'affichage"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__bank_statement
 msgid "Generate Bank Statement"
-msgstr ""
+msgstr "Générer un relevé bancaire"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__id
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method__journal_type_domain
 msgid "Journal Type Domain"
-msgstr ""
+msgstr "Domaine de type de journal"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_payment_method____last_update
 #: model:ir.model.fields,field_description:pos_no_cash_bank_statement.field_pos_session____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid "Missing bank journal on payment method '%s'."
-msgstr ""
+msgstr "Journal de banque manquant pour la méthode de paiement '%s'."
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
 #, python-format
 msgid "Missing cash journal on cash payment method '%s'."
-msgstr ""
+msgstr "Journal d'espèces manquant sur la méthode de paiement en espèces '%s'."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model,name:pos_no_cash_bank_statement.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "Méthodes de paiement du Point de vente"
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model,name:pos_no_cash_bank_statement.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Session du point de vente"
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
@@ -86,6 +94,9 @@ msgid ""
 "The journal configured on the cash payment method '%s' should one of these types:\n"
 "- %s."
 msgstr ""
+"Le journal configuré sur la méthode de paiement en espèces \"%s\" doit être "
+"de l'un de ces types :\n"
+"- %s."
 
 #. module: pos_no_cash_bank_statement
 #: code:addons/pos_no_cash_bank_statement/models/pos_payment_method.py:0
@@ -93,6 +104,8 @@ msgstr ""
 msgid ""
 "The journal configured on the payment method '%s' should be a bank journal."
 msgstr ""
+"Le journal configuré sur la méthode de paiement '%s' doit être un journal de "
+"banque."
 
 #. module: pos_no_cash_bank_statement
 #: model:ir.model.fields,help:pos_no_cash_bank_statement.field_pos_payment_method__cash_journal_id
@@ -100,3 +113,5 @@ msgid ""
 "The payment method is of type cash. A cash statement will be automatically "
 "generated."
 msgstr ""
+"La méthode de paiement est de type espèces. Un relevé de caisse sera "
+"automatiquement généré."
