@@ -38,8 +38,10 @@ odoo.define("pos_tare.ScaleScreen", function (require) {
                 this.props.resolve({
                     confirmed: true,
                     payload: {
-                        weight: this.state.weight,
-                        tare: this.state.tare,
+                        weight: {
+                            weight: this.state.weight,
+                            tare: this.state.tare ? parseFloat(this.state.tare) : 0,
+                        },
                     },
                 });
                 this.trigger("close-temp-screen");
