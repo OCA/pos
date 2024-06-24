@@ -7,16 +7,19 @@
             <field name="use_payment_terminal" position="after">
                 <field
                     name="cashdro_host"
-                    attrs="{'invisible': [('use_payment_terminal', '!=', 'cashdro')], 'required': [('use_payment_terminal', '=', 'cashdro')]}"
+                    invisible="use_payment_terminal != 'cashdro'"
+                    required="use_payment_terminal == 'cashdro'"
                 />
                 <field
                     name="cashdro_user"
-                    attrs="{'invisible': [('use_payment_terminal', '!=', 'cashdro')], 'required': [('use_payment_terminal', '=', 'cashdro')]}"
+                    invisible="use_payment_terminal != 'cashdro'"
+                    required="use_payment_terminal == 'cashdro'"
                 />
                 <field
                     name="cashdro_password"
                     password="True"
-                    attrs="{'invisible': [('use_payment_terminal', '!=', 'cashdro')], 'required': [('use_payment_terminal', '=', 'cashdro')]}"
+                    invisible="use_payment_terminal != 'cashdro'"
+                    required="use_payment_terminal == 'cashdro'"
                 />
             </field>
         </field>

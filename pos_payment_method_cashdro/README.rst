@@ -17,19 +17,19 @@ PoS Payment Method CashDro
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/16.0/pos_payment_method_cashdro
+    :target: https://github.com/OCA/pos/tree/17.0/pos_payment_method_cashdro
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_payment_method_cashdro
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_payment_method_cashdro
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to make payments with a Cashdro (https://www.cashdro.com) terminal
-on the Point of Sale frontend.
+This module allows to make payments with a Cashdro
+(https://www.cashdro.com) terminal on the Point of Sale frontend.
 
 **Table of contents**
 
@@ -41,35 +41,36 @@ Configuration
 
 To add a Cashdro payment terminal:
 
-#. Go to *Point of Sale > Configuration > Payment Methods*
-#. Choose a cash payment method or create a new one.
-#. Select *Cashdro* in the *Use a Payment Terminal* field.
-#. Configure the Cashdro terminal hostname and credentials.
-#. Configure the desired, Cashdro terminal in the proper PoS configurations.
+1. Go to *Point of Sale > Configuration > Payment Methods*
+2. Choose a cash payment method or create a new one.
+3. Select *Cashdro* in the *Use a Payment Terminal* field.
+4. Configure the Cashdro terminal hostname and credentials.
+5. Configure the desired, Cashdro terminal in the proper PoS
+   configurations.
 
-Note that if a single payment method was used for cash in different stores, it should
-be splitted in as many phisical stores there are.
+Note that if a single payment method was used for cash in different
+stores, it should be splitted in as many phisical stores there are.
 
 Usage
 =====
 
 With the proper configuration made:
 
-#. Make a new PoS order and choose the cash payment method configured with the Cashdro
-   settings.
-#. Click on *Send* to send the request to the Cashdro terminal that will ask the
-   customer for the amount to pay.
-#. The cashier can cancel the amount request discarding the line clicking on the (x)
-   symbol.
-#. When the customer pays the sale amount in the terminal, the Cashdro reports the
-   amount received and change delivered back.
-#. The Point of Sale reflects it in the payment line and thus the order can be validated
-   now.
+1. Make a new PoS order and choose the cash payment method configured
+   with the Cashdro settings.
+2. Click on *Send* to send the request to the Cashdro terminal that will
+   ask the customer for the amount to pay.
+3. The cashier can cancel the amount request discarding the line
+   clicking on the (x) symbol.
+4. When the customer pays the sale amount in the terminal, the Cashdro
+   reports the amount received and change delivered back.
+5. The Point of Sale reflects it in the payment line and thus the order
+   can be validated now.
 
 Known issues / Roadmap
 ======================
 
-* Integrate cash control (money inputs / outputs).
+-  Integrate cash control (money inputs / outputs).
 
 Bug Tracker
 ===========
@@ -77,7 +78,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_method_cashdro%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_method_cashdro%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -85,23 +86,27 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Tecnativa
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* `Acysos S.L. <https://www.acysos.com>`_:
+-  `Acysos S.L. <https://www.acysos.com>`__:
 
-  * Ignacio Ibeas
+   -  Ignacio Ibeas
 
-* `Tecnativa <https://www.tecnativa.com>`_
+-  `Tecnativa <https://www.tecnativa.com>`__
 
-  * David Vidal
+   -  David Vidal
+
+-  `ACSONE SA/NV <https://acsone.eu>`__:
+
+   -  Bejaoui Souheil
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -113,6 +118,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_payment_method_cashdro>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_payment_method_cashdro>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
