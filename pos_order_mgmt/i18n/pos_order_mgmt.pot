@@ -48,9 +48,32 @@ msgid "ID"
 msgstr ""
 
 #. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Incorrect quantities"
+msgstr ""
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid ""
+"It is returning more than the quantity delivered.\n"
+"                            Would you like to proceed anyway?"
+msgstr ""
+
+#. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config____last_update
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order____last_update
 msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "No"
 msgstr ""
 
 #. module: pos_order_mgmt
@@ -80,4 +103,11 @@ msgstr ""
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Return Orders"
+msgstr ""
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Yes"
 msgstr ""
