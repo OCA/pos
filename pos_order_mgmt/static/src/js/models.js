@@ -5,9 +5,11 @@
 odoo.define("pos_order_mgmt.models", function (require) {
     "use strict";
 
-    var models = require("point_of_sale.models");
+    const models = require("point_of_sale.models");
+    const field_utils = require("web.field_utils");
 
-    var _orderproto = models.Order.prototype;
+    const _orderproto = models.Order.prototype;
+    const _orderLineProto = models.Orderline.prototype;
 
     models.Order = models.Order.extend({
         init_from_JSON: function (json) {
@@ -23,6 +25,21 @@ odoo.define("pos_order_mgmt.models", function (require) {
             var res = _orderproto.export_for_printing.apply(this, arguments);
             res.returned_order_id = this.returned_order_id;
             return res;
+        },
+    });
+
+    models.Orderline = models.Orderline.extend({
+        set_quantity: function (quantity, keep_price) {
+            if (quantity !== "remove") {
+                quantity =
+                    typeof quantity === "number"
+                        ? quantity
+                        : field_utils.parse.float(String(quantity)) || 0;
+                if (this.returned_orderline_id) {
+                    quantity = Math.abs(quantity) * -1;
+                }
+            }
+            return _orderLineProto.set_quantity.call(this, quantity, keep_price);
         },
     });
 });
