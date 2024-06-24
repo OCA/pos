@@ -1,56 +1,56 @@
 /** @odoo-module */
 /* Copyright 2021 Tecnativa - David Vidal
    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).*/
-import PaymentInterface from "point_of_sale.PaymentInterface";
-
-export const PaymentCashdro = PaymentInterface.extend({
+import {ErrorPopup} from "@point_of_sale/app/errors/popups/error_popup";
+import {PaymentInterface} from "@point_of_sale/app/payment/payment_interface";
+import {_t} from "@web/core/l10n/translation";
+export class PaymentCashdro extends PaymentInterface {
     /**
      * @override
      */
-    init: function () {
-        this._super(...arguments);
+    setup() {
+        super.setup(...arguments);
         this.enable_reversals();
-    },
+    }
 
     /**
      * @override
      */
-    send_payment_reversal: function () {
-        this._super.apply(...arguments);
+    send_payment_reversal() {
+        super.send_payment_reversal(...arguments);
         const order = this.pos.get_order();
         const line = order.selected_paymentline;
         line.set_payment_status("reversing");
         return this.cashdro_send_payment_request(order);
-    },
+    }
 
     /**
      * @override
      */
-    send_payment_cancel: function () {
-        this._super(...arguments);
+    send_payment_cancel() {
+        super.send_payment_cancel(...arguments);
         const operation = this.pos.get_order().cashdro_operation;
         if (!operation) {
             return Promise.resolve();
         }
         return this.cashdro_finish_operation(operation);
-    },
-
+    }
     /**
      * @override
      */
-    send_payment_request: function () {
-        this._super(...arguments);
+    send_payment_request() {
+        super.send_payment_request(...arguments);
         const order = this.pos.get_order();
         const line = order.selected_paymentline;
         line.set_payment_status("waiting");
         return this.cashdro_send_payment_request(order);
-    },
+    }
 
     // --------------------------------------------------------------------------
     // Private
     // --------------------------------------------------------------------------
 
-    cashdro_send_payment_request: async function (order) {
+    async cashdro_send_payment_request(order) {
         // The payment is done in three concatenated steps:
         // 1. The POS send a payment request, to which the Cashdro respondes
         //    with an operation id.
@@ -92,23 +92,27 @@ export const PaymentCashdro = PaymentInterface.extend({
             // We wan't to be able to retry after any error.
             // TODO: catch specific exceptions
             payment_line.set_payment_status("retry");
-            throw error;
+            this.env.services.popup.add(ErrorPopup, {
+                title: _t("Error"),
+                body: _t("An error occurred while connecting to the cashdro."),
+            });
+            return false;
         }
         return true;
-    },
+    }
 
-    cashdro_finish_operation: async function (operation) {
+    async cashdro_finish_operation(operation) {
         // Finish the Cashdro running operation
         var order = this.pos.get_order();
         if (operation) {
             await this._cashdro_request(this._cashdro_finish_url(operation));
             order.cashdro_operation = false;
         }
-    },
+    }
 
     // API communication methods
 
-    _cashdro_url: function () {
+    _cashdro_url() {
         // Cashdro machines don't support safe POST calls, so we're sending
         // all the data quite unsafely constantly...
         const method = this.pos.get_order().selected_paymentline.payment_method;
@@ -120,9 +124,9 @@ export const PaymentCashdro = PaymentInterface.extend({
         url += `?name=${method.cashdro_user}`;
         url += `&password=${method.cashdro_password}`;
         return url;
-    },
+    }
 
-    _cashdro_payment_url: function (parameters) {
+    _cashdro_payment_url(parameters) {
         // Compose the url for a sale report to Cashdro
         const user = this.pos.get_cashier().id || this.pos.user.id;
         let url = `${this._cashdro_url()}&operation=startOperation&type=4`;
@@ -130,33 +134,33 @@ export const PaymentCashdro = PaymentInterface.extend({
         url += `&posuser=${user}`;
         url += `&parameters=${encodeURIComponent(JSON.stringify(parameters))}`;
         return url;
-    },
+    }
 
-    _cashdro_ack_url: function (operation_id) {
+    _cashdro_ack_url(operation_id) {
         // Compose the url for a sale report to Cashdro
         var url = this._cashdro_url();
         url += "&operation=acknowledgeOperationId";
         url += "&operationId=" + operation_id;
         return url;
-    },
+    }
 
-    _cashdro_ask_url: function (operation_id) {
+    _cashdro_ask_url(operation_id) {
         // Compose the url for to report a sale to Cashdro
         var url = this._cashdro_url();
         url += "&operation=askOperation";
         url += "&operationId=" + operation_id;
         return url;
-    },
+    }
 
-    _cashdro_finish_url: function (operation_id) {
+    _cashdro_finish_url(operation_id) {
         // Compose the url for a sale report to Cashdro
         var url = this._cashdro_url();
         url += "&operation=finishOperation&type=2";
         url += "&operationId=" + operation_id;
         return url;
-    },
+    }
 
-    _cashdro_request: function (url) {
+    _cashdro_request(url) {
         // We'll use it for regular requests
         return $.ajax({
             url: url,
@@ -166,7 +170,7 @@ export const PaymentCashdro = PaymentInterface.extend({
                 return response;
             },
         });
-    },
+    }
 
     /**
      * This is a special request, as we keep requesting the CashDro  until we get
@@ -175,7 +179,7 @@ export const PaymentCashdro = PaymentInterface.extend({
      * @param {String} request_url
      * @returns promise
      */
-    _cashdro_request_payment: function (request_url) {
+    _cashdro_request_payment(request_url) {
         var def = $.Deferred();
         var _request_payment = (url) => {
             $.ajax({
@@ -193,5 +197,5 @@ export const PaymentCashdro = PaymentInterface.extend({
         };
         _request_payment(request_url);
         return def;
-    },
-});
+    }
+}

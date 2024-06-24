@@ -1,1 +1,0 @@
-* Integrate cash control (money inputs / outputs).
