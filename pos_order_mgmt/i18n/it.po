@@ -51,10 +51,33 @@ msgid "ID"
 msgstr "ID"
 
 #. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Incorrect quantities"
+msgstr ""
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid ""
+"It is returning more than the quantity delivered.\n"
+"                            Would you like to proceed anyway?"
+msgstr ""
+
+#. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config____last_update
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_order____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "No"
+msgstr ""
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
@@ -84,6 +107,13 @@ msgstr "Ordine di reso"
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config__iface_return_done_order
 msgid "Return Orders"
 msgstr "Ordini di reso"
+
+#. module: pos_order_mgmt
+#. openerp-web
+#: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
+#, python-format
+msgid "Yes"
+msgstr ""
 
 #~ msgid "Allows to manage already done orders in the frontend."
 #~ msgstr "Permette di gestire ordini già fatti nel frontend."
