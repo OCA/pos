@@ -7,45 +7,46 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-05 09:32+0000\n"
-"PO-Revision-Date: 2017-05-05 09:32+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2024-06-28 20:47+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: pos_empty_home
 #: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom d'affichage"
 
 #. module: pos_empty_home
 #: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__iface_empty_home
 msgid "Empty Home"
-msgstr ""
+msgstr "Accueil vide"
 
 #. module: pos_empty_home
 #: model:ir.model.fields,help:pos_empty_home.field_pos_config__iface_empty_home
 #: model_terms:ir.ui.view,arch_db:pos_empty_home.view_pos_config_form
 msgid "Hide products if no category is selected."
-msgstr ""
+msgstr "Masquer les articles si aucune catégorie n'est sélectionnée."
 
 #. module: pos_empty_home
 #: model:ir.model.fields,field_description:pos_empty_home.field_pos_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_empty_home
 #: model:ir.model.fields,field_description:pos_empty_home.field_pos_config____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: pos_empty_home
 #: model:ir.model,name:pos_empty_home.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuration du point de vente"
 
 #. module: pos_empty_home
 #. openerp-web
