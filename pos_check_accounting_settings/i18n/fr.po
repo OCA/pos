@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_check_accounting_settings
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-29 22:22+0000\n"
+"PO-Revision-Date: 2024-06-29 22:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_check_accounting_settings
+#. odoo-python
+#: code:addons/pos_check_accounting_settings/models/pos_config.py:0
+#, python-format
+msgid ""
+"No outstanding payments/receipts account for the payment method "
+"'%(payment_method_name)s'. Please set the field 'Outstanding Payment' on the"
+" payment method or the field 'Outstanding Receipts Account' on the company "
+"settings."
+msgstr ""
+"Pas de compte de paiements entrants/sortants en suspens pour la méthode de paiement "
+"'%(payment_method_name)s'. Veuillez renseigner le champs 'Paiements sortants en suspens' sur la méthode de paiement, ou le champs 'Compte de paiements entrants en suspens'"
+" dans les paramétrage de la société."
+
+#. module: pos_check_accounting_settings
+#: model:ir.model,name:pos_check_accounting_settings.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
