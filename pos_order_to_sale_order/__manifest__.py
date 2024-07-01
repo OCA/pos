@@ -22,7 +22,7 @@
             "pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml",
         ],
         "web.assets_tests": [
-            "pos_order_to_sale_order/tests/tours/PosOrderToSaleOrderTour.tour.js",
+            "pos_order_to_sale_order/static/tests/**/*.js",
         ],
     },
     "installable": True,
