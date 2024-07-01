@@ -20,23 +20,28 @@ class PosOrder(models.Model):
         for order_data in orders:
             session_id = order_data.get("data").get("pos_session_id")
             session = PosSession.browse(session_id)
-            order_data["data"][
-                "has_picking_delayed"
-            ] = session.config_id.picking_creation_delayed
+            order_data["data"]["has_picking_delayed"] = (
+                session.config_id.picking_creation_delayed
+                and not session.update_stock_at_closing
+            )
         return super(PosOrder, self.with_context(create_from_ui=True)).create_from_ui(
             orders, draft=draft
         )
 
-    def create_picking(self):
+    def _create_order_picking(self):
         if self.env.context.get("create_from_ui", False):
             orders = self.filtered(lambda x: not x.has_picking_delayed)
             delayed_orders = self.filtered(lambda x: x.has_picking_delayed)
-            delayed_orders.with_delay()._create_delayed_picking()
+            if delayed_orders:
+                delayed_orders.with_delay()._create_delayed_picking()
         else:
             orders = self
-        res = super(PosOrder, orders).create_picking()
+
+        if not orders:
+            return
+
+        super(PosOrder, orders)._create_order_picking()
         orders.write({"has_picking_delayed": False})
-        return res
 
     @api.model
     def _order_fields(self, ui_order):
@@ -48,5 +53,5 @@ class PosOrder(models.Model):
     def _create_delayed_picking(self):
         # make the function idempotent
         orders = self.filtered(lambda x: x.has_picking_delayed)
-        super(PosOrder, orders).create_picking()
+        super(PosOrder, orders)._create_order_picking()
         orders.write({"has_picking_delayed": False})

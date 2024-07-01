@@ -37,6 +37,7 @@ class TestModule(TransactionCase):
                 "currency_id": self.currency.id,
             }
         )
+        self.pos_config.company_id.point_of_sale_update_stock_quantities = "real"
 
     def test_01_picking_delayed_enabled(self):
         # Enable feature
@@ -46,7 +47,7 @@ class TestModule(TransactionCase):
         order = self._create_order()
 
         self.assertEqual(
-            order.picking_id.id,
+            order.picking_ids.id,
             False,
             "Creating order via UI should not generate a picking if"
             " feature is enabled",
@@ -64,7 +65,7 @@ class TestModule(TransactionCase):
 
         order = self._create_order()
 
-        picking_id = order.picking_id.id
+        picking_id = order.picking_ids.id
         self.assertNotEqual(
             picking_id,
             False,

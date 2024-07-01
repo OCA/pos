@@ -22,7 +22,7 @@
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
         <field name="arch" type="xml">
-            <field name="picking_id" position="after">
+            <field name="pos_reference" position="after">
                 <field name="has_picking_delayed" />
             </field>
         </field>
