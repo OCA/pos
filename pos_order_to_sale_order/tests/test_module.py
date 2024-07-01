@@ -15,7 +15,12 @@ class TestUi(TestPointOfSaleHttpCommon):
 
         # Make the test compatible with pos_minimize_menu
         if "iface_important_buttons" in self.main_pos_config._fields:
-            self.main_pos_config.iface_important_buttons = "CreateOrderButton"
+            self.main_pos_config.iface_important_buttons = ",".join(
+                [
+                    "CreateOrderButton",
+                    "OrderlineCustomerNoteButton",
+                ]
+            )
 
         before_orders = self.env["sale.order"].search(
             [("partner_id", "=", self.env.ref("base.res_partner_address_31").id)],
