@@ -79,7 +79,7 @@ addon | version | maintainers | summary
 [pos_product_template](pos_product_template/) | 12.0.1.0.2 |  | Manage Product Template in Front End Point Of Sale
 [pos_quick_logout](pos_quick_logout/) | 12.0.1.0.1 |  | Allow PoS user to logout quickly after user changed
 [pos_receipt_xml_header_footer](pos_receipt_xml_header_footer/) | 12.0.1.0.1 | [![carmenbianca](https://github.com/carmenbianca.png?size=30px)](https://github.com/carmenbianca) | Add the ability to use XML/HTML in the header and footer of a receipt
-[pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.1 |  | POS Remove POS Category
+[pos_remove_pos_category](pos_remove_pos_category/) | 12.0.2.0.2 |  | POS Remove POS Category
 [pos_report_order_payment](pos_report_order_payment/) | 12.0.1.0.1 |  | Analyze point of sale payments
 [pos_report_session_summary](pos_report_session_summary/) | 12.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
 [pos_require_product_quantity](pos_require_product_quantity/) | 12.0.0.2.1 |  | A popup is shown if product quantity is set to 0 for one or more order lines when clicking on "Payment" button.
