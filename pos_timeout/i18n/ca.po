@@ -1,0 +1,74 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_timeout
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2021-03-26 19:46+0000\n"
+"Last-Translator: eduardgm <eduard.garcia@qubiq.es>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: pos_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "<span class=\"o_form_label\">Timeout</span>"
+msgstr "<span class=\"o_form_label\">Fi de temps</span>"
+
+#. module: pos_timeout
+#: model:ir.model.fields,help:pos_timeout.field_pos_config__pos_order_timeout
+msgid ""
+"Defines the value of the client-side timeout for the creation of PoS "
+"Order(s) from the POS UI.\n"
+" The value is expressed in seconds, for a single order.\n"
+" If not defined, the default Odoo value will be used: 30 seconds.\n"
+" If the call contains more than one order (after a long disconnection period "
+"for example, or if the previous call raised the timeout),\n"
+" the effective timeout value applied will be equal to the defined timeout "
+"value multiplied by the number of orders.\n"
+msgstr ""
+"Defineix el valor del temps d'espera del costat del client per a la creació "
+"de comandes de Post des de la interfície d'usuari de POS.\n"
+"El valor s'expressa en segons, per a un solo demanat.\n"
+"Si no es defineix, s'utilitzarà el valor predeterminat d'Odoo: 30 segons.\n"
+"Si la crida conté més d'una ordre (després d'un llarg període de "
+"desconnexió, per exemple, o si la crida anterior va generar el temps "
+"d'espera),\n"
+"el valor de temps d'espera efectiu aplicat serà igual al valor de temps "
+"d'espera definit multiplicat pel nombre de comandes.\n"
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
+msgid "PoS Order(s) Timeout"
+msgstr "Fi del Temps de les Comandes del TPV"
+
+#. module: pos_timeout
+#: model:ir.model,name:pos_timeout.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuració del TPV"
+
+#. module: pos_timeout
+#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
+msgid "Technical settings"
+msgstr "Ajustos tècnics"
