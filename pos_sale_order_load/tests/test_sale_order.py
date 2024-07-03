@@ -12,7 +12,6 @@ class TestPosCashMoveReason(SavepointCase):
                 "name": "Test product 1",
                 "standard_price": 1.0,
                 "type": "product",
-                "pos_allow_negative_qty": False,
                 "taxes_id": False,
                 "tracking": "lot",
             }
