@@ -1,0 +1,13 @@
+/*
+    Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+*/
+
+.pos .payment-numpad .numpad .mode-button {
+    visibility: hidden;
+}
+
+.pos .payment-numpad .numpad .number-char:has(> img[alt="Backspace"]) {
+    border-top: 1px solid #c9ccd2;
+}
