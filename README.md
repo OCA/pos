@@ -30,6 +30,7 @@ addon | version | maintainers | summary
 [pos_escpos_status](pos_escpos_status/) | 16.0.1.0.1 |  | Point of sale: fetch status for 'escpos' driver
 [pos_financial_risk](pos_financial_risk/) | 16.0.1.0.1 | [![geomer198](https://github.com/geomer198.png?size=30px)](https://github.com/geomer198) [![CetmixGitDrone](https://github.com/CetmixGitDrone.png?size=30px)](https://github.com/CetmixGitDrone) | Point of Sale Fonancial Risk
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.1 |  | Order discount in line instead of discount product
+[pos_hide_banknote_button](pos_hide_banknote_button/) | 16.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Hide useless Banknote buttons in the PoS (+10, +20, +50)
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.1 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.1 |  | POS Lot Selection
 [pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.2 |  | Use vouchers as payment method in pos orders
