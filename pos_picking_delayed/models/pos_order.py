@@ -28,12 +28,17 @@ class PosOrder(models.Model):
             orders, draft=draft
         )
 
+    @api.model
+    def _delayed_picking_job_kwargs(self):
+        return {}
+
     def _create_order_picking(self):
         if self.env.context.get("create_from_ui", False):
             orders = self.filtered(lambda x: not x.has_picking_delayed)
             delayed_orders = self.filtered(lambda x: x.has_picking_delayed)
             if delayed_orders:
-                delayed_orders.with_delay()._create_delayed_picking()
+                kw = self._delayed_picking_job_kwargs()
+                delayed_orders.with_delay(**kw)._create_delayed_picking()
         else:
             orders = self
 
