@@ -20,12 +20,13 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_timeout
-#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
-msgid "<span class=\"o_form_label\">Timeout</span>"
-msgstr "<span class=\"o_form_label\">Timeout</span>"
+#: model:ir.model,name:pos_timeout.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
 
 #. module: pos_timeout
 #: model:ir.model.fields,help:pos_timeout.field_pos_config__pos_order_timeout
+#: model:ir.model.fields,help:pos_timeout.field_res_config_settings__pos_order_timeout
 msgid ""
 "Defines the value of the client-side timeout for the creation of PoS "
 "Order(s) from the POS UI.\n"
@@ -46,22 +47,8 @@ msgstr ""
 "definito moltiplicato per il numero di ordini.\n"
 
 #. module: pos_timeout
-#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__display_name
-msgid "Display Name"
-msgstr "Nome visualizzato"
-
-#. module: pos_timeout
-#: model:ir.model.fields,field_description:pos_timeout.field_pos_config__id
-msgid "ID"
-msgstr "ID"
-
-#. module: pos_timeout
-#: model:ir.model.fields,field_description:pos_timeout.field_pos_config____last_update
-msgid "Last Modified on"
-msgstr "Ultima modifica il"
-
-#. module: pos_timeout
 #: model:ir.model.fields,field_description:pos_timeout.field_pos_config__pos_order_timeout
+#: model:ir.model.fields,field_description:pos_timeout.field_res_config_settings__pos_order_timeout
 msgid "PoS Order(s) Timeout"
 msgstr "Timeout Ordini Punto Vendita"
 
@@ -71,9 +58,24 @@ msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
 
 #. module: pos_timeout
-#: model_terms:ir.ui.view,arch_db:pos_timeout.view_pos_config_form
-msgid "Technical settings"
-msgstr "Impostazioni tecniche"
+#: model_terms:ir.ui.view,arch_db:pos_timeout.res_config_settings_view_form
+msgid "client-side timeout for the creation of PoS Order(s) from the POS UI"
+msgstr ""
+
+#~ msgid "<span class=\"o_form_label\">Timeout</span>"
+#~ msgstr "<span class=\"o_form_label\">Timeout</span>"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#~ msgid "Technical settings"
+#~ msgstr "Impostazioni tecniche"
 
 #~ msgid "pos.config"
 #~ msgstr "pos.config"
