@@ -6,70 +6,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-07-08 11:58+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: pos_screen_element_custom_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "<span>pixel</span>"
-msgstr ""
+msgstr "<span>pixel</span>"
 
 #. module: pos_screen_element_custom_size
 #: model:ir.model,name:pos_screen_element_custom_size.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: pos_screen_element_custom_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "Custom font size of the price label"
-msgstr ""
+msgstr "Dimensione carattere personalizzata dell'etichetta prezzo"
 
 #. module: pos_screen_element_custom_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "Custom font size of the product name label"
-msgstr ""
+msgstr "Dimensione carattere personalizzata dell'etichetta nome prodotto"
 
 #. module: pos_screen_element_custom_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "Minimum width of the product tile in pixels"
-msgstr ""
+msgstr "Larghezza minima in pixel del titolo prodotto"
 
 #. module: pos_screen_element_custom_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "POS Screen Custom Settings"
-msgstr ""
+msgstr "Impostazioni personalizzate schermo POS"
 
 #. module: pos_screen_element_custom_size
 #: model:ir.model,name:pos_screen_element_custom_size.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configurazione punto vendita"
 
 #. module: pos_screen_element_custom_size
 #: model:ir.model.fields,field_description:pos_screen_element_custom_size.field_pos_config__price_tag_font_size
 #: model:ir.model.fields,field_description:pos_screen_element_custom_size.field_res_config_settings__pos_price_tag_font_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "Price Tag Font Size"
-msgstr ""
+msgstr "Dimensione carattere etichetta prezzo"
 
 #. module: pos_screen_element_custom_size
 #: model:ir.model.fields,field_description:pos_screen_element_custom_size.field_pos_config__product_text_font_size
 #: model:ir.model.fields,field_description:pos_screen_element_custom_size.field_res_config_settings__pos_product_text_font_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "Product Text Font Size"
-msgstr ""
+msgstr "Dimensione carattere testo prodotto"
 
 #. module: pos_screen_element_custom_size
 #: model:ir.model.fields,field_description:pos_screen_element_custom_size.field_pos_config__product_title_min_width
 #: model:ir.model.fields,field_description:pos_screen_element_custom_size.field_res_config_settings__pos_product_title_min_width
 msgid "Product Title Min Width"
-msgstr ""
+msgstr "Larghezza minima titolo prodotto"
 
 #. module: pos_screen_element_custom_size
 #: model_terms:ir.ui.view,arch_db:pos_screen_element_custom_size.res_config_settings_view_form
 msgid "Product Title Mini Width"
-msgstr ""
+msgstr "Larghezza minima titolo prodotto"
