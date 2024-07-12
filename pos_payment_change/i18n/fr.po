@@ -7,25 +7,27 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-18 17:33+0000\n"
-"PO-Revision-Date: 2020-05-18 17:33+0000\n"
-"Last-Translator: <>\n"
+"PO-Revision-Date: 2024-07-12 21:49+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid " (Refund Order: %s ; Resale Order: %s)"
-msgstr " (Remboursement: %s ; Revente : %s)"
+msgstr " (Remboursement : %s ; Revente : %s)"
 
 #. module: pos_payment_change
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_pos_config_form
 msgid "<span class=\"o_form_label\">Payment Change Policy</span>"
-msgstr "<span class=\"o_form_label\">Méthode de changement de paiement</span>"
+msgstr ""
+"<span class=\"o_form_label\">Politique de modification des paiements</span>"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__amount
@@ -43,13 +45,13 @@ msgstr "Annuler"
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_pos_order_form
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_pos_payment_change_wizard_form
 msgid "Change Payments"
-msgstr "Changer les paiements"
+msgstr "Modifier les paiements"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
 msgid "Company Currency"
-msgstr ""
+msgstr "Devise de la société"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__create_uid
@@ -76,12 +78,12 @@ msgid ""
 "\n"
 "Please change the payments."
 msgstr ""
-"Différences entre les deux valeurs pour la vente '%s':\n"
+"Différences entre les deux valeurs pour la commande PDV '%s':\n"
 "\n"
 " * Total des nouveaux paiements %s;\n"
-" * Total de la vente %s;\n"
+" * Total de la commande PDV %s;\n"
 "\n"
-"Veuillez changer les paiements."
+"Veuillez modifier les paiements."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__display_name
@@ -90,7 +92,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__display_name
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr "Nom d'affichage"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__id
@@ -127,12 +129,12 @@ msgstr "Dernière mise à jour le"
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__new_line_ids
 msgid "New Payment Lines"
-msgstr "Nouveaux paiements"
+msgstr "Nouvelles lignes de paiements"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__old_line_ids
 msgid "Old Payment Lines"
-msgstr "Anciens paiements"
+msgstr "Anciennes lignes de paiements"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__order_id
@@ -142,7 +144,7 @@ msgstr "Commande"
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__payment_change_policy
 msgid "Payment Change Policy"
-msgstr "Méthode de changement de paiement"
+msgstr "Politique de modification des paiements"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
@@ -156,38 +158,37 @@ msgid ""
 "Note : In some countries the 'Update Payments' Option is not allowed by law, "
 "because orders history shouldn't not be altered."
 msgstr ""
-"Méthode de changement de paiement quand les utilisateurs veulent changer des "
-"lignes de paiement d'une vente en caisse.\n"
-"* 'Retourner et revendre': Odoo va réaliser un retour du la vente pour "
-"l'annuler, puis recréera une nouvelle vente, avec les paiements corrects.\n"
-"* 'Modifier les paiements': Odoo va changer les lignes de paiements.\n"
+"Politique de modification de paiement lorsque les utilisateurs souhaitent "
+"modifier les lignes de paiement d'une commande PDV donnée.\n"
+"* « Remboursement et revente » : Odoo remboursera la commande PDV en cours "
+"pour l'annuler et créera une nouvelle commande PDV avec les lignes de "
+"paiement adéquates.\n"
+"* « Mettre à jour les paiements » : Odoo modifiera les lignes de paiement.\n"
 "\n"
-"Note : dans certains pays, l'option 'Modifier les paiements' n'est pas "
-"autorisé par la loi, parce que l'historique des ventes ne doit pas être "
-"altéré."
+"Remarque : Dans certains pays, l'option « Mettre à jour les paiements » "
+"n'est pas autorisée par la loi, car l'historique des commandes ne doit pas "
+"être modifié."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__new_payment_method_id
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__old_payment_method_id
 msgid "Payment Method"
-msgstr ""
+msgstr "Méthode de paiement"
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard
 msgid "PoS Payment Change Wizard"
-msgstr "Assistant de changement de paiement du Point de Vente"
+msgstr "Assistant de modification des paiements du PDV"
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard_new_line
 msgid "PoS Payment Change Wizard New Line"
-msgstr ""
-"Nouvelle ligne de l'ssistant de changement de paiement du Point de Vente"
+msgstr "Nouvelle ligne de l'assistant de modification des paiements du PDV"
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_payment_change_wizard_old_line
 msgid "PoS Payment Change Wizard Old Line"
-msgstr ""
-"Ancienne ligne de l'ssistant de changement de paiement du Point de Vente"
+msgstr "Ancienne ligne de l'assistant de modification des paiements du PDV"
 
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_pos_config
@@ -202,13 +203,13 @@ msgstr "Commandes du point de vente"
 #. module: pos_payment_change
 #: model:ir.model.fields.selection,name:pos_payment_change.selection__pos_config__payment_change_policy__refund
 msgid "Refund and Resale"
-msgstr "Retourner et revendre"
+msgstr "Remboursement et Revente"
 
 #. module: pos_payment_change
 #: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid "The payments of the Order %s (Ref: %s) has been changed by %s at %s."
-msgstr "Les paiements de la commande %s (Réf: %s) ont été changés par %s à %s."
+msgstr "Les paiements de la commande %s (Réf: %s) ont été modifiés par %s à %s."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
@@ -223,7 +224,7 @@ msgid ""
 "Unable to use the 'Update Payments' options for companies that have "
 "unalterable accounting."
 msgstr ""
-"Impossible d'utiliser l'option 'Modifier les paiements' pour les sociétés "
+"Impossible d'utiliser l'option \"Modifier les paiements\" pour les sociétés "
 "qui ont une comptabilité inaltérable."
 
 #. module: pos_payment_change
@@ -235,7 +236,7 @@ msgstr "Modifier les paiements"
 #: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_new_line__company_currency_id
 #: model:ir.model.fields,help:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
 msgid "Utility field to express amount currency"
-msgstr ""
+msgstr "Champ utilitaire pour exprimer la devise du montant"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__wizard_id
@@ -250,8 +251,8 @@ msgid ""
 "You can not change payments of the POS '%s' because the associated session "
 "'%s' has been closed!"
 msgstr ""
-"Vous ne pouvez pas changer les paiements de la Vente '%s' car la session "
-"associée '%s' a été clôturé !"
+"Vous ne pouvez pas modifier les paiements du point de vente '%s' car la "
+"session associée '%s' a été clôturée !"
 
 #~ msgid "Journal"
 #~ msgstr "Journal"
