@@ -6,42 +6,44 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-07-12 21:49+0000\n"
+"Last-Translator: Julie LeBrun <julie.lebrun@numigi.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__global_discount_in_line
 msgid "Add Discount in Line"
-msgstr ""
+msgstr "Ajouter la remise sur les lignes"
 
 #. module: pos_global_discount_in_line
 #. openerp-web
 #: code:addons/pos_global_discount_in_line/static/src/js/GlobalLineDiscount.js:0
 #, python-format
 msgid "Discount Percentage"
-msgstr ""
+msgstr "Pourcentage de remise"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom d'affichage"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model.fields,field_description:pos_global_discount_in_line.field_pos_config____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: pos_global_discount_in_line
 #: model:ir.model,name:pos_global_discount_in_line.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuration du point de vente"
