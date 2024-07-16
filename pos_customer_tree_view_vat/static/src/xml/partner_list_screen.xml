@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//thead/tr/th[1]" position="after">
+            <th id="customer_tree_tax_label">Tax ID</th>
+        </xpath>
+    </t>
+</templates>
