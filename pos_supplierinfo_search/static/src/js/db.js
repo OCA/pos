@@ -2,9 +2,6 @@ odoo.define("pos_supplierinfo_search.db", function (require) {
     "use strict";
 
     var PosDB = require("point_of_sale.DB");
-    var models = require("point_of_sale.models");
-
-    models.load_fields("product.product", ["supplier_data_json"]);
 
     PosDB.include({
         _product_search_string: function (product) {

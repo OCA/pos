@@ -17,7 +17,7 @@ class ProductTemplate(models.Model):
             rec.supplier_data_json = json.dumps(
                 [
                     {
-                        "supplier_name": s.name.display_name,
+                        "supplier_name": s.partner_id.display_name,
                         "supplier_product_code": s.product_code or "",
                         "supplier_product_name": s.product_name or "",
                     }
