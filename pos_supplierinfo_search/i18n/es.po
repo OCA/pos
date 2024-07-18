@@ -17,9 +17,14 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_supplierinfo_search
+#: model:ir.model,name:pos_supplierinfo_search.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_supplierinfo_search
 #: model:ir.model,name:pos_supplierinfo_search.model_product_template
-msgid "Product Template"
-msgstr "Plantilla de producto"
+msgid "Product"
+msgstr ""
 
 #. module: pos_supplierinfo_search
 #: model:ir.model.fields,field_description:pos_supplierinfo_search.field_product_product__supplier_data_json
@@ -35,3 +40,6 @@ msgid ""
 msgstr ""
 "Campo técnico: se utiliza en la interfaz de POS para buscar productos por "
 "proveedor"
+
+#~ msgid "Product Template"
+#~ msgstr "Plantilla de producto"
