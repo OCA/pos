@@ -7,14 +7,11 @@
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath
-            expr="//button[@t-on-click='sendInput(decimalSeparator)']"
-            position="after"
-        >
+        <xpath expr="//button[hasclass('numpad-backspace')]" position="before">
             <button
                 class="mode-button"
                 t-att-class="{'selected-mode': props.activeMode === 'tare'}"
-                t-on-click="changeMode('tare')"
+                t-on-click="() => this.changeMode('tare')"
             >Tare
             </button>
         </xpath>

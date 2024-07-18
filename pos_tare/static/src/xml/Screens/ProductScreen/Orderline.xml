@@ -12,9 +12,9 @@
                 <li class="info">
                     <i>
                       Gross Weight:
-                      <em><t t-esc="props.line.get_gross_weight_str_with_unit()" /></em>
+                      <em><t t-out="props.line.get_gross_weight_str_with_unit()" /></em>
                       - Tare:
-                      <em><t t-esc="props.line.get_tare_str_with_unit()" /></em>)
+                      <em><t t-out="props.line.get_tare_str_with_unit()" /></em>
                     </i>
                 </li>
             </t>

@@ -10,8 +10,7 @@ class ProductTemplate(models.Model):
 
     tare_weight = fields.Float(
         digits="Product Unit of Measure",
-        string="Tare Weight",
         help="Set here Constant tare weight"
-        " for the given product. This tare will be substracted when"
+        " for the given product. This tare will be subtracted when"
         " the product is weighted",
     )

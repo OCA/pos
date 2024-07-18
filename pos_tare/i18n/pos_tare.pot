@@ -239,7 +239,7 @@ msgstr ""
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_product_product__tare_weight
 #: model:ir.model.fields,help:pos_tare.field_product_template__tare_weight
-msgid "Set here Constant tare weight for the given product. This tare will be substracted when the product is weighted"
+msgid "Set here Constant tare weight for the given product. This tare will be subtracted when the product is weighted"
 msgstr ""
 
 #. module: pos_tare

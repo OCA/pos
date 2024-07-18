@@ -4,12 +4,11 @@ odoo.define("pos_tare.screens", function (require) {
     const Registries = require("point_of_sale.Registries");
     const {useBarcodeReader} = require("point_of_sale.custom_hooks");
 
-    const TareProductScreen = (ProductScreen) =>
-        class extends ProductScreen {
-            constructor() {
-                super(...arguments);
+    const TareProductScreen = (ProductScreen_) =>
+        class extends ProductScreen_ {
+            setup() {
+                super.setup();
                 useBarcodeReader({
-                    // We add the tare action
                     tare: this._barcodeTareAction,
                 });
             }
@@ -38,7 +37,7 @@ odoo.define("pos_tare.screens", function (require) {
             _setValue(val) {
                 super._setValue(val);
                 if (this.currentOrder.get_selected_orderline()) {
-                    if (this.state.numpadMode === "tare") {
+                    if (this.env.pos.numpadMode === "tare") {
                         if (this.env.pos.config.iface_tare_method === "barcode") {
                             this.showPopup("ErrorPopup", {
                                 title: this.env._t("Feature Disabled"),
@@ -56,7 +55,7 @@ odoo.define("pos_tare.screens", function (require) {
                                     .set_tare(val, true);
                             } catch (error) {
                                 this.showPopup("ErrorPopup", {
-                                    title: this.env._t("We can not apply this tare"),
+                                    title: this.env._t("We cannot apply this tare"),
                                     body: error.message,
                                 });
                             }

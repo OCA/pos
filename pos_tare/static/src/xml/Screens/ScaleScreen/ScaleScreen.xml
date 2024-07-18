@@ -17,7 +17,7 @@
                             placeholder="0.000"
                             disabled="1"
                         />
-                        <t t-esc="env.pos.config.iface_tare_uom_id[1]" />
+                        <t t-out="env.pos.config.iface_tare_uom_id[1]" />
                     </div>
                 </t>
                 <t t-else="1">
@@ -30,7 +30,7 @@
                             t-on-change="updateWeight"
                             placeholder="0.000"
                         />
-                        <t t-esc="env.pos.config.iface_tare_uom_id[1]" />
+                        <t t-out="env.pos.config.iface_tare_uom_id[1]" />
                     </div>
                 </t>
                 <div class="weight-label">
@@ -45,7 +45,7 @@
                         placeholder="0.000"
                         t-on-change="updateWeight"
                     />
-                    <t t-esc="env.pos.config.iface_tare_uom_id[1]" />
+                    <t t-out="env.pos.config.iface_tare_uom_id[1]" />
                 </div>
             </t>
         </xpath>

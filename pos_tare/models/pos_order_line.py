@@ -9,6 +9,5 @@ class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
 
     tare = fields.Float(
-        string="Tare",
         digits="Product Unit of Measure",
     )

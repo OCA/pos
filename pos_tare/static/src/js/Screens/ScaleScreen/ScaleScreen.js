@@ -3,19 +3,19 @@ odoo.define("pos_tare.ScaleScreen", function (require) {
 
     const Registries = require("point_of_sale.Registries");
     const ScaleScreen = require("point_of_sale.ScaleScreen");
-    const {useState} = owl.hooks;
-    const {useAutofocus} = require("web.custom_hooks");
+    const {useState} = owl;
+    const {useAutoFocusToLast} = require("point_of_sale.custom_hooks");
 
-    const ColaborScaleScreen = (ScaleScreen) =>
-        class extends ScaleScreen {
-            constructor() {
-                super(...arguments);
+    const TareScaleScreen = (ScaleScreen_) =>
+        class extends ScaleScreen_ {
+            setup() {
+                super.setup();
                 this.state = useState({
                     tare: this.props.product.tare_weight,
                     weight: 0,
                     gross_weight: 0,
                 });
-                useAutofocus({selector: "#input_weight_tare"});
+                useAutoFocusToLast({selector: "#input_weight_tare"});
             }
 
             _readScale() {
@@ -48,7 +48,7 @@ odoo.define("pos_tare.ScaleScreen", function (require) {
             }
         };
 
-    Registries.Component.extend(ScaleScreen, ColaborScaleScreen);
+    Registries.Component.extend(ScaleScreen, TareScaleScreen);
 
     return ScaleScreen;
 });
