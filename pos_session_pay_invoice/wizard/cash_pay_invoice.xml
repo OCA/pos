@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_cash_pay_invoice_form" model="ir.ui.view">
+        <field name="model">cash.pay.invoice</field>
+        <field
+            name="inherit_id"
+            ref="account_cash_invoice.view_cash_pay_invoice_form"
+        />
+        <field name="mode">primary</field>
+        <field name="priority" eval="100" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_type']" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="force_save">1</attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="action_pos_invoice_in_control" model="ir.actions.act_window">
+        <field name="name">Pay invoice</field>
+        <field name="res_model">cash.pay.invoice</field>
+        <field name="view_mode">form</field>
+        <field
+            name="view_id"
+            ref="pos_session_pay_invoice.view_cash_pay_invoice_form"
+        />
+        <field name="target">new</field>
+    </record>
+</odoo>

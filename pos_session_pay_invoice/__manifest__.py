@@ -3,7 +3,7 @@
 
 {
     "name": "POS Session Pay invoice",
-    "version": "14.0.1.1.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "author": "Creu Blanca, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
@@ -11,10 +11,7 @@
     "license": "LGPL-3",
     "depends": ["point_of_sale", "account_cash_invoice"],
     "data": [
-        "security/ir.model.access.csv",
-        "wizard/pos_box_cash_invoice_out.xml",
-        "wizard/pos_box_cash_invoice_in.xml",
-        "wizard/cash_invoice_in.xml",
+        "wizard/cash_pay_invoice.xml",
         "views/pos_session.xml",
     ],
 }

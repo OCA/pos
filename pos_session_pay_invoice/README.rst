@@ -17,13 +17,13 @@ POS Session Pay invoice
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/14.0/pos_session_pay_invoice
+    :target: https://github.com/OCA/pos/tree/16.0/pos_session_pay_invoice
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_session_pay_invoice
+    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_session_pay_invoice
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=14.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -39,17 +39,23 @@ to collect payment for an existing Customer Invoice, from within a POS Session.
 Configuration
 =============
 
-#.  Go to *Point of Sale / Configuration / Point of Sale* and activate the
-    'Cash Control' setting.
+#.  Go to *Point of Sale / Configuration / Payment Methods* 
+    and ensure that at least one payment method with a journal type "cash" 
+    is created (or create one if it does not exist).
+
+#.  Go to *Point of Sale / Configuration / Settings* 
+    Select a Point of Sale and ensure than in the payment methods section, 
+    at least one payment method has a journal type "cash"
 
 Usage
 =====
 
 #.  Go to *Point of Sale / Dashboard* and create and open or access to an
     already open POS Session.
-#.  Press the button **Pay Invoice** to pay a Supplier Invoice or a Customer
+#.  Open the POS Session form view on the Backend.
+#.  Press the button **Pay Supplier** to pay a Supplier Invoice or **Pay Refund** for a Customer
     Refund. It will be paid using Cash.
-#.  Select **Collect Payment from Invoice** in to receive a payment of an
+#.  Select **Get Payment from Invoice** to receive a payment of an
     existing Customer Invoice or a Supplier Refund. You will need to select
     a Journal if the POS Config has defined multiple Payment Methods.
 
@@ -59,16 +65,13 @@ Known issues / Roadmap
 * Cannot pay invoices in a different currency than that defined in the journal
   associated to the payment method used to pay/collect payment.
 
-* Should depend on `pos_invoicing` but it requires a refactoring of `pos_invoicing`.
-  It will be improved when migrating to 13.0
-
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_session_pay_invoice%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_session_pay_invoice%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -85,6 +88,9 @@ Contributors
 
 * Enric Tobella <etobella@creublanca.es>
 * Jordi Ballester <jordi.ballester@eficent.com>
+* Tecnativa (https://www.tecnativa.com):
+
+  * Carlos Lopez
 
 Maintainers
 ~~~~~~~~~~~
@@ -99,6 +105,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_session_pay_invoice>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_session_pay_invoice>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

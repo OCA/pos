@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -9,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -275,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -301,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -369,7 +369,7 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:6eac7dbff1f6e08ae835df882a549b193c4d037be692dfd6913960c06245184b
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/licence-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/14.0/pos_session_pay_invoice"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_session_pay_invoice"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=14.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/licence-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/16.0/pos_session_pay_invoice"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_session_pay_invoice"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This modules allows to pay an existing Supplier Invoice / Customer Refund, or
 to collect payment for an existing Customer Invoice, from within a POS Session.</p>
 <p><strong>Table of contents</strong></p>
@@ -390,8 +390,12 @@ to collect payment for an existing Customer Invoice, from within a POS Session.<
 <div class="section" id="configuration">
 <h1><a class="toc-backref" href="#toc-entry-1">Configuration</a></h1>
 <ol class="arabic simple">
-<li>Go to <em>Point of Sale / Configuration / Point of Sale</em> and activate the
-‘Cash Control’ setting.</li>
+<li>Go to <em>Point of Sale / Configuration / Payment Methods</em>
+and ensure that at least one payment method with a journal type “cash”
+is created (or create one if it does not exist).</li>
+<li>Go to <em>Point of Sale / Configuration / Settings</em>
+Select a Point of Sale and ensure than in the payment methods section,
+at least one payment method has a journal type “cash”</li>
 </ol>
 </div>
 <div class="section" id="usage">
@@ -399,9 +403,10 @@ to collect payment for an existing Customer Invoice, from within a POS Session.<
 <ol class="arabic simple">
 <li>Go to <em>Point of Sale / Dashboard</em> and create and open or access to an
 already open POS Session.</li>
-<li>Press the button <strong>Pay Invoice</strong> to pay a Supplier Invoice or a Customer
+<li>Open the POS Session form view on the Backend.</li>
+<li>Press the button <strong>Pay Supplier</strong> to pay a Supplier Invoice or <strong>Pay Refund</strong> for a Customer
 Refund. It will be paid using Cash.</li>
-<li>Select <strong>Collect Payment from Invoice</strong> in to receive a payment of an
+<li>Select <strong>Get Payment from Invoice</strong> to receive a payment of an
 existing Customer Invoice or a Supplier Refund. You will need to select
 a Journal if the POS Config has defined multiple Payment Methods.</li>
 </ol>
@@ -411,8 +416,6 @@ a Journal if the POS Config has defined multiple Payment Methods.</li>
 <ul class="simple">
 <li>Cannot pay invoices in a different currency than that defined in the journal
 associated to the payment method used to pay/collect payment.</li>
-<li>Should depend on <cite>pos_invoicing</cite> but it requires a refactoring of <cite>pos_invoicing</cite>.
-It will be improved when migrating to 13.0</li>
 </ul>
 </div>
 <div class="section" id="bug-tracker">
@@ -420,7 +423,7 @@ It will be improved when migrating to 13.0</li>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_session_pay_invoice%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_session_pay_invoice%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -436,16 +439,22 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <ul class="simple">
 <li>Enric Tobella &lt;<a class="reference external" href="mailto:etobella&#64;creublanca.es">etobella&#64;creublanca.es</a>&gt;</li>
 <li>Jordi Ballester &lt;<a class="reference external" href="mailto:jordi.ballester&#64;eficent.com">jordi.ballester&#64;eficent.com</a>&gt;</li>
+<li>Tecnativa (<a class="reference external" href="https://www.tecnativa.com">https://www.tecnativa.com</a>):<ul>
+<li>Carlos Lopez</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-8">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/14.0/pos_session_pay_invoice">OCA/pos</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/16.0/pos_session_pay_invoice">OCA/pos</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
