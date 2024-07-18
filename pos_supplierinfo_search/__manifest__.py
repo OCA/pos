@@ -3,11 +3,11 @@
 {
     "name": "Point of sale - Search products by supplier",
     "summary": "Search products by supplier data",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
-    "author": "TAKOBI, Odoo Community Association (OCA)",
+    "author": "Tecnativa, TAKOBI, Odoo Community Association (OCA)",
     "maintainers": ["eLBati"],
     "license": "LGPL-3",
     "application": False,
