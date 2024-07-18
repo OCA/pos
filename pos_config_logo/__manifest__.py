@@ -3,7 +3,7 @@
 {
     "name": "Point of sale logo",
     "summary": "Set logotypes different from the company's one",
-    "version": "16.0.1.0.0",
+    "version": "14.0.1.0.0",
     "category": "Point of Sale",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
@@ -12,12 +12,8 @@
         "point_of_sale",
     ],
     "data": [
-        "views/res_config_settings_views.xml",
+        "views/assets.xml",
+        "views/pos_config_views.xml",
     ],
-    "assets": {
-        "point_of_sale.assets": [
-            "pos_config_logo/static/src/js/**/*.js",
-        ],
-    },
     "installable": True,
 }
