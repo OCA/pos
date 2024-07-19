@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_access_right](pos_access_right/) | 16.0.1.0.1 |  | Point of Sale - Extra Access Right for certain actions
+[pos_config_logo](pos_config_logo/) | 16.0.1.0.0 |  | Set logotypes different from the company's one
 [pos_customer_comment](pos_customer_comment/) | 16.0.1.0.2 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | Display Customer comment in the PoS front office and allow to edit and save it by the cashier
 [pos_daily_sales_reports_category_only](pos_daily_sales_reports_category_only/) | 16.0.1.0.0 |  | Show Sales Reports by Category
 [pos_default_partner](pos_default_partner/) | 16.0.1.0.0 |  | Add a default customer in pos order
