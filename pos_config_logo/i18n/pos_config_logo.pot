@@ -1,0 +1,49 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_config_logo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_config_logo
+#: model_terms:ir.ui.view,arch_db:pos_config_logo.res_config_settings_view_form
+msgid "Alternative point of sale logo"
+msgstr ""
+
+#. module: pos_config_logo
+#: model:ir.model.fields,field_description:pos_config_logo.field_pos_config__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_config_logo
+#: model:ir.model.fields,field_description:pos_config_logo.field_pos_config__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_config_logo
+#: model_terms:ir.ui.view,arch_db:pos_config_logo.res_config_settings_view_form
+msgid "If set, this logo will be used instead of the company's one"
+msgstr ""
+
+#. module: pos_config_logo
+#: model:ir.model.fields,field_description:pos_config_logo.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_config_logo
+#: model:ir.model.fields,field_description:pos_config_logo.field_pos_config__logo
+msgid "Logo"
+msgstr ""
+
+#. module: pos_config_logo
+#: model:ir.model,name:pos_config_logo.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
