@@ -11,6 +11,7 @@ setuptools.setup(
         'odoo14-addon-pos_access_right',
         'odoo14-addon-pos_backend_communication',
         'odoo14-addon-pos_cash_move_reason',
+        'odoo14-addon-pos_config_logo',
         'odoo14-addon-pos_customer_display',
         'odoo14-addon-pos_customer_required',
         'odoo14-addon-pos_customer_tree_view_vat',
