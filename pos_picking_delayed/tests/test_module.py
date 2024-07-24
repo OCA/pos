@@ -42,7 +42,7 @@ class TestModule(TransactionCase):
     def test_01_picking_delayed_enabled(self):
         # Enable feature
         self.pos_config.picking_creation_delayed = True
-        self.pos_config.open_session_cb()
+        self.pos_config.open_ui()
 
         order = self._create_order()
 
@@ -61,7 +61,7 @@ class TestModule(TransactionCase):
     def test_02_picking_delayed_disabled(self):
         # Disable feature
         self.pos_config.picking_creation_delayed = False
-        self.pos_config.open_session_cb()
+        self.pos_config.open_ui()
 
         order = self._create_order()
 
@@ -80,7 +80,6 @@ class TestModule(TransactionCase):
     def _create_order(self):
         # Create order
         account_id = self.env.user.partner_id.property_account_receivable_id
-        statement_id = self.pos_config.current_session_id.statement_ids[0]
         payment_methods = self.pos_config.current_session_id.payment_method_ids
         order_data = {
             "id": "0006-001-0010",
@@ -114,7 +113,6 @@ class TestModule(TransactionCase):
                             "amount": 0.9,
                             "name": fields.Datetime.now(),
                             "account_id": account_id.id,
-                            "statement_id": statement_id.id,
                             "payment_method_id": payment_methods.filtered(
                                 lambda pm: pm.is_cash_count
                                 and not pm.split_transactions
