@@ -55,7 +55,7 @@ class PosOrder(models.Model):
         return res
 
     # Custom Section
-    def _create_delayed_picking(self):
+    def _create_delayed_picking(self):  # pylint: disable=missing-return
         # make the function idempotent
         orders = self.filtered(lambda x: x.has_picking_delayed)
         super(PosOrder, orders)._create_order_picking()
