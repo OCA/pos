@@ -37,59 +37,59 @@
                                 <th>
                                     <strong>Journal</strong>
                                 </th>
-                                <th class="text-right">
+                                <th class="text-end">
                                     <strong>Starting Balance</strong>
                                 </th>
-                                <th class="text-right">
+                                <th class="text-end">
                                     <strong>Total Transactions</strong>
                                 </th>
-                                <th class="text-right">
+                                <th class="text-end">
                                     <strong>Ending Balance</strong>
                                 </th>
-                                <th class="text-right">
+                                <th class="text-end">
                                     <strong>Difference</strong>
                                 </th>
-                                <th
-                                        class="text-right"
-                                        groups="base.group_multi_currency"
-                                    >
+                                <th class="text-end" groups="base.group_multi_currency">
                                     <strong>Currency</strong>
                                 </th>
-                                <th class="text-right">
+                                <th class="text-end">
                                     <strong>Status</strong>
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr t-foreach="o.statement_ids" t-as="statement">
+                            <tr
+                                    t-foreach="o.statement_line_ids.mapped('statement_id')"
+                                    t-as="statement"
+                                >
                                 <td><span t-field="statement.name" /></td>
                                 <td><span t-field="statement.journal_id" /></td>
-                                <td class="text-right">
+                                <td class="text-end">
                                     <span t-field="statement.balance_start" />
                                 </td>
-                                <td class="text-right">
+                                <td class="text-end">
                                     <span t-field="statement.total_entry_encoding" />
                                 </td>
-                                <td class="text-right">
+                                <td class="text-end">
                                     <span t-field="statement.balance_end_real" />
                                 </td>
-                                <td class="text-right">
+                                <td class="text-end">
                                     <span t-field="statement.difference" />
                                 </td>
-                                <td
-                                        class="text-right"
-                                        groups="base.group_multi_currency"
-                                    >
+                                <td class="text-end" groups="base.group_multi_currency">
                                     <span t-field="statement.currency_id" />
                                 </td>
-                                <td class="text-right"><span
+                                <td class="text-end"><span
                                             t-field="statement.state"
                                         /></td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <t t-foreach="o.statement_ids" t-as="statement">
+                    <t
+                            t-foreach="o.statement_line_ids.mapped('statement_id')"
+                            t-as="statement"
+                        >
                         <h4 t-if="statement.line_ids">Statement Details: <span
                                     t-out="statement.name"
                                 /></h4>
@@ -104,8 +104,9 @@
                                     <th>Description</th>
                                     <th>Reference</th>
                                     <th>Partner</th>
+                                    <th>Partner</th>
                                     <th>Account</th>
-                                    <th class="text-right">Amount</th>
+                                    <th class="text-end">Amount</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -130,7 +131,7 @@
                                                 t-if="'account_id' in line"
                                                 t-field="line.account_id"
                                             /></td>
-                                    <td class="text-right">
+                                    <td class="text-end">
                                         <span t-field="line.amount" />
                                     </td>
                                 </tr>
