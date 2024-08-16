@@ -10,6 +10,19 @@ odoo.define("pos_event_sale.tour.ProductScreenTourMethods", function (require) {
     const {Do, Check, Execute} = require("point_of_sale.tour.ProductScreenTourMethods");
 
     class DoExt extends Do {
+        clickOpenSessionButton() {
+            return [
+                {
+                    content: "click add open session button",
+                    trigger:
+                        '.opening-cash-control .footer .button.dynamic-size',
+                    extra_trigger: function () {
+                        return $('div.popups').html() == '';
+                    },
+                },
+            ];
+        }
+
         clickAddEventButton() {
             return [
                 {

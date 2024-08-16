@@ -17,6 +17,7 @@ odoo.define("pos_event_sale.tour.EventSaleAvailability", function (require) {
     startSteps();
 
     // Add event through Add Event button
+    ProductScreen.do.clickOpenSessionButton();
     ProductScreen.do.clickAddEventButton();
     EventSelector.check.isShown();
     EventSelector.check.eventHasAvailabilityLabel("Les Misérables", "5 remaining");
