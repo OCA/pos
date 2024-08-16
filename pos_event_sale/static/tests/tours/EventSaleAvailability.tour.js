@@ -17,7 +17,7 @@ odoo.define("pos_event_sale.tour.EventSaleAvailability", function (require) {
     startSteps();
 
     // Add event through Add Event button
-    ProductScreen.do.clickOpenSessionButton();
+    ProductScreen.do.confirmOpeningPopup();
     ProductScreen.do.clickAddEventButton();
     EventSelector.check.isShown();
     EventSelector.check.eventHasAvailabilityLabel("Les Misérables", "5 remaining");
@@ -54,15 +54,20 @@ odoo.define("pos_event_sale.tour.EventSaleAvailability", function (require) {
     );
     TicketSelector.check.ticketHasAvailabilityLabel("Standard", "Sold out");
     TicketSelector.do.close();
+    EventSelector.do.close();
 
     // Finish order
     ProductScreen.do.clickPayButton();
+    PaymentScreen.check.isShown();
     PaymentScreen.do.clickPaymentMethod("Cash");
-    PaymentScreen.do.pressNumpad("3 0");
+    // PaymentScreen.do.pressNumpad("3 0");
+    PaymentScreen.check.remainingIs("0.0");
     PaymentScreen.do.clickValidate();
+    ReceiptScreen.check.isShown();
     ReceiptScreen.do.clickNextOrder();
+    ProductScreen.check.isShown();
 
-    // As the event is sold out now, we shouldn't be able to sell more
+    // // As the event is sold out now, we shouldn't be able to sell more
     ProductScreen.do.clickAddEventButton();
     EventSelector.check.isShown();
     EventSelector.check.eventHasAvailabilityLabel("Les Misérables", "Sold out");

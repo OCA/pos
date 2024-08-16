@@ -42,16 +42,20 @@ odoo.define("pos_event_sale.tour.EventSale", function (require) {
     TicketSelector.do.clickDisplayedTicket("Kids");
     ProductScreen.check.selectedOrderlineHas("Les Misérables (Kids)", "1.0", "0.00");
     TicketSelector.do.close();
+    EventSelector.do.close();
 
     // Payment
     ProductScreen.do.clickPayButton();
+    PaymentScreen.check.isShown();
     PaymentScreen.do.clickPaymentMethod("Cash");
-    PaymentScreen.do.pressNumpad("3 0");
+    // PaymentScreen.do.pressNumpad("3 0");
     PaymentScreen.check.remainingIs("0.0");
     PaymentScreen.check.validateButtonIsHighlighted(true);
     PaymentScreen.do.clickValidate();
+    ReceiptScreen.check.isShown();
     ReceiptScreen.check.totalAmountContains("30.0");
     ReceiptScreen.do.clickNextOrder();
+    ProductScreen.check.isShown();
 
     Tour.register("EventSaleTour", {test: true, url: "/pos/ui"}, getSteps());
 });
