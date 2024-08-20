@@ -9,8 +9,7 @@ odoo.define("pos_event_sale.Order", function (require) {
     const core = require("web.core");
     const _t = core._t;
     const Registries = require("point_of_sale.Registries");
-    var { Order } = require('point_of_sale.models');
-
+    var {Order} = require("point_of_sale.models");
 
     // Extend the Pos global state to load events
     const PosEventSaleOrder = (Order) =>

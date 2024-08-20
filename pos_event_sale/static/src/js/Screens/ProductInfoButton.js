@@ -10,12 +10,11 @@ odoo.define("pos_event_sale.ProductInfoButton", function (require) {
             async onClick() {
                 const orderline = this.env.pos.get_order().get_selected_orderline();
                 if (orderline) {
-                    if (orderline.get_product().detailed_type == 'event'){
+                    if (orderline.get_product().detailed_type == "event") {
                         return;
                     }
                 }
                 return super.onClick();
-
             }
         };
 

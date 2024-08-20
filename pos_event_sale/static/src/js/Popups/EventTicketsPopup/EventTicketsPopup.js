@@ -28,10 +28,10 @@ odoo.define("pos_event_sale.EventTicketsPopup", function (require) {
         get currentOrder() {
             return this.env.pos.get_order();
         }
-        backToOrder(event){
-            this.env.posbus.trigger('close-popup', {
+        backToOrder() {
+            this.env.posbus.trigger("close-popup", {
                 popupId: this.props.id,
-                response: { confirmed: false, payload: null },
+                response: {confirmed: false, payload: null},
             });
         }
         _getAddProductOptions(eventTicket) {
