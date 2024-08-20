@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_customer_tree_view_vat
-#. openerp-web
-#: code:addons/pos_customer_tree_view_vat/static/src/xml/pos.xml:0
+#. odoo-javascript
+#: code:addons/pos_customer_tree_view_vat/static/src/xml/partner_list_screen.xml:0
 #, python-format
 msgid "Tax ID"
 msgstr ""
