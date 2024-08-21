@@ -43,7 +43,7 @@ class SaleOrder(models.Model):
         if action in ["delivered", "invoiced"]:
             # Mark all moves are delivered
             for move in sale_order.mapped("picking_ids.move_ids_without_package"):
-                move.quantity_done = move.product_uom_qty
+                move.quantity = move.product_uom_qty
             sale_order.mapped("picking_ids").button_validate()
 
         if action in ["invoiced"]:

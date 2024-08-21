@@ -4,25 +4,25 @@
 
 {
     "name": "PoS Order To Sale Order",
-    "version": "16.0.1.0.8",
+    "version": "17.0.1.0.0",
     "author": "GRAP,Odoo Community Association (OCA)",
     "category": "Point Of Sale",
     "license": "AGPL-3",
-    "depends": ["point_of_sale", "sale"],
+    "depends": ["point_of_sale", "sale_stock"],
     "maintainers": ["legalsylvain"],
     "development_status": "Production/Stable",
     "website": "https://github.com/OCA/pos",
     "data": ["views/view_res_config_settings.xml"],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_order_to_sale_order/static/src/css/pos.css",
-            "pos_order_to_sale_order/static/src/js/CreateOrderButton.js",
-            "pos_order_to_sale_order/static/src/js/CreateOrderPopup.js",
+        "point_of_sale._assets_pos": [
+            "pos_order_to_sale_order/static/src/css/pos.scss",
+            "pos_order_to_sale_order/static/src/js/CreateOrderButton.esm.js",
+            "pos_order_to_sale_order/static/src/js/CreateOrderPopup.esm.js",
             "pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml",
             "pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml",
         ],
         "web.assets_tests": [
-            "pos_order_to_sale_order/static/tests/**/*.js",
+            "pos_order_to_sale_order/static/tests/tours/**/*",
         ],
     },
     "installable": True,

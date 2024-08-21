@@ -1,0 +1,54 @@
+/*
+    Copyright (C) 2022-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+*/
+
+.pos {
+    .popup-create-sale-order {
+        table {
+            width: 100%;
+        }
+
+        .button {
+            height: 40px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #e0e2e6;
+            color: #017e84;
+
+            &.button-sale-order {
+                margin-top: 10px;
+                width: 100%;
+                line-height: 40px;
+                margin-right: 0;
+                text-align: left;
+
+                &:last-child {
+                    margin-bottom: 10px;
+                }
+
+                .icon-containers {
+                    margin-left: 10px;
+                    width: 80px;
+                    display: inline-block;
+                }
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+
+            &.cancel {
+                width: 110px;
+                line-height: 40px;
+            }
+        }
+
+        .modal-footer {
+            justify-content: end;
+            padding: 5.5px 10.5px;
+        }
+    }
+}

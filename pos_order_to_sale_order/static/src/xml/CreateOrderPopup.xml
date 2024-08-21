@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="CreateOrderPopup" owl="1">
+    <t t-name="pos_order_to_sale_order.CreateOrderPopup" owl="1">
         <div class="popup popup-create-sale-order">
 
-            <header>
-                <div class="title">Create Order</div>
-            </header>
+            <div class="modal-header">
+                <h3 class="modal-title w-100">Create Sale Order</h3>
+            </div>
 
-            <main class="body">
+            <div class="modal-body">
 
                 <table>
                     <tbody>
-                        <tr t-if="env.pos.config.iface_create_draft_sale_order">
+                        <tr t-if="pos.config.iface_create_draft_sale_order">
                             <td>
                                 <div
                                     class="button button-sale-order"
@@ -26,7 +26,7 @@
                             </td>
                         </tr>
 
-                        <tr t-if="env.pos.config.iface_create_confirmed_sale_order">
+                        <tr t-if="pos.config.iface_create_confirmed_sale_order">
                             <td>
                                 <div
                                     class="button button-sale-order"
@@ -40,7 +40,7 @@
                             </td>
                         </tr>
 
-                        <tr t-if="env.pos.config.iface_create_delivered_sale_order">
+                        <tr t-if="pos.config.iface_create_delivered_sale_order">
                             <td>
                                 <div
                                     class="button button-sale-order"
@@ -55,7 +55,7 @@
                             </td>
                         </tr>
 
-                        <tr t-if="env.pos.config.iface_create_invoiced_sale_order">
+                        <tr t-if="pos.config.iface_create_invoiced_sale_order">
                             <td>
                                 <div
                                     class="button button-sale-order"
@@ -74,12 +74,13 @@
                     </tbody>
                 </table>
 
-            </main>
+            </div>
 
-            <footer class="footer">
-                <div class="button" t-on-click="cancel">Discard</div>
-            </footer>
-
+            <div class="footer modal-footer">
+                <div class="button cancel" t-on-click="cancel">
+                    Discard
+                </div>
+            </div>
         </div>
     </t>
 
