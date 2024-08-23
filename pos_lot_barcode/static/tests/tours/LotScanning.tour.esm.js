@@ -35,6 +35,7 @@ registry.category("web_tour.tours").add("LotScanningInsteadofInputTour", {
     url: "/pos/ui",
     steps: () =>
         [
+            ProductScreen.confirmOpeningPopup(),
             ProductScreen.clickHomeCategory(),
             ProductScreen.clickDisplayedProduct("Lot Product 1"),
             scan_barcode("10120000515"),
