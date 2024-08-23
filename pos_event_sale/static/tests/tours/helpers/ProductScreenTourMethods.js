@@ -13,6 +13,12 @@ odoo.define("pos_event_sale.tour.ProductScreenTourMethods", function (require) {
         clickAddEventButton() {
             return [
                 {
+                    content: "click 'More...' button",
+                    trigger: "div.control-button:contains('More...')",
+                    skip_trigger:
+                        ".control-buttons .control-button span:contains('Add Event')",
+                },
+                {
                     content: "click add event button",
                     trigger:
                         '.control-buttons .control-button span:contains("Add Event")',
