@@ -6,7 +6,7 @@
     "name": "Point of Sale - Membership Extension",
     "summary": "Prevent to sale product in the point of sale"
     " to customer that don't belong to membership categories",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point of Sale",
     "maintainers": ["legalsylvain"],
     "author": "GRAP,Odoo Community Association (OCA)",
