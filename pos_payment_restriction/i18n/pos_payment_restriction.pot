@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_restriction
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_payment_restriction
+#: model:ir.model,name:pos_payment_restriction.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_payment_restriction
+#: model:ir.model.fields,field_description:pos_payment_restriction.field_pos_config__payment_amount_readonly
+#: model:ir.model.fields,field_description:pos_payment_restriction.field_res_config_settings__pos_payment_amount_readonly
+msgid "Payment Amount Readonly"
+msgstr ""
+
+#. module: pos_payment_restriction
+#: model_terms:ir.ui.view,arch_db:pos_payment_restriction.res_config_settings_view_form
+msgid "Payment lines amount would be readonly"
+msgstr ""
+
+#. module: pos_payment_restriction
+#: model:ir.model.fields,help:pos_payment_restriction.field_pos_config__payment_amount_readonly
+#: model:ir.model.fields,help:pos_payment_restriction.field_res_config_settings__pos_payment_amount_readonly
+msgid ""
+"Payment lines amount would be readonly. This should be usedwith the 'Prefill"
+" Cash Payment' option"
+msgstr ""
+
+#. module: pos_payment_restriction
+#: model:ir.model,name:pos_payment_restriction.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
