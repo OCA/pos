@@ -43,6 +43,7 @@ setuptools.setup(
         'odoo-addon-pos_payment_method_cashdro>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_method_change_policy>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_method_image>=16.0dev,<16.1dev',
+        'odoo-addon-pos_payment_restriction>=16.0dev,<16.1dev',
         'odoo-addon-pos_payment_terminal>=16.0dev,<16.1dev',
         'odoo-addon-pos_pricelist_technical>=16.0dev,<16.1dev',
         'odoo-addon-pos_product_display_default_code>=16.0dev,<16.1dev',
