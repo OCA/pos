@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+<template id="report_session_summary">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2>Session Summary: <span t-field="o.name" /></h2>
+
+                    <div class="row mt32 mb32">
+                        <div class="col-auto mw-100 mb-3">
+                            <strong>Responsible</strong>:<br />
+                            <span t-field="o.user_id" />
+                        </div>
+                        <div class="col-auto mw-100 mb-3">
+                            <strong>Point of Sale</strong>:<br />
+                            <span t-field="o.config_id" />
+                        </div>
+                        <div class="col-auto mw-100 mb-3">
+                            <strong>Opening Date</strong>:<br />
+                            <span t-field="o.start_at" />
+                        </div>
+                        <div class="col-auto mw-100 mb-3">
+                            <strong>Closing Date</strong>:<br />
+                            <span t-field="o.stop_at" />
+                        </div>
+                    </div>
+
+                    <h4>Statement Summary</h4>
+
+                    <table class="table table-sm o_main_table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong>Journal</strong>
+                                </th>
+                                <th class="text-end">
+                                    <strong>Starting Balance</strong>
+                                </th>
+                                <th class="text-end">
+                                    <strong>Total Transactions</strong>
+                                </th>
+                                <th class="text-end">
+                                    <strong>Ending Balance</strong>
+                                </th>
+                                <th class="text-end">
+                                    <strong>Difference</strong>
+                                </th>
+                                <th class="text-end" groups="base.group_multi_currency">
+                                    <strong>Currency</strong>
+                                </th>
+                                <th class="text-end">
+                                    <strong>Status</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span t-field="o.cash_journal_id" /></td>
+                                <td class="text-end">
+                                    <span t-field="o.cash_register_balance_start" />
+                                </td>
+                                <td class="text-end">
+                                    <span
+                                            t-field="o.cash_register_total_entry_encoding"
+                                        />
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="o.cash_register_balance_end_real" />
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="o.cash_register_difference" />
+                                </td>
+                                <td class="text-end" groups="base.group_multi_currency">
+                                    <span t-field="o.cash_journal_id.currency_id" />
+                                </td>
+                                <td class="text-end">
+                                    <span t-field="o.state" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <t t-if="o.statement_line_ids">
+                        <h4>Statement Details: </h4>
+
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Reference</th>
+                                    <th>Partner</th>
+                                    <th class="text-end">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.statement_line_ids" t-as="line">
+                                    <td>
+                                        <span t-field="line.date" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.name" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.payment_ref" />
+                                    </td>
+                                    <td>
+                                        <span t-field="line.partner_id" />
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="line.amount" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+                    <t t-if="o.state in ['opening_control', 'opened']">
+                        <t
+                                t-set="cash_payment_method"
+                                t-value="o.payment_method_ids.filtered('is_cash_count')"
+                            />
+                        <t
+                                t-set="cash_payment_domain"
+                                t-value="[('session_id', '=', o.id), ('payment_method_id', 'in', cash_payment_method.ids)]"
+                            />
+                        <t
+                                t-set="cash_payments"
+                                t-value="o.env['pos.payment'].search(cash_payment_domain)"
+                            />
+                        <t t-if="cash_payments">
+                            <h4>Payment Details: </h4>
+
+                            <table class="table table-sm o_main_table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Reference</th>
+                                        <th>Partner</th>
+                                        <th class="text-end">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="cash_payments" t-as="payment">
+                                        <td>
+                                            <span t-field="payment.payment_date" />
+                                        </td>
+                                        <td>
+                                            <span t-field="payment.pos_order_id" />
+                                        </td>
+                                        <td>
+                                            <span t-field="payment.partner_id" />
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-field="payment.amount" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+</odoo>
