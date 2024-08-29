@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,11 +50,6 @@ msgstr ""
 
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
-msgid "<strong>Reference</strong>"
-msgstr ""
-
-#. module: pos_report_session_summary
-#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
 msgid "<strong>Responsible</strong>:<br/>"
 msgstr ""
 
@@ -75,11 +70,6 @@ msgstr ""
 
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
-msgid "Account"
-msgstr ""
-
-#. module: pos_report_session_summary
-#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
 msgid "Amount"
 msgstr ""
 
@@ -96,6 +86,11 @@ msgstr ""
 #. module: pos_report_session_summary
 #: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
 msgid "Partner"
+msgstr ""
+
+#. module: pos_report_session_summary
+#: model_terms:ir.ui.view,arch_db:pos_report_session_summary.report_session_summary
+msgid "Payment Details:"
 msgstr ""
 
 #. module: pos_report_session_summary
