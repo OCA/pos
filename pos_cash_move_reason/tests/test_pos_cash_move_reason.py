@@ -14,13 +14,14 @@ class TestPosCashMoveReason(TransactionCase):
         cls.WizardReason = cls.env["wizard.pos.move.reason"]
         cls.AccountMoveLine = cls.env["account.move.line"]
 
-        cls.config = cls.env.ref("point_of_sale.pos_config_main").copy()
+        cls.config = cls.env.ref("point_of_sale.pos_config_main")
         cls.cash_journal = cls.env["account.journal"].search(
             [
                 ("type", "=", "cash"),
                 ("company_id", "=", cls.env.ref("base.main_company").id),
-            ]
-        )[0]
+            ],
+            limit=1,
+        )
         cls.deposit_reason = cls.env.ref("pos_cash_move_reason.bank_out_reason")
 
     def test_onchange_expense_reason(self):
@@ -70,7 +71,6 @@ class TestPosCashMoveReason(TransactionCase):
         session = self.PosSession.search(
             [("state", "=", "opening_control"), ("config_id", "=", self.config.id)]
         )
-
         # Enter Invalid money
         with self.assertRaises(UserError):
             self.WizardReason.with_context(
@@ -88,7 +88,7 @@ class TestPosCashMoveReason(TransactionCase):
     def test_button_put_money(self):
         self.config._action_to_open_ui()
         session = self.PosSession.search(
-            [("state", "=", "opened"), ("config_id", "=", self.config.id)]
+            [("state", "=", "opening_control"), ("config_id", "=", self.config.id)]
         )
         wiz = session.button_move_income()
         self.assertEqual(wiz["context"]["default_move_type"], "income")

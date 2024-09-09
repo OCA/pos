@@ -6,20 +6,17 @@
             <form>
                 <separator
                     string="Fill in this form if you put money in the cash register"
-                    attrs="{'invisible': [('move_type', '=', 'expense')]}"
+                    invisible="move_type == 'expense'"
                 />
                 <separator
                     string="Describe why you take money from the cash register"
-                    attrs="{'invisible': [('move_type', '=', 'income')]}"
+                    invisible="move_type == 'income'"
                 />
                 <group>
                     <field name="move_type" invisible="1" />
                     <field name="session_id" />
                     <field name="move_reason_id" />
-                    <field
-                        name="journal_id"
-                        attrs="{'invisible': [('move_reason_id', '=', False)]}"
-                    />
+                    <field name="journal_id" invisible="not move_reason_id" />
                     <field name="journal_ids" invisible="1" />
                     <field name="name" />
                     <field name="amount" />
