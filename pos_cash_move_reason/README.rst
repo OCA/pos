@@ -53,22 +53,22 @@ Configuration
 
 -  Go to 'Point of Sale' / 'Configuration' / 'Move Reason'
 
-|image1|
+|pos_cash_move_tree|
 
 -  Create or update your PoS move Reasons.
 -  for each reason, you can mention the concerned journal(s), (Generally
    the Cash Journal), and if it is a reason to 'put in' and / or to
    'take out' Money.
 
-|image2|
+|pos_cash_move_form|
 
 **Note**
 
 You should have checked first 'Used in Point of Sale' for the Journals
 you want to enable the feature.
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_cash_move_reason/static/description/pos_cash_move_tree.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_cash_move_reason/static/description/pos_cash_move_form.png
+.. |pos_cash_move_tree| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_cash_move_reason/static/description/pos_cash_move_tree.png
+.. |pos_cash_move_form| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_cash_move_reason/static/description/pos_cash_move_form.png
 
 Usage
 =====
@@ -149,6 +149,7 @@ Contributors
 
 -  Sylvain LE GAL <https://twitter.com/legalsylvain>
 -  Dhara Solanki <dhara.solanki@initos.com>
+-  Tran Thanh Trai <traitt@trobz.com>
 
 Maintainers
 -----------

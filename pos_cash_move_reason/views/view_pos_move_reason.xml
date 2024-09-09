@@ -43,16 +43,14 @@
                         <field name="is_income_reason" />
                         <field
                             name="income_account_id"
-                            attrs="{
-                            'required': [('is_income_reason', '=', True)],
-                            'invisible': [('is_income_reason', '=', False)]}"
+                            required="is_income_reason"
+                            invisible="not is_income_reason"
                         />
                         <field name="is_expense_reason" />
                         <field
                             name="expense_account_id"
-                            attrs="{
-                            'required': [('is_expense_reason', '=', True)],
-                            'invisible': [('is_expense_reason', '=', False)]}"
+                            required="is_expense_reason"
+                            invisible="not is_expense_reason"
                         />
                     </group>
                 </sheet>

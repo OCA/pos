@@ -13,9 +13,7 @@
                     name="button_move_income"
                     type="object"
                     icon="fa-level-down"
-                    attrs="{'invisible': ['|',
-                        ('display_move_reason_income', '=', False),
-                        ('state', 'not in', ['opened', 'closing_control'])]}"
+                    invisible="not display_move_reason_income or state not in ('opened', 'closing_control')"
                 >
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_text">Put</span>
@@ -28,9 +26,7 @@
                     name="button_move_expense"
                     type="object"
                     icon="fa-level-up"
-                    attrs="{'invisible': ['|',
-                        ('display_move_reason_expense', '=', False),
-                        ('state', 'not in', ['opened', 'closing_control'])]}"
+                    invisible="not display_move_reason_expense or state not in ('opened', 'closing_control')"
                 >
                     <div class="o_field_widget o_stat_info">
                         <span class="o_stat_text">Take</span>

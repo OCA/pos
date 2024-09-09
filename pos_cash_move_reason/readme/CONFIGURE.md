@@ -1,13 +1,13 @@
 - Go to 'Point of Sale' / 'Configuration' / 'Move Reason'
 
-![](../static/description/pos_cash_move_tree.png)
+![pos_cash_move_tree](../static/description/pos_cash_move_tree.png)
 
 - Create or update your PoS move Reasons.
 - for each reason, you can mention the concerned journal(s), (Generally
   the Cash Journal), and if it is a reason to 'put in' and / or to 'take
   out' Money.
 
-![](../static/description/pos_cash_move_form.png)
+![pos_cash_move_form](../static/description/pos_cash_move_form.png)
 
 **Note**
 

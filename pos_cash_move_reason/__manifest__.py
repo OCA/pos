@@ -6,12 +6,11 @@
     "author": "ACSONE SA/NV," "GRAP," "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "category": "Point Of sale",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
     "data": [
         "security/ir_rule.xml",
-        "security/res_groups.xml",
         "security/ir.model.access.csv",
         "views/view_pos_move_reason.xml",
         "views/view_pos_session.xml",
