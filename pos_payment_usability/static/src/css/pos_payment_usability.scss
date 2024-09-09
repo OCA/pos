@@ -1,0 +1,27 @@
+/*
+    Copyright (C) 2023-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+*/
+
+@media screen and (min-width: 768px) {
+    .pos .payment-numpad .numpad {
+        width: 50%;
+    }
+
+    .pos .payment-screen .left-content .button.validation {
+        display: none;
+    }
+
+    .pos .payment-screen .center-content .button.validation {
+        width: 50%;
+        float: left;
+        height: 100%;
+        padding: 0;
+    }
+
+    .pos .payment-screen .center-content .numpad {
+        float: left;
+        border: none;
+    }
+}
