@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -19,24 +19,36 @@ msgid "2.399GHz"
 msgstr ""
 
 #. module: pos_product_template
-#. openerp-web
-#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
-#, python-format
-msgid "Cancel"
+#: model:ir.model,name:pos_product_template.model_res_config_settings
+msgid "Config Settings"
 msgstr ""
 
 #. module: pos_product_template
-#. openerp-web
-#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.xml:0
 #, python-format
 msgid "Confirm"
 msgstr ""
 
 #. module: pos_product_template
+#: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
+msgid ""
+"If selected the product variant selection screen will show the variants"
+msgstr ""
+
+#. module: pos_product_template
 #: model:ir.model.fields,help:pos_product_template.field_pos_config__iface_product_template_show_variants
+#: model:ir.model.fields,help:pos_product_template.field_res_config_settings__iface_product_template_show_variants
 msgid ""
 "If selected the product variant selection screen will show the variants, "
 "else it will only allow to confirm once all the attributes are chosen."
+msgstr ""
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.esm.js:0
+#, python-format
+msgid "Ok"
 msgstr ""
 
 #. module: pos_product_template
@@ -45,6 +57,41 @@ msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: pos_product_template
 #: model:ir.model.fields,field_description:pos_product_template.field_pos_config__iface_product_template_show_variants
+#: model:ir.model.fields,field_description:pos_product_template.field_res_config_settings__iface_product_template_show_variants
 msgid "Product template show variants"
+msgstr ""
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.esm.js:0
+#, python-format
+msgid "Selected product couldn't be found"
+msgstr ""
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_product_product__template_name
+msgid "Template Name"
+msgstr ""
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_product_product__template_variants
+msgid "Template Variants"
+msgstr ""
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_template_card/product_template_card.xml:0
+#, python-format
+msgid "variants"
 msgstr ""
