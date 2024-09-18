@@ -28,6 +28,7 @@ addon | version | maintainers | summary
 [pos_partner_ref](pos_partner_ref/) | 17.0.1.0.0 | [![invitu](https://github.com/invitu.png?size=30px)](https://github.com/invitu) | Adds the partner ref in the customer screen of POS
 [pos_partner_second_lastname](pos_partner_second_lastname/) | 17.0.1.0.0 |  | Manage second last name inside Point Of Sale Frontend
 [pos_product_expiry](pos_product_expiry/) | 17.0.1.0.1 |  | Evaluate expiry of lot
+[pos_product_template](pos_product_template/) | 17.0.1.0.0 |  | Manage Product Template in Front End Point Of Sale
 
 [//]: # (end addons)
 
