@@ -23,31 +23,25 @@ msgid "2.399GHz"
 msgstr "2.399GHz"
 
 #. module: pos_product_template
-#. openerp-web
-#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
-#, python-format
-msgid "Cancel"
-msgstr "Cancelar"
+#: model:ir.model,name:pos_product_template.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
 
 #. module: pos_product_template
-#. openerp-web
-#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.xml:0
 #, python-format
 msgid "Confirm"
 msgstr "Confirmar"
 
 #. module: pos_product_template
-#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__display_name
-msgid "Display Name"
-msgstr "Nombre a mostrar"
-
-#. module: pos_product_template
-#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__id
-msgid "ID"
-msgstr "ID"
+#: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
+msgid "If selected the product variant selection screen will show the variants"
+msgstr ""
 
 #. module: pos_product_template
 #: model:ir.model.fields,help:pos_product_template.field_pos_config__iface_product_template_show_variants
+#: model:ir.model.fields,help:pos_product_template.field_res_config_settings__iface_product_template_show_variants
 msgid ""
 "If selected the product variant selection screen will show the variants, "
 "else it will only allow to confirm once all the attributes are chosen."
@@ -57,9 +51,11 @@ msgstr ""
 "atributos."
 
 #. module: pos_product_template
-#: model:ir.model.fields,field_description:pos_product_template.field_pos_config____last_update
-msgid "Last Modified on"
-msgstr "Última Modificación en"
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.esm.js:0
+#, python-format
+msgid "Ok"
+msgstr ""
 
 #. module: pos_product_template
 #: model:ir.model,name:pos_product_template.model_pos_config
@@ -67,9 +63,57 @@ msgid "Point of Sale Configuration"
 msgstr "Configuración del punto de venta"
 
 #. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_product_product
+msgid "Product Variant"
+msgstr ""
+
+#. module: pos_product_template
 #: model:ir.model.fields,field_description:pos_product_template.field_pos_config__iface_product_template_show_variants
+#: model:ir.model.fields,field_description:pos_product_template.field_res_config_settings__iface_product_template_show_variants
 msgid "Product template show variants"
 msgstr "La plantilla de producto mostrará las variantes"
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.esm.js:0
+#, python-format
+msgid "Selected product couldn't be found"
+msgstr ""
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_product_product__template_name
+msgid "Template Name"
+msgstr ""
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_product_product__template_variants
+msgid "Template Variants"
+msgstr ""
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/pos/components/product_template_card/product_template_card.xml:0
+#, python-format
+msgid "variants"
+msgstr ""
+
+#, python-format
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgid "Display Name"
+#~ msgstr "Nombre a mostrar"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación en"
 
 #, python-format
 #~ msgid "Variant Selection of"
