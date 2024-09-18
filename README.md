@@ -21,13 +21,13 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_lot_barcode](pos_lot_barcode/) | 17.0.1.0.1 |  | Scan barcode to enter lot/serial numbers
-[pos_lot_selection](pos_lot_selection/) | 17.0.1.0.0 |  | POS Lot Selection
+[pos_lot_barcode](pos_lot_barcode/) | 17.0.1.0.2 |  | Scan barcode to enter lot/serial numbers
+[pos_lot_selection](pos_lot_selection/) | 17.0.1.0.1 |  | POS Lot Selection
 [pos_partner_birthdate](pos_partner_birthdate/) | 17.0.1.1.0 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 17.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_partner_ref](pos_partner_ref/) | 17.0.1.0.0 | [![invitu](https://github.com/invitu.png?size=30px)](https://github.com/invitu) | Adds the partner ref in the customer screen of POS
 [pos_partner_second_lastname](pos_partner_second_lastname/) | 17.0.1.0.0 |  | Manage second last name inside Point Of Sale Frontend
-[pos_product_expiry](pos_product_expiry/) | 17.0.1.0.0 |  | Evaluate expiry of lot
+[pos_product_expiry](pos_product_expiry/) | 17.0.1.0.1 |  | Evaluate expiry of lot
 
 [//]: # (end addons)
 

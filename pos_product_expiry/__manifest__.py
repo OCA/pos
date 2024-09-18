@@ -6,7 +6,7 @@
     "name": "Pos Lot Expiry",
     "summary": """
         Evaluate expiry of lot""",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "license": "AGPL-3",
     "author": "Dixmit,INVITU,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
