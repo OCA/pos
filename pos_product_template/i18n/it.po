@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-03-16 13:22+0000\n"
+"PO-Revision-Date: 2024-09-19 09:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: pos_product_template
 #: model:product.attribute.value,name:pos_product_template.attribute_wifi_extra
@@ -24,7 +24,7 @@ msgstr "2.399GHz"
 #. module: pos_product_template
 #: model:ir.model,name:pos_product_template.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: pos_product_template
 #. odoo-javascript
@@ -37,6 +37,8 @@ msgstr "Conferma"
 #: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
 msgid "If selected the product variant selection screen will show the variants"
 msgstr ""
+"Se selezionata, la schermata di selezione delle varianti del prodotto "
+"mostrerà le varianti"
 
 #. module: pos_product_template
 #: model:ir.model.fields,help:pos_product_template.field_pos_config__iface_product_template_show_variants
@@ -54,7 +56,7 @@ msgstr ""
 #: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.esm.js:0
 #, python-format
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #. module: pos_product_template
 #: model:ir.model,name:pos_product_template.model_pos_config
@@ -64,12 +66,12 @@ msgstr "Configurazione punto vendita"
 #. module: pos_product_template
 #: model:ir.model,name:pos_product_template.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
 
 #. module: pos_product_template
 #: model:ir.model,name:pos_product_template.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante prodotto"
 
 #. module: pos_product_template
 #: model:ir.model.fields,field_description:pos_product_template.field_pos_config__iface_product_template_show_variants
@@ -82,24 +84,24 @@ msgstr "Visualizza varianti modello prodotto"
 #: code:addons/pos_product_template/static/src/pos/components/product_selector/product_selector.esm.js:0
 #, python-format
 msgid "Selected product couldn't be found"
-msgstr ""
+msgstr "Il prodotto selezionato non può essere trovato"
 
 #. module: pos_product_template
 #: model:ir.model.fields,field_description:pos_product_template.field_product_product__template_name
 msgid "Template Name"
-msgstr ""
+msgstr "Nome modello"
 
 #. module: pos_product_template
 #: model:ir.model.fields,field_description:pos_product_template.field_product_product__template_variants
 msgid "Template Variants"
-msgstr ""
+msgstr "Varianti modello"
 
 #. module: pos_product_template
 #. odoo-javascript
 #: code:addons/pos_product_template/static/src/pos/components/product_template_card/product_template_card.xml:0
 #, python-format
 msgid "variants"
-msgstr ""
+msgstr "varianti"
 
 #, python-format
 #~ msgid "Cancel"
