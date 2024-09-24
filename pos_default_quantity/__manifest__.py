@@ -5,13 +5,13 @@
 {
     "name": "Set Default Product Quantity in POS",
     "version": "12.0.1.0.1",
-    "author": "Coop IT Easy SC",
-    "website": "https://coopiteasy.be",
+    "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "category": "Point of Sale",
     "summary": """
-        When adding an to order line, this module sets the quantity to
-         the default quantity set on the product unit category.
+        When adding an order line in the point of sale, this module sets the
+        quantity to a configured default.
     """,
     "depends": ["point_of_sale"],
     "data": [
@@ -19,5 +19,4 @@
         "views/product_view.xml",
         "static/src/xml/templates.xml",
     ],
-    "installable": True,
 }
