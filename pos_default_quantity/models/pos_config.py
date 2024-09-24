@@ -9,5 +9,5 @@ class PosConfig(models.Model):
     _inherit = "pos.config"
 
     set_default_product_quantity = fields.Boolean(
-        string="Sets default product quantity in POS", default=False
+        string="Set default product quantity in POS", default=False
     )

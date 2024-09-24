@@ -4,7 +4,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Set Default Product Quantity in POS",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
@@ -15,8 +15,12 @@
     """,
     "depends": ["point_of_sale"],
     "data": [
-        "views/pos_config_views.xml",
+        "views/res_config_settings_views.xml",
         "views/uom_category_views.xml",
-        "static/src/xml/templates.xml",
     ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_default_quantity/static/src/js/**/*.js",
+        ]
+    },
 }

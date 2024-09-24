@@ -8,4 +8,9 @@ from odoo import fields, models
 class UoMCategory(models.Model):
     _inherit = "uom.category"
 
-    pos_default_qty = fields.Float(string="POS Default Quantity", default=1)
+    # TODO: Should this be hidden behind a boolean toggle?
+    pos_default_qty = fields.Float(
+        string="POS Default Quantity",
+        required=True,
+        default=1,
+    )

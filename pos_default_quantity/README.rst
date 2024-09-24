@@ -30,13 +30,25 @@ Set Default Product Quantity in POS
 
 This module adds a field for a default quantity to Unit of Measure Categories.
 When this is filled in, and when this functionality is enabled in the Point of
-Sale Configuration, then adding that product to an order in the Point of Sale
+Sale configuration, then adding that product to an order in the Point of Sale
 will set the quantity to that value by default.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+In order to set this up, you need to do a few things:
+
+- Make sure that you have permissions to manage multiple units of measure.
+- In the settings of Inventory, enable units of measure.
+- For each relevant unit of measure category, determine a default product quantity
+  (default: 1).
+- For each relevant Point of Sale, find 'Set default product quantity' in the
+  'Inventory' section of its settings, and toggle it on.
 
 Bug Tracker
 ===========
