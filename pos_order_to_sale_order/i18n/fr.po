@@ -31,6 +31,7 @@ msgstr "Créer une vente confirmée"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Confirmed Sale Orders"
 msgstr "Créer des ventes confirmées"
 
@@ -44,6 +45,7 @@ msgstr "Créer une vente livrée"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Delivered Sale Orders"
 msgstr "Créer des ventes livrées"
 
@@ -57,6 +59,7 @@ msgstr "Créer un devis en brouillon"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Draft Sale Orders"
 msgstr "Créer des devis"
 
@@ -70,16 +73,23 @@ msgstr "Créer une vente facturée"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Invoiced Sale Orders"
 msgstr "Créer des ventes facturées"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Order"
 msgstr "Créer une vente"
+
+#. module: pos_order_to_sale_order
+#. odoo-javascript
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Create Sale Order"
+msgstr ""
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order

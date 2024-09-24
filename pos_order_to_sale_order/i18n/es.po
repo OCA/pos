@@ -31,6 +31,7 @@ msgstr "Crear pedido de venta confirmado"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Confirmed Sale Orders"
 msgstr "Crear pedidos de venta confirmados"
 
@@ -44,6 +45,7 @@ msgstr "Crear pedido de venta entregado"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Delivered Sale Orders"
 msgstr "Crear pedidos de venta entregados"
 
@@ -57,6 +59,7 @@ msgstr "Crear borrador de orden de venta"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Draft Sale Orders"
 msgstr "Crear borradores de pedidos de venta"
 
@@ -70,15 +73,22 @@ msgstr "Crear pedido de venta facturado"
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Invoiced Sale Orders"
 msgstr "Crear órdenes de venta facturadas"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Order"
+msgstr "Crear pedido de venta"
+
+#. module: pos_order_to_sale_order
+#. odoo-javascript
+#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
+#, python-format
+msgid "Create Sale Order"
 msgstr "Crear pedido de venta"
 
 #. module: pos_order_to_sale_order
@@ -177,10 +187,6 @@ msgstr "Línea de pedido de venta"
 #, python-format
 #~ msgid "Check your internet connection and try again."
 #~ msgstr "Verifique su conexión a Internet e intente nuevamente."
-
-#, python-format
-#~ msgid "Create Sale Order"
-#~ msgstr "Crear pedido de venta"
 
 #, python-format
 #~ msgid "Create Sale Order and discard the current PoS Order?"
