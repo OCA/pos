@@ -1,0 +1,1 @@
+The module put the vat field required on POS partner view.
