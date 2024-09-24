@@ -15,8 +15,8 @@
     """,
     "depends": ["point_of_sale"],
     "data": [
-        "views/pos_config.xml",
-        "views/product_view.xml",
+        "views/pos_config_views.xml",
+        "views/uom_category_views.xml",
         "static/src/xml/templates.xml",
     ],
 }
