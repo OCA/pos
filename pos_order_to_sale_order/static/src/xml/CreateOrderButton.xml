@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_order_to_sale_order.CreateOrderButton" owl="1">
+        <button
+            class="control-button btn btn-light rounded-0 fw-bolder"
+            t-on-click="onClick"
+        >
+            <i
+                class="fa fa-file-text me-1"
+                role="img"
+                aria-label="Create Order"
+                title="Create Order"
+            />
+            Create Order
+        </button>
+    </t>
+
+</templates>
