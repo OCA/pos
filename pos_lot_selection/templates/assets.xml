@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <template id="assets" inherit_id="point_of_sale.assets">
+        <xpath expr=".">
+            <script
+                type="text/javascript"
+                src="/pos_lot_selection/static/src/js/models.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_lot_selection/static/src/js/EditListPopup.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_lot_selection/static/src/js/OrderWidget.js"
+            />
+            <script
+                type="text/javascript"
+                src="/pos_lot_selection/static/src/js/ProductScreen.js"
+            />
+        </xpath>
+    </template>
+</odoo>

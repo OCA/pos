@@ -4,7 +4,7 @@
 
 {
     "name": "POS Lot Selection",
-    "version": "15.0.1.0.1",
+    "version": "14.0.1.0.0",
     "category": "Point of Sale",
     "author": "Tecnativa, Camptocamp, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
@@ -12,12 +12,8 @@
     "depends": [
         "point_of_sale",
     ],
-    "assets": {
-        "web.assets_qweb": ["pos_lot_selection/static/src/xml/**/*.xml"],
-        "point_of_sale.assets": [
-            "pos_lot_selection/static/src/js/**/*.js",
-        ],
-    },
+    "data": ["templates/assets.xml"],
+    "qweb": ["static/src/xml/LotSelectorPopup.xml"],
     "application": False,
     "installable": True,
 }
