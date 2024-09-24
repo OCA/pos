@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.EditListPopup" t-inherit-mode="extension">
+        <EditListInput position="attributes">
+            <attribute name="lots">props.lots</attribute>
+        </EditListInput>
+    </t>
+
+    <t t-inherit="point_of_sale.EditListInput" t-inherit-mode="extension">
+        <xpath expr="//input" position="attributes">
+            <attribute name="list">prepared_lots</attribute>
+        </xpath>
+        <xpath expr="//input" position="after">
+            <datalist id="prepared_lots">
+                <t t-if="props.lots">
+                    <option
+                        t-foreach="props.lots"
+                        t-as="lot"
+                        t-key="lot_index"
+                        t-att-value="lot"
+                    >
+                        <t t-esc="lot" />
+                    </option>
+                </t>
+            </datalist>
+        </xpath>
+    </t>
+
+</templates>
