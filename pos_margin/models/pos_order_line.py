@@ -37,12 +37,12 @@ class PosOrderLine(models.Model):
         """Overwrite the method from the module "sale_margin"
         (https://github.com/odoo/odoo/blob/14.0/addons/sale_margin/models/sale_order.py#L20)"""
         if not line.product_id:
-            line.purchase_price = 0.0
+            return 0.0
         line = line.with_company(line.company_id)
         product = line.product_id
         product_cost = product.standard_price
         if not product_cost:
-            line.purchase_price = 0.0
+            return 0.0
         fro_cur = product.cost_currency_id
         to_cur = line.currency_id or line.order_id.currency_id
         if line.product_uom_id and line.product_uom_id != product.uom_id:
