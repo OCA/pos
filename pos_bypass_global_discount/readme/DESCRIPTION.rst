@@ -1,0 +1,2 @@
+Field `bypass_global_discount` was introduced in [base_global_discount](https://github.com/OCA/server-backend/tree/16.0/base_global_discount). It's used to exclude some products from global discounts calculations.
+This module is meant to be installed as a companion to `sale_global_discount`. It makes sure the POS will also honors the `bypass_global_discount` field when user inputs a Discount at the Order level.
