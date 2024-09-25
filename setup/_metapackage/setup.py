@@ -62,6 +62,7 @@ setuptools.setup(
         'odoo-addon-pos_sale_order_print>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_product_config_no_variant>=16.0dev,<16.1dev',
         'odoo-addon-pos_screen_element_custom_size>=16.0dev,<16.1dev',
+        'odoo-addon-pos_session_pay_invoice>=16.0dev,<16.1dev',
         'odoo-addon-pos_stock_available_online>=16.0dev,<16.1dev',
         'odoo-addon-pos_supplierinfo_search>=16.0dev,<16.1dev',
         'odoo-addon-pos_timeout>=16.0dev,<16.1dev',
