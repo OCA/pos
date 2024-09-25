@@ -1,0 +1,227 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_session_pay_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-23 00:46+0000\n"
+"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid ""
+"<span class=\"o_stat_text\">Get Payment</span>\n"
+"                        <span class=\"o_stat_text\">from Invoice</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Obtener pago</span>\n"
+"                        <span class=\"o_stat_text\">desde factura</span>"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid ""
+"<span class=\"o_stat_text\">Pay Supplier</span>\n"
+"                        <span class=\"o_stat_text\">Invoice</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Pagar factura</span>\n"
+"                        <span class=\"o_stat_text\">de proveedor</span>"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
+msgid ""
+"<span class=\"o_stat_text\">Pay</span>\n"
+"                        <span class=\"o_stat_text\">Refund</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Pagar</span>\n"
+"                        <span class=\"o_stat_text\">Rectificativa</span>"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__amount
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__amount
+msgid "Amount"
+msgstr "Importe"
+
+#. module: pos_session_pay_invoice
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:0
+#, python-format
+msgid "Bank Statement was not found"
+msgstr "No se encontró el extracto bancario"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_in_form
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_out_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_cash_invoice_in
+msgid "Cash invoice in"
+msgstr "Factura al contado en"
+
+#. module: pos_session_pay_invoice
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_out
+msgid "Collect Payment from Invoice"
+msgstr "Cobrar el pago de la factura"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__company_id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__company_id
+msgid "Company"
+msgstr "Compañía"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__create_uid
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__create_date
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__currency_id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_cash_invoice_in__display_name
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__display_name
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__display_name
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_order__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_cash_invoice_in__id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__move_id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__move_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_cash_invoice_in____last_update
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in____last_update
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out____last_update
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__write_uid
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__write_date
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: pos_session_pay_invoice
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in
+#: model:ir.actions.act_window,name:pos_session_pay_invoice.action_pos_invoice_in_control
+msgid "Pay invoice"
+msgstr "Factura de pago"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_id
+msgid "Payment Method"
+msgstr "Modo de pago"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_count
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_count
+msgid "Payment Method Count"
+msgstr "Método de Pago Recuento"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_ids
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_ids
+msgid "Payment methods"
+msgstr "Modos de pago"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del punto de venta"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__name
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__name
+msgid "Reason"
+msgstr "Razón"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_in_form
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.cash_invoice_out_form
+msgid "Register"
+msgstr "Registrar"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__session_id
+#: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__session_id
+msgid "Session"
+msgstr "Sesión"
+
+#. module: pos_session_pay_invoice
+#: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_config_kanban
+msgid "Summary"
+msgstr "Resumen"
+
+#. module: pos_session_pay_invoice
+#: code:addons/pos_session_pay_invoice/wizard/cash_invoice_in.py:0
+#, python-format
+msgid "There is no cash register for this Pos session"
+msgstr "No hay caja registradora para esta sesión de TPV"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_pos_box_cash_invoice_in
+msgid "pos box cash invoice in"
+msgstr "factura de caja en efectivo en"
+
+#. module: pos_session_pay_invoice
+#: model:ir.model,name:pos_session_pay_invoice.model_pos_box_cash_invoice_out
+msgid "pos box cash invoice out"
+msgstr "caja pdv factura en efectivo"
+
+#~ msgid ""
+#~ "<span class=\"o_stat_text\">Collect Payment</span>\n"
+#~ "                        <span class=\"o_stat_text\">from Invoice</span>"
+#~ msgstr ""
+#~ "<span class = \"o_stat_text\"> Cobrar pago </span>\n"
+#~ "                         <span class = \"o_stat_text\"> de la factura </"
+#~ "span>"
+
+#~ msgid ""
+#~ "<span class=\"o_stat_text\">Pay</span>\n"
+#~ "                        <span class=\"o_stat_text\">Invoice</span>"
+#~ msgstr ""
+#~ "<span class=\"o_stat_text\">Pagado</span>\n"
+#~ "                        <span class=\"o_stat_text\">Factura</span>"
+
+#~ msgid "cash.invoice.in"
+#~ msgstr "cash.invoice.in"
+
+#~ msgid "cash.invoice.out"
+#~ msgstr "cash.invoice.out"
