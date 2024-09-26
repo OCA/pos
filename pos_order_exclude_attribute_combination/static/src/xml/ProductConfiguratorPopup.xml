@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ProductConfiguratorPopup" t-inherit-mode="extension">
+        <xpath expr="//div[@t-on-click='confirm']" position="replace">
+            <button
+                class="button confirm tzo_confirm"
+                t-on-click="confirm"
+                t-att-disabled="!state.is_combination_possible"
+            >
+                Add
+            </button>
+        </xpath>
+        <xpath expr="//div[@t-as='attribute']" position="before">
+            <div
+                class="no_combination alert alert-warning"
+                t-if="!state.is_combination_possible"
+            > This combination does not exist.</div>
+        </xpath>
+        <RadioProductAttribute position="attributes">
+            <attribute
+                name="is_combination_possible"
+            >state.is_combination_possible</attribute>
+        </RadioProductAttribute>
+    </t>
+</templates>
