@@ -35,6 +35,7 @@
                                         t-model="data.format"
                                         t-att-id="format"
                                         t-att-value="format"
+                                        t-on-change="updateFormat"
                                     />
                                     <label
                                         t-att-for="format"
@@ -45,7 +46,7 @@
                         </div>
                     </section>
                     <section>
-                        <div>
+                        <div t-if="data.format == '2x7xprice'">
                             <label for="extraContent">Extra Content</label>
                             <textarea
                                 rows="4"

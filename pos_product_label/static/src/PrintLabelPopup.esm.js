@@ -26,6 +26,11 @@ export default class PrintLabelPopup extends AbstractAwaitablePopup {
             this.data.format = data.print_format.selection[0][0];
         });
     }
+
+    updateFormat(event) {
+        this.data.format = event.target.value;
+    }
+
     async confirm() {
         const order = this.env.pos.get_order();
         const productIds = [
