@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension">
+        <xpath expr="//div/PaymentScreenStatus" position="attributes">
+            <attribute name="selectedExtraOrders">selectedExtraOrders.orders</attribute>
+        </xpath>
+        <xpath expr="//div/div/PaymentScreenStatus" position="attributes">
+            <attribute name="selectedExtraOrders">selectedExtraOrders.orders</attribute>
+        </xpath>
+    </t>
+    <t t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('payment-buttons')]" position="inside">
+
+            <div class="append_orders d-flex flex-column" t-if="pos.orders.length > 1">
+                <h4
+                    class="title-category pt-3 pb-2 px-3 m-0 bg-view border-bottom border-2"
+                >Append orders</h4>
+                <t t-foreach="orders" t-as="order" t-key="order.cid">
+                    <div
+                        t-attf-class="button add_order btn btn-{{selectedExtraOrders.orders[order.cid]? 'primary':'light'}} rounded-0 border-bottom"
+                        t-on-click="() => {this.appendOrder(order)}"
+                    >
+                        <div
+                            class="order-display d-flex align-items-center flex-grow-1 col justify-content-between align-items-center"
+                        >
+                            <span class="order-name" t-esc="order.name" />
+                            <span
+                                class="order-partner"
+                                t-esc="order.partner ? order.partner.name : ''"
+                            />
+                            <span
+                                class="order-amount"
+                                t-out="pos.env.utils.formatCurrency(order.get_total_with_tax())"
+                            />
+                        </div>
+                    </div>
+                </t>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
