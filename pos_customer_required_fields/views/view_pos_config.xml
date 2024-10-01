@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
+    @author Pierre Verkest <pierreverkest84@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='pos_interface_section']" position="inside">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="pos_res_partner_required_fields_ids"
+                            string="Partner required fields"
+                        />
+                        <div class="text-muted">
+                            This ensure following fields are set in partner while
+                            creating from the pos order.
+
+                            Also if user pick an existing partner created in the
+                            backend without that field, user will be prompt to
+                            add that information.
+                        </div>
+                        <div class="content-group">
+                            <field
+                                name="pos_res_partner_required_fields_ids"
+                                widget="many2many_tags"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
