@@ -4,7 +4,7 @@
 {
     "name": "Point Of Sale - Customer required fields",
     "summary": "Define customer required field used in PoS order.",
-    "version": "12.0.1.0.1",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "author": "Pierre Verkest, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
@@ -16,12 +16,15 @@
         "point_of_sale",
     ],
     "data": [
-        "templates/assets.xml",
         "views/view_pos_config.xml",
     ],
-    "qweb": [
-        "static/src/xml/pos.xml",
-    ],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_customer_required_fields/static/src/xml/PartnerDetailsEdit.xml",
+            "pos_customer_required_fields/static/src/js/PartnerDetailsEdit.js",
+            "pos_customer_required_fields/static/src/css/pos.css",
+        ]
+    },
     "demo": [],
     "installable": True,
 }
