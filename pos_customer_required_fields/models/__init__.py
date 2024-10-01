@@ -1,5 +1,3 @@
-# Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
-# @author Pierre Verkest <pierreverkest84@gmail.com>
-# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from . import res_partner
+from . import res_config_settings
 from . import pos_config
+from . import res_partner

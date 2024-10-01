@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="PartnerDetailsEdit"
+        t-inherit="point_of_sale.PartnerDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[@class='partner-details-left']" position="inside">
+            <div class="partner-detail">
+                <input
+                    class="detail"
+                    name="pos_config_id"
+                    type="hidden"
+                    t-att-value="changes.pos_config_id"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>

@@ -5,7 +5,7 @@ from odoo import _, api, models
 from odoo.exceptions import ValidationError
 
 
-class PosOrder(models.Model):
+class ResPartner(models.Model):
     _inherit = "res.partner"
 
     @api.model

@@ -17,7 +17,7 @@ class PosConfig(models.Model):
         ),
     )
     res_partner_required_fields_names = fields.Char(
-        string="Partner required fields name",
+        string="Partner required fields names",
         compute="_compute_res_partner_required_fields_names",
         help="Technical fields to avoid adding ir.model.fields in pos model",
     )
