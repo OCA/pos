@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
     Copyright 2022 Moka Tourisme (https://www.mokatourisme.fr).
     @author Pierre Verkest <pierreverkest84@gmail.com>
@@ -8,7 +8,12 @@
     <t t-extend="ClientDetailsEdit">
         <t t-jquery="div.client-details-left" t-operation="append">
             <div class='client-detail'>
-                <input class="detail" type="hidden" name="pos_config_id" t-att-value="widget.pos.config.id" />
+                <input
+                    class="detail"
+                    type="hidden"
+                    name="pos_config_id"
+                    t-att-value="widget.pos.config.id"
+                />
             </div>
         </t>
     </t>
