@@ -22,35 +22,21 @@ class TestModule(TransactionCase):
             "pos.payment.change.wizard.new.line"
         ]
         self.product = self.env.ref("product.product_product_3")
-        self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy()
-
-    def _initialize_journals_open_session(self):
-        account_id = self.env.company.account_default_pos_receivable_account_id
-        self.bank_payment_method = self.PosPaymentMethod.create(
-            {
-                "name": "Bank",
-                "receivable_account_id": account_id.id,
+        self.pos_config = self.env.ref("point_of_sale.pos_config_main").copy(
+            default={
+                "payment_method_ids": self.env.ref(
+                    "point_of_sale.pos_config_main"
+                ).payment_method_ids.ids
             }
         )
-        self.cash_payment_method = self.PosPaymentMethod.create(
-            {
-                "name": "Cash",
-                "is_cash_count": True,
-                "receivable_account_id": account_id.id,
-                "journal_id": self.env["account.journal"]
-                .search(
-                    [("type", "=", "cash"), ("company_id", "=", self.env.company.id)],
-                    limit=1,
-                )
-                .id,
-            }
+        self.cash_payment_method = self.pos_config.payment_method_ids.filtered(
+            lambda x: x.journal_id.type == "cash"
+        )
+        self.bank_payment_method = self.pos_config.payment_method_ids.filtered(
+            lambda x: x.journal_id.type == "bank" and not x.split_transactions
         )
 
-        # create new session and open it
-        self.pos_config.payment_method_ids = [
-            self.bank_payment_method.id,
-            self.cash_payment_method.id,
-        ]
+    def _open_session(self):
         self.pos_config.open_ui()
         self.session = self.pos_config.current_session_id
 
@@ -120,7 +106,7 @@ class TestModule(TransactionCase):
     def test_01_payment_change_policy_update(self):
         self.pos_config.payment_change_policy = "update"
 
-        self._initialize_journals_open_session()
+        self._open_session()
         # Make a sale with 35 in cash journal and 65 in check
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
@@ -165,7 +151,7 @@ class TestModule(TransactionCase):
     def test_02_payment_change_policy_refund(self):
         self.pos_config.payment_change_policy = "refund"
 
-        self._initialize_journals_open_session()
+        self._open_session()
         # Make a sale with 35 in cash journal and 65 in check
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
@@ -185,7 +171,7 @@ class TestModule(TransactionCase):
     def test_03_payment_change_closed_orders(self):
         self.pos_config.payment_change_policy = "update"
 
-        self._initialize_journals_open_session()
+        self._open_session()
         # Make a sale with 35 in cash journal and 65 in check
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
@@ -198,7 +184,7 @@ class TestModule(TransactionCase):
 
     def test_04_payment_change_security(self):
         self.pos_config.payment_change_policy = "refund"
-        self._initialize_journals_open_session()
+        self._open_session()
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
         # the demo user should be able to do this
