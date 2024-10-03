@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-01 02:01+0000\n"
-"PO-Revision-Date: 2023-03-20 11:24+0000\n"
-"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
+"PO-Revision-Date: 2024-10-03 09:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: pos_pricelist
 #: code:addons/pos_pricelist/models/pos_config.py:59
@@ -86,7 +86,7 @@ msgstr "Listino prezzi"
 #. module: pos_pricelist
 #: model:ir.ui.view,arch_db:pos_pricelist.view_pos_config_form
 msgid "Pricelists"
-msgstr "Listini prezzi"
+msgstr "Listini"
 
 #. module: pos_pricelist
 #. openerp-web
