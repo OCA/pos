@@ -1,0 +1,237 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_cash_move_reason
+#
+# Translators:
+# Marc Tormo i Bochaca <mtbochaca@gmail.com>, 2017
+# OCA Transbot <transbot@odoo-community.org>, 2017
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-09 03:25+0000\n"
+"PO-Revision-Date: 2023-06-23 13:10+0000\n"
+"Last-Translator: eccit-quim <quim@eccit.com>\n"
+"Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
+msgid ""
+"<span class=\"o_stat_text\">Put</span>\n"
+"                        <span class=\"o_stat_text\">Money In</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Ficar</span>\n"
+"                        <span class=\"o_stat_text\">Diners a</span>"
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
+msgid ""
+"<span class=\"o_stat_text\">Take</span>\n"
+"                        <span class=\"o_stat_text\">Money Out</span>"
+msgstr ""
+"<span class=\"o_stat_text\">Agafar</span>\n"
+"                        <span class=\"o_stat_text\">Diners fora</span>"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__journal_ids
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__journal_ids
+msgid "Accounting Journals"
+msgstr "Revistes comptables"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__active
+msgid "Active"
+msgstr "Actiu"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__amount
+msgid "Amount"
+msgstr "Import"
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__statement_id
+msgid "Bank Statement"
+msgstr "Extracte de compte"
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
+msgid "Cancel"
+msgstr "Cancel · lar"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__company_id
+msgid "Company"
+msgstr "Companyia"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__create_uid
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__create_uid
+msgid "Created by"
+msgstr "Creat per"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__create_date
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__create_date
+msgid "Created on"
+msgstr "Creat el"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__session_id
+msgid "Current Session"
+msgstr "Sessió actual"
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
+msgid "Describe why you take money from the cash register"
+msgstr "Descriu per què treus diners de la caixa registradora"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__display_move_reason_expense
+msgid "Display Move Reason Expense"
+msgstr "Mostra la despesa del motiu del moviment"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__display_move_reason_income
+msgid "Display Move Reason Income"
+msgstr "Mostra els ingressos del motiu del moviment"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__display_name
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__display_name
+msgid "Display Name"
+msgstr "Nom de visualització"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__expense_account_id
+msgid "Expense Account"
+msgstr "Compte de despeses"
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
+msgid "Fill in this form if you put money in the cash register"
+msgstr "Ompliu aquest formulari si poseu diners a la caixa registradora"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__id
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__income_account_id
+msgid "Income Account"
+msgstr "Compte d'ingressos"
+
+#. module: pos_cash_move_reason
+#: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
+#, python-format
+msgid "Invalid Amount"
+msgstr "Import no vàlid"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__is_expense_reason
+msgid "Is Expense Reason"
+msgstr "És motiu de despeses"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__is_income_reason
+msgid "Is Income Reason"
+msgstr "És motiu d'ingressos"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__journal_id
+msgid "Journal"
+msgstr "Diari"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason____last_update
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason____last_update
+msgid "Last Modified on"
+msgstr "Última modificació el"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__write_uid
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__write_uid
+msgid "Last Updated by"
+msgstr "Última actualització per"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__write_date
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__write_date
+msgid "Last Updated on"
+msgstr "Última actualització el"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_reason_id
+msgid "Move Reason"
+msgstr "Moveu la raó"
+
+#. module: pos_cash_move_reason
+#: model:ir.actions.act_window,name:pos_cash_move_reason.action_pos_move_reason
+#: model:ir.actions.act_window,name:pos_cash_move_reason.action_wizard_pos_move_reason
+#: model:ir.ui.menu,name:pos_cash_move_reason.menu_pos_move_reason
+msgid "Move Reasons"
+msgstr "Motius de moviment"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__move_type
+msgid "Move Type"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__name
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_move_reason_form
+msgid "Name"
+msgstr "Nom"
+
+#. module: pos_cash_move_reason
+#: model:ir.model,name:pos_cash_move_reason.model_pos_move_reason
+msgid "PoS - Move In / Out Reason"
+msgstr "PoS - Motiu d'entrada / sortida"
+
+#. module: pos_cash_move_reason
+#: model:ir.model,name:pos_cash_move_reason.model_wizard_pos_move_reason
+msgid "PoS Move Reasons Wizard"
+msgstr "Assistent de motius de moviment de PoS"
+
+#. module: pos_cash_move_reason
+#: model:ir.model,name:pos_cash_move_reason.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessió Punt de Venda"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__income
+msgid "Put Money In"
+msgstr "Posa diners"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__name
+msgid "Reason"
+msgstr "Raó"
+
+#. module: pos_cash_move_reason
+#: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
+msgid "Take Money Out"
+msgstr "Treu diners"
+
+#. module: pos_cash_move_reason
+#: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
+msgid "Use Old PoS 'Put or Take Money' Actions"
+msgstr "Utilitzeu les antigues accions de PoS \"Posar o treure diners\""
+
+#~ msgid "Move type"
+#~ msgstr "Tipus de moviment"
+
+#~ msgid "Description"
+#~ msgstr "Descripció"
