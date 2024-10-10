@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_wizard_update_bank_statement,access_wizard_update_bank_statement,model_wizard_update_bank_statement,base.group_user,1,1,1,1
+access_wizard_update_cashbox_line,access_wizard_update_cashbox_line,model_wizard_update_cashbox_line,base.group_user,1,1,1,1
+access_wizard_update_cashbox,access_wizard_update_cashbox,model_wizard_update_cashbox,base.group_user,1,1,1,1
