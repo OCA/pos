@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-05 12:09+0000\n"
+"PO-Revision-Date: 2024-04-05 12:09+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_product_template
+#: model:product.attribute.value,name:pos_product_template.attribute_wifi_extra
+msgid "2.399GHz"
+msgstr ""
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: pos_product_template
+#. odoo-javascript
+#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: pos_product_template
+#: model:ir.model.fields,help:pos_product_template.field_pos_config__iface_show_product_template
+#: model:ir.model.fields,help:pos_product_template.field_res_config_settings__iface_show_product_template
+msgid "Enables product templates in TPV"
+msgstr "Activa la selección de plantilla en el TPV"
+
+#. module: pos_product_template
+#: model:ir.model.fields,help:pos_product_template.field_pos_config__iface_product_template_show_variants
+#: model:ir.model.fields,help:pos_product_template.field_res_config_settings__iface_product_template_show_variants
+msgid ""
+"If selected the product variant selection screen will show the variants, "
+"else it will only allow to confirm once all the attributes are chosen."
+msgstr ""
+"Si de marca, la pantalla de selección de productos mostrará las variantes, "
+"de lo contrario, solo permitirá confirmar una vez elegidos todos los "
+"atributos."
+
+#. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__iface_product_template_show_variants
+#: model:ir.model.fields,field_description:pos_product_template.field_res_config_settings__iface_product_template_show_variants
+msgid "Product template show variants"
+msgstr "La plantilla de producto mostrará las variantes"
+
+#. module: pos_product_template
+#: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
+msgid ""
+"Product variant selection screen will show the variants,\n"
+"                            else it will only allow to confirm once all the attributes are chosen."
+msgstr ""
+"La pantalla de selección de productos muestra las variantes, \n"
+"de lo contrario, solo permite confirmar una vez elegidos todos los atributos"
+
+#. module: pos_product_template
+#: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
+msgid "Show product template in TPV"
+msgstr "Plantilla de producto"
+
+#. module: pos_product_template
+#: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
+msgid "Show product template variants"
+msgstr "Mostrar las variantes en la plantilla de producto"
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__iface_show_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_res_config_settings__iface_show_product_template
+msgid "Shows product template in TPV"
+msgstr "Plantilla del producto"
+
+#. module: pos_product_template
+#: model_terms:ir.ui.view,arch_db:pos_product_template.res_config_settings_view_form
+msgid "Shows product template in the product selection screen."
+msgstr "Mostrar la plantilla del producto cuando tiene más de una variante disponible."
