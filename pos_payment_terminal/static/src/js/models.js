@@ -12,9 +12,12 @@
 odoo.define("pos_payment_terminal.models", function (require) {
     "use strict";
 
+    var core = require("web.core");
     var models = require("point_of_sale.models");
     const {PosGlobalState, Payment} = require("point_of_sale.models");
     const Registries = require("point_of_sale.Registries");
+
+    var _t = core._t;
 
     var OCAPaymentTerminal = require("pos_payment_terminal.payment");
     models.register_payment_method("oca_payment_terminal", OCAPaymentTerminal);
@@ -23,13 +26,29 @@ odoo.define("pos_payment_terminal.models", function (require) {
         class extends OriginalPosGlobalState {
             // @override
             async after_load_server_data() {
-                for (var payment_method_id in this.payment_methods) {
-                    var payment_method = this.payment_methods[payment_method_id];
+                for (var index in this.payment_methods) {
+                    var payment_method = this.payment_methods[index];
+                    var payment_method_id = payment_method.id;
+                    if (
+                        this.config.payment_method_ids.indexOf(payment_method_id) === -1
+                    ) {
+                        continue;
+                    }
                     if (
                         payment_method.use_payment_terminal === "oca_payment_terminal"
                     ) {
                         this.config.use_proxy = true;
                     }
+                }
+                if (Boolean(!this.config.proxy_ip) && this.config.use_proxy) {
+                    throw new Error(_t("Payment Terminal Error"), {
+                        cause: {
+                            message: _t(
+                                "A payment terminal has been linked to one payment provider but the IoT " +
+                                    "Box location has not been configured."
+                            ),
+                        },
+                    });
                 }
                 return await super.after_load_server_data(...arguments);
             }
