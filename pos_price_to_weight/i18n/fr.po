@@ -1,0 +1,132 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * pos_price_to_weight
+#
+# Translators:
+# Quentin THEURET <odoo@kerpeo.com>, 2018
+# OCA Transbot <transbot@odoo-community.org>, 2018
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-01 02:01+0000\n"
+"PO-Revision-Date: 2020-06-15 11:19+0000\n"
+"Last-Translator: Sylvain LE GAL <sylvain.legal@grap.coop>\n"
+"Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.10\n"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Alias"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:product.product,name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.template,name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+msgid "Apples (with Price To Weight Barcode)"
+msgstr "Pommes (Avec un code barre Prix vers Poids)"
+
+#. module: pos_price_to_weight
+#: model:ir.model,name:pos_price_to_weight.model_barcode_rule
+#, fuzzy
+msgid "Barcode Rule"
+msgstr "barcode.rule"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Cashier"
+msgstr "Caissier"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Client"
+msgstr "Client"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Discounted Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_name
+msgid "Field Name"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Location"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Lot"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Meal Voucher Payment"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Package"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:ir.model,name:pos_price_to_weight.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_id
+msgid "Price To Weight Field"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+#, fuzzy
+msgid "Priced Product"
+msgstr "Prix du produit (Poid calculé)"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Priced Product (Computed Weight)"
+msgstr "Prix du produit (Poid calculé)"
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Tare"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
+msgid "Type"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model_terms:ir.ui.view,arch_db:pos_price_to_weight.view_pos_config_form
+msgid "Unit Price field used when converting scanned weight to price."
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Unit Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: selection:barcode.rule,type:0
+msgid "Weighted Product"
+msgstr ""
+
+#. module: pos_price_to_weight
+#: model:product.product,uom_name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.product,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode
+#: model:product.template,uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+#: model:product.template,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
+msgid "kg"
+msgstr ""
