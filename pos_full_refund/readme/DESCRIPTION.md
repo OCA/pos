@@ -1,0 +1,1 @@
+This module adds a new button in the ticket screen to automatically add the lines of the selected order and returns to the main screen.
