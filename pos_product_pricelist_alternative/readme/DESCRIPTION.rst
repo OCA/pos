@@ -1,0 +1,2 @@
+POS product pricelist alternative is based on the same logic of `OCA/product_pricelist_alternative: <https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_alternative>` which allows you to define alternative price lists to a reference price list.
+As a general rule, the price of a given product is obtained from the minimum between its reference price list and the alternative price lists.
