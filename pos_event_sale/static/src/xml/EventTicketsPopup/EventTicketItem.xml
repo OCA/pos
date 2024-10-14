@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2021 Camptocamp SA (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="EventTicketItem" owl="1">
+        <article
+            class="event-ticket"
+            tabindex="0"
+            t-att-class="addedClasses"
+            t-on-click="clickEventTicket"
+            t-att-data-event-id="props.eventTicket.id"
+            t-attf-aria-labelledby="article_event_ticket_{{props.eventTicket.id}}"
+        >
+            <img
+                class="ticket-image"
+                t-att-src="imageUrl"
+                t-att-alt="props.eventTicket.name"
+            />
+            <span class="price-tag">
+                <t t-if="price" t-esc="priceFormatted" />
+                <t t-else="">Free</t>
+            </span>
+            <EventAvailabilityBadge seatsAvailable="state.seatsAvailable" />
+            <div
+                class="ticket-name"
+                t-attf-id="article_event_ticket_{{props.eventTicket.id}}"
+            >
+                <t t-esc="props.eventTicket.name" />
+            </div>
+            <div class="ticket-description">
+                <t
+                    t-if="props.eventTicket.description"
+                    t-esc="props.eventTicket.description"
+                />
+            </div>
+        </article>
+    </t>
+
+</templates>

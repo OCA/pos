@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_event_form_inherit_ticket" model="ir.ui.view">
+        <field name="model">event.event</field>
+        <field name="inherit_id" ref="event_sale.view_event_form_inherit_ticket" />
+        <field name="arch" type="xml">
+            <button name="action_view_linked_orders" position="after">
+                <button
+                    name="action_view_pos_orders"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-dollar"
+                    groups="point_of_sale.group_pos_user"
+                    help="Total POS Sales for this event"
+                    attrs="{'invisible': [('pos_price_subtotal', '=', 0)]}"
+                >
+                    <field
+                        string="POS Sales"
+                        name="pos_price_subtotal"
+                        widget="statinfo"
+                    />
+                </button>
+            </button>
+        </field>
+    </record>
+
+</odoo>

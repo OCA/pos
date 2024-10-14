@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2023 Camptocamp (https://www.camptocamp.com).
+    @author Iván Todorovich <ivan.todorovich@camptocamp.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="MultiSelectButton" owl="1">
+        <div class="multi-select-button">
+            <button t-on-click="onClick">
+                <i t-if="icon" t-att-class="icon + ' fa'" />
+                <span t-esc="label" />
+            </button>
+            <ul
+                t-if="state.open"
+                class="multi-select-button-menu touch-scrollable scrollable-y"
+                role="menu"
+            >
+                <li
+                    t-foreach="items"
+                    t-as="item"
+                    t-key="item.key || item.id || ('item-' + item_index)"
+                    t-on-click.prevent="onClickItem(item)"
+                    t-att-class="{ selected: item.checked }"
+                >
+                    <t t-esc="item.label" />
+                </li>
+            </ul>
+        </div>
+    </t>
+
+</templates>
