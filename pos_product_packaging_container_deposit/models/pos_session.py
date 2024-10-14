@@ -9,5 +9,5 @@ class PosSession(models.Model):
 
     def _loader_params_product_packaging(self):
         result = super()._loader_params_product_packaging()
-        result["search_params"]["fields"].append("container_deposit_product_id")
+        result["search_params"]["fields"].append("container_deposit_product_ids")
         return result
