@@ -1,0 +1,80 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-18 12:01+0000\n"
+"PO-Revision-Date: 2023-07-26 13:10+0000\n"
+"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_product_template
+#: model:product.attribute.value,name:pos_product_template.attribute_wifi_extra
+msgid "2.399GHz"
+msgstr "2.399GHz"
+
+#. module: pos_product_template
+#. openerp-web
+#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_product_template
+#. openerp-web
+#: code:addons/pos_product_template/static/src/xml/SelectVariantPopup.xml:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_product_template
+#: model:ir.model.fields,help:pos_product_template.field_pos_config__iface_product_template_show_variants
+msgid ""
+"If selected the product variant selection screen will show the variants, "
+"else it will only allow to confirm once all the attributes are chosen."
+msgstr ""
+"Si de marca, la pantalla de selección de productos mostrará las variantes, "
+"de lo contrario, solo permitirá confirmar una vez elegidos todos los "
+"atributos."
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación en"
+
+#. module: pos_product_template
+#: model:ir.model,name:pos_product_template.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del punto de venta"
+
+#. module: pos_product_template
+#: model:ir.model.fields,field_description:pos_product_template.field_pos_config__iface_product_template_show_variants
+msgid "Product template show variants"
+msgstr "La plantilla de producto mostrará las variantes"
+
+#, python-format
+#~ msgid "Variant Selection of"
+#~ msgstr "Seleccina una variante de"
+
+#, python-format
+#~ msgid "Variants"
+#~ msgstr "Variantes"

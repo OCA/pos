@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2014-Today Akretion (https://www.akretion.com)
+     @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+     @author Raphaël Reverdy (https://akretion.com)
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<template>
+
+
+    <t t-name="ProductTemplateItem" owl="1">
+        <article
+            class="product"
+            tabindex="0"
+            t-on-keypress="spaceClickProduct"
+            t-on-click="trigger('click-product-template', props.product)"
+            t-att-data-product-id="props.product.id"
+            t-attf-aria-labelledby="article_product_{{props.product.id}}"
+        >
+            <div class="product-img">
+                <img
+                    t-att-src="imageTmpUrl"
+                    t-att-alt="props.product.template.display_name"
+                />
+                <!-- TODO
+                can be variable
+                <span class="price-tag">
+                    <t t-esc="price" />
+                </span>-->
+            </div>
+            <div class="product-name" t-attf-id="article_product_{{props.product.id}}">
+                <t t-esc="props.product.template.display_name" />
+            </div>
+        </article>
+    </t>
+    <t t-name="AttributeValueItem" owl="1">
+        <article
+            class="attributeValue"
+            tabindex="0"
+            t-on-keypress="spaceClickProduct"
+            t-on-click="trigger('click-attribute-value', props.attributeValue)"
+            t-att-data-attributeValue-id="props.attributeValue.id"
+            t-attf-aria-labelledby="attribute_value_{{props.attributeValue.id}}"
+        >
+            <div
+                class="attribute-name button"
+                t-attf-id="attribute_value_{{props.attributeValue.id}}"
+            >
+                <t t-esc="props.attributeValue.name" />
+            </div>
+        </article>
+    </t>
+
+
+</template>
