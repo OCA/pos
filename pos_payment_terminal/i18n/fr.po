@@ -73,6 +73,16 @@ msgid ""
 msgstr ""
 
 #. module: pos_payment_terminal
+#. odoo-javascript
+#: code:addons/pos_payment_terminal/static/src/js/models.js:0
+#, python-format
+msgid ""
+"A payment terminal has been linked to one payment provider but the IoT "
+"Box location has not been configured."
+msgstr "Un terminal de paiement a été lié à une méthode de paiement mais l'emplacement "
+"de l'IoT Box n'a pas ếté configuré."
+
+#. module: pos_payment_terminal
 #: model:ir.model,name:pos_payment_terminal.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
 msgstr "Modes de paiement du point de vente"
