@@ -6,37 +6,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2024-10-22 08:06+0000\n"
+"Last-Translator: janbec <beckhoff.jan@gmail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: pos_lot_selection
 #: model:ir.model.fields,field_description:pos_lot_selection.field_product_product__available_lot_for_pos_ids
 msgid "Available Lot For Pos"
-msgstr ""
+msgstr "Verfügbare Chargen/Seriennummern für die Kasse"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_stock_lot
 msgid "Lot/Serial"
-msgstr ""
+msgstr "Charge/Seriennummer"
 
 #. module: pos_lot_selection
 #. odoo-javascript
 #: code:addons/pos_lot_selection/static/src/js/EditListPopup.esm.js:0
 #, python-format
 msgid "Lot/Serial Number(s) Required"
-msgstr ""
+msgstr "Charge/Seriennummer(n) erforderlich"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Kassensitzung"
 
 #. module: pos_lot_selection
 #: model:ir.model,name:pos_lot_selection.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Produktvariante"
