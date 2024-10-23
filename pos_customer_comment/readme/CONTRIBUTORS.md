@@ -1,0 +1,4 @@
+- Sylvain LE GAL (<https://twitter.com/legalsylvain>)
+- Juan Carlos Bonilla \<<juancarlos.bonilla@factorlibre.com>\>
+- [Binhex](https://binhex.cloud//com):
+  - David Luis Mora \<<d.luis@binhex.cloud>\>
