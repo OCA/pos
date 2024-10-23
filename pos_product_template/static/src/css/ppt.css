@@ -1,0 +1,108 @@
+/*  ********* Variant Selector PopUp  ************************************** */
+.pos .modal-dialog .select-variant-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin-top: 10px;
+}
+
+.pos .modal-dialog .select-variant-products article {
+    font-size: 12px;
+}
+
+.pos .popup .attribute-name.category {
+    width: 110px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/*  ********* Attribut Display  ******************************************** */
+.pos .attribute {
+    position: relative;
+    width: 100%;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.pos .attribute .attribute-name {
+    float: left;
+    font-size: 13px;
+    width: 20%;
+    overflow: hidden;
+}
+
+.pos .attribute .value-list-container {
+    width: 78%;
+    float: left;
+}
+
+.pos .attribute .selected {
+    background-color: white;
+}
+
+.attributeValue > div.attribute-name.button {
+    background-color: #f5f5f5;
+}
+
+.attributeValue.unavailable div.attribute-name.button {
+    color: grey;
+    cursor: not-allowed !important;
+}
+
+.attributeValue.selected div.attribute-name.button {
+    color: black;
+}
+
+.pos .attribute .attribute-value {
+    float: left;
+    width: 150px;
+    padding-left: 15px;
+}
+
+.pos .attribute .attribute-value .button {
+    width: 100%;
+}
+
+.pos .attribute .attribute-value .attribute-value-header {
+    width: 100%;
+    height: 15px;
+    text-align: right;
+}
+
+.pos .attribute .attribute-value .attribute-value-name {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    font-size: 10px;
+    text-align: left;
+    font-weight: normal;
+    padding: 2px;
+}
+
+.pos .attribute .attribute-value .variant-quantity {
+    position: relative;
+    top: 2px;
+    right: 0px;
+    vertical-align: top;
+    color: #fff;
+    line-height: 13px;
+    background: none repeat scroll 0% 0% #7f82ac;
+    padding: 2px 5px;
+    border-radius: 2px;
+    font-size: 9px;
+    margin-right: 3px;
+}
+
+.disabled {
+    background: #e0e2e6;
+    color: #80848f !important;
+    cursor: not-allowed !important;
+}
