@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_discount_all
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-10-09 03:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_discount_all
+#: model:ir.model.fields,help:pos_discount_all.field_product_product__is_discount
+#: model:ir.model.fields,help:pos_discount_all.field_product_template__is_discount
+msgid ""
+"Check this box if you use this product to realize discount on sale. If check "
+"the sale lines will be ignored when computing the amount without discount. "
+"If you use 'Pos Discount' Odoo module, you should check this box for the "
+"product you configured as the 'Discount Product' on your PoS config."
+msgstr ""
+"Spuntare questa opzione se si usa questo prodotto come sconto nelle vendite. "
+"Se selezionata la riga di vendita verrà ignorata nel calcolare il valore "
+"senza sconto. Se si usa il modulo Odoo 'Sconto POS', bisogna spuntare questa "
+"opzione per il prodotto configurato come 'Prodotto sconto' nella "
+"configurazione POS."
+
+#. module: pos_discount_all
+#. odoo-javascript
+#: code:addons/pos_discount_all/static/src/xml/OrderSummary.xml:0
+#, python-format
+msgid "Discount Amount:"
+msgstr "Importo sconto:"
+
+#. module: pos_discount_all
+#: model:product.template,name:pos_discount_all.product_discount_product_template
+msgid "Discount Product"
+msgstr "Prodotto scontato"
+
+#. module: pos_discount_all
+#: model:ir.model.fields,field_description:pos_discount_all.field_product_product__is_discount
+#: model:ir.model.fields,field_description:pos_discount_all.field_product_template__is_discount
+msgid "Is a Discount"
+msgstr "È uno sconto"
+
+#. module: pos_discount_all
+#: model:ir.model,name:pos_discount_all.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessione punto vendita"
+
+#. module: pos_discount_all
+#: model:ir.model,name:pos_discount_all.model_product_template
+msgid "Product"
+msgstr "Prodotto"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2022-Today GRAP (http://www.grap.coop)
+    @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<odoo>
+    <record id="product_discount" model="product.product">
+        <field name="name">Discount Product</field>
+        <field name="is_discount" eval="True" />
+        <field name="list_price">-1.0</field>
+        <field name="taxes_id" eval="[(6,0,[])]" />
+        <field name="available_in_pos" eval="True" />
+    </record>
+</odoo>
