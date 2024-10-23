@@ -1,0 +1,32 @@
+<!--
+    Copyright (C) 2024 - Today: GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+
+        <xpath expr="//t[@t-if='!isTaxIncluded']" position="replace" />
+        <xpath expr="//t[@t-if='isTaxIncluded']" position="replace" />
+
+        <xpath expr="//div[hasclass('before-footer')]" t-operation="before">
+
+            <t t-if='receipt.tax_details_with_base.length > 1'>
+                <div
+                    t-foreach='receipt.tax_details_with_base'
+                    t-as='line_tax'
+                    t-key="line_tax.base_text"
+                >
+                    <span class="pos-receipt-left-align">
+                        <t t-esc='line_tax.base_text' />
+                    </span>
+                    <span class="pos-receipt-right-align">
+                        <t t-esc='line_tax.amount_text' />
+                    </span>
+                </div>
+            </t>
+
+        </xpath>
+
+    </t>
+</templates>
