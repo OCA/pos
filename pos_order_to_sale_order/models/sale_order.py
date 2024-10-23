@@ -13,6 +13,14 @@ class SaleOrder(models.Model):
         PosSession = self.env["pos.session"]
         session = PosSession.browse(order_data["pos_session_id"])
         SaleOrderLine = self.env["sale.order.line"]
+        partner_pricelist = (
+            order_data["pricelist_id"]
+            if order_data["pricelist_id"]
+            else self.env["res.partner"]
+            .browse(order_data["partner_id"])
+            .property_product_pricelist.id
+        )
+        self.pricelist_id = partner_pricelist
         order_lines = [
             Command.create(SaleOrderLine._prepare_from_pos(sequence, line_data[2]))
             for sequence, line_data in enumerate(order_data["lines"], start=1)
@@ -22,7 +30,7 @@ class SaleOrder(models.Model):
             "origin": _("Point of Sale %s") % (session.name),
             "client_order_ref": order_data["name"],
             "user_id": order_data["user_id"],
-            "pricelist_id": order_data["pricelist_id"],
+            "pricelist_id": partner_pricelist,
             "fiscal_position_id": order_data["fiscal_position_id"],
             "order_line": order_lines,
         }
@@ -31,9 +39,15 @@ class SaleOrder(models.Model):
     def create_order_from_pos(self, order_data, action):
         # Create Draft Sale order
         order_vals = self._prepare_from_pos(order_data)
+        partner_lang = self.env["res.partner"].browse(order_vals["partner_id"]).lang
         sale_order = self.with_context(
-            pos_order_lines_data=[x[2] for x in order_data.get("lines", [])]
+            pos_order_lines_data=[x[2] for x in order_data.get("lines", [])],
+            lang=partner_lang,
         ).create(order_vals)
+        for line in sale_order.order_line:
+            line._compute_discount()
+            line._compute_price_unit()
+            line._compute_tax_id()
 
         # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:
