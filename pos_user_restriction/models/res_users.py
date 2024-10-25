@@ -1,5 +1,4 @@
 from odoo import api, models
-from odoo.tools import ormcache
 
 
 class ResUsers(models.Model):
@@ -14,11 +13,3 @@ class ResUsers(models.Model):
         else:
             res = super().has_group(group_ext_id)
         return res
-
-    # HACK: To clear cache called from res.users write method
-    @api.model
-    @ormcache("self._uid", "group_ext_id")
-    def _has_group(self, group_ext_id):
-        return super()._has_group(group_ext_id)
-
-    has_group.clear_cache = _has_group.clear_cache
