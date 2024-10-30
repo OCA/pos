@@ -5,21 +5,19 @@
     "name": "Point of Sale Automatically Invoice Default Partner",
     "summary": """
         Compatibility layer between pos_auto_invoice and pos_default_partner.""",
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Point of Sale",
     "website": "https://coopiteasy.be",
     "author": "Coop IT Easy SC",
     "license": "AGPL-3",
-    "application": False,
     "depends": [
         "pos_auto_invoice",
         "pos_default_partner",
     ],
     "auto-install": True,
-    "excludes": [],
-    "data": [
-        "views/assets.xml",
-    ],
-    "demo": [],
-    "qweb": [],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_auto_invoice_default_partner/static/src/js/**/*.js",
+        ]
+    },
 }
