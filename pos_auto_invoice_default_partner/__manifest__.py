@@ -7,8 +7,8 @@
         Compatibility layer between pos_auto_invoice and pos_default_partner.""",
     "version": "16.0.1.0.0",
     "category": "Point of Sale",
-    "website": "https://coopiteasy.be",
-    "author": "Coop IT Easy SC",
+    "website": "https://github.com/OCA/pos",
+    "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": [
         "pos_auto_invoice",
