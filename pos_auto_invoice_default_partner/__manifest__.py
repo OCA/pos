@@ -5,7 +5,7 @@
     "name": "Point of Sale Automatically Invoice Default Partner",
     "summary": """
         Compatibility layer between pos_auto_invoice and pos_default_partner.""",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "website": "https://coopiteasy.be",
     "author": "Coop IT Easy SC",
