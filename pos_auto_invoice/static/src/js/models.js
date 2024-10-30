@@ -1,13 +1,18 @@
-odoo.define("pos_auto_invoice.models", function(require) {
+odoo.define("pos_auto_invoice.models", function (require) {
     "use strict";
 
-    var models = require("point_of_sale.models");
+    const {Order} = require("point_of_sale.models");
+    const Registries = require("point_of_sale.Registries");
 
-    var OrderSuper = models.Order;
-    models.Order = models.Order.extend({
-        initialize: function(attributes, options) {
-            OrderSuper.prototype.initialize.apply(this, arguments);
-            this.to_invoice = true;
-        },
-    });
+    // eslint-disable-next-line no-shadow
+    const AutoInvoiceOrder = (Order) =>
+        // eslint-disable-next-line no-shadow
+        class AutoInvoiceOrder extends Order {
+            constructor() {
+                super(...arguments);
+                this.to_invoice = true;
+            }
+        };
+
+    Registries.Model.extend(Order, AutoInvoiceOrder);
 });

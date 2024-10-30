@@ -5,7 +5,7 @@
     "name": "Point of Sale Automatically Invoice",
     "summary": """
         In the POS, set orders as to-invoice by default.""",
-    "version": "15.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point of Sale",
     "website": "https://coopiteasy.be",
     "author": "Coop IT Easy SC",
