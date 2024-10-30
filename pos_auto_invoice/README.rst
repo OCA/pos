@@ -16,11 +16,17 @@ Point of Sale Automatically Invoice
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
-.. |badge3| image:: https://img.shields.io/badge/github-coopiteasy%2Faddons-lightgray.png?logo=github
-    :target: https://github.com/coopiteasy/addons/tree/12.0/pos_auto_invoice
-    :alt: coopiteasy/addons
+.. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
+    :target: https://github.com/OCA/pos/tree/16.0/pos_auto_invoice
+    :alt: OCA/pos
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_auto_invoice
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :alt: Try me on Runboat
 
-|badge1| |badge2| |badge3|
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
 In the POS, set orders as to-invoice by default.
 
@@ -32,10 +38,10 @@ In the POS, set orders as to-invoice by default.
 Bug Tracker
 ===========
 
-Bugs are tracked on `GitHub Issues <https://github.com/coopiteasy/addons/issues>`_.
+Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/coopiteasy/addons/issues/new?body=module:%20pos_auto_invoice%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_auto_invoice%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -57,6 +63,16 @@ Contributors
 Maintainers
 ~~~~~~~~~~~
 
-This module is part of the `coopiteasy/addons <https://github.com/coopiteasy/addons/tree/12.0/pos_auto_invoice>`_ project on GitHub.
+This module is maintained by the OCA.
 
-You are welcome to contribute.
+.. image:: https://odoo-community.org/logo.png
+   :alt: Odoo Community Association
+   :target: https://odoo-community.org
+
+OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.
+
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_auto_invoice>`_ project on GitHub.
+
+You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

@@ -7,8 +7,8 @@
         In the POS, set orders as to-invoice by default.""",
     "version": "16.0.1.0.0",
     "category": "Point of Sale",
-    "website": "https://coopiteasy.be",
-    "author": "Coop IT Easy SC",
+    "website": "https://github.com/OCA/pos",
+    "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
