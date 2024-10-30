@@ -10,7 +10,9 @@ odoo.define("pos_auto_invoice.models", function (require) {
         class AutoInvoiceOrder extends Order {
             constructor() {
                 super(...arguments);
-                this.to_invoice = true;
+                if (this.pos.config.invoice_by_default) {
+                    this.to_invoice = true;
+                }
             }
         };
 

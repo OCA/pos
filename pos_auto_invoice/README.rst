@@ -28,12 +28,21 @@ Point of Sale Automatically Invoice
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-In the POS, set orders as to-invoice by default.
+Allow to set point-of-sale orders as to-invoice by default.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+This module adds an “Invoice By Default” option to the Accounting section of
+the Point of Sale settings.
+
+To set orders as to-invoice by default, check the “Invoice By Default”
+checkbox.
 
 Bug Tracker
 ===========
@@ -59,6 +68,7 @@ Contributors
 * `Coop IT Easy SC <https://coopiteasy.be>`_:
 
   * Carmen Bianca Bakker
+  * hugues de keyzer
 
 Maintainers
 ~~~~~~~~~~~
