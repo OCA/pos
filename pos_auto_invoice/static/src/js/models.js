@@ -4,10 +4,8 @@ odoo.define("pos_auto_invoice.models", function (require) {
     const {Order} = require("point_of_sale.models");
     const Registries = require("point_of_sale.Registries");
 
-    // eslint-disable-next-line no-shadow
-    const AutoInvoiceOrder = (Order) =>
-        // eslint-disable-next-line no-shadow
-        class AutoInvoiceOrder extends Order {
+    const AutoInvoiceOrder = (OriginalOrder) =>
+        class extends OriginalOrder {
             constructor() {
                 super(...arguments);
                 if (this.pos.config.invoice_by_default) {
