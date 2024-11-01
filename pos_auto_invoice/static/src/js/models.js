@@ -6,11 +6,18 @@ odoo.define("pos_auto_invoice.models", function (require) {
 
     const AutoInvoiceOrder = (OriginalOrder) =>
         class extends OriginalOrder {
-            constructor() {
+            constructor(obj, options) {
                 super(...arguments);
-                if (this.pos.config.invoice_by_default) {
+                if (!options.json && this.pos.config.invoice_by_default) {
                     this.to_invoice = true;
                 }
+            }
+
+            init_from_JSON(json) {
+                super.init_from_JSON(...arguments);
+                // This should be done in the original method, but curiously
+                // it is not (to_invoice is always set to false).
+                this.to_invoice = json.to_invoice;
             }
         };
 
