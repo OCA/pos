@@ -20,12 +20,6 @@ msgstr ""
 "X-Generator: Weblate 4.3.2\n"
 
 #. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Alias"
-msgstr "Àlies"
-
-#. module: pos_price_to_weight
-#: model:product.product,name:pos_price_to_weight.product_price_to_weight_barcode
 #: model:product.template,name:pos_price_to_weight.product_price_to_weight_barcode_product_template
 msgid "Apples (with Price To Weight Barcode)"
 msgstr "Pomes (amb preu per pes de codi de barres)"
@@ -36,95 +30,64 @@ msgid "Barcode Rule"
 msgstr "barcode.rule"
 
 #. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Cashier"
-msgstr "Caixer"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Client"
-msgstr "Client"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Discounted Product"
-msgstr "Producte amb descompte"
-
-#. module: pos_price_to_weight
-#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_name
-msgid "Field Name"
-msgstr "Nom del camp"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Location"
-msgstr "Ubicació"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Lot"
-msgstr "Lot"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Meal Voucher Payment"
-msgstr "Pagament del val de menjar"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Package"
-msgstr "Paquet"
-
-#. module: pos_price_to_weight
-#: model:ir.model,name:pos_price_to_weight.model_pos_config
-msgid "Point of Sale Configuration"
-msgstr "Configuració del punt de venda"
-
-#. module: pos_price_to_weight
-#: model:ir.model.fields,field_description:pos_price_to_weight.field_pos_config__pos_price_to_weight_price_field_id
-msgid "Price To Weight Field"
-msgstr "Camp Preu a Pes"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Priced Product"
-msgstr "Producte amb preu"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
+#: model:ir.model.fields.selection,name:pos_price_to_weight.selection__barcode_rule__type__price_to_weight
 msgid "Priced Product (Computed Weight)"
 msgstr "Producte amb preu (pes automatitzat)"
-
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Tare"
-msgstr "Tara"
 
 #. module: pos_price_to_weight
 #: model:ir.model.fields,field_description:pos_price_to_weight.field_barcode_rule__type
 msgid "Type"
 msgstr "Tipus"
 
-#. module: pos_price_to_weight
-#: model_terms:ir.ui.view,arch_db:pos_price_to_weight.view_pos_config_form
-msgid "Unit Price field used when converting scanned weight to price."
-msgstr ""
-"El camp Preu unitari s'utilitza quan es converteix el pes escanejat en preu."
+#~ msgid "Alias"
+#~ msgstr "Àlies"
 
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Unit Product"
-msgstr "Producte unitari"
+#~ msgid "Cashier"
+#~ msgstr "Caixer"
 
-#. module: pos_price_to_weight
-#: selection:barcode.rule,type:0
-msgid "Weighted Product"
-msgstr "Producte ponderat"
+#~ msgid "Client"
+#~ msgstr "Client"
 
-#. module: pos_price_to_weight
-#: model:product.product,uom_name:pos_price_to_weight.product_price_to_weight_barcode
-#: model:product.product,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode
-#: model:product.template,uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
-#: model:product.template,weight_uom_name:pos_price_to_weight.product_price_to_weight_barcode_product_template
-msgid "kg"
-msgstr "kg"
+#~ msgid "Discounted Product"
+#~ msgstr "Producte amb descompte"
+
+#~ msgid "Field Name"
+#~ msgstr "Nom del camp"
+
+#~ msgid "Location"
+#~ msgstr "Ubicació"
+
+#~ msgid "Lot"
+#~ msgstr "Lot"
+
+#~ msgid "Meal Voucher Payment"
+#~ msgstr "Pagament del val de menjar"
+
+#~ msgid "Package"
+#~ msgstr "Paquet"
+
+#~ msgid "Point of Sale Configuration"
+#~ msgstr "Configuració del punt de venda"
+
+#~ msgid "Price To Weight Field"
+#~ msgstr "Camp Preu a Pes"
+
+#~ msgid "Priced Product"
+#~ msgstr "Producte amb preu"
+
+#~ msgid "Tare"
+#~ msgstr "Tara"
+
+#~ msgid "Unit Price field used when converting scanned weight to price."
+#~ msgstr ""
+#~ "El camp Preu unitari s'utilitza quan es converteix el pes escanejat en "
+#~ "preu."
+
+#~ msgid "Unit Product"
+#~ msgstr "Producte unitari"
+
+#~ msgid "Weighted Product"
+#~ msgstr "Producte ponderat"
+
+#~ msgid "kg"
+#~ msgstr "kg"
