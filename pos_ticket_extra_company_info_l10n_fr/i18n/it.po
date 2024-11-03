@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* pos_ticket_extra_company_info_l10n_fr
+# 	* pos_ticket_extra_company_info_l10n_fr
 #
 msgid ""
 msgstr ""
@@ -17,9 +17,13 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_ticket_extra_company_info_l10n_fr
-#. openerp-web
-#: code:addons/pos_ticket_extra_company_info_l10n_fr/static/src/xml/pos_ticket_extra_company_info_l10n_fr.xml:15
-#: code:addons/pos_ticket_extra_company_info_l10n_fr/static/src/xml/pos_ticket_extra_company_info_l10n_fr.xml:26
+#: model:ir.model,name:pos_ticket_extra_company_info_l10n_fr.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_ticket_extra_company_info_l10n_fr
+#. odoo-javascript
+#: code:addons/pos_ticket_extra_company_info_l10n_fr/static/src/xml/OrderReceipt.xml:0
 #, python-format
 msgid "SIRET:"
 msgstr "SIRET:"
