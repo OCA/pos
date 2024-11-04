@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [pos_lot_selection](pos_lot_selection/) | 17.0.1.0.1 |  | POS Lot Selection
 [pos_order_copy](pos_order_copy/) | 17.0.1.0.0 |  | Copy Orders from PoS Frontend
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 17.0.1.0.0 | [![legalsylvain](https://github.com/legalsylvain.png?size=30px)](https://github.com/legalsylvain) | PoS Order To Sale Order
+[pos_partner_address_required](pos_partner_address_required/) | 17.0.1.0.0 | [![peluko00](https://github.com/peluko00.png?size=30px)](https://github.com/peluko00) | Put partner address required in pos
 [pos_partner_birthdate](pos_partner_birthdate/) | 17.0.1.1.0 | [![ecino](https://github.com/ecino.png?size=30px)](https://github.com/ecino) | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 17.0.1.0.1 | [![robyf70](https://github.com/robyf70.png?size=30px)](https://github.com/robyf70) | POS Support of partner firstname
 [pos_partner_firstname_required](pos_partner_firstname_required/) | 17.0.1.0.0 | [![peluko00](https://github.com/peluko00.png?size=30px)](https://github.com/peluko00) | Put partner firstname required in pos
