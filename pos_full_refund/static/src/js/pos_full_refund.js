@@ -8,9 +8,11 @@ patch(TicketScreen.prototype, {
     onDoFullRefund() {
         var selected_order = this.getSelectedOrder();
         for (const line of selected_order.orderlines) {
-            this.onClickOrderline(line);
-            for (const char of line.quantity.toString()) {
-                this._onUpdateSelectedOrderline({key: char, buffer: char});
+            const toRefundDetails = line
+                .getAllLinesInCombo()
+                .map((line) => this._getToRefundDetail(line));
+            for (const toRefundDetail of toRefundDetails) {
+                toRefundDetail.qty = line.quantity;
             }
         }
         var pay_button = document.querySelector(".pay");
