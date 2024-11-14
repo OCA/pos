@@ -8,5 +8,5 @@ class PosConfig(models.Model):
     _inherit = "pos.config"
 
     sales_report_by_category_only = fields.Boolean(
-        string="Sales Report by Category only?", default=True
+        string="Sales Report by Category only?", default=False
     )
