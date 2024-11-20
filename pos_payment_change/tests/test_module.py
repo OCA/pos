@@ -32,19 +32,9 @@ class TestModule(TransactionCase):
                 "receivable_account_id": account_id.id,
             }
         )
-        self.cash_payment_method = self.PosPaymentMethod.create(
-            {
-                "name": "Cash",
-                "is_cash_count": True,
-                "receivable_account_id": account_id.id,
-                "journal_id": self.env["account.journal"]
-                .search(
-                    [("type", "=", "cash"), ("company_id", "=", self.env.company.id)],
-                    limit=1,
-                )
-                .id,
-            }
-        )
+
+        self.pos_config.add_cash_payment_method()
+        self.cash_payment_method = self.pos_config.payment_method_ids[:1]
 
         # create new session and open it
         self.pos_config.payment_method_ids = [
@@ -98,8 +88,10 @@ class TestModule(TransactionCase):
         self, order, payment_method_1, amount_1, payment_method_2=False, amount_2=0.0
     ):
         # Switch to check journal
-        wizard = self.PosPaymentChangeWizard.with_context(active_id=order.id).create({})
-        self.PosPaymentChangeWizardNewLine.with_context(active_id=order.id).create(
+        wizard = self.PosPaymentChangeWizard.with_context(pos_order_id=order.id).create(
+            {}
+        )
+        self.PosPaymentChangeWizardNewLine.with_context(pos_order_id=order.id).create(
             {
                 "wizard_id": wizard.id,
                 "new_payment_method_id": payment_method_1.id,
@@ -107,7 +99,9 @@ class TestModule(TransactionCase):
             }
         )
         if payment_method_2:
-            self.PosPaymentChangeWizardNewLine.with_context(active_id=order.id).create(
+            self.PosPaymentChangeWizardNewLine.with_context(
+                pos_order_id=order.id
+            ).create(
                 {
                     "wizard_id": wizard.id,
                     "new_payment_method_id": payment_method_2.id,
@@ -205,11 +199,11 @@ class TestModule(TransactionCase):
         user_demo = self.env.ref("base.user_demo")
         wizard = (
             self.PosPaymentChangeWizard.with_user(user_demo)
-            .with_context(active_id=order.id)
+            .with_context(pos_order_id=order.id)
             .create({})
         )
         self.PosPaymentChangeWizardNewLine.with_user(user_demo).with_context(
-            active_id=order.id
+            pos_order_id=order.id
         ).create(
             {
                 "wizard_id": wizard.id,

@@ -12,7 +12,13 @@ class PosPaymentChangeWizard(models.TransientModel):
     _description = "PoS Payment Change Wizard"
 
     # Column Section
-    order_id = fields.Many2one(comodel_name="pos.order", string="Order", readonly=True)
+    order_id = fields.Many2one(
+        comodel_name="pos.order",
+        string="Order",
+        readonly=True,
+        required=True,
+        ondelete="cascade",
+    )
 
     old_line_ids = fields.One2many(
         comodel_name="pos.payment.change.wizard.old.line",
@@ -27,14 +33,16 @@ class PosPaymentChangeWizard(models.TransientModel):
         string="New Payment Lines",
     )
 
-    amount_total = fields.Float(string="Total", readonly=True)
+    amount_total = fields.Float(
+        string="Total", readonly=True, related="order_id.amount_total"
+    )
 
     # View Section
     @api.model
     def default_get(self, fields):
         PosOrder = self.env["pos.order"]
         res = super().default_get(fields)
-        order = PosOrder.browse(self._context.get("active_id"))
+        order = PosOrder.browse(self._context.get("pos_order_id"))
         old_lines_vals = []
         for payment in order.payment_ids:
             old_lines_vals.append(

@@ -8,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -274,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -300,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -368,12 +369,12 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:f92dd72ac053a86a8837e2a670cfa091391cadb66e6e3b45553b3b34f8d76400
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/16.0/pos_payment_change"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_payment_change"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/17.0/pos_payment_change"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_payment_change"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module extends the functionnality of the Odoo Point of Sale to
 allow the cashier to change the payments of a PoS order.</p>
 <p>This feature is usefull when the user realized that he did a mistake,
-just after he marked the order as paid, or during the close of the session,
-Only if entries has not been generated.</p>
+just after he marked the order as paid, or during the close of the
+session, Only if entries has not been generated.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -394,22 +395,18 @@ Only if entries has not been generated.</p>
 <ul class="simple">
 <li>Go to Point of Sale.</li>
 <li>Choose the view list.</li>
-<li>Edit your point of sale, and select a value for the field
-‘Payment Change Policy’.</li>
+<li>Edit your point of sale, and select a value for the field ‘Payment
+Change Policy’.</li>
 </ul>
 <p>Two options are available:</p>
 <ul class="simple">
-<li>‘Refund and Resale’: Odoo will refund the current
-Pos Order to cancel it, and create a new PoS Order
-with the correct payment lines</li>
+<li>‘Refund and Resale’: Odoo will refund the current Pos Order to cancel
+it, and create a new PoS Order with the correct payment lines</li>
 <li>‘Update Payments’: Odoo will change payment lines.</li>
 </ul>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_config_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_config_form.png" />
-</div>
-<p><strong>Note</strong>
-In some countries the ‘Update Payments’ Option
-is not allowed by law, because orders history shouldn’t not be altered.</p>
+<p><img alt="image1" src="https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_config_form.png" /></p>
+<p><strong>Note</strong> In some countries the ‘Update Payments’ Option is not allowed
+by law, because orders history shouldn’t not be altered.</p>
 <p>For that purpose, a constrains is present to check the value of this
 field. If the module <tt class="docutils literal">l10n_fr_certification</tt> is installed and if the
 current company has an inalterable accounting, it will not be possible
@@ -421,32 +418,27 @@ to select the value ‘Update Payments’.</p>
 <li>Go to a PoS Order</li>
 <li>Click on the button ‘Change Payments’</li>
 </ul>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_order_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_order_form.png" />
-</div>
+<p><img alt="Button Change Payment" src="https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_order_form.png" /></p>
 <ul class="simple">
-<li>In the pop up wizard, select the real payment(s) that have been
-used to pay the order</li>
+<li>In the pop up wizard, select the real payment(s) that have been used
+to pay the order</li>
 </ul>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png" />
-</div>
+<p><img alt="Button Open Wizard" src="https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png" /></p>
 <ul class="simple">
 <li>Then click on the button ‘Change Payments’</li>
 </ul>
 <p><strong>Note</strong></p>
-<p>If the option ‘Refund and Resale’ is selected, changing the payments will
-display the three PoS orders. the oringal one, the refund one, and the new one.</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_order_tree.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_order_tree.png" />
-</div>
+<p>If the option ‘Refund and Resale’ is selected, changing the payments
+will display the three PoS orders. the oringal one, the refund one, and
+the new one.</p>
+<p><img alt="New POS Payments Created" src="https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_order_tree.png" /></p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-3">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_change%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_change%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -470,20 +462,23 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <h2><a class="toc-backref" href="#toc-entry-7">Other credits</a></h2>
 <p>The development of this module has been financially supported by:</p>
 <ul class="simple">
-<li>GRAP, Groupement Régional Alimentaire de proximité (www.grap.coop)</li>
-<li>Vracoop (www.vracoop.fr)</li>
+<li>GRAP, Groupement Régional Alimentaire de proximité
+(<a class="reference external" href="http://www.grap.coop">www.grap.coop</a>)</li>
+<li>Vracoop (<a class="reference external" href="http://www.vracoop.fr">www.vracoop.fr</a>)</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-8">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/legalsylvain"><img alt="legalsylvain" src="https://github.com/legalsylvain.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/16.0/pos_payment_change">OCA/pos</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/17.0/pos_payment_change">OCA/pos</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>

@@ -11,11 +11,12 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="arch" type="xml">
             <form>
                 <group col="4">
-                    <field name="order_id" />
+                    <field name="order_id" force_save="1" />
                     <field name="amount_total" invisible="1" />
                     <field name="old_line_ids" colspan="4">
                         <tree>
                             <field name="old_payment_method_id" widget="selection" />
+                            <field name="company_currency_id" column_invisible="1" />
                             <field name="amount" sum="Total" />
                         </tree>
                     </field>
@@ -28,6 +29,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                         <tree editable="bottom">
                             <field name="new_payment_method_id" widget="selection" />
                             <field name="amount" sum="Total" />
+                            <field name="company_currency_id" column_invisible="1" />
+                            <field
+                                name="available_payment_method_ids"
+                                column_invisible="1"
+                            />
                         </tree>
                     </field>
                 </group>
