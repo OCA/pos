@@ -1,0 +1,4 @@
+- [Camptocamp](https://www.camptocamp.com):
+  - Henry Backman <henry.backman@camptocamp.com>
+- [Trobz](https://www.trobz.com):
+  - Tris Doan <tridm@trobz.com>
