@@ -1,0 +1,24 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_display_total_quantity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-11-25 12:00+0000\n"
+"Last-Translator: Henry Backman <henry.backman@camptocamp.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_display_total_quantity
+#. odoo-javascript
+#: code:addons/pos_display_total_quantity/static/src/js/overrides/components/order_widget/order_widget.js:0
+#, python-format
+msgid "Number of articles"
+msgstr "Nb d'articles"
