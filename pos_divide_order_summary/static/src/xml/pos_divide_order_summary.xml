@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2024 - Camptocamp
+@author: Henry Backman (henry.backman@camptocamp.com)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('order-summary')]" position="replace">
+            <div
+                class="summary-wrapper d-flex justify-content-between w-100 py-2 px-3 bg-100"
+            >
+                <div class="summary-left justify-content-start flex-column d-flex">
+                    <!-- Placeholder for left-hand side content -->
+                </div>
+                <div class="order-summary justify-content-end fw-bolder fs-2 lh-sm">
+                    Total:
+                    <span t-esc="props.total" class="total" />
+                    <div t-if="props.tax" class="fs-6 text-muted subentry">
+                        Taxes: <span t-esc="props.tax" class="tax" />
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
