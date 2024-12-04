@@ -32,6 +32,7 @@ class PosSession(models.Model):
         """
         vals = self._prepare_product_label_layout_data(data)
         wizard = self.env["product.label.layout"].create(vals)
+        wizard = wizard.with_context(pos_config_id=self.config_id)
         if data.get("pos_quantity") == "order":
             wizard = wizard.with_context(
                 force_label_qty_by_product=data.get("order_quantity_by_product", {})
