@@ -41,11 +41,6 @@ Configuration
 Go to Point of Sale's settings page and select a default customer for a
 specific PoS configuration.
 
-Known issues / Roadmap
-======================
-
-Set the default customer also on the PoS UI.
-
 Bug Tracker
 ===========
 
@@ -70,10 +65,14 @@ Contributors
 
 * Akretion
 
-    * David Beal <david.beal@akretion.com>
+  * David Beal <david.beal@akretion.com>
 * Foram Shah <foram.shah@initos.com>
 * FactorLibre:
-    * Alvaro Rollan
+
+  * Alvaro Rollan
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
+
+  * hugues de keyzer
 
 Maintainers
 ~~~~~~~~~~~
