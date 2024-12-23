@@ -1,0 +1,16 @@
+<!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record model="ir.ui.view" id="res_config_settings_view_form_inherit">
+        <field name="name">res.config.settings.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+               <setting help="Generation of your sessions references">
+                    <field name="pos_session_sequence_id" readonly="0" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
