@@ -72,12 +72,16 @@ msgstr ""
 "vendita."
 
 #. module: pos_user_restriction
+#: model:ir.model,name:pos_user_restriction.model_res_users
+msgid "User"
+msgstr ""
+
+#. module: pos_user_restriction
 #: model:res.groups,name:pos_user_restriction.group_assigned_points_of_sale_user
 msgid "User: Assigned POS Only"
 msgstr "Utente: solamente POS assegnati"
 
 #. module: pos_user_restriction
-#: model:ir.model,name:pos_user_restriction.model_res_users
 #: model_terms:ir.ui.view,arch_db:pos_user_restriction.pos_config_view_form_users
 msgid "Users"
 msgstr "Utenti"
