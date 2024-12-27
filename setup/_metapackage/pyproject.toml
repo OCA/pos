@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "17.0.20241227.0"
+version = "17.0.20241227.1"
 dependencies = [
     "odoo-addon-pos_cash_control_extension>=17.0dev,<17.1dev",
     "odoo-addon-pos_hide_cost_price_and_margin>=17.0dev,<17.1dev",
@@ -17,6 +17,7 @@ dependencies = [
     "odoo-addon-pos_partner_vat_required>=17.0dev,<17.1dev",
     "odoo-addon-pos_product_expiry>=17.0dev,<17.1dev",
     "odoo-addon-pos_product_template>=17.0dev,<17.1dev",
+    "odoo-addon-pos_user_restriction>=17.0dev,<17.1dev",
 ]
 classifiers=[
     "Programming Language :: Python",

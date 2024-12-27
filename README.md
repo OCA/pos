@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [pos_partner_vat_required](pos_partner_vat_required/) | 17.0.1.0.0 | [![peluko00](https://github.com/peluko00.png?size=30px)](https://github.com/peluko00) | Put partner vat required in pos
 [pos_product_expiry](pos_product_expiry/) | 17.0.1.0.1 |  | Evaluate expiry of lot
 [pos_product_template](pos_product_template/) | 17.0.1.0.0 |  | Manage Product Template in Front End Point Of Sale
+[pos_user_restriction](pos_user_restriction/) | 17.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Restrict some users to see and use only certain points of sale
 
 [//]: # (end addons)
 
