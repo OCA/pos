@@ -88,6 +88,16 @@ msgid "Show quantity in the following warehouses in additional to"
 msgstr "Indicar la cantidad en los siguientes almacenes además de"
 
 #. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_stock_move
+msgid "Stock Move"
+msgstr ""
+
+#. module: pos_stock_available_online
+#: model:ir.model,name:pos_stock_available_online.model_stock_notifier_pos_mixin
+msgid "Stock Notifier POS Mixin"
+msgstr ""
+
+#. module: pos_stock_available_online
 #. odoo-javascript
 #: code:addons/pos_stock_available_online/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
 #, python-format
