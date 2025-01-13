@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
@@ -56,13 +56,13 @@ msgid "Apply"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__statement_id
-msgid "Bank Statement"
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
+msgid "Cancel"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
-msgid "Cancel"
+#: model:account.account,name:pos_cash_move_reason.bank_deposit_account
+msgid "Cash Awaiting Bank Deposit"
 msgstr ""
 
 #. module: pos_cash_move_reason
@@ -119,6 +119,11 @@ msgid "Fill in this form if you put money in the cash register"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#: model:account.account,name:pos_cash_move_reason.gazoline_expense_account
+msgid "Gazoline Expense"
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__id
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__id
 msgid "ID"
@@ -130,6 +135,7 @@ msgid "Income Account"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#. odoo-python
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "Invalid Amount"
@@ -148,12 +154,6 @@ msgstr ""
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__journal_id
 msgid "Journal"
-msgstr ""
-
-#. module: pos_cash_move_reason
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason____last_update
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: pos_cash_move_reason
@@ -221,11 +221,6 @@ msgstr "Причина"
 #. module: pos_cash_move_reason
 #: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
-msgstr ""
-
-#. module: pos_cash_move_reason
-#: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
-msgid "Use Old PoS 'Put or Take Money' Actions"
 msgstr ""
 
 #~ msgid "Description"
