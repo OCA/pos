@@ -5,7 +5,7 @@
 
 {
     "name": "Point of Sale Order Return",
-    "version": "14.0.1.0.4",
+    "version": "13.0.1.0.0",
     "category": "Point Of Sale",
     "author": "La Louve, "
     "GRAP, "
@@ -15,12 +15,12 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/pos",
     "development_status": "Alpha",
-    "depends": ["point_of_sale",],
+    "depends": ["point_of_sale"],
     "data": [
         "wizard/pos_partial_return_wizard_view.xml",
         "views/pos_order_view.xml",
         "views/product_product_view.xml",
     ],
-    "demo": ["demo/product_product.xml",],
+    "demo": ["demo/product_product.xml"],
     "installable": True,
 }
