@@ -15,17 +15,12 @@
     "license": "AGPL-3",
     "website": "https://github.com/OCA/pos",
     "development_status": "Alpha",
-    "depends": [
-        "point_of_sale",
-    ],
+    "depends": ["point_of_sale",],
     "data": [
-        "security/ir.model.access.csv",
         "wizard/pos_partial_return_wizard_view.xml",
         "views/pos_order_view.xml",
         "views/product_product_view.xml",
     ],
-    "demo": [
-        "demo/product_product.xml",
-    ],
+    "demo": ["demo/product_product.xml",],
     "installable": True,
 }

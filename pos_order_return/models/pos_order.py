@@ -11,9 +11,7 @@ class PosOrder(models.Model):
     _inherit = "pos.order"
 
     returned_order_id = fields.Many2one(
-        comodel_name="pos.order",
-        string="Returned Order",
-        readonly=True,
+        comodel_name="pos.order", string="Returned Order", readonly=True,
     )
     refund_order_ids = fields.One2many(
         comodel_name="pos.order",
@@ -22,8 +20,7 @@ class PosOrder(models.Model):
         readonly=True,
     )
     refund_order_qty = fields.Integer(
-        compute="_compute_refund_order_qty",
-        string="Refund Orders Quantity",
+        compute="_compute_refund_order_qty", string="Refund Orders Quantity",
     )
 
     def _compute_refund_order_qty(self):
@@ -74,11 +71,7 @@ class PosOrder(models.Model):
             qty = -line.max_returnable_qty([])
             if qty != 0:
                 copy_line = line.copy(
-                    {
-                        "order_id": new_order.id,
-                        "returned_line_id": line.id,
-                        "qty": qty,
-                    }
+                    {"order_id": new_order.id, "returned_line_id": line.id, "qty": qty,}
                 )
                 copy_line._onchange_amount_line_all()
         new_order._onchange_amount_all()
@@ -182,9 +175,7 @@ class PosOrderLine(models.Model):
     _inherit = "pos.order.line"
 
     returned_line_id = fields.Many2one(
-        comodel_name="pos.order.line",
-        string="Returned Order",
-        readonly=True,
+        comodel_name="pos.order.line", string="Returned Order", readonly=True,
     )
     refund_line_ids = fields.One2many(
         comodel_name="pos.order.line",

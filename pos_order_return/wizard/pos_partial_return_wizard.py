@@ -9,10 +9,7 @@ class PosPartialReturnWizard(models.TransientModel):
     _name = "pos.partial.return.wizard"
     _description = "Partial Return Wizard"
 
-    order_id = fields.Many2one(
-        comodel_name="pos.order",
-        string="Order to Return",
-    )
+    order_id = fields.Many2one(comodel_name="pos.order", string="Order to Return",)
     line_ids = fields.One2many(
         comodel_name="pos.partial.return.wizard.line",
         inverse_name="wizard_id",
@@ -51,8 +48,7 @@ class PosPartialReturnWizardLine(models.TransientModel):
     _description = "Partial Return Wizard Line"
 
     wizard_id = fields.Many2one(
-        comodel_name="pos.partial.return.wizard",
-        string="Wizard",
+        comodel_name="pos.partial.return.wizard", string="Wizard",
     )
     pos_order_line_id = fields.Many2one(
         comodel_name="pos.order.line",
@@ -72,7 +68,4 @@ class PosPartialReturnWizardLine(models.TransientModel):
         "depending of the quantity of the line and other possible "
         "refunds.",
     )
-    qty = fields.Float(
-        string="Returned Quantity",
-        default=0.0,
-    )
+    qty = fields.Float(string="Returned Quantity", default=0.0,)

@@ -26,10 +26,7 @@ class TestPOSOrderReturn(common.SavepointCase):
             }
         )
         cls.partner = cls.env["res.partner"].create(
-            {
-                "name": "Mr. Odoo",
-                "property_product_pricelist": cls.pricelist.id,
-            }
+            {"name": "Mr. Odoo", "property_product_pricelist": cls.pricelist.id,}
         )
         cls.product_1 = cls.env["product.product"].create(
             {
@@ -61,10 +58,20 @@ class TestPOSOrderReturn(common.SavepointCase):
         cls.PosOrder = cls.env["pos.order"]
         cls.PosOrderLine = cls.env["pos.order.line"]
         cls.pos_config = cls.env.ref("point_of_sale.pos_config_main")
+        journal = cls.env["account.journal"].create(
+            {
+                "name": "Test journal sale",
+                "code": "TST-JRNL-S",
+                "type": "sale",
+                "company_id": cls.env.company.id,
+            }
+        )
         cls.pos_config.write(
             {
                 "available_pricelist_ids": [(6, 0, cls.pricelist.ids)],
                 "pricelist_id": cls.pricelist.id,
+                "module_account": True,
+                "invoice_journal_id": journal.id,
             }
         )
         cls.pos_config.company_id.point_of_sale_update_stock_quantities = False
@@ -121,10 +128,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             cls.env["pos.make.payment"]
             .with_context(
-                {
-                    "active_ids": [cls.pos_order.id],
-                    "active_id": cls.pos_order.id,
-                }
+                {"active_ids": [cls.pos_order.id], "active_id": cls.pos_order.id,}
             )
             .create({})
         )
@@ -139,10 +143,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             self.env["pos.make.payment"]
             .with_context(
-                {
-                    "active_ids": refund_order.ids,
-                    "active_id": refund_order.id,
-                }
+                {"active_ids": refund_order.ids, "active_id": refund_order.id,}
             )
             .create({})
         )
@@ -157,10 +158,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         partial_refund = (
             self.env["pos.partial.return.wizard"]
             .with_context(
-                {
-                    "active_ids": self.pos_order.ids,
-                    "active_id": self.pos_order.id,
-                }
+                {"active_ids": self.pos_order.ids, "active_id": self.pos_order.id,}
             )
             .create({})
         )
@@ -175,10 +173,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             self.env["pos.make.payment"]
             .with_context(
-                {
-                    "active_ids": refund_order.ids,
-                    "active_id": refund_order.id,
-                }
+                {"active_ids": refund_order.ids, "active_id": refund_order.id,}
             )
             .create({})
         )
@@ -192,10 +187,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         partial_refund = (
             self.env["pos.partial.return.wizard"]
             .with_context(
-                {
-                    "active_ids": self.pos_order.ids,
-                    "active_id": self.pos_order.id,
-                }
+                {"active_ids": self.pos_order.ids, "active_id": self.pos_order.id,}
             )
             .create({})
         )
@@ -219,10 +211,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             self.env["pos.make.payment"]
             .with_context(
-                {
-                    "active_ids": refund_order.ids,
-                    "active_id": refund_order.id,
-                }
+                {"active_ids": refund_order.ids, "active_id": refund_order.id,}
             )
             .create({})
         )
@@ -232,12 +221,7 @@ class TestPOSOrderReturn(common.SavepointCase):
     def test_pos_order_full_refund_and_new_equal_sale(self):
         # The customer exchanges 3 items for the same quantity of another product.
         refund_order = self.__new_sale(
-            3.0,
-            [
-                (0, 1.0),  # POSLINE/0001
-                (2, 2.0),  # POSLINE/0003
-            ],
-            self.product_2,
+            3.0, [(0, 1.0), (2, 2.0),], self.product_2,  # POSLINE/0001  # POSLINE/0003
         )
         self.assertEqual(len(refund_order), 1)
         self.assertEqual(len(refund_order.lines), 3)
@@ -248,12 +232,7 @@ class TestPOSOrderReturn(common.SavepointCase):
     def test_pos_order_full_refund_and_new_lower_sale(self):
         # Customer exchanges 3 items for 2 of another product
         refund_order = self.__new_sale(
-            2.0,
-            [
-                (0, 1.0),  # POSLINE/0001
-                (2, 2.0),  # POSLINE/0003
-            ],
-            self.product_2,
+            2.0, [(0, 1.0), (2, 2.0),], self.product_2,  # POSLINE/0001  # POSLINE/0003
         )
         self.assertEqual(len(refund_order), 1)
         self.assertEqual(len(refund_order.lines), 3)
@@ -264,12 +243,7 @@ class TestPOSOrderReturn(common.SavepointCase):
     def test_pos_order_full_refund_and_new_higher_sale(self):
         # Customer exchanges 3 items for 4 of another product.
         refund_order = self.__new_sale(
-            4.0,
-            [
-                (0, 1.0),  # POSLINE/0001
-                (2, 2.0),  # POSLINE/0003
-            ],
-            self.product_2,
+            4.0, [(0, 1.0), (2, 2.0),], self.product_2,  # POSLINE/0001  # POSLINE/0003
         )
         self.assertEqual(len(refund_order), 1)
         self.assertEqual(len(refund_order.lines), 3)
@@ -280,22 +254,13 @@ class TestPOSOrderReturn(common.SavepointCase):
     def test_pos_order_several_refund_and_new_sale(self):
         # The customer refund an order placed through a previous refund.
         refund_order = self.__new_sale(
-            3.0,
-            [
-                (0, 1.0),  # POSLINE/0001
-                (2, 2.0),  # POSLINE/0003
-            ],
-            self.product_2,
+            3.0, [(0, 1.0), (2, 2.0),], self.product_2,  # POSLINE/0001  # POSLINE/0003
         )
         self.assertEqual(len(refund_order), 1)
         self.assertEqual(len(refund_order.lines), 3)
         self.pos_order = self.PosOrder.search([], limit=1, order="id desc")
         refund_order = self.__new_sale(
-            5.0,
-            [
-                (2, 3.0),  # POSLINE/0004
-            ],
-            self.product_3,
+            5.0, [(2, 3.0),], self.product_3,  # POSLINE/0004
         )
         self.assertEqual(len(refund_order), 1)
         self.assertEqual(len(refund_order.lines), 2)
