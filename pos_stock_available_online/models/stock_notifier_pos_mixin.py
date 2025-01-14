@@ -5,13 +5,6 @@ class StockNotifierPosMixin(models.AbstractModel):
     _name = "stock.notifier.pos.mixin"
     _description = "Stock Notifier POS Mixin"
 
-    def _prepare_pos_message(self):
-        """
-        Return prepared message to send to POS
-        """
-        self.ensure_one()
-        return self.warehouse_id._prepare_vals_for_pos(self.product_id)
-
     def _skip_notify_pos(self):
         """
         Skip notification to POS
@@ -48,4 +41,6 @@ class StockNotifierPosMixin(models.AbstractModel):
                     ],
                 ).mapped("config_id")
                 if configs:
-                    configs._notify_available_quantity(record._prepare_pos_message())
+                    configs._notify_available_quantity(
+                        warehouse._prepare_vals_for_pos(record.product_id)
+                    )
