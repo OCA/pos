@@ -41,13 +41,46 @@ class PosSession(models.Model):
         string="Total Real Payments",
     )
 
+    # We can't use cashbox_start since it's unused in pos, so we get last session end
+    previous_session_cash_box_end_id = fields.Many2one(
+        "account.bank.statement.cashbox",
+        compute="_compute_previous_session_cash_box_end_id",
+        string="Previous Session Cash Box End",
+    )
+    previous_session_cash_box_end_line_ids = fields.One2many(
+        related="previous_session_cash_box_end_id.cashbox_lines_ids",
+        string="Previous Session Cash Box End Lines",
+    )
+
+    cash_box_end_id = fields.Many2one(
+        related="cash_register_id.cashbox_end_id",
+        string="Cash Box End",
+    )
+    cash_box_end_line_ids = fields.One2many(
+        related="cash_box_end_id.cashbox_lines_ids",
+        string="Cash Box End Lines",
+    )
+
     def _get_cash_register_counterpart_account(self):
         # The cash in/out lines are in the move lines of the cash register
         # attached to the suspense account
 
-        # FIXME: Is it always the case?
-        self.ensure_one()
         return self.cash_register_id.journal_id.suspense_account_id
+
+    @api.depends("config_id")
+    def _compute_previous_session_cash_box_end_id(self):
+        for record in self:
+            previous_session = self.search(
+                [
+                    ("config_id", "=", record.config_id.id),
+                    ("state", "=", "closed"),
+                    ("rescue", "=", False),
+                    ("id", "<", record.id),
+                ],
+                order="id desc",
+                limit=1,
+            )
+            record.previous_session_cash_box_end_id = previous_session.cash_box_end_id
 
     @api.depends("cash_register_id.line_ids")
     def _compute_cash_register_statement_line_ids(self):
@@ -118,5 +151,5 @@ class PosSession(models.Model):
         # real amounts. (Like cash_real_transaction)
         self.cash_real_total_in = self.cash_register_total_in
         self.cash_real_total_out = self.cash_register_total_out
-        res = super(PosSession, self)._validate_session()
+        res = super()._validate_session()
         return res

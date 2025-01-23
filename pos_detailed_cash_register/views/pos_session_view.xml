@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
-  Copyright 2023 Akretion (http://www.akretion.com).
-  @author Florian Mounier <florian.mounier@akretion.com>
-  License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+Copyright 2023 Akretion (http://www.akretion.com).
+@author Florian Mounier <florian.mounier@akretion.com>
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 -->
 <odoo>
   <record id="view_pos_session_form" model="ir.ui.view">
@@ -84,13 +84,41 @@
 
 
       <page name="cash_control" position="after">
+        <page string="Cash Box " name="cash_box">
+          <group>
+            <group
+                            string="Previous Cash Box"
+                            attrs="{'invisible' : [('previous_session_cash_box_end_id', '=', False)]}"
+                        >
+              <field name="previous_session_cash_box_end_id" invisible="1" />
+              <field
+                                name="previous_session_cash_box_end_line_ids"
+                                nolabel="1"
+                                colspan="2"
+                                class="p-3"
+                            />
+            </group>
+            <group
+                            string="Closing Cash Box"
+                            attrs="{'invisible' : [('cash_box_end_id', '=', False)]}"
+                        >
+              <field name="cash_box_end_id" invisible="1" />
+              <field name="cash_box_end_line_ids" nolabel="1" colspan="2" class="p-3" />
+            </group>
+          </group>
+        </page>
+
         <page
                     string="Cash In/Out"
                     name="cash_details"
                     attrs="{'invisible' : [('cash_control', '=', False)]}"
                 >
           <group>
-            <field name="cash_register_statement_line_ids" string="Statements">
+            <field
+                            name="cash_register_statement_line_ids"
+                            string="Statements"
+                            nolabel="1"
+                        >
               <tree readonly="1" decoration-muted="is_reconciled">
                 <field name="is_reconciled" invisible="1" />
                 <field name="currency_id" invisible="1" />
