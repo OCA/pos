@@ -4,8 +4,8 @@
   -->
 <templates id="template" xml:space="preserve">
   <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
-        <xpath expr="//span[hasclass('price')]" position="before">
-            <button class="remove-line-button" t-on-click="removeLine">
+        <xpath expr="//div[@t-if='props.showTaxGroupLabels']" position="after">
+            <button class="btn remove-line-button" t-on-click="removeLine">
                 <i class="fa fa-trash-o" />
             </button>
         </xpath>
