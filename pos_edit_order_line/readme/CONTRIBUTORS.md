@@ -1,0 +1,4 @@
+- Ooops404 \<<https://www.ooops404.com/>\>
+- Cetmix \<<https://cetmix.com/>\>
+- [Acsone](https://www.acsone.eu/):
+  - Maxime Franco

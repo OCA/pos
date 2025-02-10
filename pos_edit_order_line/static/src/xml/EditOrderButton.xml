@@ -4,7 +4,7 @@
     <t t-name="EditOrderButton" owl="1">
         <span class="control-button js_edit_order">
             <i class="fa fa-pencil-square-o" />
-            <span> </span>
+            <span />
             <span>Edit Order Lines</span>
         </span>
     </t>
