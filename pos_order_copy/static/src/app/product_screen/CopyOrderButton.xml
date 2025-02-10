@@ -7,7 +7,7 @@
             t-on-click="() => this.onClick()"
         >
             <i class="fa fa-clone me-1" />
-            <span> </span>
+            <span />
             <span>Duplicate Order</span>
         </div>
     </t>

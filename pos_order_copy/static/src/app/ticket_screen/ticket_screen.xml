@@ -18,7 +18,7 @@
                 t-on-click="() => this._copyOrder(_selectedSyncedOrder)"
             >
                 <i class="fa fa-clone me-1" />
-                <span> </span>
+                <span />
                 <span>Duplicate Order</span>
             </button>
         </xpath>
