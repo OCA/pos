@@ -17,28 +17,28 @@ Point of Sale - New Line
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/16.0/pos_order_new_line
+    :target: https://github.com/OCA/pos/tree/18.0/pos_order_new_line
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_order_new_line
+    :target: https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_order_new_line
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of point of sale module, to allow to force
-Point of sale to create a new order line, when selecting a product previously selected.
+This module extends the functionality of point of sale module, to allow
+to force Point of sale to create a new order line, when selecting a
+product previously selected.
 
-That can be usefull, if you want to sale the same product with different prices
-and or discount. For exemple :
+That can be usefull, if you want to sale the same product with different
+prices and or discount. For exemple :
 
 - You sell carrots, and some carrots are quite old, and you want to
   apply discount to a part of the products. (but not all the product)
-
-- You want to manually apply some discount like :
-  "2 Coca cola sold, the third will have a 10% discount".
+- You want to manually apply some discount like : "2 Coca cola sold, the
+  third will have a 10% discount".
 
 **Table of contents**
 
@@ -48,17 +48,16 @@ and or discount. For exemple :
 Usage
 =====
 
-* Open the Point of sale
+- Open the Point of sale
+- Select a product
+- Click on 'New line'
 
-* Select a product
+|image1|
 
-* Click on 'New line'
+- Select again the same product
+- A new line will be created.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_order_new_line/static/description/new_line_button.png
-
-* Select again the same product
-
-* A new line will be created.
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_new_line/static/description/new_line_button.png
 
 Bug Tracker
 ===========
@@ -66,7 +65,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_new_line%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_new_line%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -74,24 +73,28 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * GRAP
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sylvain LE GAL (https://twitter.com/legalsylvain)
+- Sylvain LE GAL (https://twitter.com/legalsylvain)
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 The development of this module has been financially supported by:
 
-* UGESS, Union Nationale des Groupements des épiceries Sociales et Solidaires (https://ugess.org/)
+- UGESS, Union Nationale des Groupements des épiceries Sociales et
+  Solidaires (https://ugess.org/)
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -111,6 +114,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_order_new_line>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/18.0/pos_order_new_line>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

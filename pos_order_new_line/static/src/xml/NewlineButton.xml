@@ -6,15 +6,21 @@
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-name="NewlineButton" owl="1">
-        <span
-            class="control-button"
-            t-att-class="{ altlight: currentOrder.create_new_line }"
-        >
-            <i class="fa fa-plus" />
-            <span> </span>
-            <span>New Line</span>
-        </span>
+    <t
+        t-name="pos_order_new_line.NewlineButton"
+        t-inherit="point_of_sale.ControlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div" position="inside">
+            <button
+                t-if="this.pos.get_order().get_orderlines().length !== 0"
+                t-att-class="buttonClass"
+                t-on-click="onClickNewlineButton"
+            >
+				<i class="fa fa-plus" />
+				New Line
+            </button>
+        </xpath>
     </t>
 
 </templates>

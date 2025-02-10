@@ -8,10 +8,11 @@
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
 
 See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
@@ -274,7 +275,7 @@ pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
 
-pre.code .ln { color: grey; } /* line numbers */
+pre.code .ln { color: gray; } /* line numbers */
 pre.code, code { background-color: #eeeeee }
 pre.code .comment, code .comment { color: #5C6576 }
 pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
@@ -300,7 +301,7 @@ span.option {
 span.pre {
   white-space: pre }
 
-span.problematic {
+span.problematic, pre.problematic {
   color: red }
 
 span.section-subtitle {
@@ -368,16 +369,17 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:61cf1d3fd3db01cf12ea835c5528ea0f84b0ab15eb17c0d5540f4b38f9f01df3
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/16.0/pos_order_new_line"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_order_new_line"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
-<p>This module extends the functionality of point of sale module, to allow to force
-Point of sale to create a new order line, when selecting a product previously selected.</p>
-<p>That can be usefull, if you want to sale the same product with different prices
-and or discount. For exemple :</p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/18.0/pos_order_new_line"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_order_new_line"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>This module extends the functionality of point of sale module, to allow
+to force Point of sale to create a new order line, when selecting a
+product previously selected.</p>
+<p>That can be usefull, if you want to sale the same product with different
+prices and or discount. For exemple :</p>
 <ul class="simple">
 <li>You sell carrots, and some carrots are quite old, and you want to
 apply discount to a part of the products. (but not all the product)</li>
-<li>You want to manually apply some discount like :
-“2 Coca cola sold, the third will have a 10% discount”.</li>
+<li>You want to manually apply some discount like : “2 Coca cola sold, the
+third will have a 10% discount”.</li>
 </ul>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
@@ -400,9 +402,7 @@ apply discount to a part of the products. (but not all the product)</li>
 <li>Select a product</li>
 <li>Click on ‘New line’</li>
 </ul>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_order_new_line/static/description/new_line_button.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_order_new_line/static/description/new_line_button.png" />
-</div>
+<p><img alt="image1" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_new_line/static/description/new_line_button.png" /></p>
 <ul class="simple">
 <li>Select again the same product</li>
 <li>A new line will be created.</li>
@@ -413,7 +413,7 @@ apply discount to a part of the products. (but not all the product)</li>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_order_new_line%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_order_new_line%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -428,25 +428,32 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <h2><a class="toc-backref" href="#toc-entry-5">Contributors</a></h2>
 <ul class="simple">
 <li>Sylvain LE GAL (<a class="reference external" href="https://twitter.com/legalsylvain">https://twitter.com/legalsylvain</a>)</li>
+<li><a class="reference external" href="https://www.heliconia.io">Heliconia Solutions Pvt. Ltd.</a><ul>
+<li>Bhavesh Heliconia</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="other-credits">
 <h2><a class="toc-backref" href="#toc-entry-6">Other credits</a></h2>
 <p>The development of this module has been financially supported by:</p>
 <ul class="simple">
-<li>UGESS, Union Nationale des Groupements des épiceries Sociales et Solidaires (<a class="reference external" href="https://ugess.org/">https://ugess.org/</a>)</li>
+<li>UGESS, Union Nationale des Groupements des épiceries Sociales et
+Solidaires (<a class="reference external" href="https://ugess.org/">https://ugess.org/</a>)</li>
 </ul>
 </div>
 <div class="section" id="maintainers">
 <h2><a class="toc-backref" href="#toc-entry-7">Maintainers</a></h2>
 <p>This module is maintained by the OCA.</p>
-<a class="reference external image-reference" href="https://odoo-community.org"><img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" /></a>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
 <p>OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/legalsylvain"><img alt="legalsylvain" src="https://github.com/legalsylvain.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/16.0/pos_order_new_line">OCA/pos</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/18.0/pos_order_new_line">OCA/pos</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>
