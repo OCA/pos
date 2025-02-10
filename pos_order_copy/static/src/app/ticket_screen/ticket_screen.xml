@@ -9,7 +9,7 @@
                 class="button validation copy-order-button w-100 btn btn-lg btn-secondary rounded-0 fw-bolder py-3"
                 t-on-click="() => this._copyOrder(_selectedSyncedOrder)"
             >
-                <span class="fs-1 d-block">Duplicate Order</span>
+                <span class="d-block">Duplicate Order</span>
             </button>
         </xpath>
         <xpath expr="//InvoiceButton" position="after">
