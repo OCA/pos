@@ -5,7 +5,7 @@
 
 {
     "name": "POS Edit Order Line",
-    "version": "16.0.1.0.1",
+    "version": "18.0.1.0.0",
     "summary": "POS Edit Order Line",
     "author": "Ooops, Cetmix, Odoo Community Association (OCA)",
     "contributors": "Cetmix",
@@ -17,7 +17,7 @@
     "demo": [],
     "data": ["views/res_config_settings_view.xml"],
     "assets": {
-        "point_of_sale.assets": [
+        "point_of_sale._assets_pos": [
             "pos_edit_order_line/static/src/css/pos.css",
             "pos_edit_order_line/static/src/js/*.js",
             "pos_edit_order_line/static/src/xml/*.xml",
