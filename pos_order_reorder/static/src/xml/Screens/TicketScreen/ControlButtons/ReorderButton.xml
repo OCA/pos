@@ -4,7 +4,7 @@
     <t t-name="ReorderButton" owl="1">
         <span class="control-button" t-on-click="_onClick">
             <i class="fa fa-copy" />
-            <span> </span>
+            <span />
             <span>Re-order</span>
         </span>
     </t>
