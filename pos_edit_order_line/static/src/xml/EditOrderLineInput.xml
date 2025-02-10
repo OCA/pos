@@ -18,7 +18,7 @@
                 <t t-esc="props.item.uom" />
             </td>
             <td>
-                 <input
+                <input
                     t-model="state.priceInput"
                     t-on-change="onChange"
                     type="number"
@@ -26,7 +26,7 @@
                 />
             </td>
             <td t-if="env.pos.config.manual_discount">
-                 <input
+                <input
                     t-model="state.discountInput"
                     t-on-change="onChange"
                     type="number"
