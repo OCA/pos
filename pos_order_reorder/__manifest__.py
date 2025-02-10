@@ -1,6 +1,6 @@
 {
     "name": "Point of Sale Re-order",
-    "version": "16.0.0.1.2",
+    "version": "18.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": "Simple Re-order in the Point of Sale ",
     "depends": ["point_of_sale"],
@@ -12,7 +12,7 @@
     ],
     "installable": True,
     "assets": {
-        "point_of_sale.assets": [
+        "point_of_sale._assets_pos": [
             "pos_order_reorder/static/src/js/**/*.js",
             "pos_order_reorder/static/src/xml/**/*.xml",
         ],

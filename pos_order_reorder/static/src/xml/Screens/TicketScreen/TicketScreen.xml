@@ -5,12 +5,8 @@
         t-name="TicketScreen"
         t-inherit="point_of_sale.TicketScreen"
         t-inherit-mode="extension"
-        owl="1"
     >
-        <xpath
-            expr="//div[hasclass('leftpane')]//div[hasclass('control-buttons')]"
-            position="inside"
-        >
+        <xpath expr="//InvoiceButton" position="after">
             <ReorderButton order="_selectedSyncedOrder" />
         </xpath>
     </t>
