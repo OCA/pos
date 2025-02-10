@@ -5,8 +5,8 @@ It allows to have more place for the display of the current ticket.
 
 **Without this module:**
 
-> ![image](../static/img/without_module.png)
+> ![Without Module](../static/img/without_module.png)
 
 **with this module:**
 
-> ![image](../static/img/with_module.png)
+> ![With Module](../static/img/with_module.png)

@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Point of Sale - Minimize Menu",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Point of Sale",
     "summary": "Reduce size of the main menu of the point of sale.",
     "depends": ["point_of_sale"],
@@ -17,8 +17,8 @@
         "views/view_res_config_settings.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_minimize_menu/static/src/js/ProductScreen.js",
+        "point_of_sale._assets_pos": [
+            "pos_minimize_menu/static/src/js/ProductScreen.esm.js",
             "pos_minimize_menu/static/src/xml/ProductScreen.xml",
         ],
     },

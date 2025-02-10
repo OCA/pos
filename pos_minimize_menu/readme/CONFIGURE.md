@@ -5,7 +5,7 @@ if you want to display in the main screen some important buttons:
 - Edit the field 'Important Buttons' and write the technical name of the
   buttons.
 
-  ![image](../static/img/configure_important_buttons.png)
+  ![Configure Important Buttons](../static/img/configure_important_buttons.png)
 
 Here are for the official modules, the following possibles values:
 
@@ -21,4 +21,4 @@ Here are for the official modules, the following possibles values:
 
 As a result, selected buttons will be displayed in the main screen:
 
-> ![image](../static/img/important_buttons_displayed.png)
+> ![Important Buttons Displayed](../static/img/important_buttons_displayed.png)
