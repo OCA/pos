@@ -45,7 +45,6 @@
 
 .pos .edit-order-popup .subwindow .subwindow-container {
     height: 250px;
-    display: list-item;
 }
 
 .pos .edit-order-popup input.required {
