@@ -11,7 +11,9 @@
             expr="//div[hasclass('leftpane')]//div[hasclass('control-buttons')]"
             position="inside"
         >
-            <ReorderButton order="_selectedSyncedOrder" />
+            <t t-if="this.pos.config.allow_reorder">
+                <ReorderButton order="_selectedSyncedOrder" />
+            </t>
         </xpath>
     </t>
 
