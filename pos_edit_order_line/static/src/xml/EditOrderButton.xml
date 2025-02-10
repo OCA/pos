@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="EditOrderButton" owl="1">
-        <span class="control-button js_edit_order">
+    <t t-name="pos_edit_order_line.EditOrderButton">
+        <div
+            class="control-button btn btn-light rounded-0 fw-bolder"
+            t-on-click="() => this.onClick()"
+        >
             <i class="fa fa-pencil-square-o" />
-            <span> </span>
-            <span>Edit Order Lines</span>
-        </span>
+            Edit Order Lines
+        </div>
     </t>
 
 </templates>

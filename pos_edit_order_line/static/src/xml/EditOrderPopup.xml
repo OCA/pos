@@ -2,12 +2,17 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="EditOrderPopup" owl="1">
-        <div role="dialog" class="modal-dialog edit-order-popup">
-            <div class="popup popup-text">
-                <header class="title">
-                    <t t-esc="props.title" />
-                </header>
-                <main class="full-content">
+        <div class="edit-order-popup">
+            <div class="popup edit-order-popup">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        <t t-esc="props.title" />
+                    </h4>
+                    <div class="btn" t-on-click="cancel">
+                        <i class="fa fa-times" aria-hidden="true" />
+                    </div>
+                </div>
+                <main class="body modal-body overflow-auto">
                     <div class="order-line-window">
                         <section class="subwindow list">
                             <div class="subwindow-container">
@@ -20,7 +25,7 @@
                                                 <th>UoM</th>
                                                 <th>Price</th>
                                                 <th
-                                                    t-if="env.pos.config.manual_discount"
+                                                    t-if="pos.config.manual_discount"
                                                 >Discount</th>
                                             </tr>
                                         </thead>
@@ -33,7 +38,10 @@
                                                 t-as="item"
                                                 t-key="item._id"
                                             >
-                                                <EditOrderLineInput item="item" />
+                                                <EditOrderLineInput
+                                                    item="item"
+                                                    onchange="handleChange"
+                                                />
                                             </t>
                                         </tbody>
                                     </table>
@@ -42,11 +50,17 @@
                         </section>
                     </div>
                 </main>
-                <footer class="footer">
-                    <div class="button confirm" t-on-click="confirm">
+                <footer class="footer footer-flex modal-footer">
+                    <div
+                        class="button confirm highlight btn btn-lg btn-primary"
+                        t-on-click="confirm"
+                    >
                         <t t-esc="props.confirmText" />
                     </div>
-                    <div class="button cancel" t-on-click="cancel">
+                    <div
+                        class="button cancel btn btn-lg btn-secondary"
+                        t-on-click="cancel"
+                    >
                         <t t-esc="props.cancelText" />
                     </div>
                 </footer>
