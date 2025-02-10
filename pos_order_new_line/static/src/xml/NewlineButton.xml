@@ -8,8 +8,9 @@
 
     <t t-name="NewlineButton" owl="1">
         <span
-            class="control-button"
+            class="control-button btn btn-light rounded-0 fw-bolder"
             t-att-class="{ altlight: currentOrder.create_new_line }"
+            t-on-click="onClick"
         >
             <i class="fa fa-plus" />
             <span> </span>
