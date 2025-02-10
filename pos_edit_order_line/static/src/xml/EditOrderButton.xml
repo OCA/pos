@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="EditOrderButton" owl="1">
-        <span class="control-button js_edit_order">
-            <i class="fa fa-pencil-square-o" />
-            <span />
-            <span>Edit Order Lines</span>
-        </span>
+    <t
+        t-name="pos_edit_order_line.EditOrderButton"
+        t-inherit="point_of_sale.ControlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//t[@t-if='props.showRemainingButtons']/div" position="inside">
+            <button t-att-class="buttonClass" t-on-click="onClickEditOrder">
+				<i class="fa fa-pencil-square-o" />
+				Edit Order Lines
+            </button>
+        </xpath>
     </t>
 
 </templates>
