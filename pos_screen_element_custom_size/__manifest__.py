@@ -3,7 +3,7 @@
 
 {
     "name": "POS Screen Elements Custom Size",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": "Set custom size for POS screen elements",
     "license": "AGPL-3",
@@ -15,7 +15,8 @@
     ],
     "images": [],
     "assets": {
-        "point_of_sale.assets": [
+        "point_of_sale._assets_pos": [
+            "pos_screen_element_custom_size/static/src/js/*.js",
             "pos_screen_element_custom_size/static/src/xml/*.xml",
         ],
     },
