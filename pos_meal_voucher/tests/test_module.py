@@ -5,22 +5,23 @@ from odoo.tests.common import TransactionCase
 
 
 class TestModule(TransactionCase):
-
     def setUp(self):
         super().setUp()
-        self.ProductProduct = self.env['product.product']
-        self.ProductTemplate = self.env['product.template']
+        self.ProductProduct = self.env["product.product"]
+        self.ProductTemplate = self.env["product.template"]
         self.food_category = self.env.ref("pos_meal_voucher.food_category")
         self.main_category = self.env.ref("product.product_category_all")
         self.uom_unit = self.env.ref("uom.product_uom_unit")
 
     def test_product_product(self):
-        product = self.ProductProduct.create({
-            "name": "Product",
-            "uom_id": self.uom_unit.id,
-            "uom_po_id": self.uom_unit.id,
-            "categ_id": self.food_category.id,
-        })
+        product = self.ProductProduct.create(
+            {
+                "name": "Product",
+                "uom_id": self.uom_unit.id,
+                "uom_po_id": self.uom_unit.id,
+                "categ_id": self.food_category.id,
+            }
+        )
         self.assertEqual(product.meal_voucher_ok, True)
 
         # Affect product to a non-food category and run onchange
@@ -29,12 +30,14 @@ class TestModule(TransactionCase):
         self.assertEqual(product.meal_voucher_ok, False)
 
     def test_product_template(self):
-        template = self.ProductTemplate.create({
-            "name": "Product",
-            "uom_id": self.uom_unit.id,
-            "uom_po_id": self.uom_unit.id,
-            "categ_id": self.food_category.id,
-        })
+        template = self.ProductTemplate.create(
+            {
+                "name": "Product",
+                "uom_id": self.uom_unit.id,
+                "uom_po_id": self.uom_unit.id,
+                "categ_id": self.food_category.id,
+            }
+        )
         self.assertEqual(template.meal_voucher_ok, True)
 
         # Affect template to a non-food category and run onchange

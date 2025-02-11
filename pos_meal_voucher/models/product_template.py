@@ -6,11 +6,11 @@ from odoo import api, fields, models
 
 
 class ProductTemplate(models.Model):
-    _inherit = 'product.template'
+    _inherit = "product.template"
 
     meal_voucher_ok = fields.Boolean(
         string="Meal Voucher",
-        help="Check this box if the product can be paid with meal vouchers."
+        help="Check this box if the product can be paid with meal vouchers.",
     )
 
     @api.onchange("categ_id")

@@ -6,17 +6,20 @@ from odoo import fields, models
 
 
 class ProductCategory(models.Model):
-    _inherit = 'product.category'
+    _inherit = "product.category"
 
     meal_voucher_ok = fields.Boolean(
         string="Meal Voucher",
         help="If checked, the products that belong to the category"
-        " will be marked as 'can be paid with meal vouchers', by default."
+        " will be marked as 'can be paid with meal vouchers', by default.",
     )
 
     def button_apply_meal_voucher_settings(self):
         ProductTemplate = self.env["product.template"]
         for category in self:
-            templates = ProductTemplate.sudo().with_context(
-                active_test=False).search([('categ_id', '=', category.id)])
+            templates = (
+                ProductTemplate.sudo()
+                .with_context(active_test=False)
+                .search([("categ_id", "=", category.id)])
+            )
             templates.write({"meal_voucher_ok": category.meal_voucher_ok})

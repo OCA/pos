@@ -6,7 +6,7 @@ from odoo import models
 
 
 class PosOrder(models.Model):
-    _inherit = 'pos.order'
+    _inherit = "pos.order"
 
     def _payment_fields(self, ui_paymentline):
         res = super()._payment_fields(ui_paymentline)

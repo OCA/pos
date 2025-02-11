@@ -12,28 +12,36 @@ odoo.define("pos_meal_voucher.models", function (require) {
 
     models.load_fields("product.product", ["meal_voucher_ok"]);
 
-    models.load_fields("account.journal", ["meal_voucher_type", "meal_voucher_mixed_text"]);
+    models.load_fields("account.journal", [
+        "meal_voucher_type",
+        "meal_voucher_mixed_text",
+    ]);
 
     var OrderSuper = models.Order.prototype;
     var Order = models.Order.extend({
+        get_total_meal_voucher_eligible: function () {
+            return round_pr(
+                this.orderlines.reduce(function (sum, orderLine) {
+                    if (orderLine.product.meal_voucher_ok) {
+                        return sum + orderLine.get_price_with_tax();
+                    }
+                        return sum;
 
-        get_total_meal_voucher_eligible: function() {
-            return round_pr(this.orderlines.reduce((function(sum, orderLine) {
-                if (orderLine.product.meal_voucher_ok){
-                    return sum + orderLine.get_price_with_tax();
-                } else {
-                    return sum;
-                }
-            }), 0), this.pos.currency.rounding);
+                }, 0),
+                this.pos.currency.rounding
+            );
         },
-        get_total_meal_voucher_received: function(){
-            return round_pr(this.paymentlines.reduce((function(sum, paymentLine) {
-                if (paymentLine.is_meal_voucher()) {
-                    return sum + paymentLine.get_amount();
-                } else {
-                    return sum;
-                }
-            }), 0), this.pos.currency.rounding);
+        get_total_meal_voucher_received: function () {
+            return round_pr(
+                this.paymentlines.reduce(function (sum, paymentLine) {
+                    if (paymentLine.is_meal_voucher()) {
+                        return sum + paymentLine.get_amount();
+                    }
+                        return sum;
+
+                }, 0),
+                this.pos.currency.rounding
+            );
         },
     });
 
@@ -41,15 +49,22 @@ odoo.define("pos_meal_voucher.models", function (require) {
 
     var OrderlineSuper = models.Orderline.prototype;
     var Orderline = models.Orderline.extend({
-
-        generate_wrapped_product_name: function() {
-
-            if (!this.get_product().meal_voucher_ok ||  !this.pos.config.meal_voucher_display_info_ticket) {
-                return OrderlineSuper.generate_wrapped_product_name.apply(this, arguments);
+        generate_wrapped_product_name: function () {
+            if (
+                !this.get_product().meal_voucher_ok ||
+                !this.pos.config.meal_voucher_display_info_ticket
+            ) {
+                return OrderlineSuper.generate_wrapped_product_name.apply(
+                    this,
+                    arguments
+                );
             }
             const originalDisplayName = this.product.display_name;
             this.product.display_name = "(*) " + originalDisplayName;
-            const res = OrderlineSuper.generate_wrapped_product_name.apply(this, arguments);
+            const res = OrderlineSuper.generate_wrapped_product_name.apply(
+                this,
+                arguments
+            );
             this.product.display_name = originalDisplayName;
             return res;
         },
@@ -57,19 +72,17 @@ odoo.define("pos_meal_voucher.models", function (require) {
 
     models.Orderline = Orderline;
 
-
     var PaymentlineSuper = models.Paymentline.prototype;
 
     var Paymentline = models.Paymentline.extend({
-
-        initialize: function(){
+        initialize: function () {
             PaymentlineSuper.initialize.apply(this, arguments);
             // We use 'payment_note', because 'note' field is still used
             // to set in the payment_name value.
             // See odoo/addons/point_of_sale/models/pos_order.py:59
             // and then in the name of the statement line.
             // See odoo/addons/point_of_sale/models/pos_order.py:950
-            this.statement_note = '';
+            this.statement_note = "";
             this.manual_meal_voucher = false;
         },
 
@@ -83,16 +96,15 @@ odoo.define("pos_meal_voucher.models", function (require) {
             return res;
         },
 
-        is_meal_voucher: function() {
+        is_meal_voucher: function () {
             return (
                 this.manual_meal_voucher === true ||
                 ["paper", "dematerialized"].indexOf(
-                    this.cashregister.journal.meal_voucher_type) !== -1
-                )
+                    this.cashregister.journal.meal_voucher_type
+                ) !== -1
+            );
         },
-
     });
 
     models.Paymentline = Paymentline;
-
 });

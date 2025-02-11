@@ -6,7 +6,7 @@ from odoo import api, models
 
 
 class ProductProduct(models.Model):
-    _inherit = 'product.product'
+    _inherit = "product.product"
 
     @api.onchange("categ_id")
     def onchange_categ_id_pos_meal_voucher(self):

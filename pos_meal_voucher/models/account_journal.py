@@ -6,7 +6,7 @@ from odoo import fields, models
 
 
 class AccountJournal(models.Model):
-    _inherit = 'account.journal'
+    _inherit = "account.journal"
 
     meal_voucher_type = fields.Selection(
         string="Meal Voucher Type",
@@ -21,4 +21,5 @@ class AccountJournal(models.Model):
         string="Text for Mixed journal",
         help="Text that will be displayed in the point of sale"
         " if the journal is a mixed journal (Credit Card / "
-        " Dematerialized) for the dematerialized button.")
+        " Dematerialized) for the dematerialized button.",
+    )

@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
     <t t-extend="Orderline">
         <t t-jquery=".product-name" t-operation="prepend">
-            <t t-if="line.get_product().meal_voucher_ok === true &amp;&amp;
-                widget.pos.config.meal_voucher_display_product_screen">
-                <i class="fa fa-lg fa-cutlery"/>
+            <t
+                t-if="line.get_product().meal_voucher_ok === true &amp;&amp;
+                widget.pos.config.meal_voucher_display_product_screen"
+            >
+                <i class="fa fa-lg fa-cutlery" />
             </t>
         </t>
     </t>
@@ -16,7 +18,9 @@
                 <div class="summary clearfix">
                     <div class="line">
                         <div class="subentry meal-voucher">
-                            <span>Meal Voucher: </span> <span class="value">0.00 €</span>
+                            <span>Meal Voucher: </span> <span
+                                class="value"
+                            >0.00 €</span>
                         </div>
                     </div>
                 </div>
@@ -27,7 +31,10 @@
     <t t-extend="PaymentScreen-Paymentmethods">
         <t t-jquery="div.paymentmethod" t-operation="after">
             <t t-if="['mixed'].indexOf(cashregister.journal.meal_voucher_type) !== -1">
-                <div class="button paymentmethod-meal-voucher-mixed" t-att-data-id="cashregister.journal_id[0]">
+                <div
+                    class="button paymentmethod-meal-voucher-mixed"
+                    t-att-data-id="cashregister.journal_id[0]"
+                >
                     <t t-if="cashregister.journal.meal_voucher_mixed_text">
                         <t t-esc="cashregister.journal.meal_voucher_mixed_text" />
                     </t>
@@ -51,7 +58,10 @@
                             <td>Total Eligible</td>
                             <td>
                                 <span id="meal-voucher-eligible-amount">0.00 €</span>
-                                <i id="meal-voucher-eligible-warning" class="fa fa-warning"/>
+                                <i
+                                        id="meal-voucher-eligible-warning"
+                                        class="fa fa-warning"
+                                    />
                             </td>
                         </tr>
                 <t t-if="widget.pos.config.max_meal_voucher_amount !== 0">
@@ -59,7 +69,10 @@
                             <td>Max Amount</td>
                             <td>
                                 <span id="meal-voucher-max-amount">0.00 €</span>
-                                <i id="meal-voucher-max-warning" class="fa fa-warning"/>
+                                <i
+                                            id="meal-voucher-max-warning"
+                                            class="fa fa-warning"
+                                        />
                             </td>
                         </tr>
                 </t>
@@ -78,8 +91,10 @@
 
     <t t-extend="PaymentScreen-Paymentlines">
         <t t-jquery="td.delete-button" t-operation="after">
-            <t t-if="['paper', 'dematerialized'].indexOf(line.cashregister.journal.meal_voucher_type) !== -1 ||
-                line.manual_meal_voucher === true">
+            <t
+                t-if="['paper', 'dematerialized'].indexOf(line.cashregister.journal.meal_voucher_type) !== -1 ||
+                line.manual_meal_voucher === true"
+            >
                 <td class="is-meal-voucher">
                     <i class="fa fa-lg fa-cutlery" />
                 </td>
@@ -88,18 +103,25 @@
     </t>
 
     <t t-extend="PosTicket">
-         <t t-jquery="t[t-esc='orderline.get_product().display_name']" t-operation="before">
-            <t t-if="widget.pos.config.meal_voucher_display_info_ticket &amp;&amp; orderline.get_product().meal_voucher_ok">(*) </t>
+         <t
+            t-jquery="t[t-esc='orderline.get_product().display_name']"
+            t-operation="before"
+        >
+            <t
+                t-if="widget.pos.config.meal_voucher_display_info_ticket &amp;&amp; orderline.get_product().meal_voucher_ok"
+            >(*) </t>
         </t>
         <t t-jquery="t[t-if='receipt.footer']" t-operation="after">
             <t t-if="widget.pos.config.meal_voucher_display_info_ticket">
-                <br/>
+                <br />
                 Products marked with a star (*) are eligible for Meal vouchers.
                 <table>
                     <tr>
                         <td>Eligible Total:</td>
                         <td class="pos-right-align">
-                            <t t-esc="widget.format_currency(order.get_total_meal_voucher_eligible())" />
+                            <t
+                                t-esc="widget.format_currency(order.get_total_meal_voucher_eligible())"
+                            />
                         </td>
                     </tr>
                 </table>
@@ -116,13 +138,12 @@
                 </div>
                 <line>
                     <left>Eligible Total:</left>
-                    <right><t t-esc="widget.format_currency(order.get_total_meal_voucher_eligible())" /></right>
+                    <right><t
+                            t-esc="widget.format_currency(order.get_total_meal_voucher_eligible())"
+                        /></right>
                 </line>
             </t>
         </t>
     </t>
 
 </templates>
-
-
-
