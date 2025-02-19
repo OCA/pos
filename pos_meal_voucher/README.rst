@@ -17,22 +17,20 @@ Point Of Sale - Meal Voucher
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/12.0/pos_meal_voucher
+    :target: https://github.com/OCA/pos/tree/16.0/pos_meal_voucher
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-12-0/pos-12-0-pos_meal_voucher
+    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_meal_voucher
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=12.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extend the Point of Sale Odoo module, regarding Meal Vouchers.
+This module allows to handle meal vouchers in the point of sale.
 
-Meal voucher is a payment method, available in some countries (France, Belgium, Romania, ...)
-that allows customer to buy food products in grocery stores or pay in restaurants.
-
+Meal vouchers are a payment method, available in some countries (France, Belgium, Romania,…) that allows customers to buy food products in grocery stores or pay in restaurants.
 
 **Table of contents**
 
@@ -45,68 +43,73 @@ Configuration
 Products
 ~~~~~~~~
 
-* go to your products, and click on the 'Meal Voucher' checkbox, if your product
-  can be paid with meal vouchers.
+On a product form, in the "Sales" tab, the "Can be Paid for by Meal Vouchers" checkbox controls whether the product can be paid for by meal vouchers.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/product_product_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/product_product_form.png
 
-* You can configure your product categories to have a default value for the products
-  that belong to this category.
+Product categories can be configured to have a default value for the "Can be Paid for by Meal Vouchers" field for its products.
+The "Apply to All Products" button allows to set the value on all products of the category.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/product_category_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/product_category_form.png
 
-* configures your Account journals, mentioning the type of Meal Voucher:
+Point of Sale Payment Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Paper : the journal will be used when scanning meal voucher barcodes
-- Dematerialized: the journal will be used for dematerialized meal vouchers
-- Mixed: Specific configuration if your accountant want to use a single journal for Credit card AND dematerialized meal vouchers. In that case, the button of this journal will be duplicated, and an extra text can be set to display an alternative label.
+Point of sale payment methods (Point of Sale > Configuration > Payment Methods) have a "Meal Voucher Type" field that defines what type of meal voucher payment method they are:
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/account_journal_form.png
+* (empty): The payment method is not a meal voucher payment method.
+* **Paper**: The payment method will be used when scanning meal voucher barcodes.
+* **Electronic**: The payment method will be used for electronic meal vouchers.
 
-* go your point of sale configuration form, and set the maximum amount allowed by ticket. (optional)
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_method_form.png
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/pos_config_form.png
+Settings
+~~~~~~~~
+
+This module adds a "Meal Vouchers" section in the point of sale settings (Point of Sale > Configuration > Settings, or Settings > Point of Sale) with several options:
+
+* **Maximum Amount**: Optional maximum amount per order that can be paid by meal vouchers. Set to 0 to disable.
+* **Icon on Order Lines**: Whether to display an icon on point of sale order lines (on the product screen) for products that can be paid for by meal vouchers.
+* **Information on Receipt**: Whether to display an asterisk (*) on receipts before each product that can be paid for by meal vouchers as well as the total eligible amount.
+
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_settings.png
 
 Usage
 =====
 
-* Open your Point of Sale
+Product Screen
+~~~~~~~~~~~~~~
 
-* Cashier can see the food products, eligible for meal voucher payment, and see the total for
-  Meal Voucher amount
+On the product screen, the products that can be paid for by meal vouchers are (optionally) identified with an icon and the total amount of those products is displayed.
 
-  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_order_screen.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_order_screen.png
 
-* go to the payment screen
+Payment Screen
+~~~~~~~~~~~~~~
 
-A Meal Voucher Summary is available:
+On the payment screen, a meal voucher summary is displayed:
 
-  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_payment_screen.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_screen_meal_vouchers.png
 
-If the amount received is too important, a warning icon is displayed
+If the received amount is too high, a warning icon is displayed:
 
-  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_payment_screen_summary.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_screen_warning.png
 
-If the cashier try to validate the order, a warning is also display, asking confirmation
+Receipt
+~~~~~~~
 
-  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/front_ui_pos_payment_screen_warning.png
+The receipts can optionally contain information about the products that can be paid for by meal vouchers and the total amount of those products:
 
-It is a non blocking warning, because we don't want to prevent an order to be done,
-if products are not correctly set, or if a recent law changed the maximum amount that can
-be used each day. (A recent case occured in France, during the Covid-19 pandemy)
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/receipt_information.png
 
-Informations are printed on the ticket, if the point of sale is so configured.
+Barcodes
+~~~~~~~~
 
-  .. figure:: https://raw.githubusercontent.com/OCA/pos/12.0/pos_meal_voucher/static/description/ticket_information.png
-
-Note
-~~~~
-
-A new barcode rule is available for Paper Meal Voucher of 24 chars:
+A new barcode rule is defined for paper meal vouchers (with 24 characters):
 
 ``...........{NNNDD}........``
 
-If you scan the following barcode ``052566641320080017000000``, a new payment line will be added, with an amount of 8,00€ (``00800``)
+If you scan the following barcode: ``052566641320080017000000``, a new payment line with an amount of ¤8.00 (``00800``) will be added.
 
 Known issues / Roadmap
 ======================
@@ -114,12 +117,10 @@ Known issues / Roadmap
 Possible Features
 ~~~~~~~~~~~~~~~~~
 
-* Introduce the Meal Voucher Issuer model
-* When scaning Meal Voucher, deduce the Issuer
-* Add a reporting to make easily the deposit of Meal Vouchers, per issuers.
-* Add an option to add subtotal of products that can be paid with meal vouchers,
-  on the bill.
-* Prevent to scan twice the same Meal Voucher barcode.
+* Introduce the Meal Voucher Issuer model.
+* Deduce the issuer when scanning a meal voucher barcode.
+* Add a report to easily compute the total deposit of meal vouchers (per issuer).
+* Prevent to scan the same meal voucher barcode twice.
 
 Bug Tracker
 ===========
@@ -127,7 +128,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_meal_voucher%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_meal_voucher%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -151,6 +152,7 @@ The development of this module has been financially supported by:
 
 * Vracoop (https://portail.vracoop.fr/)
 * Demain Supermarché (http://www.demainsupermarche.org/)
+* Le Drive tout nu (https://ledrivetoutnu.com/)
 
 Maintainers
 ~~~~~~~~~~~
@@ -173,6 +175,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/12.0/pos_meal_voucher>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_meal_voucher>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

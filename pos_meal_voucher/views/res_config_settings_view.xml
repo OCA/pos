@@ -6,23 +6,23 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
 
-    <record id="view_pos_config_form" model="ir.ui.view">
-        <field name="model">pos.config</field>
-        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='payment_methods']/.." position="after">
+            <xpath expr="//div[@id='pos_payment_section']" position="after">
                 <h2>Meal Vouchers</h2>
                 <div class="row mt16 o_settings_container">
                     <div class="col-12 col-lg-6 o_setting_box">
                         <div class="o_setting_right_pane">
-                            <span class="o_form_label">Meal Voucher Amount</span>
+                            <span class="o_form_label">Maximum Amount</span>
                             <div class="text-muted">
-                                Maximum amount of Meal Vouchers that can be received for a PoS Order.
-                                Let 0, if you don't want to enable this check.
+                                Optional maximum amount per order that can be paid by meal vouchers.
+                                Set to 0 to disable.
                             </div>
                             <div class="content-group mt16">
                                 <field
-                                    name="max_meal_voucher_amount"
+                                    name="pos_max_meal_voucher_amount"
                                     colspan="4"
                                     nolabel="1"
                                 />
@@ -31,29 +31,29 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     </div>
                     <div class="col-12 col-lg-6 o_setting_box">
                         <div class="o_setting_left_pane">
-                            <field name="meal_voucher_display_product_screen" />
+                            <field name="pos_enable_meal_voucher_order_lines_icon" />
                         </div>
                         <div class="o_setting_right_pane">
                             <label
-                                for="meal_voucher_display_product_screen"
-                                string="Display icon before products on screen"
+                                for="pos_enable_meal_voucher_order_lines_icon"
+                                string="Icon on Order Lines"
                             />
                             <div class="text-muted">
-                                If checked, an icon will be displayed on the screen, before each product that can be paid with meal vouchers.
+                                If checked, an icon will be displayed on point of sale order lines (on the product screen) for products that can be paid for by meal vouchers.
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6 o_setting_box">
                         <div class="o_setting_left_pane">
-                            <field name="meal_voucher_display_info_ticket" />
+                            <field name="pos_enable_meal_voucher_receipt_info" />
                         </div>
                         <div class="o_setting_right_pane">
                             <label
-                                for="meal_voucher_display_info_ticket"
-                                string="Display Information on Ticket"
+                                for="pos_enable_meal_voucher_receipt_info"
+                                string="Information on Receipt"
                             />
                             <div class="text-muted">
-                                If checked, a star (*) will be displayed on the ticket, before each product that can be paid with meal vouchers, and the total of the eligible product will be printed.
+                                If checked, an asterisk (*) will be displayed on receipts before each product that can be paid for by meal vouchers as well as the total eligible amount.
                             </div>
                         </div>
                     </div>

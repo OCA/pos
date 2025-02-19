@@ -5,10 +5,12 @@
 from odoo import fields, models
 
 
-class BarcodeRule(models.Model):
-    _inherit = "barcode.rule"
+class PosPaymentMethod(models.Model):
+    _inherit = "pos.payment.method"
 
-    type = fields.Selection(
-        selection_add=[("meal_voucher_payment", "Meal Voucher Payment")],
-        ondelete={"meal_voucher_payment": "set default"},
+    meal_voucher_type = fields.Selection(
+        selection=[
+            ("paper", "Paper"),
+            ("electronic", "Electronic"),
+        ],
     )

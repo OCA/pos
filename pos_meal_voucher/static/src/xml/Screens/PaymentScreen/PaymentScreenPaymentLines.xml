@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="MealVoucherPaymentScreenPaymentLines"
+        t-inherit="point_of_sale.PaymentScreenPaymentLines"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//t[@t-if='line.selected']/div/div[hasclass('payment-amount')]"
+            position="before"
+        >
+            <div t-if="isMealVoucher(line)" class="is-meal-voucher">
+                <i class="fa fa-cutlery" />
+            </div>
+        </xpath>
+        <xpath
+            expr="//t[@t-foreach='props.paymentLines']/t[@t-else='']/div/div[hasclass('payment-amount')]"
+            position="before"
+        >
+            <div t-if="isMealVoucher(line)" class="is-meal-voucher">
+                <i class="fa fa-cutlery" />
+            </div>
+        </xpath>
+    </t>
+
+</templates>

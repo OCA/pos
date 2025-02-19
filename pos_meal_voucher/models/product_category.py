@@ -9,9 +9,9 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     meal_voucher_ok = fields.Boolean(
-        string="Meal Voucher",
-        help="If checked, the products that belong to the category"
-        " will be marked as 'can be paid with meal vouchers', by default.",
+        string="Can be Paid for by Meal Vouchers",
+        help="If checked, the products of this category will be marked as "
+        '"Can be Paid for by Meal Vouchers" by default.',
     )
 
     def button_apply_meal_voucher_settings(self):

@@ -1,24 +1,33 @@
 Products
 ~~~~~~~~
 
-* go to your products, and click on the 'Meal Voucher' checkbox, if your product
-  can be paid with meal vouchers.
+On a product form, in the "Sales" tab, the "Can be Paid for by Meal Vouchers" checkbox controls whether the product can be paid for by meal vouchers.
 
 .. figure:: ../static/description/product_product_form.png
 
-* You can configure your product categories to have a default value for the products
-  that belong to this category.
+Product categories can be configured to have a default value for the "Can be Paid for by Meal Vouchers" field for its products.
+The "Apply to All Products" button allows to set the value on all products of the category.
 
 .. figure:: ../static/description/product_category_form.png
 
-* configures your Account journals, mentioning the type of Meal Voucher:
+Point of Sale Payment Methods
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Paper : the journal will be used when scanning meal voucher barcodes
-- Dematerialized: the journal will be used for dematerialized meal vouchers
-- Mixed: Specific configuration if your accountant want to use a single journal for Credit card AND dematerialized meal vouchers. In that case, the button of this journal will be duplicated, and an extra text can be set to display an alternative label.
+Point of sale payment methods (Point of Sale > Configuration > Payment Methods) have a "Meal Voucher Type" field that defines what type of meal voucher payment method they are:
 
-.. figure:: ../static/description/account_journal_form.png
+* (empty): The payment method is not a meal voucher payment method.
+* **Paper**: The payment method will be used when scanning meal voucher barcodes.
+* **Electronic**: The payment method will be used for electronic meal vouchers.
 
-* go your point of sale configuration form, and set the maximum amount allowed by ticket. (optional)
+.. figure:: ../static/description/pos_payment_method_form.png
 
-.. figure:: ../static/description/pos_config_form.png
+Settings
+~~~~~~~~
+
+This module adds a "Meal Vouchers" section in the point of sale settings (Point of Sale > Configuration > Settings, or Settings > Point of Sale) with several options:
+
+* **Maximum Amount**: Optional maximum amount per order that can be paid by meal vouchers. Set to 0 to disable.
+* **Icon on Order Lines**: Whether to display an icon on point of sale order lines (on the product screen) for products that can be paid for by meal vouchers.
+* **Information on Receipt**: Whether to display an asterisk (*) on receipts before each product that can be paid for by meal vouchers as well as the total eligible amount.
+
+.. figure:: ../static/description/pos_settings.png

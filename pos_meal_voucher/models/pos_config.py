@@ -9,24 +9,23 @@ class PosConfig(models.Model):
     _inherit = "pos.config"
 
     max_meal_voucher_amount = fields.Monetary(
-        string="Meal Voucher Amount",
+        string="Meal Voucher Maximum Amount",
         currency_field="currency_id",
     )
-
-    meal_voucher_display_product_screen = fields.Boolean(
-        string="Display icon before products on screen", default=True
+    enable_meal_voucher_order_lines_icon = fields.Boolean(
+        string="Meal Voucher Icon on Order Lines", default=True
+    )
+    enable_meal_voucher_receipt_info = fields.Boolean(
+        string="Meal Voucher Information on Receipt",
+    )
+    has_meal_voucher_payment_method = fields.Boolean(
+        compute="_compute_has_meal_voucher_payment_method"
     )
 
-    meal_voucher_display_info_ticket = fields.Boolean(
-        string="Display Information on Ticket",
-    )
-
-    has_meal_voucher_journal = fields.Boolean(
-        compute="_compute_has_meal_voucher_journal"
-    )
-
-    def _compute_has_meal_voucher_journal(self):
+    def _compute_has_meal_voucher_payment_method(self):
         for config in self:
-            config.has_meal_voucher_journal = len(
-                config.journal_ids.filtered(lambda x: x.meal_voucher_type is not False)
+            config.has_meal_voucher_payment_method = bool(
+                config.payment_method_ids.filtered(
+                    lambda x: x.meal_voucher_type is not False
+                )
             )

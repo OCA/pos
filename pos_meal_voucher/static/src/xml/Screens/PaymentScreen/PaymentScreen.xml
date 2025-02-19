@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="MealVoucherPaymentScreen"
+        t-inherit="point_of_sale.PaymentScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('paymentmethods')]" position="after">
+            <div t-if="hasMealVoucherPaymentMethod" class="meal-voucher-summary">
+                <p class="title-category">Meal Vouchers</p>
+                <div class="meal-voucher-summary-container">
+                    <div class="meal-voucher-summary-line">
+                        <div class="meal-voucher-summary-line-name">Total Eligible</div>
+                        <div
+                            t-if="mealVoucherReceivedAmount > mealVoucherEligibleAmount"
+                            class="meal-voucher-summary-line-warning"
+                        >
+                            <i
+                                id="meal-voucher-eligible-warning"
+                                class="fa fa-warning"
+                            />
+                        </div>
+                        <div class="meal-voucher-summary-line-amount">
+                            <span
+                                id="meal-voucher-eligible-amount"
+                                t-out="env.pos.format_currency(mealVoucherEligibleAmount)"
+                            />
+                        </div>
+                    </div>
+                    <div
+                        t-if="maxMealVoucherAmount !== 0"
+                        class="meal-voucher-summary-line"
+                    >
+                        <div class="meal-voucher-summary-line-name">Max Amount</div>
+                        <div
+                            t-if="mealVoucherReceivedAmount > maxMealVoucherAmount"
+                            class="meal-voucher-summary-line-warning"
+                        >
+                            <i id="meal-voucher-max-warning" class="fa fa-warning" />
+                        </div>
+                        <div class="meal-voucher-summary-line-amount">
+                            <span
+                                id="meal-voucher-max-amount"
+                                t-out="env.pos.format_currency(maxMealVoucherAmount)"
+                            />
+                        </div>
+                    </div>
+                    <div class="meal-voucher-summary-line">
+                        <div class="meal-voucher-summary-line-name">Total Received</div>
+                        <div class="meal-voucher-summary-line-amount">
+                            <span
+                                id="meal-voucher-received-amount"
+                                t-out="env.pos.format_currency(mealVoucherReceivedAmount)"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

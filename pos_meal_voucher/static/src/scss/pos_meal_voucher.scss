@@ -1,0 +1,56 @@
+.pos .paymentline .is-meal-voucher {
+    text-align: center;
+    padding: map-get($spacers, 3);
+}
+
+.pos .paymentline .is-meal-voucher .fa-cutlery {
+    border-radius: 8px;
+    border: 1px solid rgba($gray-700, 0.5);
+    width: 24px;
+    line-height: 24px;
+}
+
+.payment-screen div.meal-voucher-summary .fa-warning {
+    color: red;
+}
+
+.pos .meal-voucher-summary {
+    // same as .pos .paymentlines
+    display: flex;
+    flex-direction: column-reverse;
+    border-spacing: 0px 10px;
+    border-collapse: inherit;
+}
+
+.pos .meal-voucher-summary-container {
+    padding: map-get($spacers, 2) 0;
+}
+
+.pos .meal-voucher-summary-line {
+    // same as .pos .paymentline, with some changes
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 100%;
+    background: #fff;
+    font-size: 16px;
+    border-top-width: 0px;
+    padding: map-get($spacers, 2) 0;
+}
+
+.meal-voucher-summary-line .meal-voucher-summary-line-name {
+    flex-grow: 1;
+    padding: 0 map-get($spacers, 3);
+}
+
+.meal-voucher-summary-line .meal-voucher-summary-line-amount {
+    padding: 0 map-get($spacers, 3);
+}
+
+.meal-voucher-summary-line .meal-voucher-summary-line-warning {
+    font-size: 20px;
+    margin-bottom: -(map-get($spacers, 2));
+}
+
+.pos-receipt-meal-voucher-eligible {
+    font-size: 75%;
+}

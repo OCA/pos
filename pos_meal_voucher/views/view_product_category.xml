@@ -15,8 +15,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                 <button
                     type="object"
                     name="button_apply_meal_voucher_settings"
-                    string="Apply to all Products"
-                    help="by clicking on this button, all the products of this category will have the same settings than the current category, for the value 'Meal Voucher'"
+                    string="Apply to All Products"
+                    help="Set the above &quot;Can be Paid for by Meal Vouchers&quot; value on all of the products of this category"
                     icon="fa-cogs"
                     colspan="2"
                 />

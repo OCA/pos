@@ -11,7 +11,6 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="categ_id" ref="food_category" />
         <field name="meal_voucher_ok" eval="True" />
         <field name="available_in_pos" eval="True" />
-        <field name="available_in_pos" eval="True" />
         <field name="list_price">5.30</field>
     </record>
 

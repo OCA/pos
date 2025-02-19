@@ -8,12 +8,10 @@ from odoo import models
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
-    def _payment_fields(self, ui_paymentline):
-        res = super()._payment_fields(ui_paymentline)
-        res["statement_note"] = ui_paymentline.get("statement_note", False)
-        return res
-
-    def _prepare_bank_statement_line_payment_values(self, data):
-        res = super()._prepare_bank_statement_line_payment_values(data)
-        res["note"] = data.get("statement_note", False)
+    def _payment_fields(self, order, ui_paymentline):
+        res = super()._payment_fields(order, ui_paymentline)
+        # the pos.payment.name field is named "Label" and is not used for
+        # normal payments, so it is used here to store the payment note (the
+        # barcode of paper meal vouchers).
+        res["name"] = ui_paymentline.get("payment_note", False)
         return res

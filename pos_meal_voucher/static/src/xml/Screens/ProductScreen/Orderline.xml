@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="MealVoucherOrderline"
+        t-inherit="point_of_sale.Orderline"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <!--
+            the space after the <i> element is needed to separate the icon
+            from the product name.
+        -->
+        <xpath expr="//span[hasclass('product-name')]/t[1]" position="before">
+            <t t-if="displayMealVoucherIcon"><i class="fa fa-cutlery" /> </t>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="MealVoucherOrderSummary"
+        t-inherit="point_of_sale.OrderSummary"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('summary')][1]" position="after">
+            <t t-if="env.pos.config.has_meal_voucher_payment_method">
+                <div class="summary clearfix">
+                    <div class="line">
+                        <div class="subentry meal-voucher">
+                            Meal Voucher: <span
+                                class="value"
+                                t-out="env.pos.format_currency(props.order.get_total_meal_voucher_eligible())"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,37 +1,33 @@
-* Open your Point of Sale
+Product Screen
+~~~~~~~~~~~~~~
 
-* Cashier can see the food products, eligible for meal voucher payment, and see the total for
-  Meal Voucher amount
+On the product screen, the products that can be paid for by meal vouchers are (optionally) identified with an icon and the total amount of those products is displayed.
 
-  .. figure:: ../static/description/front_ui_pos_order_screen.png
+.. figure:: ../static/description/pos_order_screen.png
 
-* go to the payment screen
+Payment Screen
+~~~~~~~~~~~~~~
 
-A Meal Voucher Summary is available:
+On the payment screen, a meal voucher summary is displayed:
 
-  .. figure:: ../static/description/front_ui_pos_payment_screen.png
+.. figure:: ../static/description/pos_payment_screen_meal_vouchers.png
 
-If the amount received is too important, a warning icon is displayed
+If the received amount is too high, a warning icon is displayed:
 
-  .. figure:: ../static/description/front_ui_pos_payment_screen_summary.png
+.. figure:: ../static/description/pos_payment_screen_warning.png
 
-If the cashier try to validate the order, a warning is also display, asking confirmation
+Receipt
+~~~~~~~
 
-  .. figure:: ../static/description/front_ui_pos_payment_screen_warning.png
+The receipts can optionally contain information about the products that can be paid for by meal vouchers and the total amount of those products:
 
-It is a non blocking warning, because we don't want to prevent an order to be done,
-if products are not correctly set, or if a recent law changed the maximum amount that can
-be used each day. (A recent case occured in France, during the Covid-19 pandemy)
+.. figure:: ../static/description/receipt_information.png
 
-Informations are printed on the ticket, if the point of sale is so configured.
+Barcodes
+~~~~~~~~
 
-  .. figure:: ../static/description/ticket_information.png
-
-Note
-~~~~
-
-A new barcode rule is available for Paper Meal Voucher of 24 chars:
+A new barcode rule is defined for paper meal vouchers (with 24 characters):
 
 ``...........{NNNDD}........``
 
-If you scan the following barcode ``052566641320080017000000``, a new payment line will be added, with an amount of 8,00€ (``00800``)
+If you scan the following barcode: ``052566641320080017000000``, a new payment line with an amount of ¤8.00 (``00800``) will be added.
