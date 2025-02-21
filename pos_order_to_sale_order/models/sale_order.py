@@ -34,6 +34,7 @@ class SaleOrder(models.Model):
         sale_order = self.with_context(
             pos_order_lines_data=[x[2] for x in order_data.get("lines", [])]
         ).create(order_vals)
+        sale_order._recompute_taxes()
 
         # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:
