@@ -18,7 +18,7 @@ odoo.define(
                     const results = super.getPayload();
                     const product_no_variant_attribute_value_ids =
                         this.env.attribute_components.map((attribute) =>
-                            parseInt(attribute.state.selected_value)
+                            parseInt(attribute.state.selected_value, 10)
                         );
                     return Object.assign(results, {
                         product_no_variant_attribute_value_ids:

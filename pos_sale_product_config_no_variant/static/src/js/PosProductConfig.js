@@ -15,7 +15,7 @@ odoo.define("pos_sale_product_config_no_variant.Orderline", function (require) {
                 const result = super.export_as_JSON(...arguments);
                 result.product_no_variant_attribute_value_ids = _.map(
                     this.product_no_variant_attribute_value_ids,
-                    (value) => parseInt(value)
+                    (value) => parseInt(value, 10)
                 );
                 return result;
             }
