@@ -13,6 +13,7 @@ class PosConfig(models.Model):
     )
     main_warehouse_id = fields.Many2one(
         "stock.warehouse",
+        string="Main Warehouse",
         related="picking_type_id.warehouse_id",
         store=True,
     )
