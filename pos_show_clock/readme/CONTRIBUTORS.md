@@ -1,4 +1,6 @@
-- [KMEE](https://www.kmee.com.br):  
+- [KMEE](https://www.kmee.com.br):
   - Luis Felipe Mileo \<<mileo@kmee.com.br>\>
   - Ygor Carvalho \<<ygor.carvalho@kmee.com.br>\>
   - Felipe Zago \<<felipe.zago@kmee.com.br>\>
+- [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
+  - Bhavesh Heliconia

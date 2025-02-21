@@ -4,7 +4,7 @@
 {
     "name": "Pos Show Clock",
     "summary": """Point of Sale: Display Current Date and Time on POS sreen""",
-    "version": "14.0.1.0.0",
+    "version": "17.0.1.0.0",
     "author": "KMEE, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "LGPL-3",
@@ -12,9 +12,11 @@
     "depends": [
         "point_of_sale",
     ],
-    "data": [
-        # Templates
-        "views/pos_template.xml",
-    ],
-    "qweb": ["static/src/xml/ChromeWidgets/Clock.xml"],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "pos_show_clock/static/src/css/pos.css",
+            "pos_show_clock/static/src/js/ChromeWidgets/Clock.esm.js",
+            "pos_show_clock/static/src/xml/ChromeWidgets/Clock.xml",
+        ]
+    },
 }
