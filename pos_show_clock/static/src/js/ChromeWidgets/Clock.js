@@ -1,6 +1,7 @@
 odoo.define("pos_show_clock.Clock", function (require) {
     "use strict";
 
+    /* eslint-disable no-undef */
     const PosComponent = require("point_of_sale.PosComponent");
     const Registries = require("point_of_sale.Registries");
     const {useState} = owl;
