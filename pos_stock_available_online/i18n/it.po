@@ -51,6 +51,12 @@ msgstr ""
 "disponibile del prodotto"
 
 #. module: pos_stock_available_online
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__main_warehouse_id
+#: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_main_warehouse_id
+msgid "Main Warehouse"
+msgstr ""
+
+#. module: pos_stock_available_online
 #: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
 msgid "Mark quantity red if below or equal this value."
 msgstr "Evidenzia in rosso la quantità se inferiore o uguale a questo valore."
@@ -106,8 +112,6 @@ msgstr "Totale"
 
 #. module: pos_stock_available_online
 #: model:ir.model,name:pos_stock_available_online.model_stock_warehouse
-#: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__main_warehouse_id
-#: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_main_warehouse_id
 msgid "Warehouse"
 msgstr "Magazzino"
 
