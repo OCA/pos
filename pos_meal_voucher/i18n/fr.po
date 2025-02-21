@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
+"POT-Creation-Date: 2025-02-21 17:11+0000\n"
+"PO-Revision-Date: 2025-02-21 17:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -29,7 +29,7 @@ msgstr "Appliquer à tous les produits"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_barcode_rule
 msgid "Barcode Rule"
-msgstr "Règle de code barre"
+msgstr "Règle de code-barres"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
@@ -48,7 +48,7 @@ msgstr ""
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Paramètres de configuration"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields.selection,name:pos_meal_voucher.selection__pos_payment_method__meal_voucher_type__electronic
@@ -106,6 +106,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
 msgid "Information on Receipt"
 msgstr "Informations sur le ticket"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/js/models.esm.js:0
+#, python-format
+msgid "Invalid Meal Voucher"
+msgstr "Titre-restaurant invalide"
 
 #. module: pos_meal_voucher
 #. odoo-javascript
@@ -179,7 +186,7 @@ msgstr "Papier"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr "Paramétrage du point de vente"
+msgstr "Configuration du point de vente"
 
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_order
@@ -189,12 +196,12 @@ msgstr "Commandes du point de vente"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
+msgstr "Modes de paiement du point de vente"
 
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Session du point de vente"
 
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_product_template
@@ -209,7 +216,7 @@ msgstr "Catégorie de produit"
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_product_product
 msgid "Product Variant"
-msgstr ""
+msgstr "Variante de produit"
 
 #. module: pos_meal_voucher
 #. odoo-javascript
@@ -228,6 +235,13 @@ msgid ""
 msgstr ""
 "Applique la valeur de \"Peut être payé avec des titres-restaurant\" ci-"
 "dessus à tous les produits de cette catégorie"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/js/models.esm.js:0
+#, python-format
+msgid "The paper meal voucher with code \"%s\" has already been scanned."
+msgstr "Le titre-restaurant papier avec le code \"%s\" a déjà été scanné."
 
 #. module: pos_meal_voucher
 #. odoo-javascript

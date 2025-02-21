@@ -4,9 +4,12 @@
 // License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import {Order, Orderline, Payment, PosGlobalState} from "point_of_sale.models";
+import {Gui} from "point_of_sale.Gui";
 import {Model} from "point_of_sale.Registries";
+import core from "web.core";
 import utils from "web.utils";
 
+const _t = core._t;
 const round_pr = utils.round_precision;
 
 const MealVoucherOrder = (OriginalOrder) =>
@@ -35,7 +38,28 @@ const MealVoucherOrder = (OriginalOrder) =>
             );
         }
 
-        handle_meal_voucher_barcode(code) {
+        async _meal_voucher_is_valid(code) {
+            for (const payment_line of this.paymentlines) {
+                if (payment_line.payment_note === code) {
+                    await Gui.showPopup("ErrorPopup", {
+                        title: _t("Invalid Meal Voucher"),
+                        body: _.str.sprintf(
+                            _t(
+                                'The paper meal voucher with code "%s" has already been scanned.'
+                            ),
+                            code
+                        ),
+                    });
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        async handle_meal_voucher_barcode(code) {
+            if (!(await this._meal_voucher_is_valid(code.code))) {
+                return;
+            }
             // Add new payment line with the amount found in the barcode.
             const payment_line = this.add_paymentline(
                 this.pos.paper_meal_voucher_payment_method

@@ -97,6 +97,13 @@ msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/js/models.esm.js:0
+#, python-format
+msgid "Invalid Meal Voucher"
+msgstr ""
+
+#. module: pos_meal_voucher
+#. odoo-javascript
 #: code:addons/pos_meal_voucher/static/src/xml/Screens/PaymentScreen/PaymentScreen.xml:0
 #, python-format
 msgid "Max Amount"
@@ -209,6 +216,13 @@ msgstr ""
 msgid ""
 "Set the above \"Can be Paid for by Meal Vouchers\" value on all of the "
 "products of this category"
+msgstr ""
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/js/models.esm.js:0
+#, python-format
+msgid "The paper meal voucher with code \"%s\" has already been scanned."
 msgstr ""
 
 #. module: pos_meal_voucher
