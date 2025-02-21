@@ -34,9 +34,6 @@ odoo.define("pos_sale_product_config_no_variant.Orderline", function (require) {
 
     const PosNoVariantOrder = (Order) =>
         class PosNoVariantOrder extends Order {
-            constructor() {
-                super(...arguments);
-            }
             set_orderline_options(line, options) {
                 super.set_orderline_options(...arguments);
                 if (options && options.product_no_variant_attribute_value_ids) {
