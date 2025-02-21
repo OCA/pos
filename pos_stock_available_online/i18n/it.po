@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2025-01-16 10:06+0000\n"
+"PO-Revision-Date: 2025-02-21 18:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -54,7 +54,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_stock_available_online.field_pos_config__main_warehouse_id
 #: model:ir.model.fields,field_description:pos_stock_available_online.field_res_config_settings__pos_main_warehouse_id
 msgid "Main Warehouse"
-msgstr ""
+msgstr "Magazzino principale"
 
 #. module: pos_stock_available_online
 #: model_terms:ir.ui.view,arch_db:pos_stock_available_online.res_config_settings_view_form
