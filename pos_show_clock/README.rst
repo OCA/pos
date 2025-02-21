@@ -67,6 +67,10 @@ Contributors
   - Ygor Carvalho <ygor.carvalho@kmee.com.br>
   - Felipe Zago <felipe.zago@kmee.com.br>
 
+- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+
+  - Bhavesh Heliconia
+
 Other credits
 -------------
 

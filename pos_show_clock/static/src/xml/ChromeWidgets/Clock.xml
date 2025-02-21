@@ -10,13 +10,13 @@
     </t>
 
     <t
-        t-name="Chrome"
-        t-inherit="point_of_sale.Chrome"
+        t-name="NavbarClock"
+        t-inherit="point_of_sale.Navbar"
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//SyncNotification" position="before">
-            <Clock t-if="!env.isMobile" />
+        <xpath expr="//CashierName" position="after">
+            <Clock t-if="!ui.isSmall" />
         </xpath>
     </t>
 
