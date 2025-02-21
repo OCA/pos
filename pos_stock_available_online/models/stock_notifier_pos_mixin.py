@@ -23,7 +23,7 @@ class StockNotifierPosMixin(models.AbstractModel):
         for record in self:
             if record._skip_notify_pos():
                 continue
-            for warehouse in self._get_warehouses_to_notify():
+            for warehouse in record._get_warehouses_to_notify():
                 configs = pos_session_obj.search(
                     [
                         ("state", "=", "opened"),
