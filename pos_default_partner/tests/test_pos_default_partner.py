@@ -8,18 +8,17 @@ from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
 @odoo.tests.tagged("post_install", "-at_install")
 class TestPosDefaultPartner(TestPoSCommon):
-    def setUp(self):
-        super().setUp()
-        self.config = self.basic_config
-        self.PosOrder = self.env["pos.order"]
+    @classmethod
+    def setUpClass(cls, chart_template_ref=None):
+        super().setUpClass(chart_template_ref=chart_template_ref)
+        cls.config = cls.basic_config
+        cls.PosOrder = cls.env["pos.order"]
         # ==== Partners ====
-        self.partner_01 = self.env["res.partner"].create({"name": "Test partner 1"})
-        self.partner_02 = self.env["res.partner"].create({"name": "Test partner 2"})
+        cls.partner_01 = cls.env["res.partner"].create({"name": "Test partner 1"})
+        cls.partner_02 = cls.env["res.partner"].create({"name": "Test partner 2"})
         # ==== Products ====
-        self.product0 = self.create_product(
-            "Product test 0", self.categ_basic, 5.0, 0.0
-        )
-        self.product1 = self.create_product("Product test 1", self.categ_basic, 10.0, 5)
+        cls.product0 = cls.create_product("Product test 0", cls.categ_basic, 5.0, 0.0)
+        cls.product1 = cls.create_product("Product test 1", cls.categ_basic, 10.0, 5)
 
     def _create_order(self, partner_id=False):
         # ==== open a session ====
