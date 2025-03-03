@@ -1,0 +1,1 @@
+This module allows you to use stripe in POS with the group user assigned POS only.
