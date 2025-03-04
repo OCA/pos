@@ -120,7 +120,7 @@ export class PaymentCashdro extends PaymentInterface {
         if (!host) {
             return false;
         }
-        let url = `https://${host}/Cashdro3WS/index.php`;
+        let url = `${host}/Cashdro3WS/index.php`;
         url += `?name=${method.cashdro_user}`;
         url += `&password=${method.cashdro_password}`;
         return url;
