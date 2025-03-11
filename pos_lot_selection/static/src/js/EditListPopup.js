@@ -1,14 +1,13 @@
-/** @odoo-module */
 /*
     Copyright 2023 Dixmit
     Copyright 2022 Camptocamp
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl)
 */
 
-import {onWillStart, useState} from "@odoo/owl";
-import {ConnectionLostError} from "@web/core/network/rpc_service";
-import {EditListInput} from "@point_of_sale/app/store/select_lot_popup/edit_list_input/edit_list_input";
-import {EditListPopup} from "@point_of_sale/app/store/select_lot_popup/select_lot_popup";
+import { onWillStart, useState } from "@odoo/owl";
+import { ConnectionLostError } from "@web/core/network/rpc";
+import { EditListInput } from "@point_of_sale/app/store/select_lot_popup/edit_list_input/edit_list_input";
+import { EditListPopup } from "@point_of_sale/app/store/select_lot_popup/select_lot_popup";
 
 import {_t} from "@web/core/l10n/translation";
 import {patch} from "@web/core/utils/patch";

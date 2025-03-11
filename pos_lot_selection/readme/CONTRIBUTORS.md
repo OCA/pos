@@ -8,3 +8,4 @@
   - David Vidal
 - Trobz Consulting
   - Nguyen Minh Chien <chien@trobz.com>
+  - Kien Kim Khoi <khoikk@trobz.com>
