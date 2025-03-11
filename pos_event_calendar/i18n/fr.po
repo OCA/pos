@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_event_calendar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-11 14:06+0000\n"
+"PO-Revision-Date: 2025-03-11 15:09+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
+msgid "An error occurred while processing the event selection."
+msgstr "Une erreur s'est produite lors du traitement de la sélection de l’évènement."
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "Available Events"
+msgstr "Évènements disponibles"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_event_calendar
+#: model:ir.model,name:pos_event_calendar.model_event_event
+msgid "Event"
+msgstr "Évènement"
+
+#. module: pos_event_calendar
+#: model:ir.model,name:pos_event_calendar.model_event_question
+msgid "Event Question"
+msgstr "Question d'événement"
+
+#. module: pos_event_calendar
+#: model:ir.model,name:pos_event_calendar.model_event_tag
+msgid "Event Tag"
+msgstr "Étiquettes d'événement"
+
+#. module: pos_event_calendar
+#: model:ir.model,name:pos_event_calendar.model_event_event_ticket
+msgid "Event Ticket"
+msgstr "Ticket d'événement"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/xml/custom_button.xml:0
+msgid "Events"
+msgstr "Évènements"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "No events available."
+msgstr "Aucun évènement disponible."
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "No events found matching your criteria."
+msgstr "Aucun évènement ne correspond à vos critères de recherche."
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
+msgid "No more seats available for this event"
+msgstr "Il n'y a plus de places disponibles pour cet évènement"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
+msgid "No tickets available for this event."
+msgstr "Il n'y a aucun billet disponible pour cet évènement."
+
+#. module: pos_event_calendar
+#: model:ir.model,name:pos_event_calendar.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_event_calendar
+#: model:ir.model,name:pos_event_calendar.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.js:0
+msgid "Product"
+msgstr "Produits"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "Search events"
+msgstr "Chercher des évènements"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "Sold out"
+msgstr "Complet"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventCalendar.js:0
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: pos_event_calendar
+#. odoo-javascript
+#: code:addons/pos_event_calendar/static/src/js/Popups/EventSelectorPopup/EventSelectorPopup.xml:0
+msgid "seats"
+msgstr "places"

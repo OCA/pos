@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2025 Moka Tourisme (https://www.mokatourisme.fr/).
+    @author Damien Horvat <ultrarushgame@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_event_calendar.EventButton" t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button" position="before">
+            <button class="btn btn-light btn-lg lh-lg text-truncate w-auto" t-on-click="onClick"> 
+                Events
+            </button>
+        </xpath>
+    </t>
+    
+</templates>

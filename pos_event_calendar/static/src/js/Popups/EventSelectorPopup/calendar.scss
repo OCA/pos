@@ -1,0 +1,99 @@
+.has-events {
+    background-color: #b2d4d4;
+}
+
+.event-card {
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    width: 100%;
+    height: 90px;
+}
+
+.event-container {
+    width: 100%;
+    height: 90px;
+}
+
+.date-block {
+    background-color: #212529;
+    min-width: 60px;
+    width: 60px;
+}
+
+.time-block {
+    background-color: #357c8c;
+    text-align: center;
+    min-width: 70px;
+    max-width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.date-block, .time-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 70px;
+    justify-content: space-between;
+    height: 100%;
+    padding: 8px !important;
+}
+
+.time-block .day-number {
+    font-size: 1.5rem;
+}
+
+.start-time, .end-time {
+    font-size: 0.85rem;
+}
+
+.event-details {
+    flex-grow: 1;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+
+.event-title {
+    color: #131313;
+    font-size: 1.1em;
+}
+
+.availability-badge {
+    align-self: flex-start;
+    font-size: 0.7rem;
+    margin-top: 4px;
+}
+
+.day-name, .month-name {
+    font-size: 0.75rem;
+    line-height: 1;
+}
+
+.day-number {
+    font-size: 1.75rem;
+    line-height: 1;
+    margin: 4px 0;
+}
+
+.time-block .day-number {
+    font-size: 1.75rem;
+}
+
+.start-time, .end-time {
+    font-size: 0.85rem;
+    line-height: 1.2;
+}
+
+
+.event-title {
+    max-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+

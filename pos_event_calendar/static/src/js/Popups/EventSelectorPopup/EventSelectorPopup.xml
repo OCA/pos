@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2025 Moka Tourisme (https://www.mokatourisme.fr/).
+    @author Damien Horvat <ultrarushgame@gmail.com>
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
+-->
+<templates xml:space="preserve">
+
+    <t t-name="pos_event_calendar.EventSelectorPopup">
+        <Dialog t-if="!dialogState.isHidden" size="'lg'" title="'Event Selection'" t-on-close="closeDialog">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <EventFilter filters="dialogState.filters" 
+                         events="events" 
+                             onClickFilter="(ev) => this.onFiltersChange(ev)" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Calendar-->
+                <div class="col-md-6 pe-3">
+                    <div class="calendar-container" style="height: 400px;">
+                        <EventCalendar eventsByDate="eventsByDate || {}" onSelectEvent="(ev) => this.clickEvent(ev)" 
+                    onSelectDates="(dates) => this.selectDates(dates)" />
+                    </div>
+                </div>
+                
+                <!-- Event list and details -->
+                <div class="col-md-6 ps-3">
+                    <div class="event-section">
+                        <h5 class="mb-3">Available Events</h5>
+                        <div class="event-list-container" style="max-height: 350px; overflow-y: auto;">
+                            <EventList 
+                                events="eventsToDisplay" 
+                                onClickEvent="(ev) => this.clickEvent(ev)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <t t-set-slot="footer">
+                <button t-on-click="closeDialog" class="btn btn-secondary">Cancel</button>
+            </t>
+        </Dialog>
+    </t>
+
+    <t t-name="pos_event_calendar.EventCalendar">
+        <div class="pos-event-calendar h-100">
+            <div t-if="!state.fallbackView" t-ref="calendarContainer" class="event-calendar-container h-100"></div>
+            
+            <div t-if="state.fallbackView" class="event-list-fallback h-100">
+                <div t-if="events.length === 0" class="alert alert-info">
+                    No events available.
+                </div>
+                
+                <div t-else="" class="event-list">
+                    <div t-foreach="events" t-as="event" t-key="event.id"
+                         class="event-item p-2 mb-2 border rounded cursor-pointer"
+                         t-on-click="() => this.handleEventClick(event)">
+                        <div class="d-flex justify-content-between">
+                            <span class="event-name fw-bold"><t t-esc="event.name" /></span>
+                            <span class="event-date text-muted"><t t-esc="event.date" /></span>
+                        </div>
+                        <div t-if="event.description" class="event-description small mt-1">
+                            <t t-esc="event.description" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="pos_event_calendar.EventList">
+        <div class="event-list">
+            <div t-if="props.events.length === 0" class="no-events-message alert alert-info">
+                No events found matching your criteria.
+            </div>
+            
+            <div t-else="" class="event-items">
+                <t t-foreach="props.events" t-as="event" t-key="event.id">
+                    <EventItem 
+                        event="event" 
+                        onSelectEvent="(ev) => this.handleEventSelect(ev)" />
+                </t>
+            </div>
+        </div>
+    </t>
+
+
+    <t t-name="pos_event_calendar.EventItem">
+        <div t-attf-class="{{addedClasses}} event-card" t-on-click="(ev) => this.clickEvent(ev)">
+            <div class="d-flex event-container">
+
+                <div class="date-block text-center text-white p-2">
+                    <div class="day-name text-uppercase small">
+                        <t t-esc="formatDateDisplay(props.event).left.dayName" />
+                    </div>
+                    <div class="day-number fs-2 fw-bold">
+                        <t t-esc="formatDateDisplay(props.event).left.dayNumber" />
+                    </div>
+                    <div class="month-name text-uppercase small">
+                        <t t-esc="formatDateDisplay(props.event).left.monthName" />
+                    </div>
+                    <div class="start-time small fw-bold mt-1" t-if="!isSameDay(props.event.date_begin_located, props.event.date_end_located)">
+                        <t t-esc="formatDateDisplay(props.event).left.startTime" />
+                    </div>
+                </div>
+                
+
+                <div class="time-block p-2 text-white">
+                    <t t-if="isSameDay(props.event.date_begin_located, props.event.date_end_located)">
+                        <div class="start-time fw-bold mt-1 small">
+                            <t t-esc="formatDateDisplay(props.event).right.startTime" />
+                        </div>
+                        <div class="separator small">-</div>
+                        <div class="end-time fw-bold small">
+                            <t t-esc="formatDateDisplay(props.event).right.endTime" />
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="day-name text-uppercase small">
+                            <t t-esc="formatDateDisplay(props.event).right.dayName" />
+                        </div>
+                        <div class="day-number fs-2 fw-bold">
+                            <t t-esc="formatDateDisplay(props.event).right.dayNumber" />
+                        </div>
+                        <div class="month-name text-uppercase small">
+                            <t t-esc="formatDateDisplay(props.event).right.monthName" />
+                        </div>
+                        <div class="end-time small fw-bold mt-1">
+                            <t t-esc="formatDateDisplay(props.event).right.endTime" />
+                        </div>
+                    </t>
+                </div>
+
+                <div class="event-details p-2 d-flex flex-column justify-content-center position-relative"> 
+                    <div class="event-bg position-absolute top-0 start-0 w-100 h-100"
+                        t-attf-style="background-image: url('/web/image/event.event/{{props.event.id}}/image_1024'); 
+                                    background-size: cover;
+                                    background-position: center;
+                                    filter: blur(2px);">
+                    </div>
+                    
+                    <div class="position-absolute top-0 start-0 w-100 h-100" 
+                        style="background-color: rgba(255, 255, 255, 0.5); z-index: 1;">
+                    </div>
+                    
+                    <h6 class="event-title mb-0 fw-bold position-relative" style="z-index: 2;">
+                        <t t-esc="props.event.name" />
+                    </h6>
+                    <t t-if="props.event.seats_limited">
+                        <small t-attf-class="availability-badge badge position-relative {{ props.event.seats_available > 0 ? 'bg-success' : 'bg-danger' }} text-white" 
+                            style="z-index: 2; align-self: flex-start;">
+                            <t t-if="props.event.seats_available > 0">
+                                <t t-esc="props.event.seats_available"/> seats
+                            </t>
+                            <t t-else="">
+                                Sold out
+                            </t>
+                        </small>
+                    </t>
+                </div>
+            </div>
+
+
+
+        </div>
+    </t>
+
+    <t t-name="pos_event_calendar.EventFilter">
+        <div class="event-filter">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <input type="text" 
+                    class="form-control" 
+                    placeholder="Search events" 
+                    t-on-input="handleSearchChange"/>
+            </div>
+            <div class="filter-tags d-flex flex-wrap">
+                <t t-foreach="uniqueTags" t-as="tag" t-key="tag.id">
+                    <span t-attf-class="badge me-2 mb-1 {{isTagActive(tag.id) ? 'bg-primary' : 'bg-light text-dark'}}"
+                        style="font-size: larger; cursor: pointer; padding: 6px 10px;"
+                        t-on-click="() => this.handleTagClick(tag.id)">
+                        <i class="fa fa-tag me-1"></i>
+                        <t t-esc="tag.name" /> 
+                    </span>
+                </t>
+            </div>
+        </div>
+    </t>
+
+
+
+
+</templates>
