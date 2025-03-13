@@ -1,17 +1,17 @@
-import { Component, useState } from "@odoo/owl";
+import {Component, useState} from "@odoo/owl";
 
 export class EventFilter extends Component {
     static template = "pos_event_calendar.EventFilter";
     static props = {
-        filters: { type: Array, required: true },
-        events: { type: Array, required: true },
-        onClickFilter: { type: Function, optional: true },
+        filters: {type: Array, required: true},
+        events: {type: Array, required: true},
+        onClickFilter: {type: Function, optional: true},
     };
 
     setup() {
         this.state = useState({
             filters: this.props.filters,
-            searchTerm: '',
+            searchTerm: "",
             activeTags: [],
         });
         
@@ -46,7 +46,7 @@ export class EventFilter extends Component {
                 data: {
                     fieldName: "name",
                     searchTerm: this.state.searchTerm,
-                }
+                },
             });
         }
         
@@ -55,7 +55,7 @@ export class EventFilter extends Component {
                 kind: "tags",
                 data: {
                     tagIds: this.state.activeTags,
-                }
+                },
             });
         }
 

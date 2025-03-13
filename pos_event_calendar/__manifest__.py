@@ -6,7 +6,7 @@
     "name": "Point of Sale Event Calendar",
     "summary": "Sell events from Point of Sale with a calendar view",
     "author": "Moka",
-    "website": "https://moka.cloud",
+    "website": "https://github.com/OCA/pos",
     "category": "Event",
     "version": "18.0.1.0.0",
     "license": "AGPL-3",

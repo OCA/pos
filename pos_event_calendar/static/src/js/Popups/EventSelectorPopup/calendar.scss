@@ -6,7 +6,7 @@
     cursor: pointer;
     border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     width: 100%;
     height: 90px;
@@ -33,7 +33,8 @@
     justify-content: center;
 }
 
-.date-block, .time-block {
+.date-block, 
+.time-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,7 +48,8 @@
     font-size: 1.5rem;
 }
 
-.start-time, .end-time {
+.start-time, 
+.end-time {
     font-size: 0.85rem;
 }
 
@@ -84,7 +86,8 @@
     font-size: 1.75rem;
 }
 
-.start-time, .end-time {
+.start-time, 
+.end-time {
     font-size: 0.85rem;
     line-height: 1.2;
 }
