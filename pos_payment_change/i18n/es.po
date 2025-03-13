@@ -254,18 +254,3 @@ msgid ""
 msgstr ""
 "¡No puede cambiar los pagos del TPV '%(name)s' porque la sesión asociada "
 "'%(session)s' se ha cerrado!"
-
-#, python-format
-#~ msgid ""
-#~ "Differences between the two values for the POS Order '%(name)s':\n"
-#~ " * Total of all the new payments %(total)s; * Total of the POS Order "
-#~ "%(amount_total)s;\n"
-#~ "Please change the payments."
-#~ msgstr ""
-#~ "Diferencias entre los dos valores para el pedido de TPV '%(name)s':\n"
-#~ "  * Total de todos los nuevos pagos %(total)s;\n"
-#~ "  * Total del pedido del punto de venta %(amount_total)s;\n"
-#~ "Por favor cambie los pagos."
-
-#~ msgid "Journal"
-#~ msgstr "Diario"
