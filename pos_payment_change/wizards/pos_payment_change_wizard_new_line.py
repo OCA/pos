@@ -19,7 +19,14 @@ class PosPaymentChangeWizardLine(models.TransientModel):
         comodel_name="pos.payment.method",
         string="Payment Method",
         required=True,
-        domain=lambda s: s._domain_new_payment_method_id(),
+        domain="[('id', 'in', available_payment_method_ids)]",
+    )
+
+    available_payment_method_ids = fields.Many2many(
+        comodel_name="pos.payment.method",
+        string="Available Payment Methods",
+        help="List of available payment methods for the current POS Order",
+        compute="_compute_available_payment_method_ids",
     )
 
     company_currency_id = fields.Many2one(
@@ -37,11 +44,12 @@ class PosPaymentChangeWizardLine(models.TransientModel):
         currency_field="company_currency_id",
     )
 
-    @api.model
-    def _domain_new_payment_method_id(self):
-        PosOrder = self.env["pos.order"]
-        order = PosOrder.browse(self.env.context.get("active_id"))
-        return [("id", "in", order.mapped("session_id.payment_method_ids").ids)]
+    @api.depends("wizard_id.order_id")
+    def _compute_available_payment_method_ids(self):
+        for line in self:
+            line.available_payment_method_ids = (
+                line.wizard_id.order_id.session_id.payment_method_ids
+            )
 
     # View Section
     @api.model
