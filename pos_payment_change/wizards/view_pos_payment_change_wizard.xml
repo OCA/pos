@@ -17,6 +17,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                         <tree>
                             <field name="old_payment_method_id" widget="selection" />
                             <field name="amount" sum="Total" />
+                            <field name="company_currency_id" column_invisible="1" />
                         </tree>
                     </field>
                     <newline />
@@ -28,6 +29,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                         <tree editable="bottom">
                             <field name="new_payment_method_id" widget="selection" />
                             <field name="amount" sum="Total" />
+                            <field name="company_currency_id" column_invisible="1" />
+                            <field
+                                name="available_payment_method_ids"
+                                column_invisible="1"
+                            />
                         </tree>
                     </field>
                 </group>
