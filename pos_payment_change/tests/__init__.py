@@ -1,1 +1,1 @@
-from . import test_module
+from . import test_pos_payment_change

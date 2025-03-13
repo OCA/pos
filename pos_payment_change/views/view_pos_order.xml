@@ -16,7 +16,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     context="{'pos_session_id' : session_id}"
                     string="Change Payments"
                     type="action"
-                    states="paid,invoiced"
+                    invisible="state not in ('paid', 'invoiced')"
                 />
             </button>
         </field>
