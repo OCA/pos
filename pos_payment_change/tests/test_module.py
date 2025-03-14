@@ -6,6 +6,7 @@ from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests import tagged
 
+from odoo.addons.mail.tests.common import mail_new_test_user
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
 
@@ -172,8 +173,13 @@ class TestModule(TestPoSCommon):
 
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
-        # the demo user should be able to do this
-        user_demo = self.env.ref("base.user_demo")
+        user_demo = mail_new_test_user(
+            self.env,
+            name="Demo POS Manager",
+            login="pos_admin",
+            email="pos_admin",
+            groups="point_of_sale.group_pos_manager",
+        )
         wizard = (
             self.PosPaymentChangeWizard.with_user(user_demo)
             .with_context(active_id=order.id)
