@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_res_config_settings_birthdate_warning" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <setting
+                    string="Age warning"
+                    help="POS warning for customer with this age or younger."
+                >
+                    <field name="age_warning" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

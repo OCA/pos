@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="ActionpadWidget"
+        t-inherit="point_of_sale.ActionpadWidget"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[@t-if='props.partner']" position="replace">
+            <div
+                t-if="props.partner"
+                t-attf-class="{{pos.isUnderagePartner(props.partner) ? 'text-danger' : ' text-action'}}"
+                class="text-truncate fw-bolder"
+            >
+                <t t-esc="props.partner.name" />
+                <t t-if="pos.formatPartnerAge(props.partner)">
+                    <t t-esc="pos.formatPartnerAge(props.partner)" />
+                </t>
+            </div>
+        </xpath>
+    </t>
+</templates>
