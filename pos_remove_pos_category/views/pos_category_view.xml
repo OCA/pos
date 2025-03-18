@@ -7,7 +7,9 @@
         <field name="priority">20</field>
         <field name="arch" type="xml">
             <field name="parent_id" position="after">
-                <field name="available_in_pos" />
+                <group>
+                    <field name="available_in_pos" />
+                </group>
             </field>
             <xpath expr="//field[@name='name']/../.." position="before">
                 <field name="image_128" widget="image" class="oe_avatar" />
