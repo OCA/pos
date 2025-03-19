@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="ProductsWidget"
+        t-inherit="point_of_sale.ProductsWidget"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//div[hasclass('product-list-empty')]/t[@t-if='searchWord']"
+            position="inside"
+        >
+            <img t-on-load="onLoad" src="/web/static/img/logo.png" class="d-none" />
+        </xpath>
+    </t>
+</templates>
