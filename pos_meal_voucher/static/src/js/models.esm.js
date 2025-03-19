@@ -6,11 +6,8 @@
 import {Order, Orderline, Payment, PosGlobalState} from "point_of_sale.models";
 import {Gui} from "point_of_sale.Gui";
 import {Model} from "point_of_sale.Registries";
-import core from "web.core";
-import utils from "web.utils";
-
-const _t = core._t;
-const round_pr = utils.round_precision;
+import {_t} from "web.core";
+import {round_precision as round_pr} from "web.utils";
 
 const MealVoucherOrder = (OriginalOrder) =>
     class extends OriginalOrder {
