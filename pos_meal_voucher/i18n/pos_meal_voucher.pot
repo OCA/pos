@@ -153,6 +153,13 @@ msgid "Meal Vouchers"
 msgstr ""
 
 #. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/xml/Screens/ReceiptScreen/OrderReceipt.xml:0
+#, python-format
+msgid "Non-Eligible Total:"
+msgstr ""
+
+#. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
 msgid ""
 "Optional maximum amount per order that can be paid by meal vouchers.\n"

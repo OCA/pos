@@ -26,6 +26,18 @@ const MealVoucherOrder = (OriginalOrder) =>
             );
         }
 
+        get_total_meal_voucher_non_eligible() {
+            return round_pr(
+                this.orderlines.reduce(function (sum, orderLine) {
+                    if (!orderLine.product.meal_voucher_ok) {
+                        return sum + orderLine.get_price_with_tax();
+                    }
+                    return sum;
+                }, 0),
+                this.pos.currency.rounding
+            );
+        }
+
         get_total_meal_voucher_received() {
             return round_pr(
                 this.paymentlines.reduce(function (sum, paymentLine) {

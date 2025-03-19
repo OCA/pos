@@ -7,15 +7,21 @@
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//div[hasclass('before-footer')]" position="before">
+        <xpath expr="//t/div[hasclass('pos-receipt-amount')]/.." position="after">
             <t t-if="env.pos.config.enable_meal_voucher_receipt_info">
                 <br />
-                <div class="pos-receipt-meal-voucher-eligible">
+                <div class="pos-receipt-meal-voucher-totals">
                     Products marked with an asterisk (*) can be paid for by meal vouchers.
                     <br />
                     Eligible Total:
                     <span
                         t-out="env.pos.format_currency(props.order.get_total_meal_voucher_eligible())"
+                        class="pos-receipt-right-align"
+                    />
+                    <br />
+                    Non-Eligible Total:
+                    <span
+                        t-out="env.pos.format_currency(props.order.get_total_meal_voucher_non_eligible())"
                         class="pos-receipt-right-align"
                     />
                 </div>
