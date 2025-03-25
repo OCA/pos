@@ -4,3 +4,4 @@
   - David Vidal
 - [ACSONE SA/NV](https://acsone.eu):
   - Bejaoui Souheil
+  - Denis Roussel

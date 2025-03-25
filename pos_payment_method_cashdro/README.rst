@@ -104,6 +104,7 @@ Contributors
 - `ACSONE SA/NV <https://acsone.eu>`__:
 
   - Bejaoui Souheil
+  - Denis Roussel
 
 Maintainers
 -----------
