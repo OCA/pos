@@ -62,10 +62,15 @@ Contributors
 
    -  Camille Morand
 
+-  Trobz
+
+   -  Tris Doan <tridm@trobz.com>
+
 Other credits
 -------------
 
-The development was financially supported by Camptocamp.
+The development and migration of this module from 17.0 to 18.0 was
+financially supported by Camptocamp.
 
 Maintainers
 -----------

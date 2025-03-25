@@ -1,6 +1,6 @@
 {
     "name": "Point of Sale - New barcode rule for priced product with change rate",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": """
         Add a barcode rule to be able to scan a barcode with price encoded (as the

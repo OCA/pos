@@ -1,2 +1,4 @@
 - [Camptocamp](https://www.camptocamp.com)
   -  Camille Morand  \<<camille.morand@camptocamp.com>\>
+- Trobz
+  - Tris Doan \<<tridm@trobz.com>\>
