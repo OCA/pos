@@ -5,6 +5,6 @@ from odoo import fields, models
 
 
 class PosConfig(models.Model):
-    _inherit = 'pos.config'
+    _inherit = "pos.config"
 
     change_rate_barcode = fields.Float(string="Change rate for barcode nomenclature")

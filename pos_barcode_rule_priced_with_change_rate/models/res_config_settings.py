@@ -5,6 +5,8 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = "res.config.settings"
 
-    change_rate_barcode = fields.Float(related="pos_config_id.change_rate_barcode", readonly=False)
+    change_rate_barcode = fields.Float(
+        related="pos_config_id.change_rate_barcode", readonly=False
+    )
