@@ -1,9 +1,10 @@
-/** @odoo-module */
 /* Copyright 2021 Tecnativa - David Vidal
    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).*/
-import {ErrorPopup} from "@point_of_sale/app/errors/popups/error_popup";
+// TODO:
+// import {ErrorPopup} from "@point_of_sale/app/errors/error_handlers";
 import {PaymentInterface} from "@point_of_sale/app/payment/payment_interface";
-import {_t} from "@web/core/l10n/translation";
+// Import {_t} from "@web/core/l10n/translation";
+/* global console*/
 export class PaymentCashdro extends PaymentInterface {
     /**
      * @override
@@ -92,10 +93,12 @@ export class PaymentCashdro extends PaymentInterface {
             // We wan't to be able to retry after any error.
             // TODO: catch specific exceptions
             payment_line.set_payment_status("retry");
-            this.env.services.popup.add(ErrorPopup, {
-                title: _t("Error"),
-                body: _t("An error occurred while connecting to the cashdro."),
-            });
+            console.log(error);
+            // TODO:
+            // this.env.services.popup.add(ErrorPopup, {
+            //     title: _t("Error"),
+            //     body: _t("An error occurred while connecting to the cashdro."),
+            // });
             return false;
         }
         return true;
