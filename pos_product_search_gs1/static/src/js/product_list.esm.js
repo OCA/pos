@@ -15,7 +15,7 @@ patch(ProductsWidget.prototype, {
             );
             this.pos.searchProductWord = productBarcode.base_code;
         } catch {
-            this.pos.searchProductWord = false;
+            this.pos.searchProductWord = "";
         }
     },
 });

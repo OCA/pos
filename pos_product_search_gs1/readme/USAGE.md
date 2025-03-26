@@ -1,0 +1,2 @@
+- Open your Point of sale
+- Product list screen, click in the search bar and scan the GS1 code.

@@ -10,6 +10,7 @@
         "point_of_sale._assets_pos": [
             "pos_product_search_gs1/static/src/js/product_list.esm.js",
             "pos_product_search_gs1/static/src/xml/product_list.xml",
+            "pos_product_search_gs1/static/src/js/product_screen.esm.js",
         ],
     },
     "installable": True,
