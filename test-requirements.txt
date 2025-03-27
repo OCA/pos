@@ -1,0 +1,1 @@
+odoo-addon-pos_divide_order_summary @ git+https://github.com/OCA/pos.git@refs/pull/1348/head#subdirectory=pos_divide_order_summary
