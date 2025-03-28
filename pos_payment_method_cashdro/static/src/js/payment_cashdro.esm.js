@@ -129,7 +129,10 @@ export class PaymentCashdro extends PaymentInterface {
     _cashdro_payment_url(parameters) {
         // Compose the url for a sale report to Cashdro
         const user = this.pos.get_cashier().id || this.pos.user.id;
-        let url = `${this._cashdro_url()}&operation=startOperation&type=4`;
+        // Type 4 for payment, 3 for refund
+        const operationType = parameters.amount > 0 ? 4 : 3;
+        parameters = {...parameters, amount: Math.abs(parameters.amount)};
+        let url = `${this._cashdro_url()}&operation=startOperation&type=${operationType}`;
         url += `&posid=pos-${this.pos.pos_session.name}`;
         url += `&posuser=${user}`;
         url += `&parameters=${encodeURIComponent(JSON.stringify(parameters))}`;

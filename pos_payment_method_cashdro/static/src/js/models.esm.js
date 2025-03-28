@@ -24,7 +24,8 @@ patch(Order.prototype, {
         }
         if (
             line.payment_method &&
-            line.payment_method.use_payment_terminal === "cashdro"
+            line.payment_method.use_payment_terminal === "cashdro" &&
+            line.amount > 0 // For refund transactions we need to keep the amount
         ) {
             line.set_amount(0);
         }
