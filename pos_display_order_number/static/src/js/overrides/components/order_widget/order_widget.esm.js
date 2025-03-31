@@ -1,5 +1,3 @@
-/** @odoo-module */
-
 import {OrderWidget} from "@point_of_sale/app/generic_components/order_widget/order_widget";
 import {patch} from "@web/core/utils/patch";
 import {usePos} from "@point_of_sale/app/store/pos_hook";
@@ -11,6 +9,6 @@ patch(OrderWidget.prototype, {
         this.pos = usePos();
     },
     getOrderName() {
-        return _t("Order") + ": " + this.pos.get_order().uid;
+        return _t("Order") + ": " + this.pos.get_order().pos_reference;
     },
 });
