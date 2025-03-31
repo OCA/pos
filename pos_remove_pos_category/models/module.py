@@ -5,14 +5,11 @@ from odoo import models
 
 
 class Module(models.Model):
-
     _inherit = "ir.module.module"
 
     def module_uninstall(self):
-
         for module in self:
             if module.name == "pos_remove_pos_category":
-
                 # As we have loose previous POS categs restore them
                 # in a sane empty state
 
