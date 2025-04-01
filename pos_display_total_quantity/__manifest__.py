@@ -4,7 +4,7 @@
 {
     "name": "POS Display Total Quantity",
     "summary": "POS - Display total quantity in order summary",
-    "version": "17.0.1.0.1",
+    "version": "18.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",

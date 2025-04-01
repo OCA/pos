@@ -1,28 +1,23 @@
-/** @odoo-module */
-
-import * as Chrome from "@point_of_sale/../tests/tours/helpers/ChromeTourMethods";
-import * as ProductScreen from "@point_of_sale/../tests/tours/helpers/ProductScreenTourMethods";
+import * as Chrome from "@point_of_sale/../tests/tours/utils/chrome_util";
+import * as Dialog from "@point_of_sale/../tests/tours/utils/dialog_util";
+import * as ProductScreen from "@point_of_sale/../tests/tours/utils/product_screen_util";
 import {registry} from "@web/core/registry";
-import {inLeftSide} from "@point_of_sale/../tests/tours/helpers/utils";
+import {inLeftSide} from "@point_of_sale/../tests/tours/utils/common";
 
 export function checkTotalQty(number) {
     return inLeftSide([
         {
             content: `check total qty`,
             trigger: `.product-screen .summary-left .total-quantity:contains("${number}")`,
-            isCheck: true,
         },
     ]);
 }
 
 registry.category("web_tour.tours").add("DisplayTotalQty", {
-    test: true,
-    url: "/pos/ui",
     steps: () =>
         [
-            ProductScreen.confirmOpeningPopup(),
-            // Go by default to home category
-            ProductScreen.clickHomeCategory(),
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
 
             // Clicking product multiple times should increment quantity
             ProductScreen.clickDisplayedProduct("Desk Organizer"),
