@@ -63,11 +63,11 @@ Authors
 Contributors
 ------------
 
-- Akim Juillerat <akim.juillerat@camptocamp.com>
-- Nguyen Minh Chien <chien@trobz.com>
-- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+-  Akim Juillerat <akim.juillerat@camptocamp.com>
+-  Nguyen Minh Chien <chien@trobz.com>
+-  `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
 
-  - Bhavesh Heliconia
+   -  Bhavesh Heliconia
 
 Maintainers
 -----------
