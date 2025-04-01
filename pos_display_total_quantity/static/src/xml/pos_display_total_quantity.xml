@@ -8,7 +8,7 @@
     <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
         <xpath expr="//div[hasclass('summary-left')]" position="inside">
             <div class="total-quantity fw-bolder fs-2 lh-sm">
-                 <span t-esc="getTotalQuantity()" />
+                <span t-esc="getTotalQuantity()" />
             </div>
         </xpath>
     </t>
