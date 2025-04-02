@@ -6,7 +6,7 @@
 {
     "name": "POS Require Customer",
     "summary": "Block pos order with no customer set",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Point of sale",
     "website": "https://github.com/OCA/pos",
     "author": "Akretion,Odoo Community Association (OCA)",
