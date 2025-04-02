@@ -11,10 +11,14 @@
     ],
     "website": "https://github.com/OCA/pos",
     "data": [
-        "views/assets.xml",
         "views/pos_view.xml",
         "views/pos_category_view.xml",
     ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "/pos_remove_pos_category/static/src/overrides/components/**"
+        ],
+    },
     "installable": True,
     "license": "AGPL-3",
 }

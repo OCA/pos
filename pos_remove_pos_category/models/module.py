@@ -10,28 +10,6 @@ class Module(models.Model):
     def module_uninstall(self):
         for module in self:
             if module.name == "pos_remove_pos_category":
-                # As we have loose previous POS categs restore them
-                # in a sane empty state
-
-                self._cr.execute("UPDATE product_template SET pos_categ_id=NULL")
-                # And restore original constraint
-                self._cr.execute(
-                    """
-                    ALTER TABLE product_template
-                    DROP CONSTRAINT IF EXISTS
-                    product_template_pos_categ_id_fkey
-                """
-                )
-
-                self._cr.execute(
-                    """
-                    ALTER TABLE product_template ADD CONSTRAINT
-                    "product_template_pos_categ_id_fkey"
-                    FOREIGN KEY (pos_categ_id)
-                    REFERENCES pos_category(id) ON DELETE SET NULL;
-                """
-                )
-
                 # Restore POS category menu action
                 # in SQL because pool/env is not available here
                 self._cr.execute(
