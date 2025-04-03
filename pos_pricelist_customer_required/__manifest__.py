@@ -17,9 +17,14 @@
         "point_of_sale",
     ],
     "data": [
-        "templates/assets.xml",
         "views/product_pricelist.xml",
     ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "/pos_pricelist_customer_required/static/src/overrides/models/**",
+            "/pos_pricelist_customer_required/static/src/overrides/components/**",
+        ],
+    },
     "demo": [],
     "qweb": [],
 }
