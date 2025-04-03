@@ -13,5 +13,10 @@
     "depends": ["point_of_sale"],
     "data": [],
     "qweb": ["static/src/xml/CashierName.xml"],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "/pos_show_config_name/static/src/xml/navbar.xml",
+        ],
+    },
     "installable": True,
 }
