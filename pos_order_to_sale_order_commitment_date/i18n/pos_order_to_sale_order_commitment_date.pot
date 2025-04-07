@@ -1,0 +1,71 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_order_to_sale_order_commitment_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20240104\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-07 14:36+0000\n"
+"PO-Revision-Date: 2025-04-07 14:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_to_sale_order_commitment_date
+#. odoo-javascript
+#: code:addons/pos_order_to_sale_order_commitment_date/static/src/js/Popups/CreateOrderPopup.esm.js:0
+#: code:addons/pos_order_to_sale_order_commitment_date/static/src/xml/Popups/CreateOrderPopup.xml:0
+#, python-format
+msgid "Add a Commitment Date"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order_commitment_date.view_res_config_settings_form
+msgid "Allow Commitment Date"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#. odoo-javascript
+#: code:addons/pos_order_to_sale_order_commitment_date/static/src/js/Popups/SelectCommitmentDatePopup.esm.js:0
+#, python-format
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#: model:ir.model,name:pos_order_to_sale_order_commitment_date.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#. odoo-javascript
+#: code:addons/pos_order_to_sale_order_commitment_date/static/src/js/Popups/SelectCommitmentDatePopup.esm.js:0
+#, python-format
+msgid "Confirm"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#: model:ir.model.fields,field_description:pos_order_to_sale_order_commitment_date.field_pos_config__iface_sale_order_allow_commitment_date
+#: model:ir.model.fields,field_description:pos_order_to_sale_order_commitment_date.field_res_config_settings__iface_sale_order_allow_commitment_date
+msgid "Iface Sale Order Allow Commitment Date"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#. odoo-javascript
+#: code:addons/pos_order_to_sale_order_commitment_date/static/src/js/Popups/CreateOrderPopup.esm.js:0
+#, python-format
+msgid "Please select a commitment date for the order."
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#: model:ir.model,name:pos_order_to_sale_order_commitment_date.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_order_to_sale_order_commitment_date
+#: model:ir.model,name:pos_order_to_sale_order_commitment_date.model_sale_order
+msgid "Sales Order"
+msgstr ""

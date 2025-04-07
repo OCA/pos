@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SelectCommitmentDatePopup" owl="1">
+        <Draggable>
+            <div class="popup popup-selection">
+                <header class="title drag-handle">
+                    <t t-esc="props.title" />
+                </header>
+                <main class="body">
+                    <div class="content">
+                        <div class="content-inner">
+                            <input
+                                type="datetime-local"
+                                class="input"
+                                t-on-change="updateDatetime"
+                            />
+                        </div>
+                    </div>
+                </main>
+                <footer class="footer">
+                    <div class="button confirm highlight" t-on-click="confirm">
+                        <t t-esc="props.confirmText" />
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        <t t-esc="props.cancelText" />
+                    </div>
+                </footer>
+            </div>
+        </Draggable>
+    </t>
+</templates>
