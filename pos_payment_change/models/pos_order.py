@@ -69,7 +69,7 @@ class PosOrder(models.Model):
 
             # Resale order and mark it as paid
             # with the new payment
-            resale_order = self.copy(default={"pos_reference": self.pos_reference})
+            resale_order = self.copy(default=self._prepare_resale_order_vals())
             for line in payment_lines:
                 line.update({"pos_order_id": resale_order.id})
                 resale_order.add_payment(line)
@@ -99,3 +99,11 @@ class PosOrder(models.Model):
                     session=", ".join(closed_orders.mapped("session_id.name")),
                 )
             )
+
+    def _prepare_resale_order_vals(self):
+        self.ensure_one()
+
+        return {
+            "pos_reference": self.pos_reference,
+            "session_id": self.session_id.id,
+        }
