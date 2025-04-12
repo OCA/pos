@@ -1,0 +1,19 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+    <xpath expr="//div[hasclass('product-price')]" position="attributes">
+        <attribute name="t-att-class">{'oe_invisible': props.priceHidden}</attribute>
+    </xpath>
+    <xpath expr="//ul/li[1]/t[@t-if='line.price !== 0']" position="replace">
+      <t t-if="props.priceHidden" />
+      <t t-elif="line.price !== 0">
+          x <s t-esc="line.oldUnitPrice" t-if="line.oldUnitPrice" />
+          <t t-esc="line.unitPrice" /> <span t-if="line.unit"> / <t
+                        t-esc="line.unit"
+                    /></span>
+      </t>
+    </xpath>
+    <xpath expr="//ul/li[2]" position="attributes">
+        <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+  </t>
+</templates>

@@ -1,0 +1,11 @@
+<templates id="template" xml:space="preserve">
+  <t t-name="pos_receipt_hide_price.hide_price">
+    <button
+            class="button print btn btn-lg btn-secondary w-100 py-3"
+            t-on-click="hidePrice"
+        >
+      <t t-if="priceHidden"><i class="fa fa-eye ms-2" /> Show Price</t>
+      <t t-else=""><i class="fa fa-eye-slash ms-2" /> Hide Price</t>
+    </button>
+  </t>
+</templates>

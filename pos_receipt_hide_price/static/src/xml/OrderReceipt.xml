@@ -1,0 +1,49 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+    <xpath expr="//Orderline" position="attributes">
+        <attribute name="t-props">{'priceHidden': props.priceHidden}</attribute>
+    </xpath>
+    <!-- Separator -->
+    <xpath
+            expr="//div[hasclass('pos-receipt-right-align') and text()='--------']"
+            position="attributes"
+        >
+        <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+    <!-- Total -->
+    <xpath expr="//div[hasclass('pos-receipt-amount')]" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+    <!-- Discount -->
+    <xpath expr="//t[@t-if='props.data.total_discount']/div" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+    <xpath expr="//t[@t-if='props.data.rounding_applied']/div[1]" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+    <xpath expr="//t[@t-if='props.data.rounding_applied']/div[2]" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+
+    <!-- To Pay -->
+    <xpath expr="//div[hasclass('paymentlines')]" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+
+    <!-- Payment -->
+    <xpath expr="//t[@t-foreach='props.data.paymentlines']/*" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+
+    <!-- Change -->
+    <xpath expr="//div[hasclass('receipt-change')]" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+
+    <!-- Details -->
+    <xpath expr="//div[hasclass('pos-receipt-taxes')]" position="attributes">
+      <attribute name="t-att-hidden">props.priceHidden</attribute>
+    </xpath>
+
+  </t>
+</templates>

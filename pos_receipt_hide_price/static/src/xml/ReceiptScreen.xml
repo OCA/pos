@@ -1,0 +1,16 @@
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ReceiptScreen" t-inherit-mode="extension">
+      <xpath expr="//button[hasclass('button', 'print')]" position="before">
+        <t t-call="pos_receipt_hide_price.hide_price" />
+      </xpath>
+      <!-- Pass the boolean to the OrderReceipt as a new prop called priceHidden -->
+      <xpath expr="//OrderReceipt" position="attributes">
+        <attribute name="t-props">{'priceHidden': priceHidden}</attribute>
+      </xpath>
+    </t>
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//Orderline" position="attributes">
+          <attribute name="t-props">{'priceHidden': priceHidden}</attribute>
+        </xpath>
+    </t>
+</templates>
