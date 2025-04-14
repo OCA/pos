@@ -53,7 +53,9 @@ class PosOrder(models.Model):
         elif self.config_id.payment_change_policy == "refund":
             # Refund order and mark it as paid
             # with same payment method as the original one
-            refund_result = self.refund()
+            refund_result = self.with_context(
+                force_session_id=self.session_id.id
+            ).refund()
             refund_order = self.browse(refund_result["res_id"])
             for payment in self.payment_ids:
                 refund_order.add_payment(
@@ -99,3 +101,11 @@ class PosOrder(models.Model):
                     session=", ".join(closed_orders.mapped("session_id.name")),
                 )
             )
+
+    def _prepare_refund_values(self, current_session):
+        session = current_session
+        if "force_session_id" in self.env.context:
+            session = self.env["pos.session"].browse(
+                self.env.context.get("force_session_id")
+            )
+        return super()._prepare_refund_values(session)
