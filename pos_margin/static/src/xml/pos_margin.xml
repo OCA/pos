@@ -6,9 +6,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-name="OrderSummaryMargin" owl="1">
-        <div class="summary clearfix">
-            <t t-if="env.pos.config.iface_display_margin">
+    <t t-name="OrderSummaryMargin">
+        <div class="summary clearfix text-end">
+            <t t-if="pos.config.iface_display_margin">
                 <t t-set="_result" t-value="getOrderMargin()" />
                 <t t-if="_result">
                     <div class="line">
@@ -27,19 +27,19 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
     </t>
 
     <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
-        <xpath expr="//div/div/t[@t-else='']" position="inside">
+        <xpath expr="//t[@t-slot='details']" position="before">
             <OrderSummaryMargin />
         </xpath>
     </t>
 
     <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
-        <xpath expr="//ul/t/li" position="inside">
-            <t t-if="env.pos.config.iface_display_margin">
-                <span
-                    t-att-class="'price order-line-margin ' + (props.line.get_margin_rate() &lt; 0 ? 'margin-negative' : '')"
+        <xpath expr="//ul/li" position="inside">
+            <t t-if="line.ifaceDisplayMargin">
+                <li
+                    t-att-class="'price order-line-margin ' + (line.margin_rate &lt; 0 ? 'margin-negative' : '')"
                 >
-                    (<t t-out="props.line.get_margin_rate_str()" />)
-                </span>
+                    (<t t-out="line.margin_rate_str" />)
+                </li>
             </t>
         </xpath>
     </t>

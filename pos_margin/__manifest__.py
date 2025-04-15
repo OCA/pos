@@ -5,7 +5,7 @@
 {
     "name": "PoS Order Margin",
     "summary": "Margin on PoS Order",
-    "version": "16.0.1.0.2",
+    "version": "17.0.1.0.0",
     "category": "Point Of Sale",
     "author": "GRAP, FactorLibre, Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
@@ -19,10 +19,10 @@
         "views/view_pos_order.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_margin/static/src/xml/*.xml",
+        "point_of_sale._assets_pos": [
             "pos_margin/static/src/js/models.esm.js",
             "pos_margin/static/src/js/OrderSummaryMargin.esm.js",
+            "pos_margin/static/src/xml/pos_margin.xml",
             "pos_margin/static/src/css/*.css",
         ],
     },

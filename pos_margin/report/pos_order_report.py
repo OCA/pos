@@ -14,8 +14,13 @@ class PosOrderReport(models.Model):
         return (
             super()._select()
             + """,
-             SUM(l.price_subtotal - l.total_cost / CASE COALESCE(s.currency_rate, 0)
-             WHEN 0 THEN 1.0 ELSE s.currency_rate END) / NULLIF(SUM(l.price_subtotal), 0) * 100
+             SUM(
+                l.price_subtotal - l.total_cost /
+                CASE COALESCE(s.currency_rate, 0)
+                    WHEN 0 THEN 1.0
+                    ELSE s.currency_rate
+                END
+             ) / NULLIF(SUM(l.price_subtotal), 0) * 100
              AS margin_rate
             """
         )
