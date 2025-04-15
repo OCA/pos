@@ -1,20 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pos_partner_vat
+# 	* pos_partner_vat_required
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 14:08+0000\n"
-"PO-Revision-Date: 2024-09-24 14:08+0000\n"
+"POT-Creation-Date: 2025-04-15 10:21+0000\n"
+"PO-Revision-Date: 2025-04-15 10:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: pos_partner_vat_required
+#: model:ir.model,name:pos_partner_vat_required.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
 
 #. module: pos_partner_vat_required
 #. odoo-javascript
@@ -27,5 +31,19 @@ msgstr "Información que falta"
 #. odoo-javascript
 #: code:addons/pos_partner_vat_required/static/src/app/PartnerDetailsEdit.esm.js:0
 #, python-format
+msgid "Tax ID Verification Failed"
+msgstr "Verificación NIF Fallida"
+
+#. module: pos_partner_vat_required
+#. odoo-javascript
+#: code:addons/pos_partner_vat_required/static/src/app/PartnerDetailsEdit.esm.js:0
+#, python-format
 msgid "Tax ID is required"
 msgstr "Se requiere el NIF del cliente"
+
+#. module: pos_partner_vat_required
+#. odoo-javascript
+#: code:addons/pos_partner_vat_required/static/src/app/PartnerDetailsEdit.esm.js:0
+#, python-format
+msgid "The Tax ID is not valid"
+msgstr "El NIF del cliente no es válido"

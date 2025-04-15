@@ -10,13 +10,28 @@ patch(PartnerDetailsEdit.prototype, {
         super.setup(...arguments);
         this.popup = useService("popup");
         this.changes.vat = this.props.partner.vat;
+        Object.assign(this.props.imperativeHandle, {
+            save: async () => this.saveChanges(),
+        });
     },
-    saveChanges() {
+    async saveChanges() {
         if (!this.changes.vat) {
             return this.popup.add(ErrorPopup, {
                 title: _t("Missing information"),
                 body: _t("Tax ID is required"),
             });
+        }
+        if (this.changes.country_id) {
+            const result = await this.pos.orm.call("res.partner", "vat_check", [], {
+                vat: this.changes.vat,
+                country_id: this.changes.country_id,
+            });
+            if (!result) {
+                return this.popup.add(ErrorPopup, {
+                    title: _t("Tax ID Verification Failed"),
+                    body: _t("The Tax ID is not valid"),
+                });
+            }
         }
         super.saveChanges();
     },
