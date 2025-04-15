@@ -12,7 +12,7 @@ class PosOrderReport(models.Model):
 
     def _select(self):
         return (
-            super(PosOrderReport, self)._select()
+            super()._select()
             + """,
              SUM(l.price_subtotal - l.total_cost / CASE COALESCE(s.currency_rate, 0)
              WHEN 0 THEN 1.0 ELSE s.currency_rate END) / NULLIF(SUM(l.price_subtotal), 0) * 100
@@ -25,4 +25,4 @@ class PosOrderReport(models.Model):
             l.price_subtotal,
             l.total_cost
         """
-        return super(PosOrderReport, self)._group_by() + group_by_append
+        return super()._group_by() + group_by_append
