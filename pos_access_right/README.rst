@@ -36,6 +36,8 @@ This module extends Odoo Point Of Sale features, restricting possibility to cash
 * **PoS - Many Orders**: The cashier can many orders at the same time;
 * **PoS - Delete Order**: The cashier can not delete a full order;
 
+This addon is compatible with the multi-employee per session option.
+
 **Table of contents**
 
 .. contents::
@@ -46,12 +48,17 @@ Configuration
 
 Once installed, you have to give correct access right to your cashiers.
 
+
 Usage
 =====
 
 .. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :alt: Try me on Runbot
    :target: https://runbot.odoo-community.org/runbot/184/9.0
+
+When the multi-employee per session option is enabled in the Point of Sale configuration,
+the allowed employees will use the permissions of their linked user's groups.
+If they don't have a linked user, they will use the permissions of the logged-in user.
 
 Bug Tracker
 ===========
