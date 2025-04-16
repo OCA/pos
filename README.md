@@ -35,6 +35,7 @@ addon | version | maintainers | summary
 [pos_partner_ref](pos_partner_ref/) | 17.0.1.0.0 | [![invitu](https://github.com/invitu.png?size=30px)](https://github.com/invitu) | Adds the partner ref in the customer screen of POS
 [pos_partner_second_lastname](pos_partner_second_lastname/) | 17.0.1.0.0 |  | Manage second last name inside Point Of Sale Frontend
 [pos_partner_vat_required](pos_partner_vat_required/) | 17.0.1.0.0 | [![peluko00](https://github.com/peluko00.png?size=30px)](https://github.com/peluko00) | Put partner vat required in pos
+[pos_partner_vat_valid](pos_partner_vat_valid/) | 17.0.1.0.0 | [![peluko00](https://github.com/peluko00.png?size=30px)](https://github.com/peluko00) | Validate partner vat in POS
 [pos_product_expiry](pos_product_expiry/) | 17.0.1.0.1 |  | Evaluate expiry of lot
 [pos_product_template](pos_product_template/) | 17.0.1.0.0 |  | Manage Product Template in Front End Point Of Sale
 [pos_user_restriction](pos_user_restriction/) | 17.0.1.0.0 | [![eLBati](https://github.com/eLBati.png?size=30px)](https://github.com/eLBati) | Restrict some users to see and use only certain points of sale
