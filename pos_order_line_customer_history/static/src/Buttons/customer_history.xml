@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+     <t t-name="pos_order_line_customer_history.CustomerHistoryButton">
+        <div
+            class='control-button js_customer_historyBtn btn btn-light rounded-0 fw-bolder'
+            t-on-click="() => this.click()"
+        >
+            <i
+                class="fa fa-tag me-1"
+                role="img"
+                aria-label="Customer History"
+                title="Customer History"
+            />
+            History
+        </div>
+    </t>
+</templates>
