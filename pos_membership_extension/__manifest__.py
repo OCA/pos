@@ -12,7 +12,7 @@
     "author": "GRAP,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
-    "depends": ["point_of_sale", "membership_extension"],
+    "depends": ["pos_membership", "membership_extension"],
     "assets": {
         "point_of_sale.assets": [
             "pos_membership_extension/static/src/css/pos.css",
