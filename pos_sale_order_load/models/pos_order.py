@@ -50,42 +50,46 @@ class PosOrder(models.Model):
                 lambda so: so.state in ["draft", "sent"]
             ):
                 sale_order.action_confirm()
-            # sale_orders.invoice_status = "invoiced"
-            # update the demand qty in the stock moves related to the sale order line
-            # flush the qty_delivered to make sure the updated qty_delivered is used when
-            # updating the demand value
-            so_lines.flush(["qty_delivered"])
-            # track the waiting pickings
-            waiting_picking_ids = set()
-            for so_line in so_lines:
-                for stock_move in so_line.move_ids:
-                    picking = stock_move.picking_id
-                    if picking.state not in ["waiting", "confirmed", "assigned"]:
-                        continue
-                    new_qty = so_line.product_uom_qty - so_line.qty_delivered
-                    if (
-                        float_compare(
-                            new_qty,
-                            0,
-                            precision_rounding=stock_move.product_uom.rounding,
-                        )
-                        <= 0
-                    ):
-                        new_qty = 0
-                    stock_move.product_uom_qty = so_line.product_uom._compute_quantity(
-                        new_qty, stock_move.product_uom, False
-                    )
-                    waiting_picking_ids.add(picking.id)
+            # BOM products should use bill for components quantity, 
+            # relying just on stock move can break the quantity for 
+            # component
+            
+            # # sale_orders.invoice_status = "invoiced"
+            # # update the demand qty in the stock moves related to the sale order line
+            # # flush the qty_delivered to make sure the updated qty_delivered is used when
+            # # updating the demand value
+            # so_lines.flush(["qty_delivered"])
+            # # track the waiting pickings
+            # waiting_picking_ids = set()
+            # for so_line in so_lines:
+            #     for stock_move in so_line.move_ids:
+            #         picking = stock_move.picking_id
+            #         if picking.state not in ["waiting", "confirmed", "assigned"]:
+            #             continue
+            #         new_qty = so_line.product_uom_qty - so_line.qty_delivered
+            #         if (
+            #             float_compare(
+            #                 new_qty,
+            #                 0,
+            #                 precision_rounding=stock_move.product_uom.rounding,
+            #             )
+            #             <= 0
+            #         ):
+            #             new_qty = 0
+            #         stock_move.product_uom_qty = so_line.product_uom._compute_quantity(
+            #             new_qty, stock_move.product_uom, False
+            #         )
+            #         waiting_picking_ids.add(picking.id)
 
-            def is_product_uom_qty_zero(move):
-                return float_is_zero(
-                    move.product_uom_qty, precision_rounding=move.product_uom.rounding
-                )
+            # def is_product_uom_qty_zero(move):
+            #     return float_is_zero(
+            #         move.product_uom_qty, precision_rounding=move.product_uom.rounding
+            #     )
 
-            # cancel the waiting pickings if each product_uom_qty of move is zero
-            for picking in self.env["stock.picking"].browse(waiting_picking_ids):
-                if all(is_product_uom_qty_zero(move) for move in picking.move_lines):
-                    picking.action_cancel()
+            # # cancel the waiting pickings if each product_uom_qty of move is zero
+            # for picking in self.env["stock.picking"].browse(waiting_picking_ids):
+            #     if all(is_product_uom_qty_zero(move) for move in picking.move_lines):
+            #         picking.action_cancel()
         # raise
         return order_ids
 
