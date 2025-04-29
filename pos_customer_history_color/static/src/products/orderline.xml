@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="Orderline"
+        t-inherit="point_of_sale.Orderline"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//li[hasclass('orderline')]" position="attributes">
+            <attribute name="t-attf-style">{{productColor}}</attribute>
+        </xpath>
+    </t>
+
+</templates>
