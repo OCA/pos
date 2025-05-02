@@ -7,6 +7,16 @@
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
         <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button
+                    class="oe_stat_button"
+                    name="attachment_tree_view"
+                    type="object"
+                    icon="fa-file-text-o"
+                >
+                <field string="Documents" name="doc_count" widget="statinfo" />
+                </button>
+            </div>
             <sheet position="after">
                 <div class="oe_chatter">
                     <field name="message_follower_ids" groups="base.group_user" />
@@ -16,6 +26,26 @@
         </field>
     </record>
 
-
+    <record model="ir.ui.view" id="pos_order_attachment_filter_view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_filter" />
+        <field name="priority" eval="100" />
+        <field name="arch" type="xml">
+            <xpath expr="//search/filter[@name='invoiced']" position="before">
+                <field name="doc_count" invisible="1" />
+                <filter
+                    string="Has attachments"
+                    name="doc_count"
+                    domain="[('doc_count', '>', 0)]"
+                />
+                <filter
+                    string="Has no attachments"
+                    name="doc_count"
+                    domain="[('doc_count', '=', 0)]"
+                />
+                <separator />
+            </xpath>
+        </field>
+    </record>
 
 </odoo>
