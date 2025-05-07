@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2025 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+    <!--
+        this is exactly the same template as
+        pos_self_service_weighing_product.SelfServiceWeighingScaleScreen.
+        it is needed to be able to extend point_of_sale.ScaleScreen extended
+        by pos_tare.
+    -->
+    <t
+        t-name="SelfServiceWeighingScaleScreen"
+        t-inherit="point_of_sale.ScaleScreen"
+        t-inherit-mode="primary"
+        owl="1"
+    >
+        <!-- this is only to replace the button's text -->
+        <xpath expr="//div[hasclass('buy-product')]" position="replace">
+            <t t-call="pos_self_service_weighing_product.PrintLabelButton" />
+        </xpath>
+    </t>
+</templates>
