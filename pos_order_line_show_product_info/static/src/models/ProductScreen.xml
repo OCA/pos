@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ProductScreen"
+        t-inherit="point_of_sale.ProductScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//i[@t-if='line.get_product().isTracked()']" position="before">
+            <i
+                t-on-click.stop="() => line.onProductInfoClick()"
+                role="img"
+                class="text-success fa fa-info-circle fa-2x ms-2"
+            />
+        </xpath>
+    </t>
+
+</templates>
