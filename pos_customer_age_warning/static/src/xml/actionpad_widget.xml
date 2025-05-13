@@ -8,7 +8,7 @@
         <xpath expr="//div[@t-if='props.partner']" position="replace">
             <div
                 t-if="props.partner"
-                t-attf-class="{{pos.isUnderagePartner(props.partner) ? 'text-danger' : ' text-action'}}"
+                t-attf-class="{{pos.isUnderagePartner(props.partner.birthdate_date) ? 'text-danger' : ' text-action'}}"
                 class="text-truncate fw-bolder"
             >
                 <t t-esc="props.partner.name" />

@@ -1,5 +1,6 @@
 /** @odoo-module */
 
+import {AlertDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
 const {DateTime} = luxon;
 import {PosStore} from "@point_of_sale/app/store/pos_store";
 import {patch} from "@web/core/utils/patch";
@@ -38,10 +39,9 @@ patch(PosStore.prototype, {
      * @param {Object} partner - The partner object.
      * @returns {Boolean} - True if the partner is underage, otherwise false.
      */
-    isUnderagePartner(partner) {
-        if (!partner || !partner.birthdate_date) return false;
+    isUnderagePartner(birthdate) {
         return (
-            this.evaluatePartnerAge(partner.birthdate_date) <= this.company.age_warning
+            birthdate && this.evaluatePartnerAge(birthdate) <= this.company.age_warning
         );
     },
 
@@ -54,5 +54,18 @@ patch(PosStore.prototype, {
     formatPartnerAge(partner) {
         if (!partner || !partner.birthdate_date) return "";
         return sprintf(_t("(%s y)"), this.evaluatePartnerAge(partner.birthdate_date));
+    },
+    async ageRestrictionDialog(partner) {
+        if (!partner || !partner.birthdate_date) return false;
+        if (this.isUnderagePartner(partner.birthdate_date)) {
+            await this.env.services.dialog.add(AlertDialog, {
+                title: _t("Age Restriction"),
+                body: sprintf(
+                    _t("%s is under %s years old!"),
+                    partner.name,
+                    this.company.age_warning
+                ),
+            });
+        }
     },
 });
