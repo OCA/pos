@@ -1,6 +1,6 @@
-=============================
-POS Partner Birthdate Warning
-=============================
+========================
+POS Customer Age Warning
+========================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -10,17 +10,17 @@ POS Partner Birthdate Warning
    !! source digest: sha256:a7e57dda136a17f1f09419221c8e5b52523d147b935e8575002b803e24787aca
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Alpha
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/17.0/pos_partner_birthdate_warning
+    :target: https://github.com/OCA/pos/tree/17.0/pos_customer_age_warning
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_partner_birthdate_warning
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_customer_age_warning
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
     :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
@@ -65,6 +65,11 @@ Use Cases
 - **Age**: 2025 - 2009 = **15 years old** (birthday in July).
 - **Result**: Their name appears in **red** because they are not yet 16.
 
+.. IMPORTANT::
+   This is an alpha version, the data model and design can change at any time without warning.
+   Only for development or testing purpose, do not use in production.
+   `More details on development status <https://odoo-community.org/page/development-status>`_
+
 **Table of contents**
 
 .. contents::
@@ -92,7 +97,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_partner_birthdate_warning%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_customer_age_warning%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -125,6 +130,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_partner_birthdate_warning>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_customer_age_warning>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
