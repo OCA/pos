@@ -50,20 +50,33 @@ Go to "General Settings -> Point of Sale" and select POS. Or select
 Usage
 =====
 
+Configure the reports you want to display and print at the POS.
+---------------------------------------------------------------
+
+   |image_sale_order| If no report is configured, the PRINT button will
+   not be displayed in the order list.
+
+How to use in the POS
+---------------------
+
 In POS click on the "Quotation/Order" button and select an order from
 the list.
 
-   |image|
-
-Click on the order and than select which report to print.
-
    |image1|
 
-   |image2|
+Click the PRINT button on the order and then select which report you
+want to print.
 
-.. |image| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_sale_order.png
-.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_standard_popup.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_print_popup.png
+   |image_standard_popup|
+
+Select the report or cancel it.
+
+   |image_print_popup|
+
+.. |image_sale_order| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_config.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_sale_order.png
+.. |image_standard_popup| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_show_popup.png
+.. |image_print_popup| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_print_popup.png
 
 Bug Tracker
 ===========
@@ -87,6 +100,7 @@ Contributors
 ------------
 
 - Cetmix <`https://cetmix.com/\\> <https://cetmix.com/\>>`__
+- Binhex (https://www.binhex.cloud)
 
 Maintainers
 -----------

@@ -6,28 +6,17 @@
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="pos_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath
-                expr="//div[div[div[field[@name='pos_down_payment_product_id']]]]"
-                position="after"
-            >
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_right_pane">
-                        <label
-                            for="pos_sale_order_print_ids"
-                            string="Print Sales Orders"
-                        />
-                        <div class="text-muted">
-                            These reports will be available for printing at the POS
-                        </div>
-                        <div class="content-group mt16">
-                            <field
-                                name="pos_sale_order_print_ids"
-                                domain="[('model', '=', 'sale.order')]"
-                                widget="many2many_tags"
-                            />
-                        </div>
-                    </div>
-                </div>
+            <xpath expr="//setting[@id='down_payment_product']" position="after">
+                <setting
+                    string="Print Sales Orders"
+                    help="These reports will be available for printing at the POS."
+                >
+                    <field
+                        name="pos_sale_order_print_ids"
+                        domain="[('model', '=', 'sale.order')]"
+                        widget="many2many_tags"
+                    />
+                </setting>
             </xpath>
         </field>
     </record>

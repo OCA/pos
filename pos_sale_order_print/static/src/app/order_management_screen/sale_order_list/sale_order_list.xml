@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_sale_order_print.SaleOrderList"
+        t-inherit="pos_sale.SaleOrderList"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//div[hasclass('orders')]//div[hasclass('state')]"
+            position="after"
+        >
+                <div t-if="showPrint" class="col actions p-2">Actions</div>
+        </xpath>
+    </t>
+
+</templates>
