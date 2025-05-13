@@ -17,13 +17,13 @@ Point of Sale Print Sales Orders
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/16.0/pos_sale_order_print
+    :target: https://github.com/OCA/pos/tree/17.0/pos_sale_order_print
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_sale_order_print
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_sale_order_print
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -38,23 +38,32 @@ This module allows to print Quotations/Sales Order directly from POS.
 Configuration
 =============
 
-Go to "General Settings -> Point of Sale" and select POS. Or select "Edit" menu on the POS and click on the "Configuration -> Settings".
+Go to "General Settings -> Point of Sale" and select POS. Or select
+"Edit" menu on the POS and click on the "Configuration -> Settings".
 
-Go to the "Sales" section and select reports in the "Print Sales Orders".
-  .. image:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_sale_order_print/static/img/pos_config.png
+| Go to the "Sales" section and select reports in the "Print Sales
+  Orders".
+| |image|
+
+.. |image| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_config.png
 
 Usage
 =====
 
-In POS click on the "Quotation/Order" button and select an order from the list.
+In POS click on the "Quotation/Order" button and select an order from
+the list.
 
-    .. image:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_sale_order_print/static/img/pos_sale_order.png
+   |image|
 
 Click on the order and than select which report to print.
 
-    .. image:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_sale_order_print/static/img/pos_standard_popup.png
+   |image1|
 
-    .. image:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_sale_order_print/static/img/pos_print_popup.png
+   |image2|
+
+.. |image| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_sale_order.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_standard_popup.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_sale_order_print/static/img/pos_print_popup.png
 
 Bug Tracker
 ===========
@@ -62,7 +71,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_sale_order_print%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_sale_order_print%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -70,17 +79,17 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Cetmix
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Cetmix <https://cetmix.com/>
+- Cetmix <`https://cetmix.com/\\> <https://cetmix.com/\>>`__
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -92,6 +101,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_sale_order_print>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_sale_order_print>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
