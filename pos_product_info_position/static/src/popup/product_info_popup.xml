@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="ProductInfoPopup"
+        t-inherit="point_of_sale.ProductInfoPopup"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('section-inventory-body')]" position="before">
+            <div class="col-6" t-if="productInfo.warehouses.length > 0">
+                <table class="table table-borderless mb-0">
+                    <t
+                        t-foreach="productInfo.locations"
+                        t-as="location"
+                        t-key="location_index"
+                    >
+                        <tr>
+                            <td class="fw-bolder">
+                                <t t-esc="location.location_name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pt-1 pb-1" />
+                        </tr>
+                        <tr>
+                            <td>Corridor: <t t-esc="location.corridor" /></td>
+                            <td>Row: <t t-esc="location.row" /></td>
+                        </tr>
+                        <tr>
+                            <td>Rack: <t t-esc="location.rack" /></td>
+                            <td>Level: <t t-esc="location.level" /></td>
+                        </tr>
+                        <tr>
+                            <td>Posx: <t t-esc="location.posx" /></td>
+                            <td>Posy: <t t-esc="location.posy" /></td>
+                        </tr>
+                        <tr>
+                            <td>Posz: <t t-esc="location.posz" /></td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('section-inventory-body')]" position="attributes">
+            <attribute name="class" add="col-6" separator=" " />
+        </xpath>
+        <xpath expr="//div[hasclass('section-inventory')]" position="attributes">
+            <attribute name="class" add="col-100 row" separator=" " />
+        </xpath>
+    </t>
+</templates>
