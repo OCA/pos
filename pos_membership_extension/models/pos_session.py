@@ -10,7 +10,11 @@ class PosSession(models.Model):
 
     def _loader_params_product_product(self):
         res = super()._loader_params_product_product()
-        res["search_params"]["fields"] += ["allowed_membership_category_ids"]
+        res["search_params"]["fields"] += [
+            "allowed_membership_category_ids",
+            "membership",
+            "membership_category_id",
+        ]
         return res
 
     def _loader_params_res_partner(self):

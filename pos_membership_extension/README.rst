@@ -58,7 +58,8 @@ Usage
 
 * You can see that some products have a new icon that mention
   that the product is not sallable. the icon disappear if you select
-  a customer that belong to one of the membership categories :
+  a customer that belong to one of the membership categories or if the
+  membership product for one of the categories is in the shopping cart :
 
   .. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership_extension/static/description/point_of_sale_product_item.png
 
@@ -67,8 +68,8 @@ Usage
 
   .. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership_extension/static/description/point_of_sale_popup_product_info.png
 
-* If you select the product with an incorrect customer,
-  you'll see an error Popup :
+* If you select the product with an incorrect customer and without any required
+  membership product in the shopping cart, you'll see an error Popup :
 
   .. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership_extension/static/description/point_of_sale_popup_error.png
 

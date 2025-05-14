@@ -10,7 +10,7 @@ odoo.define("pos_membership_extension.ProductScreen", function (require) {
         class OverloadProductScreen extends ProductScreen {
             async _getAddProductOptions(product) {
                 var self = this;
-                if (!product.get_membership_allowed(this.env.pos.get_order().partner)) {
+                if (!product.get_membership_allowed(this.env.pos.get_order())) {
                     await this.showPopup("ErrorPopup", {
                         title: self.env._t("Incorrect Membership"),
                         body: self.env._t(

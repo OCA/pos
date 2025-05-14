@@ -10,7 +10,7 @@ odoo.define("pos_membership_extension.ProductItem", function (require) {
         class OverloadProductItem extends ProductItem {
             get membership_allowed() {
                 var res = this.props.product.get_membership_allowed(
-                    this.env.pos.get_order().partner
+                    this.env.pos.get_order()
                 );
                 return res;
             }
