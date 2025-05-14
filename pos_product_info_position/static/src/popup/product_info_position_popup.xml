@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_product_info_position.ProductInfoPositionPopup">
+        <div class="popup product-info-popup">
+            <div class="modal-header">
+                <h4 class="modal-title">Position</h4>
+                <div class="btn" t-on-click="cancel">
+                    <i class="fa fa-times" aria-hidden="true" />
+                </div>
+            </div>
+            <main class="body modal-body overflow-auto">
+                <div
+                    class="section-positionmb-4 pb-4 border-bottom text-start"
+                    t-if="this.props and this.props.location"
+                >
+                    <div class="col-12">
+                        <table class="table table-borderless mb-0">
+                            <tr>
+                                <td class="fw-bolder">
+                                    <t t-esc="location_name" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pt-1 pb-1" />
+                            </tr>
+                            <tr>
+                                <td>Corridor: <t t-esc="corridor" /></td>
+                                <td>Row: <t t-esc="row" /></td>
+                            </tr>
+                            <tr>
+                                <td>Rack: <t t-esc="rack" /></td>
+                                <td>Level: <t t-esc="level" /></td>
+                            </tr>
+                            <tr>
+                                <td>Posx: <t t-esc="posx" /></td>
+                                <td>Posy: <t t-esc="posy" /></td>
+                            </tr>
+                            <tr>
+                                <td>Posz: <t t-esc="posz" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </t>
+</templates>

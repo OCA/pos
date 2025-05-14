@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="ProductInfoPopup"
+        t-inherit="point_of_sale.ProductInfoPopup"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('section-inventory-body')]" position="before">
+            <div
+                class="col-6"
+                t-if="! pos.config.module_pos_product_info_location and productInfo.positions and productInfo.positions.length > 0"
+            >
+                <table class="table table-borderless mb-0">
+                    <t
+                        t-foreach="productInfo.positions"
+                        t-as="position"
+                        t-key="position_index"
+                    >
+                        <tr>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bolder">
+                                <t t-esc="position.location_name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pt-1 pb-1" />
+                        </tr>
+                        <tr>
+                            <td>Corridor: <t t-esc="position.corridor" /></td>
+                            <td>Row: <t t-esc="position.row" /></td>
+                        </tr>
+                        <tr>
+                            <td>Rack: <t t-esc="position.rack" /></td>
+                            <td>Level: <t t-esc="position.level" /></td>
+                        </tr>
+                        <tr>
+                            <td>Posx: <t t-esc="position.posx" /></td>
+                            <td>Posy: <t t-esc="position.posy" /></td>
+                        </tr>
+                        <tr>
+                            <td>Posz: <t t-esc="position.posz" /></td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('section-inventory-body')]" position="attributes">
+            <attribute
+                name="t-attf-class"
+                add="{{ pos.config.module_pos_product_info_location ? '' : 'col-6'}}"
+                separator=" "
+            />
+        </xpath>
+        <xpath expr="//div[hasclass('section-inventory')]" position="attributes">
+            <attribute
+                name="t-attf-class"
+                add="{{ pos.config.module_pos_product_info_location ? '' : 'col-100 row'}}"
+                separator=" "
+            />
+        </xpath>
+    </t>
+</templates>
