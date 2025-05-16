@@ -12,7 +12,8 @@ registry.category("web_tour.tours").add("DisplayOrderNumber", {
             ProductScreen.clickDisplayedProduct("Desk Organizer"),
             inLeftSide({
                 content: "Check Order Number is shown",
-                trigger: ".product-screen:has(div.order-number)",
+                trigger:
+                    ".product-screen:has(div#extra-info-container div.order-number)",
             }),
             Chrome.endTour(),
         ].flat(),

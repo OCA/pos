@@ -6,8 +6,8 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('summary-left')]" position="inside">
+    <t t-inherit="point_of_sale.OrderSummary" t-inherit-mode="extension">
+        <xpath expr="//div[@id='extra-info-container']" position="inside">
             <div class="order-number fw-bolder fs-2 lh-sm">
                 <span t-esc="getOrderName()" />
             </div>
