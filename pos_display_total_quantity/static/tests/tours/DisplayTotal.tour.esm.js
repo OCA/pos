@@ -8,7 +8,7 @@ export function checkTotalQty(number) {
     return inLeftSide([
         {
             content: `check total qty`,
-            trigger: `.product-screen .summary-left .total-quantity:contains("${number}")`,
+            trigger: `.product-screen #extra-info-container .total-quantity:contains("${number}")`,
         },
     ]);
 }

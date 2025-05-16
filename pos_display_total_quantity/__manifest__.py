@@ -17,7 +17,7 @@
     "assets": {
         "point_of_sale._assets_pos": [
             "pos_display_total_quantity/static/src/xml/pos_display_total_quantity.xml",
-            "pos_display_total_quantity/static/src/js/overrides/components/order_widget/**/*",
+            "pos_display_total_quantity/static/src/js/overrides/screens/order_summary/**/*",
         ],
         "web.assets_tests": [
             "pos_display_total_quantity/static/tests/tours/**/*",
