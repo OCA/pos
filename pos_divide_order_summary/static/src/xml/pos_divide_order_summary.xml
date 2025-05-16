@@ -5,41 +5,12 @@ Copyright (C) 2024 - Camptocamp
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <templates id="template" xml:space="preserve">
-
-    <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
-        <xpath expr="//div[hasclass('order-summary')]" position="replace">
+    <t t-inherit="point_of_sale.OrderSummary" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='details']" position="inside">
             <div
-                class="summary-wrapper d-flex justify-content-between w-100 py-2 px-3 bg-100"
-            >
-                <div class="summary-left justify-content-start flex-column d-flex">
-                    <!-- Placeholder for left-hand side content -->
-                </div>
-                <t t-set="taxTotals" t-value="props.taxTotals" />
-                <div
-                    t-if="taxTotals"
-                    class="order-summary justify-content-start fw-bolder fs-2 lh-sm"
-                >
-                    <div
-                        t-if="taxTotals.has_tax_groups"
-                        class="tax-info subentry d-flex justify-content-between w-100 fs-6 text-muted"
-                    >
-                        Taxes
-                        <div id="order-widget-taxes">
-                        <span
-                            t-esc="formatMonetary(taxTotals.order_sign * taxTotals.tax_amount_currency, {currencyId: taxTotals.currency_id})"
-                            class="tax"
-                        />
-                    </div>
-                    </div>
-                    <div class="d-flex justify-content-between w-100 fs-2">
-                        Total
-                        <span
-                        t-esc="formatMonetary(taxTotals.order_sign * taxTotals.order_total, {currencyId: taxTotals.currency_id})"
-                        class="total"
-                    />
-                    </div>
-                </div>
-            </div>
+                id="extra-info-container"
+                class="order-summary d-flex flex-column gap-1 px-3 py-2 border-top fw-bolder lh-sm rounded-3 bg-white"
+            />
         </xpath>
     </t>
 

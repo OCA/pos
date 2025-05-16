@@ -12,7 +12,7 @@ registry.category("web_tour.tours").add("DivideOrderSummary", {
             ProductScreen.clickDisplayedProduct("Desk Organizer"),
             inLeftSide({
                 content: "Check Summary is divided",
-                trigger: ".product-screen:has(div.summary-left)",
+                trigger: ".product-screen:has(div#extra-info-container)",
             }),
             Chrome.endTour(),
         ].flat(),
