@@ -63,7 +63,7 @@ class PosOrder(models.Model):
                         "pos_order_id": refund_order.id,
                         "payment_method_id": payment.payment_method_id.id,
                         "amount": -payment.amount,
-                        "payment_date": fields.Date.context_today(self),
+                        "payment_date": self._get_datetime_payment_change_policy(),
                     }
                 )
 
@@ -71,7 +71,12 @@ class PosOrder(models.Model):
 
             # Resale order and mark it as paid
             # with the new payment
-            resale_order = self.copy(default={"pos_reference": self.pos_reference})
+            resale_order = self.copy(
+                default={
+                    "pos_reference": self.pos_reference,
+                    "date_order": self._get_datetime_payment_change_policy(),
+                }
+            )
             for line in payment_lines:
                 line.update({"pos_order_id": resale_order.id})
                 resale_order.add_payment(line)
@@ -101,3 +106,9 @@ class PosOrder(models.Model):
                     )
                 )
             )
+
+    def _get_datetime_payment_change_policy(self):
+        if self.config_id.payment_change_policy == "update":
+            return self.date_order
+        else:
+            return fields.Datetime.now()

@@ -88,7 +88,7 @@ class PosPaymentChangeWizard(models.TransientModel):
                 "pos_order_id": order.id,
                 "payment_method_id": line.new_payment_method_id.id,
                 "amount": line.amount,
-                "payment_date": fields.Date.context_today(self),
+                "payment_date": order._get_datetime_payment_change_policy(),
             }
             for line in self.new_line_ids
         ]
