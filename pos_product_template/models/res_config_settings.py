@@ -9,7 +9,6 @@ class ResConfigSettings(models.TransientModel):
 
     iface_product_template_show_variants = fields.Boolean(
         string="Product template show variants",
-        default=True,
         help="If selected the product variant selection screen will show the variants,"
         " else it will only allow to confirm once all the attributes are chosen.",
         related="pos_config_id.iface_product_template_show_variants",
