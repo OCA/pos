@@ -18,6 +18,6 @@ msgstr ""
 
 #. module: pos_display_order_number
 #. odoo-javascript
-#: code:addons/pos_display_order_number/static/src/js/overrides/components/order_widget/order_widget.esm.js:0
+#: code:addons/pos_display_order_number/static/src/js/overrides/screens/order_summary/order_summary.esm.js:0
 msgid "Order"
 msgstr "Commande"
