@@ -13,15 +13,3 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-#. module: pos_divide_order_summary
-#. odoo-javascript
-#: code:addons/pos_divide_order_summary/static/src/xml/pos_divide_order_summary.xml:0
-msgid "Taxes"
-msgstr ""
-
-#. module: pos_divide_order_summary
-#. odoo-javascript
-#: code:addons/pos_divide_order_summary/static/src/xml/pos_divide_order_summary.xml:0
-msgid "Total"
-msgstr ""
