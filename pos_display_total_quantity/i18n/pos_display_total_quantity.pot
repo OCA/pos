@@ -15,6 +15,6 @@ msgstr ""
 
 #. module: pos_display_total_quantity
 #. odoo-javascript
-#: code:addons/pos_display_total_quantity/static/src/js/overrides/components/order_widget/order_widget.esm.js:0
+#: code:addons/pos_display_total_quantity/static/src/js/overrides/screens/order_summary/order_summary.esm.js:0
 msgid "Number of articles"
 msgstr ""
