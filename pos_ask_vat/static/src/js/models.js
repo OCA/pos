@@ -40,7 +40,9 @@ odoo.define("pos_ask_vat.models", function (require) {
             _super_order.set_client.call(this, client);
             this.assert_editable();
             if (client) {
-                this.customer_tax_id = client.vat || this.customer_tax_id;
+                if (!client.is_anonymous_consumer) {
+                    this.customer_tax_id = this.customer_tax_id || client.vat;
+                }
             }
         },
         ask_customer_data: async function (component, screen) {
