@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">donation.pos.product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="tax_receipt_ok" position="after">
+                <field
+                    name="default_tax_receipt_option"
+                    attrs="{'invisible': ['|', ('is_donation', '=', False), ('tax_receipt_ok', '=', False)], 'required': [('detailed_type', '=', 'donation_in_pos'), ('tax_receipt_ok', '=', True)]}"
+                />
+                <field
+                    name="default_payment_mode_id"
+                    attrs="{'invisible': [('is_donation', '=', False)], 'required': [('detailed_type', '=', 'donation_in_pos')]}"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>
