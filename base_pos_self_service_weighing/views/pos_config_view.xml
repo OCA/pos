@@ -21,18 +21,18 @@ SPDX-License-Identifier: AGPL-3.0-or-later
                 >
                     <div
                         class="col-12 col-lg-6 o_setting_box"
-                        id="is_self_service_weighing_point"
+                        id="is_self_service_weighing_station"
                     >
                         <div class="o_setting_left_pane">
-                            <field name="is_self_service_weighing_point" />
+                            <field name="is_self_service_weighing_station" />
                         </div>
                         <div class="o_setting_right_pane">
-                            <label for="is_self_service_weighing_point" />
+                            <label for="is_self_service_weighing_station" />
                             <div
                                 class="text-muted mb16"
-                                id="is_self_service_weighing_point_text"
+                                id="is_self_service_weighing_station_text"
                             >
-                                Use this PoS as a Self-Service weighing station
+                                Use this PoS as a self-service weighing station
                             </div>
                         </div>
                     </div>

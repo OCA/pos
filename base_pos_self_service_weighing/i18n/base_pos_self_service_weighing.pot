@@ -1,0 +1,114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_pos_self_service_weighing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid "Barcode value must be positive"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid "Cannot convert a value from ${from_uom.name} to ${to_uom.name}"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#: model:ir.model,name:base_pos_self_service_weighing.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/Screens/SelfServiceWeighingScreen/SelfServiceWeighingControlButton.esm.js:0
+#: code:addons/base_pos_self_service_weighing/static/src/js/Screens/SelfServiceWelcomeScreen/SelfServiceWeighingWelcomeButton.esm.js:0
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/Screens/SelfServiceWeighingScreen/SelfServiceWeighingHomeButton.esm.js:0
+#, python-format
+msgid "Home"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#: model:ir.model.fields,field_description:base_pos_self_service_weighing.field_pos_config__is_self_service_weighing_station
+#: model:ir.model.fields,field_description:base_pos_self_service_weighing.field_res_config_settings__pos_is_self_service_weighing_station
+msgid "Is a Self-Service Weighing Station"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid "Maximum value is ${max_value}"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid "No UoM of name \"${name}\" found"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid "No barcode rule of type \"${type}\" found"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid ""
+"Please install a pos_self_service_weighing_print_* module to print the label.\n"
+"\n"
+"Title: ${title}\n"
+"Barcode: ${barcode}\n"
+"Value: ${value_str}"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#: model:ir.model,name:base_pos_self_service_weighing.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/models.esm.js:0
+#, python-format
+msgid "Print Barcode Label"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#: model:ir.model.fields,help:base_pos_self_service_weighing.field_pos_config__is_self_service_weighing_station
+#: model:ir.model.fields,help:base_pos_self_service_weighing.field_res_config_settings__pos_is_self_service_weighing_station
+#: model_terms:ir.ui.view,arch_db:base_pos_self_service_weighing.pos_config_view_form
+msgid "Use this PoS as a self-service weighing station"
+msgstr ""
+
+#. module: base_pos_self_service_weighing
+#. odoo-javascript
+#: code:addons/base_pos_self_service_weighing/static/src/js/Screens/SelfServiceWeighingScreen/SelfServiceWeighingControlButton.esm.js:0
+#: code:addons/base_pos_self_service_weighing/static/src/js/Screens/SelfServiceWelcomeScreen/SelfServiceWeighingWelcomeButton.esm.js:0
+#, python-format
+msgid "onClick() Not Implemented"
+msgstr ""

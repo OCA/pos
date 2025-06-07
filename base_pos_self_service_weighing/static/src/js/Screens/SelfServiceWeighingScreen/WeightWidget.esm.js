@@ -3,46 +3,33 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import {onMounted, onWillUnmount, useState} from "@odoo/owl";
 import PosComponent from "point_of_sale.PosComponent";
 import Registries from "point_of_sale.Registries";
 
 class WeightWidget extends PosComponent {
-    get weightString() {
-        const weightstr = (this.state.weight || 0).toFixed(3) + " kg";
-        return weightstr;
-    }
-
     setup() {
-        super.setup();
-        this.state = useState({weight: 0});
-        onMounted(this.onMounted);
-        onWillUnmount(this.onWillUnmount);
+        super.setup(...arguments);
+        // Assume that this.props.weight always represents kilograms.
+        this._kg_uom = this.env.pos.find_uom_by_name("kg");
+        if (this.props.uom_id) {
+            this.uom = this.env.pos.units_by_id[this.props.uom_id];
+        } else {
+            this.uom = this._kg_uom;
+        }
     }
 
-    onMounted() {
-        // Start the scale reading
-        this._readScale();
-    }
-
-    onWillUnmount() {
-        // Stop the scale reading
-        this.env.proxy_queue.clear();
-    }
-
-    _readScale() {
-        this.env.proxy_queue.schedule(this._setWeight.bind(this), {
-            duration: 500,
-            repeat: true,
-        });
-    }
-
-    async _setWeight() {
-        const reading = await this.env.proxy.scale_read();
-        this.state.weight = reading.weight;
+    get weightString() {
+        // When this.props.decimal_places is undefined, this function uses the
+        // precision of this.uom.
+        return this.env.pos.convert_and_format_uom_value(
+            this.props.weight,
+            this._kg_uom,
+            this.uom,
+            this.props.decimal_places
+        );
     }
 }
 
-WeightWidget.template = "base_pos_self_service_weighing.WeightWidget";
+WeightWidget.template = "WeightWidget";
 Registries.Component.add(WeightWidget);
 export default WeightWidget;

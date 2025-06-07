@@ -1,6 +1,6 @@
-======================================
-Point of Sale self-service tare labels
-======================================
+==========================
+Self-Service Tare Weighing
+==========================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -28,13 +28,23 @@ Point of Sale self-service tare labels
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Configure a PoS to be a self-service station where customers can weigh containers and print a barcode.
-The weight of the container is encoded in the barcode and can be scanned on the point of sale to deduct its weight from the product weight.
+Configure a PoS to be a self-service tare weighing station.
+
+This module allows customers to weigh containers and print labels with a barcode containing the weight of the container (tare weight).
+These barcodes can be scanned to deduct the tare weight when weighing the filled containers (using the ``pos_tare`` module).
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+Please note that the weight encoded in the generated tare barcodes is always expressed in kilograms, independently of any configuration.
+The number of decimal places is defined by the first found barcode nomenclature of type ``tare``.
+
+The value string below the barcode expresses the encoded weight in the unit of measure configured to be used for the tare (in the ``pos_tare`` module).
 
 Bug Tracker
 ===========
@@ -57,10 +67,10 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* `Coop IT Easy SC, Odoo Community Association (OCA) <https://github.com/OCA/pos>`_:
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
 
-  * Carmen Bianca BAKKER
   * Robin Keunen
+  * hugues de keyzer
 
 Maintainers
 ~~~~~~~~~~~
@@ -75,16 +85,13 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-carmenbianca| image:: https://github.com/carmenbianca.png?size=40px
-    :target: https://github.com/carmenbianca
-    :alt: carmenbianca
 .. |maintainer-robinkeunen| image:: https://github.com/robinkeunen.png?size=40px
     :target: https://github.com/robinkeunen
     :alt: robinkeunen
 
-Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
+Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-carmenbianca| |maintainer-robinkeunen| 
+|maintainer-robinkeunen| 
 
 This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_self_service_weighing_tare>`_ project on GitHub.
 

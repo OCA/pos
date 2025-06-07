@@ -5,27 +5,20 @@
 
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingControlButton from "base_pos_self_service_weighing.SelfServiceWeighingControlButton";
-import {_t} from "web.core";
 
 class SelfServiceWeighingPrintTareButton extends SelfServiceWeighingControlButton {
     get name() {
-        return _t("Print Tare Label");
+        return this.env._t("Print Label");
     }
 
     get faSymbol() {
-        return "fa-barcode";
+        return "fa-print";
     }
 
     async onClick() {
-        const barcode = "1234567890";
-        this.showPopup("SelfServiceWeighingBarcodePopup", {
-            barcode: barcode,
-            keepBehind: true,
-        });
+        return this.env.pos.print_tare_barcode_label(this.props.weight);
     }
 }
 
-SelfServiceWeighingPrintTareButton.template =
-    "base_pos_self_service_weighing.SelfServiceWeighingControlButton";
 Registries.Component.add(SelfServiceWeighingPrintTareButton);
 export default SelfServiceWeighingPrintTareButton;

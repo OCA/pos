@@ -8,7 +8,7 @@ from odoo import fields, models
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    is_self_service_weighing_point = fields.Boolean(
+    is_self_service_weighing_station = fields.Boolean(
         string="Is a Self-Service Weighing Station",
-        help="Use this POS as self-service weight point",
+        help="Use this PoS as a self-service weighing station",
     )

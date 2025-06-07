@@ -6,9 +6,16 @@
 import AbstractSelfServiceWeighingScreen from "base_pos_self_service_weighing.AbstractSelfServiceWeighingScreen";
 import Registries from "point_of_sale.Registries";
 
-class SelfServiceWeighingTareScreen extends AbstractSelfServiceWeighingScreen {}
+class SelfServiceWeighingTareScreen extends AbstractSelfServiceWeighingScreen {
+    get uom_id() {
+        return this.env.pos.tare_uom_id;
+    }
 
-SelfServiceWeighingTareScreen.template =
-    "pos_self_service_weighing_tare.SelfServiceWeighingTareScreen";
+    get decimal_places() {
+        return this.env.pos.tare_decimal_places;
+    }
+}
+
+SelfServiceWeighingTareScreen.template = "SelfServiceWeighingTareScreen";
 Registries.Component.add(SelfServiceWeighingTareScreen);
 export default SelfServiceWeighingTareScreen;

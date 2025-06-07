@@ -3,12 +3,15 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-import PosComponent from "point_of_sale.PosComponent";
 import Registries from "point_of_sale.Registries";
+import ScaleScreen from "point_of_sale.ScaleScreen";
 
-class AbstractSelfServiceWeighingScreen extends PosComponent {}
+class AbstractSelfServiceWeighingScreen extends ScaleScreen {
+    _onHotkeys() {
+        // Override to ignore ScaleScreen keyboard events.
+    }
+}
 
-AbstractSelfServiceWeighingScreen.template =
-    "base_pos_self_service_weighing.AbstractSelfServiceWeighingScreen";
+AbstractSelfServiceWeighingScreen.template = "AbstractSelfServiceWeighingScreen";
 Registries.Component.add(AbstractSelfServiceWeighingScreen);
 export default AbstractSelfServiceWeighingScreen;

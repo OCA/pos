@@ -6,11 +6,10 @@
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingControlButton from "base_pos_self_service_weighing.SelfServiceWeighingControlButton";
-import {_t} from "web.core";
 
 class SelfServiceWeighingHomeButton extends SelfServiceWeighingControlButton {
     get name() {
-        return _t("Home");
+        return this.env._t("Home");
     }
 
     get faSymbol() {
@@ -22,7 +21,5 @@ class SelfServiceWeighingHomeButton extends SelfServiceWeighingControlButton {
     }
 }
 
-SelfServiceWeighingHomeButton.template =
-    "base_pos_self_service_weighing.SelfServiceWeighingControlButton";
 Registries.Component.add(SelfServiceWeighingHomeButton);
 export default SelfServiceWeighingHomeButton;

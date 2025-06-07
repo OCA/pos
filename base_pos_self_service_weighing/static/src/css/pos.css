@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-.pos .positionzero {
+.pos .self-service {
     top: 0px;
 }
 
@@ -91,10 +91,8 @@
 }
 
 .pos .self-service-action-buttons .button {
-    display: flex;
     background: #ececec;
     color: #4a4f59;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -123,14 +121,33 @@
     }
 }
 
+.pos .self-service-action-buttons .button .emoji {
+    font-size: 400%;
+}
+
+.pos .self-service-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    padding: 2em;
+    max-width: 800px;
+    margin: auto;
+}
+
+.pos .self-service-action .self-service-instructions {
+    font-size: 36px;
+}
+
+.pos .self-service-action .self-service-action-buttons {
+    margin: 0;
+}
+
 .pos .self-service-action-buttons .button .ico {
     display: inline-block;
     background-size: contain;
     width: 170px;
     height: 170px;
     order: 2;
-}
-
-.foodbox {
-    background-image: url("../../img/empty_foodbox_on_scale.svg");
 }

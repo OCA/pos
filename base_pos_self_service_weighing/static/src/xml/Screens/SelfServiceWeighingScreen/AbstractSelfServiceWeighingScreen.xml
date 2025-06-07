@@ -6,23 +6,16 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <templates id="template" xml:space="preserve">
 
-    <t
-        t-name="base_pos_self_service_weighing.AbstractSelfServiceWeighingScreen"
-        owl="1"
-    >
-        <div class="screen">
+    <t t-name="AbstractSelfServiceWeighingScreen" owl="1">
+        <div class="screen" t-att-class="{oe_hidden: !props.isShown}">
             <div class="screen-full-width">
                 <div class="leftpane pane-border">
-                    <WeightWidget />
+                    <WeightWidget weight="state.weight" />
                     <div class="self-service-control-buttons">
                         <SelfServiceWeighingHomeButton />
                     </div>
                 </div>
-                <div class="rightpane">
-                    <div class="self-service-action-buttons">
-                        <!-- This is where, for example, the 'tare' button goes. -->
-                    </div>
-                </div>
+                <div class="rightpane" />
             </div>
         </div>
     </t>

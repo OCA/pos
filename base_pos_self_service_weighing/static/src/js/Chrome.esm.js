@@ -16,42 +16,24 @@ const SelfServiceWeighingChrome = (Chrome_) =>
         get startScreen() {
             // Calling super first because it logs an error in some cases.
             var result = super.startScreen;
-            if (this.env.pos.config.is_self_service_weighing_point) {
+            if (this.env.pos.config.is_self_service_weighing_station) {
                 return {name: "SelfServiceWeighingWelcomeScreen"};
             }
             return result;
         }
 
-        _is_self_service_weighing_point() {
+        isSelfService() {
             return (
                 this.env.pos &&
                 this.env.pos.config &&
-                this.env.pos.config.is_self_service_weighing_point
+                this.env.pos.config.is_self_service_weighing_station
             );
         }
 
-        showTicketButton() {
-            /**
-             * No orders are issued in weighing point.
-             */
-            return !this._is_self_service_weighing_point();
-        }
-
-        showHeaderButton() {
-            /**
-             * The user should not be able to close the session. The session
-             * can be closed from the Odoo backend.
-             * */
-            return !this._is_self_service_weighing_point();
-        }
-
-        showCashMoveButton() {
-            /**
-             * No cash is used in the weighing point.
-             */
-            return (
-                super.showCashMoveButton() && !this._is_self_service_weighing_point()
-            );
+        async setupBarcodeParser() {
+            const result = await super.setupBarcodeParser(...arguments);
+            this.env.pos.init_barcode_generators();
+            return result;
         }
     };
 

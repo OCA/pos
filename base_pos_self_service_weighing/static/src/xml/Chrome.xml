@@ -12,14 +12,13 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//TicketButton" position="attributes">
-            <attribute name="t-if">showTicketButton()</attribute>
+        <xpath expr="//div[hasclass('pos-topheader')]" position="attributes">
+            <attribute name="t-if">!isSelfService()</attribute>
         </xpath>
 
-        <xpath expr="//HeaderButton" position="attributes">
-            <attribute name="t-if">showHeaderButton()</attribute>
+        <xpath expr="//div[hasclass('pos-content')]" position="attributes">
+            <attribute name="t-att-class">{"self-service": isSelfService()}</attribute>
         </xpath>
     </t>
-
 
 </templates>

@@ -6,7 +6,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-name="base_pos_self_service_weighing.WeightWidget" owl="1">
+    <t t-name="WeightWidget" owl="1">
         <div class="weight-widget">
             <div class="weight js-weight">
                 <t t-out="weightString" />

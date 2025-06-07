@@ -5,7 +5,6 @@
 
 import PosComponent from "point_of_sale.PosComponent";
 import Registries from "point_of_sale.Registries";
-import {useListener} from "@web/core/utils/hooks";
 
 class SelfServiceWeighingControlButton extends PosComponent {
     get name() {
@@ -16,20 +15,14 @@ class SelfServiceWeighingControlButton extends PosComponent {
         return null;
     }
 
-    setup() {
-        super.setup();
-        useListener("click", this.onClick);
-    }
-
     async onClick() {
         await this.showPopup("ErrorPopup", {
-            title: "Error",
-            body: "onClick Not Implemented",
+            title: this.env._t("Error"),
+            body: this.env._t("onClick() Not Implemented"),
         });
     }
 }
 
-SelfServiceWeighingControlButton.template =
-    "base_pos_self_service_weighing.SelfServiceWeighingControlButton";
+SelfServiceWeighingControlButton.template = "SelfServiceWeighingControlButton";
 Registries.Component.add(SelfServiceWeighingControlButton);
 export default SelfServiceWeighingControlButton;

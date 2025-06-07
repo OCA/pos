@@ -6,10 +6,9 @@ SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 <templates id="template" xml:space="preserve">
 
-    <t t-name="base_pos_self_service_weighing.SelfServiceWeighingControlButton" owl="1">
-        <button class="button">
-            <i t-attf-class="fa {{ faSymbol }}" />
-            <t t-out="name" />
+    <t t-name="SelfServiceWeighingControlButton" owl="1">
+        <button class="button" t-on-click="() => this.onClick()">
+            <i t-attf-class="fa {{ faSymbol }}" /> <span t-out="name" />
         </button>
     </t>
 

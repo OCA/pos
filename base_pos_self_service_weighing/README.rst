@@ -1,6 +1,6 @@
-===============================================
-Point of Sale weighing self-service base module
-===============================================
+=================================
+Self-Service Weighing Base Module
+=================================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -28,12 +28,56 @@ Point of Sale weighing self-service base module
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-Configure a PoS to be a self-service station where customers can weigh things. As a base module, this covers primarily the welcome screen and some common functionalities.
+Base module to configure a PoS as a self-service weighing station.
+
+This module allows to configure a PoS to be a self-service weighing station, where customers can weigh things by themselves.
+
+As a base module, this covers primarily the welcome screen and some common functionalities, but is not usable on its own.
+See these modules instead:
+
+* ``pos_self_service_weighing_product``
+* ``pos_self_service_weighing_tare``
+* ``pos_self_service_weighing_print_zpl``
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+Setup the self-service weighing station
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Create a new PoS
+2. Enable "Is a Self-Service Weighing Station"
+3. Setup hardware proxy
+
+   * Enable electronic scale
+4. Enable barcode reader and its nomenclature
+
+Usage
+=====
+
+This module should be used from a computer accessible to customers.
+In order to limit the risk of unfortunate/malicious actions, you should:
+
+* **Use a dedicated Odoo account with the least possible rights**
+* Configure the web browser to be in kiosk mode (cf. "Launch Firefox" section)
+
+Those measures aren't sufficient *per se*, but should lower the risk significantly.
+
+Launch Firefox
+~~~~~~~~~~~~~~
+
+This self-service module can be used in kiosk mode. To launch Firefox in kiosk mode, run this command::
+
+    firefox <url> -foreground --kiosk
+
+Known issues / Roadmap
+======================
+
+* The styling is basic and the CSS should be cleaned up and improved.
 
 Bug Tracker
 ===========
@@ -56,10 +100,17 @@ Authors
 Contributors
 ~~~~~~~~~~~~
 
-* `Coop IT Easy SC, Odoo Community Association (OCA) <https://github.com/OCA/pos>`_:
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
 
+  * Grégoire Leeuwerck
+  * Vincent Van Rossem
   * Carmen Bianca BAKKER
   * Robin Keunen
+  * hugues de keyzer
+* `Le Nid <https://lenid.ch>`_:
+
+  * François Kawala
+* `SPP <https://la-feve.ch>`_
 
 Maintainers
 ~~~~~~~~~~~

@@ -8,6 +8,6 @@ from odoo import fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    pos_is_self_service_weighing_point = fields.Boolean(
-        related="pos_config_id.is_self_service_weighing_point", readonly=False
+    pos_is_self_service_weighing_station = fields.Boolean(
+        related="pos_config_id.is_self_service_weighing_station", readonly=False
     )

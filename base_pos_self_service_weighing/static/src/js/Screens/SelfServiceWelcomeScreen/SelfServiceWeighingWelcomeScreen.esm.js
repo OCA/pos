@@ -8,7 +8,6 @@ import Registries from "point_of_sale.Registries";
 
 class SelfServiceWeighingWelcomeScreen extends PosComponent {}
 
-SelfServiceWeighingWelcomeScreen.template =
-    "base_pos_self_service_weighing.SelfServiceWeighingWelcomeScreen";
+SelfServiceWeighingWelcomeScreen.template = "SelfServiceWeighingWelcomeScreen";
 Registries.Component.add(SelfServiceWeighingWelcomeScreen);
 export default SelfServiceWeighingWelcomeScreen;

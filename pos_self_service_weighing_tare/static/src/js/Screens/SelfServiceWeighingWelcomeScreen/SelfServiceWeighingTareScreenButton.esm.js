@@ -6,15 +6,14 @@
 import {Gui} from "point_of_sale.Gui";
 import Registries from "point_of_sale.Registries";
 import SelfServiceWeighingWelcomeButton from "base_pos_self_service_weighing.SelfServiceWeighingWelcomeButton";
-import {_t} from "web.core";
 
 class SelfServiceWeighingTareScreenButton extends SelfServiceWeighingWelcomeButton {
     get name() {
-        return _t("Print Tare Labels");
+        return this.env._t("Weigh Containers");
     }
 
-    get faSymbol() {
-        return "fa-barcode";
+    get emoji() {
+        return "🫙";
     }
 
     async onClick() {
@@ -22,7 +21,5 @@ class SelfServiceWeighingTareScreenButton extends SelfServiceWeighingWelcomeButt
     }
 }
 
-SelfServiceWeighingTareScreenButton.template =
-    "base_pos_self_service_weighing.SelfServiceWeighingWelcomeButton";
 Registries.Component.add(SelfServiceWeighingTareScreenButton);
 export default SelfServiceWeighingTareScreenButton;

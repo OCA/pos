@@ -1,2 +1,4 @@
-Configure a PoS to be a self-service station where customers can weigh containers and print a barcode.
-The weight of the container is encoded in the barcode and can be scanned on the point of sale to deduct its weight from the product weight.
+Configure a PoS to be a self-service tare weighing station.
+
+This module allows customers to weigh containers and print labels with a barcode containing the weight of the container (tare weight).
+These barcodes can be scanned to deduct the tare weight when weighing the filled containers (using the ``pos_tare`` module).

@@ -1,4 +1,4 @@
-* `Coop IT Easy SC, Odoo Community Association (OCA) <https://github.com/OCA/pos>`_:
+* `Coop IT Easy SC <https://coopiteasy.be>`_:
 
-  * Carmen Bianca BAKKER
   * Robin Keunen
+  * hugues de keyzer
