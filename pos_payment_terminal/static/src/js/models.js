@@ -24,7 +24,7 @@ odoo.define("pos_payment_terminal.models", function (require) {
     var _posmodelproto = models.PosModel.prototype;
     models.PosModel = models.PosModel.extend({
         after_load_server_data: function () {
-            for (var payment_method_id in this.payment_methods) {
+            for (var payment_method_id in this.config.payment_method_ids) {
                 var payment_method = this.payment_methods[payment_method_id];
                 if (payment_method.use_payment_terminal == "oca_payment_terminal") {
                     this.config.use_proxy = true;
