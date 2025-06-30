@@ -14,8 +14,9 @@
         "product_multi_barcode",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_product_multi_barcode/static/src/js/db.js",
+        "point_of_sale._assets_pos": [
+            "pos_product_multi_barcode/static/src/js/overrides/models/**",
+            "pos_product_multi_barcode/static/src/js/overrides/screens/**",
         ]
     },
     "demo": [],
