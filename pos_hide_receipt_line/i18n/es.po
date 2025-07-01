@@ -1,0 +1,44 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_hide_receipt_line
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20240104\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-01 09:02+0000\n"
+"PO-Revision-Date: 2025-07-01 10:03+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#. module: pos_hide_receipt_line
+#: model:ir.model.fields,field_description:pos_hide_receipt_line.field_product_product__pos_hide_receipt_line
+#: model:ir.model.fields,field_description:pos_hide_receipt_line.field_product_template__pos_hide_receipt_line
+msgid "Hide Receipt Line"
+msgstr "Ocultar línea de recibo"
+
+#. module: pos_hide_receipt_line
+#: model:ir.model.fields,help:pos_hide_receipt_line.field_product_product__pos_hide_receipt_line
+#: model:ir.model.fields,help:pos_hide_receipt_line.field_product_template__pos_hide_receipt_line
+msgid ""
+"If this option is checked, the product will not appear on the receipt line "
+"in the Point of Sale when the line amount is 0."
+msgstr ""
+"Si esta opción está marcada, el producto no aparecerá en la línea de "
+"recibo en el Punto de Venta cuando el importe de la línea sea 0."
+
+#. module: pos_hide_receipt_line
+#: model:ir.model,name:pos_hide_receipt_line.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión del punto de venta"
+
+#. module: pos_hide_receipt_line
+#: model:ir.model,name:pos_hide_receipt_line.model_product_template
+msgid "Product"
+msgstr "Producto"

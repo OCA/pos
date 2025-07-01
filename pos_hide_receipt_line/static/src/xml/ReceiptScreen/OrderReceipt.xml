@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="OrderLinesReceipt"
+        t-inherit="point_of_sale.OrderLinesReceipt"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//t[@t-if='isSimple(line)']/div" position="attributes">
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath
+            expr="//t[@t-if='isSimple(line)']/WrappedProductNameLines"
+            position="attributes"
+        >
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath expr="//t[@t-else='']/div[1]" position="attributes">
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath expr="//t[@t-else='']//WrappedProductNameLines" position="attributes">
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath
+            expr="//t[contains(@t-if, 'line.display_discount_policy')]/div"
+            position="attributes"
+        >
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath
+            expr="//t[contains(@t-elif, 'line.discount !== 0')]/div"
+            position="attributes"
+        >
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath
+            expr="//t[contains(@t-if, 'line.discount !== 0')]/div"
+            position="attributes"
+        >
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+        <xpath
+            expr="//t[@t-else='']/div[hasclass('pos-receipt-left-padding')]"
+            position="attributes"
+        >
+            <attribute name="t-if">!line.hideReceiptLine</attribute>
+        </xpath>
+    </t>
+</templates>
