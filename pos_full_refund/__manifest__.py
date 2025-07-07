@@ -12,8 +12,11 @@
     "depends": ["point_of_sale"],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_full_refund/static/src/js/pos_full_refund.js",
+            "pos_full_refund/static/src/js/TicketScreen.esm.js",
             "pos_full_refund/static/src/xml/pos_full_refund.xml",
+        ],
+        "web.assets_tests": [
+            "pos_full_refund/static/tests/tours/PosFullRefund.tour.esm.js",
         ],
     },
 }
