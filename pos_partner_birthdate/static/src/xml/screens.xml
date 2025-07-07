@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="PartnerListScreen"
+        t-inherit="point_of_sale.PartnerListScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//table[hasclass('partner-list')]//th[hasclass('partner-line-email')]"
+            position="before"
+        >
+            <th class="partner-line-birthdate py-2">Birthdate</th>
+        </xpath>
+    </t>
+    <t
+        t-name="PartnerLine"
+        t-inherit="point_of_sale.PartnerLine"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//td[hasclass('partner-line-email')]" position="before">
+            <td class="partner-line-birthdate">
+                <span t-esc="formatedBirthdate" t-if="props.partner.birthdate_date" />
+            </td>
+        </xpath>
+    </t>
+    <t
+        t-name="PartnerDetailsEdit"
+        t-inherit="point_of_sale.PartnerDetailsEdit"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
+
+            <div class="partner-detail col">
+                <label class="form-label label" for="birthdate_date">Birthdate</label>
+                <input
+                    class="detail birthdate_date form-control"
+                    id="birthdate_date"
+                    name="birthdate_date"
+                    type="date"
+                    t-att-max="_today()"
+                    t-model="changes.birthdate_date"
+                    placeholder="Birthdate"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>
