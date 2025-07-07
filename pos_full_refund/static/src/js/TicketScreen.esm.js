@@ -1,5 +1,4 @@
 import {TicketScreen} from "@point_of_sale/app/screens/ticket_screen/ticket_screen";
-import {_t} from "@web/core/l10n/translation";
 import {patch} from "@web/core/utils/patch";
 
 patch(TicketScreen.prototype, {
@@ -25,7 +24,7 @@ patch(TicketScreen.prototype, {
                 };
 
                 // Handle combo lines
-                if (line.combo_line_ids && line.combo_line_ids.length > 0) {
+                if (line.combo_line_ids?.length) {
                     for (const comboLine of line.combo_line_ids) {
                         const comboRefundableQty =
                             comboLine.get_quantity() - comboLine.refunded_qty;
