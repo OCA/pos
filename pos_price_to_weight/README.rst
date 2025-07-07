@@ -17,63 +17,70 @@ Point of Sale - Price to Weight
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/16.0/pos_price_to_weight
+    :target: https://github.com/OCA/pos/tree/18.0/pos_price_to_weight
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_price_to_weight
+    :target: https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_price_to_weight
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends Odoo Point Of Sale features, to allow to scan barcode
-with price and to compute according quantity.
+This module extends Odoo Point Of Sale features, to allow to scan
+barcode with price and to compute according quantity.
 
 In Odoo by default, there are three types of barcode rules for products.
 
-* 'Unit Product' (``type=product``). Scanning a product will add a unit of this
-  product to the current order.
-* 'Priced product' (``type=price``). A price is extracted from the barcode, and
-  a new line with the given price and a quantity = 1 is added to the current
-  order.
-* 'Weighted product' (``type=weight``). A weight is extracted from the barcode,
-  and a new line with the given weight, and a computed price
-  (quantity * Unit price) is added to the current order.
+- 'Unit Product' (``type=product``). Scanning a product will add a unit
+  of this product to the current order.
+- 'Priced product' (``type=price``). A price is extracted from the
+  barcode, and a new line with the given price and a quantity = 1 is
+  added to the current order.
+- 'Weighted product' (``type=weight``). A weight is extracted from the
+  barcode, and a new line with the given weight, and a computed price
+  (quantity \* Unit price) is added to the current order.
 
 This module add a new option:
 
-* 'Priced Product (Computed Weight)' (``type=price_to_weight``). A price is
-  extracted from the barcode, and a new line with the given price, and a
-  computed quantity (Price / Unit Price) is added to the current order.
+- 'Priced Product (Computed Weight)' (``type=price_to_weight``). A price
+  is extracted from the barcode, and a new line with the given price,
+  and a computed quantity (Price / Unit Price) is added to the current
+  order.
 
-This module is usefull in shops with products scaled, to manage correctly
-stock quantities.
+This module is usefull in shops with products scaled, to manage
+correctly stock quantities.
 
 **Samples**
 
-* Given a product with a unit price of 1,50€ / kg
+- Given a product with a unit price of 1,50€ / kg
 
-* The barcode is 0212345{NNNDD}x where:
-    * 02 is the prefix of the barcode rule
-    * 12345 is the product number
-    * {NNNDD} is the price of the scaled product
-    * x is the control digit
+- The barcode is 0212345{NNNDD}x where:
 
-* On the product we so set '0212345000007' in the barcode field.
+  - 02 is the prefix of the barcode rule
+  - 12345 is the product number
+  - {NNNDD} is the price of the scaled product
+  - x is the control digit
 
-* if the scanned barcode is 0212345002650:
-    * {NNNDD} is 00265, the price is so 2,65€
-    * the according quantity is 2,65€ / 1,5 €/kg = 1,767 kg
+- On the product we so set '0212345000007' in the barcode field.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/pos_test_1.png
+- if the scanned barcode is 0212345002650:
 
-* if the scanned barcode is 0212345008102:
-    * {NNNDD} is 00810, the price is so 8,10€
-    * the according quantity is 8,10€ / 1,5 €/kg = 5,400 kg
+  - {NNNDD} is 00265, the price is so 2,65€
+  - the according quantity is 2,65€ / 1,5 €/kg = 1,767 kg
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/pos_test_2.png
+|image1|
+
+- if the scanned barcode is 0212345008102:
+
+  - {NNNDD} is 00810, the price is so 8,10€
+  - the according quantity is 8,10€ / 1,5 €/kg = 5,400 kg
+
+|image2|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_price_to_weight/static/description/pos_test_1.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_price_to_weight/static/description/pos_test_2.png
 
 **Table of contents**
 
@@ -83,10 +90,12 @@ stock quantities.
 Configuration
 =============
 
-* Go to Point of Sale > Configuration > Barcode Nomenclatures
-* Edit your barcode rules, according to your barcodes settings
+- Go to Point of Sale > Configuration > Barcode Nomenclatures
+- Edit your barcode rules, according to your barcodes settings
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_price_to_weight/static/description/barcode_rule.png
+|image1|
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_price_to_weight/static/description/barcode_rule.png
 
 Bug Tracker
 ===========
@@ -94,7 +103,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_price_to_weight%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_price_to_weight%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -102,23 +111,24 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * La Louve
 * GRAP
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sylvain LE GAL <https://twitter.com/legalsylvain>
+- Sylvain LE GAL
+  <`https://twitter.com/legalsylvain\\> <https://twitter.com/legalsylvain\>>`__
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 Icon parts come from http://icons8.com
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -130,6 +140,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/16.0/pos_price_to_weight>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/18.0/pos_price_to_weight>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

@@ -5,7 +5,6 @@ Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="product_price_to_weight_barcode" model="product.product">
         <field name="name">Apples (with Price To Weight Barcode)</field>
         <field name="barcode">0212345000007</field>
@@ -15,5 +14,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="uom_id" ref="uom.product_uom_kgm" />
         <field name="uom_po_id" ref="uom.product_uom_kgm" />
     </record>
-
 </odoo>
