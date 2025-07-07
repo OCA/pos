@@ -1,1 +1,1 @@
-This module adds a new button in the ticket screen to automatically add the lines of the selected order and returns to the main screen.
+This module adds a new button in the ticket screen of refund process to automatically add every line of the selected order and returns to the main screen.
