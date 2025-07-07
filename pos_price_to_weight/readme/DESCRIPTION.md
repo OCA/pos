@@ -26,7 +26,7 @@ correctly stock quantities.
 
 - Given a product with a unit price of 1,50€ / kg
 
-- The barcode is 0212345{NNNDD}x where:  
+- The barcode is 0212345{NNNDD}x where:
   - 02 is the prefix of the barcode rule
   - 12345 is the product number
   - {NNNDD} is the price of the scaled product
@@ -34,14 +34,14 @@ correctly stock quantities.
 
 - On the product we so set '0212345000007' in the barcode field.
 
-- if the scanned barcode is 0212345002650:  
+- if the scanned barcode is 0212345002650:
   - {NNNDD} is 00265, the price is so 2,65€
   - the according quantity is 2,65€ / 1,5 €/kg = 1,767 kg
 
-![](../static/description/pos_test_1.png)
+![POS Test 1](../static/description/pos_test_1.png)
 
-- if the scanned barcode is 0212345008102:  
+- if the scanned barcode is 0212345008102:
   - {NNNDD} is 00810, the price is so 8,10€
   - the according quantity is 8,10€ / 1,5 €/kg = 5,400 kg
 
-![](../static/description/pos_test_2.png)
+![POS Test 2](../static/description/pos_test_2.png)

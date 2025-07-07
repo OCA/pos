@@ -1,4 +1,4 @@
-- Go to Point of Sale \> Configuration \> Barcode Nomenclatures
+- Go to Inventory \> Configuration \> Barcode Nomenclatures
 - Edit your barcode rules, according to your barcodes settings
 
-![](../static/description/barcode_rule.png)
+![Barcode Rule](../static/description/barcode_rule.png)

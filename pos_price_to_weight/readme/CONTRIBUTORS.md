@@ -1,1 +1,3 @@
 - Sylvain LE GAL \<https://twitter.com/legalsylvain\>
+- [Trobz](https://trobz.com):
+  - Linh (Nguyen Ngoc) \<<linhnn@trobz.com>\>
