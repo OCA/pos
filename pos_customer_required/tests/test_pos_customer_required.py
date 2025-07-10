@@ -1,5 +1,5 @@
 import odoo.tests.common as common
-from odoo import exceptions
+from odoo.exceptions import ValidationError
 
 
 class TestPosCustomerRequired(common.TransactionCase):
@@ -13,7 +13,7 @@ class TestPosCustomerRequired(common.TransactionCase):
         # Now Create new session and create a
         # pos order in this session
         pos_session = self.env["pos.session"].create(
-            {"user_id": 1, "config_id": self.pos_config.id}
+            [{"user_id": 1, "config_id": self.pos_config.id}]
         )
         # should not raise any exception
         self.env["pos.order"].create(
@@ -33,10 +33,12 @@ class TestPosCustomerRequired(common.TransactionCase):
         # Now Create new session and create a
         # pos order in this session
         pos_session = self.env["pos.session"].create(
-            {"user_id": 1, "config_id": self.pos_config.id}
+            [{"user_id": 1, "config_id": self.pos_config.id}]
         )
         # should raise exceptions.ValidationError
-        with self.assertRaises(exceptions.ValidationError):
+        with self.assertRaisesRegex(
+            ValidationError, "Customer is required for this order and is missing."
+        ):
             self.env["pos.order"].create(
                 {
                     "session_id": pos_session.id,

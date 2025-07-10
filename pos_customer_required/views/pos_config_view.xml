@@ -3,30 +3,15 @@
      Copyright 2016 La Louve - Sylvain LE GAL <https://twitter.com/legalsylvain>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html) -->
 <odoo>
-    <record model="ir.ui.view" id="view_pos_config_form">
-        <field name="name">view.pos.config.form</field>
+    <record id="pos_config_view_form" model="ir.ui.view">
         <field name="model">pos.config</field>
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="arch" type="xml">
-            <div id="product_prices" position="after">
-                <div class="col-xs-12 col-lg-6 o_setting_box" id="require_customer">
-                    <div class="o_setting_right_pane">
-                        <label for="require_customer" string="Require Customer" />
-                        <div class="text-muted">
-                            Require Customer
-                        </div>
-                        <div class="content-group">
-                            <div class="mt16">
-                                <field
-                                    name="require_customer"
-                                    class="o_light_label"
-                                    widget="radio"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting id="require_customer" string="Require Customer">
+                    <field name="require_customer" widget="radio" />
+                </setting>
+            </xpath>
         </field>
     </record>
 </odoo>

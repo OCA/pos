@@ -3,7 +3,7 @@
      Copyright 2016 La Louve - Sylvain LE GAL <https://twitter.com/legalsylvain>
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html) -->
 <odoo>
-    <record model="ir.ui.view" id="view_pos_order_form">
+    <record model="ir.ui.view" id="view_pos_pos_form">
         <field name="name">view.pos.order.form</field>
         <field name="model">pos.order</field>
         <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
@@ -12,9 +12,7 @@
                 <field name="require_customer" invisible="1" />
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="attributes">
-                <attribute
-                    name="attrs"
-                >{'readonly': [('state', '=', 'invoiced')], 'required': [('require_customer', '!=', 'no')]}</attribute>
+                <attribute name="required">require_customer != 'no'</attribute>
             </xpath>
         </field>
     </record>

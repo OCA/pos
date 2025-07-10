@@ -104,7 +104,9 @@ msgid ""
 "Require customer for orders in this point of sale:\n"
 "* 'Optional' (customer is optional);\n"
 "* 'Required before paying';\n"
-"* 'Required before starting the order';"
+"* 'Required before starting the order';\n"
+"Customer is mandatory in all cases when the 'Identifier Customer' "
+"option is enabled in the payment method."
 msgstr ""
 
 #. module: pos_customer_required

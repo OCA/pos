@@ -7,7 +7,7 @@
 
 {
     "name": "Point of Sale Require Customer",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of Sale Require Customer",
     "author": "Apertoso NV, La Louve, NuoBiT, Odoo Community Association (OCA)",
@@ -17,9 +17,14 @@
         "point_of_sale",
     ],
     "data": [
-        "views/assets.xml",
         "views/pos_config_view.xml",
         "views/pos_order_view.xml",
     ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "pos_customer_required/static/src/js/payment_screen.esm.js",
+            "pos_customer_required/static/src/js/product_screen.esm.js",
+        ]
+    },
     "installable": True,
 }

@@ -101,12 +101,16 @@ msgid ""
 "Require customer for orders in this point of sale:\n"
 "* 'Optional' (customer is optional);\n"
 "* 'Required before paying';\n"
-"* 'Required before starting the order';"
+"* 'Required before starting the order';\n"
+"Customer is mandatory in all cases when the 'Identifier Customer' "
+"option is enabled in the payment method."
 msgstr ""
 "Richiede il cliente per ordini in questo punto vendita:\n"
 "* 'Opzionale' (il cliente è opzionale);\n"
 "* 'Richiesto prima del pagamento';\n"
-"* 'Richiesto prima di inizialre un ordine';"
+"* 'Richiesto prima di inizialre un ordine';\n"
+"Il cliente è obbligatorio in tutti i casi quando l'opzione 'Identifica "
+"cliente' è abilitata nel metodo di pagamento."
 
 #. module: pos_customer_required
 #: model:ir.model.fields.selection,name:pos_customer_required.selection__pos_config__require_customer__payment
