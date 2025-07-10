@@ -17,45 +17,49 @@ Point of Sale Require Customer
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/14.0/pos_customer_required
+    :target: https://github.com/OCA/pos/tree/18.0/pos_customer_required
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_customer_required
+    :target: https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_customer_required
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=14.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module was written to extend the functionality of odoo pos
-and allows you to require a customer for each pos order.  In the
-pos session configuration, you can choose to require the customer for pos
-orders.
+This module was written to extend the functionality of odoo pos and
+allows you to require a customer for each pos order. In the pos session
+configuration, you can choose to require the customer for pos orders.
 
 If a customer is not selected, the pos ui will display an error message.
 In the backend the customer field is required when needed.
 
 Two new options are available:
 
-* Customer 'Required before starting the order';
-* Customer 'Required before paying';
+- Customer 'Required before starting the order';
+- Customer 'Required before paying';
 
 'Required before starting the order' Option
 -------------------------------------------
-In the frontend PoS, the default screen is the screen to select customers.
 
-* Users are not allowed to start selling before having selected a customer;
-* Users can not 'deselect a customer', only select an other one;
+In the frontend PoS, the default screen is the screen to select
+customers.
+
+- Users are not allowed to start selling before having selected a
+  customer;
+- Users can not 'deselect a customer', only select an other one;
 
 'Required before paying' Option
 -------------------------------
-In the frontend PoS, the user can start selling, but if the user tries to
-make payment and if a customer is not selected, the pos ui will display an
-error message.
 
+In the frontend PoS, the user can start selling, but if the user tries
+to make payment and if a customer is not selected, the pos ui will
+display an error message.
 
-.. image:: https://raw.githubusercontent.com/pos_customer_required/static/description/frontend_pos_error_message.png
+|image|
+
+.. |image| image:: https://raw.githubusercontent.com/pos_customer_required/static/description/frontend_pos_error_message.png
 
 **Table of contents**
 
@@ -67,18 +71,23 @@ Configuration
 
 To configure this module, you need to:
 
-* go to point of sale -> configuration -> point of sales
-* select the point of sales you want configure
-* search for the "Require Customer" and choose between the following values:
-    * 'Optional'; (this module has no effect on this PoS config)
-    * 'Required before paying';
-    * 'Required before starting the order';
+- go to point of sale -> configuration -> point of sales
+
+- select the point of sales you want configure
+
+- search for the "Require Customer" and choose between the following
+  values:
+
+  - 'Optional'; (this module has no effect on this PoS config)
+  - 'Required before paying';
+  - 'Required before starting the order';
 
 Usage
 =====
 
-.. image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
-   :alt: Try me on Runbot
+|Try me on Runbot|
+
+.. |Try me on Runbot| image:: https://odoo-community.org/website/image/ir.attachment/5784_f2813bd/datas
    :target: https://runbot.odoo-community.org/runbot/184/9.0
 
 Bug Tracker
@@ -87,7 +96,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_customer_required%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_customer_required%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -95,24 +104,25 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Apertoso NV
 * La Louve
 * NuoBiT
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Jos De Graeve <Jos.DeGraeve@apertoso.be>
-* Sylvain LE GAL <https://twitter.com/legalsylvain>
-* Pedro M. Baeza  <pedro.baeza@gmail.com> ( reviews & feedback )
-* Druidoo <https://www.druidoo.io>
-* Eric Antones <eantones@nuobit.com>
-* Kilian Niubo <kniubo@nuobit.com>
+- Jos De Graeve <Jos.DeGraeve@apertoso.be>
+- Sylvain LE GAL
+  <`https://twitter.com/legalsylvain\\> <https://twitter.com/legalsylvain\>>`__
+- Pedro M. Baeza <pedro.baeza@gmail.com> ( reviews & feedback )
+- Druidoo <`https://www.druidoo.io\\> <https://www.druidoo.io\>>`__
+- Eric Antones <eantones@nuobit.com>
+- Kilian Niubo <kniubo@nuobit.com>
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -124,6 +134,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_customer_required>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/18.0/pos_customer_required>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

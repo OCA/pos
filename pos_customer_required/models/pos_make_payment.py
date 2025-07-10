@@ -26,4 +26,4 @@ class PosMakePayment(models.TransientModel):
                 )
             )
 
-        return super(PosMakePayment, self).check()
+        return super().check()

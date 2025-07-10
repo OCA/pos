@@ -15,7 +15,6 @@ class PosConfig(models.Model):
             ("payment", "Required before paying"),
             ("order", "Required before starting the order"),
         ],
-        string="Require Customer",
         default="no",
         help="Require customer for orders in this point of sale:\n"
         "* 'Optional' (customer is optional);\n"
