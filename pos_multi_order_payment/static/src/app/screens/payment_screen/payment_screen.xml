@@ -11,15 +11,17 @@
     </t>
     <t t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension">
         <xpath expr="//div[hasclass('payment-buttons')]" position="inside">
-
             <div class="append_orders d-flex flex-column" t-if="pos.orders.length > 1">
                 <h4
                     class="title-category pt-3 pb-2 px-3 m-0 bg-view border-bottom border-2"
-                >Append orders</h4>
+                >
+                    Append orders
+                </h4>
                 <t t-foreach="orders" t-as="order" t-key="order.cid">
                     <div
-                        t-attf-class="button add_order btn btn-{{selectedExtraOrders.orders[order.cid]? 'primary':'light'}} rounded-0 border-bottom"
+                        t-attf-class="button add_order btn rounded-0 border-bottom {{selectedExtraOrders.invoiceOrders[order.cid] !== undefined ? 'btn-warning' : (selectedExtraOrders.orders[order.cid] !== undefined ? 'btn-primary' : 'btn-light')}}"
                         t-on-click="() => {this.appendOrder(order)}"
+                        t-on-dblclick="() => {this.appendOrder(order, true)}"
                     >
                         <div
                             class="order-display d-flex align-items-center flex-grow-1 col justify-content-between align-items-center"
@@ -39,5 +41,4 @@
             </div>
         </xpath>
     </t>
-
 </templates>

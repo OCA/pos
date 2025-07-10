@@ -1,5 +1,6 @@
 /** @odoo-module **/
 
+import {ConfirmPopup} from "@point_of_sale/app/utils/confirm_popup/confirm_popup";
 import {ErrorPopup} from "@point_of_sale/app/errors/popups/error_popup";
 import {PaymentScreen} from "@point_of_sale/app/screens/payment_screen/payment_screen";
 import {PaymentScreenStatus} from "@point_of_sale/app/screens/payment_screen/payment_status/payment_status";
@@ -48,16 +49,80 @@ patch(PaymentScreenStatus.prototype, {
 patch(PaymentScreen.prototype, {
     setup() {
         super.setup(...arguments);
-        this.selectedExtraOrders = useState({orders: {}});
+        this.selectedExtraOrders = useState({
+            orders: {},
+            invoiceOrders: {},
+        });
     },
-    appendOrder(order) {
+    async CurrentselectPartner(isEditMode = false, missingFields = [], order = null) {
+        const targetOrder = order || this.currentOrder;
+        const currentPartner = targetOrder.get_partner();
+        const partnerScreenProps = {partner: currentPartner};
+
+        if (isEditMode && currentPartner) {
+            partnerScreenProps.editModeProps = true;
+            partnerScreenProps.missingFields = missingFields;
+        }
+
+        const {confirmed, payload: newPartner} = await this.pos.showTempScreen(
+            "PartnerListScreen",
+            partnerScreenProps
+        );
+
+        if (confirmed) {
+            targetOrder.set_partner(newPartner);
+        }
+        return confirmed;
+    },
+
+    async appendOrder(order, forInvoice = false) {
         var orders = this.selectedExtraOrders.orders;
-        if (this.selectedExtraOrders.orders[order.cid] === undefined) {
-            orders[order.cid] = order;
+        var invoiceOrders = this.selectedExtraOrders.invoiceOrders;
+
+        if (forInvoice) {
+            if (this.selectedExtraOrders.orders[order.cid] === undefined) {
+                orders[order.cid] = order;
+            }
+            if (!order.partner) {
+                const {confirmed} = await this.popup.add(ConfirmPopup, {
+                    title: _t("Please select the Customer"),
+                    body: _t(
+                        "You need to select the customer before you can invoice or ship an order."
+                    ),
+                });
+                if (confirmed) {
+                    const partnerConfirmed = await this.CurrentselectPartner(
+                        false,
+                        [],
+                        order
+                    );
+                    if (!partnerConfirmed) {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            if (order.partner) {
+                order.set_to_invoice(true);
+            }
+            if (this.selectedExtraOrders.invoiceOrders[order.cid] === undefined) {
+                invoiceOrders[order.cid] = order;
+            } else {
+                delete invoiceOrders[order.cid];
+            }
         } else {
-            delete orders[order.cid];
+            if (this.selectedExtraOrders.orders[order.cid] === undefined) {
+                orders[order.cid] = order;
+            } else {
+                delete orders[order.cid];
+            }
+            if (this.selectedExtraOrders.invoiceOrders[order.cid] !== undefined) {
+                delete invoiceOrders[order.cid];
+            }
         }
         this.selectedExtraOrders.orders = {...orders};
+        this.selectedExtraOrders.invoiceOrders = {...invoiceOrders};
     },
     addNewPaymentLine(paymentMethod) {
         if (Object.keys(this.selectedExtraOrders.orders).length === 0) {

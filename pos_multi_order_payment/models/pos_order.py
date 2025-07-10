@@ -17,7 +17,7 @@ class PosOrder(models.Model):
         return result
 
     def _process_payment_lines(self, pos_order, order, pos_session, draft):
-        super()._process_payment_lines(pos_order, order, pos_session, draft)
+        rec = super()._process_payment_lines(pos_order, order, pos_session, draft)
         prec_acc = order.currency_id.decimal_places
         if (
             not draft
@@ -31,7 +31,8 @@ class PosOrder(models.Model):
             if not cash_payment_method:
                 raise UserError(
                     _(
-                        "No cash statement found for this session. Unable to record a multiple order payment."
+                        """No cash statement found for this session.
+Unable to record a multiple order payment."""
                     )
                 )
             return_payment_vals = {
@@ -42,3 +43,4 @@ class PosOrder(models.Model):
                 "payment_method_id": cash_payment_method.id,
             }
             order.add_payment(return_payment_vals)
+        return rec

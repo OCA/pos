@@ -1,1 +1,3 @@
   - Enric Tobella
+  - `SerpentCS <https://www.serpentcs.com>`:
+    - Kamla Dodiya <kamla.d.serpentcs@gmail.com>
