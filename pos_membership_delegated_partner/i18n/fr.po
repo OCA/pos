@@ -1,0 +1,52 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_membership_delegated_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-14 20:39+0000\n"
+"PO-Revision-Date: 2025-07-14 20:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_membership_delegated_partner
+#. odoo-javascript
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/MembershipInfo.xml:0
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/MembershipInfo.xml:0
+#, python-format
+msgid "Customer"
+msgstr "Client"
+
+#. module: pos_membership_delegated_partner
+#. odoo-javascript
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/ProductScreen/ControlButtons/DelegatedMemberButton.xml:0
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/ProductScreen/ControlButtons/DelegatedMemberButton.xml:0
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/ProductScreen/ControlButtons/DelegatedMemberButton.xml:0
+#: model:ir.model.fields,field_description:pos_membership_delegated_partner.field_pos_order_line__delegated_member_id
+#, python-format
+msgid "Delegated Member"
+msgstr "Membre Délégué"
+
+#. module: pos_membership_delegated_partner
+#. odoo-javascript
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/MembershipInfo.xml:0
+#: code:addons/pos_membership_delegated_partner/static/src/xml/Screens/MembershipInfo.xml:0
+#, python-format
+msgid "Member"
+msgstr "Membre"
+
+#. module: pos_membership_delegated_partner
+#: model:ir.model,name:pos_membership_delegated_partner.model_pos_order_line
+msgid "Point of Sale Order Lines"
+msgstr "Lignes des commandes du point de vente"
+
+#. module: pos_membership_delegated_partner
+#: model:ir.model,name:pos_membership_delegated_partner.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"

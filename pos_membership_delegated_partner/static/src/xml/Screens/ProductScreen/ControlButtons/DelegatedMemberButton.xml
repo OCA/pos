@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="DelegatedMemberButton" owl="1">
+        <span class="control-button">
+            <i
+                class="fa fa-hand-o-right"
+                role="img"
+                aria-label="Delegated Member"
+                title="Delegated Member"
+            />
+            <span> </span>
+            <span>Delegated Member</span>
+        </span>
+    </t>
+
+</templates>
