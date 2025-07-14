@@ -17,6 +17,23 @@
                     <field name="pos_order_id" string="POS Order" widget="statinfo" />
                 </button>
             </div>
+            <field name="payment_mode_id" position="attributes">
+                <attribute name="attrs">
+                    {'invisible': ['|', ('pos_payment_ids', '=', True), ('state', '=', 'done')]}
+                </attribute>
+            </field>
+            <field name="payment_mode_id" position="after">
+                <field
+                    name="pos_payment_ids"
+                    widget="many2many_tags"
+                    readonly="true"
+                    invisible="true"
+                />
+                <field
+                    name="displayed_payment_mode"
+                    attrs="{'invisible': [('pos_payment_ids', '=', []), ('state', '!=', 'done')]}"
+                />
+            </field>
         </field>
     </record>
 
@@ -27,6 +44,12 @@
         <field name="arch" type="xml">
             <field name="payment_ref" position="attributes">
                 <attribute name="optional">show</attribute>
+            </field>
+            <field name="payment_mode_id" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </field>
+            <field name="payment_mode_id" position="after">
+                <field name="displayed_payment_mode" />
             </field>
         </field>
     </record>

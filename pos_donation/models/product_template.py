@@ -16,12 +16,6 @@ class ProductTemplate(models.Model):
             "donation_in_pos": "set consu",
         },
     )
-    default_payment_mode_id = fields.Many2one(
-        "account.payment.mode",
-        domain="[('company_id', '=', company_id), ('donation', '=', True)]",
-        tracking=True,
-        default=lambda self: self.env.user.context_donation_payment_mode_id,
-    )
     default_tax_receipt_option = fields.Selection(
         [
             ("none", "None"),
@@ -30,20 +24,6 @@ class ProductTemplate(models.Model):
         ],
         tracking=True,
     )
-
-    _sql_constraints = [
-        (
-            "check_company_id_for_donation_in_pos",
-            """CHECK (
-                (detailed_type='donation_in_pos' AND company_id IS NOT NULL)
-                OR detailed_type!='donation_in_pos'
-            )""",
-            _(
-                "Product for donation in pos must belong to a company "
-                "in ordrer to set default payment mode."
-            ),
-        )
-    ]
 
     def _detailed_type_mapping(self):
         res = super()._detailed_type_mapping()

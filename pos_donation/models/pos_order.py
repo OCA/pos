@@ -21,7 +21,10 @@ class PosOrder(models.Model):
         # ensure_one because used in an ensure_one method
         self.ensure_one()
         donations = self.lines.filtered(lambda rec: rec.product_id.is_donation)
-        payment_mode_id = donations.product_id.default_payment_mode_id
+        pos_payment_ids = [
+            pos_payment_line.payment_method_id.id
+            for pos_payment_line in self.payment_ids
+        ]
         tax_receipt_option = donations.product_id.default_tax_receipt_option
         company_id = donations.product_id.company_id
         vals = None
@@ -30,7 +33,8 @@ class PosOrder(models.Model):
                 "pos_order_id": self.id,
                 "partner_id": self.partner_id.id,
                 "donation_date": self.date_order,
-                "payment_mode_id": payment_mode_id[0].id if payment_mode_id else False,
+                "payment_mode_id": False,
+                "pos_payment_ids": [Command.set(pos_payment_ids)],
                 "company_id": company_id[0].id if company_id else False,
                 "payment_ref": self.pos_reference,
                 "tax_receipt_option": tax_receipt_option,

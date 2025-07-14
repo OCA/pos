@@ -11,10 +11,7 @@
                     name="default_tax_receipt_option"
                     attrs="{'invisible': ['|', ('is_donation', '=', False), ('tax_receipt_ok', '=', False)], 'required': [('detailed_type', '=', 'donation_in_pos'), ('tax_receipt_ok', '=', True)]}"
                 />
-                <field
-                    name="default_payment_mode_id"
-                    attrs="{'invisible': [('is_donation', '=', False)], 'required': [('detailed_type', '=', 'donation_in_pos')]}"
-                />
+                <field name="is_donation" invisible="true" />
             </field>
         </field>
     </record>
