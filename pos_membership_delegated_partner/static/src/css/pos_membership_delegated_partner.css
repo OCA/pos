@@ -1,0 +1,11 @@
+.pos .order .membership-info {
+    margin: 8px;
+    word-break: break-all;
+}
+.pos .order .membership-info .fa {
+    opacity: 0.5;
+    margin-right: 4px;
+}
+.pos .order .membership-info .fa-user {
+    margin: 0;
+}
