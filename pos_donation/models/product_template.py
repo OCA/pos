@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class ProductTemplate(models.Model):

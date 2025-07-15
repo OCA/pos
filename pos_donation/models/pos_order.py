@@ -21,21 +21,24 @@ class PosOrder(models.Model):
         # ensure_one because used in an ensure_one method
         self.ensure_one()
         donations = self.lines.filtered(lambda rec: rec.product_id.is_donation)
-        pos_payment_ids = [
-            pos_payment_line.payment_method_id.id
-            for pos_payment_line in self.payment_ids
-        ]
-        tax_receipt_option = donations.product_id.default_tax_receipt_option
-        company_id = donations.product_id.company_id
         vals = None
         if donations:
+            pos_payment_ids = [
+                pos_payment_line.payment_method_id.id
+                for pos_payment_line in self.payment_ids
+            ]
+            # FIXME: this will fail if there are multiple products. the
+            # default_tax_receipt_option should not be defined on the
+            # product.template but on a more global record, like the
+            # pos.config.
+            tax_receipt_option = donations.product_id.default_tax_receipt_option
             vals = {
                 "pos_order_id": self.id,
                 "partner_id": self.partner_id.id,
                 "donation_date": self.date_order,
                 "payment_mode_id": False,
                 "pos_payment_ids": [Command.set(pos_payment_ids)],
-                "company_id": company_id[0].id if company_id else False,
+                "company_id": self.company_id.id,
                 "payment_ref": self.pos_reference,
                 "tax_receipt_option": tax_receipt_option,
                 "line_ids": [],

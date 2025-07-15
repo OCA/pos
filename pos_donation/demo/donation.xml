@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="product_product_donation_pos" model="product.product">
-        <field name="name">POS Donation</field>
+        <field name="name">PoS Donation</field>
         <field name="default_code">POS-DON</field>
         <field name="categ_id" ref="product.product_category_5" />
         <field name="sale_ok" eval="True" />
@@ -9,7 +9,6 @@
         <field name="list_price">0</field>
         <field name="detailed_type">donation_in_pos</field>
         <field name="taxes_id" eval="False" />
-        <field name="company_id" ref="base.main_company" />
         <field
             name="description"
         >This donation item that can be sold in POS and is eligible for a tax receipt.</field>
