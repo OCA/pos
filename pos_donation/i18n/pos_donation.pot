@@ -6,8 +6,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-13 07:26+0000\n"
-"PO-Revision-Date: 2025-07-13 07:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,7 +45,13 @@ msgstr ""
 
 #. module: pos_donation
 #: model:ir.model.fields.selection,name:pos_donation.selection__product_template__detailed_type__donation_in_pos
-msgid "Donation in POS"
+msgid "Donation in PoS"
+msgstr ""
+
+#. module: pos_donation
+#: model_terms:product.template,description:pos_donation.product_product_donation_pos_product_template
+msgid ""
+"Donation item that can be sold in PoS and that is eligible for a tax receipt"
 msgstr ""
 
 #. module: pos_donation
@@ -61,33 +65,27 @@ msgid "None"
 msgstr ""
 
 #. module: pos_donation
+#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__displayed_payment_mode
+msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_donation
 #: model:product.template,name:pos_donation.product_product_donation_pos_product_template
-msgid "POS Donation"
+msgid "PoS Donation"
 msgstr ""
 
 #. module: pos_donation
 #. odoo-python
 #: code:addons/pos_donation/models/donation.py:0
-#: code:addons/pos_donation/models/donation.py:0
-#: code:addons/src/oca/pos/pos_donation/models/donation.py:0
+#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_order_id
 #: model_terms:ir.ui.view,arch_db:pos_donation.donation_form
 #, python-format
-msgid "POS Order"
-msgstr ""
-
-#. module: pos_donation
-#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__displayed_payment_mode
-msgid "Payment Mode"
-msgstr ""
-
-#. module: pos_donation
-#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_order_id
 msgid "PoS Order"
 msgstr ""
 
 #. module: pos_donation
-#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_payment_ids
-msgid "PoS payment methods"
+#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_payment_method_ids
+msgid "PoS Payment Methods"
 msgstr ""
 
 #. module: pos_donation
@@ -104,24 +102,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_donation.field_product_product__detailed_type
 #: model:ir.model.fields,field_description:pos_donation.field_product_template__detailed_type
 msgid "Product Type"
-msgstr ""
-
-#. module: pos_donation
-#. odoo-python
-#: code:addons/pos_donation/models/product_template.py:0
-#: code:addons/pos_donation/models/product_template.py:0
-#: code:addons/src/oca/pos/pos_donation/models/product_template.py:0
-#: model:ir.model.constraint,message:pos_donation.constraint_product_template_check_company_id_for_donation_in_pos
-#, python-format
-msgid ""
-"Product for donation in pos must belong to a company."
-msgstr ""
-
-#. module: pos_donation
-#: model_terms:product.template,description:pos_donation.product_product_donation_pos_product_template
-msgid ""
-"This donation item that can be sold in POS and is eligible for a tax "
-"receipt."
 msgstr ""
 
 #. module: pos_donation

@@ -1,5 +1,5 @@
 ============
-POS Donation
+PoS Donation
 ============
 
 .. 
@@ -28,14 +28,30 @@ POS Donation
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-When a donation product is sold in the POS, this module creates a
-donation related to the POS Order in draft state. This donation can be
-validated in order to generate a tax receipt for this donation.
+When a donation product is sold in the PoS, this module creates a donation related to the PoS order and validates it.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+To create donations from the PoS, a donation product must be sold.
+This product must have the "Donation in PoS" product type.
+This is important: the normal "Donation" product type will not work, as this would generate accounting entries two times.
+
+The price of the product on the PoS order line defines the price of the donation.
+
+Known issues / Roadmap
+======================
+
+* If there is no partner set on the PoS order, a donation is not created.
+  There should be a user warning in the PoS to avoid this.
+* If there are multiple donation products used in the same PoS order, a donation is not created.
+  This is because the ``default_tax_receipt_option`` is currently defined on the ``product.template``.
+  It would be better to define it on on a more global record, like the ``pos.config``.
 
 Bug Tracker
 ===========

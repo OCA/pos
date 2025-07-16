@@ -5,12 +5,14 @@
         <field name="default_code">POS-DON</field>
         <field name="categ_id" ref="product.product_category_5" />
         <field name="sale_ok" eval="True" />
-        <field name="tax_receipt_ok" eval="True" />
         <field name="list_price">0</field>
-        <field name="detailed_type">donation_in_pos</field>
         <field name="taxes_id" eval="False" />
+        <field name="detailed_type">donation_in_pos</field>
+        <field name="tax_receipt_ok" eval="True" />
+        <field name="available_in_pos">True</field>
+        <field name="default_tax_receipt_option">none</field>
         <field
             name="description"
-        >This donation item that can be sold in POS and is eligible for a tax receipt.</field>
+        >Donation item that can be sold in PoS and that is eligible for a tax receipt</field>
     </record>
 </odoo>

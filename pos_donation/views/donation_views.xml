@@ -14,24 +14,24 @@
                     icon="fa-shopping-cart"
                     attrs="{'invisible':[('pos_order_id', '=', False)]}"
                 >
-                    <field name="pos_order_id" string="POS Order" widget="statinfo" />
+                    <field name="pos_order_id" string="PoS Order" widget="statinfo" />
                 </button>
             </div>
             <field name="payment_mode_id" position="attributes">
                 <attribute name="attrs">
-                    {'invisible': ['|', ('pos_payment_ids', '=', True), ('state', '=', 'done')]}
+                    {'invisible': ['|', ('pos_payment_method_ids', '=', True), ('state', '=', 'done')]}
                 </attribute>
             </field>
             <field name="payment_mode_id" position="after">
                 <field
-                    name="pos_payment_ids"
+                    name="pos_payment_method_ids"
                     widget="many2many_tags"
                     readonly="true"
                     invisible="true"
                 />
                 <field
                     name="displayed_payment_mode"
-                    attrs="{'invisible': [('pos_payment_ids', '=', []), ('state', '!=', 'done')]}"
+                    attrs="{'invisible': [('pos_payment_method_ids', '=', []), ('state', '!=', 'done')]}"
                 />
             </field>
         </field>

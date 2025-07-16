@@ -10,6 +10,7 @@ msgstr ""
 "PO-Revision-Date: 2025-07-13 07:27+0000\n"
 "Last-Translator: Simon Hick\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,7 +20,8 @@ msgstr ""
 #: model:ir.model.fields,help:pos_donation.field_product_product__detailed_type
 #: model:ir.model.fields,help:pos_donation.field_product_template__detailed_type
 msgid ""
-"A storable product is a product for which you manage stock. The Inventory app has to be installed.\n"
+"A storable product is a product for which you manage stock. The Inventory "
+"app has to be installed.\n"
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
@@ -47,8 +49,15 @@ msgstr ""
 
 #. module: pos_donation
 #: model:ir.model.fields.selection,name:pos_donation.selection__product_template__detailed_type__donation_in_pos
-msgid "Donation in POS"
+msgid "Donation in PoS"
 msgstr ""
+
+#. module: pos_donation
+#: model_terms:product.template,description:pos_donation.product_product_donation_pos_product_template
+msgid ""
+"Donation item that can be sold in PoS and that is eligible for a tax receipt"
+msgstr ""
+"Don qui peut être vendu en PdV et qui est éligible pour un reçu fiscal"
 
 #. module: pos_donation
 #: model:ir.model.fields.selection,name:pos_donation.selection__product_template__default_tax_receipt_option__each
@@ -61,33 +70,27 @@ msgid "None"
 msgstr ""
 
 #. module: pos_donation
+#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__displayed_payment_mode
+msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_donation
 #: model:product.template,name:pos_donation.product_product_donation_pos_product_template
-msgid "POS Donation"
+msgid "PoS Donation"
 msgstr ""
 
 #. module: pos_donation
 #. odoo-python
 #: code:addons/pos_donation/models/donation.py:0
-#: code:addons/pos_donation/models/donation.py:0
-#: code:addons/src/oca/pos/pos_donation/models/donation.py:0
+#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_order_id
 #: model_terms:ir.ui.view,arch_db:pos_donation.donation_form
 #, python-format
-msgid "POS Order"
-msgstr ""
-
-#. module: pos_donation
-#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__displayed_payment_mode
-msgid "Payment Mode"
-msgstr ""
-
-#. module: pos_donation
-#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_order_id
 msgid "PoS Order"
 msgstr ""
 
 #. module: pos_donation
-#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_payment_ids
-msgid "PoS payment methods"
+#: model:ir.model.fields,field_description:pos_donation.field_donation_donation__pos_payment_method_ids
+msgid "PoS Payment Methods"
 msgstr ""
 
 #. module: pos_donation
@@ -108,26 +111,11 @@ msgstr ""
 
 #. module: pos_donation
 #. odoo-python
-#: code:addons/pos_donation/models/product_template.py:0
-#: code:addons/pos_donation/models/product_template.py:0
-#: code:addons/src/oca/pos/pos_donation/models/product_template.py:0
-#: model:ir.model.constraint,message:pos_donation.constraint_product_template_check_company_id_for_donation_in_pos
-#, python-format
-msgid ""
-"Product for donation in pos must belong to a company."
-msgstr "Un produit représentant une donation doit appartenir à une entreprise"
-
-#. module: pos_donation
-#: model_terms:product.template,description:pos_donation.product_product_donation_pos_product_template
-msgid ""
-"This donation item that can be sold in POS and is eligible for a tax "
-"receipt."
-msgstr "Ce produit est une donation, il peut être vendu en PdV et est éligible "
-"pour un reçu fiscal."
-
-#. module: pos_donation
-#. odoo-python
 #: code:addons/pos_donation/models/donation.py:0
 #, python-format
 msgid "Various"
 msgstr "Divers"
+
+#~ msgid "Product for donation in pos must belong to a company."
+#~ msgstr ""
+#~ "Un produit représentant une donation doit appartenir à une entreprise"

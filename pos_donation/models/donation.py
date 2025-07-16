@@ -12,44 +12,43 @@ class DonationDonation(models.Model):
         string="PoS Order",
         comodel_name="pos.order",
     )
-    pos_payment_ids = fields.Many2many(
-        string="PoS payment methods", comodel_name="pos.payment"
+    pos_payment_method_ids = fields.Many2many(
+        "pos.payment.method",
+        string="PoS Payment Methods",
+        compute="_compute_pos_payment_method_ids",
     )
     displayed_payment_mode = fields.Char(
-        string="Payment Mode",
+        # non-breaking space here to avoid warning (because this is done on
+        # purpose): Two fields (displayed_payment_mode, payment_mode_id) of
+        # donation.donation() have the same label: Payment Mode. [Modules:
+        # pos_donation and donation]
+        string="Payment Mode",
         compute="_compute_displayed_payment_mode",
     )
 
-    @api.depends("pos_payment_ids", "payment_mode_id")
+    @api.depends("pos_order_id.payment_ids.payment_method_id")
+    def _compute_pos_payment_method_ids(self):
+        for rec in self:
+            rec.pos_payment_method_ids = rec.pos_order_id.payment_ids.payment_method_id
+
+    @api.depends("pos_order_id.payment_ids.payment_method_id", "payment_mode_id")
     def _compute_displayed_payment_mode(self):
         for donation in self:
-            if len(donation.pos_payment_ids) > 1:
-                donation.displayed_payment_mode = _("Various")
-            elif len(donation.pos_payment_ids) == 1:
-                donation.displayed_payment_mode = (
-                    donation.pos_payment_ids.payment_method_id.name
-                )
+            if donation.pos_payment_method_ids:
+                if len(donation.pos_payment_method_ids) > 1:
+                    donation.displayed_payment_mode = _("Various")
+                else:
+                    donation.displayed_payment_mode = (
+                        donation.pos_payment_method_ids.name
+                    )
             else:
                 donation.displayed_payment_mode = donation.payment_mode_id.name
 
     def action_view_pos_order_id(self):
         return {
             "type": "ir.actions.act_window",
-            "name": _("POS Order"),
+            "name": _("PoS Order"),
             "res_model": "pos.order",
             "view_mode": "tree,form",
-            "domain": [("id", "in", self.pos_order_id.ids)],
+            "domain": [("id", "=", self.pos_order_id.id)],
         }
-
-    def validate(self):
-        """Keep payment_mode_id for donation_in_pos"""
-        payment_modes = {}
-        for donation in self:
-            payment_modes[donation.id] = donation.payment_mode_id
-        res = super().validate()
-        for donation in self:
-            if "donation_in_pos" in donation.line_ids.product_id.mapped(
-                "detailed_type"
-            ):
-                donation.payment_mode_id = payment_modes[donation.id]
-        return res

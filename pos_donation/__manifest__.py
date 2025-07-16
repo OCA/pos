@@ -3,10 +3,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 {
-    "name": "POS Donation",
-    "summary": "Generate donation for donation sold in POS.",
+    "name": "PoS Donation",
+    "summary": "Generate donation for donation sold in PoS",
     "version": "16.0.1.0.0",
-    "category": "POS",
+    "category": "Sales/Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
     "maintainers": ["remytms"],

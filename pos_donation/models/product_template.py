@@ -10,7 +10,7 @@ class ProductTemplate(models.Model):
 
     detailed_type = fields.Selection(
         selection_add=[
-            ("donation_in_pos", "Donation in POS"),
+            ("donation_in_pos", "Donation in PoS"),
         ],
         ondelete={
             "donation_in_pos": "set consu",
