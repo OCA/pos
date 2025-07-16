@@ -3,24 +3,30 @@
     <record id="pos_config_view_form_inherit_pricelist_button" model="ir.ui.view">
         <field name="name">pos.config.view.form.inherit.hide_pricelist_button</field>
         <field name="model">pos.config</field>
-        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
-        <field name="priority" eval="100"/>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="priority" eval="100" />
         <field name="arch" type="xml">
             <xpath expr="//form/sheet" position="inside">
-                <field name="company_id" invisible="1"/>
+                <field name="company_id" invisible="1" />
             </xpath>
 
             <xpath expr="//setting[@id='other_devices']" position="after">
-                <setting string="Hide Pricelist Button"
-                         help="If enabled, the pricelist selection button will be hidden in the PoS interface.">
-                    <field name="hide_pricelist_button"/>
+                <setting
+                    string="Hide Pricelist Button"
+                    help="If enabled, the pricelist selection button will be hidden in the PoS interface."
+                >
+                    <field name="hide_pricelist_button" />
                 </setting>
 
-                <setting string="Available Pricelists"
-                         help="Restrict pricelists visible to the user when button is visible.">
-                    <field name="available_pricelist_ids"
-                           widget="many2many_tags"
-                           invisible="hide_pricelist_button"/>
+                <setting
+                    string="Available Pricelists"
+                    help="Restrict pricelists visible to the user when button is visible."
+                >
+                    <field
+                        name="available_pricelist_ids"
+                        widget="many2many_tags"
+                        invisible="hide_pricelist_button"
+                    />
                 </setting>
             </xpath>
         </field>

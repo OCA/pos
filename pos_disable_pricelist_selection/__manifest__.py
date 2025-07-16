@@ -9,14 +9,12 @@
     "website": "https://github.com/OCA/pos",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
-    "data": [
-        "views/pos_config_view.xml"
-    ],
+    "data": ["views/pos_config_view.xml"],
     "assets": {
         "point_of_sale._assets_pos": [
             "pos_disable_pricelist_selection/static/src/**/*",
         ]
     },
     "installable": True,
-    "application": False
+    "application": False,
 }

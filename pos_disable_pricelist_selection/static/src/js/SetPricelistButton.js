@@ -1,9 +1,9 @@
 /** @odoo-module **/
 
-import { patch } from "@web/core/utils/patch";
-import { SetPricelistButton } from "@point_of_sale/app/screens/product_screen/control_buttons/pricelist_button/pricelist_button";
-import { _t } from "@web/core/l10n/translation";
-import { useService } from "@web/core/utils/hooks";
+import {patch} from "@web/core/utils/patch";
+import {SetPricelistButton} from "@point_of_sale/app/screens/product_screen/control_buttons/pricelist_button/pricelist_button";
+import {_t} from "@web/core/l10n/translation";
+import {useService} from "@web/core/utils/hooks";
 
 patch(SetPricelistButton.prototype, {
     setup() {
@@ -15,7 +15,9 @@ patch(SetPricelistButton.prototype, {
         const selectionList = this.pos.selectable_pricelists.map((pricelist) => ({
             id: pricelist.id,
             label: pricelist.name,
-            isSelected: this.currentOrder.pricelist && pricelist.id === this.currentOrder.pricelist.id,
+            isSelected:
+                this.currentOrder.pricelist &&
+                pricelist.id === this.currentOrder.pricelist.id,
             item: pricelist,
         }));
 
