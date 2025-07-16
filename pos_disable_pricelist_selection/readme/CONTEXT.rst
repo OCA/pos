@@ -1,0 +1,1 @@
+In case there is a structure of pricelists with lines using "Formula: Based on" (eg: Pricelist 3 is based on Pricelist 2 which is based on Pricelist 1) they all need to be added in "Available pricelists" for POS to load correctly.
