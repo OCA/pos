@@ -1,16 +1,19 @@
-/** @odoo-module */
-
-import {AbstractAwaitablePopup} from "@point_of_sale/app/popup/abstract_awaitable_popup";
-import {usePos} from "@point_of_sale/app/store/pos_hook";
 import {useService} from "@web/core/utils/hooks";
 
-export class CreateOrderPopup extends AbstractAwaitablePopup {
+import {Dialog} from "@web/core/dialog/dialog";
+import {usePos} from "@point_of_sale/app/store/pos_hook";
+import {Component} from "@odoo/owl";
+
+export class CreateOrderPopup extends Component {
+    static template = "pos_order_to_sale_order.CreateOrderPopup";
+    static components = {Dialog};
+    static props = ["close"];
+
     setup() {
         super.setup();
         this.pos = usePos();
         this.ui = useService("ui");
         this.orm = useService("orm");
-        this.createOrderClicked = false;
     }
 
     async createDraftSaleOrder() {
@@ -39,7 +42,7 @@ export class CreateOrderPopup extends AbstractAwaitablePopup {
         this.pos.add_new_order();
 
         // Close popup
-        return await super.confirm();
+        return this.props.close();
     }
 
     async _createSaleOrder(order_state) {
@@ -48,7 +51,7 @@ export class CreateOrderPopup extends AbstractAwaitablePopup {
 
         return await this.orm
             .call("sale.order", "create_order_from_pos", [
-                current_order.export_as_JSON(),
+                current_order.serialize({orm: true}),
                 order_state,
             ])
             .catch((error) => {
@@ -59,5 +62,3 @@ export class CreateOrderPopup extends AbstractAwaitablePopup {
             });
     }
 }
-
-CreateOrderPopup.template = "pos_order_to_sale_order.CreateOrderPopup";

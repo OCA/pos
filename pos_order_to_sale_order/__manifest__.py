@@ -4,7 +4,7 @@
 
 {
     "name": "PoS Order To Sale Order",
-    "version": "17.0.1.0.1",
+    "version": "18.0.1.0.0",
     "author": "GRAP,Odoo Community Association (OCA)",
     "category": "Point Of Sale",
     "license": "AGPL-3",
@@ -16,10 +16,12 @@
     "assets": {
         "point_of_sale._assets_pos": [
             "pos_order_to_sale_order/static/src/css/pos.scss",
-            "pos_order_to_sale_order/static/src/js/CreateOrderButton.esm.js",
-            "pos_order_to_sale_order/static/src/js/CreateOrderPopup.esm.js",
-            "pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml",
-            "pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml",
+            "pos_order_to_sale_order/static/src/components/control_buttons/control_buttons.esm.js",
+            "pos_order_to_sale_order/static/src/components/control_buttons/control_buttons.xml",
+            "pos_order_to_sale_order/static/src/components/create_order_button/create_order_button.esm.js",
+            "pos_order_to_sale_order/static/src/components/create_order_button/create_order_button.xml",
+            "pos_order_to_sale_order/static/src/components/create_order_popup/create_order_popup.esm.js",
+            "pos_order_to_sale_order/static/src/components/create_order_popup/create_order_popup.xml",
         ],
         "web.assets_tests": [
             "pos_order_to_sale_order/static/tests/tours/**/*",

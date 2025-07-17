@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
     @api.model
     def _prepare_from_pos(self, order_data):
         PosSession = self.env["pos.session"]
-        session = PosSession.browse(order_data["pos_session_id"])
+        session = PosSession.browse(order_data["session_id"])
         SaleOrderLine = self.env["sale.order.line"]
         order_lines = [
             Command.create(SaleOrderLine._prepare_from_pos(sequence, line_data[2]))

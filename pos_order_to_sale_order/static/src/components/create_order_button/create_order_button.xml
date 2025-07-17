@@ -3,15 +3,16 @@
 
     <t t-name="pos_order_to_sale_order.CreateOrderButton" owl="1">
         <button
-            class="control-button btn btn-light rounded-0 fw-bolder"
+            class="btn btn-secondary btn-lg py-5 o_create_order_button"
             t-on-click="onClick"
+            t-att-disabled="!this.isEnabled()"
         >
             <i
-                class="fa fa-file-text me-1"
-                role="img"
-                aria-label="Create Order"
-                title="Create Order"
-            />
+            class="fa fa-file-text me-1"
+            role="img"
+            aria-label="Create Order"
+            title="Create Order"
+        />
             Create Order
         </button>
     </t>

@@ -2,14 +2,8 @@
 <templates id="template" xml:space="preserve">
 
     <t t-name="pos_order_to_sale_order.CreateOrderPopup" owl="1">
-        <div class="popup popup-create-sale-order">
-
-            <div class="modal-header">
-                <h3 class="modal-title w-100">Create Sale Order</h3>
-            </div>
-
-            <div class="modal-body">
-
+        <Dialog title.translate="Create Sale Order">
+            <div class="popup-create-sale-order">
                 <table>
                     <tbody>
                         <tr t-if="pos.config.iface_create_draft_sale_order">
@@ -58,7 +52,7 @@
                         <tr t-if="pos.config.iface_create_invoiced_sale_order">
                             <td>
                                 <div
-                                    class="button button-sale-order"
+                                    class="button button-sale-order button-invoiced-sale-order"
                                     t-on-click="createInvoicedSaleOrder"
                                 >
                                     <span class="icon-containers">
@@ -69,19 +63,11 @@
                                     <span>Create Invoiced Sale Order</span>
                                 </div>
                             </td>
-
                         </tr>
                     </tbody>
                 </table>
-
             </div>
-
-            <div class="footer modal-footer">
-                <div class="button cancel" t-on-click="cancel">
-                    Discard
-                </div>
-            </div>
-        </div>
+        </Dialog>
     </t>
 
 </templates>

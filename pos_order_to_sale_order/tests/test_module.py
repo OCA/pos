@@ -2,7 +2,6 @@
 # @author Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
-
 from odoo.tests import tagged
 
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
@@ -11,7 +10,7 @@ from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCom
 @tagged("post_install", "-at_install")
 class TestUi(TestPointOfSaleHttpCommon):
     def test_pos_order_to_sale_order(self):
-        self.main_pos_config.open_ui()
+        self.main_pos_config.with_user(self.pos_user).open_ui()
 
         # Make the test compatible with pos_minimize_menu
         if "iface_important_buttons" in self.main_pos_config._fields:
