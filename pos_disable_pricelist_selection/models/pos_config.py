@@ -6,6 +6,9 @@ class PosConfig(models.Model):
 
     hide_pricelist_button = fields.Boolean(
         default=False,
-        string="Hide Pricelist Button",
-        help="If enabled, the pricelist selection button will be hidden in the PoS interface.",
+        string="Hide Pricelists Button",
+        help=(
+            "If enabled, the pricelist selection button "
+            "will be hidden in the PoS interface."
+        ),
     )

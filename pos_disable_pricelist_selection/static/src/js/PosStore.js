@@ -15,6 +15,7 @@ patch(PosStore.prototype, {
             this.selectable_pricelists = initialConfigPricelist
                 ? [initialConfigPricelist]
                 : [];
+            this.pos.selectable_pricelists = this.selectable_pricelists;
         }
 
         if (initialConfigPricelist) {

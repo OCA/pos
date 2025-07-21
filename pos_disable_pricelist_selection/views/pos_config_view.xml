@@ -20,12 +20,13 @@
 
                 <setting
                     string="Available Pricelists"
-                    help="Restrict pricelists visible to the user when button is visible."
+                    help="Available Pricelists when button is visible."
                 >
                     <field
                         name="available_pricelist_ids"
                         widget="many2many_tags"
                         invisible="hide_pricelist_button"
+                        readonly="1"
                     />
                 </setting>
             </xpath>
