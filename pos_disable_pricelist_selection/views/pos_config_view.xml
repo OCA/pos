@@ -11,9 +11,9 @@
                     string="Hide Pricelist Button"
                     help="If enabled, the pricelist selection button will be hidden in the PoS interface."
                 >
-                    <field name="hide_pricelist_button"/>
-                    <field name="company_id" invisible="1"/>
-                    <field name="available_pricelist_ids" invisible="1"/>
+                    <field name="hide_pricelist_button" />
+                    <field name="company_id" invisible="1" />
+                    <field name="available_pricelist_ids" invisible="1" />
                 </setting>
 
                 <setting
@@ -25,10 +25,7 @@
                         widget="many2many_tags"
                         invisible="hide_pricelist_button"
                     />
-                    <div
-                        class="text-muted"
-                        invisible="hide_pricelist_button"
-                    >
+                    <div class="text-muted" invisible="hide_pricelist_button">
                         Make sure Default Pricelist is within selectable pricelists.
                     </div>
                 </setting>
