@@ -6,28 +6,31 @@
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="priority" eval="100" />
         <field name="arch" type="xml">
-            <xpath expr="//form/sheet" position="inside">
-                <field name="company_id" invisible="1" />
-            </xpath>
-
             <xpath expr="//setting[@id='other_devices']" position="after">
                 <setting
                     string="Hide Pricelist Button"
                     help="If enabled, the pricelist selection button will be hidden in the PoS interface."
                 >
-                    <field name="hide_pricelist_button" />
+                    <field name="hide_pricelist_button"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="available_pricelist_ids" invisible="1"/>
                 </setting>
 
                 <setting
-                    string="Available Pricelists"
-                    help="Available Pricelists when button is visible."
+                    string="Selectable Pricelists"
+                    help="Select the pricelists available for selection in the PoS interface. If empty, all available pricelists will be selectable. This setting is ignored if 'Hide Pricelist Button' is enabled."
                 >
                     <field
-                        name="available_pricelist_ids"
+                        name="selectable_pricelist_ids"
                         widget="many2many_tags"
                         invisible="hide_pricelist_button"
-                        readonly="1"
                     />
+                    <div
+                        class="text-muted"
+                        invisible="hide_pricelist_button"
+                    >
+                        Make sure Default Pricelist is within selectable pricelists.
+                    </div>
                 </setting>
             </xpath>
         </field>
