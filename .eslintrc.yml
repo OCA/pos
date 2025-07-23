@@ -8,7 +8,7 @@ parserOptions:
 
 overrides:
   - files:
-      - "**/*.esm.js"
+      - "**/*.js"
     parserOptions:
       sourceType: module
 

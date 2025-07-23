@@ -1,8 +1,8 @@
 /** @odoo-module **/
 
-import {patch} from "@web/core/utils/patch";
 import {SetPricelistButton} from "@point_of_sale/app/screens/product_screen/control_buttons/pricelist_button/pricelist_button";
 import {_t} from "@web/core/l10n/translation";
+import {patch} from "@web/core/utils/patch";
 import {useService} from "@web/core/utils/hooks";
 
 patch(SetPricelistButton.prototype, {
