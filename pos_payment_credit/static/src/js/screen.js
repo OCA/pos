@@ -91,12 +91,11 @@
                 this.$('.js_customer_credit_payment').text( _t("A refund of ") + amountFormatted + _t(" will be applied"));
             }
         },
-        render_paymentlines: function(){
-            this._super.apply(this, arguments);
+        render_paymentline_credit_amount: function(){
             var order = this.pos.get_order();
-            var line = order.selected_paymentline;
-            if(line === undefined && this.pos.config.auto_apply_credit_amount){  // Render for the first time
-                var amount = order.get_due(line);
+            var lines = order.get_paymentlines();
+            if(lines.length === 0 && this.pos.config.auto_apply_credit_amount){  // Render for the first time
+                var amount = order.get_due();
                 var client = this.pos.get_client();
                 if (amount && client && client.credit_amount && client.credit_amount.toFixed(4) > 0){
                     var cashregister = _.find(this.pos.cashregisters,
@@ -108,6 +107,11 @@
                     }
                 }
             }
+        },
+        show: function(){
+            this._super();
+            // Add new payment lines of credit if there's no payment line
+            this.render_paymentline_credit_amount();
         },
         click_delete_paymentline: function(cid){
             var lines = this.pos.get_order().get_paymentlines();
