@@ -1,21 +1,42 @@
-odoo.define("pos_disable_pricelist_selection.SetPricelistButton", function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    const SetPricelistButton = require("point_of_sale.SetPricelistButton");
-    const Registries = require("point_of_sale.Registries");
+import {SetPricelistButton} from "@point_of_sale/app/screens/product_screen/control_buttons/pricelist_button/pricelist_button";
+import {_t} from "@web/core/l10n/translation";
+import {patch} from "@web/core/utils/patch";
+import {useService} from "@web/core/utils/hooks";
 
-    const SetPricelistButtonSelect = (SetPricelistButton) =>
-        class extends SetPricelistButton {
-            async onClick() {
-                // Lets use selectable_pricelists instead of pricelists
-                const original_pricelists = this.env.pos.pricelists;
-                this.env.pos.pricelists = this.env.pos.selectable_pricelists;
-                super.onClick();
-                this.env.pos.pricelists = original_pricelists;
-            }
-        };
+patch(SetPricelistButton.prototype, {
+    setup() {
+        super.setup();
+        this.popup = useService("popup");
+    },
 
-    Registries.Component.extend(SetPricelistButton, SetPricelistButtonSelect);
+    getPricelistList() {
+        const selectablePricelists = this.pos.selectable_pricelists || [];
+        const selectionList = selectablePricelists.map((pricelist) => ({
+            id: pricelist.id,
+            label: pricelist.name,
+            isSelected:
+                this.currentOrder.pricelist &&
+                pricelist.id === this.currentOrder.pricelist.id,
+            item: pricelist,
+        }));
 
-    return SetPricelistButtonSelect;
+        if (!this.pos.default_pricelist || !this.pos.config.use_pricelist) {
+            selectionList.push({
+                id: null,
+                label: _t("Default Price"),
+                isSelected: !this.currentOrder.pricelist,
+                item: null,
+            });
+        }
+        return selectionList;
+    },
+
+    async click() {
+        if (this.pos.config.hide_pricelist_button) {
+            return;
+        }
+        await super.click();
+    },
 });

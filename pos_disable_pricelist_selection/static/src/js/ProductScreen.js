@@ -1,28 +1,34 @@
-odoo.define("pos_disable_pricelist_selection.ProductScreen", function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    const ProductScreen = require("point_of_sale.ProductScreen");
-    const Registries = require("point_of_sale.Registries");
+import {ProductScreen} from "@point_of_sale/app/screens/product_screen/product_screen";
+import {patch} from "@web/core/utils/patch";
 
-    const PosProductScreen = (ProductScreen) =>
-        class extends ProductScreen {
-            constructor() {
-                super(...arguments);
-                _.each(this.constructor.controlButtons, function (button) {
-                    if (button.name === "SetPricelistButton") {
-                        button.condition = function () {
-                            return (
-                                this.env.pos.config.use_pricelist &&
-                                this.env.pos.pricelists.length > 1 &&
-                                !this.env.pos.config.hide_pricelist_button
-                            );
-                        };
-                    }
-                });
+patch(ProductScreen.prototype, {
+    get controlButtons() {
+        const buttons = super.controlButtons;
+        const pricelistButton = buttons.find(
+            (button) => button.component.name === "SetPricelistButton"
+        );
+
+        if (pricelistButton) {
+            if (
+                this.pos.config.hide_pricelist_button ||
+                !this.pos.config.use_pricelist
+            ) {
+                return buttons.filter(
+                    (button) => button.component.name !== "SetPricelistButton"
+                );
             }
-        };
 
-    Registries.Component.extend(ProductScreen, PosProductScreen);
-
-    return ProductScreen;
+            pricelistButton.condition = function () {
+                const {config, selectable_pricelists} = this.pos;
+                return (
+                    config.use_pricelist &&
+                    selectable_pricelists &&
+                    selectable_pricelists.length > 1
+                );
+            };
+        }
+        return buttons;
+    },
 });

@@ -1,6 +1,6 @@
-=========================================
-Disable Pricelist selection button in POS
-=========================================
+===============================
+POS Disable Pricelist Selection
+===============================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -17,18 +17,19 @@ Disable Pricelist selection button in POS
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/14.0/pos_disable_pricelist_selection
+    :target: https://github.com/OCA/pos/tree/17.0/pos_disable_pricelist_selection
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_disable_pricelist_selection
+    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_disable_pricelist_selection
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=14.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module allows to restrict POS interface user from selecting any or specific pricelists.
+This module allows to restrict POS interface user from selecting any or
+specific pricelists.
 
 **Table of contents**
 
@@ -38,25 +39,32 @@ This module allows to restrict POS interface user from selecting any or specific
 Use Cases / Context
 ===================
 
-In case there is a structure of pricelists with lines using "Formula: Based on" (eg: Pricelist 3 is based on Pricelist 2 which is based on Pricelist 1) they all need to be added in "Available pricelists" for POS to load correctly.
+In case there is a structure of pricelists with lines using "Formula:
+Based on" (eg: Pricelist 3 is based on Pricelist 2 which is based on
+Pricelist 1) they all need to be added in "Available pricelists" for POS
+to load correctly.
 
 Usage
 =====
 
-In POS configuration, enable advanced pricelists and add all pricelists with reference to pricelists to be used in POS in "Available Pricelists".
+In POS configuration, enable advanced pricelists and add all pricelists
+with reference to pricelists to be used in POS in "Available
+Pricelists".
 
-To restrict POS user from selecting any pricelist (therefore only use prices from "Default Pricelist"), enable boolean "Hide Pricelist Button"
+To restrict POS user from selecting any pricelist (therefore only use
+prices from "Default Pricelist"), enable boolean "Hide Pricelist Button"
 
-To restrict POS user's pricelist selection to a set of pricelists, add them to "Selectable Pricelists".
-Note: make sure "Default Pricelist" is among "Selectable Pricelists".
+To restrict POS user's pricelist selection to a set of pricelists, add
+them to "Selectable Pricelists". Note: make sure "Default Pricelist" is
+among "Selectable Pricelists".
 
 Changelog
 =========
 
 14.0.1.0.0
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------
 
-* Initial release
+- Initial release
 
 Bug Tracker
 ===========
@@ -64,7 +72,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_disable_pricelist_selection%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_disable_pricelist_selection%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -72,19 +80,22 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * Ooops
 * Cetmix
+* Almas Kopeyev
+* IT-Projects LLC
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Ooops404 <https://www.ooops404.com/>
-* Cetmix <https://cetmix.com/>
+- Ooops404
+  <`https://www.ooops404.com/\\> <https://www.ooops404.com/\>>`__
+- Cetmix <`https://cetmix.com/\\> <https://cetmix.com/\>>`__
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -104,6 +115,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-ilyasprogrammer| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_disable_pricelist_selection>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_disable_pricelist_selection>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

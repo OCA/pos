@@ -15,6 +15,11 @@ class PosConfig(models.Model):
 
     hide_pricelist_button = fields.Boolean(
         default=False,
+        string="Hide Pricelists Button",
+        help=(
+            "If enabled, the pricelist selection button "
+            "will be hidden in the PoS interface."
+        ),
     )
     selectable_pricelist_ids = fields.Many2many(
         "product.pricelist",
@@ -23,23 +28,13 @@ class PosConfig(models.Model):
         relation="pos_conf_selectable_pricelist_rel",
         default=_default_pricelist,
     )
-    pricelist_id_domain = fields.Binary(
-        compute="_compute_pricelist_id_domain",
-        readonly=True,
-        store=False,
-    )
 
-    @api.depends(
-        "hide_pricelist_button", "allowed_pricelist_ids", "selectable_pricelist_ids"
-    )
-    def _compute_pricelist_id_domain(self):
-        for rec in self:
-            if rec.hide_pricelist_button:
-                rec.pricelist_id_domain = [("id", "in", rec.allowed_pricelist_ids.ids)]
-            else:
-                rec.pricelist_id_domain = [
-                    ("id", "in", rec.selectable_pricelist_ids.ids)
-                ]
+    @api.model
+    def _get_pos_ui_pos_config_fields(self):
+        return super()._get_pos_ui_pos_config_fields() + [
+            "hide_pricelist_button",
+            "selectable_pricelist_ids",
+        ]
 
     @api.onchange("selectable_pricelist_ids")
     def onchange_selectable_pricelist_ids(self):
@@ -51,29 +46,51 @@ class PosConfig(models.Model):
 
     @api.onchange("available_pricelist_ids")
     def onchange_available_pricelist_ids(self):
-        self.update(
-            {"selectable_pricelist_ids": [(6, 0, self.allowed_pricelist_ids.ids)]}
-        )
+        if self.available_pricelist_ids and not self.selectable_pricelist_ids:
+            self.selectable_pricelist_ids = [(6, 0, self.available_pricelist_ids.ids)]
 
     @api.onchange("hide_pricelist_button")
     def onchange_hide_pricelist_button(self):
-        self.update(
-            {"selectable_pricelist_ids": [(6, 0, self.allowed_pricelist_ids.ids)]}
-        )
+        if self.hide_pricelist_button:
+            self.selectable_pricelist_ids = [(5, 0, 0)]
+        elif not self.selectable_pricelist_ids:
+            self.selectable_pricelist_ids = [(6, 0, self.available_pricelist_ids.ids)]
 
     def write(self, vals):
         for rec in self:
-            if vals.get("available_pricelist_ids"):
-                if rec and not vals.get("selectable_pricelist_ids"):
-                    selectable = set(rec.selectable_pricelist_ids.ids)
+            if "available_pricelist_ids" in vals:
+                if (
+                    "selectable_pricelist_ids" in vals
+                    and vals["selectable_pricelist_ids"]
+                    and vals["selectable_pricelist_ids"][0][0] == 6
+                ):
+                    selectable_ids_current_or_new = set(
+                        vals["selectable_pricelist_ids"][0][2]
+                    )
                 else:
-                    selectable = set(vals["selectable_pricelist_ids"][0][2])
-                # leave only ids from available_pricelist_ids
+                    selectable_ids_current_or_new = set(
+                        rec.selectable_pricelist_ids.ids
+                    )
+
+                available_ids_from_vals = set()
+                if (
+                    "available_pricelist_ids" in vals
+                    and vals["available_pricelist_ids"]
+                    and vals["available_pricelist_ids"][0]
+                    and vals["available_pricelist_ids"][0][0] == 6
+                ):
+                    available_ids_from_vals = set(vals["available_pricelist_ids"][0][2])
+
                 intersection = list(
-                    selectable.intersection(set(vals["available_pricelist_ids"][0][2]))
+                    selectable_ids_current_or_new.intersection(available_ids_from_vals)
                 )
+
                 if intersection:
                     vals["selectable_pricelist_ids"] = [(6, 0, intersection)]
                 else:
-                    vals["selectable_pricelist_ids"] = vals["available_pricelist_ids"]
-        return super(PosConfig, self).write(vals)
+                    if "selectable_pricelist_ids" not in vals:
+                        vals["selectable_pricelist_ids"] = vals[
+                            "available_pricelist_ids"
+                        ]
+
+        return super().write(vals)
