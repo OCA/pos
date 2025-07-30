@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-02 11:37+0000\n"
+"PO-Revision-Date: 2025-07-30 14:25+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: pos_session_pay_invoice
 #: model_terms:ir.ui.view,arch_db:pos_session_pay_invoice.view_pos_session_form
@@ -153,7 +153,7 @@ msgstr "Metodo di pagamento"
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_count
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_out__payment_method_count
 msgid "Payment Method Count"
-msgstr "Conteggio metodo pagamento"
+msgstr "Conteggio metodo di pagamento"
 
 #. module: pos_session_pay_invoice
 #: model:ir.model.fields,field_description:pos_session_pay_invoice.field_pos_box_cash_invoice_in__payment_method_ids
