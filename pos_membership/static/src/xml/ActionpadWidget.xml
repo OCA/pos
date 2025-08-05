@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ActionpadWidget"
+        t-inherit="point_of_sale.ActionpadWidget"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="div[hasclass('actionpad')]/button[hasclass('set-partner')]//i[@title='Customer']"
+            position="attributes"
+        >
+            <attribute
+                name="t-attf-class"
+                add="{{ props.partner and ((props.partner.is_member and 'membership-green') or (props.partner.membership_state != 'none' and 'membership-red')) or '' }}"
+                separator=" "
+            />
+        </xpath>
+
+        <xpath
+            expr="div[hasclass('actionpad')]/button[hasclass('set-partner')]//t[@t-esc='props.partner.name']"
+            position="after"
+        >
+            <div
+                class="membership-info"
+                t-if="props.partner.membership_state != 'none'"
+            >
+                <span t-out="props.partner.membership_state_text" />
+                <t t-if="props.partner.is_member and props.partner.membership_stop">
+                    <span> (<t
+                            t-out="formatDate(props.partner.membership_stop)"
+                        />)</span>
+                </t>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

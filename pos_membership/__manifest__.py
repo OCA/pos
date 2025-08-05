@@ -15,9 +15,8 @@
     "assets": {
         "point_of_sale.assets": [
             "pos_membership/static/src/css/pos_membership.css",
-            "pos_membership/static/src/xml/PartnerDetailsEdit.xml",
-            "pos_membership/static/src/xml/PartnerLine.xml",
-            "pos_membership/static/src/js/PaymentScreen.js",
+            "pos_membership/static/src/xml/*.xml",
+            "pos_membership/static/src/js/*.js",
         ],
     },
     "demo": [

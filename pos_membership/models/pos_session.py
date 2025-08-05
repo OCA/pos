@@ -11,8 +11,10 @@ class PosSession(models.Model):
     def _loader_params_res_partner(self):
         res = super()._loader_params_res_partner()
         res["search_params"]["fields"] += [
+            "is_member",
             "membership_state",
             "membership_state_text",
+            "membership_stop",
         ]
         return res
 

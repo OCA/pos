@@ -4,12 +4,27 @@
     License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 */
 
+.pos i.membership-green {
+    color: rgb(94, 185, 55);
+}
+
+.pos i.membership-red {
+    color: rgb(197, 52, 0);
+}
+
+.pos .partnerlist-screen .partner-list span.membership-green {
+    background-color: rgb(94, 185, 55);
+}
+
+.pos .partnerlist-screen .partner-list span.membership-red {
+    background-color: rgb(197, 52, 0);
+}
+
 .pos .partnerlist-screen .partner-list span.membership-state-tag {
     border-radius: 50rem !important;
     border: 1px solid #cacaca;
     font-size: 16px;
-    background-color: rgba(211, 211, 211, 0.5);
-    color: #444b5a;
+    color: white;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-top: 4px;

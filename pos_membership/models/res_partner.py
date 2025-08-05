@@ -8,6 +8,7 @@ from odoo import api, fields, models
 class PosSession(models.Model):
     _inherit = "res.partner"
 
+    is_member = fields.Boolean(compute="_compute_membership_state_text")
     membership_state_text = fields.Char(
         compute="_compute_membership_state_text",
         help="Technical field used to display the label"
@@ -21,3 +22,13 @@ class PosSession(models.Model):
             partner.membership_state_text = dict(
                 self._fields["membership_state"]._description_selection(self.env)
             )[partner.membership_state]
+            partner.is_member = (
+                partner.membership_state in self.membership_member_states()
+            )
+
+    def membership_member_states(self):
+        """Inherit this method to define membership states
+
+        List of membership line states that define a partner as member
+        """
+        return ("invoiced", "free", "paid")

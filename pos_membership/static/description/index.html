@@ -373,19 +373,28 @@ ul.auto-toc {
 <p>This module extends the functionality of point of sale module, to
 add informations related to Odoo <tt class="docutils literal">membership</tt> module.</p>
 <p>For instance :</p>
-<ul class="simple">
-<li>It displays the field ‘Current Membership Status’ of the partners in the
-point of sale screen. (partner list and partner form view)</li>
-</ul>
+<ul>
+<li><p class="first">It displays the field ‘Current Membership Status’ of the partners in the
+point of sale screen. (partner list, partner form view and product screen)</p>
+<p>The field is displayed in green if it matches “Invoiced Member”,
+“Free Member” or “Paid Member” and in red if it matches “Cancelled Member”,
+“Old Member” or “Waiting Member”.</p>
 <p><strong>Partner List View</strong></p>
 <div class="figure">
 <img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_partner_tree.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_partner_tree.png" />
 </div>
-<p><strong>Partner Form View</strong>
-.. figure:: <a class="reference external" href="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_partner_form.png">https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_partner_form.png</a></p>
-<ul class="simple">
-<li>it raises an error, if cashier try to sell a membership product,
-without having selected the ‘Invoice’ option.</li>
+<p><strong>Partner Form View</strong></p>
+<div class="figure">
+<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_partner_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_partner_form.png" />
+</div>
+<p><strong>Product Screen</strong></p>
+<div class="figure">
+<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_product_screen.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_ui_product_screen.png" />
+</div>
+</li>
+<li><p class="first">it raises an error, if cashier try to sell a membership product,
+without having selected the ‘Invoice’ option.</p>
+</li>
 </ul>
 <div class="figure">
 <img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_warning_sell_membership_product.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_membership/static/description/pos_warning_sell_membership_product.png" />

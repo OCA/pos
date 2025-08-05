@@ -15,7 +15,7 @@
         <xpath expr="//button[hasclass('edit-partner-button')]" position="after">
             <span
                 t-if="props.partner.membership_state != 'none'"
-                class="membership-state-tag"
+                t-attf-class="membership-state-tag {{ props.partner.is_member ? 'membership-green' : 'membership-red' }}"
             >
                 <t t-esc="props.partner.membership_state_text" />
             </span>
