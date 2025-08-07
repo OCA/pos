@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 11:15+0000\n"
-"PO-Revision-Date: 2023-10-11 15:38+0000\n"
-"Last-Translator: Anna Martínez <anna080678@gmail.com>\n"
+"PO-Revision-Date: 2025-08-07 11:25+0000\n"
+"Last-Translator: Miquel Romera <mromera@pmsastro.es>\n"
 "Language-Team: \n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,help:pos_order_mgmt.field_pos_config__iface_copy_done_order
@@ -56,7 +56,7 @@ msgstr "ID"
 #: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
 #, python-format
 msgid "Incorrect quantities"
-msgstr ""
+msgstr "Cantidades incorrectas"
 
 #. module: pos_order_mgmt
 #. openerp-web
@@ -66,6 +66,8 @@ msgid ""
 "It is returning more than the quantity delivered.\n"
 "                            Would you like to proceed anyway?"
 msgstr ""
+"Se está devolviendo más cantidad de la entregada.\n"
+"                             ¿Desea continuar de todos modos?"
 
 #. module: pos_order_mgmt
 #: model:ir.model.fields,field_description:pos_order_mgmt.field_pos_config____last_update
@@ -78,7 +80,7 @@ msgstr "Última modificación en"
 #: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
 #, python-format
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #. module: pos_order_mgmt
 #: model:ir.model,name:pos_order_mgmt.model_pos_config
@@ -114,7 +116,7 @@ msgstr "Pedidos de Devolución"
 #: code:addons/pos_order_mgmt/static/src/js/ProductScreen.js:0
 #, python-format
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #~ msgid "Allows to manage already done orders in the frontend."
 #~ msgstr "Permite gestionar pedidos ya realizados en la interfaz."
