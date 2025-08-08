@@ -1,0 +1,157 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_rma
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-21 10:17+0000\n"
+"PO-Revision-Date: 2025-11-21 10:17+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
+#, python-format
+msgid "Add reason for this RMA..."
+msgstr "Afegeix el motiu per aquest RMA..."
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
+#, python-format
+msgid "Cannot create RMA for this product"
+msgstr "No es pot crear el RMA per aquest producte"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
+#, python-format
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.xml:0
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.xml:0
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.xml:0
+#, python-format
+msgid "Create RMA"
+msgstr "Crear RMA"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
+#, python-format
+msgid "Discard"
+msgstr "Descartar"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
+#, python-format
+msgid "Do you want to open the customer list to select customer?"
+msgstr "Voleu obrir la llista de clients per a seleccionar-los?"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
+#, python-format
+msgid "Need customer to create RMA"
+msgstr "Cal un client per poder crear el RMA"
+
+#. module: pos_rma
+#: model:ir.model,name:pos_rma.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Comandes del Punt de Venda"
+
+#. module: pos_rma
+#: model:ir.model.fields,field_description:pos_rma.field_rma__pos_order_id
+msgid "Pos Order"
+msgstr "Comanda PV"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
+#, python-format
+msgid "Quantity"
+msgstr "Quantitat"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
+#, python-format
+msgid "Quantity must be less than or equal of "
+msgstr "La quantitat ha de ser menor o igual a "
+
+#. module: pos_rma
+#: model:ir.model,name:pos_rma.model_rma
+msgid "RMA"
+msgstr ""
+
+#. module: pos_rma
+#: model:ir.model.fields,field_description:pos_rma.field_pos_order__rma_count
+msgid "RMA Count"
+msgstr "Comptador de RMAs"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
+#, python-format
+msgid "RMA Details"
+msgstr "Detalls del RMA"
+
+#. module: pos_rma
+#: model:ir.model.fields,field_description:pos_rma.field_pos_order__rma_ids
+#: model_terms:ir.ui.view,arch_db:pos_rma.view_pos_order_form_inherit
+msgid "RMAs"
+msgstr ""
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
+#, python-format
+msgid "Reason"
+msgstr "Motiu"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
+#, python-format
+msgid "Success 🎉"
+msgstr "Èxit 🎉"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
+#, python-format
+msgid "The RMA has been created and processed successfully."
+msgstr "L'RMA ha estat creat i processat correctament."
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
+#, python-format
+msgid "User Error"
+msgstr "Error d'usuari"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
+#, python-format
+msgid "Validation Error"
+msgstr "Error de validació"
+
+#. module: pos_rma
+#. odoo-javascript
+#: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
+#, python-format
+msgid "You must add a note to the RMA"
+msgstr "Has d’afegir una nota a l'RMA"

@@ -1,0 +1,1 @@
+This module adds RMA management directly within the Point of Sale (POS) interface. Users can create RMAs from order lines, with validations on return quantity and a required reason. It links RMAs to POS orders for easy tracking. 

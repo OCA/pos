@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2025 (APSL-Nagarro) - Antoni Marroig
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_rma.RMAButton">
+        <button
+            class="control-button btn btn-light rounded-0 fw-bolder"
+            t-on-click="() => this.click()"
+        >
+            <i
+                class="fa fa-repeat me-1"
+                role="img"
+                aria-label="Create RMA"
+                title="Create RMA"
+            />
+            Create RMA
+        </button>
+    </t>
+</templates>
