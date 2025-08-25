@@ -66,10 +66,13 @@ patch(ProductScreen.prototype, {
                     ],
                     this.pos.data.fields["product.product"]
                 );
-                if (product.length > 1) {
-                    product = product[0];
-                    await this.pos.processProductAttributes();
+
+                if (product.length === 0) {
+                    return false; // not available in POS
                 }
+
+                product = product[0];
+                await this.pos.processProductAttributes();
             }
             return product;
         } else if (foundLotIds.length > 1) {
