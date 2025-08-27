@@ -54,10 +54,7 @@ class PosOrder(models.Model):
                 "company_id": self.company_id.id,
                 "payment_ref": self.pos_reference,
                 "tax_receipt_option": tax_receipt_option,
-                "line_ids": [],
-            }
-            for line in donations:
-                vals["line_ids"].append(
+                "line_ids": [
                     Command.create(
                         {
                             "product_id": line.product_id.id,
@@ -65,7 +62,9 @@ class PosOrder(models.Model):
                             "unit_price": line.price_unit,
                         }
                     )
-                )
+                    for line in donations
+                ],
+            }
         return vals
 
     def action_pos_order_paid(self):
