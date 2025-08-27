@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_donation_donation_pos_user,donation.donation pos_user,donation.model_donation_donation,point_of_sale.group_pos_user,0,1,1,0
+access_donation_line_pos_user,donation.line pos_user,donation.model_donation_line,point_of_sale.group_pos_user,0,0,1,0

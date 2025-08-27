@@ -16,6 +16,7 @@
         "point_of_sale",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "views/donation_views.xml",
         "views/product_template_views.xml",
     ],
