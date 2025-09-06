@@ -1,0 +1,46 @@
+// pos_datepicker.scss
+
+.datepicker-container {
+    position: relative;
+
+    .calendar-icon {
+        cursor: pointer;
+        i {
+            margin-left: 15px;
+        }
+    }
+
+    .date-picker-input-box {
+        position: absolute;
+        top: 125%;
+        left: 0%;
+        background: white;
+        display: none;
+        padding: 5px;
+        border-radius: 6px;
+        z-index: 100;
+    }
+
+    .date-picker-input {
+        position: sticky;
+        z-index: 11;
+        top: 0;
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 768px) {
+    .datepicker-container {
+        position: static;
+        flex: 1;
+        .date-picker-input-box {
+            position: static;
+            display: none;
+            margin-left: 8px;
+            border: 1px solid #ccc;
+            box-shadow: none;
+        }
+    }
+}

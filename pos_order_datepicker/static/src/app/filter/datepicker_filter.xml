@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosDatePicker">
+        <div class="datepicker-container position-relative">
+            <span id="datepicker-icon" class="calendar-icon d-flex align-items-center me-3 position-relative">
+                <i class="fa fa-calendar fs-1" t-on-click="toggleDatePicker">
+                </i>
+            </span>
+            <div id="selectedDate" class="date-picker-input-box">
+                <input type="date" class="date-picker-input" data-widget="datetime-picker" data-widget-type="date" name="dateSelected" id="dateSelected" t-att-value="selectedDate" t-model="state.selectedDate" t-att-max="(new Date()).toISOString().split('T')[0]"/>
+            </div>
+        </div>
+    </t>
+
+</templates>
