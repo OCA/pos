@@ -1,15 +1,15 @@
 /** @odoo-module **/
 
-import { patch } from "@web/core/utils/patch";
-import { TicketScreen } from "@point_of_sale/app/screens/ticket_screen/ticket_screen";
-import { PosDatePicker } from "../app/filter/datepicker_filter";
+import {patch} from "@web/core/utils/patch";
+import {TicketScreen} from "@point_of_sale/app/screens/ticket_screen/ticket_screen";
+import {PosDatePicker} from "../app/filter/datepicker_filter";
 
-const { DateTime } = luxon;
+const {DateTime} = luxon;
 
 // Extend TicketScreen components
 TicketScreen.components = {
     ...TicketScreen.components,
-    PosDatePicker
+    PosDatePicker,
 };
 
 /**
@@ -26,12 +26,12 @@ patch(TicketScreen.prototype, {
         const fields = super._getSearchFields(...arguments);
         // Remove default DATE field since we override it
         if (fields.DATE) {
-          delete fields.DATE;
+            delete fields.DATE;
         }
         return fields;
     },
 
-    async updateSelectedDate (newDate) {
+    async updateSelectedDate(newDate) {
         this.state.selectedDate = newDate;
     },
 
@@ -43,10 +43,10 @@ patch(TicketScreen.prototype, {
             return null;
         }
 
-        const date = DateTime.fromISO(this.state.selectedDate, { zone: 'local' });
+        const date = DateTime.fromISO(this.state.selectedDate, {zone: "local"});
         return {
-            fromDate: date.startOf('day').toUTC(),
-            toDate: date.endOf('day').toUTC(),
+            fromDate: date.startOf("day").toUTC(),
+            toDate: date.endOf("day").toUTC(),
         };
     },
 
@@ -62,11 +62,11 @@ patch(TicketScreen.prototype, {
                 const orderDate = DateTime.fromFormat(
                     order.date_order,
                     "yyyy-MM-dd HH:mm:ss",
-                    { zone: "utc" }
+                    {zone: "utc"}
                 );
                 return orderDate >= utcRange.fromDate && orderDate <= utcRange.toDate;
             });
         }
         return orders;
-    }
+    },
 });

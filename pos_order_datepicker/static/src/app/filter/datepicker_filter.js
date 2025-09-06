@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import { Component, onMounted, useState } from "@odoo/owl";
+import {Component, onMounted, useState} from "@odoo/owl";
 
 /**
  * POS Date filter component.
@@ -8,12 +8,12 @@ import { Component, onMounted, useState } from "@odoo/owl";
 export class PosDatePicker extends Component {
     static template = "PosDatePicker";
     static props = {
-        onDateChange: { type: Function, optional: true }
+        onDateChange: {type: Function, optional: true},
     };
 
     setup() {
         super.setup();
-        this.state = useState({ selectedDate: null });
+        this.state = useState({selectedDate: null});
 
         onMounted(() => {
             const dateInput = document.getElementById("dateSelected");
@@ -23,9 +23,12 @@ export class PosDatePicker extends Component {
         });
     }
 
-    toggleDatePicker(){
+    toggleDatePicker() {
         const selectedDate = document.getElementById("selectedDate");
-        if (selectedDate.style.display === "none" || selectedDate.style.display === "") {
+        if (
+            selectedDate.style.display === "none" ||
+            selectedDate.style.display === ""
+        ) {
             selectedDate.style.display = "block";
         } else {
             selectedDate.style.display = "none";
@@ -41,5 +44,4 @@ export class PosDatePicker extends Component {
         }
         document.getElementById("selectedDate").style.display = "none";
     }
-
 }

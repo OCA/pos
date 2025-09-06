@@ -1,9 +1,10 @@
+# pylint: disable=pointless-statement
 {
     "name": "POS Order Datepicker",
     "version": "18.0.1.0.0",
     "category": "Point of Sale",
     "summary": "Add datepicker filter to POS Order list",
-    "author": "Rahul Patel, OCA",
+    "author": "Rahul Patel, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
@@ -11,6 +12,9 @@
         "point_of_sale._assets_pos": [
             "/pos_order_datepicker/static/src/app/**/*",
             "/pos_order_datepicker/static/src/overrides/**/*",
+        ],
+        "web.assets_tests": [
+            "pos_order_datepicker/static/tests/**/*",
         ],
     },
     "installable": True,
