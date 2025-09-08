@@ -36,7 +36,7 @@ class StockNotifierPosMixin(models.AbstractModel):
                         (
                             "config_id.iface_available_categ_ids",
                             "in",
-                            [record.product_id.pos_categ_id.id],
+                            record.product_id.pos_categ_ids.ids,
                         ),
                     ],
                 ).mapped("config_id")
