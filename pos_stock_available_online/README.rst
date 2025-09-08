@@ -28,9 +28,9 @@ Point of Sale Stock Available Online
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-| This module allows to display product quantities in selected locations
-  in real time. Quantities are displayed directly on product tiles:
-| |image|
+This module allows to display product quantities in selected locations
+in real time. Quantities are displayed directly on product tiles: |Pos
+Quantity|
 
 Once a product quantity is changed it will be simultaneously updated in
 all active POS.
@@ -38,7 +38,7 @@ all active POS.
 This module depends on stock_available module which is available in
 https://github.com/OCA/stock-logistics-availability repo.
 
-.. |image| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_stock_available_online/static/img/pos_quantity.png
+.. |Pos Quantity| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_stock_available_online/static/img/pos_quantity.png
 
 **Table of contents**
 
@@ -48,9 +48,10 @@ https://github.com/OCA/stock-logistics-availability repo.
 Configuration
 =============
 
-| In "Point of Sale" configuration "Product Quantity" section activate
-  "Display Product Quantity" feature:
-| |image|
+In "Point of Sale" configuration "Product Quantity" section activate
+"Display Product Quantity" feature:
+
+|Pos Config|
 
 By default quantity is displayed for the warehouse that is used in the
 POS stock operation type.
@@ -66,7 +67,7 @@ tiles:
 - Quantity in the default warehouse
 - Quantity in the additional warehouses.
 
-.. |image| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_stock_available_online/static/img/pos_config.png
+.. |Pos Config| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_stock_available_online/static/img/pos_config.png
 
 Known issues / Roadmap
 ======================
