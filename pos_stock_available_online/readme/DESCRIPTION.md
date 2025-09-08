@@ -1,5 +1,5 @@
-This module allows to display product quantities in selected locations in real time. Quantities are displayed directly on product tiles:  
-![image](../static/img/pos_quantity.png)
+This module allows to display product quantities in selected locations in real time. Quantities are displayed directly on product tiles:
+![Pos Quantity](../static/img/pos_quantity.png)
 
 Once a product quantity is changed it will be simultaneously updated in
 all active POS.
