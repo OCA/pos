@@ -7,11 +7,11 @@
             t-on-click="onClick"
         >
             <i
-                class="fa fa-file-text me-1"
-                role="img"
-                aria-label="Create Order"
-                title="Create Order"
-            />
+            class="fa fa-file-text me-1"
+            role="img"
+            aria-label="Create Order"
+            title="Create Order"
+        />
             Create Order
         </button>
     </t>

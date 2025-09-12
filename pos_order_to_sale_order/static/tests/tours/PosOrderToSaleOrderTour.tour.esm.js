@@ -1,4 +1,3 @@
-/** @odoo-module **/
 /*
     Copyright (C) 2022-Today GRAP (http://www.grap.coop)
     @author Sylvain LE GAL (https://twitter.com/legalsylvain)

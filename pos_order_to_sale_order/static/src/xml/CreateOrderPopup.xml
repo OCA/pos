@@ -3,13 +3,11 @@
 
     <t t-name="pos_order_to_sale_order.CreateOrderPopup" owl="1">
         <div class="popup popup-create-sale-order">
-
             <div class="modal-header">
                 <h3 class="modal-title w-100">Create Sale Order</h3>
             </div>
 
             <div class="modal-body">
-
                 <table>
                     <tbody>
                         <tr t-if="pos.config.iface_create_draft_sale_order">
@@ -69,11 +67,9 @@
                                     <span>Create Invoiced Sale Order</span>
                                 </div>
                             </td>
-
                         </tr>
                     </tbody>
                 </table>
-
             </div>
 
             <div class="footer modal-footer">
