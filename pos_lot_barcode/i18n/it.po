@@ -1,0 +1,88 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_lot_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-02-04 13:37+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#, python-format
+msgid "Error"
+msgstr "Errore"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.esm.js:0
+#, python-format
+msgid "Lot/Serial Number(s) Required"
+msgstr "Richiesto lotto/numero(i) di serie"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
+#, python-format
+msgid "Multiple Products Matching Barcode:"
+msgstr "Prodotti multipli corrispondono al codice a barre:"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
+#, python-format
+msgid "Ok"
+msgstr "Ok"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#, python-format
+msgid ""
+"The Point of Sale can not process the scanned barcode, as it matches "
+"multiple products:"
+msgstr ""
+"Il punto vendita non riesce ad elaborare il codice a barre letto perché "
+"corrisponde a più prodotti:"
+
+#, python-format
+#~ msgid ""
+#~ "Lot is not loaded. Tried loading the lot from the server but there is a "
+#~ "network error."
+#~ msgstr ""
+#~ "Il lotto non è caricato. Errore di connessione nel tentativo di caricare "
+#~ "il lotto dal server."
+
+#, python-format
+#~ msgid "Multiple Products Matching Barcode"
+#~ msgstr "Codice a barre corrispondente a prodotti multipli"
+
+#, python-format
+#~ msgid "Network Error"
+#~ msgstr "Errore di rete"
+
+#, python-format
+#~ msgid ""
+#~ "The Point of Sale could not find any product, lot, client, employee or "
+#~ "action associated with the scanned barcode."
+#~ msgstr ""
+#~ "Il punto vendita non trova alcun prodotto, lotto, cliente, dipendente o "
+#~ "azione associata al codice a barre letto."

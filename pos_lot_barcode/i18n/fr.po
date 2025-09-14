@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_lot_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-05-05 07:20+0000\n"
+"Last-Translator: Cyril VINH-TUNG <cyril@invitu.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#, python-format
+msgid "Error"
+msgstr "Erreur"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/EditListPopup.esm.js:0
+#, python-format
+msgid "Lot/Serial Number(s) Required"
+msgstr "Lot/Numéro(s) de série requis"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
+#, python-format
+msgid "Multiple Products Matching Barcode:"
+msgstr "Plusieurs produits correspondant au code barre :"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#: code:addons/pos_lot_barcode/static/src/xml/Popups/ErrorMultiLotBarcodePopup.xml:0
+#, python-format
+msgid "Ok"
+msgstr "Ok"
+
+#. module: pos_lot_barcode
+#. odoo-javascript
+#: code:addons/pos_lot_barcode/static/src/js/Popups/ErrorMultiLotBarcodePopup.esm.js:0
+#, python-format
+msgid ""
+"The Point of Sale can not process the scanned barcode, as it matches "
+"multiple products:"
+msgstr ""
+"Le point de vente ne peut pas traiter le code barre scanné car il correspond "
+"à plusieurs produits :"
