@@ -35,8 +35,7 @@ class TestHacks(TestPoSCommon):
 
     def test_get_closing_control_data(self):
         restricted_user = self.pos_user_assigned_pos
-        self.config = self._create_basic_config()
-        self.config.assigned_user_ids = [(6, 0, [restricted_user.id])]
+        self.basic_config.assigned_user_ids = [(6, 0, [restricted_user.id])]
 
         session = self.open_new_session()
 
