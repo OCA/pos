@@ -4,9 +4,11 @@
 {
     "name": "Pos Split Invoice",
     "summary": """
-        Allow to generatea secondary invoice from a point of sale order for a second partner""",
+        Allow to generate a secondary invoice from a point of
+        sale order for a second partner""",
     "version": "17.0.1.0.0",
     "license": "AGPL-3",
+    "development_status": "Alpha",
     "author": "Dixmit,INVITU,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "depends": ["point_of_sale"],

@@ -29,7 +29,8 @@ patch(Orderline.prototype, {
             let price = this.product.lst_price + (price_extra || 0);
             if (rule.split_base === "pricelist") {
                 const base_pricelist = this.pos.pricelists.find(
-                    (pricelist) => pricelist.id === rule.split_base_pricelist_id[0]
+                    (filter_pricelist) =>
+                        filter_pricelist.id === rule.split_base_pricelist_id[0]
                 );
                 if (base_pricelist) {
                     price = this.product.get_price(

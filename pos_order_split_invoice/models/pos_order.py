@@ -64,6 +64,7 @@ class PosOrder(models.Model):
                 pos_refunded_invoice_ids.append(
                     orderline.refunded_orderline_id.order_id.splitting_move_id.id
                 )
+        split_partner = self.splitting_partner_id
         vals = {
             "invoice_origin": self.name,
             "pos_refunded_invoice_ids": pos_refunded_invoice_ids,
@@ -75,9 +76,9 @@ class PosOrder(models.Model):
             "currency_id": self.currency_id.id,
             "invoice_user_id": self.user_id.id,
             "invoice_date": invoice_date.astimezone(timezone).date(),
-            "fiscal_position_id": self.splitting_partner_id.property_account_position_id.id,
+            "fiscal_position_id": split_partner.property_account_position_id.id,
             "invoice_line_ids": self._prepare_splitting_invoice_lines(),
-            "invoice_payment_term_id": self.splitting_partner_id.property_payment_term_id.id
+            "invoice_payment_term_id": split_partner.property_payment_term_id.id
             or False,
             "splitting_partner_id": self.partner_id.id,
             "splitting_order_id": self.id,
@@ -103,7 +104,8 @@ class PosOrder(models.Model):
         """Prepare a list of orm commands containing the dictionaries to fill the
         'invoice_line_ids' field when creating an invoice.
 
-        :return: A list of Command.create to fill 'invoice_line_ids' when calling account.move.create.
+        :return: A list of Command.create to fill 'invoice_line_ids' when calling
+        account.move.create.
         """
         sign = 1 if self.amount_total >= 0 else -1
         line_values_list = self._prepare_tax_base_splitting_line_values(sign=sign)
@@ -127,10 +129,12 @@ class PosOrder(models.Model):
         return invoice_lines
 
     def _prepare_tax_base_splitting_line_values(self, sign=1):
-        """Convert pos order lines into dictionaries that would be used to compute taxes later.
+        """Convert pos order lines into dictionaries that would be used to
+        compute taxes later.
 
         :param sign: An optional parameter to force the sign of amounts.
-        :return: A list of python dictionaries (see '_convert_to_tax_base_line_dict' in account.tax).
+        :return: A list of python dictionaries (see '_convert_to_tax_base_line_dict'
+        in account.tax).
         """
         self.ensure_one()
         commercial_partner = self.splitting_partner_id.commercial_partner_id
@@ -143,9 +147,10 @@ class PosOrder(models.Model):
             if not account:
                 raise UserError(
                     _(
-                        "Please define income account for this product: '%s' (id:%d).",
-                        line.product_id.name,
-                        line.product_id.id,
+                        "Please define income account for this product: "
+                        "'%(name)s' (id:%(id)d).",
+                        name=line.product_id.name,
+                        id=line.product_id.id,
                     )
                 )
 

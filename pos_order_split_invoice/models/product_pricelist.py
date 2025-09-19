@@ -43,7 +43,7 @@ class ProductPricelistItem(models.Model):
 
     @api.depends("split_base", "split_percentage", "split_base_pricelist_id")
     def _compute_rule_tip(self):
-        super()._compute_rule_tip()
+        result = super()._compute_rule_tip()
         base_selection_vals = {
             elem[0]: elem[1]
             for elem in self._fields["base"]._description_selection(self.env)
@@ -54,11 +54,13 @@ class ProductPricelistItem(models.Model):
         }
         for item in self.filtered(lambda r: r.compute_price == "split"):
             item.rule_tip = _(
-                "%(base)s paying %(split_percentage)s %% of %(split_base)s by splitting partner",
+                "%(base)s paying %(percentage)s %% "
+                "of %(split_base)s by splitting partner",
                 base=base_selection_vals[item.base],
-                split_percentage=item.split_percentage,
+                percentage=item.split_percentage,
                 split_base=split_base_selection_vals[item.split_base],
             )
+        return result
 
     def _compute_base_price(self, product, quantity, uom, date, currency):
         result = super()._compute_base_price(product, quantity, uom, date, currency)
