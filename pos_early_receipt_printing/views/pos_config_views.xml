@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_shop_bill_config_view_form" model="ir.ui.view">
+        <field name="name">pos.shop.bill.config.view.form</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="model">pos.config</field>
+        <field name="arch" type="xml">
+            <xpath expr="//setting/field[@name='is_posbox']/.." position='after'>
+                <setting
+                    string="Early Receipt Printing"
+                    help="Allow to print receipt before payment"
+                    id="iface_printbill"
+                >
+                    <field name="iface_printbill" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
