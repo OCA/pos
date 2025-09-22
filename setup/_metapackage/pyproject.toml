@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "17.0.20250922.0"
+version = "17.0.20250922.1"
 dependencies = [
     "odoo-addon-pos_cash_control_extension>=17.0dev,<17.1dev",
     "odoo-addon-pos_cash_move_reason>=17.0dev,<17.1dev",
@@ -19,6 +19,7 @@ dependencies = [
     "odoo-addon-pos_partner_firstname>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_firstname_required>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_ref>=17.0dev,<17.1dev",
+    "odoo-addon-pos_partner_sale_warning>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_second_lastname>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_vat_required>=17.0dev,<17.1dev",
     "odoo-addon-pos_partner_vat_valid>=17.0dev,<17.1dev",
