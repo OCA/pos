@@ -3,7 +3,7 @@
 
 {
     "name": "POS Partner Sale Warnings",
-    "version": "16.0.1.0.0",
+    "version": "17.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": "Show partner sales warning in POS",
     "depends": ["sale_management", "point_of_sale"],
@@ -12,11 +12,11 @@
     "license": "AGPL-3",
     "data": [],
     "assets": {
-        "point_of_sale.assets": [
+        "point_of_sale._assets_pos": [
             "pos_partner_sale_warning/static/src/js/*.esm.js",
         ],
         "web.assets_tests": [
-            "pos_partner_sale_warning/static/src/tests/tours/PosPartnerSaleWarning.esm.tour.js",
+            "pos_partner_sale_warning/static/src/tests/tours/PosPartnerSaleWarning.esm.js",
         ],
     },
     "installable": True,
