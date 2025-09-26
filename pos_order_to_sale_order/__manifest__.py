@@ -15,7 +15,6 @@
     "data": ["views/view_res_config_settings.xml"],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_order_to_sale_order/static/src/css/pos.scss",
             "pos_order_to_sale_order/static/src/components/control_buttons/control_buttons.esm.js",
             "pos_order_to_sale_order/static/src/components/control_buttons/control_buttons.xml",
             "pos_order_to_sale_order/static/src/components/create_order_button/create_order_button.esm.js",

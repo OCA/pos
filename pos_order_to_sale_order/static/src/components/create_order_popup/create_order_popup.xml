@@ -3,69 +3,46 @@
 
     <t t-name="pos_order_to_sale_order.CreateOrderPopup" owl="1">
         <Dialog title.translate="Create Sale Order">
-            <div class="popup-create-sale-order">
-                <table>
-                    <tbody>
-                        <tr t-if="pos.config.iface_create_draft_sale_order">
-                            <td>
-                                <div
-                                    class="button button-sale-order"
-                                    t-on-click="createDraftSaleOrder"
-                                >
-                                    <span class="icon-containers">
-                                        <i class="fa fa-file-o" role="img" />
-                                    </span>
-                                    <span>Create Draft Sale Order</span>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr t-if="pos.config.iface_create_confirmed_sale_order">
-                            <td>
-                                <div
-                                    class="button button-sale-order"
-                                    t-on-click="createConfirmedSaleOrder"
-                                >
-                                    <span class="icon-containers">
-                                        <i class="fa fa-file-text-o" role="img" />
-                                    </span>
-                                    <span>Create Confirmed Sale Order</span>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr t-if="pos.config.iface_create_delivered_sale_order">
-                            <td>
-                                <div
-                                    class="button button-sale-order"
-                                    t-on-click="createDeliveredSaleOrder"
-                                >
-                                    <span class="icon-containers">
-                                        <i class="fa fa-file-text-o" role="img" /> +
-                                        <i class="fa fa-shopping-cart" role="img" />
-                                    </span>
-                                    <span>Create Delivered Sale Order</span>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr t-if="pos.config.iface_create_invoiced_sale_order">
-                            <td>
-                                <div
-                                    class="button button-sale-order button-invoiced-sale-order"
-                                    t-on-click="createInvoicedSaleOrder"
-                                >
-                                    <span class="icon-containers">
-                                        <i class="fa fa-file-text-o" role="img" /> +
-                                        <i class="fa fa-shopping-cart" role="img" /> +
-                                        <i class="fa fa-usd" role="img" />
-                                    </span>
-                                    <span>Create Invoiced Sale Order</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="control-buttons control-buttons-modal d-grid gap-2 mt-2">
+                <button
+                    class="btn btn-secondary btn-lg py-5 o_create_order_button"
+                    t-if="pos.config.iface_create_draft_sale_order"
+                    t-on-click="createDraftSaleOrder"
+                >
+                    <i class="fa fa-file-o" role="img" /> Create Draft Sale Order
+                </button>
+                <button
+                    class="btn btn-secondary btn-lg py-5"
+                    t-if="pos.config.iface_create_confirmed_sale_order"
+                    t-on-click="createConfirmedSaleOrder"
+                >
+                    <i
+                    class="fa fa-file-text-o"
+                    role="img"
+                /> Create Confirmed Sale Order
+                </button>
+                <button
+                    class="btn btn-secondary btn-lg py-5"
+                    t-if="pos.config.iface_create_delivered_sale_order"
+                    t-on-click="createDeliveredSaleOrder"
+                >
+                    <i class="fa fa-file-text-o" role="img" /> + <i
+                    class="fa fa-shopping-cart"
+                    role="img"
+                />
+                    Create Delivered Sale Order
+                </button>
+                <button
+                    class="btn btn-secondary btn-lg py-5 button-invoiced-sale-order"
+                    t-if="pos.config.iface_create_invoiced_sale_order"
+                    t-on-click="createInvoicedSaleOrder"
+                >
+                    <i class="fa fa-file-text-o" role="img" /> + <i
+                    class="fa fa-shopping-cart"
+                    role="img"
+                /> + <i class="fa fa-usd" role="img" />
+                    Create Invoiced Sale Order
+                </button>
             </div>
         </Dialog>
     </t>

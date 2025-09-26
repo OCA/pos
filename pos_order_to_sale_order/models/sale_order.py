@@ -2,16 +2,23 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import Command, _, api, models
+from odoo import Command, _, api, fields, models
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
+    pos_session_id = fields.Many2one(
+        comodel_name="pos.session",
+        string="Pos Session",
+        readonly=True,
+    )
+
     @api.model
     def _prepare_from_pos(self, order_data):
         PosSession = self.env["pos.session"]
-        session = PosSession.browse(order_data["session_id"])
+        session_id = order_data["session_id"]
+        session = PosSession.browse(session_id)
         SaleOrderLine = self.env["sale.order.line"]
         order_lines = [
             Command.create(SaleOrderLine._prepare_from_pos(sequence, line_data[2]))
@@ -19,6 +26,7 @@ class SaleOrder(models.Model):
         ]
         return {
             "partner_id": order_data["partner_id"],
+            "pos_session_id": session_id,
             "origin": _("Point of Sale %s") % (session.name),
             "client_order_ref": order_data["name"],
             "user_id": order_data["user_id"],
