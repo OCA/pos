@@ -23,6 +23,7 @@ msgstr "Ajustes"
 
 #. module: pos_product_quick_info
 #: model:ir.model.fields,field_description:pos_product_quick_info.field_pos_config__display_quick_product_info
+#: model:ir.model.fields,field_description:pos_product_quick_info.field_product_product__display_quick_product_info
 #: model:ir.model.fields,field_description:pos_product_quick_info.field_res_config_settings__pos_display_quick_product_info
 msgid "Display Quick Product Info"
 msgstr "Mostrar información de producto"
@@ -33,13 +34,53 @@ msgid "Display product info by one click"
 msgstr "Mostrar información de producto en un clic"
 
 #. module: pos_product_quick_info
+#: model:ir.model.fields,field_description:pos_product_quick_info.field_pos_config__display_product_locations
+#: model:ir.model.fields,field_description:pos_product_quick_info.field_res_config_settings__pos_display_product_locations
+msgid "Display product locations in product info"
+msgstr "Mostrar la ubicación de los productos en la información del producto"
+
+#. module: pos_product_quick_info
 #. odoo-javascript
+#: code:addons/pos_product_quick_info/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
 #: code:addons/pos_product_quick_info/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
 #, python-format
 msgid "Info"
 msgstr "Información"
 
 #. module: pos_product_quick_info
+#. odoo-javascript
+#: code:addons/pos_product_quick_info/static/src/xml/Popups/ProductInfoPopup.xml:0
+#, python-format
+msgid "Locations:"
+msgstr "Ubicaciones:"
+
+#. module: pos_product_quick_info
 #: model:ir.model,name:pos_product_quick_info.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr "Configuración del punto de venta"
+msgstr "Configuración del Punto de Venta"
+
+#. module: pos_product_quick_info
+#: model:ir.model,name:pos_product_quick_info.model_product_product
+msgid "Product Variant"
+msgstr "Variante de producto"
+
+#. module: pos_product_quick_info
+#: model_terms:ir.ui.view,arch_db:pos_product_quick_info.res_config_settings_view_form
+msgid "Show locations per warehouse in product info popup"
+msgstr ""
+"Mostrar ubicaciones por almacén en la ventana emergente de información del "
+"producto"
+
+#. module: pos_product_quick_info
+#. odoo-javascript
+#: code:addons/pos_product_quick_info/static/src/xml/Popups/ProductInfoPopup.xml:0
+#, python-format
+msgid "available,"
+msgstr "disponible,"
+
+#. module: pos_product_quick_info
+#. odoo-javascript
+#: code:addons/pos_product_quick_info/static/src/xml/Popups/ProductInfoPopup.xml:0
+#, python-format
+msgid "forecasted"
+msgstr "previsto"
