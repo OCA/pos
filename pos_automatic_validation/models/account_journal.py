@@ -3,13 +3,14 @@
 # @author: Mathieu VATEL <mathieu@julius.fr>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class AccountJournal(models.Model):
-    _inherit = 'account.journal'
+    _inherit = "account.journal"
 
     iface_automatic_validation = fields.Boolean(
-        'Automatic Validation',
+        "Automatic Validation",
         help="Check this if this journal validate the sale "
-        "automatically if payment is completed.")
+        "automatically if payment is completed.",
+    )
