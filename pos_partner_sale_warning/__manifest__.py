@@ -13,10 +13,10 @@
     "data": [],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_partner_sale_warning/static/src/js/*.esm.js",
+            "pos_partner_sale_warning/static/src/app/screens/partner_list/partner_list.esm.js",
         ],
         "web.assets_tests": [
-            "pos_partner_sale_warning/static/src/tests/tours/PosPartnerSaleWarning.esm.js",
+            "pos_partner_sale_warning/static/src/tests/tours/**/*",
         ],
     },
     "installable": True,
