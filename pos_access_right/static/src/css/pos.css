@@ -5,6 +5,11 @@
     cursor: not-allowed;
 }
 
+.pos .switchpane .btn-switchpane.disabled-mode,
+.pos .switchpane .btn-switchpane.disabled-mode:hover {
+    display: none;
+}
+
 .pos .ticket-screen .controls button.highlight.disabled-mode:hover {
     background: #c7c7c7;
     border: solid 1px rgb(220, 220, 220);
