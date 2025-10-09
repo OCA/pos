@@ -1,0 +1,2 @@
+- The POS Automatic Validation module enhances Odoo Point of Sale by introducing an automatic order validation feature.
+- With this module, you can configure specific payment methods to automatically validate the POS order immediately after full payment — streamlining checkout flow and reducing manual clicks for cash or simple payment methods.

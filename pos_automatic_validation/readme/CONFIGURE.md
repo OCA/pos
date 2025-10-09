@@ -1,0 +1,3 @@
+- Go to Point of Sale → Configuration → Payment Methods.
+- Open a payment method (e.g., Cash).
+- Enable the checkbox Automatic Validation.

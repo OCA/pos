@@ -1,0 +1,4 @@
+- Open the POS session and process an order:
+- When the cashier selects that payment method and enters the correct amount,
+- The order will automatically validate itself after a short delay (default 1s).
+- If the payment method uses a terminal, the normal manual validation process remains.

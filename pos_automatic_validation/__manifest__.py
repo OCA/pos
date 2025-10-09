@@ -5,14 +5,26 @@
 
 {
     "name": "POS Automatic Validation",
-    "version": "12.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Manage Automatic Validation after complete "
     "payment in the POS front end",
-    "author": "Julius Network Solutions, Druidoo",
+    "author": "Julius Network Solutions, Druidoo, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": ["views/account_journal_view.xml", "views/views/assets.xml"],
+    "data": [
+        "views/pos_payment_method_view.xml",
+    ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "pos_automatic_validation/static/src/js/pos_order_auto_validate.esm.js",
+            "pos_automatic_validation/static/src/js/pos_order.esm.js",
+            "pos_automatic_validation/static/src/xml/payment_screen.xml",
+        ],
+        "web.assets_tests": [
+            "pos_automatic_validation/static/tests/pos_auto_validate_test.esm.js",
+        ],
+    },
     "installable": True,
 }
