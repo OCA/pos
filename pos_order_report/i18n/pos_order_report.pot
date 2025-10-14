@@ -18,22 +18,22 @@ msgstr ""
 #. module: pos_order_report
 #: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
 msgid "Cancel"
-msgstr "Annuler"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__domain
@@ -43,23 +43,23 @@ msgstr ""
 #. module: pos_order_report
 #: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
 msgid "Export"
-msgstr "Exporter"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.actions.act_window,name:pos_order_report.action_pos_order_report_wizard
 #: model:ir.ui.menu,name:pos_order_report.open_pos_order_report_wizard
 msgid "Export Order Analysis"
-msgstr "Commandes xlsx"
+msgstr ""
 
 #. module: pos_order_report
 #: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
 msgid "Filters"
-msgstr "Filtres"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__horizontal_axis_id
 msgid "Horizontal Axis (Group By)"
-msgstr "Axe Horizontal"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__id
@@ -69,22 +69,22 @@ msgstr ""
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__write_uid
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__write_date
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: pos_order_report
 #: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
 msgid "Measure"
-msgstr "Mesures"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__measure_ids
 msgid "Measures"
-msgstr "Mesures"
+msgstr ""
 
 #. module: pos_order_report
 #: model:ir.model.fields,help:pos_order_report.field_pos_order_report_wizard__domain
@@ -99,7 +99,7 @@ msgstr ""
 #. module: pos_order_report
 #: model:ir.model,name:pos_order_report.model_pos_order_report_wizard
 msgid "POS Order Pivot Export Wizard"
-msgstr "Commandes xlsx"
+msgstr ""
 
 #. module: pos_order_report
 #. odoo-python
@@ -110,7 +110,7 @@ msgstr ""
 #. module: pos_order_report
 #: model_terms:ir.ui.view,arch_db:pos_order_report.view_pos_order_report_wizard
 msgid "Pos Order"
-msgstr "Commandes"
+msgstr ""
 
 #. module: pos_order_report
 #. odoo-python
@@ -121,4 +121,4 @@ msgstr ""
 #. module: pos_order_report
 #: model:ir.model.fields,field_description:pos_order_report.field_pos_order_report_wizard__vertical_axis_id
 msgid "Vertical Axis (Group By)"
-msgstr "Axe Vertical"
+msgstr ""

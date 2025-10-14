@@ -15,10 +15,10 @@
                 </group>
                 <group string="Measure">
                     <field name="measure_ids" nolabel="1">
-                        <tree>
+                        <list>
                             <field name="name" />
                             <field name="field_description" />
-                        </tree>
+                        </list>
                     </field>
                 </group>
                 <group string="Filters">
@@ -31,7 +31,7 @@
                 </group>
                 <footer>
                     <button
-                        name="export_report"
+                        name="action_export_xlsx"
                         string="Export"
                         type="object"
                         class="btn btn-primary"
@@ -47,9 +47,9 @@
     </record>
 
     <record id="action_pos_order_report_wizard" model="ir.actions.act_window">
-        <field name="name">Export Pos Order Report</field>
+        <field name="name">Export Order Analysis</field>
         <field name="res_model">pos.order.report.wizard</field>
-        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
         <field name="target">new</field>
         <field name="view_id" ref="view_pos_order_report_wizard" />
     </record>
@@ -57,7 +57,7 @@
     <menuitem
         id="open_pos_order_report_wizard"
         action="action_pos_order_report_wizard"
-        name="Order report xlsx"
+        name="Export Order Analysis"
         parent="point_of_sale.menu_point_rep"
         sequence="1"
     />
