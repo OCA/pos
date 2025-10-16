@@ -6,19 +6,23 @@
 
 */
 
-odoo.define('pos_ticket_send_by_mail.pos_model', function (require) {
+odoo.define("pos_ticket_send_by_mail.pos_model", function (require) {
     "use strict";
-    var pos_model = require('point_of_sale.models');
+    var pos_model = require("point_of_sale.models");
     pos_model.load_fields("res.partner", "email_pos_receipt");
-    pos_model.load_models([{
-        model: "res.config.settings",
-        fields: ["receipt_options"],
-        loaded: function(self, config_settings){
-            const config_setting = config_settings.length > 0 ? config_settings.reduce(function(prev, current) {
-                return (prev.id > current.id) ? prev : current
-            }) : false; //returns object
-            self.config_settings = config_setting;
-        }
-    }]);
-
+    pos_model.load_models([
+        {
+            model: "res.config.settings",
+            fields: ["receipt_options"],
+            loaded: function (self, config_settings) {
+                const config_setting =
+                    config_settings.length > 0
+                        ? config_settings.reduce(function (prev, current) {
+                              return prev.id > current.id ? prev : current;
+                          })
+                        : false; // Returns object
+                self.config_settings = config_setting;
+            },
+        },
+    ]);
 });

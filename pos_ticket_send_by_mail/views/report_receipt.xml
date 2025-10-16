@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <template id="report_receipt">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
@@ -8,8 +7,10 @@
                     <div class="row">
                         <div class="col-xs-12 text-center">
                             <h2 t-esc="o.user_id.company_id.name" />
-                            <div t-field="o.partner_id"
-                                t-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true, "phone_icons": true}' />
+                            <div
+                            t-field="o.partner_id"
+                            t-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true, "phone_icons": true}'
+                        />
                             User:
                             <span t-field="o.user_id" />
                             <br />
@@ -18,8 +19,7 @@
                             <br />
                         </div>
                     </div>
-                    <div class="row">
-                    </div>
+                    <div class="row" />
                     <table class="table table-condensed">
                         <thead>
                             <tr>
@@ -34,17 +34,16 @@
                                     <span t-field="line.product_id" />
                                 </td>
                                 <td class="text-right">
-                                    <t
-                                        t-if="o.state != 'cancel' and o.statement_ids">
+                                    <t t-if="o.state != 'cancel' and o.statement_ids">
                                         <span t-field="line.qty" />
                                     </t>
                                 </td>
                                 <td class="text-right">
-                                    <t
-                                        t-if="o.state != 'cancel' and o.statement_ids">
+                                    <t t-if="o.state != 'cancel' and o.statement_ids">
                                         <span
                                             t-esc="line.price_subtotal_incl"
-                                            t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' />
+                                            t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'
+                                        />
                                     </t>
                                     <t t-if="line.discount != 0.0">
                                         <span t-esc="line.discount" />
@@ -62,8 +61,10 @@
                                         <strong>Taxes</strong>
                                     </td>
                                     <td class="text-right">
-                                        <strong t-esc="o.amount_tax"
-                                            t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' />
+                                        <strong
+                                            t-esc="o.amount_tax"
+                                            t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'
+                                        />
                                     </td>
                                 </tr>
                                 <tr>
@@ -71,8 +72,10 @@
                                         <strong>Total</strong>
                                     </td>
                                     <td class="text-right">
-                                        <strong t-esc="o.amount_total"
-                                            t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' />
+                                        <strong
+                                            t-esc="o.amount_total"
+                                            t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'
+                                        />
                                     </td>
                                 </tr>
                             </table>
@@ -91,8 +94,10 @@
                                     <span t-esc="d.journal_id.name" />
                                 </td>
                                 <td>
-                                    <span t-esc="d.amount"
-                                        t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' />
+                                    <span
+                                        t-esc="d.amount"
+                                        t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'
+                                    />
                                 </td>
                             </tr>
                         </tbody>
@@ -101,5 +106,4 @@
             </t>
         </t>
     </template>
-
 </odoo>
