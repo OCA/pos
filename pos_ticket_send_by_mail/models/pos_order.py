@@ -5,6 +5,7 @@
 
 import logging
 
+import odoo
 from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
@@ -23,15 +24,21 @@ class PosOrder(models.Model):
     @api.model
     def _send_order_cron(self):
         _logger.info("------------------------------------------------------")
-        mail_template = self.env.ref("pos_ticket_send_by_mail.email_send_pos_receipt")
+        mail_template = self.env.ref(
+            "pos_ticket_send_by_mail.email_send_pos_receipt",
+            raise_if_not_found=False,
+        )
+        if not mail_template.exists():
+            _logger.warning("No mail template found for sending ticket")
+            return
         _logger.info("Start to send ticket")
         for order in self.search([("email_status", "=", "to_send")]):
             mail_template.send_mail(order.id, force_send=True)
             order.email_status = "sent"
             # Make sure we commit the change to not send ticket twice
-            self.env.cr.commit()
+            if not odoo.tools.config["test_enable"]:
+                self.env.cr.commit()  # pylint: disable=E8102
 
-    @api.multi
     def action_pos_order_paid(self):
         # Send e-receipt for the partner.
         # It depends on value of the field `receipt_option`
@@ -43,13 +50,17 @@ class PosOrder(models.Model):
         return res
 
     def _set_order_to_send(self):
-        icp_sudo = self.env["ir.config_parameter"].sudo()
-        receipt_options = icp_sudo.get_param("point_of_sale.receipt_options")
+        receipt_options = self.config_id.receipt_options
         receipt_options = receipt_options and int(receipt_options) or False
         for order in self:
             if (
                 receipt_options in [2, 3, 4]
                 and order.partner_id.email
-                and not order.partner_id.no_email_pos_receipt
+                and order.partner_id.pos_email_receipt != "no_email_pos_receipt"
             ):
                 order.email_status = "to_send"
+
+    def _get_statments(self):
+        self.ensure_one()
+        acc_move_lines = self.account_move.line_ids
+        return acc_move_lines.mapped("statement_id")

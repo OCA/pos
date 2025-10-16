@@ -21,6 +21,7 @@ Contributors
 ~~~~~~~~~~~~
 
 * Iván Todorovich <ivan.todorovich@druidoo.io>
+* Phan Hong Phuc <phucph@trobz.com>
 
 Maintainers
 ~~~~~~~~~~~
