@@ -26,7 +26,7 @@ class PosPartialReturnWizard(models.TransientModel):
     @api.model
     def default_get(self, fields):
         order_obj = self.env["pos.order"]
-        res = super(PosPartialReturnWizard, self).default_get(fields)
+        res = super().default_get(fields)
         order = order_obj.browse(self.env.context.get("active_id", False))
         if order:
             line_ids = []

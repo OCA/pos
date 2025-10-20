@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="product_product_returnable_bottle" model="product.product">
         <field name="name">Returnable Bottle</field>
         <field name="default_code">RET-BOTL</field>
@@ -16,5 +15,4 @@
             file="pos_order_return/static/img/product_returnable_bottle-image.jpg"
         />
     </record>
-
 </odoo>

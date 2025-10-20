@@ -17,25 +17,26 @@ Point of Sale Order Return
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/14.0/pos_order_return
+    :target: https://github.com/OCA/pos/tree/18.0/pos_order_return
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-14-0/pos-14-0-pos_order_return
+    :target: https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_order_return
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=14.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of odoo Point Of Sale about POS Order
-returns.
+This module extends the functionality of odoo Point Of Sale about POS
+Order returns.
 
-With this module, it is now forbidden to return more quantity than the initial
-one.
+With this module, it is now forbidden to return more quantity than the
+initial one.
 
-A link is created between the returned Order and the initial Order.
-A link is created between the returned Order Line and the initial Order Line.
+A link is created between the returned Order and the initial Order. A
+link is created between the returned Order Line and the initial Order
+Line.
 
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
@@ -50,48 +51,57 @@ A link is created between the returned Order Line and the initial Order Line.
 Configuration
 =============
 
-In some cases, you may want to block the possibility to allow negative quantity
-in a PoS Order, without mentioning initial order. This can happen for special
-products like returnable products, etc.
+In some cases, you may want to block the possibility to allow negative
+quantity in a PoS Order, without mentioning initial order. This can
+happen for special products like returnable products, etc.
 
-In that case, a checkbox is possible on Product Form View to allow such case
+In that case, a checkbox is possible on Product Form View to allow such
+case
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/product_returnable_bottle.png
+|image|
+
+.. |image| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/product_returnable_bottle.png
 
 Usage
 =====
 
-Select an PoS Order an choose either *Return Products* (full return of the
-order) or *Partial Return*. In this case, a wizard allows to select just some
-products and quantities to return:
+Select an PoS Order an choose either *Return Products* (full return of
+the order) or *Partial Return*. In this case, a wizard allows to select
+just some products and quantities to return:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/partial_return_wizard.png
+|image|
 
-Register the refund payment to finish the return. If the original order was
-invoiced, a refund invoice will be made.
+Register the refund payment to finish the return. If the original order
+was invoiced, a refund invoice will be made.
 
 **Implemented Constraints**
 
-* User can not return more products than the initial quantity:
+-  User can not return more products than the initial quantity:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/returned_qty_over_initial.png
+|image1|
 
-* If a line has been partially refund, only a reduced quantity can be returned:
+-  If a line has been partially refund, only a reduced quantity can be
+   returned:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/sum_returned_qty_over_initial.png
+|image2|
 
-* It is not possible to set a negative quantity if the initial Pos Order is
-  not indicated:
+-  It is not possible to set a negative quantity if the initial Pos
+   Order is not indicated:
 
-.. image:: https://raw.githubusercontent.com/OCA/pos/14.0/pos_order_return/static/description/initial_pos_order_required.png
+|image3|
+
+.. |image| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/partial_return_wizard.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/returned_qty_over_initial.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/sum_returned_qty_over_initial.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/initial_pos_order_required.png
 
 Known issues / Roadmap
 ======================
 
-* When migrating the module ``pos_order_return`` in version > 12.0 please merge
-  both modules ``pos_order_return`` and ``pos_order_return_traceability`` into a
-  single module.
-* Stock update on session close is uncovered right now.
+-  When migrating the module ``pos_order_return`` in version > 12.0
+   please merge both modules ``pos_order_return`` and
+   ``pos_order_return_traceability`` into a single module.
+-  Stock update on session close is uncovered right now.
 
 Bug Tracker
 ===========
@@ -99,7 +109,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_return%0Aversion:%2014.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_order_return%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -107,7 +117,7 @@ Credits
 =======
 
 Authors
-~~~~~~~
+-------
 
 * La Louve
 * GRAP
@@ -115,27 +125,28 @@ Authors
 * Lambda IS
 
 Contributors
-~~~~~~~~~~~~
+------------
 
-* Sylvain LE GAL <https://twitter.com/legalsylvain>
-* David Vidal <david.vidal@tecnativa.com>
-* Kiril Vangelovski <kiril@lambda-is.com>
-* Druidoo <https://www.druidoo.io>
-* Dhara Solanki <dhara.solanki@initos.com>
+-  Sylvain LE GAL <https://twitter.com/legalsylvain>
+-  David Vidal <david.vidal@tecnativa.com>
+-  Kiril Vangelovski <kiril@lambda-is.com>
+-  Druidoo <https://www.druidoo.io>
+-  Dhara Solanki <dhara.solanki@initos.com>
 
 Other credits
-~~~~~~~~~~~~~
+-------------
 
 Funders
 ~~~~~~~
 
 The development of this module has been financially supported by:
 
-* La Louve (www.lalouve.net)
-* GRAP, Groupement Régional Alimentaire de Proximité (www.grap.coop)
+-  La Louve (`www.lalouve.net <http://www.lalouve.net>`__)
+-  GRAP, Groupement Régional Alimentaire de Proximité
+   (`www.grap.coop <http://www.grap.coop>`__)
 
 Maintainers
-~~~~~~~~~~~
+-----------
 
 This module is maintained by the OCA.
 
@@ -147,6 +158,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/14.0/pos_order_return>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/18.0/pos_order_return>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

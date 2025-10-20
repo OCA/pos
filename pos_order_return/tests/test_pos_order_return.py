@@ -8,7 +8,7 @@ from odoo.tests import common, tagged
 class TestPOSOrderReturn(common.SavepointCase):
     @classmethod
     def setUpClass(cls):
-        super(TestPOSOrderReturn, cls).setUpClass()
+        super().setUpClass()
         cls.pricelist = cls.env["product.pricelist"].create(
             {
                 "name": "Test pricelist",
