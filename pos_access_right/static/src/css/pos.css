@@ -15,3 +15,8 @@
 .pos .ticket-screen .pointer.disabled-mode:hover {
     cursor: not-allowed;
 }
+
+.pos .switchpane .btn-switchpane.disabled-mode,
+.pos .switchpane .btn-switchpane.disabled-mode:hover {
+    display: none;
+}
