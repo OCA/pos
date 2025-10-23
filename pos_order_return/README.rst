@@ -31,13 +31,6 @@ Point of Sale Order Return
 This module extends the functionality of odoo Point Of Sale about POS
 Order returns.
 
-With this module, it is now forbidden to return more quantity than the
-initial one.
-
-A link is created between the returned Order and the initial Order. A
-link is created between the returned Order Line and the initial Order
-Line.
-
 .. IMPORTANT::
    This is an alpha version, the data model and design can change at any time without warning.
    Only for development or testing purpose, do not use in production.
@@ -58,18 +51,18 @@ happen for special products like returnable products, etc.
 In that case, a checkbox is possible on Product Form View to allow such
 case
 
-|image|
+|image1|
 
-.. |image| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/product_returnable_bottle.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/product_returnable_bottle.png
 
 Usage
 =====
 
-Select an PoS Order an choose either *Return Products* (full return of
+Select an PoS Order and choose either *Return Products* (full return of
 the order) or *Partial Return*. In this case, a wizard allows to select
 just some products and quantities to return:
 
-|image|
+|image2|
 
 Register the refund payment to finish the return. If the original order
 was invoiced, a refund invoice will be made.
@@ -78,30 +71,27 @@ was invoiced, a refund invoice will be made.
 
 -  User can not return more products than the initial quantity:
 
-|image1|
+|image3|
 
 -  If a line has been partially refund, only a reduced quantity can be
    returned:
 
-|image2|
+|image4|
 
 -  It is not possible to set a negative quantity if the initial Pos
    Order is not indicated:
 
-|image3|
+|image5|
 
-.. |image| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/partial_return_wizard.png
-.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/returned_qty_over_initial.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/sum_returned_qty_over_initial.png
-.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/initial_pos_order_required.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/partial_return_wizard.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/returned_qty_over_initial.png
+.. |image4| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/sum_returned_qty_over_initial.png
+.. |image5| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return/static/description/initial_pos_order_required.png
 
 Known issues / Roadmap
 ======================
 
--  When migrating the module ``pos_order_return`` in version > 12.0
-   please merge both modules ``pos_order_return`` and
-   ``pos_order_return_traceability`` into a single module.
--  Stock update on session close is uncovered right now.
+
 
 Bug Tracker
 ===========
@@ -132,6 +122,9 @@ Contributors
 -  Kiril Vangelovski <kiril@lambda-is.com>
 -  Druidoo <https://www.druidoo.io>
 -  Dhara Solanki <dhara.solanki@initos.com>
+-  `Trobz <https://www.trobz.com>`__:
+
+   -  Nguyen Minh Chien <chien@trobz.com>
 
 Other credits
 -------------

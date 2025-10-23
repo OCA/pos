@@ -3,3 +3,5 @@
 - Kiril Vangelovski \<<kiril@lambda-is.com>\>
 - Druidoo \<<https://www.druidoo.io>\>
 - Dhara Solanki \<<dhara.solanki@initos.com>\>
+- [Trobz](https://www.trobz.com):
+    - Nguyen Minh Chien \<<chien@trobz.com>\>

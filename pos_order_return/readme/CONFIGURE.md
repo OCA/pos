@@ -5,4 +5,4 @@ happen for special products like returnable products, etc.
 In that case, a checkbox is possible on Product Form View to allow such
 case
 
-![image](../static/description/product_returnable_bottle.png)
+![image1](../static/description/product_returnable_bottle.png)

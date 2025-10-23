@@ -167,7 +167,7 @@ msgid "Refund"
 msgstr "Devolució"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_line_ids
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_orderline_ids
 msgid "Refund Lines"
 msgstr "Línies de devolució"
 
@@ -200,7 +200,7 @@ msgstr "Quantitat retornable"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order__returned_order_id
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__returned_line_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refunded_orderline_id
 msgid "Returned Order"
 msgstr "Comanda retornada"
 

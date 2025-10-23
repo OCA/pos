@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, fields, models
+from odoo.tools import float_is_zero
 
 
 class PosPartialReturnWizard(models.TransientModel):
@@ -20,59 +21,54 @@ class PosPartialReturnWizard(models.TransientModel):
     )
 
     def confirm(self):
+        # Set the context partial_return_wizard
+        # which is used in def _prepare_refund_data(..)
         self.ensure_one()
-        return self[0].order_id.partial_refund(self[0])
+        refund_res = self.order_id.with_context(partial_return_wizard=self).refund()
+
+        # Unlink the lines which are not selected from the wizard or zero qty
+        returned_order = self.env["pos.order"].browse(refund_res.get("res_id"))
+        if returned_order.exists():
+            returned_lines = self.mapped("line_ids.pos_order_line_id")
+            lines = returned_order.lines.filtered(
+                lambda _l, rlines=returned_lines: (
+                    _l.refunded_orderline_id not in rlines
+                    or float_is_zero(
+                        _l.qty, precision_rounding=_l.product_uom_id.rounding
+                    )
+                )
+            )
+            if lines:
+                lines.unlink()
+                returned_order._compute_prices()
+
+        return refund_res
 
     @api.model
     def default_get(self, fields):
-        order_obj = self.env["pos.order"]
         res = super().default_get(fields)
-        order = order_obj.browse(self.env.context.get("active_id", False))
-        if order:
+        # Check to make sure the active_model is pos.order
+        if self.env.context.get("active_model") != "pos.order":
+            return res
+
+        order = self.env["pos.order"].browse(self.env.context.get("active_id"))
+        if order.exists():
             line_ids = []
             for line in order.lines:
+                # Don't add the line which fully returned
+                if float_is_zero(
+                    line.qty - line.refunded_qty,
+                    precision_rounding=line.product_uom_id.rounding,
+                ):
+                    continue
                 line_ids.append(
                     (
                         0,
                         0,
                         {
                             "pos_order_line_id": line.id,
-                            "initial_qty": line.qty,
-                            "max_returnable_qty": line.max_returnable_qty([]),
                         },
                     )
                 )
             res.update({"order_id": order.id, "line_ids": line_ids})
         return res
-
-
-class PosPartialReturnWizardLine(models.TransientModel):
-    _name = "pos.partial.return.wizard.line"
-    _description = "Partial Return Wizard Line"
-
-    wizard_id = fields.Many2one(
-        comodel_name="pos.partial.return.wizard",
-        string="Wizard",
-    )
-    pos_order_line_id = fields.Many2one(
-        comodel_name="pos.order.line",
-        required=True,
-        readonly=True,
-        string="Line To Return",
-    )
-    initial_qty = fields.Float(
-        string="Initial Quantity",
-        readonly=True,
-        help="Quantity of Product initially sold",
-    )
-    max_returnable_qty = fields.Float(
-        string="Returnable Quantity",
-        readonly=True,
-        help="Compute maximum quantity that can be returned for this line, "
-        "depending of the quantity of the line and other possible "
-        "refunds.",
-    )
-    qty = fields.Float(
-        string="Returned Quantity",
-        default=0.0,
-    )

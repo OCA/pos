@@ -168,7 +168,7 @@ msgid "Refund"
 msgstr "Factura rectificativa"
 
 #. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_line_ids
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refund_orderline_ids
 msgid "Refund Lines"
 msgstr "Líneas de devolución"
 
@@ -176,11 +176,6 @@ msgstr "Líneas de devolución"
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_ids
 msgid "Refund Orders"
 msgstr "Pedidos de devolución"
-
-#. module: pos_order_return
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order__refund_order_qty
-msgid "Refund Orders Quantity"
-msgstr "Cantidad de pedidos de devolución"
 
 #. module: pos_order_return
 #: code:addons/pos_order_return/models/pos_order.py:0
@@ -201,7 +196,7 @@ msgstr "Cantidad retornable"
 
 #. module: pos_order_return
 #: model:ir.model.fields,field_description:pos_order_return.field_pos_order__returned_order_id
-#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__returned_line_id
+#: model:ir.model.fields,field_description:pos_order_return.field_pos_order_line__refunded_orderline_id
 msgid "Returned Order"
 msgstr "Pedido devuelto"
 

@@ -1,8 +1,8 @@
-Select an PoS Order an choose either *Return Products* (full return of
+Select an PoS Order and choose either *Return Products* (full return of
 the order) or *Partial Return*. In this case, a wizard allows to select
 just some products and quantities to return:
 
-![image](../static/description/partial_return_wizard.png)
+![image2](../static/description/partial_return_wizard.png)
 
 Register the refund payment to finish the return. If the original order
 was invoiced, a refund invoice will be made.
@@ -11,14 +11,14 @@ was invoiced, a refund invoice will be made.
 
 - User can not return more products than the initial quantity:
 
-![image](../static/description/returned_qty_over_initial.png)
+![image3](../static/description/returned_qty_over_initial.png)
 
 - If a line has been partially refund, only a reduced quantity can be
   returned:
 
-![image](../static/description/sum_returned_qty_over_initial.png)
+![image4](../static/description/sum_returned_qty_over_initial.png)
 
 - It is not possible to set a negative quantity if the initial Pos Order
   is not indicated:
 
-![image](../static/description/initial_pos_order_required.png)
+![image5](../static/description/initial_pos_order_required.png)

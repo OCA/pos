@@ -6,16 +6,14 @@
         <field name="model">pos.partial.return.wizard</field>
         <field name="arch" type="xml">
             <form string="Partial Return">
-                <group string="Lines to Return">
-                    <field name="line_ids" nolabel="1">
-                        <tree editable="bottom">
-                            <field name="pos_order_line_id" force_save="1" />
-                            <field name="initial_qty" />
-                            <field name="max_returnable_qty" />
-                            <field name="qty" />
-                        </tree>
-                    </field>
-                </group>
+                <field name="line_ids" nolabel="1">
+                    <list editable="bottom" create="false">
+                        <field name="pos_order_line_id" force_save="1" />
+                        <field name="initial_qty" />
+                        <field name="max_returnable_qty" />
+                        <field name="qty" />
+                    </list>
+                </field>
                 <footer>
                     <button
                         string="Confirm"
@@ -27,5 +25,12 @@
                 </footer>
             </form>
         </field>
+    </record>
+    <record id="action_pos_partial_return_wizard" model="ir.actions.act_window">
+        <field name="name">Partial Return Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.partial.return.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
 </odoo>

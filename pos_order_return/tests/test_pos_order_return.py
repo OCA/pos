@@ -5,7 +5,7 @@ from odoo.tests import common, tagged
 
 
 @tagged("post_install", "-at_install")
-class TestPOSOrderReturn(common.SavepointCase):
+class TestPOSOrderReturn(common.TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -35,7 +35,7 @@ class TestPOSOrderReturn(common.SavepointCase):
             {
                 "name": "Test product 1",
                 "standard_price": 1.0,
-                "type": "product",
+                "is_storable": True,
                 "pos_allow_negative_qty": False,
                 "taxes_id": False,
             }
@@ -44,7 +44,7 @@ class TestPOSOrderReturn(common.SavepointCase):
             {
                 "name": "Test product 2",
                 "standard_price": 1.0,
-                "type": "product",
+                "is_storable": True,
                 "pos_allow_negative_qty": True,
                 "taxes_id": False,
             }
@@ -53,7 +53,7 @@ class TestPOSOrderReturn(common.SavepointCase):
             {
                 "name": "Test product 3",
                 "standard_price": 1.0,
-                "type": "product",
+                "is_storable": True,
                 "pos_allow_negative_qty": True,
                 "taxes_id": False,
             }
@@ -68,7 +68,7 @@ class TestPOSOrderReturn(common.SavepointCase):
             }
         )
         cls.pos_config.company_id.point_of_sale_update_stock_quantities = False
-        cls.pos_config.open_session_cb()
+        cls.pos_config.open_ui()
         cls.pos_order = cls.PosOrder.create(
             {
                 "session_id": cls.pos_config.current_session_id.id,
@@ -121,7 +121,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             cls.env["pos.make.payment"]
             .with_context(
-                {
+                **{
                     "active_ids": [cls.pos_order.id],
                     "active_id": cls.pos_order.id,
                 }
@@ -139,7 +139,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             self.env["pos.make.payment"]
             .with_context(
-                {
+                **{
                     "active_ids": refund_order.ids,
                     "active_id": refund_order.id,
                 }
@@ -157,7 +157,8 @@ class TestPOSOrderReturn(common.SavepointCase):
         partial_refund = (
             self.env["pos.partial.return.wizard"]
             .with_context(
-                {
+                **{
+                    "active_model": self.pos_order._name,
                     "active_ids": self.pos_order.ids,
                     "active_id": self.pos_order.id,
                 }
@@ -175,7 +176,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             self.env["pos.make.payment"]
             .with_context(
-                {
+                **{
                     "active_ids": refund_order.ids,
                     "active_id": refund_order.id,
                 }
@@ -192,7 +193,8 @@ class TestPOSOrderReturn(common.SavepointCase):
         partial_refund = (
             self.env["pos.partial.return.wizard"]
             .with_context(
-                {
+                **{
+                    "active_model": self.pos_order._name,
                     "active_ids": self.pos_order.ids,
                     "active_id": self.pos_order.id,
                 }
@@ -219,7 +221,7 @@ class TestPOSOrderReturn(common.SavepointCase):
         pos_make_payment = (
             self.env["pos.make.payment"]
             .with_context(
-                {
+                **{
                     "active_ids": refund_order.ids,
                     "active_id": refund_order.id,
                 }
