@@ -38,9 +38,28 @@ msgid "Has Picking Delayed"
 msgstr "Ha retrasado el picking"
 
 #. module: pos_picking_delayed
+#. odoo-python
+#: code:addons/pos_picking_delayed/models/res_config_settings.py:0
+#, python-format
+msgid ""
+"If you have 'Picking Creation Delayed' checked, then in 'Inventory "
+"Management' it must be set to 'In real time (accurate but slower)'"
+msgstr ""
+"Si tienes 'Creación de picking retrasada' marcada, en 'Gestión del "
+"inventario' tiene que estar confihurado como 'En tiempo real (preciso "
+"pero más lento)"
+
+#. module: pos_picking_delayed
 #: model:ir.model.fields,field_description:pos_picking_delayed.field_pos_config__picking_creation_delayed
 msgid "Picking Creation Delayed"
 msgstr "Creación de picking retrasada"
+
+#. module: pos_picking_delayed
+#. odoo-python
+#: code:addons/pos_picking_delayed/models/res_config_settings.py:0
+#, python-format
+msgid "Picking Creation Delayed Warning"
+msgstr "Error con 'Creación de picking retrasada'"
 
 #. module: pos_picking_delayed
 #: model:ir.model,name:pos_picking_delayed.model_pos_config
