@@ -1,7 +1,6 @@
-
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html
 
-from odoo import models, api
+from odoo import models
 
 
 class PosOrder(models.Model):
@@ -20,10 +19,10 @@ class PosOrder(models.Model):
             if qty != 0:
                 copy_line = wizard_line.pos_order_line_id.copy(
                     {
-                        'order_id': new_order.id,
-                        'returned_line_id': wizard_line.pos_order_line_id.id,
-                        'qty': qty,
-                        'is_scrap': wizard_line.is_scrap
+                        "order_id": new_order.id,
+                        "returned_line_id": wizard_line.pos_order_line_id.id,
+                        "qty": qty,
+                        "is_scrap": wizard_line.is_scrap,
                     }
                 )
                 copy_line._onchange_amount_line_all()
@@ -35,17 +34,19 @@ class PosOrder(models.Model):
         Force picking in order to be set as done.
         Then check and move some scrap products
         """
-        super(PosOrder, self)._force_picking_done(picking)
-        if picking.state == 'done':
+        super()._force_picking_done(picking)
+        if picking.state == "done":
             lines = self.lines.filtered(lambda l: l.is_scrap)
-            StockScrap = self.env['stock.scrap'].sudo()
+            StockScrap = self.env["stock.scrap"].sudo()
             for line in lines:
                 vals = StockScrap.default_get(StockScrap.fields_get_keys())
-                vals.update({
-                    'product_id': line.product_id.id,
-                    'picking_id': picking.id,
-                    'scrap_qty': abs(line.qty)
-                })
+                vals.update(
+                    {
+                        "product_id": line.product_id.id,
+                        "picking_id": picking.id,
+                        "scrap_qty": abs(line.qty),
+                    }
+                )
                 new_record = StockScrap.new(vals)
                 new_record._onchange_picking_id()
                 new_record.onchange_product_id()
