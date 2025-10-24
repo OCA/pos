@@ -40,7 +40,11 @@ odoo.define("pos_container_deposit.models", function (require) {
                  * When adding a product with container deposit, add its container deposit product
                  **/
                 super.add_orderline(...arguments);
-                if (line.container_deposit_product && !line.container_deposit_line) {
+                if (
+                    line.container_deposit_product &&
+                    !line.container_deposit_line &&
+                    this.state === undefined
+                ) {
                     this.add_product(line.container_deposit_product, {
                         quantity: line.get_quantity(),
                     });
