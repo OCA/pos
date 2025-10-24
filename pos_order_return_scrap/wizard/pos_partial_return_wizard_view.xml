@@ -7,7 +7,7 @@
             ref="pos_order_return.view_partial_return_wizard_form"
         />
         <field name="arch" type="xml">
-            <xpath expr="//tree/field[@name='qty']" position="after">
+            <xpath expr="//list/field[@name='qty']" position="after">
                 <field name="is_scrap" />
             </xpath>
         </field>

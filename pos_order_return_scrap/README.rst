@@ -10,9 +10,9 @@ Point of Sale Order Scrap
    !! source digest: sha256:a222e5dfeb0ecb90562b6d4ae1467e0de789596332f897d2ba6bfd473f9fddfc
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Beta
+    :alt: Alpha
 .. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
@@ -28,14 +28,45 @@ Point of Sale Order Scrap
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of Point of Sale Order Return.
+This module extends the capabilities of the OCA module pos_order_return
+by adding finer control over stock for returned items. A new option "Is
+Scrap?" is introduced in the POS Partial Return Wizard. When checked,
+the system automatically creates a scrap order for the returned
+quantities of that product, improving warehouse accuracy for damaged or
+non-sellable goods.
 
-With this module, You can move some products to scrap immediately
+.. IMPORTANT::
+   This is an alpha version, the data model and design can change at any time without warning.
+   Only for development or testing purpose, do not use in production.
+   `More details on development status <https://odoo-community.org/page/development-status>`_
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+-  Go to Point of Sale and locate an existing POS Order
+
+-  Click "Partial Return"
+
+-  A popup will open |image1|
+
+-  For any product being returned as damaged or unusable:
+
+   -  Enable the checkbox "Is Scrap?"
+
+-  Confirm the return
+
+Once validated:
+
+-  Standard return processing occurs
+-  A Scrap Order is automatically created for each scrap-marked product
+   line
+
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_order_return_scrap/static/description/partial_return_scrap_form.png
 
 Bug Tracker
 ===========
@@ -59,6 +90,8 @@ Contributors
 ------------
 
 -  Trobz <https://www.trobz.com>
+
+   -  Nguyen Minh Chien <chien@trobz.com>
 
 Maintainers
 -----------
