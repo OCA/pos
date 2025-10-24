@@ -40,7 +40,14 @@ odoo.define("pos_container_deposit.models", function (require) {
                  * When adding a product with container deposit, add its container deposit product
                  **/
                 super.add_orderline(...arguments);
-                if (line.container_deposit_product && !line.container_deposit_line) {
+                // Get unpayed orders orders from db.pos
+                const all_unpaid = this.pos.get_order_list().map((x) => x.cid);
+                const is_unpaid = all_unpaid.includes(line.order.cid);
+                if (
+                    line.container_deposit_product &&
+                    !line.container_deposit_line &&
+                    is_unpaid
+                ) {
                     this.add_product(line.container_deposit_product, {
                         quantity: line.get_quantity(),
                     });
