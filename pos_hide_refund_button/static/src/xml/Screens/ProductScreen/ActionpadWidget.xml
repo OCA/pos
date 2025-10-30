@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2025 CoopITEasy - Simon Hick <sim@coopiteasy.be>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html) -->
+<templates xml:space="preserve">
+    <t
+        t-name="pos_hide_refund_button.ActionpadWidgetHideRefundButton"
+        t-inherit="point_of_sale.ActionpadWidget"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//button[hasclass('button','pay','validation')]"
+            position="attributes"
+        >
+            <attribute name="t-attf-class">
+            button pay validation {{ (props.actionToTrigger == 'do-refund') ? 'hide-mode' : ''}}
+            </attribute>
+        </xpath>
+    </t>
+</templates>
