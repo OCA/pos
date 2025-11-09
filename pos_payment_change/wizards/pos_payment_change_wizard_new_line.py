@@ -14,7 +14,10 @@ class PosPaymentChangeWizardLine(models.TransientModel):
         required=True,
         ondelete="cascade",
     )
-
+    payment_date = fields.Datetime(
+        required=True,
+        default=lambda self: fields.Datetime.now(),
+    )
     new_payment_method_id = fields.Many2one(
         comodel_name="pos.payment.method",
         string="Payment Method",
