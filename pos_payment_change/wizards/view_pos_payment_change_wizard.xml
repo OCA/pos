@@ -13,11 +13,11 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                     <field name="order_id" />
                     <field name="amount_total" invisible="1" />
                     <field name="old_line_ids" colspan="4">
-                        <tree>
+                        <list>
                             <field name="old_payment_method_id" widget="selection" />
                             <field name="amount" sum="Total" />
                             <field name="company_currency_id" column_invisible="1" />
-                        </tree>
+                        </list>
                     </field>
                     <newline />
                     <field
@@ -25,7 +25,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                         colspan="4"
                         context="{'new_line_ids': new_line_ids, 'amount_total': amount_total}"
                     >
-                        <tree editable="bottom">
+                        <list editable="bottom">
                             <field name="new_payment_method_id" widget="selection" />
                             <field name="amount" sum="Total" />
                             <field name="company_currency_id" column_invisible="1" />
@@ -33,7 +33,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
                                 name="available_payment_method_ids"
                                 column_invisible="1"
                             />
-                        </tree>
+                        </list>
                     </field>
                 </group>
                 <footer>

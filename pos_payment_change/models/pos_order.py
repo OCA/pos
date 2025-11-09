@@ -83,7 +83,7 @@ class PosOrder(models.Model):
             )
 
         for order in orders:
-            order.note = "{}\n{}".format(order.note or "", comment)
+            order.general_note = "{}\n{}".format(order.general_note or "", comment)
         return orders
 
     def _check_payment_change_allowed(self):
