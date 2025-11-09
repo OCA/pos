@@ -17,13 +17,13 @@ Point Of Sale - Change Payments
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
-    :target: https://github.com/OCA/pos/tree/17.0/pos_payment_change
+    :target: https://github.com/OCA/pos/tree/18.0/pos_payment_change
     :alt: OCA/pos
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_payment_change
+    :target: https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_payment_change
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=17.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -43,16 +43,16 @@ session, Only if entries has not been generated.
 Configuration
 =============
 
--  Go to Point of Sale.
--  Choose the view list.
--  Edit your point of sale, and select a value for the field 'Payment
-   Change Policy'.
+- Go to Point of Sale.
+- Choose the view list.
+- Edit your point of sale, and select a value for the field 'Payment
+  Change Policy'.
 
 Two options are available:
 
--  'Refund and Resale': Odoo will refund the current Pos Order to cancel
-   it, and create a new PoS Order with the correct payment lines
--  'Update Payments': Odoo will change payment lines.
+- 'Refund and Resale': Odoo will refund the current Pos Order to cancel
+  it, and create a new PoS Order with the correct payment lines
+- 'Update Payments': Odoo will change payment lines.
 
 |image1|
 
@@ -64,22 +64,22 @@ field. If the module ``l10n_fr_certification`` is installed and if the
 current company has an inalterable accounting, it will not be possible
 to select the value 'Update Payments'.
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_config_form.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_payment_change/static/description/pos_config_form.png
 
 Usage
 =====
 
--  Go to a PoS Order
--  Click on the button 'Change Payments'
+- Go to a PoS Order
+- Click on the button 'Change Payments'
 
 |image1|
 
--  In the pop up wizard, select the real payment(s) that have been used
-   to pay the order
+- In the pop up wizard, select the real payment(s) that have been used
+  to pay the order
 
 |image2|
 
--  Then click on the button 'Change Payments'
+- Then click on the button 'Change Payments'
 
 **Note**
 
@@ -89,9 +89,9 @@ the new one.
 
 |image3|
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_order_form.png
-.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png
-.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/17.0/pos_payment_change/static/description/pos_order_tree.png
+.. |image1| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_payment_change/static/description/pos_order_form.png
+.. |image2| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_payment_change/static/description/pos_payment_change_wizard_form.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/pos/18.0/pos_payment_change/static/description/pos_order_tree.png
 
 Bug Tracker
 ===========
@@ -99,7 +99,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_change%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_payment_change%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -114,19 +114,19 @@ Authors
 Contributors
 ------------
 
--  Sylvain LE GAL <https://twitter.com/legalsylvain>
--  Julien WESTE
--  Foram Shah <foram.shah@initos.com>
--  Manuel Regidor <manuel.regidor@sygel.es>
+- Sylvain LE GAL <https://twitter.com/legalsylvain>
+- Julien WESTE
+- Foram Shah <foram.shah@initos.com>
+- Manuel Regidor <manuel.regidor@sygel.es>
 
 Other credits
 -------------
 
 The development of this module has been financially supported by:
 
--  GRAP, Groupement Régional Alimentaire de proximité
-   (`www.grap.coop <http://www.grap.coop>`__)
--  Vracoop (`www.vracoop.fr <http://www.vracoop.fr>`__)
+- GRAP, Groupement Régional Alimentaire de proximité
+  (`www.grap.coop <http://www.grap.coop>`__)
+- Vracoop (`www.vracoop.fr <http://www.vracoop.fr>`__)
 
 Maintainers
 -----------
@@ -149,6 +149,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
 
 |maintainer-legalsylvain| 
 
-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/17.0/pos_payment_change>`_ project on GitHub.
+This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/18.0/pos_payment_change>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
