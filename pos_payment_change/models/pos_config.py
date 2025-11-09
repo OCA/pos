@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
 
@@ -44,7 +44,7 @@ class PosConfig(models.Model):
         for config in self.filtered(lambda x: x.payment_change_policy == "update"):
             if config.company_id._is_accounting_unalterable():
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Unable to use the 'Update Payments' options"
                         " for companies that have unalterable accounting."
                     )

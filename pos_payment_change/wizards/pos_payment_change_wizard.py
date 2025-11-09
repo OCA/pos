@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import Command, _, api, fields, models
+from odoo import Command, api, fields, models
 from odoo.exceptions import UserError
 from odoo.tools import float_compare
 
@@ -38,6 +38,7 @@ class PosPaymentChangeWizard(models.TransientModel):
         old_lines_vals = [
             Command.create(
                 {
+                    "payment_date": payment.payment_date,
                     "old_payment_method_id": payment.payment_method_id.id,
                     "amount": payment.amount,
                 },
@@ -64,12 +65,12 @@ class PosPaymentChangeWizard(models.TransientModel):
             float_compare(
                 total,
                 self.amount_total,
-                precision_rounding=self.order_id.currency_id.rounding,
+                precision_rounding=order.currency_id.rounding,
             )
             != 0
         ):
             raise UserError(
-                _(
+                self.env._(
                     "Differences between the two values for the POS"
                     " Order '%(name)s':\n\n"
                     " * Total of all the new payments %(total)s;\n"
@@ -87,7 +88,7 @@ class PosPaymentChangeWizard(models.TransientModel):
                 "pos_order_id": order.id,
                 "payment_method_id": line.new_payment_method_id.id,
                 "amount": line.amount,
-                "payment_date": fields.Date.context_today(self),
+                "payment_date": line.payment_date,
             }
             for line in self.new_line_ids
         ]

@@ -5,13 +5,15 @@
 
 from datetime import datetime
 
-from odoo import _, fields, models
+from odoo import fields, models
 from odoo.exceptions import UserError
 from odoo.tools import float_is_zero
 
 
 class PosOrder(models.Model):
     _inherit = "pos.order"
+
+    payment_change_policy = fields.Selection(related="config_id.payment_change_policy")
 
     def change_payment(self, payment_lines):
         """
@@ -33,8 +35,7 @@ class PosOrder(models.Model):
         ]
 
         self._check_payment_change_allowed()
-
-        comment = _(
+        comment = self.env._(
             "The payments of the Order %(order)s (Ref: %(ref)s have"
             " been changed by %(user_name)s on %(today)s",
             order=self.name,
@@ -44,12 +45,21 @@ class PosOrder(models.Model):
         )
 
         if self.config_id.payment_change_policy == "update":
-            self.payment_ids.with_context().unlink()
+            payments = self.payment_ids
+            account_moves = payments.account_move_id
+            if account_moves:
+                account_moves.button_draft()
+                account_moves.unlink()
+            payments.unlink()
 
             # Create new payment
             for line in payment_lines:
-                self.add_payment(line)
+                self.with_context(
+                    skip_pos_payment_invoiced_check_amount=True
+                ).add_payment(line)
 
+            if self.state == "invoiced":
+                self._apply_invoice_payments(self.session_id.state == "closed")
         elif self.config_id.payment_change_policy == "refund":
             # Refund order and mark it as paid
             # with same payment method as the original one
@@ -65,25 +75,29 @@ class PosOrder(models.Model):
                     }
                 )
 
-            refund_order.action_pos_order_paid()
-
+            if self.state == "invoiced":
+                refund_order._generate_pos_order_invoice()
+            else:
+                refund_order.action_pos_order_paid()
             # Resale order and mark it as paid
             # with the new payment
             resale_order = self.copy(default=self._prepare_resale_order_vals())
             for line in payment_lines:
                 line.update({"pos_order_id": resale_order.id})
                 resale_order.add_payment(line)
-            resale_order.action_pos_order_paid()
-
+            if self.state == "invoiced":
+                resale_order._generate_pos_order_invoice()
+            else:
+                resale_order.action_pos_order_paid()
             orders += refund_order + resale_order
-            comment += _(
+            comment += self.env._(
                 " (Refund Order: %(refund_order)s ; Resale Order: %(resale_order)s)",
                 refund_order=refund_order.name,
                 resale_order=resale_order.name,
             )
 
         for order in orders:
-            order.note = "{}\n{}".format(order.note or "", comment)
+            order.general_note = "{}\n{}".format(order.general_note or "", comment)
         return orders
 
     def _check_payment_change_allowed(self):
@@ -92,7 +106,7 @@ class PosOrder(models.Model):
         closed_orders = self.filtered(lambda x: x.session_id.state == "closed")
         if len(closed_orders):
             raise UserError(
-                _(
+                self.env._(
                     "You can not change payments of the POS '%(name)s' because"
                     " the associated session '%(session)s' has been closed!",
                     name=", ".join(closed_orders.mapped("name")),

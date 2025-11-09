@@ -103,70 +103,6 @@ class TestPosPaymentChange(TestPoSCommon):
         wizard.button_change_payment()
 
     # Test Section
-    @mute_logger("odoo.models.unlink")
-    def test_01_payment_change_policy_update(self):
-        self.pos_config.payment_change_policy = "update"
-
-        # Make a sale with 35 in cash journal and 65 in check
-        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
-
-        order_qty = len(self.PosOrder.search([]))
-
-        with self.assertRaises(UserError):
-            # Should not work if total is not correct
-            self._change_payment(
-                order, self.cash_payment_method, 10, self.cash_payment_method, 10
-            )
-
-        self._change_payment(
-            order, self.cash_payment_method, 10, self.bank_payment_method, 90
-        )
-
-        self.bank_payment = self.session.order_ids.mapped("payment_ids").filtered(
-            lambda x: x.payment_method_id == self.bank_payment_method
-        )
-        self.cash_payment = self.session.order_ids.mapped("payment_ids").filtered(
-            lambda x: x.payment_method_id == self.cash_payment_method
-        )
-        # check Session
-        self.assertEqual(
-            self.cash_payment.amount,
-            10,
-            "Bad recompute of the balance for the statement cash",
-        )
-
-        self.assertEqual(
-            self.bank_payment.amount,
-            90,
-            "Bad recompute of the balance for the statement check",
-        )
-
-        # Check Order quantity
-        self.assertEqual(
-            order_qty,
-            len(self.PosOrder.search([])),
-            "In 'Update' mode, changing payment should not create" " other PoS Orders",
-        )
-
-    def test_02_payment_change_policy_refund(self):
-        self.pos_config.payment_change_policy = "refund"
-
-        # Make a sale with 35 in cash journal and 65 in check
-        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
-
-        order_qty = len(self.PosOrder.search([]))
-
-        self._change_payment(
-            order, self.cash_payment_method, 50, self.bank_payment_method, 50
-        )
-
-        # Check Order quantity
-        self.assertEqual(
-            order_qty + 2,
-            len(self.PosOrder.search([])),
-            "In 'Refund' mode, changing payment should generate" " two new PoS Orders",
-        )
-
     def test_03_payment_change_closed_orders(self):
         self.pos_config.payment_change_policy = "update"
 
@@ -181,8 +117,231 @@ class TestPosPaymentChange(TestPoSCommon):
             )
 
     @users("test-pos-manager")
-    def test_04_payment_change_security(self):
+    def test_04_payment_change_security_01(self):
         self.pos_config.payment_change_policy = "refund"
         order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
 
+        self.assertEqual(order.state, "paid")
+        self.assertEqual(len(order.payment_ids), 2)
+        self.assertEqual(order.amount_paid, 100)
         self._change_payment(order, self.cash_payment_method, 100)
+        refund = order.mapped("lines.refund_orderline_ids.order_id")
+        self.assertEqual(refund.state, "paid")
+        self.assertEqual(len(refund.payment_ids), 2)
+        self.assertEqual(refund.amount_paid, -100)
+        cash_refund_payment = refund.payment_ids.filtered(
+            lambda x: x.payment_method_id == self.cash_payment_method
+        )
+        self.assertEqual(cash_refund_payment.amount, -35)
+        bank_refund_payment = refund.payment_ids.filtered(
+            lambda x: x.payment_method_id == self.bank_payment_method
+        )
+        self.assertEqual(bank_refund_payment.amount, -65)
+        resale_order = self.env["pos.order"].search(
+            [
+                ("pos_reference", "=", order.pos_reference),
+                ("session_id", "=", order.session_id.id),
+                ("id", "not in", (order + refund).ids),
+            ]
+        )
+        self.assertEqual(resale_order.state, "paid")
+        self.assertEqual(resale_order.amount_paid, 100)
+        self.assertEqual(len(resale_order.payment_ids), 1)
+        self.assertEqual(
+            resale_order.payment_ids.payment_method_id, self.cash_payment_method
+        )
+
+    @users("test-pos-manager")
+    def test_04_payment_change_security_02(self):
+        self.pos_config.payment_change_policy = "refund"
+        order = self._sale(self.cash_payment_method, 100)
+        self.assertEqual(order.state, "paid")
+        self.assertEqual(len(order.payment_ids), 1)
+        self.assertEqual(order.amount_paid, 100)
+        self._change_payment(order, self.bank_payment_method, 100)
+        refund = order.mapped("lines.refund_orderline_ids.order_id")
+        self.assertEqual(refund.state, "paid")
+        self.assertEqual(len(refund.payment_ids), 1)
+        self.assertEqual(refund.amount_paid, -100)
+        self.assertEqual(refund.payment_ids.payment_method_id, self.cash_payment_method)
+        resale_order = self.env["pos.order"].search(
+            [
+                ("pos_reference", "=", order.pos_reference),
+                ("session_id", "=", order.session_id.id),
+                ("id", "not in", (order + refund).ids),
+            ]
+        )
+        self.assertEqual(resale_order.state, "paid")
+        self.assertEqual(resale_order.amount_paid, 100)
+        self.assertEqual(len(resale_order.payment_ids), 1)
+        self.assertEqual(
+            resale_order.payment_ids.payment_method_id, self.bank_payment_method
+        )
+
+    @mute_logger("odoo.models.unlink")
+    def test_05_payment_change_update_invoiced_orders(self):
+        self.pos_config.payment_change_policy = "update"
+        customer = self.env["res.partner"].create({"name": "Test customer"})
+        price = 100
+        order = self.PosOrder.create(
+            {
+                "session_id": self.session.id,
+                "partner_id": customer.id,
+                "amount_tax": 0,
+                "amount_total": price,
+                "amount_paid": price,
+                "amount_return": 0,
+                "to_invoice": True,
+                "lines": [
+                    Command.create(
+                        {
+                            "name": "OL/0001",
+                            "product_id": self.product.id,
+                            "qty": 1.0,
+                            "price_unit": price,
+                            "price_subtotal": price,
+                            "price_subtotal_incl": price,
+                        }
+                    )
+                ],
+            }
+        )
+        order.add_payment(
+            {
+                "pos_order_id": order.id,
+                "amount": price,
+                "payment_date": "2026-01-01",
+                "payment_method_id": self.cash_payment_method.id,
+            }
+        )
+        order.action_pos_order_invoice()
+        self.assertEqual(order.state, "invoiced")
+        invoice = order.account_move
+        self.assertEqual(len(order.payment_ids), 1)
+        old_move = order.payment_ids.account_move_id
+        # Change payment (from cash to bank)
+        self._change_payment(order, self.bank_payment_method, 100)
+        self.assertEqual(len(order.payment_ids), 1)
+        payment = order.payment_ids
+        self.assertEqual(payment.payment_method_id, self.bank_payment_method)
+        self.assertEqual(payment.amount, 100)
+        self.assertEqual(payment.payment_date.date(), fields.Date.today())
+        self.assertFalse(old_move.exists())
+        self.assertEqual(order.state, "invoiced")
+        self.assertEqual(invoice.state, "posted")
+        self.assertEqual(invoice.payment_state, "paid")
+        new_move = order.payment_ids.account_move_id
+        self.assertEqual(new_move.state, "posted")
+        self.assertEqual(new_move.date, fields.Date.today())
+        # Change payment_again (80 cash, 20 bank)
+        self._change_payment(
+            order, self.cash_payment_method, 80, self.bank_payment_method, 20
+        )
+        self.assertFalse(new_move.exists())
+        self.assertEqual(len(order.payment_ids), 2)
+        cash_payment = order.payment_ids.filtered(
+            lambda x: x.payment_method_id == self.cash_payment_method
+        )
+        self.assertEqual(cash_payment.amount, 80)
+        cash_payment_move = cash_payment.account_move_id
+        self.assertEqual(cash_payment_move.state, "posted")
+        self.assertEqual(cash_payment_move.amount_total, 80)
+        bank_payment = order.payment_ids.filtered(
+            lambda x: x.payment_method_id == self.bank_payment_method
+        )
+        self.assertEqual(bank_payment.amount, 20)
+        bank_payment_move = bank_payment.account_move_id
+        self.assertEqual(bank_payment_move.state, "posted")
+        self.assertEqual(bank_payment_move.amount_total, 20)
+        self.assertEqual(invoice.state, "posted")
+        self.assertEqual(invoice.payment_state, "paid")
+
+    @mute_logger("odoo.models.unlink")
+    def test_06_payment_change_refund_invoiced_orders(self):
+        self.pos_config.payment_change_policy = "refund"
+        customer = self.env["res.partner"].create({"name": "Test customer"})
+        price = 100
+        order = self.PosOrder.create(
+            {
+                "session_id": self.session.id,
+                "partner_id": customer.id,
+                "amount_tax": 0,
+                "amount_total": price,
+                "amount_paid": price,
+                "amount_return": 0,
+                "to_invoice": True,
+                "lines": [
+                    Command.create(
+                        {
+                            "name": "OL/0001",
+                            "product_id": self.product.id,
+                            "qty": 1.0,
+                            "price_unit": price,
+                            "price_subtotal": price,
+                            "price_subtotal_incl": price,
+                        }
+                    )
+                ],
+            }
+        )
+        order.add_payment(
+            {
+                "pos_order_id": order.id,
+                "amount": price,
+                "payment_date": "2026-01-01",
+                "payment_method_id": self.cash_payment_method.id,
+            }
+        )
+        order.action_pos_order_invoice()
+        self.assertEqual(order.state, "invoiced")
+        invoice = order.account_move
+        self.assertEqual(len(order.payment_ids), 1)
+        old_move = order.payment_ids.account_move_id
+        # Change payment (from cash to bank)
+        self._change_payment(order, self.bank_payment_method, 100)
+        self.assertEqual(order.amount_paid, 100)
+        self.assertEqual(len(order.payment_ids), 1)
+        payment = order.payment_ids
+        self.assertEqual(payment.payment_method_id, self.cash_payment_method)
+        self.assertEqual(payment.amount, 100)
+        self.assertEqual(
+            payment.payment_date.date(), fields.Date.from_string("2026-01-01")
+        )
+        self.assertTrue(old_move.exists())
+        self.assertEqual(old_move.state, "posted")
+        self.assertEqual(order.state, "invoiced")
+        self.assertEqual(invoice.state, "posted")
+        self.assertEqual(invoice.payment_state, "paid")
+        refund = order.mapped("lines.refund_orderline_ids.order_id")
+        self.assertEqual(refund.state, "invoiced")
+        self.assertEqual(len(refund.payment_ids), 1)
+        refund_payment = refund.payment_ids
+        self.assertTrue(refund_payment.account_move_id)
+        self.assertEqual(refund_payment.account_move_id.state, "posted")
+        self.assertEqual(refund_payment.payment_method_id, self.cash_payment_method)
+        self.assertEqual(refund_payment.amount, -100)
+        self.assertEqual(refund.amount_paid, -100)
+        self.assertEqual(refund.state, "invoiced")
+        refund_invoice = refund.account_move
+        self.assertEqual(refund_invoice.move_type, "out_refund")
+        self.assertEqual(refund_invoice.state, "posted")
+        self.assertEqual(refund_invoice.payment_state, "reversed")
+        resale_order = self.env["pos.order"].search(
+            [
+                ("pos_reference", "=", order.pos_reference),
+                ("session_id", "=", order.session_id.id),
+                ("id", "not in", (order + refund).ids),
+            ]
+        )
+        self.assertEqual(resale_order.state, "invoiced")
+        self.assertEqual(resale_order.amount_paid, 100)
+        self.assertEqual(len(resale_order.payment_ids), 1)
+        resale_payment = resale_order.payment_ids
+        self.assertTrue(resale_payment.account_move_id)
+        self.assertEqual(resale_payment.account_move_id.state, "posted")
+        self.assertEqual(resale_payment.payment_method_id, self.bank_payment_method)
+        self.assertEqual(resale_payment.amount, 100)
+        extra_invoice = resale_order.account_move
+        self.assertEqual(extra_invoice.move_type, "out_invoice")
+        self.assertEqual(extra_invoice.state, "posted")
+        self.assertEqual(extra_invoice.payment_state, "paid")
