@@ -3,7 +3,7 @@
 {
     "name": "PoS Product packaging container deposit",
     "summary": "Add the container deposit fees in a POS order",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.1.0",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Camptocamp, Odoo Community Association (OCA)",

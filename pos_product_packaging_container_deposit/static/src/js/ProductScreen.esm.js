@@ -9,67 +9,67 @@ odoo.define(
                 // @Override
                 async _barcodeProductAction(code) {
                     const resp = await super._barcodeProductAction(...arguments);
-                    await this._addDepositProduct(code);
+                    const product = await this._getProductByBarcode(code);
+                    if (!product) {
+                        return resp;
+                    }
+                    const barcode_packaging =
+                        this.env.pos.db.product_packaging_by_barcode[code.base_code];
+
+                    // Load missing product packagings linked to the product
+                    await this._addMissingProductPackagings(product);
+
+                    const packagings = product.packaging_ids.map(
+                        (packagingId) =>
+                            this.env.pos.db.product_packaging_by_id[packagingId]
+                    );
+
+                    // Load container deposit packagings to model Product
+                    const container_deposit_packagings = product
+                        .getContainerDepositPackagings(packagings)
+                        .find(
+                            (packaging) => packaging.quantity <= barcode_packaging.qty
+                        );
+
+                    const container_deposit_products =
+                        container_deposit_packagings &&
+                        container_deposit_packagings.container_deposit_products;
+                    // Add container deposit products
+                    if (container_deposit_products) {
+                        await this._addContainerDepositProducts(
+                            container_deposit_products
+                        );
+                    }
                     return resp;
                 }
-                async _addDepositProduct(code) {
-                    const selectedLine = this.currentOrder.get_selected_orderline();
-                    if (!selectedLine) return;
-                    if (selectedLine.container_deposit_line_id) {
-                        // If selected line has linked to container_deposit_line_id,
-                        // the qty will be handled in set_quantity()
-                        const checkDepositLine = this.currentOrder.get_orderline(
-                            selectedLine.container_deposit_line_id
-                        );
-                        if (checkDepositLine) return;
-                    }
-                    const packaging =
-                        this.env.pos.db.product_packaging_by_barcode[code.base_code];
-                    if (
-                        !packaging ||
-                        selectedLine.product.id !== packaging.product_id[0]
-                    ) {
-                        return;
-                    }
-                    const deposit_product =
-                        this.env.pos.db.product_packaging_by_barcode[code.base_code]
-                            .container_deposit_product_id;
-                    if (!deposit_product) return;
 
-                    const currentQuantity = selectedLine.get_quantity();
-                    const packaging_qty = packaging.qty;
-                    if (packaging_qty <= 0) return;
-                    const deposit_qty = this.currentOrder._getDepositQty(
-                        currentQuantity,
-                        packaging_qty
+                async _addMissingProductPackagings(product) {
+                    const packaging_ids = product.packaging_ids;
+                    const missingPackagingsIds = packaging_ids.filter(
+                        (id) => !this.env.pos.db.product_packaging_by_id[id]
                     );
-                    if (this.env.pos.isProductQtyZero(deposit_qty)) return;
-
-                    // Add deposit to the order.
-                    let product = this.env.pos.db.get_product_by_id(deposit_product[0]);
-                    if (!product) {
-                        await this.env.pos._addProducts([deposit_product[0]], false);
-                        product = this.env.pos.db.get_product_by_id(deposit_product[0]);
+                    if (missingPackagingsIds.length) {
+                        await this.env.pos._addProductPackagings(missingPackagingsIds);
                     }
-                    const options = await this._getAddProductOptions(product);
-                    if (!options) return;
-
-                    const options_extra = await this._getDepositProductOptions(product);
-                    options_extra.deposit_packaging_qty = packaging_qty;
-                    Object.assign(options, {
-                        quantity: deposit_qty,
-                        extras: options_extra,
-                        merge: false,
-                    });
-                    // Add the product after having the extra information.
-                    await this._addProduct(product, options);
-                    const depositLine = this.currentOrder.get_selected_orderline();
-                    selectedLine.container_deposit_line_id = depositLine.id;
-                    return;
                 }
 
-                async _getDepositProductOptions() {
-                    return {is_container_deposit: true};
+                async _addContainerDepositProducts(container_deposit_products) {
+                    // In case products are not available in POS
+                    const productIds = container_deposit_products.map(
+                        (item) => item.product_id
+                    );
+                    if (!this.env.pos.db.product_by_id.hasOwnProperty(productIds)) {
+                        await this.env.pos._addProducts(productIds, false);
+                    }
+                    for (const product of container_deposit_products) {
+                        const product_obj = this.env.pos.db.get_product_by_id(
+                            product.product_id
+                        );
+                        await this._addProduct(product_obj, {
+                            quantity: product.product_qty,
+                            merge: false,
+                        });
+                    }
                 }
             };
 

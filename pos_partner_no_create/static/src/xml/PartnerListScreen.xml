@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PartnerListScreenNoCreate"
+        t-inherit="point_of_sale.PartnerListScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('new-customer')]" position="attributes">
+            <attribute name="class">oe_hidden</attribute>
+        </xpath>
+    </t>
+</templates>

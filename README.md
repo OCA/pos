@@ -57,8 +57,10 @@ addon | version | maintainers | summary
 [pos_order_to_sale_order_sale_financial_risk](pos_order_to_sale_order_sale_financial_risk/) | 16.0.1.0.1 | <a href='https://github.com/geomer198'><img src='https://github.com/geomer198.png' width='32' height='32' style='border-radius:50%;' alt='geomer198'/></a> <a href='https://github.com/CetmixGitDrone'><img src='https://github.com/CetmixGitDrone.png' width='32' height='32' style='border-radius:50%;' alt='CetmixGitDrone'/></a> | Sale Financial Risk control for Sales Orders created from POS
 [pos_partner_birthdate](pos_partner_birthdate/) | 16.0.1.0.4 | <a href='https://github.com/ecino'><img src='https://github.com/ecino.png' width='32' height='32' style='border-radius:50%;' alt='ecino'/></a> | Adds the birthdate in the customer screen of POS
 [pos_partner_firstname](pos_partner_firstname/) | 16.0.1.0.4 | <a href='https://github.com/robyf70'><img src='https://github.com/robyf70.png' width='32' height='32' style='border-radius:50%;' alt='robyf70'/></a> | POS Support of partner firstname
+[pos_partner_load_new_data](pos_partner_load_new_data/) | 16.0.1.0.0 | <a href='https://github.com/flaenen'><img src='https://github.com/flaenen.png' width='32' height='32' style='border-radius:50%;' alt='flaenen'/></a> | Load new partner data during a POS sale
 [pos_partner_location_abstract](pos_partner_location_abstract/) | 16.0.1.0.1 |  | POS Partner Location Abstract
 [pos_partner_location_google_map](pos_partner_location_google_map/) | 16.0.1.0.1 |  | POS Partner Location Google Map
+[pos_partner_no_create](pos_partner_no_create/) | 16.0.1.0.0 |  | Forbid customer creation from the POS
 [pos_partner_sale_warning](pos_partner_sale_warning/) | 16.0.1.0.0 |  | Show partner sales warning in POS
 [pos_payment_change](pos_payment_change/) | 16.0.1.0.4 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_description](pos_payment_description/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Payment description on order tree view
@@ -75,7 +77,7 @@ addon | version | maintainers | summary
 [pos_product_label](pos_product_label/) | 16.0.1.0.2 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Print product labels from the POS
 [pos_product_mergeable_line](pos_product_mergeable_line/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Allows to configure at the product level, if an order line can be merged or not.
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 16.0.1.0.2 |  | Make product multi barcodes usable in the point of sale
-[pos_product_packaging_container_deposit](pos_product_packaging_container_deposit/) | 16.0.1.0.1 |  | Add the container deposit fees in a POS order
+[pos_product_packaging_container_deposit](pos_product_packaging_container_deposit/) | 16.0.1.1.0 |  | Add the container deposit fees in a POS order
 [pos_product_packaging_multi_barcode](pos_product_packaging_multi_barcode/) | 16.0.1.0.0 |  | Make product packaging multi barcodes usable in the point of sale
 [pos_product_pricelist_alternative](pos_product_pricelist_alternative/) | 16.0.1.0.0 |  | Calculate POS product price based on alternative pricelists
 [pos_product_quick_info](pos_product_quick_info/) | 16.0.1.0.2 |  | Display product info by one click in Point of Sale
