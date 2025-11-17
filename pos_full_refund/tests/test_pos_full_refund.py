@@ -17,7 +17,7 @@ class TestPosFullRefund(TestPointOfSaleHttpCommon):
     def test_pos_full_refund(self):
         """Test that clicking 'Do Full Refund' creates a refund order with all lines."""
         # Open a POS session
-        self.main_pos_config.with_user(self.pos_user).open_ui()
+        self.main_pos_config.open_ui()
 
         # Start the tour that will:
         # 1. Create an order with multiple products
@@ -31,5 +31,5 @@ class TestPosFullRefund(TestPointOfSaleHttpCommon):
         self.start_tour(
             "/pos/ui?config_id=%d" % self.main_pos_config.id,
             "PosFullRefundTour",
-            login="pos_user",
+            login="accountman",
         )

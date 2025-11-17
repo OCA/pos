@@ -1,45 +1,27 @@
-import {TicketScreen} from "@point_of_sale/app/screens/ticket_screen/ticket_screen";
+/** @odoo-module **/
+
+import TicketScreen from "point_of_sale.TicketScreen";
 import {patch} from "@web/core/utils/patch";
 
-patch(TicketScreen.prototype, {
+patch(TicketScreen.prototype, "pos_full_refund.TicketScreen", {
     onDoFullRefund() {
-        const order = this.getSelectedOrder();
+        const order = this.getSelectedSyncedOrder();
         if (!order) {
             return;
         }
 
-        // Initialize lineToRefund if it doesn't exist
-        if (!order.uiState.lineToRefund) {
-            order.uiState.lineToRefund = {};
-        }
-
         // Set all orderlines to be fully refunded
-        for (const line of order.lines) {
+        // In Odoo 16, we use env.pos.toRefundLines instead of order.uiState.lineToRefund
+        for (const line of order.get_orderlines()) {
             const refundableQty = line.get_quantity() - line.refunded_qty;
             if (refundableQty > 0) {
-                // Set the refund quantity in the UI state
-                order.uiState.lineToRefund[line.uuid] = {
-                    qty: refundableQty,
-                    line: line,
-                };
-
-                // Handle combo lines
-                if (line.combo_line_ids && line.combo_line_ids.length > 0) {
-                    for (const comboLine of line.combo_line_ids) {
-                        const comboRefundableQty =
-                            comboLine.get_quantity() - comboLine.refunded_qty;
-                        if (comboRefundableQty > 0) {
-                            order.uiState.lineToRefund[comboLine.uuid] = {
-                                qty: comboRefundableQty,
-                                line: comboLine,
-                            };
-                        }
-                    }
-                }
+                // Get or create refund detail for this orderline
+                const toRefundDetail = this._getToRefundDetail(line);
+                toRefundDetail.qty = refundableQty;
             }
         }
 
         // Trigger the refund process
-        this.onDoRefund();
+        this._onDoRefund();
     },
 });

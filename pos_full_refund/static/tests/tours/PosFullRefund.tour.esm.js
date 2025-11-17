@@ -1,76 +1,62 @@
-import * as ProductScreen from "@point_of_sale/../tests/tours/utils/product_screen_util";
-import * as PaymentScreen from "@point_of_sale/../tests/tours/utils/payment_screen_util";
-import * as ReceiptScreen from "@point_of_sale/../tests/tours/utils/receipt_screen_util";
-import * as TicketScreen from "@point_of_sale/../tests/tours/utils/ticket_screen_util";
-import * as Chrome from "@point_of_sale/../tests/tours/utils/chrome_util";
-import * as Dialog from "@point_of_sale/../tests/tours/utils/dialog_util";
-import * as Order from "@point_of_sale/../tests/tours/utils/generic_components/order_widget_util";
-import {registry} from "@web/core/registry";
+odoo.define("pos_full_refund.tour.PosFullRefundTour", function (require) {
+    const {ProductScreen} = require("point_of_sale.tour.ProductScreenTourMethods");
+    const {PaymentScreen} = require("point_of_sale.tour.PaymentScreenTourMethods");
+    const {ReceiptScreen} = require("point_of_sale.tour.ReceiptScreenTourMethods");
+    const {TicketScreen} = require("point_of_sale.tour.TicketScreenTourMethods");
+    const {getSteps, startSteps} = require("point_of_sale.tour.utils");
+    var Tour = require("web_tour.tour");
 
-registry.category("web_tour.tours").add("PosFullRefundTour", {
-    steps: () =>
-        [
-            // Start POS and open session
-            Chrome.startPoS(),
-            Dialog.confirm("Open Register"),
+    startSteps();
 
-            // Create an order with multiple products
-            ProductScreen.addOrderline("Desk Pad", "2", "5"),
-            ProductScreen.addOrderline("Monitor Stand", "3", "4.5"),
-            ProductScreen.addOrderline("Letter Tray", "1", "5"),
+    // Start POS and open session
+    ProductScreen.do.confirmOpeningPopup();
 
-            // Verify the order has multiple lines
-            Order.hasLine({productName: "Desk Pad", quantity: "2.00"}),
-            Order.hasLine({productName: "Monitor Stand", quantity: "3.00"}),
-            Order.hasLine({productName: "Letter Tray", quantity: "1.00"}),
+    // Create an order with multiple products
+    ProductScreen.exec.addOrderline("Desk Pad", "2", "5");
+    ProductScreen.exec.addOrderline("Monitor Stand", "3", "4.5");
+    ProductScreen.exec.addOrderline("Letter Tray", "1", "5");
 
-            // Pay for the order
-            ProductScreen.clickPayButton(),
-            PaymentScreen.clickPaymentMethod("Bank"),
-            PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
-            ReceiptScreen.clickNextOrder(),
+    // Verify the order has multiple lines by checking the selected orderline
+    ProductScreen.check.selectedOrderlineHas("Letter Tray", "1.0");
 
-            // Go to refund mode
-            ...ProductScreen.clickRefund(),
+    // Pay for the order
+    ProductScreen.do.clickPayButton();
+    PaymentScreen.do.clickPaymentMethod("Bank");
+    PaymentScreen.do.clickValidate();
+    ReceiptScreen.check.isShown();
+    ReceiptScreen.do.clickNextOrder();
 
-            // Filter should be automatically 'Paid'
-            TicketScreen.filterIs("Paid"),
+    // Go to refund mode
+    ProductScreen.do.clickRefund();
 
-            // Select the order we just created
-            TicketScreen.selectOrder("-0001"),
+    // Filter should be automatically 'Paid'
+    TicketScreen.check.filterIs("Paid");
 
-            // Click the "Do Full Refund" button
-            {
-                trigger: "#set_full_refund_button",
-                run: "click",
-            },
+    // Select the order we just created
+    TicketScreen.do.selectOrder("-0001");
 
-            // Verify we're back on product screen with refund order
-            {
-                ...ProductScreen.back(),
-                isActive: ["mobile"],
-            },
-            ProductScreen.isShown(),
+    // Click the "Do Full Refund" button
+    getSteps().push({
+        trigger: "#set_full_refund_button",
+        run: "click",
+    });
 
-            // Verify all lines are in the refund order with negative quantities
-            Order.hasLine({
-                productName: "Desk Pad",
-                quantity: "-2.00",
-            }),
-            Order.hasLine({
-                productName: "Monitor Stand",
-                quantity: "-3.00",
-            }),
-            Order.hasLine({
-                productName: "Letter Tray",
-                quantity: "-1.00",
-            }),
+    // Verify we're back on product screen with refund order
+    ProductScreen.check.isShown();
 
-            // Complete the refund by paying
-            ProductScreen.clickPayButton(),
-            PaymentScreen.clickPaymentMethod("Bank"),
-            PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
-        ].flat(),
+    // Verify all lines are in the refund order with negative quantities
+    // We can check by selecting each line and verifying the quantity
+    ProductScreen.check.selectedOrderlineHas("Letter Tray", "-1.0");
+    ProductScreen.do.clickOrderline("Desk Pad", "-2.0");
+    ProductScreen.check.selectedOrderlineHas("Desk Pad", "-2.0");
+    ProductScreen.do.clickOrderline("Monitor Stand", "-3.0");
+    ProductScreen.check.selectedOrderlineHas("Monitor Stand", "-3.0");
+
+    // Complete the refund by paying
+    ProductScreen.do.clickPayButton();
+    PaymentScreen.do.clickPaymentMethod("Bank");
+    PaymentScreen.do.clickValidate();
+    ReceiptScreen.check.isShown();
+
+    Tour.register("PosFullRefundTour", {test: true, url: "/pos/ui"}, getSteps());
 });

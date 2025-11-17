@@ -2,14 +2,19 @@
 <templates id="template" xml:space="preserve">
 
     <t
-        t-name="pos_full_refund.TicketScreen"
+        t-name="TicketScreen"
         t-inherit="point_of_sale.TicketScreen"
         t-inherit-mode="extension"
+        owl="1"
     >
-        <xpath expr="//InvoiceButton" position="before">
+        <xpath
+            expr="//div[hasclass('leftpane')]//div[hasclass('control-buttons')]"
+            position="inside"
+        >
             <button
                 id="set_full_refund_button"
                 class='control-button btn btn-light rounded-0 fw-bolder'
+                t-if="_selectedSyncedOrder"
                 t-on-click="() => this.onDoFullRefund()"
             >
                 <i class="fa fa-cart-arrow-down" />
