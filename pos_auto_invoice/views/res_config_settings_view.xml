@@ -10,19 +10,14 @@ SPDX-License-Identifier: AGPL-3.0-or-later
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='pos_accounting_section']" position="inside">
-                <div class="col-12 col-lg-6 o_setting_box">
-                    <div class="o_setting_left_pane">
-                        <field name="pos_invoice_by_default" />
-                    </div>
-                    <div class="o_setting_right_pane">
-                        <label for="pos_invoice_by_default" />
-                        <div class="text-muted">
-                            Set orders as to-invoice by default
-                        </div>
-                    </div>
-                </div>
-            </xpath>
+            <block id="pos_accounting_section" position="inside">
+                <setting
+                    help="Set orders as to-invoice by default"
+                    id="invoice_by_default"
+                >
+                    <field name="pos_invoice_by_default" />
+                </setting>
+            </block>
         </field>
     </record>
 </odoo>

@@ -4,7 +4,7 @@
 {
     "name": "Point of Sale Automatically Invoice",
     "summary": "Allow to set POS orders as to-invoice by default",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Coop IT Easy SC, Odoo Community Association (OCA)",
@@ -16,8 +16,6 @@
         "views/res_config_settings_view.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_auto_invoice/static/src/js/*.js",
-        ]
+        "point_of_sale._assets_pos": ["pos_auto_invoice/static/src/**/*"],
     },
 }

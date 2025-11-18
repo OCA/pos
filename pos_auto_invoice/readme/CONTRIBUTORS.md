@@ -1,3 +1,5 @@
 - [Coop IT Easy SC](https://coopiteasy.be):
   - Carmen Bianca Bakker
   - hugues de keyzer
+- [Trobz](https://trobz.com):
+  - Tris Doan
