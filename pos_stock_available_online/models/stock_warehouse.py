@@ -15,4 +15,5 @@ class StockWarehouse(models.Model):
             "code": self.code,
             "quantity": product.with_context(warehouse=self.id).immediately_usable_qty,
             "product_id": product.id,
+            "uom_id": product.uom_id.id,
         }
