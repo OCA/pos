@@ -1,6 +1,6 @@
 {
     "name": "Point of Sale Stock Available Online",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": "Show the available quantity of products in the Point of Sale ",
     "depends": [
@@ -14,10 +14,9 @@
     "installable": True,
     "data": ["views/res_config_settings_view.xml"],
     "assets": {
+        # customer_display_assets
         "point_of_sale._assets_pos": [
-            "pos_stock_available_online/static/src/app/**/*.scss",
-            "pos_stock_available_online/static/src/app/**/*.js",
-            "pos_stock_available_online/static/src/app/**/*.xml",
+            "pos_stock_available_online/static/src/app/**/*",
         ],
     },
     "license": "AGPL-3",

@@ -50,5 +50,7 @@ class PosConfig(models.Model):
                 [config._get_channel_name(), "pos.config/product_update", message]
             )
         if notifications:
-            self.env["bus.bus"]._sendmany(notifications)
+            self.env["res.users"].search([])._bus_send(
+                "pos.config/product_update", notifications
+            )
             _logger.debug("POS notifications for %s: %s", self.ids, notifications)
