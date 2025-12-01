@@ -15,5 +15,9 @@
         "views/res_config_settings_views.xml",
     ],
     "demo": [],
-    "qweb": [],
+    "assets": {
+        "web.assets_tests": [
+            "pos_product_display_default_code/static/tests/tours/**/*",
+        ],
+    },
 }
