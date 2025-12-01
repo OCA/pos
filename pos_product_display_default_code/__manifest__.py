@@ -1,7 +1,7 @@
 {
     "name": "PoS Product Display Default Code",
     "summary": "pos: display product default code before product name",
-    "version": "16.0.1.0.1",
+    "version": "19.0.1.0.0",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Odoo Community Association (OCA), Akretion, FactorLibre",
