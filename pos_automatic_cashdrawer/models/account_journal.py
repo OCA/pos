@@ -2,7 +2,7 @@
 # Copyright (C) 2016-Today: La Louve <http://www.lalouve.net/>
 # Copyright (C) 2019 Druidoo <https://www.druidoo.io>
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class AccountJournal(models.Model):
