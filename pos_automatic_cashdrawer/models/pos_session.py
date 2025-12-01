@@ -2,7 +2,7 @@
 
 import logging
 
-from odoo import api, models, _
+from odoo import _, api, models
 from odoo.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
@@ -104,9 +104,7 @@ class PosSession(models.Model):
     @api.multi
     def action_put_money_in(self, amount, reason):
         self.ensure_one()
-        wizard = self.env["cash.box.in"].create(
-            {"amount": amount, "name": reason}
-        )
+        wizard = self.env["cash.box.in"].create({"amount": amount, "name": reason})
         wizard.with_context(active_model=self._name, active_ids=self.ids).run()
         # Return the last added line
         return (
@@ -123,9 +121,7 @@ class PosSession(models.Model):
     @api.multi
     def action_take_money_out(self, amount, reason):
         self.ensure_one()
-        wizard = self.env["cash.box.out"].create(
-            {"amount": amount, "name": reason}
-        )
+        wizard = self.env["cash.box.out"].create({"amount": amount, "name": reason})
         wizard.with_context(active_model=self._name, active_ids=self.ids).run()
         # Return the last added line
         return (
