@@ -13,7 +13,7 @@ Overloading existing PoS objects
 
 /*Fix the receipt in the non proxy mode as the order lines can now
 content multiple lines*/
-.pos .pos-right-align{
+.pos .pos-right-align {
     vertical-align: top;
 }
 
@@ -39,13 +39,13 @@ New style for new scale objects
     width: 40%;
     font-family: Inconsolata;
     font-weight: bold;
-    text-shadow: 0px 2px 0px rgb(210,210,210);
+    text-shadow: 0px 2px 0px rgb(210, 210, 210);
     margin-bottom: 0px;
 }
 
 .pos .scale-screen .weight-value-fixed {
     border-radius: 3px;
-    box-shadow: 0px 2px 0px rgb(225,225,225) inset;
+    box-shadow: 0px 2px 0px rgb(225, 225, 225) inset;
     text-align: right;
     background: white;
 }
@@ -67,5 +67,5 @@ New style for new scale objects
 
 .pos .scale-screen .input-weight:focus {
     outline: none;
-    box-shadow: 0px 0px 0px 3px #6EC89B;
+    box-shadow: 0px 0px 0px 3px #6ec89b;
 }
