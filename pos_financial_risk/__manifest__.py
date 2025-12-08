@@ -1,6 +1,6 @@
 {
     "name": "Point of Sale Financial Risk",
-    "version": "16.0.1.0.1",
+    "version": "19.0.1.0.1",
     "category": "Sales/Point of Sale",
     "summary": "Point of Sale Fonancial Risk",
     "depends": ["point_of_sale", "account_financial_risk"],
