@@ -13,10 +13,8 @@
     ],
     "installable": True,
     "assets": {
-        "point_of_sale.assets": [
-            "pos_financial_risk/static/src/js/*.js",
-            "pos_financial_risk/static/src/scss/*.scss",
-            "pos_financial_risk/static/src/xml/*.xml",
+        "point_of_sale._assets_pos": [
+            "pos_financial_risk/static/src/**/*",
         ],
     },
     "license": "AGPL-3",

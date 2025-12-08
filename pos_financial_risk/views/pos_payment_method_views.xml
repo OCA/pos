@@ -16,9 +16,9 @@
         <field name="model">pos.payment.method</field>
         <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_tree" />
         <field name="arch" type="xml">
-            <tree position="inside">
+            <list position="inside">
                 <field name="credit_limit_restricted" optional="hide" />
-            </tree>
+            </list>
         </field>
     </record>
 </odoo>
