@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="AutomaticCashdrawerInventoryDialog">
+        <Dialog size="'md'" title.translate="Cashdrawer Inventory">
+            <div class="popup-cashdrawer popup-cashdrawer-inventory">
+                <div class="total text-center">
+                    <span
+                        class="value"
+                        t-out="pos.formatCurrencyCashlogy(props.totals.total)"
+                    />
+                </div>
+                <div class="inventory-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th />
+                                <th>Recycler</th>
+                                <th>Stacker</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t
+                                t-foreach="props.sorted_values"
+                                t-as="value"
+                                t-key="value"
+                            >
+                                <tr>
+                                    <td>
+                                        <t t-out="pos.formatCurrencyCashlogy(value)" />
+                                    </td>
+                                    <td>
+                                        <t
+                                            t-out="props.inventory.recycler[value] || '-'"
+                                        />
+                                    </td>
+                                    <td>
+                                        <t
+                                            t-out="props.inventory.stacker[value] || '-'"
+                                        />
+                                    </td>
+                                    <td>
+                                        <t
+                                            t-out="props.inventory.total[value] || '-'"
+                                        />
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button
+                    class="btn btn-primary o-default-button"
+                    t-on-click="print_inventory"
+                >
+                    Print
+                </button>
+                <button class="btn btn-secondary o-default-button" t-on-click="cancel">
+                    Close
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>
