@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="AutomaticCashdrawerActionXmlReport">
+        <receipt align='center' width='40' value-thousands-separator=''>
+            <h1>Automatic Cashdrawer</h1>
+            <h3>
+                <t t-out="report.name || ''" />
+            </h3>
+
+            <!-- Header -->
+            <t t-if="report.company">
+                <t t-if='report.company.logo'>
+                    <img t-att-src='report.company.logo' />
+                    <br />
+                </t>
+                <t t-if='!report.company.logo'>
+                    <h1>
+                        <t t-out='report.company.name' />
+                    </h1>
+                    <br />
+                </t>
+            </t>
+
+            <div font='b'>
+                <div class='cashier'>
+                    <div>--------------------------------</div>
+                    <div>User: <t t-out='pos.get_cashier().name' /></div>
+                </div>
+                <div>
+                    <t t-out='report.date || (new Date()).toLocaleString()' />
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <!-- Note -->
+
+            <t t-set="lines" t-value="report.lines || []" />
+            <t t-foreach="lines" t-as="line" t-key="line">
+                <p>
+                    <t t-out="line" />
+                </p>
+            </t>
+
+            <div t-if="report.st_line" font='b'>
+                <br />
+                <div>--------------------------------</div>
+                <div>REF: <t t-out="report.st_line.ref or ''" /> (<t
+                    t-out="report.st_line.id"
+                />)</div>
+            </div>
+        </receipt>
+    </t>
+</templates>
