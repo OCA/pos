@@ -22,7 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [pos_cash_move_reason](pos_cash_move_reason/) | 15.0.1.0.0 |  | POS cash in-out reason
-[pos_default_partner](pos_default_partner/) | 15.0.1.0.0 |  | Add a default customer in pos order
+[pos_default_partner](pos_default_partner/) | 15.0.1.0.1 |  | Add a default customer in pos order
 [pos_event_sale](pos_event_sale/) | 15.0.3.1.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Sell events from Point of Sale
 [pos_event_sale_registration_qr_code](pos_event_sale_registration_qr_code/) | 15.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Print registration QR codes on Point of Sale receipts
 [pos_event_sale_session](pos_event_sale_session/) | 15.0.3.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Sell event sessions from Point of Sale
