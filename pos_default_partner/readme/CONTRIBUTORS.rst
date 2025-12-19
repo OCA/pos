@@ -4,5 +4,5 @@
 * Foram Shah <foram.shah@initos.com>
 
 * `Sygel <https://www.sygel.es>`_:
-
   * Ángel García de la Chica Herrera <angel.garcia@sygel.es>
+  * Manuel Regidor <manuel.regidor@sygel.es>
