@@ -20,12 +20,10 @@
 #
 ##############################################################################
 
-from odoo import models, fields
+from odoo import fields, models
 
 
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    iface_payment_terminal_return = fields.Boolean(
-        "Wait Payment Terminal Return"
-    )
+    iface_payment_terminal_return = fields.Boolean("Wait Payment Terminal Return")
