@@ -20,10 +20,16 @@
 #
 ##############################################################################
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
-class PosConfig(models.Model):
-    _inherit = "pos.config"
+class PosPaymentMethod(models.Model):
+    _inherit = "pos.payment.method"
 
-    iface_payment_terminal_return = fields.Boolean("Wait Payment Terminal Return")
+    oca_payment_terminal_return = fields.Boolean("Wait Payment Terminal Return")
+
+    @api.model
+    def _load_pos_data_fields(self, config_id):
+        fields = super()._load_pos_data_fields(config_id)
+        fields.extend(["oca_payment_terminal_return"])
+        return fields
