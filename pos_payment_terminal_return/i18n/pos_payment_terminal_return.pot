@@ -14,8 +14,28 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_terminal_return
+#. odoo-javascript
+#: code:addons/pos_payment_terminal_return/static/src/app/payment_terminal.esm.js:0
+msgid "Failed to payment terminal with return message: %s"
+msgstr ""
+
+#. module: pos_payment_terminal_return
+#. odoo-javascript
+#: code:addons/pos_payment_terminal_return/static/src/app/payment_terminal.esm.js:0
+msgid ""
+"Failed to send the amount to pay to the payment terminal.Press the red "
+"button on the payment terminal and try again."
+msgstr ""
+
+#. module: pos_payment_terminal_return
 #: model:ir.model,name:pos_payment_terminal_return.model_pos_config
 msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_payment_terminal_return
+#. odoo-javascript
+#: code:addons/pos_payment_terminal_return/static/src/app/payment_terminal.esm.js:0
+msgid "Unknown error"
 msgstr ""
 
 #. module: pos_payment_terminal_return

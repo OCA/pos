@@ -16,6 +16,28 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_terminal_return
+#. odoo-javascript
+#: code:addons/pos_payment_terminal_return/static/src/app/payment_terminal.esm.js:0
+msgid "Failed to payment terminal with return message: %s"
+msgstr "Échec du terminal de paiement avec le message de retour : %s"
+
+#. module: pos_payment_terminal_return
+#. odoo-javascript
+#: code:addons/pos_payment_terminal_return/static/src/app/payment_terminal.esm.js:0
+msgid ""
+"Failed to send the amount to pay to the payment terminal.Press the red "
+"button on the payment terminal and try again."
+msgstr ""
+"Échec de l’envoi du montant à payer au terminal de paiement. "
+"Appuyez sur le bouton rouge du terminal de paiement et réessayez."
+
+#. module: pos_payment_terminal_return
+#. odoo-javascript
+#: code:addons/pos_payment_terminal_return/static/src/app/payment_terminal.esm.js:0
+msgid "Unknown error"
+msgstr "Erreur inconnue"
+
+#. module: pos_payment_terminal_return
 #: model:ir.model.fields,field_description:pos_payment_terminal_return.field_pos_config_iface_payment_terminal_return
 msgid "Wait Payment Terminal Return"
 msgstr "Attendre le retour du terminal de paiement"

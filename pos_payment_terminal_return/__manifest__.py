@@ -21,16 +21,22 @@
 
 {
     "name": "POS Payment Terminal Return",
-    "version": "12.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Manage Payment Terminal device from POS front end with return",
-    "author": "Julius Network Solutions, Druidoo",
+    "author": "Julius Network Solutions, Druidoo, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/pos",
     "contributors": "Mathieu Vatel <mathieu@julius.fr>",
     "license": "AGPL-3",
     "depends": ["point_of_sale", "pos_payment_terminal"],
     "data": [
         "views/pos_payment_terminal_view.xml",
-        "views/templates.xml",
     ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "pos_payment_terminal_return/static/src/app/*",
+            "pos_payment_terminal_return/static/src/overrides/**/*",
+        ],
+    },
     "installable": True,
 }
