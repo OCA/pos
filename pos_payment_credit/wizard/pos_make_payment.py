@@ -4,10 +4,10 @@ from odoo import fields, models
 
 
 class PosMakePayment(models.TransientModel):
-    _inherit = 'pos.make.payment'
+    _inherit = "pos.make.payment"
 
     is_credit = fields.Boolean(
         string="Allow to add credit for members",
         related="journal_id.is_credit",
-        readonly=True
+        readonly=True,
     )

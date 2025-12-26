@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright since 2009 Trobz (<https://trobz.com/>).
@@ -22,11 +21,9 @@ from odoo import api, fields, models
 
 
 class AccountBankStatementLine(models.Model):
-    _inherit = 'account.bank.statement.line'
+    _inherit = "account.bank.statement.line"
 
-    partner_id = fields.Many2one(
-        inverse="_inverse_partner_id"
-    )
+    partner_id = fields.Many2one(inverse="_inverse_partner_id")
 
     @api.multi
     def _inverse_partner_id(self):
@@ -34,6 +31,7 @@ class AccountBankStatementLine(models.Model):
         Update the credit amount
         """
         lines = self.filtered(
-            lambda l: l.amount and l.partner_id and l.journal_id.is_credit)
+            lambda l: l.amount and l.partner_id and l.journal_id.is_credit
+        )
         for line in lines:
             line.sudo().partner_id.credit_amount -= line.amount

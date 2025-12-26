@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright since 2009 Trobz (<https://trobz.com/>).
@@ -22,7 +21,7 @@ from odoo import fields, models
 
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
+    _inherit = "res.partner"
 
     credit_amount = fields.Float(
         string="Available Credit",
@@ -32,20 +31,19 @@ class ResPartner(models.Model):
     credit_line_ids = fields.Many2many(
         comodel_name="account.bank.statement.line",
         string="Credit History",
-        compute="_compute_credit_line"
+        compute="_compute_credit_line",
     )
 
     def _compute_credit_line(self):
-        credit_journals = self.env['account.journal'].sudo().search([
-            ('is_credit', '=', True)
-        ])
+        credit_journals = (
+            self.env["account.journal"].sudo().search([("is_credit", "=", True)])
+        )
         for partner in self:
-            lines = ABSLine= self.env['account.bank.statement.line']
+            lines = ABSLine = self.env["account.bank.statement.line"]
             if credit_journals:
                 args = [
-                    ('partner_id', '=', partner.id),
-                    ('journal_id', 'in', credit_journals.ids)
+                    ("partner_id", "=", partner.id),
+                    ("journal_id", "in", credit_journals.ids),
                 ]
                 lines = ABSLine.sudo().search(args)
             partner.credit_line_ids = lines
-

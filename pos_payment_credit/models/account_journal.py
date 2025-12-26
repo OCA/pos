@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Copyright since 2009 Trobz (<https://trobz.com/>).
@@ -22,8 +21,6 @@ from odoo import fields, models
 
 
 class AccountJournal(models.Model):
-    _inherit = 'account.journal'
+    _inherit = "account.journal"
 
-    is_credit = fields.Boolean(
-        string="Allow to add credit for members"
-    )
+    is_credit = fields.Boolean(string="Allow to add credit for members")
