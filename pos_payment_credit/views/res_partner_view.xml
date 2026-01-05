@@ -7,7 +7,7 @@
             <xpath expr="//page[@name='accounting']" position="before">
                 <page string="Credit" name="page_credit">
                     <group name="payment_credit_amount">
-                        <field name="credit_amount" />
+                        <field name="credit_amount" readonly="1" />
                     </group>
                     <group
                         name="payment_credit_history"

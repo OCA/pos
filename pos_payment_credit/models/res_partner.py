@@ -17,7 +17,7 @@
 #
 ##############################################################################
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ResPartner(models.Model):
@@ -25,25 +25,35 @@ class ResPartner(models.Model):
 
     credit_amount = fields.Float(
         string="Available Credit",
-        digits=0,
-        readonly=True,
     )
     credit_line_ids = fields.Many2many(
-        comodel_name="account.bank.statement.line",
+        comodel_name="pos.payment",
         string="Credit History",
         compute="_compute_credit_line",
+        compute_sudo=True,
     )
 
+    @api.depends("credit_amount")
     def _compute_credit_line(self):
-        credit_journals = (
-            self.env["account.journal"].sudo().search([("is_credit", "=", True)])
-        )
+        """
+        Compute credit transaction history
+        """
         for partner in self:
-            lines = ABSLine = self.env["account.bank.statement.line"]
-            if credit_journals:
-                args = [
+            # Get all credit payments for this partner
+            credit_payments = self.env["pos.payment"].search(
+                [
                     ("partner_id", "=", partner.id),
-                    ("journal_id", "in", credit_journals.ids),
-                ]
-                lines = ABSLine.sudo().search(args)
-            partner.credit_line_ids = lines
+                    ("payment_method_id.use_payment_terminal", "=", "credit"),
+                ],
+                order="payment_date desc",
+            )
+            partner.credit_line_ids = credit_payments
+
+    @api.model
+    def _load_pos_data_fields(self, config_id):
+        """
+        Load credit_amount field in POS
+        """
+        params = super()._load_pos_data_fields(config_id)
+        params += ["credit_amount"]
+        return params

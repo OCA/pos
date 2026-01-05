@@ -1,4 +1,3 @@
-from . import account_bank_statement_line
-from . import account_journal
+from . import pos_payment
+from . import pos_payment_method
 from . import res_partner
-from . import pos_config

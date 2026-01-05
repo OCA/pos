@@ -1,27 +1,27 @@
-# Copyright 2016-2018 Sylvain LE GAL (https://twitter.com/legalsylvain)
-# Copyright 2018 David Vidal <david.vidal@tecnativa.com>
-# Copyright 2018 Lambda IS DOOEL <https://www.lambda-is.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
     "name": "Point of Sale Payment Credit",
-    "version": "12.0.1.0.2",
+    "version": "18.0.1.0.0",
     "category": "Point Of Sale",
-    "author": "Trobz",
+    "author": "Trobz, Odoo Community Association (OCA)",
+    "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": [
         "point_of_sale",
     ],
     "data": [
-        "data/account_journal_data.xml",
-        "views/assets.xml",
-        "views/account_journal_view.xml",
+        "views/payment_method_view.xml",
         "views/res_partner_view.xml",
-        "views/pos_config.xml",
-        "wizard/pos_make_payment_view.xml",
     ],
-    "qweb": [
-        "static/src/xml/pos.xml",
+    "demo": [
+        "demo/pos_payment_credit_demo.xml",
     ],
+    "assets": {
+        "point_of_sale._assets_pos": [
+            "pos_payment_credit/static/src/app/*",
+            "pos_payment_credit/static/src/overrides/**/*",
+        ],
+    },
     "installable": True,
 }

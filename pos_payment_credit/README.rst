@@ -28,14 +28,63 @@ Point of Sale Payment Credit
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module extends the functionality of Point of Sale.
+This module enables POS payment methods to function as payment terminals
+for handling customer credit. It allows:
 
-Allow using the credit amount from the return pos order.
+1. **Refunds**: When refunding a POS order, the refunded amount is added
+   to the customer's credit balance
+2. **Payments**: Customers can pay for new orders using their
+   accumulated credit balance
+3. **Terminal Integration**: Credit payments work like payment terminals
+   with real-time balance updates
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+Setting Up Credit Payment Method
+--------------------------------
+
+1. Navigate to **Point of Sale > Configuration > Payment Methods**
+2. Create or edit a payment method
+3. Set **"Integration"** to **"Terminal"**
+4. Set **"Use a Payment Terminal"** to **"Credit"**
+5. (Optional) Enable **"Automatic Pay by Credit Amount"** to auto-apply
+   credit
+6. Save and add to POS configuration
+7. Restart POS session to apply changes
+
+Usage
+=====
+
+Processing a Refund
+-------------------
+
+::
+
+   Customer returns item → Employee processes refund in POS
+   → Select credit payment method for refund
+   → System calls /pos_payment_credit/refund endpoint
+   → Credit amount added to customer profile
+   → Success message shows new balance
+
+Making a Payment with Credit
+----------------------------
+
+::
+
+   Customer selects products → Total is $120
+   → Customer credit balance: $150
+   → Employee selects credit payment method
+   → System validates sufficient balance
+   → Confirmation dialog displays before/after balance
+   → System calls /pos_payment_credit/payment endpoint  
+   → Credit deducted from customer profile
+   → Order completed successfully
 
 Bug Tracker
 ===========
@@ -58,7 +107,10 @@ Authors
 Contributors
 ------------
 
-- Trobz <`https://www.trobz.com\\> <https://www.trobz.com\>>`__
+-  Trobz <https://www.trobz.com>
+
+   -  Phan Hong Phuc <phucph@trobz.com>
+   -  Nguyễn Minh Chiến <chien@trobz.com>
 
 Maintainers
 -----------
