@@ -1,5 +1,6 @@
-In "Point of Sale" configuration "Product Quantity" section activate "Display Product Quantity" feature:  
-![image](../static/img/pos_config.png)
+In "Point of Sale" configuration "Product Quantity" section activate "Display Product Quantity" feature:
+
+![Pos Config](../static/img/pos_config.png)
 
 By default quantity is displayed for the warehouse that is used in the
 POS stock operation type.

@@ -1,0 +1,40 @@
+.pos .product-list {
+    .warehouse-info {
+        padding: 0.5rem;
+        font-weight: bold;
+        display: flex;
+        border-top: 1px solid #efefef;
+        justify-content: space-between;
+
+        .warehouse {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .quantity {
+                color: black;
+                padding: 1px 2px;
+                font-size: 11px;
+            }
+
+            .warehouse-name {
+                display: block;
+                color: #696969;
+                font-size: 10px;
+            }
+
+            .quantity.available {
+                color: #32a868;
+            }
+
+            .quantity.not-available {
+                color: #ef5350;
+            }
+        }
+
+        .warehouse.total .warehouse-name {
+            font-weight: bold;
+        }
+    }
+}
