@@ -1,0 +1,6 @@
+- [Acysos S.L.](https://www.acysos.com):
+  - Ignacio Ibeas
+- [Tecnativa](https://www.tecnativa.com)
+  - David Vidal
+- [ACSONE SA/NV](https://acsone.eu):
+  - Bejaoui Souheil
