@@ -1,0 +1,1 @@
+odoo-addon-pos_payment_terminal @ git+https://github.com/OCA/pos.git@refs/pull/1474/head#subdirectory=pos_payment_terminal
