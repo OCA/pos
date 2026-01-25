@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2017 - Today: GRAP (http://www.grap.coop)
+@author Sylvain LE GAL (https://twitter.com/legalsylvain)
+@author Quentin DUPONT (https://twitter.com/pondupont)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="view_pos_session_form" model="ir.ui.view">
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form" />
+        <field name="arch" type="xml">
+            <!-- Improve views -->
+            <field name="config_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </field>
+
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                <button
+                    name="open_cashbox_opening"
+                    class="oe_stat_button"
+                    attrs="{'invisible':['|', ('cash_control', '=', False), ('state', '!=', 'opening_control')]}"
+                    icon="fa-money"
+                    type="object"
+                    context="{'balance': 'start'}"
+                >
+                    <span class="o_stat_text">Set Opening Balance</span>
+                </button>
+            </xpath>
+
+            <!-- Add new session button on closing-->
+            <xpath expr="//header" position="inside">
+                <button
+                    name="action_pos_session_new_session"
+                    type="object"
+                    string="New Session"
+                    class="oe_highlight"
+                    attrs="{'invisible' : [('state', '!=', 'closed')]}"
+                />
+            </xpath>
+
+            <!-- Theoritical Summary -->
+            <xpath
+                expr="//page[@name='cash_control']/group/group/div"
+                position="attributes"
+            >
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath
+                expr="//page[@name='cash_control']/group/group/div"
+                position="before"
+            >
+                <div style="margin:0;padding:0;">
+                    <group style="margin:0;padding:0;">
+                        <field
+                            name="control_register_balance_start"
+                            readonly="1"
+                            style="text-align:right;margin:0;padding:0;"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                    <group
+                        style="margin:0;padding:0;"
+                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
+                    >
+                        <label
+                            for="control_register_total_entry_encoding"
+                            string="+ Transactions"
+                        />
+                        <field
+                            name="control_register_total_entry_encoding"
+                            nolabel="1"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                    <group
+                        style="margin:0;padding:0;"
+                        attrs="{'invisible' : [('state', '=', 'opening_control')]}"
+                    >
+                        <label
+                            for="control_register_balance_end"
+                            string="Theoretical Closing Balances"
+                        />
+                        <field
+                            name="control_register_balance_end"
+                            nolabel="1"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                    <group
+                        style="margin:0;padding:0;"
+                        attrs="{'invisible': ['|', ('cash_control', '=', False), ('state', '=', 'opening_control')]}"
+                    >
+                        <field
+                            name="control_register_balance"
+                            string="Real Closing Balance"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                        <field
+                            name="control_register_difference"
+                            widget="monetary"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                    </group>
+                </div>
+            </xpath>
+
+            <!--  Summary by Payment Methods -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Payment Methods" name="payment_methods">
+                    <field
+                        name="summary_statement_ids"
+                        nolabel="1"
+                        colspan="4"
+                        attrs="{'invisible': [('state', 'in', ['opening_control'])], 'readonly': 1}"
+                    >
+                        <tree
+                            decoration-muted="is_pos_control == False and state != 'closed'"
+                            decoration-danger="is_pos_control == True and control_difference != 0"
+                        >
+                            <field name="is_pos_control" invisible="1" />
+                            <field name="pos_session_state" invisible="1" />
+                            <field name="name" />
+                            <field name="journal_id" />
+                            <field name="balance_start" />
+                            <button
+                                name="open_cashbox_starting_balance"
+                                help="Set your starting balance"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}"
+                            >
+                            </button>
+                            <field name="total_entry_encoding" />
+                            <field name="balance_end_real" />
+                            <button
+                                name="open_cashbox_ending_balance"
+                                help="Set your ending balance"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-money"
+                                attrs="{'invisible' : ['|', ('is_pos_control','!=', True), ('pos_session_state', 'in', ['opening_control','closed'])]}"
+                            >
+                            </button>
+                            <field name="control_difference" />
+                            <field
+                                name="currency_id"
+                                groups="base.group_multi_currency"
+                            />
+                            <field name="state" invisible="1" />
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="name" />
+                                <field name="journal_id" />
+                                <field name="state" invisible="1" />
+                            </group>
+                            <field name="line_ids" colspan="2">
+                                <tree string="Transactions">
+                                    <field name="date" />
+                                    <field name="ref" />
+                                    <field name="name" />
+                                    <field name="partner_id" />
+                                    <field name="amount" sum="Total" />
+                                </tree>
+                            </field>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+
+            <!-- Automatic solve -->
+            <field name="control_difference" position="after">
+                <field name="pos_session_state" invisible="1" />
+                <field name="display_autosolve" invisible="1" />
+            </field>
+            <field name="control_difference" position="after">
+                <button
+                    name="automatic_solve"
+                    help="Solve difference automatically with a product choosen in pos config"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-cogs"
+                    confirm="Do you really want to solve this difference automatically ?"
+                    attrs="{'invisible':[
+                    ('display_autosolve', '!=', True)]}"
+                >
+                </button>
+            </field>
+        </field>
+    </record>
+
+</odoo>
