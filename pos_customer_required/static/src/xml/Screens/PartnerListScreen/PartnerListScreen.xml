@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2025 CoopITEasy - Simon Hick <sim@coopiteasy.be>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html) -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="PartnerListScreenNoCreate"
+        t-inherit="point_of_sale.PartnerListScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <!-- Removes the ability to go back, forcing the user to select a partner
+             to exit the screen when the config has been set to 'order'.  -->
+        <xpath expr="//div[hasclass('back')]" position="attributes">
+            <attribute name="t-att-class">
+                {"oe_hidden": env.pos.config.require_customer == 'order'}
+            </attribute>
+        </xpath>
+    </t>
+</templates>

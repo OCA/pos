@@ -3,11 +3,12 @@
 # Copyright 2019 Druidoo - (https://www.druidoo.io)
 # Copyright 2022 NuoBiT - Eric Antones <eantones@nuobit.com>
 # Copyright 2022 NuoBiT - Kilian Niubo <kniubo@nuobit.com>
+# Copyright 2025 CoopITEasy - Simon Hick <sim@coopiteasy.be>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 {
     "name": "Point of Sale Require Customer",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of Sale Require Customer",
     "author": "Apertoso NV, La Louve, NuoBiT, Odoo Community Association (OCA)",
@@ -17,9 +18,14 @@
         "point_of_sale",
     ],
     "data": [
-        "views/assets.xml",
         "views/pos_config_view.xml",
         "views/pos_order_view.xml",
+        "views/res_config_settings_views.xml",
     ],
-    "installable": True,
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_customer_required/static/src/js/**/*.js",
+            "pos_customer_required/static/src/xml/**/*.xml",
+        ],
+    },
 }
