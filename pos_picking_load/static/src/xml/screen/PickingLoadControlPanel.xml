@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PickingLoadControlPanel" owl="1">
+        <div class="control-panel">
+            <div
+                class="item button back"
+                t-on-click="() => this.trigger('close-screen')"
+            >
+                <i class="fa fa-angle-double-left" />
+                <span>Back</span>
+            </div>
+            <div class="item search-box">
+                <span class="icon">
+                    <i class="fa fa-search" />
+                </span>
+                <input
+                    type="text"
+                    t-ref="autofocus"
+                    t-model="orderManagementContext.searchString"
+                    t-on-keydown="onInputKeydown"
+                    placeholder="Search Picking"
+                />
+                <span class="clear" t-on-click="() => this.trigger('clear-search')">
+                    <i class="fa fa-remove" />
+                </span>
+            </div>
+            <div
+                t-if="this.props.initHighlightedOrder"
+                class="item button validate picking-button highlight"
+                t-on-click="() => this.trigger('select-picking')"
+            >
+                <i class="fa fa-arrow-circle-o-right" />
+                Select
+            </div>
+        </div>
+    </t>
+</templates>

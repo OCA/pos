@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="LoadPickingScreenWidget" owl="1">
+        <div class="pickinglist-screen screen">
+            <div class="rightpane">
+                <div class="flex-container">
+                    <PickingLoadControlPanel initHighlightedOrder="pos_picking_load" />
+                    <PickingLoadList
+                        orders="orders"
+                        initHighlightedOrder="pos_picking_load"
+                    />
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

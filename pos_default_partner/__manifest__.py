@@ -5,7 +5,7 @@
     "name": "Point Of Sale Default Partner",
     "summary": "Add a default customer in pos order",
     "license": "AGPL-3",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "author": "Akretion, FactorLibre, Odoo Community Association (OCA)",
     "maintainer": "Akretion",
     "category": "Point of sale",
@@ -13,4 +13,9 @@
     "data": ["views/res_config_settings_view.xml"],
     "website": "https://github.com/OCA/pos",
     "installable": True,
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_default_partner/static/src/js/**/*.js",
+        ]
+    },
 }

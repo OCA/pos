@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PartnerListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//th[text()='Address']" position="attributes">
+            <attribute name="t-if">false</attribute>
+        </xpath>
+        <xpath expr="//th[hasclass('partner-line-email')]" position="attributes">
+            <attribute name="t-if">false</attribute>
+        </xpath>
+        <xpath expr="//th[text()='ZIP']" position="attributes">
+            <attribute name="t-if">false</attribute>
+        </xpath>
+    </t>
+
+</templates>

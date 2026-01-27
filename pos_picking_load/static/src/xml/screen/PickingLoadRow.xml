@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PickingLoadRow" owl="1">
+        <div
+            class="order-row"
+            t-att-class="{ highlight: isHighlighted }"
+            t-on-click="() => this.trigger('click-sale-order', props.order)"
+        >
+            <div class="col name">
+                <div>
+                    <t t-esc="name" />
+                </div>
+            </div>
+            <div class="col customer">
+                <div>
+                    <t t-esc="customer" />
+                </div>
+            </div>
+            <div class="col scheduled_date">
+                <div>
+                    <t t-esc="scheduled_date" />
+                </div>
+            </div>
+            <div class="col source_document">
+                <div>
+                    <t t-esc="origin" />
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

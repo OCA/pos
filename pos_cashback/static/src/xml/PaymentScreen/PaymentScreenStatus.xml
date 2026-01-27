@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2022 - Today Sylvain LE GAL
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PaymentScreenStatus" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('payment-status-container')]" position="after">
+            <div
+                class="cashback-message-container"
+                t-if="props.order.get_extradue_cashback() > 0"
+            >
+                <i class='fa fa-warning' />
+                This will generate a cashback of <t
+                    t-esc='env.pos.format_currency(props.order.get_extradue_cashback())'
+                />
+            </div>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,298 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * pos_picking_load
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-11 09:49+0000\n"
+"PO-Revision-Date: 2019-07-11 09:49+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:274
+#, python-format
+msgid ""
+"A picking is still loaded. You can not load another picking. Please create a "
+"new order."
+msgstr ""
+"Un BL est déjà chargé. Vous ne pouvez pas en charger un autre. Veuillez "
+"créer une nouvelle commande."
+
+#. module: pos_picking_load
+#: model:ir.model.fields,field_description:pos_picking_load.field_stock_picking_type__available_in_pos
+msgid "Available in Point Of Sale"
+msgstr "Disponible dans le point de vente"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:243
+#, python-format
+msgid "Can not execute this action because the POS is currently offline"
+msgstr ""
+"Impossible de réaliser cette action car le point de vente est actuellement "
+"hors ligne"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:25
+#, python-format
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:242
+#, python-format
+msgid "Connection error"
+msgstr "Erreur de connexion"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:51
+#, python-format
+msgid "Customer"
+msgstr "Client"
+
+#. module: pos_picking_load
+#: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
+msgid "Enable the possibility to load pickings in the Point of Sale"
+msgstr ""
+"Activer la possibilité de charger des bons de livraison dans le point de "
+"vente"
+
+#. module: pos_picking_load
+#: model:ir.model.fields,field_description:pos_picking_load.field_sale_order__final_pos_order_id
+#: model:ir.model.fields,field_description:pos_picking_load.field_stock_picking__final_pos_order_id
+msgid "Final PoS Order"
+msgstr "Commande Finale"
+
+#. module: pos_picking_load
+#: model:ir.model.fields,help:pos_picking_load.field_stock_picking_type__available_in_pos
+msgid ""
+"If checked, associated pickings will be available in the point of sale, to "
+"be changed and paid in it"
+msgstr ""
+"Si la case est cochée, toutes les bons de livraisons associés seront "
+"disponible dans le point de vente, pour ere changé et payé au sein de celui-"
+"ci"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:285
+#, python-format
+msgid "Load Picking"
+msgstr "Charger un bon de livraison"
+
+#. module: pos_picking_load
+#: model:ir.model.fields,field_description:pos_picking_load.field_pos_config__iface_load_picking
+#: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
+msgid "Load Pickings"
+msgstr "Charger des bons de livraison"
+
+#. module: pos_picking_load
+#: model:ir.model.fields,field_description:pos_picking_load.field_pos_config__iface_load_picking_max_qty
+#: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
+msgid "Max Picking Quantity To Load"
+msgstr "Quantité maximum de BL à charger"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:50
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: pos_picking_load
+#: model:ir.model.fields,field_description:pos_picking_load.field_pos_order__origin_picking_id
+msgid "Origin Picking"
+msgstr "Livraison d'origine"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:72
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:80
+#, python-format
+msgid "Origin Picking:"
+msgstr "BL d'origine:"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:273
+#, python-format
+msgid "Pending Picking"
+msgstr "BL en cours"
+
+#. module: pos_picking_load
+#: model_terms:ir.ui.view,arch_db:pos_picking_load.view_pos_config_form
+msgid "Picking Load"
+msgstr "Chargement de bon de livraison"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:150
+#: code:addons/pos_picking_load/static/src/js/widget.js:166
+#, python-format
+msgid "Picking Still Loaded"
+msgstr "Bon de livraison déjà chargé"
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_stock_picking_type
+msgid "Picking Type"
+msgstr "Type de préparation"
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Paramétrage du point de vente"
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Commandes du point de vente"
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_sale_order
+msgid "Sale Order"
+msgstr "Bon de commande"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:52
+#, python-format
+msgid "Scheduled Date"
+msgstr "Date prévue"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:33
+#, python-format
+msgid "Search Picking"
+msgstr "Chercher un bon de livraison"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:29
+#, python-format
+msgid "Select"
+msgstr "Sélectionner"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:235
+#, python-format
+msgid "Server Error"
+msgstr "Erreur serveur"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/xml/pos_picking_load.xml:53
+#, python-format
+msgid "Source Document"
+msgstr "Document d'origine"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:236
+#, python-format
+msgid "The server encountered an error while receiving your order."
+msgstr ""
+"Le serveur a rencontré une erreur lors de la réception de votre commande."
+
+#. module: pos_picking_load
+#: model:ir.model.fields,help:pos_picking_load.field_sale_order__final_pos_order_id
+msgid "This Sale Order has beend replaced by this PoS Order"
+msgstr ""
+"Ce bon de commande a été remplacé par cette commande via le point de vente"
+
+#. module: pos_picking_load
+#: model:ir.model.fields,help:pos_picking_load.field_stock_picking__final_pos_order_id
+msgid ""
+"This picking has been canceled, because it has been replaced by this PoS "
+"Order"
+msgstr ""
+"Ce bon de livraison a été annulé, car il a été remplacé par cette commande "
+"via le point de vente"
+
+#. module: pos_picking_load
+#: model:ir.model,name:pos_picking_load.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:119
+#, python-format
+msgid ""
+"Unable to load some picking lines because the products are not available in "
+"the POS cache.\n"
+"\n"
+"Please check that lines :\n"
+"\n"
+"  * "
+msgstr ""
+"Impossible de charger certaines lignes du bon de livraison car certains "
+"produits ne sont pas disponibles dans le point de vente.\n"
+"\n"
+"Merci de vérifier les lignes suivantes :\n"
+"\n"
+"  * "
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:167
+#, python-format
+msgid ""
+"Unable to load this picking because it has been loaded in another confirmed "
+"PoS Order :\n"
+"\n"
+msgstr ""
+"Impossible de charger ce bon de livraison car il a déjà été chargé dans une "
+"autre commande confirmée :\n"
+"\n"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:151
+#, python-format
+msgid ""
+"Unable to load this picking because it has been loaded in another draft PoS "
+"Order :\n"
+"\n"
+msgstr ""
+"Impossible de charger ce bon de livraison car il a déjà été chargé dans une "
+"autre commande en cours :\n"
+"\n"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:137
+#, python-format
+msgid ""
+"Unable to load this picking because the partner is not known in the Point Of "
+"Sale as a customer"
+msgstr ""
+"Impossible de charger ce bon de livraison car ce partenaire n'est pas "
+"reconnu dans le point de vente comme un client"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:136
+#, python-format
+msgid "Unknown Partner"
+msgstr "Partenaire inconnu"
+
+#. module: pos_picking_load
+#. openerp-web
+#: code:addons/pos_picking_load/static/src/js/widget.js:118
+#, python-format
+msgid "Unknown Products"
+msgstr "Produits inconnus"

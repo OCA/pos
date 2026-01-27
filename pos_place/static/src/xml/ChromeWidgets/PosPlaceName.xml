@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="PosPlaceName" owl="1">
+        <div class="oe_status" t-on-click="selectPosPlace">
+            <span>
+                <img src="/pos_place/static/img/place_icon.png" class="avatar" />
+                <span t-if="!env.isMobile" t-esc="placename" />
+                <span t-if="env.isMobile" t-esc="placecode" />
+            </span>
+        </div>
+    </t>
+
+</templates>

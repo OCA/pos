@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="PickingLoadList" owl="1">
+        <div class="orders">
+            <div class="header-row">
+                <div class="col name">Name</div>
+                <div class="col customer">Customer</div>
+                <div class="col scheduled_date">Scheduled Date</div>
+                <div class="col source_document">Source Document</div>
+            </div>
+            <div class="order-list">
+                <t t-foreach="props.orders" t-as="order" t-key="order.id">
+                    <PickingLoadRow order="order" highlightedOrder="highlightedOrder" />
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

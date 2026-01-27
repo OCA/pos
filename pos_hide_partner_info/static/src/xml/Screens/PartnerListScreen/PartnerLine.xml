@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//td/t[@t-esc='shortAddress']/.." position="attributes">
+            <attribute name="t-if">false</attribute>
+        </xpath>
+        <xpath expr="//td[hasclass('partner-line-email')]" position="attributes">
+            <attribute name="t-if">false</attribute>
+        </xpath>
+        <xpath
+            expr="//td/t[@t-esc=&quot;props.partner.zip or ''&quot;]/.."
+            position="attributes"
+        >
+            <attribute name="t-if">false</attribute>
+        </xpath>
+    </t>
+
+</templates>

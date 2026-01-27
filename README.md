@@ -25,25 +25,28 @@ addon | version | maintainers | summary
 [pos_auto_invoice](pos_auto_invoice/) | 16.0.1.0.0 |  | Allow to set POS orders as to-invoice by default
 [pos_bypass_global_discount](pos_bypass_global_discount/) | 16.0.1.0.1 |  | POS Bypass Global Discount
 [pos_cash_control_override](pos_cash_control_override/) | 16.0.1.0.0 |  | Override bare PoS user cash control restrictions
+[pos_cashback](pos_cashback/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Point of Sale - Cashback
 [pos_category_complete_name](pos_category_complete_name/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Adds the complete name field on the pos category field.
 [pos_config_logo](pos_config_logo/) | 16.0.1.0.0 |  | Set logotypes different from the company's one
 [pos_container_deposit](pos_container_deposit/) | 16.0.1.0.0 |  | This module is used to manage container deposits for products in Point of Sale.
 [pos_customer_comment](pos_customer_comment/) | 16.0.1.0.3 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Display Customer comment in the PoS front office and allow to edit and save it by the cashier
 [pos_customer_tree_view_vat](pos_customer_tree_view_vat/) | 16.0.1.0.1 | <a href='https://github.com/mileo'><img src='https://github.com/mileo.png' width='32' height='32' style='border-radius:50%;' alt='mileo'/></a> | Point of Sale: Show VAT number at Customer Tree View
 [pos_daily_sales_reports_category_only](pos_daily_sales_reports_category_only/) | 16.0.1.0.1 |  | Show Sales Reports by Category
-[pos_default_partner](pos_default_partner/) | 16.0.1.0.1 |  | Add a default customer in pos order
+[pos_default_partner](pos_default_partner/) | 16.0.1.0.2 |  | Add a default customer in pos order
 [pos_discount_all](pos_discount_all/) | 16.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Display discount amount on PoS cashier screen and print it on ticketcalculated from the difference between a sale with default pricelist
 [pos_edit_order_line](pos_edit_order_line/) | 16.0.1.0.1 |  | POS Edit Order Line
 [pos_escpos_status](pos_escpos_status/) | 16.0.1.0.1 |  | Point of sale: fetch status for 'escpos' driver
 [pos_financial_risk](pos_financial_risk/) | 16.0.1.0.1 | <a href='https://github.com/geomer198'><img src='https://github.com/geomer198.png' width='32' height='32' style='border-radius:50%;' alt='geomer198'/></a> <a href='https://github.com/CetmixGitDrone'><img src='https://github.com/CetmixGitDrone.png' width='32' height='32' style='border-radius:50%;' alt='CetmixGitDrone'/></a> | Point of Sale Fonancial Risk
 [pos_global_discount_in_line](pos_global_discount_in_line/) | 16.0.1.0.1 |  | Order discount in line instead of discount product
 [pos_hide_banknote_button](pos_hide_banknote_button/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Hide useless Banknote buttons in the PoS (+10, +20, +50)
+[pos_hide_partner_info](pos_hide_partner_info/) | 16.0.1.0.0 |  | Hide phone and address fields in PoS customer list
 [pos_hr_access_right](pos_hr_access_right/) | 16.0.1.0.1 | <a href='https://github.com/adasatorres'><img src='https://github.com/adasatorres.png' width='32' height='32' style='border-radius:50%;' alt='adasatorres'/></a> | Point of Sale HR - Extra Access Right for certain actions
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.1 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.1 |  | POS Lot Selection
 [pos_loyalty_exclude](pos_loyalty_exclude/) | 16.0.1.0.1 |  | Exclude products from sale loyalty program in POS
 [pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.2 |  | Use vouchers as payment method in pos orders
 [pos_margin](pos_margin/) | 16.0.1.0.2 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Margin on PoS Order
+[pos_margin_stored](pos_margin_stored/) | 16.0.1.0.0 | <a href='https://github.com/quentinDupont'><img src='https://github.com/quentinDupont.png' width='32' height='32' style='border-radius:50%;' alt='quentinDupont'/></a> | Margin Stored on PoS Order and Pos Order Line
 [pos_meal_voucher](pos_meal_voucher/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Handle meal vouchers in Point of Sale with eligible amount and max amount
 [pos_membership](pos_membership/) | 16.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Implement features of membership module in the Point of sale UI.
 [pos_membership_extension](pos_membership_extension/) | 16.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Prevent to sale product in the point of sale to customer that don't belong to membership categories
@@ -71,6 +74,8 @@ addon | version | maintainers | summary
 [pos_payment_terminal](pos_payment_terminal/) | 16.0.1.0.3 |  | Point of sale: support generic payment terminal
 [pos_payment_usability](pos_payment_usability/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Improve payment screen in the PoS front office
 [pos_picking_delayed](pos_picking_delayed/) | 16.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Delay the creation of the picking when PoS order is created
+[pos_picking_load](pos_picking_load/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Load and confirm stock pickings via Point Of Sale
+[pos_place](pos_place/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Define places on PoS orders
 [pos_price_to_weight](pos_price_to_weight/) | 16.0.1.0.0 |  | Compute weight based on barcodes with prices
 [pos_pricelist_technical](pos_pricelist_technical/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Prevent technical pricelists from being displayed in the Point of Sale front-end UI
 [pos_product_display_default_code](pos_product_display_default_code/) | 16.0.1.0.1 |  | pos: display product default code before product name
@@ -89,6 +94,7 @@ addon | version | maintainers | summary
 [pos_receipt_vat_detail](pos_receipt_vat_detail/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Add Vat Details on Receipt (base and vat amounts).
 [pos_report_session_summary](pos_report_session_summary/) | 16.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
 [pos_reset_search](pos_reset_search/) | 16.0.1.0.0 | <a href='https://github.com/fkawala'><img src='https://github.com/fkawala.png' width='32' height='32' style='border-radius:50%;' alt='fkawala'/></a> | Point of Sale - Clear product search when user clicks on a product.
+[pos_restaurant_receipt_usability](pos_restaurant_receipt_usability/) | 16.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Improve receipt screen in the PoS Restaurant front office
 [pos_sale_order_print](pos_sale_order_print/) | 16.0.1.0.2 |  | Print multiple sale orders in POS
 [pos_sale_product_config_no_variant](pos_sale_product_config_no_variant/) | 16.0.1.0.1 | <a href='https://github.com/ursais'><img src='https://github.com/ursais.png' width='32' height='32' style='border-radius:50%;' alt='ursais'/></a> | Manage Point Of Sale via Configurator of no variant
 [pos_screen_element_custom_size](pos_screen_element_custom_size/) | 16.0.1.0.0 |  | Set custom size for POS screen elements
