@@ -70,7 +70,9 @@ class ProductProduct(models.Model):
                 # Only include lots with quantity > 0 at this location
                 rounding = lot.product_uom_id.rounding
                 if float_compare(available_qty, 0, rounding) > 0:
-                    available_lots.append(lot._get_pos_info(location_id))
+                    lot_info = lot._get_pos_info()
+                    lot_info["quantity"] = available_qty
+                    available_lots.append(lot_info)
 
             return available_lots
         else:
