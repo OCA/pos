@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     Copyright 2025 Nathan Kirui
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl) -->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.EditListPopup" t-inherit-mode="extension">
+        <EditListInput position="attributes">
+            <attribute name="lots">data.lots</attribute>
+        </EditListInput>
+    </t>
+
+    <!-- Keep input but enhance with datalist and prevent typing -->
+    <t t-inherit="point_of_sale.EditListInput" t-inherit-mode="extension">
+        <xpath expr="//input" position="attributes">
+            <attribute name="list">prepared_lots</attribute>
+            <attribute
+                name="placeholder"
+            >Click to select from available lots...</attribute>
+            <attribute name="autocomplete">off</attribute>
+            <attribute name="t-on-keydown">onKeyDown</attribute>
+        </xpath>
+        <xpath expr="//input" position="after">
+            <datalist id="prepared_lots">
+                <t t-if="props.lots">
+                    <!-- Display lots with quantity information -->
+                    <option
+                        t-foreach="props.lots"
+                        t-as="lot"
+                        t-key="lot_index"
+                        t-att-value="lot.name"
+                        t-att-label="get_lot_name(lot)"
+                    >
+                        <t t-esc="get_lot_name(lot)" />
+                    </option>
+                </t>
+            </datalist>
+            <!-- Warning message if no lots available -->
+            <t t-if="props.lots and props.lots.length === 0">
+                <div
+                    class="alert alert-warning"
+                    style="margin: 10px 0; font-size: 12px;"
+                >
+                    <i class="fa fa-exclamation-triangle" />
+                    <strong>No lots available</strong><br />
+                    Please contact your manager to create lot numbers.
+                </div>
+            </t>
+        </xpath>
+    </t>
+
+</templates>
