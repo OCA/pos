@@ -17,10 +17,8 @@ class StockLot(models.Model):
             at that location
         :return: Dictionary with lot information
         """
-        result = {
-            "id": self.id,
-            "name": self.name,
-        }
+        # Call parent method to get base lot info
+        result = super()._get_pos_info()
 
         # If location is specified, include the available quantity
         # at that location
