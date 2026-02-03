@@ -175,6 +175,11 @@ class TestPosLotSelectionStockAware(TransactionCase):
         self.assertEqual(lot2_info["quantity"], 5.0)
 
     def test_get_location_quantity_helper(self):
-        """Test _get_location_quantity helper method"""
+        """Test _get_location_quantity helper method directly"""
+        # Test getting quantity at specific location
         qty = self.lot1._get_location_quantity(self.location.id)
         self.assertEqual(qty, 10.0)
+
+        # Test with lot2
+        qty2 = self.lot2._get_location_quantity(self.location.id)
+        self.assertEqual(qty2, 5.0)
