@@ -173,3 +173,8 @@ class TestPosLotSelectionStockAware(TransactionCase):
         lot2_info = next((lot for lot in lots if lot["name"] == "LOT002"), None)
         self.assertIsNotNone(lot2_info)
         self.assertEqual(lot2_info["quantity"], 5.0)
+
+    def test_get_location_quantity_helper(self):
+        """Test _get_location_quantity helper method"""
+        qty = self.lot1._get_location_quantity(self.location.id)
+        self.assertEqual(qty, 10.0)
