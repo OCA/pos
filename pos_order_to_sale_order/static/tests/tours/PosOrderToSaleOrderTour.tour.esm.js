@@ -20,7 +20,7 @@ registry.category("web_tour.tours").add("PosOrderToSaleOrderTour", {
             ProductScreen.addOrderline("Wall Shelf Unit", "1"),
             ProductScreen.addCustomerNote("Product Note"),
             ProductScreen.clickPartnerButton(),
-            ProductScreen.clickCustomer("Addison Olson"),
+            ProductScreen.clickCustomer("Pos Partner"),
             PosOrderToSaleOrderScreen.clickCreateOrderButton(),
             PosOrderToSaleOrderScreen.clickCreateInvoicedOrderButton(),
             ProductScreen.closePos(),

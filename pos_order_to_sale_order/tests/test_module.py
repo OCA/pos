@@ -9,6 +9,18 @@ from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCom
 
 @tagged("post_install", "-at_install")
 class TestUi(TestPointOfSaleHttpCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        # partner
+        cls.pos_partner = cls.env["res.partner"].create(
+            {
+                "name": "Pos Partner",
+                "is_company": False,
+                "email": "let@it.be",
+            }
+        )
+
     def test_pos_order_to_sale_order(self):
         self.main_pos_config.with_user(self.pos_user).open_ui()
 
@@ -22,18 +34,18 @@ class TestUi(TestPointOfSaleHttpCommon):
             )
 
         before_orders = self.env["sale.order"].search(
-            [("partner_id", "=", self.env.ref("base.res_partner_address_31").id)],
+            [("partner_id", "=", self.pos_partner.id)],
             order="id",
         )
 
         self.start_tour(
-            f"/pos/ui?config_id={self.main_pos_config.id}",
+            f"/pos/ui/{self.main_pos_config.id}",
             "PosOrderToSaleOrderTour",
             login="accountman",
         )
 
         after_orders = self.env["sale.order"].search(
-            [("partner_id", "=", self.env.ref("base.res_partner_address_31").id)],
+            [("partner_id", "=", self.pos_partner.id)],
             order="id",
         )
 

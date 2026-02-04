@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import api, models
+from odoo.fields import Command
 
 
 class SaleOrderLine(models.Model):
@@ -16,7 +17,7 @@ class SaleOrderLine(models.Model):
             "product_uom_qty": order_line_data["qty"],
             "discount": order_line_data["discount"],
             "price_unit": order_line_data["price_unit"],
-            "tax_id": order_line_data["tax_ids"],
+            "tax_ids": [Command.set(order_line_data["tax_ids"])],
         }
 
     def _get_sale_order_line_multiline_description_sale(self):

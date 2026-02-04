@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import Command, _, api, fields, models
+from odoo import Command, api, fields, models
 
 
 class SaleOrder(models.Model):
@@ -27,7 +27,7 @@ class SaleOrder(models.Model):
         return {
             "partner_id": order_data["partner_id"],
             "pos_session_id": session_id,
-            "origin": _("Point of Sale %s") % (session.name),
+            "origin": self.env._("Point of Sale %s", session.name),
             "client_order_ref": order_data["name"],
             "user_id": order_data["user_id"],
             "pricelist_id": order_data["pricelist_id"],
@@ -51,7 +51,7 @@ class SaleOrder(models.Model):
         # mark picking as delivered
         if action in ["delivered", "invoiced"]:
             # Mark all moves are delivered
-            for move in sale_order.mapped("picking_ids.move_ids_without_package"):
+            for move in sale_order.mapped("picking_ids.move_ids"):
                 move.quantity = move.product_uom_qty
             sale_order.mapped("picking_ids").button_validate()
 
