@@ -15,6 +15,9 @@
         "web.assets_tests": [
             "pos_loyalty_exclude/static/src/tours/**/*",
         ],
+        "point_of_sale.assets": [
+            "pos_loyalty_exclude/static/src/js/**/*",
+        ],
     },
     "auto_install": True,
 }
