@@ -5,7 +5,7 @@
     "name": "Pos Attachment",
     "summary": """
         Add attachments on a point of sale order""",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "license": "AGPL-3",
     "development_status": "Alpha",
     "author": "Dixmit,Invitu,Odoo Community Association (OCA)",

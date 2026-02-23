@@ -31,6 +31,7 @@ addon | version | maintainers | summary
 [pos_lot_selection](pos_lot_selection/) | 17.0.1.0.1 |  | POS Lot Selection
 [pos_margin](pos_margin/) | 17.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Margin on PoS Order
 [pos_open_cashbox_after_payment](pos_open_cashbox_after_payment/) | 17.0.1.0.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> | Allways Open the cashbox when a payment is made
+[pos_order_attachment](pos_order_attachment/) | 17.0.1.0.1 |  | Add attachments on a point of sale order
 [pos_order_copy](pos_order_copy/) | 17.0.1.0.0 |  | Copy Orders from PoS Frontend
 [pos_order_split_invoice](pos_order_split_invoice/) | 17.0.1.0.0 |  | Allow to generate a secondary invoice from a point of sale order for a second partner
 [pos_order_to_sale_order](pos_order_to_sale_order/) | 17.0.1.0.1 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | PoS Order To Sale Order

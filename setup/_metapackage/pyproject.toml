@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "17.0.20260118.0"
+version = "17.0.20260223.0"
 dependencies = [
     "odoo-addon-pos_cash_control_extension>=17.0dev,<17.1dev",
     "odoo-addon-pos_cash_move_reason>=17.0dev,<17.1dev",
@@ -12,6 +12,7 @@ dependencies = [
     "odoo-addon-pos_lot_selection>=17.0dev,<17.1dev",
     "odoo-addon-pos_margin>=17.0dev,<17.1dev",
     "odoo-addon-pos_open_cashbox_after_payment>=17.0dev,<17.1dev",
+    "odoo-addon-pos_order_attachment>=17.0dev,<17.1dev",
     "odoo-addon-pos_order_copy>=17.0dev,<17.1dev",
     "odoo-addon-pos_order_split_invoice>=17.0dev,<17.1dev",
     "odoo-addon-pos_order_to_sale_order>=17.0dev,<17.1dev",
