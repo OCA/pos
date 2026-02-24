@@ -6,35 +6,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-02-24 07:48+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Azione richiesta"
 
 #. module: pos_order_attachment
 #. odoo-javascript
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Add Attachment"
-msgstr ""
+msgstr "Aggiungi allegato"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Conteggio allegati"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__attachment_ids
 msgid "Attachment that don't come from message."
-msgstr ""
+msgstr "Allegato che non viene dal messaggio."
 
 #. module: pos_order_attachment
 #. odoo-javascript
@@ -48,26 +50,26 @@ msgstr ""
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Attachments"
-msgstr ""
+msgstr "Allegati"
 
 #. module: pos_order_attachment
 #. odoo-javascript
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Close"
-msgstr ""
+msgstr "Chiudi"
 
 #. module: pos_order_attachment
 #. odoo-javascript
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.esm.js:0
 #, python-format
 msgid "Delete attachment?"
-msgstr ""
+msgstr "Cancellare allegato?"
 
 #. module: pos_order_attachment
 #: model_terms:ir.ui.view,arch_db:pos_order_attachment.pos_order_form_view
 msgid "Documents"
-msgstr ""
+msgstr "Documenti"
 
 #. module: pos_order_attachment
 #. odoo-javascript
@@ -76,100 +78,100 @@ msgstr ""
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Download"
-msgstr ""
+msgstr "Scarica"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Seguito da"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Seguito da (partner)"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "Ha un messaggio"
 
 #. module: pos_order_attachment
 #: model_terms:ir.ui.view,arch_db:pos_order_attachment.pos_order_attachment_filter_view
 msgid "Has attachments"
-msgstr ""
+msgstr "Ha allegati"
 
 #. module: pos_order_attachment
 #: model_terms:ir.ui.view,arch_db:pos_order_attachment.pos_order_attachment_filter_view
 msgid "Has no attachments"
-msgstr ""
+msgstr "Non ha allegati"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Se selezionata, nuovi messaggi richiedono attenzione."
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__message_has_error
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
-msgstr ""
+msgstr "Se selezionata, alcuni messaggi hanno un errore di consegna."
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_is_follower
 msgid "Is Follower"
-msgstr ""
+msgstr "Segue"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__attachment_ids
 msgid "Main_Attachments"
-msgstr ""
+msgstr "Main_Attachments"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Errore di consegna messaggio"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_ids
 msgid "Messages"
-msgstr ""
+msgstr "Messaggi"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Numero di azioni"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__doc_count
 msgid "Number of documents attached"
-msgstr ""
+msgstr "Numero di documenti allegati"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Numero di errori"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__message_needaction_counter
 msgid "Number of messages requiring action"
-msgstr ""
+msgstr "Numero di messaggi che richiedono un'azione"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr ""
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: pos_order_attachment
 #: model:ir.model,name:pos_order_attachment.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Ordini punto vendita"
 
 #. module: pos_order_attachment
 #. odoo-javascript
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Preview"
-msgstr ""
+msgstr "Anteprima"
 
 #. module: pos_order_attachment
 #. odoo-javascript
@@ -179,12 +181,12 @@ msgstr ""
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Remove"
-msgstr ""
+msgstr "Rimuovi"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__message_has_sms_error
 msgid "SMS Delivery error"
-msgstr ""
+msgstr "Errore consegna SMS"
 
 #. module: pos_order_attachment
 #. odoo-javascript
@@ -194,6 +196,8 @@ msgid ""
 "This operation will permanently delete the attachment. You will lose all the"
 " data. This operation cannot be undone."
 msgstr ""
+"Questa operazione eliminerà definitivamente l'allegato. Si perderanno tutti "
+"i dati. Questa operazione non può essere annullata."
 
 #. module: pos_order_attachment
 #. odoo-javascript
@@ -201,7 +205,7 @@ msgstr ""
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "Uploading"
-msgstr ""
+msgstr "Caricamento"
 
 #. module: pos_order_attachment
 #. odoo-javascript
@@ -209,14 +213,14 @@ msgstr ""
 #: code:addons/pos_order_attachment/static/src/app/utils/attachment_popup/attachment_popup.xml:0
 #, python-format
 msgid "View image"
-msgstr ""
+msgstr "Visualizza immagine"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,field_description:pos_order_attachment.field_pos_order__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Messaggi sito web"
 
 #. module: pos_order_attachment
 #: model:ir.model.fields,help:pos_order_attachment.field_pos_order__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Cronologia comunicazioni sito web"
