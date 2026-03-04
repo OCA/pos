@@ -3,8 +3,8 @@
 {
     "name": "POS Session Sequence",
     "summary": "Generates a sequence of POS sessions",
-    "version": "17.0.1.0.0",
-    "category": "Uncategorized",
+    "version": "18.0.1.0.0",
+    "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Antoni Marroig, APSL-Nagarro, Odoo Community Association (OCA)",
     "maintainers": ["peluko00"],
