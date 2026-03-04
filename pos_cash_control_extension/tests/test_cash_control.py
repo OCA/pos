@@ -1,10 +1,10 @@
 # Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import TransactionCase
+from odoo.addons.base.tests.common import BaseCommon
 
 
-class SomethingCase(TransactionCase):
+class TestCashControl(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -15,7 +15,7 @@ class SomethingCase(TransactionCase):
                 "user_id": cls.env.ref("base.user_admin").id,
             }
         )
-        cls.session_id.set_cashbox_pos(150.0, "")
+        cls.session_id._set_opening_control_data(150.0, "")
         cls.session_id.try_cash_in_out("in", 20.0, "In", {"translatedType": "in"})
 
     def test_pos_session_closing_control(self):

@@ -3,7 +3,7 @@
 {
     "name": "Cash Control Extension",
     "summary": "This module extends the cash in/out control",
-    "version": "17.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "POS",
     "author": "Antoni Marroig Campomar, APSL-Nagarro, Odoo Community Association (OCA)",
     "maintainers": ["peluko00"],

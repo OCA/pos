@@ -1,17 +1,51 @@
 # Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from odoo import models
+from odoo import fields, models
+from odoo.tools import plaintext2html
 
 
 class PosSession(models.Model):
     _inherit = "pos.session"
 
-    def set_cashbox_pos(self, cashbox_value: int, notes: str):
+    def _set_opening_control_data(self, cashbox_value: int, notes: str):
         self.state = "opened"
-        self.opening_notes = notes
-        self.cash_register_balance_start = cashbox_value
-        self._post_cash_details_message("Opening", 0.0, notes)
+        self.start_at = fields.Datetime.now()
+
+        cash_payment_method_ids = self.config_id.payment_method_ids.filtered(
+            lambda pm: pm.is_cash_count
+        )
+        if notes:
+            self.opening_notes = notes
+        if cash_payment_method_ids:
+            self._post_cash_details_message(
+                "Opening cash", self.cash_register_balance_start, 0.0, notes
+            )
+            self.cash_register_balance_start = cashbox_value
+        elif notes:
+            message = self.env._("Opening control message: ")
+            message += notes
+            self.message_post(body=plaintext2html(message))
+
+    def _post_cash_details_message(self, state, expected, difference, notes):
+        expected_formatted = self.currency_id.format(expected)
+        difference_formatted = self.currency_id.format(difference)
+        counted_formatted = self.currency_id.format(expected + difference)
+
+        if state == "Opening cash":
+            message = self.env._("Opening cash difference: %s \n", difference_formatted)
+            message += self.env._("Opening cash expected: %s \n", expected_formatted)
+            message += self.env._("Opening cash counted: %s \n", counted_formatted)
+        else:
+            message = self.env._("Closing difference: %s \n", 0.0)
+            message += self.env._("Closing expected: %s \n", counted_formatted)
+            message += self.env._("Closing counted: %s \n", counted_formatted)
+
+        if notes:
+            message += self.env._("Opening control message: ")
+            message += notes
+        if message:
+            self.message_post(body=plaintext2html(message))
 
     def get_closing_control_data(self):
         res = super().get_closing_control_data()
@@ -43,7 +77,7 @@ class PosSession(models.Model):
             )
         return res
 
-    def _post_statement_difference(self, amount, is_opening):
+    def _post_statement_difference(self, amount):
         pass
 
     def post_closing_cash_details(self, counted_cash):
