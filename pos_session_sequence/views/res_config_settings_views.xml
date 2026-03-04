@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
             <xpath expr="//block[@id='pos_interface_section']" position="inside">
-               <setting help="Generation of your sessions references">
+                <setting help="Generation of your sessions references">
                     <field name="pos_session_sequence_id" readonly="0" />
                 </setting>
             </xpath>
