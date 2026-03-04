@@ -11,7 +11,7 @@ class PosConfig(models.Model):
         return self.env.ref("point_of_sale.seq_pos_session").id
 
     session_sequence_id = fields.Many2one(
-        "ir.sequence",
+        comodel_name="ir.sequence",
         string="Session IDs Sequence",
         help="This sequence is automatically created by Odoo but you can change it "
         "to customize the reference numbers of your sessions.",
