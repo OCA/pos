@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+<!--
+Copyright 2026 Bernat Obrador APSL-Nagarro
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+
+    <t
+        t-name="pos_hide_cash_control.ClosePosPopup"
+        t-inherit="point_of_sale.ClosePosPopup"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[contains(@class, 'total-orders')]" position="attributes">
+            <attribute name="t-if">this.canSeeClosingAmounts</attribute>
+        </xpath>
+
+        <xpath
+            expr="//button[contains(@class, 'icon fa fa-clone btn btn-secondary')]"
+            position="attributes"
+        >
+            <attribute name="t-if">this.canSeeClosingAmounts</attribute>
+        </xpath>
+
+        <xpath expr="//div[@class='payment-methods-overview']" position="attributes">
+            <attribute name="t-if">this.canSeeClosingAmounts</attribute>
+        </xpath>
+
+        <xpath
+            expr="//button[contains(@class, 'button icon btn btn-secondary')]"
+            position="attributes"
+        >
+            <attribute name="t-if">this.canSeeClosingAmounts</attribute>
+        </xpath>
+    </t>
+</templates>

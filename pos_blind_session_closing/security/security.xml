@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_pos_close_session_amounts" model="res.groups">
+        <field name="name">Can see POS closing amounts</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+</odoo>
