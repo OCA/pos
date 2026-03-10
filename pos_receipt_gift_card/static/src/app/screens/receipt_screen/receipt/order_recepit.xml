@@ -1,0 +1,55 @@
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_receipt_gift_card.OrderReceipt"
+        t-inherit="point_of_sale.OrderReceipt"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//div[hasclass('pos-receipt')]//div[hasclass('before-footer')]"
+            position="inside"
+        >
+            <t t-if="props.data.giftCardData and props.data.giftCardData.length > 0">
+                <div class="pos-gift-card">
+                    <div>------------------------</div>
+                    <br />
+                    <div>
+                        Gift Card Codes
+                    </div>
+                    <t
+                        t-foreach="props.data.giftCardData"
+                        t-as="gift_card"
+                        t-key="gift_card.code"
+                    >
+                        <div class="gift-card-container">
+                            <div>
+                                <span>Balance: </span>
+                                <t t-if="gift_card.points_display">
+                                    <t t-esc="gift_card.points_display" />
+                                </t>
+                            </div>
+                            <div>
+                                <img
+                                    t-att-src="'/report/barcode/Code128/'+gift_card.code"
+                                    style="width:300px;height:80px"
+                                    alt="Barcode"
+                                />
+                            </div>
+                            <div>
+                                <t t-esc="gift_card.code" />
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+
+         <xpath expr="//div[hasclass('coupon-container')]//img" position="attributes">
+             <attribute
+                name="style"
+                add="width:300px;height:80px;"
+                remove="width:250px;height:62px"
+                separator=" "
+            />
+         </xpath>
+    </t>
+</templates>
