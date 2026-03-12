@@ -8,6 +8,12 @@ from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCom
 
 @odoo.tests.tagged("post_install", "-at_install")
 class TestDivideOrderSummary(TestPointOfSaleHttpCommon):
+    # TODO: Delete if merged https://github.com/odoo/odoo/pull/240587
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.pos_user.groups_id += cls.env.ref("base.group_system")
+
     def test_divide_order_summary(self):
         self.main_pos_config.with_user(self.pos_user).open_ui()
         self.start_tour(
