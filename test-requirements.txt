@@ -1,0 +1,1 @@
+odoo-addon-point_of_sale @ git+https://github.com/odoo/odoo.git@refs/pull/253001/head#subdirectory=point_of_sale
