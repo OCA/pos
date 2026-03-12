@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "Keep sale pickings from PoS",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
     "author": "Tecnativa, Odoo Community Association (OCA)",
