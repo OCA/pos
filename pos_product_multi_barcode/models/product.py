@@ -4,7 +4,7 @@
 
 import json
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class ProductProduct(models.Model):
@@ -19,3 +19,10 @@ class ProductProduct(models.Model):
         for product in self:
             barcodes = [barcode for barcode in product.mapped("barcode_ids.name")]
             product.barcodes_json = json.dumps(barcodes)
+
+    @api.model
+    def _load_pos_data_fields(self, config_id):
+        fields = super()._load_pos_data_fields(config_id)
+        if "barcodes_json" not in fields:
+            fields.append("barcodes_json")
+        return fields
