@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_config_view_form_offline" model="ir.ui.view">
+        <field name="name">pos.config.form.offline</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting
+                    string="Offline Mode"
+                    help="Keep the POS working without internet connection"
+                >
+                    <field name="offline_enabled" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

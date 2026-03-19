@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="15" fill="#714B67"/>
+  <text x="50" y="45" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">POS</text>
+  <text x="50" y="70" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" dominant-baseline="middle">OFFLINE</text>
+  <line x1="20" y1="85" x2="80" y2="85" stroke="white" stroke-width="2" stroke-dasharray="5,3"/>
+</svg>
