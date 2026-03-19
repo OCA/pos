@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -34,6 +34,8 @@ msgid "If set, this logo will be used instead of the company's one"
 msgstr ""
 
 #. module: pos_config_logo
+#. odoo-javascript
+#: code:addons/pos_config_logo/static/src/xml/receipt_header.xml:0
 #: model:ir.model.fields,field_description:pos_config_logo.field_pos_config__logo
 #: model:ir.model.fields,field_description:pos_config_logo.field_res_config_settings__pos_config_logo
 msgid "Logo"
