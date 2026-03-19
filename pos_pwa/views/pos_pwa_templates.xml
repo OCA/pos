@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Extend POS index to add PWA manifest and service worker registration -->
+    <template
+        id="pos_pwa_header"
+        inherit_id="point_of_sale.index"
+        name="POS PWA Header"
+    >
+        <xpath expr="//link[@rel='icon']" position="after">
+            <link rel="manifest" href="/pos/manifest.webmanifest" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta
+                name="apple-mobile-web-app-status-bar-style"
+                content="black-translucent"
+            />
+            <meta name="theme-color" content="#714B67" />
+        </xpath>
+
+        <xpath expr="//script[contains(@type, 'text/javascript')]" position="before">
+            <script type="text/javascript">
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+        .register("/pos/service-worker.js", {scope: "/pos"})
+        .then(function (reg) {
+            console.info("POS Service Worker registered with scope:", reg.scope);
+        })
+        .catch(function (err) {
+            console.warn("POS Service Worker registration failed:", err);
+        });
+}
+            </script>
+        </xpath>
+    </template>
+
+    <!-- Offline fallback page template -->
+    <template id="pos_offline_page" name="POS Offline Page">
+        <html>
+            <head>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>POS - Offline</title>
+                <style>
+                body {
+                    background: #222;
+                    color: #fff;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    margin: 0;
+                    text-align: center;
+                }
+                .container {
+                    max-width: 400px;
+                    padding: 2rem;
+                }
+                h1 { color: #714B67; font-size: 1.5rem; }
+                p { color: #aaa; line-height: 1.6; }
+                button {
+                    background: #714B67;
+                    color: white;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 1rem;
+                    margin-top: 1rem;
+                }
+                button:hover { background: #8b5e7e; }
+            </style>
+            </head>
+            <body>
+                <div class="container">
+                    <h1>POS Offline</h1>
+                    <p
+                    >You are currently offline. Please check your internet connection and try again.</p>
+                    <p
+                    >If you have previously opened the POS, it should load from cache automatically.</p>
+                    <button onclick="window.location.reload()">Retry</button>
+                </div>
+            </body>
+        </html>
+    </template>
+</odoo>
