@@ -29,7 +29,7 @@ class PosPWAController(http.Controller):
         )
 
     @http.route(
-        "/pos/manifest.webmanifest",
+        ["/pos/manifest.webmanifest", "/pos/pwa_manifest"],
         type="http",
         auth="public",
         methods=["GET"],
