@@ -37,10 +37,15 @@ class PosPWAController(http.Controller):
     )
     def pos_manifest(self):
         """Return the PWA manifest for the POS application."""
+        import json
+
         manifest = self._get_pos_manifest()
-        return request.make_json_response(
-            manifest,
-            headers={"Content-Type": "application/manifest+json"},
+        body = json.dumps(manifest)
+        return request.make_response(
+            body,
+            headers=[
+                ("Content-Type", "application/manifest+json"),
+            ],
         )
 
     def _get_pos_manifest(self):
