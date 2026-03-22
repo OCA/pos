@@ -7,7 +7,7 @@
         name="POS PWA Header"
     >
         <xpath expr="//link[@rel='icon']" position="after">
-            <link rel="manifest" t-att-href="'/pos/pwa_manifest'" />
+            <link rel="manifest" t-att-href="'/pos/manifest.webmanifest'" />
             <meta name="mobile-web-app-capable" content="yes" />
             <meta
                 name="apple-mobile-web-app-status-bar-style"
