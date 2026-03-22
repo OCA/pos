@@ -1,0 +1,3 @@
+- Add 192x192 and 512x512 PNG icons for full PWA install support
+- Pre-cache POS assets during Service Worker install event
+- Add configurable PWA name and icon in POS config settings

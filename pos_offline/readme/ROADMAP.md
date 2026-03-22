@@ -1,0 +1,5 @@
+- Delta sync on reconnection (only fetch changed records since last cache)
+- Multi-currency cash register support for offline sessions
+- Cache barcode nomenclature in IndexedDB for offline scanning
+- Offline indicator banner in the POS UI
+- Block session close when pending orders exist
