@@ -29,7 +29,7 @@ class PosPWAController(http.Controller):
         )
 
     @http.route(
-        ["/pos/manifest.webmanifest", "/pos/pwa_manifest"],
+        ["/pos/pwa_manifest", "/pos/manifest.webmanifest"],
         type="http",
         auth="public",
         methods=["GET"],
@@ -81,5 +81,16 @@ class PosPWAController(http.Controller):
         readonly=True,
     )
     def pos_offline(self):
-        """Offline fallback page for the POS."""
-        return request.render("pos_pwa.pos_offline_page")
+        """Offline fallback page - served as static HTML.
+
+        This page is pre-cached by the Service Worker during install.
+        It must not depend on QWeb rendering (server may be unreachable).
+        """
+        with file_open("pos_pwa/static/src/html/offline.html") as f:
+            body = f.read()
+        return request.make_response(
+            body,
+            headers=[
+                ("Content-Type", "text/html; charset=utf-8"),
+            ],
+        )
