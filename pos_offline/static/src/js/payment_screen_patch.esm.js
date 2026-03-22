@@ -1,6 +1,7 @@
 /** @odoo-module */
 
 import {PaymentScreen} from "@point_of_sale/app/screens/payment_screen/payment_screen";
+import {serializeDateTime} from "@web/core/l10n/dates";
 import {_t} from "@web/core/l10n/translation";
 import {patch} from "@web/core/utils/patch";
 
@@ -51,7 +52,6 @@ patch(PaymentScreen.prototype, {
             this.hardwareProxy.openCashbox();
         }
 
-        const {serializeDateTime} = await import("@web/core/l10n/dates");
         this.currentOrder.date_order = serializeDateTime(luxon.DateTime.now());
 
         for (const line of this.paymentLines) {
