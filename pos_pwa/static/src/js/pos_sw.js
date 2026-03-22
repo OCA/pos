@@ -34,7 +34,10 @@
         },
         images: {
             match: function (url) {
-                return /\.(png|jpg|jpeg|gif|ico|svg|webp)(\?.*)?$/.test(url.pathname);
+                return (
+                    /\.(png|jpg|jpeg|gif|ico|svg|webp)(\?.*)?$/.test(url.pathname) ||
+                    url.pathname.startsWith("/web/image")
+                );
             },
             strategy: "cache-first",
         },

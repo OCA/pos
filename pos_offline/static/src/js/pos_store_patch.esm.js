@@ -206,4 +206,13 @@ patch(PosStore.prototype, {
             this.pendingOrder.delete.size > 0
         );
     },
+
+    // ===== Offline-safe permission check =====
+
+    async allowProductCreation() {
+        if (this.data.network.offline) {
+            return false;
+        }
+        return super.allowProductCreation();
+    },
 });
