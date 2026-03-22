@@ -1,5 +1,5 @@
 /** @odoo-module */
-/* global console, navigator, setTimeout, setInterval, clearInterval */
+/* global console, navigator, window, setTimeout, setInterval, clearInterval */
 
 import {ConnectionLostError} from "@web/core/network/rpc";
 import {PosStore} from "@point_of_sale/app/store/pos_store";
@@ -10,7 +10,7 @@ const PENDING_ORDERS_STORE = "_pending_orders";
 // Retry configuration
 const RETRY_INITIAL_DELAY = 1000;
 const RETRY_MAX_DELAY = 60000;
-const RETRY_CHECK_INTERVAL = 30000;
+const RETRY_CHECK_INTERVAL = 10000;
 
 patch(PosStore.prototype, {
     async setup(env, services) {
@@ -24,6 +24,18 @@ patch(PosStore.prototype, {
         this._retryTimer = null;
         this._syncCheckIntervalId = null;
         this._setupPeriodicSyncCheck();
+
+        // Listen for online event to sync pending orders and reset offline flag
+        window.addEventListener("online", () => {
+            console.info(
+                "[POS Offline] Online event detected, syncing pending orders..."
+            );
+            this.data.network.offline = false;
+            this.data.network.warningTriggered = false;
+            if (this.hasPendingOrdersToSync()) {
+                this.syncAllOrders();
+            }
+        });
     },
 
     // ===== Offline-safe afterProcessServerData =====
@@ -207,10 +219,19 @@ patch(PosStore.prototype, {
             clearInterval(this._syncCheckIntervalId);
         }
         this._syncCheckIntervalId = setInterval(async () => {
-            const hasPending =
+            var hasPending =
                 this.pendingOrder.create.size > 0 || this.pendingOrder.write.size > 0;
 
-            if (hasPending && navigator.onLine && !this.data.network.offline) {
+            // Reset offline flag if browser reports online
+            if (this.data.network.offline && navigator.onLine) {
+                console.info(
+                    "[POS Offline] Periodic check: network restored, resetting offline flag"
+                );
+                this.data.network.offline = false;
+                this.data.network.warningTriggered = false;
+            }
+
+            if (hasPending && navigator.onLine) {
                 console.info("[POS Offline] Periodic check: syncing pending orders...");
                 try {
                     await this.syncAllOrders();
