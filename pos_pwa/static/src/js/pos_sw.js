@@ -89,9 +89,9 @@
             return fetch(request)
                 .then(function (response) {
                     if (response.ok) {
-                        var cache = caches.open(CACHE_NAME);
-                        cache.then(function (c) {
-                            c.put(request, response.clone());
+                        var cloned = response.clone();
+                        caches.open(CACHE_NAME).then(function (c) {
+                            c.put(request, cloned);
                         });
                     }
                     return response;
