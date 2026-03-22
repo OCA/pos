@@ -50,7 +50,11 @@ patch(PosData.prototype, {
                 );
                 return undefined;
             }
-            return super.loadInitialData();
+            // Non-network error: show alert (like core) but don't re-call RPC
+            var message = _t("An error occurred while loading the Point of Sale: \n");
+            message += error.data ? error.data.message : error.message;
+            window.alert(message);
+            return undefined;
         }
     },
 

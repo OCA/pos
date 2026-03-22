@@ -30,8 +30,23 @@ patch(PosStore.prototype, {
 
     async afterProcessServerData() {
         if (this.data.network.offline) {
-            // Skip readDataFromServer and other network calls when offline.
-            // Just mark ready and show screen.
+            // Run local-only logic from super (skip network calls)
+            // 1. Add paid unsynced orders to pending set
+            const paidUnsyncedOrderIds = this.models["pos.order"]
+                .filter((order) => order.isUnsyncedPaid)
+                .map((order) => order.id);
+            if (paidUnsyncedOrderIds.length > 0) {
+                this.addPendingOrder(paidUnsyncedOrderIds);
+            }
+
+            // 2. Mark residual orders as cancelled
+            this.data.models["pos.order"]
+                .filter((order) => order._isResidual)
+                .forEach((order) => {
+                    order.state = "cancel";
+                });
+
+            // 3. Select or create order
             const openOrders = this.data.models["pos.order"].filter(
                 (order) => !order.finalized
             );
@@ -40,6 +55,8 @@ patch(PosStore.prototype, {
                     ? openOrders[0].uuid
                     : this.add_new_order().uuid;
             }
+
+            // 4. Mark ready and show screen (skip syncAllOrders, readDataFromServer)
             this.markReady();
             this.showScreen(this.firstScreen);
             return;
@@ -123,17 +140,27 @@ patch(PosStore.prototype, {
     // ===== Sync with Retry =====
 
     async syncAllOrders(options = {}) {
+        var result = undefined;
         try {
-            const result = await super.syncAllOrders(options);
-            // Reset retry delay on success
-            this._retryDelay = RETRY_INITIAL_DELAY;
-            return result;
+            result = await super.syncAllOrders(options);
         } catch (error) {
             if (error instanceof ConnectionLostError) {
                 this._scheduleRetrySync();
             }
             throw error;
         }
+
+        // Super.syncAllOrders catches ConnectionLostError internally and
+        // just logs a warning — it does NOT re-throw. So we check if there
+        // are still pending orders after sync returns, and schedule retry.
+        var stillPending =
+            this.pendingOrder.create.size > 0 || this.pendingOrder.write.size > 0;
+        if (stillPending) {
+            this._scheduleRetrySync();
+        } else {
+            this._retryDelay = RETRY_INITIAL_DELAY;
+        }
+        return result;
     },
 
     /**
