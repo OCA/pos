@@ -1,5 +1,5 @@
 /** @odoo-module */
-/* global navigator, console, window */
+/* global navigator, console, window, setTimeout */
 
 import {ConnectionLostError} from "@web/core/network/rpc";
 import {PosData} from "@point_of_sale/app/models/data_service";
@@ -15,7 +15,7 @@ patch(PosData.prototype, {
      * 2. On network error: fall back to cached data from IndexedDB
      *
      * We call orm.call directly instead of super to intercept network
-     * errors BEFORE the core's catch block shows a blocking alert.
+     * errors BEFORE the core's catch block shows a blocking window.alert.
      */
     async loadInitialData() {
         try {
@@ -28,7 +28,6 @@ patch(PosData.prototype, {
             }
             return response;
         } catch (error) {
-            // Check if this is a network error (offline scenario)
             if (
                 error instanceof ConnectionLostError ||
                 !navigator.onLine ||
@@ -51,15 +50,10 @@ patch(PosData.prototype, {
                 );
                 return undefined;
             }
-            // Non-network error: fall back to super behavior (shows alert)
             return super.loadInitialData();
         }
     },
 
-    /**
-     * Cache the load_data response in IndexedDB.
-     * @param {Object} response - The full load_data response
-     */
     async _cacheLoadData(response) {
         try {
             const cacheEntry = {
@@ -78,16 +72,33 @@ patch(PosData.prototype, {
         }
     },
 
-    /**
-     * Retrieve cached load_data from IndexedDB.
-     * @returns {Object|null} The cached entry or null
-     */
+    async _waitForIndexedDB(maxWaitMs) {
+        var waited = 0;
+        var interval = 100;
+        while (!this.indexedDB.db && waited < maxWaitMs) {
+            await new Promise(function (r) {
+                setTimeout(r, interval);
+            });
+            waited += interval;
+        }
+        return Boolean(this.indexedDB.db);
+    },
+
     async _getCachedLoadData() {
         try {
-            const data = await this.indexedDB.readAll([LOAD_DATA_CACHE_STORE]);
+            var ready = await this._waitForIndexedDB(3000);
+            if (!ready) {
+                console.warn(
+                    "[POS Offline] IndexedDB not ready after 3s, cannot load cache"
+                );
+                return null;
+            }
+            var data = await this.indexedDB.readAll([LOAD_DATA_CACHE_STORE]);
             if (data && data[LOAD_DATA_CACHE_STORE]) {
-                const entries = data[LOAD_DATA_CACHE_STORE];
-                const entry = entries.find((e) => e.config_id === odoo.pos_config_id);
+                var entries = data[LOAD_DATA_CACHE_STORE];
+                var entry = entries.find(function (e) {
+                    return e.config_id === odoo.pos_config_id;
+                });
                 if (entry) {
                     console.info(
                         "[POS Offline] Found cached data from",
@@ -103,9 +114,6 @@ patch(PosData.prototype, {
         }
     },
 
-    /**
-     * Check if an error is a network-related error beyond ConnectionLostError.
-     */
     _isNetworkError(error) {
         if (!error) {
             return false;

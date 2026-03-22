@@ -26,6 +26,27 @@ patch(PosStore.prototype, {
         this._setupPeriodicSyncCheck();
     },
 
+    // ===== Offline-safe afterProcessServerData =====
+
+    async afterProcessServerData() {
+        if (this.data.network.offline) {
+            // Skip readDataFromServer and other network calls when offline.
+            // Just mark ready and show screen.
+            const openOrders = this.data.models["pos.order"].filter(
+                (order) => !order.finalized
+            );
+            if (!this.config.module_pos_restaurant) {
+                this.selectedOrderUuid = openOrders.length
+                    ? openOrders[0].uuid
+                    : this.add_new_order().uuid;
+            }
+            this.markReady();
+            this.showScreen(this.firstScreen);
+            return;
+        }
+        return super.afterProcessServerData();
+    },
+
     // ===== Pending Orders Persistence =====
 
     addPendingOrder(orderIds, remove = false) {
