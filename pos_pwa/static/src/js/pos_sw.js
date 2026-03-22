@@ -6,6 +6,7 @@
 
     var CACHE_NAME = "pos-pwa-cache-v1";
     var OFFLINE_URL = "/pos/offline";
+    var MAX_CACHE_ENTRIES = 300;
 
     // URLs to pre-cache during install
     var PRECACHE_URLS = [OFFLINE_URL];
@@ -92,6 +93,12 @@
                         var cloned = response.clone();
                         caches.open(CACHE_NAME).then(function (c) {
                             c.put(request, cloned);
+                            // Evict oldest entries if cache grows too large
+                            c.keys().then(function (keys) {
+                                if (keys.length > MAX_CACHE_ENTRIES) {
+                                    c.delete(keys[0]);
+                                }
+                            });
                         });
                     }
                     return response;

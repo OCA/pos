@@ -24,7 +24,16 @@ patch(PosData.prototype, {
                 PosData.modelToLoad,
             ]);
             if (response) {
-                this._cacheLoadData(response);
+                // Only cache if offline mode is enabled in config
+                var configData = response["pos.config"];
+                var offlineEnabled =
+                    !configData ||
+                    !configData.data ||
+                    !configData.data[0] ||
+                    configData.data[0].offline_enabled !== false;
+                if (offlineEnabled) {
+                    await this._cacheLoadData(response);
+                }
             }
             return response;
         } catch (error) {

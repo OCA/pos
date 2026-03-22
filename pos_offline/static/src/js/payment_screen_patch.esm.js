@@ -12,31 +12,37 @@ patch(PaymentScreen.prototype, {
     },
 
     /**
-     * Get payment methods filtered by offline status.
-     * When offline, hide methods that require a payment terminal.
+     * Filter payment methods based on current online/offline state.
+     * Called on mount and before adding payment lines to stay reactive.
      */
-    getAvailablePaymentMethods() {
+    _updatePaymentMethodsForOffline() {
         if (this.pos.data.network.offline) {
-            return this._allPaymentMethods.filter((pm) => !pm.use_payment_terminal);
+            this.payment_methods_from_config = this._allPaymentMethods.filter(
+                (pm) => !pm.use_payment_terminal
+            );
+        } else {
+            this.payment_methods_from_config = this._allPaymentMethods;
         }
-        return this._allPaymentMethods;
     },
 
     onMounted() {
-        // Filter payment methods based on current online/offline state
-        this.payment_methods_from_config = this.getAvailablePaymentMethods();
+        this._updatePaymentMethodsForOffline();
         super.onMounted();
+    },
+
+    addNewPaymentLine(paymentMethod) {
+        // Re-check offline status before adding payment line
+        this._updatePaymentMethodsForOffline();
+        return super.addNewPaymentLine(paymentMethod);
     },
 
     /**
      * Override _finalizeValidation to handle offline scenarios:
      * - Skip invoice download when offline
-     * - Mark order for invoicing on sync
+     * - Skip server sync, go directly to receipt
      */
     async _finalizeValidation() {
-        const isOffline = this.pos.data.network.offline;
-
-        if (!isOffline) {
+        if (!this.pos.data.network.offline) {
             return super._finalizeValidation();
         }
 
@@ -57,8 +63,6 @@ patch(PaymentScreen.prototype, {
         this.pos.addPendingOrder([this.currentOrder.id]);
         this.currentOrder.state = "paid";
 
-        // Don't try to sync - go directly to receipt
-        // Note: invoicing is handled by the normal sync flow when back online.
         this.notification.add(
             _t("Order saved offline. It will be synced when connection is restored."),
             {type: "warning"}

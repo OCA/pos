@@ -15,16 +15,14 @@ class PosOrder(models.Model):
         When a POS operates offline, orders may arrive after the original
         session has been closed. Instead of raising an error, we create
         a rescue session automatically.
+
+        Note: this method is only called by _process_order when the
+        session is already closed/closing_control.
         """
         PosSession = self.env["pos.session"]
         closed_session = PosSession.browse(order["session_id"])
 
         if not closed_session.exists():
-            _logger.error(
-                "Session ID %s does not exist for order %s",
-                order["session_id"],
-                order.get("name", "Unknown"),
-            )
             raise UserError(
                 _(
                     "Cannot process offline order %(order)s: "
@@ -33,10 +31,6 @@ class PosOrder(models.Model):
                     session=order["session_id"],
                 )
             )
-
-        if closed_session.state not in ("closed", "closing_control"):
-            # Session is still open, delegate to core logic
-            return super()._get_valid_session(order)
 
         _logger.warning(
             "Session %s (ID: %s) was closed but received offline order %s "
@@ -57,16 +51,15 @@ class PosOrder(models.Model):
         )
 
         if open_session:
-            _logger.warning(
+            _logger.info(
                 "Using open session %s for saving offline order %s",
                 open_session.name,
                 order.get("name", "Unknown"),
             )
             return open_session
 
-        # Create rescue session automatically
-        rescue_session = PosSession._create_rescue_session(closed_session)
-        return rescue_session
+        # No open session found — create rescue session automatically
+        return PosSession._create_rescue_session(closed_session)
 
     @api.model
     def sync_from_ui(self, orders):

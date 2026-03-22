@@ -22,7 +22,6 @@
             "pos_offline/static/src/js/pos_store_patch.esm.js",
             "pos_offline/static/src/js/payment_screen_patch.esm.js",
             "pos_offline/static/src/js/barcode_reader_patch.esm.js",
-            "pos_offline/static/src/xml/offline_banner.xml",
         ],
     },
 }

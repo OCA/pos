@@ -16,14 +16,19 @@ import {patch} from "@web/core/utils/patch";
  * those functions try to process our stores as ORM models and crash.
  */
 
-// Bump the IndexedDB version to trigger onupgradeneeded and create new stores
-const OFFLINE_DB_VERSION = 2;
+// Offset added to the core's INDEXED_DB_VERSION to trigger onupgradeneeded.
+// If the core bumps its version, our stores will still be created.
+const OFFLINE_VERSION_OFFSET = 1;
 
 // Store names that are NOT ORM models — must be stripped from readAll() results
 const CUSTOM_STORES = new Set(["_pos_load_data_cache", "_pending_orders"]);
 
 patch(PosData.prototype, {
     initIndexedDB() {
+        // Call super first to get the base version, then re-init with extra stores
+        super.initIndexedDB();
+        var baseVersion = this.indexedDB.dbVersion || 1;
+
         // Get the standard model stores from databaseTable
         const models = Object.entries(this.opts.databaseTable).map(([name, data]) => [
             data.key,
@@ -34,7 +39,11 @@ patch(PosData.prototype, {
         models.push(["config_id", "_pos_load_data_cache"]);
         models.push(["uuid", "_pending_orders"]);
 
-        this.indexedDB = new IndexedDB(this.databaseName, OFFLINE_DB_VERSION, models);
+        this.indexedDB = new IndexedDB(
+            this.databaseName,
+            baseVersion + OFFLINE_VERSION_OFFSET,
+            models
+        );
     },
 
     async loadIndexedDBData() {
