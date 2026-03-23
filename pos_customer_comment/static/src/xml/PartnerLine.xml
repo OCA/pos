@@ -14,7 +14,7 @@
     >
         <xpath expr="//button[hasclass('edit-partner-button')]" position="after">
             <div t-if="props.partner.pos_comment != ''">
-            <i
+                <i
                     class="fa fa-comment"
                     role="img"
                     aria-label="Has PoS Comment"
