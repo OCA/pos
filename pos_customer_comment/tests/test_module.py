@@ -9,15 +9,21 @@ from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCom
 
 
 @tagged("post_install", "-at_install")
-class TestUi(TestPointOfSaleHttpCommon):
-    def test_pos_customer_comment(self):
-        self.main_pos_config.open_ui()
-        self.main_pos_config.current_session_id.set_cashbox_pos(0, None)
+class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.pos_user.groups_id += cls.env.ref("base.group_system")
 
+    def test_pos_customer_comment(self):
+        self.main_pos_config.with_user(self.pos_user).open_ui()
+        session = self.main_pos_config.current_session_id
+        if session.state != "opened":
+            session.action_pos_session_open()
         self.start_tour(
-            f"/pos/ui?config_id={self.main_pos_config.id}",
+            "/pos/ui?config_id=%d" % self.main_pos_config.id,
             "PosCustomerCommentTour",
-            login="accountman",
+            login="pos_user",
         )
         customer = self.env.ref("base.res_partner_address_31")
         self.assertEqual(customer.pos_comment, "New Comment")
