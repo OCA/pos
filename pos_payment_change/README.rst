@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ===============================
 Point Of Sale - Change Payments
 ===============================
@@ -13,7 +17,7 @@ Point Of Sale - Change Payments
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
@@ -43,8 +47,7 @@ Only if entries has not been generated.
 Configuration
 =============
 
-* Go to Point of Sale. 
-* Choose the view list.
+* Go to Point of Sale > Configuration > Settings 
 * Edit your point of sale, and select a value for the field
   'Payment Change Policy'.
 
@@ -56,7 +59,7 @@ Two options are available:
 
 * 'Update Payments': Odoo will change payment lines.
 
-.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/pos_config_form.png
+.. figure:: https://raw.githubusercontent.com/OCA/pos/16.0/pos_payment_change/static/description/res_config_settings_form.png
 
 
 **Note**
