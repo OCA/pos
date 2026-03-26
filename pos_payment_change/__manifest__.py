@@ -16,7 +16,7 @@
     "data": [
         "security/ir.model.access.csv",
         "wizards/view_pos_payment_change_wizard.xml",
-        "views/view_pos_config.xml",
+        "views/view_res_config_settings.xml",
         "views/view_pos_order.xml",
     ],
     "installable": True,
