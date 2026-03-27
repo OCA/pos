@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2026-Today GRAP (https://www.grap.coop)
+    @author Quentin DUPONT
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AlreadyPaidLines" owl="1">
+
+        <t t-if="state.showAlreadyPaidOffline">
+            <div class="already-paid-lines-title">
+                <span
+                >No Internet connection: can't retrieve previous linked orders</span>
+            </div>
+        </t>
+
+        <t t-elif="state.showAlreadyPaidButton">
+            <div
+                class="already-paid-lines-title already-paid-lines-online"
+                t-on-click="toggleAlreadyPaid"
+            >
+                    <t t-if="state.showAlreadyPaid">
+                        <i class="fa fa-chevron-down" />
+                    </t>
+                    <t t-else="">
+                        <i class="fa fa-chevron-right" />
+                    </t>
+                <span>Already paid lines</span>
+            </div>
+        </t>
+
+        <t t-if="state.showAlreadyPaid">
+            <ul class="orderlines">
+                <t t-foreach="alreadyPaidOrderLines" t-as="line" t-key="line.id">
+                    <li class="orderline">
+                        <span class="product-name">
+                            <t t-esc="line.product_name" />
+                        </span>
+                        <span class="price">
+                            <t t-esc="env.pos.format_currency(line.price_subtotal)" />
+                        </span>
+                        <span class="badge-rounded-pill badge-order-name">
+                            <t t-esc="line.order_name" />
+                        </span>
+                        <span class="badge-rounded-pill badge-date-order">
+                            <t t-esc="line.date_order" />
+                        </span>
+                        <ul class="info-list">
+                            <t t-if="line.product_qty !== '1'">
+                                <li class="info">
+                                    <t t-esc="line.product_qty" />
+                                    <t t-esc="line.product_uom_name" />
+                                    at
+                                    <t
+                                        t-esc="env.pos.format_currency(line.price_unit)"
+                                    />
+                                    /
+                                    <t t-esc="line.product_uom_name" />
+                                </li>
+                            </t>
+                            <t t-if="line.discount != 0">
+                                <li class="info">
+                                    <span>With a </span>
+                                    <em>
+                                        <t t-esc="line.discount" />
+                                        <span>%</span>
+                                    </em>
+                                    <span> discount</span>
+                                </li>
+                            </t>
+                        </ul>
+                    </li>
+                </t>
+            </ul>
+        </t>
+    </t>
+
+</templates>
