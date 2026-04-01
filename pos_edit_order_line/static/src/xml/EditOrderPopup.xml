@@ -14,7 +14,7 @@
                                             <th>Product</th>
                                             <th>Quantity</th>
                                             <th>UoM</th>
-                                            <th>Price</th>
+                                            <th>Price excl. VAT</th>
                                             <th
                                                 t-if="pos.config.manual_discount"
                                             >Discount</th>
