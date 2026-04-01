@@ -1,6 +1,6 @@
 import {Component, useState} from "@odoo/owl";
 import {Dialog} from "@web/core/dialog/dialog";
-import {usePos} from "@point_of_sale/app/store/pos_hook";
+import {usePos} from "@point_of_sale/app/hooks/pos_hook";
 import {EditOrderLineInput} from "./EditOrderLineInput.esm";
 
 export class EditOrderPopup extends Component {
@@ -53,16 +53,16 @@ export class EditOrderPopup extends Component {
         }
     }
     async apply_changes(payload) {
-        var order = this.pos.get_order();
+        var order = this.pos.getOrder();
         Object.entries(payload).forEach(([id, changes]) => {
-            var line = order.get_orderline(id);
+            var line = order.getOrderline(id);
             Object.entries(changes).forEach(([key, value]) => {
                 if (key === "quantity") {
-                    line.set_quantity(value);
+                    line.setQuantity(value);
                 } else if (key === "price") {
-                    line.set_unit_price(value);
+                    line.setUnitPrice(value);
                 } else if (key === "discount") {
-                    line.set_discount(value);
+                    line.setDiscount(value);
                 }
             });
         });

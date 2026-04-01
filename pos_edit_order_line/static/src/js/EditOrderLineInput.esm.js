@@ -1,5 +1,5 @@
 import {Component, useState} from "@odoo/owl";
-import {usePos} from "@point_of_sale/app/store/pos_hook";
+import {usePos} from "@point_of_sale/app/hooks/pos_hook";
 
 export class EditOrderLineInput extends Component {
     static template = "EditOrderLineInput";
