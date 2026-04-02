@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).-->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_product_default_packaging_level.ProductCard"
+        t-inherit="point_of_sale.ProductCard"
+        t-inherit-mode="extension"
+    >
+        <div
+            t-if="props.productInfo"
+            class="product-information-tag"
+            t-on-click.stop="props.onProductInfoClick"
+            t-att-class="{'red-tag' : props.showWarning}"
+        >
+            <i
+                class="product-information-tag-logo fa fa-info"
+                role="img"
+                aria-label="Product Information"
+                title="Product Information"
+            />
+        </div>
+        <xpath expr="//div[hasclass('product-information-tag')]" position="after">
+            <div class="overflow-hidden ">
+                <li
+                    class="badge rounded-pill bg-warning text-warning bg-opacity-25 small"
+                    t-esc="defaultPackagingLevel.name"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>
