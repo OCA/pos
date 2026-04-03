@@ -21,9 +21,12 @@ const RequiredFieldsPartnerDetailsEdit = (OriginalPartnerDetailsEdit) =>
 
             onMounted(() => {
                 if (required_fields && required_fields.length > 0) {
-                    required_fields.forEach(function (field_name) {
-                        const inputField = document.querySelector(
-                            `input[name="${field_name.trim()}"]`
+                    const baseElement = document.querySelector(
+                        "section.partner-details"
+                    );
+                    required_fields.forEach((field_name) => {
+                        const inputField = baseElement.querySelector(
+                            `input[name="${field_name}"]`
                         );
                         if (inputField) {
                             inputField.setAttribute("required", true);
