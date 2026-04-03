@@ -2,3 +2,4 @@
   - Juan Carlos Bonilla Bravo \<<juancarlos.bonilla@factorlibre.com>\>
   - Enric Tobella
   - Cyril VINH-TUNG \<<cyril@invitu.com>\>
+  - Denis Roussel \<<denis.roussel@acsone.eu>\>

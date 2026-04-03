@@ -1,47 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
 <templates id="template" xml:space="preserve">
-     <t
-        t-name="PartnerListScreen"
-        t-inherit="point_of_sale.PartnerListScreen"
-        t-inherit-mode="extension"
-        owl="1"
-    >
-        <xpath
-            expr="//table[hasclass('partner-list')]//th[hasclass('partner-line-email')]"
-            position="before"
-        >
-            <th class="partner-line-ref py-2">Reference</th>
-        </xpath>
-    </t>
     <t
         t-name="PartnerLine"
         t-inherit="point_of_sale.PartnerLine"
         t-inherit-mode="extension"
         owl="1"
     >
-        <xpath expr="//td[hasclass('partner-line-email')]" position="before">
-            <td class="partner-line-ref">
-                <span t-esc="props.partner.ref" t-if="props.partner.ref" />
-            </td>
+        <xpath
+            expr="//t[@t-if='ui.isSmall']//div[hasclass('partner-line-email p-1')]//div[@t-if='props.partner.phone']"
+            position="before"
+        >
+            <t t-esc="props.partner.ref" />
+            <div class="mb-1" t-if="props.partner.ref">
+                <i class="fa fa-fw fa-hashtag me-2" />
+                <t t-esc="props.partner.ref" />
+            </div>
         </xpath>
-    </t>
-    <t
-        t-name="PartnerDetailsEdit"
-        t-inherit="point_of_sale.PartnerDetailsEdit"
-        t-inherit-mode="extension"
-        owl="1"
-    >
-        <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
-            <div class="partner-detail col">
-                <label class="form-label label" for="ref">Reference</label>
-                <input
-                    class="detail ref form-control"
-                    id="ref"
-                    name="ref"
-                    t-model="changes.ref"
-                    placeholder="Reference"
-                />
+        <xpath
+            expr="//tr[hasclass('partner-line')]//td[hasclass('partner-line-email')]//div[@t-if='props.partner.phone']"
+            position="before"
+        >
+            <div class="mb-1" t-if="props.partner.ref">
+                <i class="fa fa-fw fa-hashtag me-2" />
+                <t t-esc="props.partner.ref" />
             </div>
         </xpath>
     </t>
+
 </templates>
