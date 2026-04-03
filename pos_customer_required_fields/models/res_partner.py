@@ -16,7 +16,8 @@ class ResPartner(models.Model):
         partner = self.browse(partner_id)
         pos_config = self.env["pos.config"].browse(int(pos_config_id))
         missing_fields = []
-        for field in pos_config.res_partner_required_fields_ids:
+        # sudo needed because pos users don't have access to ir.model.fields
+        for field in pos_config.sudo().res_partner_required_fields_ids:
             if not getattr(partner, field.name):
                 missing_fields.append(field.field_description)
         if missing_fields:

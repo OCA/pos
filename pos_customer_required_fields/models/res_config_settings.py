@@ -12,8 +12,3 @@ class ResConfigSettings(models.TransientModel):
         string="Partner required fields",
         readonly=False,
     )
-    pos_res_partner_required_fields_names = fields.Char(
-        related="pos_config_id.res_partner_required_fields_names",
-        string="Partner required fields names",
-        readonly=False,
-    )
