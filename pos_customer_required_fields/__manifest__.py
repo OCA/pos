@@ -20,8 +20,7 @@
     ],
     "assets": {
         "point_of_sale.assets": [
-            "pos_customer_required_fields/static/src/xml/PartnerDetailsEdit.xml",
-            "pos_customer_required_fields/static/src/js/PartnerDetailsEdit.js",
+            "pos_customer_required_fields/static/src/js/*.js",
             "pos_customer_required_fields/static/src/css/pos.css",
         ]
     },
