@@ -26,6 +26,7 @@ addon | version | maintainers | summary
 [pos_category_vertical_display](pos_category_vertical_display/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | POS Category Vertical Display
 [pos_config_phone](pos_config_phone/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Display phone of POS in ticket
 [pos_customer_age_warning](pos_customer_age_warning/) | 17.0.0.1.0 |  | Display customer's age in POS interface according to the age setting
+[pos_customer_history_color](pos_customer_history_color/) | 17.0.1.0.0 | <a href='https://github.com/Serpent Consulting Services Pvt. Ltd.'><img src='https://github.com/Serpent Consulting Services Pvt. Ltd..png' width='32' height='32' style='border-radius:50%;' alt='Serpent Consulting Services Pvt. Ltd.'/></a> | Point of Sale - Customer history color
 [pos_early_receipt_printing](pos_early_receipt_printing/) | 17.0.1.0.0 |  | Generate bill from Shop
 [pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 17.0.1.0.0 |  | Hide Cost and Margin on PoS
 [pos_lot_barcode](pos_lot_barcode/) | 17.0.1.0.2 |  | Scan barcode to enter lot/serial numbers
