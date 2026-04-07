@@ -48,6 +48,7 @@ addon | version | maintainers | summary
 [pos_partner_vat_valid](pos_partner_vat_valid/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Validate partner vat in POS
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 17.0.1.0.0 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_product_expiry](pos_product_expiry/) | 17.0.1.0.1 |  | Evaluate expiry of lot
+[pos_product_info_location](pos_product_info_location/) | 17.0.1.0.0 | <a href='https://github.com/Serpent Consulting Services Pvt. Ltd.'><img src='https://github.com/Serpent Consulting Services Pvt. Ltd..png' width='32' height='32' style='border-radius:50%;' alt='Serpent Consulting Services Pvt. Ltd.'/></a> | Point of Sale - Product Info Location
 [pos_product_template](pos_product_template/) | 17.0.1.0.0 |  | Manage Product Template in Front End Point Of Sale
 [pos_session_sequence](pos_session_sequence/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Generates a sequence of POS sessions
 [pos_stock_available_online](pos_stock_available_online/) | 17.0.1.0.0 |  | Show the available quantity of products in the Point of Sale
