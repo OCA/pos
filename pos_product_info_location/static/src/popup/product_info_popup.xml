@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="ProductInfoPopup"
+        t-inherit="point_of_sale.ProductInfoPopup"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('section-inventory-body')]" position="inside">
+            <div t-if="productInfo.locations.length > 0">
+                <table class="table table-borderless mb-0">
+                    <t
+                        t-foreach="productInfo.locations"
+                        t-as="location"
+                        t-key="location_index"
+                    >
+                        <tr>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <span
+                                        t-if="pos.config.module_pos_product_info_position"
+                                    >
+                                        <i
+                                            class="fa fa-info-circle me-1"
+                                            style="cursor: pointer;"
+                                            t-on-click="() => this.productInfoPosition(location)"
+                                        />
+                                    </span>
+                                    <span class="location_name">
+                                        <t t-esc="location.location_name" />:
+                                    </span>
+                                    <span class="fw-bolder">
+                                        <t t-esc="location.quantity" />
+                                    </span>  quantity available.
+                                </span>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </xpath>
+    </t>
+</templates>
