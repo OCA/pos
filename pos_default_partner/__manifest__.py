@@ -4,7 +4,7 @@
     "name": "Point Of Sale Default Partner",
     "summary": "Add a default customer in pos order",
     "license": "AGPL-3",
-    "version": "16.0.1.0.2",
+    "version": "16.0.1.0.3",
     "author": "FactorLibre, Odoo Community Association (OCA)",
     "category": "Point of sale",
     "depends": ["point_of_sale"],
