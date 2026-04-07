@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_order_line_customer_history.CustomerHistoryScreen">
+        <div
+            class="history-screen screen h-100 bg-100"
+            t-att-class="{ 'd-none': !props.isShown }"
+        >
+            <div class="screen-full-width d-flex w-100 h-100">
+                <div
+                    t-if="!ui.isSmall || pos.ticket_screen_mobile_pane === 'left'"
+                    class="rightpane pane-border d-flex flex-column flex-grow-1 w-100 h-100 h-lg-100 bg-300 overflow-y-auto"
+                >
+                    <div
+                        class="controls d-flex align-items-center justify-content-between mt-1 mt-lg-0 p-2 bg-400"
+                    >
+                        <t t-if="!ui.isSmall">
+                            <div class="buttons d-flex gap-2">
+                                <button
+                                    t-if="!ui.isSmall"
+                                    class="discard btn btn-lg btn-light"
+                                    t-on-click="() => this.closeHistoryScreen()"
+                                >
+                                    <span class="search-icon">
+                                        <i class="fa fa-angle-double-left" />
+                                    </span>
+                                    <t t-if="!ui.isSmall">
+                                        Back
+                                    </t>
+                                </button>
+                            </div>
+                        </t>
+                        <SearchBar
+                            config="getSearchBarConfig()"
+                            placeholder="constructor.searchPlaceholder"
+                            onSearch.bind="onSearch"
+                            onFilterSelected.bind="onFilterSelected"
+                        />
+                        <div t-if="shouldShowPageControls()" class="item text-center">
+                            <div class="page-controls d-flex">
+                                <div
+                                    class="previous"
+                                    t-on-click="() => this.onPrevPage()"
+                                >
+                                    <i
+                                        class="fa fa-fw fa-caret-left"
+                                        role="img"
+                                        aria-label="Previous Order List"
+                                        title="Previous Order List"
+                                    />
+                                </div>
+                                <div class="next" t-on-click="() => this.onNextPage()">
+                                    <i
+                                        class="fa fa-fw fa-caret-right"
+                                        role="img"
+                                        aria-label="Next Order List"
+                                        title="Next Order List"
+                                    />
+                                </div>
+                            </div>
+                            <div class="page">
+                                <span><t t-esc="getPageNumber()" /></span>
+                            </div>
+                        </div>
+
+                        <div
+                            t-if="ui.isSmall"
+                            class="controls d-flex align-items-center justify-content-between mt-1 mt-lg-0 p-2 bg-400"
+                        >
+                            <select
+                                class="bg-white o_input p-2 history_sort_by"
+                                required="true"
+                                t-on-change="() => this.onFilterSelected()"
+                            >
+                                <option value="id">Sort By</option>
+                                <option value="date_order asc">Date ASC</option>
+                                 <option value="date_order desc">Date DESC</option>
+                                <option
+                                    value="full_product_name asc"
+                                >Product ASC</option>
+                                <option
+                                    value="full_product_name desc"
+                                >Product DESC</option>
+                                <option value="qty asc">Qty ASC</option>
+                                <option value="qty desc">Qty DESC</option>
+                                <option value="price_unit asc">Price Unit ASC</option>
+                                <option value="price_unit desc">Price Unit DESC</option>
+                                <option
+                                    value="price_subtotal_incl asc"
+                                >Total ASC</option>
+                                <option
+                                    value="price_subtotal_incl desc"
+                                >Total DESC</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="orders overflow-y-auto flex-grow-1">
+                        <t
+                            t-set="_filteredOrderLineList"
+                            t-value="getFilteredOrderLineList()"
+                        />
+                        <t t-if="_filteredOrderLineList.length !== 0">
+                            <t
+                                t-set="sortable_columns"
+                                t-value="getSortableColumns()"
+                            />
+                            <div
+                                class="header-row d-flex text-bg-700 fw-bolder"
+                                t-att-class="{ 'd-none': ui.isSmall }"
+                            >
+                                <t
+                                    t-foreach="sortable_columns"
+                                    t-as="col"
+                                    t-key="col_index"
+                                >
+                                    <div
+                                        class="col wide p-2"
+                                        t-on-click="(ev) => this.onClickColumn(col.field, ev)"
+                                        style="cursor: pointer;"
+                                    >
+                                        <t t-esc="col.label" />
+                                        <i class="fa fa-lg fa-angle-down" />
+                                    </div>
+                                </t>
+                                <div class="col wide p-2">
+                                     Discount
+                                </div>
+                                <div class="col wide p-2">Cart</div>
+                            </div>
+                            <t
+                                t-if="!ui.isSmall"
+                                t-foreach="_filteredOrderLineList"
+                                t-as="line"
+                                t-key="line.id"
+                            >
+                                <div class="order-row">
+                                    <t
+                                        t-foreach="getFormattedRow(line)"
+                                        t-as="row_value"
+                                        t-key="row_value_index"
+                                    >
+                                        <div class="col wide p-2 ">
+                                            <div><t t-esc="row_value" /></div>
+                                        </div>
+                                    </t>
+                                    <div class="col wide p-2 ">
+                                        <div><t t-esc="line.discount" />%</div>
+                                    </div>
+                                    <div
+                                        class="col wide p-2 "
+                                        name="cart"
+                                        t-on-click.stop="() => this.onAddToCart(line)"
+                                    >
+                                        <i
+                                            class="fa fa-shopping-cart"
+                                            aria-hidden="true"
+                                        />
+                                    </div>
+                                </div>
+                            </t>
+                            <t
+                                t-if="ui.isSmall"
+                                t-foreach="_filteredOrderLineList"
+                                t-as="line"
+                                t-key="line.id"
+                            >
+                                <div class="mobileOrderList order-row">
+                                    <div
+                                        class="col p-2 d-flex justify-content-between align-items-center"
+                                    >
+                                        <div><t t-esc="line.full_product_name" /> / <t
+                                                t-esc="line.qty"
+                                            /></div>
+                                        <div><t t-esc="getTotal(line)" /></div>
+                                    </div>
+                                    <div
+                                        class="col p-2 d-flex justify-content-between align-items-center"
+                                    >
+                                        <div><t t-esc="getDate(line)" /></div>
+                                    </div>
+                                    <div class="col p-2">
+                                        <div
+                                            class="col very-narrow cart-button p-2 rounded-2"
+                                            name="cart"
+                                            t-on-click.stop="() => this.onAddToCart(line)"
+                                        >
+                                            <i
+                                                class="fa fa-shopping-cart"
+                                                aria-hidden="true"
+                                            /> Add
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </t>
+                        <CenteredIcon
+                            t-else=""
+                            icon="'fa-shopping-cart fa-4x'"
+                            text="'No lines found'"
+                        />
+                    </div>
+                    <div class="switchpane d-flex w-100" t-if="ui.isSmall">
+                        <t t-set="_selectedSyncedOrder" t-value="getSelectedOrder()" />
+                        <button
+                            class="btn-switchpane flex-fill btn rounded-0 fw-bolder secondary review-button btn-primary"
+                            t-on-click="switchPane"
+                        >
+                            <span class="fs-1 d-block">Review</span>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="leftpane d-flex flex-column flex-grow-1 w-100 h-100 h-lg-100 bg-200"
+                    t-if="!ui.isSmall || pos.ticket_screen_mobile_pane === 'right'"
+                >
+                    <t t-set="_selectedSyncedOrder" t-value="getSelectedOrder()" />
+                    <t
+                        t-set="_selectedOrderlineId"
+                        t-value="getSelectedOrderlineId()"
+                    />
+                    <t t-if="_selectedSyncedOrder?.get_orderlines()?.length">
+                        <OrderWidget
+                            lines="_selectedSyncedOrder.orderlines"
+                            t-slot-scope="scope"
+                            total="env.utils.formatCurrency(_selectedSyncedOrder.get_total_with_tax())"
+                            tax="!env.utils.floatIsZero(_selectedSyncedOrder.get_total_tax()) and env.utils.formatCurrency(_selectedSyncedOrder.get_total_tax()) or ''"
+                        >
+                            <t t-set="line" t-value="scope.line" />
+                            <Orderline
+                                line="line.getDisplayData()"
+                                class="{'selected': line.id === getSelectedOrderlineId()}"
+                                t-on-click="() => this.onClickOrderline(line)"
+                            >
+                            </Orderline>
+                        </OrderWidget>
+                        <div class="pads border-top">
+                            <div class="subpads d-flex">
+                                <ActionpadWidget
+                                    partner="getSelectedPartner()"
+                                    actionName="constructor.numpadActionName"
+                                    actionType="'history'"
+                                    actionToTrigger.bind="onDoPayment"
+                                    isActionButtonHighlighted="True"
+                                />
+                                <Numpad
+                                    buttons="getNumpadButtons()"
+                                    class="'max-width-325px'"
+                                />
+                            </div>
+                        </div>
+                    </t>
+                    <CenteredIcon
+                        t-else=""
+                        icon="'fa-shopping-cart fa-4x'"
+                        text="'Select an product'"
+                        class="'bg-100'"
+                    />
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

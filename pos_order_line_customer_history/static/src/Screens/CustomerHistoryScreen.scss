@@ -1,0 +1,14 @@
+.history-screen {
+    .set-partner {
+        pointer-events: none;
+    }
+}
+.header-row .fa {
+    opacity: 0;
+}
+.header-row:hover .col:hover .fa {
+    opacity: 1;
+}
+.table-active .fa {
+    opacity: 1 !important;
+}
