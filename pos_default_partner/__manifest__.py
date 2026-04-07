@@ -1,4 +1,3 @@
-# copyright 2020 Akretion David BEAL
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 {
@@ -6,8 +5,7 @@
     "summary": "Add a default customer in pos order",
     "license": "AGPL-3",
     "version": "16.0.1.0.2",
-    "author": "Akretion, FactorLibre, Odoo Community Association (OCA)",
-    "maintainer": "Akretion",
+    "author": "FactorLibre, Odoo Community Association (OCA)",
     "category": "Point of sale",
     "depends": ["point_of_sale"],
     "data": ["views/res_config_settings_view.xml"],
