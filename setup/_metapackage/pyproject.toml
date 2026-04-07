@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "17.0.20260223.0"
+version = "17.0.20260407.0"
 dependencies = [
     "odoo-addon-pos_cash_control_extension>=17.0dev,<17.1dev",
     "odoo-addon-pos_cash_move_reason>=17.0dev,<17.1dev",
@@ -30,6 +30,7 @@ dependencies = [
     "odoo-addon-pos_product_template>=17.0dev,<17.1dev",
     "odoo-addon-pos_session_sequence>=17.0dev,<17.1dev",
     "odoo-addon-pos_stock_available_online>=17.0dev,<17.1dev",
+    "odoo-addon-pos_user_restrict_stripe_bypass_user>=17.0dev,<17.1dev",
     "odoo-addon-pos_user_restriction>=17.0dev,<17.1dev",
 ]
 classifiers=[
