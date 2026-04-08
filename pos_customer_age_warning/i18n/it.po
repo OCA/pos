@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-04-08 12:35+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_customer_age_warning
 #. odoo-javascript
@@ -20,14 +22,14 @@ msgstr ""
 #: code:addons/pos_customer_age_warning/static/src/js/pos_store.esm.js:0
 #, python-format
 msgid "%s is under %s years old!"
-msgstr ""
+msgstr "%s ha un'età minore di %s anni!"
 
 #. module: pos_customer_age_warning
 #. odoo-javascript
 #: code:addons/pos_customer_age_warning/static/src/js/pos_store.esm.js:0
 #, python-format
 msgid "(%s y)"
-msgstr ""
+msgstr "(%s a)"
 
 #. module: pos_customer_age_warning
 #. odoo-javascript
@@ -35,40 +37,40 @@ msgstr ""
 #: code:addons/pos_customer_age_warning/static/src/js/pos_store.esm.js:0
 #, python-format
 msgid "Age Restriction"
-msgstr ""
+msgstr "Limitazione età"
 
 #. module: pos_customer_age_warning
 #: model:ir.model.fields,field_description:pos_customer_age_warning.field_res_company__age_warning
 #: model:ir.model.fields,field_description:pos_customer_age_warning.field_res_config_settings__age_warning
 msgid "Age Warning"
-msgstr ""
+msgstr "Avviso età"
 
 #. module: pos_customer_age_warning
 #: model_terms:ir.ui.view,arch_db:pos_customer_age_warning.view_res_config_settings_birthdate_warning
 msgid "Age warning"
-msgstr ""
+msgstr "Avviso età"
 
 #. module: pos_customer_age_warning
 #: model:ir.model.fields,help:pos_customer_age_warning.field_res_config_settings__age_warning
 msgid "Choose the age max for the warning"
-msgstr ""
+msgstr "Scegliere l'età massima per l'avviso"
 
 #. module: pos_customer_age_warning
 #: model:ir.model,name:pos_customer_age_warning.model_res_company
 msgid "Companies"
-msgstr ""
+msgstr "Aziende"
 
 #. module: pos_customer_age_warning
 #: model:ir.model,name:pos_customer_age_warning.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Impostazioni configurazione"
 
 #. module: pos_customer_age_warning
 #: model_terms:ir.ui.view,arch_db:pos_customer_age_warning.view_res_config_settings_birthdate_warning
 msgid "POS warning for customer with this age or younger."
-msgstr ""
+msgstr "Avviso POS per clienti con età pari o inferiore a questa."
 
 #. module: pos_customer_age_warning
 #: model:ir.model,name:pos_customer_age_warning.model_pos_session
 msgid "Point of Sale Session"
-msgstr ""
+msgstr "Sessione punto vendita"
