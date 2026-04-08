@@ -1,0 +1,74 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_customer_age_warning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: pos_customer_age_warning
+#. odoo-javascript
+#: code:addons/pos_customer_age_warning/static/src/js/partner_editor.esm.js:0
+#: code:addons/pos_customer_age_warning/static/src/js/pos_store.esm.js:0
+#, python-format
+msgid "%s is under %s years old!"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#. odoo-javascript
+#: code:addons/pos_customer_age_warning/static/src/js/pos_store.esm.js:0
+#, python-format
+msgid "(%s y)"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#. odoo-javascript
+#: code:addons/pos_customer_age_warning/static/src/js/partner_editor.esm.js:0
+#: code:addons/pos_customer_age_warning/static/src/js/pos_store.esm.js:0
+#, python-format
+msgid "Age Restriction"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model:ir.model.fields,field_description:pos_customer_age_warning.field_res_company__age_warning
+#: model:ir.model.fields,field_description:pos_customer_age_warning.field_res_config_settings__age_warning
+msgid "Age Warning"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model_terms:ir.ui.view,arch_db:pos_customer_age_warning.view_res_config_settings_birthdate_warning
+msgid "Age warning"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model:ir.model.fields,help:pos_customer_age_warning.field_res_config_settings__age_warning
+msgid "Choose the age max for the warning"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model:ir.model,name:pos_customer_age_warning.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model:ir.model,name:pos_customer_age_warning.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model_terms:ir.ui.view,arch_db:pos_customer_age_warning.view_res_config_settings_birthdate_warning
+msgid "POS warning for customer with this age or younger."
+msgstr ""
+
+#. module: pos_customer_age_warning
+#: model:ir.model,name:pos_customer_age_warning.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
