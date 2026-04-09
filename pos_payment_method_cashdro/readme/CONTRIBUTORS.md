@@ -2,5 +2,6 @@
   - Ignacio Ibeas
 - [Tecnativa](https://www.tecnativa.com)
   - David Vidal
+  - Eduardo Ezerouali
 - [ACSONE SA/NV](https://acsone.eu):
   - Bejaoui Souheil

@@ -1,14 +1,13 @@
-/** @odoo-module */
 /* Copyright 2021 Tecnativa - David Vidal
    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).*/
-import {Order} from "@point_of_sale/app/store/models";
 import {PaymentCashdro} from "./payment_cashdro.esm";
 import {patch} from "@web/core/utils/patch";
+import {PosOrder} from "@point_of_sale/app/models/pos_order";
 import {register_payment_method} from "@point_of_sale/app/store/pos_store";
 
 register_payment_method("cashdro", PaymentCashdro);
 
-patch(Order.prototype, {
+patch(PosOrder.prototype, {
     setup() {
         super.setup(...arguments);
         this.in_cashdro_transaction = false;

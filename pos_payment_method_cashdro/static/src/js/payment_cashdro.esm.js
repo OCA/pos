@@ -1,7 +1,7 @@
-/** @odoo-module */
 /* Copyright 2021 Tecnativa - David Vidal
    License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).*/
-import {ErrorPopup} from "@point_of_sale/app/errors/popups/error_popup";
+
+import {AlertDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
 import {PaymentInterface} from "@point_of_sale/app/payment/payment_interface";
 import {_t} from "@web/core/l10n/translation";
 export class PaymentCashdro extends PaymentInterface {
@@ -19,7 +19,7 @@ export class PaymentCashdro extends PaymentInterface {
     send_payment_reversal() {
         super.send_payment_reversal(...arguments);
         const order = this.pos.get_order();
-        const line = order.selected_paymentline;
+        const line = order.get_selected_paymentline();
         line.set_payment_status("reversing");
         return this.cashdro_send_payment_request(order);
     }
@@ -41,7 +41,7 @@ export class PaymentCashdro extends PaymentInterface {
     send_payment_request() {
         super.send_payment_request(...arguments);
         const order = this.pos.get_order();
-        const line = order.selected_paymentline;
+        const line = order.get_selected_paymentline();
         line.set_payment_status("waiting");
         return this.cashdro_send_payment_request(order);
     }
@@ -60,7 +60,7 @@ export class PaymentCashdro extends PaymentInterface {
         //    cashdro. Once the Cashdro responses with a "F" state (for
         //    finished) we'll get the response and fill the tendered money
         //    for the payment line.
-        const payment_line = order.selected_paymentline;
+        const payment_line = order.get_selected_paymentline();
         try {
             // Cashdro treats decimals as positions in an integer we also have
             // to deal with floating point computing to avoid decimals at the
@@ -69,30 +69,20 @@ export class PaymentCashdro extends PaymentInterface {
             const res = await this._cashdro_request(
                 this._cashdro_payment_url({amount: amount})
             );
-            // It comes handy to log the response from the drawer, as
-            // we can diagnose the right sytmoms for each issue
-            console.log(res);
             const operation_id = res.data || "";
             this.pos.get_order().cashdro_operation = operation_id;
             // Acknowledge the operation
-            var ack_url = this._cashdro_ack_url(operation_id);
-            const res_ack = await this._cashdro_request(ack_url);
-            // Validate the operation
-            console.log(res_ack);
             var ask_url = this._cashdro_ask_url(operation_id);
             const operation_data = await this._cashdro_request_payment(ask_url);
-            // This might be too verbose, but it helps a lot to diagnose issues and
-            // their reasons.
-            console.log(operation_data);
             var data = JSON.parse(operation_data.data);
             payment_line.cashdro_operation_data = data;
             var tendered = data.operation.totalin / 100;
             payment_line.set_amount(tendered);
-        } catch (error) {
+        } catch {
             // We wan't to be able to retry after any error.
             // TODO: catch specific exceptions
             payment_line.set_payment_status("retry");
-            this.env.services.popup.add(ErrorPopup, {
+            this.env.services.dialog.add(AlertDialog, {
                 title: _t("Error"),
                 body: _t("An error occurred while connecting to the cashdro."),
             });
