@@ -1,0 +1,37 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_receipt_gift_card
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-29 21:38+0000\n"
+"PO-Revision-Date: 2026-01-29 21:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_receipt_gift_card
+#. odoo-javascript
+#: code:addons/pos_receipt_gift_card/static/src/app/screens/receipt_screen/receipt/order_recepit.xml:0
+#, python-format
+msgid "Balance:"
+msgstr "Balance:"
+
+#. module: pos_receipt_gift_card
+#. odoo-javascript
+#: code:addons/pos_receipt_gift_card/static/src/app/screens/receipt_screen/receipt/order_recepit.xml:0
+#, python-format
+msgid "Barcode"
+msgstr "Código de barra"
+
+#. module: pos_receipt_gift_card
+#. odoo-javascript
+#: code:addons/pos_receipt_gift_card/static/src/app/screens/receipt_screen/receipt/order_recepit.xml:0
+#, python-format
+msgid "Gift Card Codes"
+msgstr "Tarjetas de regalo"
