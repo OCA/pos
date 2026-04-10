@@ -3,7 +3,7 @@
 {
     "name": "POS Lot Barcode",
     "summary": "Scan barcode to enter lot/serial numbers",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Alpha",
     "category": "Sales/Point of Sale",
     "website": "https://github.com/OCA/pos",

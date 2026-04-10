@@ -16,7 +16,7 @@ class TestLotScanning(TestPointOfSaleHttpCommon):
                 "name": "Lot Product 1",
                 "type": "consu",
                 "tracking": "lot",
-                "categ_id": cls.env.ref("product.product_category_all").id,
+                "categ_id": cls.env.ref("product.product_category_goods").id,
                 "available_in_pos": True,
             }
         )
@@ -25,7 +25,7 @@ class TestLotScanning(TestPointOfSaleHttpCommon):
                 "name": "Lot Product 2",
                 "type": "consu",
                 "tracking": "lot",
-                "categ_id": cls.env.ref("product.product_category_all").id,
+                "categ_id": cls.env.ref("product.product_category_goods").id,
                 "available_in_pos": True,
             }
         )
@@ -52,7 +52,7 @@ class TestLotScanning(TestPointOfSaleHttpCommon):
     def test_scan_lot_number(self):
         self.main_pos_config.with_user(self.pos_user).open_ui()
         self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+            f"/pos/ui?config_id={self.main_pos_config.id}",
             "LotScanningTour",
             login="pos_user",
             timeout=60,
@@ -61,7 +61,7 @@ class TestLotScanning(TestPointOfSaleHttpCommon):
     def test_scan_to_input_lot_number(self):
         self.main_pos_config.with_user(self.pos_user).open_ui()
         self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+            f"/pos/ui?config_id={self.main_pos_config.id}",
             "LotScanningInsteadofInputTour",
             login="pos_user",
             timeout=60,

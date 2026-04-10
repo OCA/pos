@@ -4,9 +4,9 @@
 */
 
 import {ProductScreen} from "@point_of_sale/app/screens/product_screen/product_screen";
-import {patch} from "@web/core/utils/patch";
-import {useBarcodeReader} from "@point_of_sale/app/barcode/barcode_reader_hook";
 import {_t} from "@web/core/l10n/translation";
+import {patch} from "@web/core/utils/patch";
+import {useBarcodeReader} from "@point_of_sale/app/hooks/barcode_reader_hook";
 
 patch(ProductScreen.prototype, {
     setup() {
@@ -20,6 +20,7 @@ patch(ProductScreen.prototype, {
         const product = await this._getProductByLotBarcode(code);
         // If we didn't get a product it must display a popup
         if (!product) {
+            this.sound.play("error");
             this.barcodeReader.showNotFoundNotification(code);
             return;
         }
@@ -46,10 +47,12 @@ patch(ProductScreen.prototype, {
             return;
         }
         await this.pos.addLineToCurrentOrder(
-            {product_id: product},
+            {product_id: product, product_tmpl_id: product.product_tmpl_id},
             {code},
             product.needToConfigure()
         );
+        this.numberBuffer.reset();
+        this.showOptionalProductPopupIfNeeded(product);
     },
     async _getProductByLotBarcode(base_code) {
         const foundLotIds = await this._searchLotProduct(base_code.code);
