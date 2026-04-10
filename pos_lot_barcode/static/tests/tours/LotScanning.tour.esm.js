@@ -38,3 +38,21 @@ registry.category("web_tour.tours").add("LotScanningInsteadofInputTour", {
             ReceiptScreen.trackingMethodIsLot("10120000515"),
         ].flat(),
 });
+
+registry.category("web_tour.tours").add("LotScanningTourLimitedProductCount", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+
+            // Add a product with its Lot
+            scan_barcode("10120000517"),
+            ProductScreen.selectedOrderlineHas("Lot Product 3"),
+
+            ProductScreen.clickPayButton(),
+            PaymentScreen.clickPaymentMethod("Cash"),
+            PaymentScreen.clickValidate(),
+            ReceiptScreen.trackingMethodIsLot("10120000517"),
+            Chrome.endTour(),
+        ].flat(),
+});
