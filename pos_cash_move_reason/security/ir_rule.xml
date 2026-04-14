@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright (C) 2019-Today GRAP (http://www.grap.coop)
+    @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+    <record id="ir_rule_pos_move_reason" model="ir.rule">
+        <field name="name">PoS Move Reasons</field>
+        <field name="model_id" ref="model_pos_move_reason" />
+        <field name="global" eval="True" />
+        <field
+            name="domain_force"
+        >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>

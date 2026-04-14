@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2025 - Today: GRAP (http://www.grap.coop)
+@author: Quentin DUPONT
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<!-- <odoo noupdate="1"> -->
+<odoo>
+
+    <record id="account_journal_cash" model="account.journal">
+        <field name="name">Demo Cash Journal</field>
+        <field name="type">cash</field>
+        <field name="code">CASH</field>
+        <field name="company_id" ref="base.main_company" />
+        <field name="default_account_id" ref="bank_deposit_account" />
+        <field name="suspense_account_id" ref="bank_suspense_account" />
+        <field name="profit_account_id" ref="demo_cash_difference_gain" />
+        <field name="loss_account_id" ref="demo_cash_difference_loss" />
+    </record>
+
+</odoo>

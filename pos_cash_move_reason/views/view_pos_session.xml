@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_pos_session_form" model="ir.ui.view">
+        <field name="name">pos.session.form (in pos_cash_move_reason)</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form" />
+        <field name="priority" eval="90" />
+        <field name="arch" type="xml">
+            <!-- Add new buttons Buttons -->
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                <button
+                    class="oe_stat_button"
+                    name="button_move_income"
+                    type="object"
+                    icon="fa-level-down"
+                    attrs="{'invisible': ['|',
+                        ('display_move_reason_income', '=', False),
+                        ('state', 'not in', ['opened', 'closing_control'])]}"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Put</span>
+                        <span class="o_stat_text">Money In</span>
+                        <field name="display_move_reason_income" invisible="1" />
+                    </div>
+                </button>
+                <button
+                    class="oe_stat_button"
+                    name="button_move_expense"
+                    type="object"
+                    icon="fa-level-up"
+                    attrs="{'invisible': ['|',
+                        ('display_move_reason_expense', '=', False),
+                        ('state', 'not in', ['opened', 'closing_control'])]}"
+                >
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Take</span>
+                        <span class="o_stat_text">Money Out</span>
+                        <field name="display_move_reason_expense" invisible="1" />
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
