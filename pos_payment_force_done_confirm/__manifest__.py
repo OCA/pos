@@ -4,7 +4,7 @@
 
 {
     "name": "POS Payment Force Done Confirmation",
-    "version": "19.0.0.0",
+    "version": "19.0.1.0.0",
     "category": "Point of Sale",
     "summary": "Ask for confirmation before marking a terminal payment as done.",
     "author": "CHEF PIXEL, Odoo Community Association (OCA)",
