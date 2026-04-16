@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2026-Today GRAP (https://www.grap.coop)
+    @author Quentin DUPONT
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PosCashMoveReasonClosePosPopup"
+        t-inherit="point_of_sale.ClosePosPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+
+        <!-- All table should be override but we keep core structure for cash -->
+        <xpath expr="//div[@class='payment-methods-overview']/table" position="replace">
+
+            <table class="pos-cash-move-reason-close-popup-table">
+                <thead class="tableFixHead">
+                    <tr>
+                        <th>Payment Method</th>
+                        <th>Expected</th>
+                        <th style="width: 25%">Counted</th>
+                        <th style="width: 20%">Difference</th>
+                    </tr>
+                </thead>
+
+                <!-- ============= CASH DEFAULT METHOD ============= -->
+                <!-- Use core XML because Odoo use defaultCashDetails -->
+                <t t-if="cashControl">
+                    <tbody>
+                        <tr>
+                            <td t-esc="defaultCashDetails.name" class="highlight" />
+                            <td
+                                t-esc="env.pos.format_currency(defaultCashDetails.amount)"
+                                class="highlight"
+                            />
+                            <td
+                                class="flex"
+                                t-on-input="(event) => this.handleInputChange(defaultCashDetails.id, event)"
+                            >
+                                <input
+                                    class="pos-input"
+                                    t-ref="closingCashInput"
+                                    t-on-keypress="_onAmountKeypress"
+                                />
+                                <div class="button icon" t-on-click="openDetailsPopup">
+                                    <i
+                                        class="fa fa-calculator"
+                                        role="img"
+                                        title="Open the money details popup"
+                                    />
+                                </div>
+                            </td>
+                            <td
+                                t-esc="env.pos.format_currency(state.payments[defaultCashDetails.id].difference)"
+                                t-att-class="{'warning': state.payments[defaultCashDetails.id].difference}"
+                            />
+                        </tr>
+                    </tbody>
+                    <tbody class="cash-overview">
+                        <tr>
+                            <td>Opening</td>
+                            <td
+                                t-esc="env.pos.format_currency(defaultCashDetails.opening)"
+                            />
+                        </tr>
+                        <tr
+                            t-foreach="defaultCashDetails.moves"
+                            t-as="move"
+                            t-key="move_index"
+                        >
+                            <td>
+                                <div class="flex">
+                                    <div
+                                        class="cash-sign"
+                                        t-esc="move.amount &lt; 0 ? '-' : '+'"
+                                    />
+                                    <t t-esc="move.name" />
+                                </div>
+                            </td>
+                            <td
+                                t-esc="env.pos.format_currency(Math.abs(move.amount))"
+                            />
+                        </tr>
+                        <tr t-if="defaultCashDetails.payment_amount">
+                            <td>
+                                <div class="flex">
+                                    <div
+                                        class="cash-sign"
+                                        t-esc="defaultCashDetails.payment_amount &lt; 0 ? '-' : '+'"
+                                    />
+                                    Payments in <t t-esc="defaultCashDetails.name" />
+                                </div>
+                            </td>
+                            <td
+                                t-esc="env.pos.format_currency(Math.abs(defaultCashDetails.payment_amount))"
+                            />
+                        </tr>
+                    </tbody>
+                </t>
+
+
+                <!-- ============= OTHER PAYMENT METHOD ============= -->
+                <t t-if="otherPaymentMethods.length &gt; 0">
+                    <t t-foreach="otherPaymentMethods" t-as="pm" t-key="pm.id">
+
+                        <!-- FIRST LINE -->
+                        <tbody>
+                            <tr>
+                                <td t-esc="pm.name" class="new-payment highlight" />
+                                <td
+                                    t-esc="env.pos.format_currency(pm.amount)"
+                                    class="highlight"
+                                />
+                                <t t-set="_showDiff" t-value="_getShowDiff(pm)" />
+                                <td
+                                    t-if="_showDiff"
+                                    t-on-input="(event) => this.handleInputChange(pm.id, event)"
+                                >
+                                    <input
+                                        class="pos-input"
+                                        t-ref="closingCashInput_{{pm.id}}"
+                                    />
+                                </td>
+                                <td
+                                    t-if="_showDiff"
+                                    t-esc="env.pos.format_currency(state.payments[pm.id].difference)"
+                                    t-att-class="{'warning': state.payments[pm.id].difference}"
+                                />
+                            </tr>
+                        </tbody>
+                        <tbody class="cash-overview">
+                            <!-- PAYMENTS -->
+                            <tr t-if="pm.payments.amount">
+                                <td>
+                                    + Payments in <t t-esc="pm.name" />
+                                </td>
+                                <td
+                                    t-esc="env.pos.format_currency(pm.payments.amount)"
+                                />
+                                <td />
+                                <td />
+                            </tr>
+
+                            <!-- MOVES -->
+                            <tr t-foreach="pm.moves" t-as="move" t-key="move_index">
+                                <td>
+                                    <div class="flex">
+                                        <div
+                                            class="cash-sign"
+                                            t-esc="move.amount &lt; 0 ? '-' : '+'"
+                                        />
+                                        <t t-esc="move.name" />
+                                    </div>
+                                </td>
+
+                                <td
+                                    t-esc="env.pos.format_currency(Math.abs(move.amount))"
+                                />
+                                <td />
+                                <td />
+                            </tr>
+                        </tbody>
+                    </t>
+                </t>
+            </table>
+        </xpath>
+
+        <!-- Add button. Div click function closes this popup & Component open on click  -->
+        <xpath expr="//footer[@class='footer']" position="inside">
+            <div class="button cash-move-button-on-closepopup" t-on-click="cancel">
+                <CashMoveButton />
+            </div>
+        </xpath>
+    </t>
+
+</templates>

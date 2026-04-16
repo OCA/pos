@@ -1,17 +1,26 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pos_cash_move_reason
+#   * pos_cash_move_reason
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-25 10:28+0000\n"
+"PO-Revision-Date: 2026-05-25 10:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "+ Payments in"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
@@ -25,6 +34,13 @@ msgstr ""
 msgid ""
 "<span class=\"o_stat_text\">Take</span>\n"
 "                        <span class=\"o_stat_text\">Money Out</span>"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Account journal"
 msgstr ""
 
 #. module: pos_cash_move_reason
@@ -44,6 +60,13 @@ msgid "Amount"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "An unknown error prevents us from getting closing information."
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
 msgid "Apply"
 msgstr ""
@@ -54,8 +77,43 @@ msgid "Cancel"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonMoveReason.esm.js:0
+#, python-format
+msgid "Cash in/out of %s is ignored."
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Choose the journal"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Choose the reason"
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__company_id
 msgid "Company"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Confirm and Go to Close Session"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Counted"
 msgstr ""
 
 #. module: pos_cash_move_reason
@@ -81,6 +139,13 @@ msgid "Describe why you take money from the cash register"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Difference"
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_session__display_move_reason_expense
 msgid "Display Move Reason Expense"
 msgstr ""
@@ -94,6 +159,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__display_name
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__display_name
 msgid "Display Name"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Expected"
 msgstr ""
 
 #. module: pos_cash_move_reason
@@ -181,6 +253,55 @@ msgid "Name"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Network Error"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_move_reason_form
+msgid ""
+"Only journals selected also on PoS session will be available on your PoS "
+"session."
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Open the money details popup"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Opening"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Payment Method"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/ClosePosPopup.xml:0
+#, python-format
+msgid "Payments in"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Please check your internet connection and try again."
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model,name:pos_cash_move_reason.model_pos_move_reason
 msgid "PoS - Move In / Out Reason"
 msgstr ""
@@ -206,11 +327,64 @@ msgid "Reason"
 msgstr ""
 
 #. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Select one Journal before confirming."
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Select one Reason before confirming."
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonMoveReason.esm.js:0
+#, python-format
+msgid "Successfully made a cash %s of %s."
+msgstr ""
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
 msgstr ""
 
 #. module: pos_cash_move_reason
-#: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
-msgid "Use Old PoS 'Put or Take Money' Actions"
+#. odoo-python
+#: code:addons/pos_cash_move_reason/models/pos_session.py:0
+#, python-format
+msgid "There is no cash payment method for this PoS Session"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Unknown Error"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-python
+#: code:addons/pos_cash_move_reason/models/pos_session.py:0
+#, python-format
+msgid ""
+"You don't have the access rights to get the point of sale closing control "
+"data."
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonMoveReason.esm.js:0
+#, python-format
+msgid "in"
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonMoveReason.esm.js:0
+#, python-format
+msgid "out"
 msgstr ""

@@ -38,6 +38,12 @@
                         <field name="company_id" groups="base.group_multi_company" />
                         <field name="active" />
                         <field name="journal_ids" widget="many2many_tags" />
+                    </group>
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                    >Only journals selected also on PoS session will be available on your PoS session.</div>
+                    <group>
                         <field name="is_income_reason" />
                         <field
                             name="income_account_id"
