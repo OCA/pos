@@ -6,19 +6,9 @@
     "name": "POS Payment Force Done Confirmation",
     "version": "19.0.0.0",
     "category": "Point of Sale",
-    "summary": "Ask for confirmation before marking a terminal payment as done from the POS.",
-    "description": """
-        POS Payment Force Done Confirmation
-        ===================================
-
-        When a cashier uses **Force Done** on a payment line (typically card / terminal),
-        this module shows a confirmation dialog to reduce mistakes that can desynchronize
-        the point of sale with actual card capture.
-
-        The primary action is to go back; confirming proceeds with **Force Done**.
-    """,
+    "summary": "Ask for confirmation before marking a terminal payment as done.",
     "author": "CHEF PIXEL",
-    "website": "https://chef-pixel.fr",
+    "website": "https://github.com/OCA/pos",
     "license": "LGPL-3",
     "depends": ["point_of_sale"],
     "assets": {
@@ -30,3 +20,4 @@
     "application": False,
     "auto_install": False,
 }
+

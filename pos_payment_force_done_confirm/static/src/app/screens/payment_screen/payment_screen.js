@@ -1,9 +1,9 @@
 /** @odoo-module **/
 
-import { _t } from "@web/core/l10n/translation";
-import { PaymentScreen } from "@point_of_sale/app/screens/payment_screen/payment_screen";
-import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
-import { patch } from "@web/core/utils/patch";
+import {_t} from "@web/core/l10n/translation";
+import {PaymentScreen} from "@point_of_sale/app/screens/payment_screen/payment_screen";
+import {ConfirmationDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
+import {patch} from "@web/core/utils/patch";
 
 const originalSendForceDone = PaymentScreen.prototype.sendForceDone;
 
