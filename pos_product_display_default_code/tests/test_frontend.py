@@ -15,6 +15,7 @@ class TestUi(TestPointOfSaleHttpCommon):
         )
         self.main_pos_config.display_default_code = True
         self.main_pos_config.with_user(self.pos_user).open_ui()
+        self.main_pos_config.current_session_id.set_opening_control(0, "")
         self.start_tour(
             "/pos/ui?config_id=%d" % self.main_pos_config.id,
             "SearchProductByDefaultCode",
