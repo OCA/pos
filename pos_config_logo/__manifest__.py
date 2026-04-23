@@ -17,7 +17,6 @@
     "assets": {
         "point_of_sale._assets_pos": [
             "pos_config_logo/static/src/js/**/*.js",
-            "pos_config_logo/static/src/xml/**/*.xml",
         ],
     },
     "installable": True,
