@@ -1,12 +1,12 @@
-import {PosStore} from "@point_of_sale/app/store/pos_store";
+import {PosConfig} from "@point_of_sale/app/models/pos_config";
 import {patch} from "@web/core/utils/patch";
+import {imageUrl} from "@web/core/utils/urls";
 
-patch(PosStore.prototype, {
-    getReceiptHeaderData() {
-        const result = super.getReceiptHeaderData(...arguments);
-        if (this.config.logo) {
-            result.config_logo = `${this.session._base_url}/web/image?model=pos.config&id=${this.config.id}&field=logo`;
+patch(PosConfig.prototype, {
+    get receiptLogoUrl() {
+        if (this.raw.logo) {
+            return imageUrl("pos.config", this.id, "logo", {width: 256, height: 256});
         }
-        return result;
+        return super.receiptLogoUrl;
     },
 });
