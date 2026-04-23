@@ -3,7 +3,7 @@
 {
     "name": "Point of sale logo",
     "summary": "Set logotypes different from the company's one",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "category": "Point of Sale",
     "author": "Tecnativa, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
