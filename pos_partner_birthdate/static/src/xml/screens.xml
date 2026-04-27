@@ -32,7 +32,6 @@
         owl="1"
     >
         <xpath expr="//div[hasclass('partner-details-box')]" position="inside">
-
             <div class="partner-detail col">
                 <label class="form-label label" for="birthdate_date">Birthdate</label>
                 <input
