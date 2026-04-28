@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
-    <t t-inherit="point_of_sale.PartnerList" t-inherit-mode="extension" owl="1">
-        <xpath expr="//thead/tr/th[hasclass('partner-line-email')]" position="before">
-            <th class="partner-line-birthdate py-2">Birthdate</th>
-        </xpath>
-    </t>
     <t t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension" owl="1">
         <xpath expr="//tr/td[hasclass('partner-line-email')]" position="before">
             <td class="partner-line-birthdate" t-if="!ui.isSmall">

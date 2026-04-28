@@ -3,7 +3,7 @@
 {
     "name": "Point of Sale - Partner contact birthdate",
     "summary": "Adds the birthdate in the customer screen of POS",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Beta",
     "category": "Point of sale",
     "website": "https://github.com/OCA/pos",

@@ -7,9 +7,21 @@ patch(ResPartner.prototype, {
     get searchString() {
         let str = super.searchString;
         if (this.birthdate_date) {
-            const formattedDate = formatDate(parseDate(this.birthdate_date));
+            let formattedDate = "";
+            let rawDate = "";
+            if (typeof this.birthdate_date === "string") {
+                const parsedBirthdate = parseDate(this.birthdate_date);
+                formattedDate = parsedBirthdate ? formatDate(parsedBirthdate) : "";
+                rawDate = this.birthdate_date;
+            } else {
+                formattedDate = formatDate(this.birthdate_date);
+                rawDate = this.birthdate_date.toISODate?.() || "";
+            }
+            if (!formattedDate) {
+                return str;
+            }
             const compactDate = formattedDate.replace(/[/.-]/g, "");
-            str += ` ${formattedDate} ${compactDate} ${this.birthdate_date}`;
+            str += ` ${formattedDate} ${compactDate} ${rawDate}`;
         }
         return str;
     },

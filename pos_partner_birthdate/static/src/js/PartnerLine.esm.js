@@ -5,9 +5,14 @@ import {patch} from "@web/core/utils/patch";
 
 patch(PartnerLine.prototype, {
     get formatedBirthdate() {
-        if (!this.props.partner.birthdate_date) {
+        const birthdate = this.props.partner.birthdate_date;
+        if (!birthdate) {
             return "";
         }
-        return formatDate(parseDate(this.props.partner.birthdate_date));
+        if (typeof birthdate === "string") {
+            const parsedBirthdate = parseDate(birthdate);
+            return parsedBirthdate ? formatDate(parsedBirthdate) : "";
+        }
+        return formatDate(birthdate);
     },
 });
