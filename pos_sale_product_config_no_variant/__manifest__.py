@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     "name": "POS - Product Configurator No Variant",
-    "version": "16.0.1.0.1",
+    "version": "19.0.1.0.0",
     "summary": "Manage Point Of Sale via Configurator of no variant",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "license": "AGPL-3",
@@ -13,9 +13,4 @@
     "data": ["views/pos_order_views.xml"],
     "maintainers": ["ursais"],
     "installable": True,
-    "assets": {
-        "point_of_sale.assets": [
-            "pos_sale_product_config_no_variant/static/src/js/**/*.js",
-        ],
-    },
 }
