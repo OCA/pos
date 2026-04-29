@@ -1,0 +1,1 @@
+odoo-addon-project_timeline @ git+https://github.com/OCA/project.git@refs/pull/1710/head#subdirectory=project_timeline
