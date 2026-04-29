@@ -24,9 +24,7 @@ class PosOrderLine(models.Model):
                 continue
             if not line.product_no_variant_attribute_value_ids:
                 continue
-            attribute_lines = (
-                line.product_id.product_tmpl_id.valid_product_template_attribute_line_ids
-            )
+            attribute_lines = line.product_id.product_tmpl_id.valid_product_template_attribute_line_ids
             valid_values = attribute_lines.product_template_value_ids
             # remove the no_variant attributes that don't belong to this template
             for ptav in line.product_no_variant_attribute_value_ids:
