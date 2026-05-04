@@ -1,0 +1,7 @@
+<templates id="template" xml:space="preserve">
+  <t t-inherit="point_of_sale.TicketScreen" t-inherit-mode="extension">
+    <xpath expr="//ReprintReceiptButton" position="after">
+     <OrderPriceHideButton />
+    </xpath>
+  </t>
+</templates>
