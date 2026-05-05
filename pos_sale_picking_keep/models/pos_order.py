@@ -27,9 +27,18 @@ class PosOrder(models.Model):
         # Fake the pickings state before calling super for avoiding the move quantity
         # reduction that is done upstream that effectively cancels the SO pickings
         pickings = so_lines.move_ids.picking_id
-        pickings.state = "draft"
-        res = super().sync_from_ui(orders)
-        pickings._compute_state()
+        state_field = self.env["stock.picking"]._fields["state"]
+        picking_values = {}
+        # Save picking state values
+        for picking in pickings:
+            picking_values[picking.id] = picking.state
+        # Don't mark the concerned pickings state as dirty to avoid
+        # unwanted recomputations
+        with self.env.protecting([state_field], pickings):
+            pickings.state = "draft"
+            res = super().sync_from_ui(orders)
+            for picking in pickings:
+                picking.state = picking_values[picking.id]
         return res
 
     def _create_order_picking(self):
