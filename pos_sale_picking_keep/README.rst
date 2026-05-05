@@ -66,6 +66,18 @@ Authors
 
 * Tecnativa
 
+Contributors
+------------
+
+- `Tecnativa <https://www.tecnativa.com>`__
+
+  - Pedro M. Baeza
+  - Víctor Martínez
+
+- `ACSONE SA/NV <https://acsone.eu>`__:
+
+  - Denis Roussel <denis.roussel@acsone.eu>
+
 Maintainers
 -----------
 
