@@ -1,30 +1,15 @@
 # Copyright 2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-import odoo.tests
 from odoo.tests import Form
 
-from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+from .common import PosSalePickingKeepCommon
 
 
-@odoo.tests.tagged("post_install", "-at_install")
-class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
+class TestPosSalePickingKeep(PosSalePickingKeepCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         cls.env.company.point_of_sale_update_stock_quantities = "closing"
-        cls.customer = cls.env["res.partner"].create({"name": "Test partner"})
-        cls.warehouse = cls.env["stock.warehouse"].search(
-            [("company_id", "=", cls.env.company.id)], limit=1
-        )
-        cls.product = cls.env["product.product"].create(
-            {
-                "name": "Test Product",
-                "available_in_pos": True,
-                "is_storable": True,
-                "lst_price": 10.0,
-            }
-        )
-        cls.main_pos_config.name = "test_pos_sale_picking_keep"
 
     def test_sale_order_pos_order_done(self):
         self.env["stock.quant"]._update_available_quantity(
