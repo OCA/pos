@@ -1,7 +1,6 @@
 # Copyright 2025 Tecnativa - Pedro M. Baeza
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 from odoo import api, models
-from odoo.tools import config
 
 
 class PosOrder(models.Model):
@@ -42,14 +41,6 @@ class PosOrder(models.Model):
         return res
 
     def _create_order_picking(self):
-        # Nullify the creation of the pickings at this level
-        # We cannot use self.env.context.get("test_pos_sale_picking_keep") because
-        # the tours that run in the tests do not allow that context to be maintained.
-        # Therefore, we use self.config_id.name.
-        if (
-            config["test_enable"]
-            and self.config_id.name != "test_pos_sale_picking_keep"
-        ):
-            # For not breaking tests of other modules
-            return super()._create_order_picking()
-        return True
+        if self.config_id.picking_keep_strategy == "keep_sale_pickings":
+            return True
+        return super()._create_order_picking()
