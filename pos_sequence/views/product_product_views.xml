@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_product_tree_pos_sequence" model="ir.ui.view">
+        <field name="name">product.product.tree.pos.sequence</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='default_code']" position="after">
+                <field name="pos_sequence" optional="show" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_product_form_pos_edit_popup_pos_sequence" model="ir.ui.view">
+        <field name="name">product.product.form.pos.edit.popup.pos.sequence</field>
+        <field name="model">product.product</field>
+        <field
+            name="inherit_id"
+            ref="point_of_sale.product_product_view_form_normalized_pos"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='color']" position="after">
+                <field name="pos_sequence" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
