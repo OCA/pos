@@ -25,10 +25,7 @@ class SaleOrderLine(models.Model):
                 )
 
         for sale_line in self:
-            if (
-                sale_line.pos_order_line_ids.order_id.config_id.picking_keep_strategy
-                in ("keep_sale_pickings", "keep_sale_pos_pickings")
-            ):
+            if sale_line.pos_order_line_ids.order_id.config_id.keep_picking:
                 pos_lines = sale_line.pos_order_line_ids.filtered(
                     lambda order_line: order_line.order_id.state
                     not in ["cancel", "draft"]

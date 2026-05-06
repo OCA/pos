@@ -16,7 +16,7 @@
                     string="Keep Picking Strategy"
                     help="Choose a keep picking strategy."
                 >
-                    <field name="pos_picking_keep_strategy" />
+                    <field name="pos_keep_picking" />
                 </setting>
             </xpath>
         </field>

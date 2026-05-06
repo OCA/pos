@@ -12,7 +12,7 @@ class PosOrderLine(models.Model):
         line and when the strategy is to keep both pos and sale order pickings
         """
         lines_to_launch = self.filtered(
-            lambda line: not line.order_id.pos_config.picking_keep_strategy
+            lambda line: not line.order_id.pos_config.keep_picking
             or (
                 line.order_id.pos_config.picking_keep_strategy
                 == "keep_sale_pos_pickings"

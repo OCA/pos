@@ -17,8 +17,7 @@ class StockPicking(models.Model):
         """
         lines_without_create = lines.filtered(
             lambda line: line.sale_order_line_id
-            and line.order_id.config_id.picking_keep_strategy
-            in ("keep_sale_pickings", "keep_sale_pos_pickings")
+            and line.order_id.config_id.keep_picking
         )
         return super()._create_picking_from_pos_order_lines(
             location_dest_id=location_dest_id,

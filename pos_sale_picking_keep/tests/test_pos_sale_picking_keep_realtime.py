@@ -12,7 +12,7 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
     def setUpClass(cls):
         super().setUpClass()
         cls.env.company.point_of_sale_update_stock_quantities = "real"
-        cls.main_pos_config.picking_keep_strategy = "keep_sale_pickings"
+        cls.main_pos_config.keep_picking = True
         cls.customer = cls.env["res.partner"].create({"name": "Test partner"})
         cls.warehouse = cls.env["stock.warehouse"].search(
             [("company_id", "=", cls.env.company.id)], limit=1
@@ -60,7 +60,7 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
         self.assertEqual(len(sale_order.picking_ids), 1)
         pos_order = sol.pos_order_line_ids.order_id
         self.assertEqual(pos_order.state, "paid")
-        self.assertFalse(pos_order.picking_ids)
+        self.assertTrue(pos_order.picking_ids)
         so_picking = sale_order.picking_ids
         self.assertEqual(so_picking.state, "assigned")
         self.assertEqual(sol.qty_delivered, 0)
@@ -69,7 +69,6 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
         self.assertEqual(sol.qty_delivered, 1)
 
     def test_sale_order_pos_order_done_and_pos_picking(self):
-        self.main_pos_config.picking_keep_strategy = "keep_sale_pos_pickings"
         self.env["stock.quant"]._update_available_quantity(
             self.product, self.warehouse.lot_stock_id, 1
         )

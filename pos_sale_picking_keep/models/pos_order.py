@@ -39,8 +39,3 @@ class PosOrder(models.Model):
             for picking in pickings:
                 picking.state = picking_values[picking.id]
         return res
-
-    def _create_order_picking(self):
-        if self.config_id.picking_keep_strategy == "keep_sale_pickings":
-            return True
-        return super()._create_order_picking()

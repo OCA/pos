@@ -6,7 +6,7 @@ from odoo import fields, models
 class ResConfigSettings(models.TransientModel):
     _inherit = "res.config.settings"
 
-    pos_picking_keep_strategy = fields.Selection(
-        related="pos_config_id.picking_keep_strategy",
+    pos_keep_picking = fields.Boolean(
+        related="pos_config_id.keep_picking",
         readonly=False,
     )
