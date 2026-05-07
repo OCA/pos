@@ -13,11 +13,10 @@
     "depends": ["point_of_sale"],
     "assets": {
         "point_of_sale._assets_pos": [
-            "pos_payment_force_done_confirm/static/src/app/screens/payment_screen/payment_screen.js",
+            "pos_payment_force_done_confirm/static/src/app/screens/payment_screen/payment_screen.esm.js",
         ],
     },
     "installable": True,
     "application": False,
     "auto_install": False,
 }
-
