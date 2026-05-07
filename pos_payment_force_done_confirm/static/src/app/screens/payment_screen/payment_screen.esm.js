@@ -12,7 +12,9 @@ patch(PaymentScreen.prototype, {
                 "Warning: are you sure you have collected payment from the customer by card? You risk desynchronizing the point of sale."
             ),
             confirmLabel: _t("No, go back"),
-            confirm: () => {},
+            confirm() {
+                return;
+            },
             cancelLabel: _t("Yes"),
             cancel: async () => {
                 await originalSendForceDone.call(this, line);
