@@ -4,39 +4,21 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-21 13:36+0000\n"
-"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
-"Language-Team: none\n"
-"Language: it\n"
+"POT-Creation-Date: 2026-05-08 09:26+0000\n"
+"PO-Revision-Date: 2026-05-08 09:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
-
-#. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:35
-#, python-format
-msgid "(Dematerialized)"
-msgstr "(Dematerializzato)"
-
-#. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
-msgid "<span class=\"o_form_label\">Meal Voucher Amount</span>"
-msgstr "<span class=\"o_form_label\">Importo buoni pasto</span>"
-
-#. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Alias"
-msgstr "Alias"
+"Plural-Forms: \n"
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
-msgid "Apply to all Products"
-msgstr "Applicare a tutti i prodotti"
+msgid "Apply to All Products"
+msgstr "Applica a tutti i prodotti"
 
 #. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_barcode_rule
@@ -44,180 +26,159 @@ msgid "Barcode Rule"
 msgstr "Regola codice a barre"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Cashier"
-msgstr "Cassiere"
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_product__meal_voucher_ok
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_template__meal_voucher_ok
+msgid "Can be Paid for by Meal Vouchers"
+msgstr "Pagabile con buoni pasto"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,help:pos_meal_voucher.field_product_product__meal_voucher_ok
 #: model:ir.model.fields,help:pos_meal_voucher.field_product_template__meal_voucher_ok
-msgid "Check this box if the product can be paid with meal vouchers."
-msgstr ""
-"Selezionare questo campo se il prodotto può essere pagato con buoni pasto."
+msgid "Check this box if the product can be paid for by meal vouchers."
+msgstr "Seleziona questa casella se il prodotto può essere pagato con buoni pasto."
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Client"
-msgstr "Client"
+#: model:ir.model,name:pos_meal_voucher.model_res_config_settings
+msgid "Config Settings"
+msgstr "Impostazioni di configurazione"
 
 #. module: pos_meal_voucher
-#: selection:account.journal,meal_voucher_type:0
-msgid "Credit Card / Dematerialized"
-msgstr "Carta di credito / dematerializzato"
+#: model:ir.model.fields.selection,name:pos_meal_voucher.selection__pos_payment_method__meal_voucher_type__electronic
+msgid "Electronic"
+msgstr "Elettronico"
 
 #. module: pos_meal_voucher
-#: selection:account.journal,meal_voucher_type:0
-msgid "Dematerialized"
-msgstr "Dematerializzato"
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Eligible Total"
+msgstr "Totale ammissibile"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Discounted Product"
-msgstr "Prodotto scontato"
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__has_meal_voucher_payment_method
+msgid "Has Meal Voucher Payment Method"
+msgstr "Ha un metodo di pagamento buoni pasto"
 
 #. module: pos_meal_voucher
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_info_ticket
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
-msgid "Display Information on Ticket"
-msgstr "Visualizza informazioni sul biglietto"
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Icon on Order Lines"
+msgstr "Icona sulle righe d'ordine"
 
 #. module: pos_meal_voucher
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__meal_voucher_display_product_screen
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
-msgid "Display icon before products on screen"
-msgstr "Mostrare l'icona prima dei prodotti a schermo"
-
-#. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:100
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:118
-#, python-format
-msgid "Eligible Total:"
-msgstr "Totale ammissibile:"
-
-#. module: pos_meal_voucher
-#: model:product.category,name:pos_meal_voucher.food_category
-msgid "Food"
-msgstr "Cibo"
-
-#. module: pos_meal_voucher
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__has_meal_voucher_journal
-msgid "Has Meal Voucher Journal"
-msgstr "Ha registro buoni pasto"
-
-#. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
 msgid ""
-"If checked, a star (*) will be displayed on the ticket, before each product "
-"that can be paid with meal vouchers, and the total of the eligible product "
-"will be printed."
+"If checked, an asterisk (*) will be displayed on receipts before each "
+"product that can be paid for by meal vouchers as well as the total eligible "
+"amount."
 msgstr ""
-"Se selezionata, un asterisco (*) verrà visualizzato sul biglietto, prima di "
-"ogni prodotto che può essere pagato con i buoni pasto, e verrà stampato il "
-"totale del prodotto consentito."
+"Se selezionato, un asterisco (*) verrà visualizzato sugli scontrini prima di ogni "
+"prodotto pagabile con buoni pasto, così come l'importo totale ammissibile."
 
 #. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
 msgid ""
-"If checked, an icon will be displayed on the screen, before each product "
-"that can be paid with meal vouchers."
+"If checked, an icon will be displayed on point of sale order lines (on the "
+"product screen) for products that can be paid for by meal vouchers."
 msgstr ""
-"Se selezionato, un'icona verrà mostrata a schermo, prima di ogni prodotto "
-"che può essere pagato con buoni pasto."
+"Se selezionato, un'icona verrà visualizzata sulle righe d'ordine del punto "
+"vendita (nella schermata dei prodotti) per i prodotti che possono essere "
+"pagati con buoni pasto."
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,help:pos_meal_voucher.field_product_category__meal_voucher_ok
 msgid ""
-"If checked, the products that belong to the category will be marked as 'can "
-"be paid with meal vouchers', by default."
+"If checked, the products of this category will be marked as \"Can be Paid "
+"for by Meal Vouchers\" by default."
 msgstr ""
-"Se selezionato, i prodotti che appartengono alla categoria verranno "
-"impostati come 'può essere pagato con buoni pasto', di default."
+"Se selezionato, i prodotti di questa categoria saranno contrassegnati come "
+"\"Pagabile con buoni pasto\" per impostazione predefinita."
 
 #. module: pos_meal_voucher
-#: model:ir.model,name:pos_meal_voucher.model_account_journal
-msgid "Journal"
-msgstr "Registro"
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Information on Receipt"
+msgstr "Informazioni sullo scontrino"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Location"
-msgstr "Ubicazione"
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Invalid Meal Voucher"
+msgstr "Buono pasto non valido"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Lot"
-msgstr "Lotto"
-
-#. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:59
-#, python-format
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 msgid "Max Amount"
 msgstr "Importo massimo"
 
 #. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
-msgid ""
-"Maximum amount of Meal Vouchers that can be received for a PoS Order.\n"
-"                                Let 0, if you don't want to enable this "
-"check."
-msgstr ""
-"Massimo importo di buoni pasto che può essere ricevuto per un ordine POS.\n"
-"                                Lasciare 0, se non si vuole abilitare questo "
-"controllo."
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Maximum Amount"
+msgstr "Importo massimo"
 
 #. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:46
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_product__meal_voucher_ok
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_template__meal_voucher_ok
-#, python-format
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/PaymentScreenPaymentLines.xml:0
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/product_screen/order_widget.xml:0
 msgid "Meal Voucher"
-msgstr "Buoni pasto"
+msgstr "Buono pasto"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__enable_meal_voucher_order_lines_icon
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_res_config_settings__pos_enable_meal_voucher_order_lines_icon
+msgid "Meal Voucher Icon on Order Lines"
+msgstr "Icona buoni pasto sulle righe d'ordine"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__enable_meal_voucher_receipt_info
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_res_config_settings__pos_enable_meal_voucher_receipt_info
+msgid "Meal Voucher Information on Receipt"
+msgstr "Informazioni buoni pasto sullo scontrino"
 
 #. module: pos_meal_voucher
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__max_meal_voucher_amount
-msgid "Meal Voucher Amount"
-msgstr "Importo buoni pasto"
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_res_config_settings__pos_max_meal_voucher_amount
+msgid "Meal Voucher Maximum Amount"
+msgstr "Importo massimo buoni pasto"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
+#: model:ir.model.fields.selection,name:pos_meal_voucher.selection__barcode_rule__type__meal_voucher_payment
 msgid "Meal Voucher Payment"
 msgstr "Pagamento buoni pasto"
 
 #. module: pos_meal_voucher
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_type
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_journal__meal_voucher_type
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_payment_method__meal_voucher_type
 msgid "Meal Voucher Type"
 msgstr "Tipo buoni pasto"
 
 #. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:19
-#, python-format
-msgid "Meal Voucher:"
-msgstr "Buoni pasto:"
-
-#. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_pos_config_form
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
 msgid "Meal Vouchers"
 msgstr "Buoni pasto"
 
 #. module: pos_meal_voucher
-#: model:product.product,name:pos_meal_voucher.bread
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Non-Eligible Total"
+msgstr "Totale non ammissibile"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid ""
+"Optional maximum amount per order that can be paid by meal vouchers. Set to "
+"0 to disable."
+msgstr ""
+"Importo massimo opzionale per ordine che può essere pagato con buoni pasto. "
+"Impostare a 0 per disabilitare."
+
+#. module: pos_meal_voucher
 #: model:product.template,name:pos_meal_voucher.bread_product_template
 msgid "Organic Wholemeal Bread"
 msgstr "Pane integrale biologico"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Package"
-msgstr "Collo"
-
-#. module: pos_meal_voucher
-#: selection:account.journal,meal_voucher_type:0
+#: model:ir.model.fields.selection,name:pos_meal_voucher.selection__pos_payment_method__meal_voucher_type__paper
 msgid "Paper"
 msgstr "Carta"
 
@@ -227,22 +188,12 @@ msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
 
 #. module: pos_meal_voucher
-#: model:ir.model,name:pos_meal_voucher.model_pos_order
-msgid "Point of Sale Orders"
-msgstr "Ordini punto vendita"
+#: model:ir.model,name:pos_meal_voucher.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Metodi di pagamento punto vendita"
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Priced Product"
-msgstr "Prodotto prezzato"
-
-#. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Priced Product (Computed Weight)"
-msgstr "Prodotto prezzato (peso calcolato)"
-
-#. module: pos_meal_voucher
-#: model:ir.model,name:pos_meal_voucher.model_product_product
+#: model:ir.model,name:pos_meal_voucher.model_product_template
 msgid "Product"
 msgstr "Prodotto"
 
@@ -252,51 +203,40 @@ msgid "Product Category"
 msgstr "Categoria prodotto"
 
 #. module: pos_meal_voucher
-#: model:ir.model,name:pos_meal_voucher.model_product_template
-msgid "Product Template"
-msgstr "Modello prodotto"
+#: model:ir.model,name:pos_meal_voucher.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
 
 #. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:96
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:114
-#, python-format
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
 msgid "Products marked with a star (*) are eligible for Meal vouchers."
-msgstr ""
-"I prodotti segnalati da un asterisco (*) sono pagabili con i buoni pasto."
+msgstr "I prodotti segnalati da un asterisco (*) sono pagabili con i buoni pasto."
 
 #. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Tare"
-msgstr "Tara"
-
-#. module: pos_meal_voucher
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_mixed_text
-#: model:ir.model.fields,field_description:pos_meal_voucher.field_account_journal__meal_voucher_mixed_text
-msgid "Text for Mixed journal"
-msgstr "Testo per il registro misto"
-
-#. module: pos_meal_voucher
-#: model:ir.model.fields,help:pos_meal_voucher.field_account_bank_statement_import_journal_creation__meal_voucher_mixed_text
-#: model:ir.model.fields,help:pos_meal_voucher.field_account_journal__meal_voucher_mixed_text
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
 msgid ""
-"Text that will be displayed in the point of sale if the journal is a mixed "
-"journal (Credit Card /  Dematerialized) for the dematerialized button."
+"Set the above \"Can be Paid for by Meal Vouchers\" value on all of the "
+"products of this category"
 msgstr ""
-"Testo che verrà mostrato nel punto vendita se il registro è misto (carta di "
-"credito / dematerializzato) per il pulsante dematerializzato."
+"Applica il valore \"Pagabile con buoni pasto\" sopra a tutti i prodotti "
+"di questa categoria"
 
 #. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:51
-#, python-format
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "The paper meal voucher with code '%s' has already been scanned."
+msgstr "Il buono pasto cartaceo con codice '%s' è già stato scansionato."
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 msgid "Total Eligible"
 msgstr "Totale idoneo"
 
 #. module: pos_meal_voucher
-#. openerp-web
-#: code:addons/pos_meal_voucher/static/src/xml/pos_meal_voucher.xml:67
-#, python-format
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 msgid "Total Received"
 msgstr "Totale ricevuto"
 
@@ -304,34 +244,3 @@ msgstr "Totale ricevuto"
 #: model:ir.model.fields,field_description:pos_meal_voucher.field_barcode_rule__type
 msgid "Type"
 msgstr "Tipo"
-
-#. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Unit Product"
-msgstr "Prodotto unitario"
-
-#. module: pos_meal_voucher
-#: model:product.product,uom_name:pos_meal_voucher.bread
-#: model:product.template,uom_name:pos_meal_voucher.bread_product_template
-msgid "Unit(s)"
-msgstr "Unità"
-
-#. module: pos_meal_voucher
-#: selection:barcode.rule,type:0
-msgid "Weighted Product"
-msgstr "Prodotto pesato"
-
-#. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
-msgid ""
-"by clicking on this button, all the products of this category will have the "
-"same settings than the current category, for the value 'Meal Voucher'"
-msgstr ""
-"cliccando questo pulsante, tutti i prodotti di questa categoria avranno le "
-"stesse impostazioni della categoria corrente, per il valore 'buoni pasto'"
-
-#. module: pos_meal_voucher
-#: model:product.product,weight_uom_name:pos_meal_voucher.bread
-#: model:product.template,weight_uom_name:pos_meal_voucher.bread_product_template
-msgid "kg"
-msgstr "kg"

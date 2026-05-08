@@ -12,3 +12,9 @@ class ProductProduct(models.Model):
     def onchange_categ_id_pos_meal_voucher(self):
         for product in self:
             product.meal_voucher_ok = product.categ_id.meal_voucher_ok
+
+    @api.model
+    def _load_pos_data_fields(self, config_id):
+        fields = super()._load_pos_data_fields(config_id)
+        fields += ["meal_voucher_ok"]
+        return fields

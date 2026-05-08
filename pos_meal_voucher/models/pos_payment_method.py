@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class PosPaymentMethod(models.Model):
@@ -14,3 +14,9 @@ class PosPaymentMethod(models.Model):
             ("electronic", "Electronic"),
         ],
     )
+
+    @api.model
+    def _load_pos_data_fields(self, config_id):
+        fields = super()._load_pos_data_fields(config_id)
+        fields += ["meal_voucher_type"]
+        return fields

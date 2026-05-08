@@ -9,54 +9,27 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="model">res.config.settings</field>
         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@id='pos_payment_section']" position="after">
-                <h2>Meal Vouchers</h2>
-                <div class="row mt16 o_settings_container">
-                    <div class="col-12 col-lg-6 o_setting_box">
-                        <div class="o_setting_right_pane">
-                            <span class="o_form_label">Maximum Amount</span>
-                            <div class="text-muted">
-                                Optional maximum amount per order that can be paid by meal vouchers.
-                                Set to 0 to disable.
-                            </div>
-                            <div class="content-group mt16">
-                                <field
-                                    name="pos_max_meal_voucher_amount"
-                                    colspan="4"
-                                    nolabel="1"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                            <field name="pos_enable_meal_voucher_order_lines_icon" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label
-                                for="pos_enable_meal_voucher_order_lines_icon"
-                                string="Icon on Order Lines"
-                            />
-                            <div class="text-muted">
-                                If checked, an icon will be displayed on point of sale order lines (on the product screen) for products that can be paid for by meal vouchers.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 o_setting_box">
-                        <div class="o_setting_left_pane">
-                            <field name="pos_enable_meal_voucher_receipt_info" />
-                        </div>
-                        <div class="o_setting_right_pane">
-                            <label
-                                for="pos_enable_meal_voucher_receipt_info"
-                                string="Information on Receipt"
-                            />
-                            <div class="text-muted">
-                                If checked, an asterisk (*) will be displayed on receipts before each product that can be paid for by meal vouchers as well as the total eligible amount.
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <xpath expr="//block[@id='pos_payment_section']" position="after">
+                <block title="Meal Vouchers" id="pos_meal_voucher">
+                    <setting
+                        string="Maximum Amount"
+                        help="Optional maximum amount per order that can be paid by meal vouchers. Set to 0 to disable."
+                    >
+                        <field name="pos_max_meal_voucher_amount" />
+                    </setting>
+                    <setting
+                        string="Icon on Order Lines"
+                        help="If checked, an icon will be displayed on point of sale order lines (on the product screen) for products that can be paid for by meal vouchers."
+                    >
+                        <field name="pos_enable_meal_voucher_order_lines_icon" />
+                    </setting>
+                    <setting
+                        string="Information on Receipt"
+                        help="If checked, an asterisk (*) will be displayed on receipts before each product that can be paid for by meal vouchers as well as the total eligible amount."
+                    >
+                        <field name="pos_enable_meal_voucher_receipt_info" />
+                    </setting>
+                </block>
             </xpath>
         </field>
     </record>

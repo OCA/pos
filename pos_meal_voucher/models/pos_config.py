@@ -2,7 +2,7 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class PosConfig(models.Model):
@@ -22,10 +22,9 @@ class PosConfig(models.Model):
         compute="_compute_has_meal_voucher_payment_method"
     )
 
+    @api.depends("payment_method_ids")
     def _compute_has_meal_voucher_payment_method(self):
         for config in self:
             config.has_meal_voucher_payment_method = bool(
-                config.payment_method_ids.filtered(
-                    lambda x: x.meal_voucher_type is not False
-                )
+                config.payment_method_ids.filtered("meal_voucher_type")
             )

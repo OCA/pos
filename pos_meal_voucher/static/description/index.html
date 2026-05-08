@@ -369,9 +369,11 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:6017c21d19f693f1b5e3ca796085eb3b752979671be3000968613478f38f7e20
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/16.0/pos_meal_voucher"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-16-0/pos-16-0-pos_meal_voucher"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/18.0/pos_meal_voucher"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-18-0/pos-18-0-pos_meal_voucher"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module allows to handle meal vouchers in the point of sale.</p>
-<p>Meal vouchers are a payment method, available in some countries (France, Belgium, Romania,…) that allows customers to buy food products in grocery stores or pay in restaurants.</p>
+<p>Meal vouchers are a payment method, available in some countries (France,
+Belgium, Romania,…) that allows customers to buy food products in
+grocery stores or pay in restaurants.</p>
 <p><strong>Table of contents</strong></p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
@@ -406,73 +408,77 @@ ul.auto-toc {
 <h1><a class="toc-backref" href="#toc-entry-1">Configuration</a></h1>
 <div class="section" id="products">
 <h2><a class="toc-backref" href="#toc-entry-2">Products</a></h2>
-<p>On a product form, in the “Sales” tab, the “Can be Paid for by Meal Vouchers” checkbox controls whether the product can be paid for by meal vouchers.</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/product_product_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/product_product_form.png" />
-</div>
-<p>Product categories can be configured to have a default value for the “Can be Paid for by Meal Vouchers” field for its products.
-The “Apply to All Products” button allows to set the value on all products of the category.</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/product_category_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/product_category_form.png" />
-</div>
+<p>On a product form, in the “Sales” tab, the “Can be Paid for by Meal
+Vouchers” checkbox controls whether the product can be paid for by meal
+vouchers.</p>
+<p><img alt="product_product_form" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/product_product_form.png" /></p>
+<p>Product categories can be configured to have a default value for the
+“Can be Paid for by Meal Vouchers” field for its products. The “Apply to
+All Products” button allows to set the value on all products of the
+category.</p>
+<p><img alt="product_category_form" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/product_category_form.png" /></p>
 </div>
 <div class="section" id="point-of-sale-payment-methods">
 <h2><a class="toc-backref" href="#toc-entry-3">Point of Sale Payment Methods</a></h2>
-<p>Point of sale payment methods (Point of Sale &gt; Configuration &gt; Payment Methods) have a “Meal Voucher Type” field that defines what type of meal voucher payment method they are:</p>
+<p>Point of sale payment methods (Point of Sale &gt; Configuration &gt; Payment
+Methods) have a “Meal Voucher Type” field that defines what type of meal
+voucher payment method they are:</p>
 <ul class="simple">
 <li>(empty): The payment method is not a meal voucher payment method.</li>
-<li><strong>Paper</strong>: The payment method will be used when scanning meal voucher barcodes.</li>
-<li><strong>Electronic</strong>: The payment method will be used for electronic meal vouchers.</li>
+<li><strong>Paper</strong>: The payment method will be used when scanning meal voucher
+barcodes.</li>
+<li><strong>Electronic</strong>: The payment method will be used for electronic meal
+vouchers.</li>
 </ul>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_method_form.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_method_form.png" />
-</div>
+<p><img alt="pos_payment_method_form" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/pos_payment_method_form.png" /></p>
 </div>
 <div class="section" id="settings">
 <h2><a class="toc-backref" href="#toc-entry-4">Settings</a></h2>
-<p>This module adds a “Meal Vouchers” section in the point of sale settings (Point of Sale &gt; Configuration &gt; Settings, or Settings &gt; Point of Sale) with several options:</p>
+<p>This module adds a “Meal Vouchers” section in the point of sale settings
+(Point of Sale &gt; Configuration &gt; Settings, or Settings &gt; Point of Sale)
+with several options:</p>
 <ul class="simple">
-<li><strong>Maximum Amount</strong>: Optional maximum amount per order that can be paid by meal vouchers. Set to 0 to disable.</li>
-<li><strong>Icon on Order Lines</strong>: Whether to display an icon on point of sale order lines (on the product screen) for products that can be paid for by meal vouchers.</li>
-<li><strong>Information on Receipt</strong>: Whether to display an asterisk (*) on receipts before each product that can be paid for by meal vouchers as well as the total eligible amount.</li>
+<li><strong>Maximum Amount</strong>: Optional maximum amount per order that can be paid
+by meal vouchers. Set to 0 to disable.</li>
+<li><strong>Icon on Order Lines</strong>: Whether to display an icon on point of sale
+order lines (on the product screen) for products that can be paid for
+by meal vouchers.</li>
+<li><strong>Information on Receipt</strong>: Whether to display an asterisk (*) on
+receipts before each product that can be paid for by meal vouchers as
+well as the total eligible amount.</li>
 </ul>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_settings.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_settings.png" />
-</div>
+<p><img alt="pos_settings" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/pos_settings.png" /></p>
 </div>
 </div>
 <div class="section" id="usage">
 <h1><a class="toc-backref" href="#toc-entry-5">Usage</a></h1>
 <div class="section" id="product-screen">
 <h2><a class="toc-backref" href="#toc-entry-6">Product Screen</a></h2>
-<p>On the product screen, the products that can be paid for by meal vouchers are (optionally) identified with an icon and the total amount of those products is displayed.</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_order_screen.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_order_screen.png" />
-</div>
+<p>On the product screen, the products that can be paid for by meal
+vouchers are (optionally) identified with an icon and the total amount
+of those products is displayed.</p>
+<p><img alt="pos_order_screen" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/pos_order_screen.png" /></p>
 </div>
 <div class="section" id="payment-screen">
 <h2><a class="toc-backref" href="#toc-entry-7">Payment Screen</a></h2>
 <p>On the payment screen, a meal voucher summary is displayed:</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_screen_meal_vouchers.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_screen_meal_vouchers.png" />
-</div>
+<p><img alt="pos_payment_screen_meal_vouchers" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/pos_payment_screen_meal_vouchers.png" /></p>
 <p>If the received amount is too high, a warning icon is displayed:</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_screen_warning.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/pos_payment_screen_warning.png" />
-</div>
+<p><img alt="pos_payment_screen_warning" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/pos_payment_screen_warning.png" /></p>
 </div>
 <div class="section" id="receipt">
 <h2><a class="toc-backref" href="#toc-entry-8">Receipt</a></h2>
-<p>The receipts can optionally contain information about the products that can be paid for by meal vouchers and the total amount of those products:</p>
-<div class="figure">
-<img alt="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/receipt_information.png" src="https://raw.githubusercontent.com/OCA/pos/16.0/pos_meal_voucher/static/description/receipt_information.png" />
-</div>
+<p>The receipts can optionally contain information about the products that
+can be paid for by meal vouchers and the total amount of those products:</p>
+<p><img alt="receipt_information" src="https://raw.githubusercontent.com/OCA/pos/18.0/pos_meal_voucher/static/description/receipt_information.png" /></p>
 </div>
 <div class="section" id="barcodes">
 <h2><a class="toc-backref" href="#toc-entry-9">Barcodes</a></h2>
-<p>A new barcode rule is defined for paper meal vouchers (with 24 characters):</p>
+<p>A new barcode rule is defined for paper meal vouchers (with 24
+characters):</p>
 <p><tt class="docutils literal"><span class="pre">...........{NNNDD}........</span></tt></p>
-<p>If you scan the following barcode: <tt class="docutils literal">052566641320080017000000</tt>, a new payment line with an amount of ¤8.00 (<tt class="docutils literal">00800</tt>) will be added.</p>
+<p>If you scan the following barcode: <tt class="docutils literal">052566641320080017000000</tt>, a new
+payment line with an amount of ¤8.00 (<tt class="docutils literal">00800</tt>) will be added.</p>
 </div>
 </div>
 <div class="section" id="known-issues-roadmap">
@@ -482,7 +488,8 @@ The “Apply to All Products” button allows to set the value on all products o
 <ul class="simple">
 <li>Introduce the Meal Voucher Issuer model.</li>
 <li>Deduce the issuer when scanning a meal voucher barcode.</li>
-<li>Add a report to easily compute the total deposit of meal vouchers (per issuer).</li>
+<li>Add a report to easily compute the total deposit of meal vouchers (per
+issuer).</li>
 <li>Prevent to scan the same meal voucher barcode twice.</li>
 </ul>
 </div>
@@ -492,7 +499,7 @@ The “Apply to All Products” button allows to set the value on all products o
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_meal_voucher%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_meal_voucher%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -506,7 +513,12 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 <div class="section" id="contributors">
 <h2><a class="toc-backref" href="#toc-entry-15">Contributors</a></h2>
 <ul class="simple">
-<li>Sylvain LE GAL &lt;<a class="reference external" href="https://twitter.com/legalsylvain">https://twitter.com/legalsylvain</a>&gt;</li>
+<li>Sylvain LE GAL
+&lt;<a class="reference external" href="https://twitter.com/legalsylvain&gt;">https://twitter.com/legalsylvain\&gt;</a></li>
+<li>Trobz &lt;<a class="reference external" href="https://www.trobz.com&gt;">https://www.trobz.com\&gt;</a><ul>
+<li>Phan Hong Phuc &lt;<a class="reference external" href="mailto:phucph&#64;trobz.com">phucph&#64;trobz.com</a>&gt;</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="other-credits">
@@ -529,7 +541,7 @@ mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainer</a>:</p>
 <p><a class="reference external image-reference" href="https://github.com/legalsylvain"><img alt="legalsylvain" src="https://github.com/legalsylvain.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/16.0/pos_meal_voucher">OCA/pos</a> project on GitHub.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/18.0/pos_meal_voucher">OCA/pos</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>

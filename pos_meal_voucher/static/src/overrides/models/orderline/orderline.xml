@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="MealVoucherOrderline"
+        t-inherit="point_of_sale.Orderline"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('product-name')]//span" position="before">
+            <t t-if="line.displayMealVoucherIcon">
+                <i class="fa fa-cutlery me-2" />
+            </t>
+        </xpath>
+    </t>
+
+</templates>

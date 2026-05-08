@@ -4,19 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-08 09:24+0000\n"
+"PO-Revision-Date: 2026-05-08 09:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
-#. module: pos_meal_voucher
-#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
-msgid "<span class=\"o_form_label\">Maximum Amount</span>"
-msgstr ""
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
@@ -53,9 +50,8 @@ msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/ReceiptScreen/OrderReceipt.xml:0
-#, python-format
-msgid "Eligible Total:"
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Eligible Total"
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -97,16 +93,26 @@ msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/js/models.esm.js:0
-#, python-format
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
 msgid "Invalid Meal Voucher"
 msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/PaymentScreen/PaymentScreen.xml:0
-#, python-format
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 msgid "Max Amount"
+msgstr ""
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Maximum Amount"
+msgstr ""
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/PaymentScreenPaymentLines.xml:0
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/product_screen/order_widget.xml:0
+msgid "Meal Voucher"
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -139,31 +145,22 @@ msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/ProductScreen/OrderSummary.xml:0
-#, python-format
-msgid "Meal Voucher:"
-msgstr ""
-
-#. module: pos_meal_voucher
-#. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/PaymentScreen/PaymentScreen.xml:0
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
-#, python-format
 msgid "Meal Vouchers"
 msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/ReceiptScreen/OrderReceipt.xml:0
-#, python-format
-msgid "Non-Eligible Total:"
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Non-Eligible Total"
 msgstr ""
 
 #. module: pos_meal_voucher
 #: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
 msgid ""
-"Optional maximum amount per order that can be paid by meal vouchers.\n"
-"                                Set to 0 to disable."
+"Optional maximum amount per order that can be paid by meal vouchers. Set to "
+"0 to disable."
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -182,18 +179,8 @@ msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_meal_voucher
-#: model:ir.model,name:pos_meal_voucher.model_pos_order
-msgid "Point of Sale Orders"
-msgstr ""
-
-#. module: pos_meal_voucher
 #: model:ir.model,name:pos_meal_voucher.model_pos_payment_method
 msgid "Point of Sale Payment Methods"
-msgstr ""
-
-#. module: pos_meal_voucher
-#: model:ir.model,name:pos_meal_voucher.model_pos_session
-msgid "Point of Sale Session"
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -213,9 +200,8 @@ msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/ReceiptScreen/OrderReceipt.xml:0
-#, python-format
-msgid "Products marked with an asterisk (*) can be paid for by meal vouchers."
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Products marked with a star (*) are eligible for Meal vouchers."
 msgstr ""
 
 #. module: pos_meal_voucher
@@ -227,22 +213,19 @@ msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/js/models.esm.js:0
-#, python-format
-msgid "The paper meal voucher with code \"%s\" has already been scanned."
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "The paper meal voucher with code '%s' has already been scanned."
 msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/PaymentScreen/PaymentScreen.xml:0
-#, python-format
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 msgid "Total Eligible"
 msgstr ""
 
 #. module: pos_meal_voucher
 #. odoo-javascript
-#: code:addons/pos_meal_voucher/static/src/xml/Screens/PaymentScreen/PaymentScreen.xml:0
-#, python-format
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
 msgid "Total Received"
 msgstr ""
 
