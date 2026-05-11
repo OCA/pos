@@ -24,6 +24,14 @@ patch(Order.prototype, {
     get_margin_rate_str() {
         return this.env.utils.roundCurrency(this.get_margin_rate()) + "%";
     },
+    export_for_printing() {
+        const result = super.export_for_printing();
+        result.orderlines = result.orderlines.map((line) => ({
+            ...line,
+            ifaceDisplayMargin: false,
+        }));
+        return result;
+    },
 });
 
 // /////////////////////////////
