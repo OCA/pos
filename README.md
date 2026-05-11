@@ -31,7 +31,7 @@ addon | version | maintainers | summary
 [pos_hide_cost_price_and_margin](pos_hide_cost_price_and_margin/) | 17.0.1.0.0 |  | Hide Cost and Margin on PoS
 [pos_lot_barcode](pos_lot_barcode/) | 17.0.1.0.2 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 17.0.1.0.1 |  | POS Lot Selection
-[pos_margin](pos_margin/) | 17.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Margin on PoS Order
+[pos_margin](pos_margin/) | 17.0.1.1.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Margin on PoS Order
 [pos_open_cashbox_after_payment](pos_open_cashbox_after_payment/) | 17.0.1.0.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> | Allways Open the cashbox when a payment is made
 [pos_order_attachment](pos_order_attachment/) | 17.0.1.0.1 |  | Add attachments on a point of sale order
 [pos_order_copy](pos_order_copy/) | 17.0.1.0.0 |  | Copy Orders from PoS Frontend
