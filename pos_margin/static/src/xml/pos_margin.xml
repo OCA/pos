@@ -28,7 +28,9 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
         <xpath expr="//t[@t-slot='details']" position="before">
-            <OrderSummaryMargin />
+            <t t-if="props.editable">
+                <OrderSummaryMargin />
+            </t>
         </xpath>
     </t>
 
