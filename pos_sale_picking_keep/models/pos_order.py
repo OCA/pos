@@ -12,9 +12,10 @@ class PosOrder(models.Model):
         # Avoid the cancellation of the SO pickings
         so_line_ids = []
         for order_data in orders:
-            lines_data = order_data.get("lines", [])
-            for _, _, line_data in lines_data:
-                so_line_id = line_data.get("sale_order_line_id")
+            for command in order_data.get("lines", []):
+                if len(command) != 3:
+                    continue  # No create/update command
+                so_line_id = command[2].get("sale_order_line_id")
                 if so_line_id:
                     so_line_ids.append(so_line_id)
         so_lines = self.env["sale.order.line"].browse(so_line_ids)
