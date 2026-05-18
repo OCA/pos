@@ -7,4 +7,9 @@ from odoo import fields, models
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    change_rate_barcode = fields.Float(string="Change rate for barcode nomenclature")
+    change_rate_barcode = fields.Float(
+        string="Change rate for barcode nomenclature",
+        help="Conversion rate applied to the price encoded in a barcode "
+        "when using the 'Priced Product with Change Rate' rule. "
+        "The scanned price is divided by this rate.",
+    )
