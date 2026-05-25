@@ -18,6 +18,7 @@
         "point_of_sale",
     ],
     "data": [
+        "views/point_of_sale_dashboard.xml",
         "views/pos_config_view.xml",
         "views/res_config_settings_view.xml",
     ],
