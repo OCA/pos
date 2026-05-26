@@ -9,7 +9,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <xpath expr="//t[@t-set-slot='details']" position="inside">
             <div
                 id="extra-info-container"
-                class="order-summary d-flex flex-column gap-1 px-3 py-2 border-top fw-bolder lh-sm rounded-3 bg-white"
+                class="order-summary d-flex flex-column gap-1 p-2 border-top fw-bolder lh-sm rounded-3 bg-white"
             />
         </xpath>
     </t>
