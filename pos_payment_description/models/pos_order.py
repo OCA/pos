@@ -22,25 +22,21 @@ class PosOrder(models.Model):
             for payment in order.payment_ids.filtered(
                 lambda x: x.payment_method_id.journal_id
             ):
-                details.append(
-                    "%s: %s"
-                    % (
-                        payment.payment_method_id.journal_id.code,
-                        formatLang(
-                            self.env, payment.amount, currency_obj=payment.currency_id
-                        ),
-                    )
+                journal_code = payment.payment_method_id.journal_id.code
+                formatted_amount = formatLang(
+                    self.env,
+                    payment.amount,
+                    currency_obj=payment.currency_id,
                 )
+                details.append(f"{journal_code}: {formatted_amount}")
             for payment in order.payment_ids.filtered(
                 lambda x: not x.payment_method_id.journal_id
             ):
-                details.append(
-                    "%s: %s"
-                    % (
-                        payment.payment_method_id.name,
-                        formatLang(
-                            self.env, payment.amount, currency_obj=payment.currency_id
-                        ),
-                    )
+                payment_method_name = payment.payment_method_id.name
+                formatted_amount = formatLang(
+                    self.env,
+                    payment.amount,
+                    currency_obj=payment.currency_id,
                 )
+                details.append(f"{payment_method_name}: {formatted_amount}")
             order.payment_description = " - ".join(sorted(details))
