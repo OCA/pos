@@ -13,9 +13,9 @@
                     <div class="line">
                         <div class="subentry meal-voucher">
                             Meal Voucher: <span
-                                class="value"
-                                t-out="env.pos.format_currency(props.order.get_total_meal_voucher_eligible())"
-                            />
+                            class="value"
+                            t-out="env.pos.format_currency(props.order.get_total_meal_voucher_eligible())"
+                        />
                         </div>
                     </div>
                 </div>

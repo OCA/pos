@@ -15,15 +15,15 @@
                     <br />
                     Eligible Total:
                     <span
-                        t-out="env.pos.format_currency(props.order.get_total_meal_voucher_eligible())"
-                        class="pos-receipt-right-align"
-                    />
+                    t-out="env.pos.format_currency(props.order.get_total_meal_voucher_eligible())"
+                    class="pos-receipt-right-align"
+                />
                     <br />
                     Non-Eligible Total:
                     <span
-                        t-out="env.pos.format_currency(props.order.get_total_meal_voucher_non_eligible())"
-                        class="pos-receipt-right-align"
-                    />
+                    t-out="env.pos.format_currency(props.order.get_total_meal_voucher_non_eligible())"
+                    class="pos-receipt-right-align"
+                />
                 </div>
             </t>
         </xpath>

@@ -5,7 +5,6 @@ Copyright (C) 2020 - Today: GRAP (http://www.grap.coop)
 License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 -->
 <odoo>
-
     <record id="bread" model="product.product">
         <field name="name">Organic Wholemeal Bread</field>
         <field name="categ_id" ref="food_category" />
@@ -13,5 +12,4 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
         <field name="available_in_pos" eval="True" />
         <field name="list_price">5.30</field>
     </record>
-
 </odoo>
