@@ -14,10 +14,7 @@ registry.category("web_tour.tours").add("pos_barcode_change_rate_tour", {
         {
             content: "Mock barcode scan",
             trigger: ".pos-content",
-            run: function () {
-                // Logic to trigger a barcode event with type 'price_change_rate'
-                console.log("Simulating barcode scan in tour...");
-            },
+            run: () => null,
         },
     ],
 });
