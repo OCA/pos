@@ -1,0 +1,1 @@
+odoo-addon-product-packaging-level @ git+https://github.com/OCA/product-attribute@refs/pull/2061/head#subdirectory=product_packaging_level
