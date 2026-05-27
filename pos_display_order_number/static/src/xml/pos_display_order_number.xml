@@ -8,7 +8,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
     <t t-inherit="point_of_sale.OrderSummary" t-inherit-mode="extension">
         <xpath expr="//div[@id='extra-info-container']" position="inside">
-            <div class="order-number fw-bolder fs-2 lh-sm">
+            <div class="order-number fw-bolder fs-3 lh-sm">
                 <span t-esc="getOrderName()" />
             </div>
         </xpath>

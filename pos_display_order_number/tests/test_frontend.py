@@ -12,12 +12,8 @@ class TestDisplayOrderNumber(TestPointOfSaleHttpCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.pos_user.groups_id += cls.env.ref("base.group_system")
+        cls.pos_user.group_ids += cls.env.ref("base.group_system")
 
     def test_display_order_number(self):
         self.main_pos_config.with_user(self.pos_user).open_ui()
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
-            "DisplayOrderNumber",
-            login="pos_user",
-        )
+        self.start_pos_tour("DisplayOrderNumber")

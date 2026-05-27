@@ -4,7 +4,7 @@
 {
     "name": "POS Display Order Number",
     "summary": "POS - Display order number in order summary",
-    "version": "18.0.1.0.1",
+    "version": "19.0.1.0.0",
     "development_status": "Beta",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
