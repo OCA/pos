@@ -20,8 +20,8 @@
         "views/res_config_settings_views.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_require_product_quantity/static/src/js/**/*.js",
+        "point_of_sale._assets_pos": [
+            "pos_require_product_quantity/static/src/overrides/pos_store.esm.js",
         ]
     },
 }
