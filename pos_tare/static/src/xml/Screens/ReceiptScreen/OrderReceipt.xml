@@ -8,15 +8,13 @@
         owl="1"
     >
         <xpath expr="//t[@t-if='line.discount !== 0']" position="after">
-            <t t-if="line.tare_quantity > 0">
+            <t t-if="line.has_tare">
                 <div class="pos-receipt-left-padding">
                     Gross Weight:
-                    <t t-out="line.gross_quantity" />
-                    <t t-if="!line.is_in_unit" t-esc="line.unit_name" />
+                    <t t-out="line.gross_weight_str" />
                     <br />
                     Tare:
-                    <t t-out="line.tare_quantity" />
-                    <t t-if="!line.is_in_unit" t-esc="line.unit_name" />
+                    <t t-out="line.tare_str" />
                     <br />
                 </div>
             </t>

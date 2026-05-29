@@ -1,6 +1,6 @@
 /** @odoo-module **/
 
-import {convert_mass, format_tare} from "./tools.esm";
+import {convert_mass, format_quantity} from "./tools.esm";
 import {Model} from "point_of_sale.Registries";
 import {Orderline} from "point_of_sale.models";
 import field_utils from "web.field_utils";
@@ -39,8 +39,9 @@ const TareOrderline = (Orderline_) =>
 
         export_for_printing() {
             const order_line = super.export_for_printing(...arguments);
-            order_line.tare_quantity = this.get_tare();
-            order_line.gross_quantity = this.get_gross_weight();
+            order_line.has_tare = this.has_tare;
+            order_line.tare_str = this.get_tare_str_with_unit();
+            order_line.gross_weight_str = this.get_gross_weight_str_with_unit();
             return order_line;
         }
 
@@ -51,7 +52,7 @@ const TareOrderline = (Orderline_) =>
             this.order.assert_editable();
 
             // Prevent to apply multiple times a tare to the same product.
-            if (this.get_tare() > 0) {
+            if (this.has_tare) {
                 // This is valid because the tare is stored using product UOM.
                 this.set_quantity(this.get_quantity() + this.get_tare());
                 this.reset_tare();
@@ -92,24 +93,28 @@ const TareOrderline = (Orderline_) =>
             return this.tare;
         }
 
+        get has_tare() {
+            return this.tare > 0;
+        }
+
         get_gross_weight() {
             return this.get_tare() + this.get_quantity();
         }
 
         get_tare_str_with_unit() {
             const unit = this.get_unit();
-            const tare_str = format_tare(this.pos, this.tare, this.get_unit());
-            return tare_str + " " + unit.name;
+            const tare_str = format_quantity(this.pos, this.tare, this.get_unit());
+            return tare_str + " " + unit.name;
         }
 
         get_gross_weight_str_with_unit() {
             const unit = this.get_unit();
-            const gross_weight_str = format_tare(
+            const gross_weight_str = format_quantity(
                 this.pos,
                 this.get_gross_weight(),
                 this.get_unit()
             );
-            return gross_weight_str + " " + unit.name;
+            return gross_weight_str + " " + unit.name;
         }
     };
 
