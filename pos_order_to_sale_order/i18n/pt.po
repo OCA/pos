@@ -6,26 +6,28 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-29 11:04+0000\n"
+"Last-Translator: Su <sushan.voong@factorlibre.com>\n"
 "Language-Team: none\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_sale_order_allow_commitment_date
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__iface_sale_order_allow_commitment_date
 msgid "Allow Add Commitment Date"
-msgstr ""
+msgstr "Permitir adicionar data de compromisso"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Commitment Date"
-msgstr ""
+msgstr "Data de compromisso"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_res_config_settings
@@ -37,52 +39,52 @@ msgstr ""
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Confirmed Sale Order"
-msgstr ""
+msgstr "Criar encomenda de venda confirmada"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid "Create Confirmed Sale Orders"
-msgstr ""
+msgstr "Criar encomendas de venda confirmadas"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Delivered Sale Order"
-msgstr ""
+msgstr "Criar encomenda de venda entregue"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_delivered_sale_order
 msgid "Create Delivered Sale Orders"
-msgstr ""
+msgstr "Criar encomendas de venda entregues"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Draft Sale Order"
-msgstr ""
+msgstr "Criar encomenda de venda em rascunho"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_draft_sale_order
 msgid "Create Draft Sale Orders"
-msgstr ""
+msgstr "Criar encomendas de venda em rascunho"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Invoiced Sale Order"
-msgstr ""
+msgstr "Criar encomenda de venda faturada"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
 msgid "Create Invoiced Sale Orders"
-msgstr ""
+msgstr "Criar encomendas de venda faturadas"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
@@ -90,19 +92,19 @@ msgstr ""
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Create Order"
-msgstr ""
+msgstr "Criar encomenda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
 msgid "Create Sale Orders"
-msgstr ""
+msgstr "Criar encomendas de venda"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
 #, python-format
 msgid "Discard"
-msgstr ""
+msgstr "Descartar"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_sale_order_allow_commitment_date
@@ -111,6 +113,8 @@ msgid ""
 "If checked, the cashier will have the possibility to add a commitment date "
 "on the sale order."
 msgstr ""
+"Se marcado, o operador de caixa terá a possibilidade de adicionar uma data "
+"de compromisso na encomenda de venda."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
@@ -119,6 +123,8 @@ msgid ""
 "If checked, the cashier will have the possibility to create a confirmed Sale"
 " Order, based on the current draft PoS Order."
 msgstr ""
+"Se marcado, o operador de caixa terá a possibilidade de criar uma encomenda "
+"de venda confirmada, baseada na encomenda do TPV em rascunho atual."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_invoiced_sale_order
@@ -129,6 +135,11 @@ msgid ""
 " The Invoice will be generated and confirm.\n"
 " Only invoice payment process will be possible."
 msgstr ""
+"Se marcado, o operador de caixa terá a possibilidade de criar uma encomenda "
+"de venda confirmada, baseada na encomenda do TPV em rascunho atual.\n"
+" a transferência correspondente será marcada como entregue.\n"
+" A fatura será gerada e confirmada.\n"
+" Apenas o processo de pagamento por fatura será possível."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_delivered_sale_order
@@ -137,6 +148,10 @@ msgid ""
 "If checked, the cashier will have the possibility to create a confirmed sale Order, based on the current draft PoS Order.\n"
 " the according picking will be marked as delivered. Only invoices process will be possible."
 msgstr ""
+"Se marcado, o operador de caixa terá a possibilidade de criar uma encomenda "
+"de venda confirmada, baseada na encomenda do TPV em rascunho atual.\n"
+" a transferência correspondente será marcada como entregue. Apenas o "
+"processo de faturas será possível."
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_draft_sale_order
@@ -145,30 +160,32 @@ msgid ""
 "If checked, the cashier will have the possibility to create a draft Sale "
 "Order, based on the current draft PoS Order."
 msgstr ""
+"Se marcado, o operador de caixa terá a possibilidade de criar uma encomenda "
+"de venda em rascunho, baseada na encomenda do TPV em rascunho atual."
 
 #. module: pos_order_to_sale_order
 #. odoo-python
 #: code:addons/pos_order_to_sale_order/models/sale_order.py:0
 #, python-format
 msgid "Point of Sale %s"
-msgstr ""
+msgstr "Ponto de venda %s"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuração do Ponto de Venda"
 
 #. module: pos_order_to_sale_order
 #: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Sale Order Creation"
-msgstr ""
+msgstr "Criação de encomenda de venda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Ordem de Venda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Linhas da Ordem de Venda"
