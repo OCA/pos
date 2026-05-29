@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-05-29 10:25+0000\n"
+"Last-Translator: Su <sushan.voong@factorlibre.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_order_to_sale_order_delivery
 #. odoo-javascript
@@ -76,12 +78,12 @@ msgstr ""
 #. module: pos_order_to_sale_order_delivery
 #: model:ir.model,name:pos_order_to_sale_order_delivery.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr ""
+msgstr "Configuração do Ponto de Venda"
 
 #. module: pos_order_to_sale_order_delivery
 #: model:ir.model,name:pos_order_to_sale_order_delivery.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Ordem de Venda"
 
 #. module: pos_order_to_sale_order_delivery
 #: model:ir.model,name:pos_order_to_sale_order_delivery.model_delivery_carrier
