@@ -9,7 +9,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     tare_weight = fields.Float(
-        digits="Product Unit of Measure",
+        digits="Stock Weight",
         help="Set here Constant tare weight"
         " for the given product. This tare will be subtracted when"
         " the product is weighed.",
