@@ -1,3 +1,5 @@
 - [Sygel](https://www.sygel.es):
   - Valentín Vinagre
   - Ángel García de la Chica
+  - Ángel Rivas
+  - Harald Panten

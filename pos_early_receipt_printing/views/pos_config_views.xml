@@ -16,4 +16,24 @@
             </xpath>
         </field>
     </record>
+    <record id="res_config_settings_view_form_pos_printbill" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.pos.printbill</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//block[@id='pos_bills_and_receipts_section']/setting[@id='auto_printing']"
+                position="after"
+            >
+                <setting
+                    id="iface_printbill_shop"
+                    string="Early Receipt Printing"
+                    help="Allow to print receipt before payment"
+                    invisible="pos_module_pos_restaurant"
+                >
+                    <field name="pos_iface_printbill" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
 </odoo>

@@ -9,21 +9,12 @@ class ResConfigSettings(models.TransientModel):
 
     @api.depends("pos_module_pos_restaurant", "pos_config_id")
     def _compute_pos_module_pos_restaurant(self):
+        res = super()._compute_pos_module_pos_restaurant()
         for res_config in self:
             if (
                 not res_config.pos_module_pos_restaurant
                 and res_config.pos_config_id.iface_printbill
             ):
-                res_config.update(
-                    {
-                        "pos_iface_printbill": True,
-                        "pos_iface_splitbill": False,
-                    }
-                )
-        return super(
-            ResConfigSettings,
-            self.filtered(
-                lambda x: x.pos_module_pos_restaurant
-                or not res_config.pos_config_id.iface_printbill
-            ),
-        )
+                res_config.pos_iface_printbill = True
+                res_config.pos_iface_splitbill = False
+        return res
