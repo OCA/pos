@@ -4,7 +4,7 @@
 {
     "name": "Point of Sale - Places",
     "summary": "Define places on PoS orders",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point of Sale",
     "author": "GRAP,Odoo Community Association (OCA)",
     "maintainers": ["legalsylvain"],
