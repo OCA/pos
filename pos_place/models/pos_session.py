@@ -9,14 +9,15 @@ class PosSession(models.Model):
 
     def _pos_data_process(self, loaded_data):
         super()._pos_data_process(loaded_data)
+        place_qty = len(loaded_data["pos.place"])
         loaded_data["pos.place"] = [
             {"id": False, "code": "", "name": _("No Place")}
         ] + loaded_data["pos.place"]
         loaded_data["place_by_id"] = {
             place["id"]: place for place in loaded_data["pos.place"]
         }
-        loaded_data["enable_place"] = self.env.user.has_group(
-            "pos_place.group_pos_place_user"
+        loaded_data["enable_place"] = (
+            self.env.user.has_group("pos_place.group_pos_place_user") and place_qty
         )
         return
 
