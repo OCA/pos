@@ -14,7 +14,7 @@ class PosConfig(models.Model):
     main_warehouse_id = fields.Many2one(
         "stock.warehouse",
         string="Main Warehouse",
-        related="picking_type_id.warehouse_id",
+        related="warehouse_id",
         store=True,
     )
     additional_warehouse_ids = fields.Many2many(
@@ -31,12 +31,18 @@ class PosConfig(models.Model):
         default=0.0,
     )
 
-    def _get_channel_name(self):
-        """
-        Return full channel name as combination, POS Config ID and const CHANNEL
-        """
-        self.ensure_one()
-        return '["{}","{}"]'.format("pos_stock_available_online", self.id)
+    def _load_pos_data_read(self, records, config):
+        data = super()._load_pos_data_read(records, config)
+        values_by_id = {
+            record["id"]: record
+            for record in records.read(
+                ["display_product_quantity", "minimum_product_quantity_alert"],
+                load=False,
+            )
+        }
+        for record in data:
+            record.update(values_by_id.get(record["id"], {}))
+        return data
 
     def _notify_available_quantity(self, message):
         """
@@ -44,13 +50,8 @@ class PosConfig(models.Model):
         """
         if not isinstance(message, list):
             message = [message]
-        notifications = []
         for config in self:
-            notifications.append(
-                [config._get_channel_name(), "pos.config/product_update", message]
-            )
-        if notifications:
-            self.env["res.users"].search([])._bus_send(
-                "pos.config/product_update", notifications
-            )
-            _logger.debug("POS notifications for %s: %s", self.ids, notifications)
+            config._notify("PRODUCT_QUANTITY_UPDATE", message)
+        _logger.debug(
+            "POS product quantity notifications for %s: %s", self.ids, message
+        )

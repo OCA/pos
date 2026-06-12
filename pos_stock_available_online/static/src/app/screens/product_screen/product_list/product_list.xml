@@ -7,8 +7,9 @@
         t-inherit-mode="extension"
     >
         <xpath expr="//ProductCard" position="attributes">
-            <attribute name="warehouse_info">product.warehouse_info</attribute>
-            <attribute name="uom_id">uom_id</attribute>
+            <attribute
+                name="warehouse_info"
+            >product.warehouse_info || product.raw.warehouse_info</attribute>
         </xpath>
     </t>
 

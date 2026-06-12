@@ -24,22 +24,30 @@ class StockNotifierPosMixin(models.AbstractModel):
             if record._skip_notify_pos():
                 continue
             for warehouse in record._get_warehouses_to_notify():
-                configs = pos_session_obj.search(
-                    [
-                        ("state", "=", "opened"),
-                        ("config_id.display_product_quantity", "=", True),
-                        "|",
-                        ("config_id.additional_warehouse_ids", "in", [warehouse.id]),
-                        ("config_id.main_warehouse_id", "=", warehouse.id),
-                        "|",
-                        ("config_id.iface_available_categ_ids", "=", False),
-                        (
-                            "config_id.iface_available_categ_ids",
-                            "in",
-                            record.product_id.pos_categ_ids.ids,
-                        ),
-                    ],
-                ).mapped("config_id")
+                configs = (
+                    pos_session_obj.sudo()
+                    .search(
+                        [
+                            ("state", "=", "opened"),
+                            ("config_id.display_product_quantity", "=", True),
+                            "|",
+                            (
+                                "config_id.additional_warehouse_ids",
+                                "in",
+                                [warehouse.id],
+                            ),
+                            ("config_id.main_warehouse_id", "=", warehouse.id),
+                            "|",
+                            ("config_id.iface_available_categ_ids", "=", False),
+                            (
+                                "config_id.iface_available_categ_ids",
+                                "in",
+                                record.product_id.pos_categ_ids.ids,
+                            ),
+                        ],
+                    )
+                    .mapped("config_id")
+                )
                 if configs:
                     configs._notify_available_quantity(
                         warehouse._prepare_vals_for_pos(record.product_id)
