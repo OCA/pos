@@ -9,11 +9,37 @@ class StockWarehouse(models.Model):
         Prepare warehouse info data to send a POS
         """
         self.ensure_one()
+        quantity = self.env["stock.quant"]._get_available_quantity(
+            product,
+            self.lot_stock_id,
+        )
         return {
             "id": self.id,
             "name": self.name,
             "code": self.code,
-            "quantity": product.with_context(warehouse=self.id).immediately_usable_qty,
+            "quantity": quantity,
             "product_id": product.id,
+            "product_tmpl_id": product.product_tmpl_id.id,
             "uom_id": product.uom_id.id,
+        }
+
+    def _prepare_product_info_for_pos(self, products):
+        self.ensure_one()
+        quantity = sum(
+            self.env["stock.quant"]._get_available_quantity(
+                product,
+                self.lot_stock_id,
+            )
+            for product in products
+        )
+        forecasted_quantity = sum(
+            products.with_context(warehouse_id=self.id).mapped("virtual_available")
+        )
+        return {
+            "id": self.id,
+            "name": self.name,
+            "available_quantity": quantity,
+            "free_qty": quantity,
+            "forecasted_quantity": forecasted_quantity,
+            "uom": products.uom_id[:1].name,
         }

@@ -1,14 +1,18 @@
-import {ProductCard} from "@point_of_sale/app/generic_components/product_card/product_card";
 import {formatFloat, roundPrecision} from "@web/core/utils/numbers";
+import {onWillUnmount, useEffect, useState} from "@odoo/owl";
+import {PosStore} from "@point_of_sale/app/services/pos_store";
+import {ProductCard} from "@point_of_sale/app/components/product_card/product_card";
+import {ProductInfoBanner} from "@point_of_sale/app/components/product_info_banner/product_info_banner";
+import {debounce} from "@web/core/utils/timing";
 import {patch} from "@web/core/utils/patch";
-import {useEffect} from "@odoo/owl";
-import {usePos} from "@point_of_sale/app/store/pos_hook";
+import {usePos} from "@point_of_sale/app/hooks/pos_hook";
+import {useService} from "@web/core/utils/hooks";
+import {useTrackedAsync} from "@point_of_sale/app/hooks/hooks";
 
 patch(ProductCard, {
     props: {
         ...ProductCard.props,
         warehouse_info: {type: Array, optional: true},
-        uom_id: {type: Number, optional: true},
     },
 });
 
@@ -16,21 +20,16 @@ patch(ProductCard.prototype, {
     setup() {
         super.setup(...arguments);
         this.pos = usePos();
-        const busService = this.env.services.bus_service;
-        useEffect(() => {
-            busService.subscribe("pos.config/product_update", (notifications) => {
-                this._onNotification(notifications);
-            });
-        });
     },
     format_quantity(quantity) {
-        const unit = this.this.props.product.uom_id;
+        const unit = this.props.product.uom_id;
         var formattedQuantity = `${quantity}`;
         if (unit) {
             if (unit.rounding) {
-                const decimals = this.pos.data.models["decimal.precision"].find(
+                const precision = this.pos.models["decimal.precision"].find(
                     (dp) => dp.name === "Product Unit of Measure"
-                ).digits;
+                );
+                const decimals = precision ? precision.digits : 2;
                 formattedQuantity = formatFloat(quantity, {
                     digits: [69, decimals],
                 });
@@ -56,56 +55,99 @@ patch(ProductCard.prototype, {
         return this.pos.config.minimum_product_quantity_alert;
     },
     get warehouses() {
-        return this.props.product.baseData[this.props.product.id].warehouse_info || [];
+        return (
+            this.props.product.warehouse_info ||
+            this.props.product.raw.warehouse_info ||
+            []
+        );
     },
-    _getChannelName() {
-        return JSON.stringify([
-            "pos_stock_available_online",
-            String(this.pos.config.id),
-        ]);
+});
+
+patch(PosStore.prototype, {
+    async setup() {
+        await super.setup(...arguments);
+        this.data.connectWebSocket("PRODUCT_QUANTITY_UPDATE", (payload) => {
+            this.updateProductQuantity(payload);
+        });
     },
-    _onNotification(notifications) {
-        const payloads = [];
-        for (const notification of notifications) {
-            if (notification[1] === "pos.config/product_update") {
-                payloads.push(notification[2]);
+    updateProductQuantity(payload) {
+        const messages = Array.isArray(payload) ? payload : [payload];
+        for (const message of messages) {
+            const productTmplId = message.product_tmpl_id;
+            if (!productTmplId) {
+                continue;
+            }
+            const product = this.models["product.template"].get(productTmplId);
+            if (!product) {
+                continue;
+            }
+            const warehouseInfo =
+                product.warehouse_info || product.raw.warehouse_info || [];
+            const warehouse = warehouseInfo.find((wh) => wh.id === message.id);
+            if (warehouse) {
+                product.warehouse_info = warehouseInfo.map((wh) =>
+                    wh.id === message.id ? {...wh, quantity: message.quantity} : wh
+                );
+            } else {
+                product.warehouse_info = [...warehouseInfo, message];
             }
         }
-        this._handleNotification(payloads);
     },
-    async _handleNotification(payloads) {
-        const ProductIds = [];
-        for (const payload of payloads) {
-            for (const message of payload) {
-                const productId = message.product_id;
-                if (!productId) {
-                    continue;
+});
+
+patch(ProductInfoBanner.prototype, {
+    setup() {
+        this.pos = usePos();
+        this.fetchStock = useTrackedAsync(
+            (pt, p) => this.pos.getProductInfo(pt, 1, 0, p),
+            {
+                keepLast: true,
+            }
+        );
+        this.ui = useService("ui");
+        this.state = useState({
+            other_warehouses: [],
+            available_quantity: 0,
+            free_qty: 0,
+            uom: "",
+        });
+
+        const debouncedFetchStocks = debounce(async (product, productTemplate) => {
+            let result = {};
+            if (this.props.info) {
+                result = this.props.info;
+            } else {
+                await this.fetchStock.call(productTemplate, product);
+                if (this.fetchStock.status === "error") {
+                    throw this.fetchStock.result;
                 }
-                const product = this.pos.models["product.product"].get(productId);
-                if (product) {
-                    if (!product.warehouse_info) {
-                        product.warehouse_info = product.raw?.warehouse_info
-                            ? [...product.raw.warehouse_info]
-                            : [];
-                    }
-                    const warehouse = product.warehouse_info.find(
-                        (wh) => wh.id === message.id
+                result = this.fetchStock.result;
+            }
+
+            if (result) {
+                const warehouses = result.productInfo.warehouses || [];
+                const totalFreeQty = warehouses.reduce(
+                    (partialSum, warehouse) => partialSum + (warehouse.free_qty || 0),
+                    0
+                );
+                this.state.other_warehouses = warehouses;
+                this.state.available_quantity = totalFreeQty;
+                this.state.free_qty = totalFreeQty;
+                this.state.uom = warehouses[0]?.uom;
+            }
+        }, 500);
+
+        useEffect(
+            () => {
+                if (this.props.productTemplate) {
+                    debouncedFetchStocks(
+                        this.props.product,
+                        this.props.productTemplate
                     );
-                    if (warehouse) {
-                        warehouse.quantity = message.quantity;
-                    } else {
-                        product.warehouse_info.push(message);
-                    }
-                } else {
-                    ProductIds.push(productId);
                 }
-            }
-        }
-        if (ProductIds.length) {
-            const uniqueProductIds = [...new Set(ProductIds)];
-            await this.pos.data.read("product.product", uniqueProductIds);
-            await this.pos.processProductAttributes();
-        }
-        this.render(true);
+            },
+            () => [this.props.product]
+        );
+        onWillUnmount(() => debouncedFetchStocks.cancel());
     },
 });
