@@ -5,7 +5,7 @@
     "author": "Binhex,Odoo Community Association (OCA)",
     "category": "Point Of Sale",
     "website": "https://github.com/OCA/pos",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["point_of_sale", "sale_product_identification"],
     "data": [

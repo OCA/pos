@@ -2,15 +2,13 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 
-from odoo import models
+from odoo import api, models
 
 
 class ResPartnerIdcategory(models.Model):
-    _inherit = "res.partner.id_category"
+    _name = "res.partner.id_category"
+    _inherit = ["res.partner.id_category", "pos.load.mixin"]
 
-    def _load_pos_data(self, data):
-        fields = ["id", "code", "name"]
-        return {
-            "data": self.search_read([], fields, load=False),
-            "fields": fields,
-        }
+    @api.model
+    def _load_pos_data_fields(self, config):
+        return ["id", "code", "name"]

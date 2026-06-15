@@ -77,10 +77,11 @@ class ResPartnerIdNumber(models.Model):
                     "message": error.args[0],
                     "mandatory": True,
                 }
-            message = self.env._("%(message_head)s\n %(identifications)s") % {
-                "message_head": message_head,
-                "identifications": message_body,
-            }
+            message = self.env._(
+                "%(message_head)s\n %(identifications)s",
+                message_head=message_head,
+                identifications=message_body,
+            )
             return {
                 "message": message,
                 "mandatory": is_blocking,

@@ -8,7 +8,7 @@
         <xpath expr="//div[hasclass('product-name')]" position="inside">
             <i
                 t-if="line.required_identification"
-                class="fa fa-exclamation-triangle mx-2"
+                class="fa fa-exclamation-triangle mx-2 align-self-center"
                 aria-hidden="true"
                 t-att-title="line.required_message_identification"
             />

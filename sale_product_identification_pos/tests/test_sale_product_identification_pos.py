@@ -7,13 +7,14 @@ from odoo import Command
 from odoo.exceptions import ValidationError
 
 from odoo.addons.base.tests.common import BaseCommon
-from odoo.addons.point_of_sale.tests.common import TestPointOfSaleCommon
 
 
-class TestIdentificationCommonPos(TestPointOfSaleCommon, BaseCommon):
+class TestIdentificationCommonPos(BaseCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.PosSession = cls.env["pos.session"]
+        cls.pos_config = cls.env["pos.config"].create({"name": "Test POS Config"})
         cls.id_number_model = cls.env["res.partner.id_number"]
         cls.ir_config = cls.env["ir.config_parameter"].sudo()
         ResPartnerIdCategory = cls.env["res.partner.id_category"]
@@ -267,3 +268,61 @@ else:
             result = self.PosSession._load_pos_data_fields(self.pos_config.id)
             self.assertIn("enforce_partner_identification", result)
             mock_load_pos_data_fields_super.assert_called_once()
+
+    def test_load_pos_data_fields_already_present(self):
+        with patch(
+            "odoo.addons.point_of_sale.models.pos_session.PosSession._load_pos_data_fields",
+            autospec=True,
+            return_value=["enforce_partner_identification"],
+        ) as mock_load_pos_data_fields_super:
+            result = self.PosSession._load_pos_data_fields(self.pos_config.id)
+            self.assertEqual(result.count("enforce_partner_identification"), 1)
+            mock_load_pos_data_fields_super.assert_called_once()
+
+    def test_product_product_load_pos_data_fields(self):
+        with patch(
+            "odoo.addons.point_of_sale.models.product_product.ProductProduct._load_pos_data_fields",
+            autospec=True,
+            return_value=[],
+        ) as mock_load_pos_data_fields_super:
+            result = self.env["product.product"]._load_pos_data_fields(
+                self.pos_config.id
+            )
+            self.assertIn("product_tmpl_category_ids", result)
+            self.assertIn("required_identification", result)
+            mock_load_pos_data_fields_super.assert_called_once()
+
+    def test_res_partner_id_category_load_pos_data_fields(self):
+        result = self.env["res.partner.id_category"]._load_pos_data_fields(
+            self.pos_config.id
+        )
+        self.assertEqual(result, ["id", "code", "name"])
+
+    def test_product_template_id_category_load_pos_data_fields(self):
+        result = self.env["product.template.id_category"]._load_pos_data_fields(
+            self.pos_config.id
+        )
+        self.assertEqual(result, ["id", "category_id", "is_mandatory", "message"])
+
+    def test_load_pos_data_models(self):
+        with patch(
+            "odoo.addons.point_of_sale.models.pos_session.PosSession._load_pos_data_models",
+            autospec=True,
+            return_value=[],
+        ) as mock_load_pos_data_models_super:
+            result = self.PosSession._load_pos_data_models(self.pos_config.id)
+            self.assertIn("res.partner.id_category", result)
+            self.assertIn("product.template.id_category", result)
+            mock_load_pos_data_models_super.assert_called_once()
+
+    def test_compute_enforce_partner_identification_default(self):
+        session = self.PosSession.new({})
+        self.assertFalse(session.enforce_partner_identification)
+
+    def test_compute_enforce_partner_identification_enabled(self):
+        self.ir_config.set_param(
+            "sale_product_identification_pos.enforce_partner_identification",
+            "1",
+        )
+        session = self.PosSession.new({})
+        self.assertTrue(session.enforce_partner_identification)
