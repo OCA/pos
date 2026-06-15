@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 23:18+0000\n"
-"PO-Revision-Date: 2025-10-31 23:18+0000\n"
+"POT-Creation-Date: 2026-11-04 16:31+0000\n"
+"PO-Revision-Date: 2026-11-04 16:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,44 +19,102 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model:ir.model,name:sale_product_identification_pos.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
 
 #. module: sale_product_identification_pos
 #. odoo-javascript
 #: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#. odoo-javascript
+#: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
+msgid "Continue"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#. odoo-javascript
+#: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
+msgid ""
+"Customer identification could not be validated for %(products)s because the "
+"server is unreachable. Do you still want to continue without verification?"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_pos_session__display_name
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_product_product__display_name
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_product_template_id_category__display_name
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_partner_id_category__display_name
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_partner_id_number__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_pos_session__enforce_partner_identification
+msgid "Enforce Partner Identification"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model_terms:ir.ui.view,arch_db:sale_product_identification_pos.res_config_settings_view_form_sale_product_identification_pos
+msgid "Enforce customer identification"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_config_settings__enforce_pos_partner_identification
+msgid "Enforce customer identification in POS"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_pos_session__id
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_product_product__id
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_product_template_id_category__id
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_config_settings__id
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_partner_id_category__id
+#: model:ir.model.fields,field_description:sale_product_identification_pos.field_res_partner_id_number__id
+msgid "ID"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#. odoo-javascript
+#: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
+msgid "Identification warning"
+msgstr ""
 
 #. module: sale_product_identification_pos
 #. odoo-javascript
 #: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
 msgid "Identifications"
-msgstr "Identificaciones"
+msgstr ""
 
 #. module: sale_product_identification_pos
 #. odoo-javascript
 #: code:addons/sale_product_identification_pos/static/src/app/models/pos_order_line.esm.js:0
 msgid ""
 "Identifications:\n"
-"%(categories)s"
+" • %(categories)s"
 msgstr ""
-"Identificaciones:\n"
-"%(categories)s"
 
 #. module: sale_product_identification_pos
 #: model:ir.model,name:sale_product_identification_pos.model_res_partner_id_category
 msgid "Partner ID Category"
-msgstr "Categoría Empresa"
+msgstr ""
 
 #. module: sale_product_identification_pos
 #: model:ir.model,name:sale_product_identification_pos.model_res_partner_id_number
 msgid "Partner ID Number"
-msgstr "Número empresa"
+msgstr ""
 
 #. module: sale_product_identification_pos
 #: model:ir.model,name:sale_product_identification_pos.model_pos_session
 msgid "Point of Sale Session"
-msgstr "Sesión TPV"
+msgstr ""
 
 #. module: sale_product_identification_pos
 #: model:ir.model,name:sale_product_identification_pos.model_product_template_id_category
@@ -66,7 +124,14 @@ msgstr ""
 #. module: sale_product_identification_pos
 #: model:ir.model,name:sale_product_identification_pos.model_product_product
 msgid "Product Variant"
-msgstr "Variante de producto"
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model_terms:ir.ui.view,arch_db:sale_product_identification_pos.res_config_settings_view_form_sale_product_identification_pos
+msgid ""
+"Require POS orders to pass customer identification checks even when no "
+"customer is selected."
+msgstr ""
 
 #. module: sale_product_identification_pos
 #. odoo-python
@@ -75,7 +140,6 @@ msgid ""
 "The following identifications are required to validate the order, please "
 "verify."
 msgstr ""
-"Se requieren las siguientes identificaciones para validar el pedido. Por favor, verifique."
 
 #. module: sale_product_identification_pos
 #. odoo-python
@@ -84,4 +148,34 @@ msgid ""
 "The following identifications require verification, please validate before "
 "continuing:"
 msgstr ""
-"Las siguientes identificaciones requieren verificación. Por favor, valide antes de continuar."
+
+#. module: sale_product_identification_pos
+#. odoo-javascript
+#: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
+msgid ""
+"The product %(products)s cannot be sold because customer identification must"
+" be validated."
+msgstr ""
+
+#. module: sale_product_identification_pos
+#. odoo-javascript
+#: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
+msgid ""
+"The product %(products)s cannot be sold because no customer is set and "
+"identification enforcement is enabled."
+msgstr ""
+
+#. module: sale_product_identification_pos
+#. odoo-javascript
+#: code:addons/sale_product_identification_pos/static/src/app/store/pos_store.esm.js:0
+msgid ""
+"The product %(products)s cannot be sold while the POS is offline because "
+"identifications cannot be validated."
+msgstr ""
+
+#. module: sale_product_identification_pos
+#: model:ir.model.fields,help:sale_product_identification_pos.field_res_config_settings__enforce_pos_partner_identification
+msgid ""
+"When enabled, POS payments always require system-backed customer "
+"identification checks, even without a customer selected on the order."
+msgstr ""

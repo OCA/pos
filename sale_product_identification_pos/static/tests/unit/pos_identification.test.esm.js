@@ -2,7 +2,7 @@ import "sale_product_identification_pos/static/src/app/store/pos_store.esm.js";
 
 import {expect, test} from "@odoo/hoot";
 import {ConnectionLostError} from "@web/core/network/rpc";
-import {PosStore} from "@point_of_sale/app/store/pos_store";
+import {PosStore} from "@point_of_sale/app/services/pos_store";
 
 function makeStore(overrides = {}) {
     const store = {
@@ -18,14 +18,14 @@ function makeStore(overrides = {}) {
                 },
             },
         },
-        get_order() {
+        getOrder() {
             return {
                 partner_id: null,
                 not_verify_identification: false,
                 lines: [],
             };
         },
-        set_order() {
+        setOrder() {
             return undefined;
         },
         _get_products_requiring_identification() {

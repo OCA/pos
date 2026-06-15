@@ -1,6 +1,6 @@
 import {ConfirmationDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
 import {ConnectionLostError} from "@web/core/network/rpc";
-import {PosStore} from "@point_of_sale/app/store/pos_store";
+import {PosStore} from "@point_of_sale/app/services/pos_store";
 import {WarningDialog} from "@web/core/errors/error_dialogs";
 import {_t} from "@web/core/l10n/translation";
 import {patch} from "@web/core/utils/patch";
@@ -23,19 +23,11 @@ patch(PosStore.prototype, {
     },
 
     _is_browser_offline() {
-        const nav =
-            typeof globalThis !== "undefined" ? globalThis.navigator : undefined;
-        if (!nav) {
-            return false;
-        }
-        if (nav.onLine) {
-            return false;
-        }
-        return true;
+        return typeof navigator !== "undefined" && !navigator.onLine;
     },
 
     _get_products_requiring_identification() {
-        const currentOrder = this.get_order();
+        const currentOrder = this.getOrder();
         const names = new Set();
         for (const line of currentOrder.lines) {
             if ((line.product_id.product_tmpl_category_ids || []).length) {
@@ -111,29 +103,20 @@ patch(PosStore.prototype, {
     },
 
     async _confirmIdentification() {
-        const currentOrder = this.get_order();
+        const currentOrder = this.getOrder();
         currentOrder.not_verify_identification = true;
-        this.set_order(currentOrder);
+        this.setOrder(currentOrder);
         await this.pay();
     },
 
-    _get_identifications(mandatory = false, all_identification = false) {
-        const currentOrder = this.get_order();
+    _get_identifications(mandatory = false) {
+        const currentOrder = this.getOrder();
         let categories_ident = [];
-        let identifications = [];
         for (const line of currentOrder.lines) {
-            var identification_by_mandatory =
-                line.product_id.product_tmpl_category_ids.some(
-                    (val) => val.is_mandatory === mandatory
-                );
-            if (identification_by_mandatory || all_identification) {
-                if (all_identification) {
-                    identifications = line.product_id.product_tmpl_category_ids;
-                } else {
-                    identifications = line.product_id.product_tmpl_category_ids.filter(
-                        (val) => val.is_mandatory === mandatory
-                    );
-                }
+            const identifications = line.product_id.product_tmpl_category_ids.filter(
+                (val) => val.is_mandatory === mandatory
+            );
+            if (identifications.length) {
                 categories_ident = [
                     ...identifications.map((r) => r.category_id.id),
                     ...categories_ident,
@@ -145,7 +128,7 @@ patch(PosStore.prototype, {
 
     async validate_order_identification(categories_ident, mandatory, options = {}) {
         const {enforced = false, products = []} = options;
-        const currentOrder = this.get_order();
+        const currentOrder = this.getOrder();
         const offlineProducts = products.length
             ? products
             : this._get_products_requiring_identification();
@@ -198,7 +181,7 @@ patch(PosStore.prototype, {
     async _perform_identification_checks(currentOrder) {
         if (currentOrder.not_verify_identification) {
             currentOrder.not_verify_identification = false;
-            this.set_order(currentOrder);
+            this.setOrder(currentOrder);
             return true;
         }
 
@@ -217,7 +200,7 @@ patch(PosStore.prototype, {
             return false;
         }
 
-        const batches = this._prepare_identification_batches(currentOrder);
+        const batches = this._prepare_identification_batches();
         for (const batch of batches) {
             const ok = await this.validate_order_identification(
                 batch.ids,
@@ -233,17 +216,12 @@ patch(PosStore.prototype, {
         }
 
         currentOrder.not_verify_identification = false;
-        this.set_order(currentOrder);
+        this.setOrder(currentOrder);
         return true;
     },
 
-    _prepare_identification_batches(currentOrder) {
+    _prepare_identification_batches() {
         const batches = [];
-        const allIdentifications = this._get_identifications(false, true);
-        if (allIdentifications.length > 0 && !currentOrder.partner_id) {
-            batches.push({ids: allIdentifications, mandatory: true});
-            return batches;
-        }
         const mandatoryIdentifications = this._get_identifications(true);
         if (mandatoryIdentifications.length) {
             batches.push({ids: mandatoryIdentifications, mandatory: true});
@@ -256,7 +234,7 @@ patch(PosStore.prototype, {
     },
 
     async pay() {
-        const currentOrder = this.get_order();
+        const currentOrder = this.getOrder();
         const canProceed = await this._perform_identification_checks(currentOrder);
         if (!canProceed) {
             return;
