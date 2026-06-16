@@ -1,6 +1,6 @@
 {
     "name": "POS Container Deposit",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point of Sale",
     "summary": "This module is used to manage container deposits for products"
     " in Point of Sale.",
