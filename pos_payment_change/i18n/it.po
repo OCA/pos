@@ -25,9 +25,16 @@ msgstr ""
 " (Ordine rimborsato: %(refund_order)s ; Ordine rivenduto: %(resale_order)s)"
 
 #. module: pos_payment_change
-#: model_terms:ir.ui.view,arch_db:pos_payment_change.view_pos_config_form
-msgid "<span class=\"o_form_label\">Payment Change Policy</span>"
-msgstr "<span class=\"o_form_label\">Politica modifica pagamento</span>"
+#: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
+msgid ""
+"'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
+"and create a new PoS Order with the correct payment lines."
+msgstr ""
+
+#. module: pos_payment_change
+#: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
+msgid "'Update Payments': Odoo will change payment lines."
+msgstr ""
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__amount
@@ -52,6 +59,11 @@ msgstr "Modifica pagamenti"
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_old_line__company_currency_id
 msgid "Company Currency"
 msgstr "Valuta azienda"
+
+#. module: pos_payment_change
+#: model:ir.model,name:pos_payment_change.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__create_uid
@@ -127,6 +139,13 @@ msgid "New Payment Lines"
 msgstr "Righe nuovo pagamento"
 
 #. module: pos_payment_change
+#: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
+msgid ""
+"Note : In some countries the 'Update Payments' option is not allowed by law, "
+"because orders history shouldn't not be altered."
+msgstr ""
+
+#. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__old_line_ids
 msgid "Old Payment Lines"
 msgstr "Righe vecchio pagamento"
@@ -138,11 +157,21 @@ msgstr "Ordine"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_config__payment_change_policy
+#: model:ir.model.fields,field_description:pos_payment_change.field_res_config_settings__pos_payment_change_policy
+#: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
 msgid "Payment Change Policy"
 msgstr "Politica modifica pagamento"
 
 #. module: pos_payment_change
+#: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
+msgid ""
+"Payment Change Policy when users want to change the payment lines of a given "
+"PoS Order."
+msgstr ""
+
+#. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
+#: model:ir.model.fields,help:pos_payment_change.field_res_config_settings__pos_payment_change_policy
 msgid ""
 "Payment Change Policy when users want to change the payment lines of a given "
 "PoS Order.\n"
@@ -253,3 +282,6 @@ msgid ""
 msgstr ""
 "Non si possono modificare i pagamenti del POS '%(name)s' perché la sessione "
 "associata '%(session)s' è stata chiusa!"
+
+#~ msgid "<span class=\"o_form_label\">Payment Change Policy</span>"
+#~ msgstr "<span class=\"o_form_label\">Politica modifica pagamento</span>"
