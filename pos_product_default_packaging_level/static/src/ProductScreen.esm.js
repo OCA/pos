@@ -10,6 +10,13 @@ patch(ProductCard.prototype, {
             return;
         }
     },
+    get multiDefaultPackagingLevel() {
+        return (
+            Boolean(this.props.product.variants.length > 1) &&
+            Boolean(this.props.product.from_default_level_packaging_id) &&
+            this.props.product.from_default_level_packaging_id
+        );
+    },
     get defaultPackagingLevel() {
         return (
             Boolean(this.props.product.from_default_level_packaging_id) &&
