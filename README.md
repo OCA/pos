@@ -48,6 +48,7 @@ addon | version | maintainers | summary
 [pos_partner_second_lastname](pos_partner_second_lastname/) | 17.0.1.0.0 |  | Manage second last name inside Point Of Sale Frontend
 [pos_partner_vat_required](pos_partner_vat_required/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Put partner vat required in pos
 [pos_partner_vat_valid](pos_partner_vat_valid/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Validate partner vat in POS
+[pos_payment_change](pos_payment_change/) | 17.0.1.0.0 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Allow cashier to change order payments, as long as the session is not closed.
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 17.0.1.0.0 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_product_expiry](pos_product_expiry/) | 17.0.1.0.1 |  | Evaluate expiry of lot
 [pos_product_info_location](pos_product_info_location/) | 17.0.1.0.0 | <a href='https://github.com/Serpent Consulting Services Pvt. Ltd.'><img src='https://github.com/Serpent Consulting Services Pvt. Ltd..png' width='32' height='32' style='border-radius:50%;' alt='Serpent Consulting Services Pvt. Ltd.'/></a> | Point of Sale - Product Info Location
