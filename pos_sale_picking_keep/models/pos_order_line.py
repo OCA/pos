@@ -8,17 +8,9 @@ class PosOrderLine(models.Model):
 
     def _launch_stock_rule_from_pos_order_lines(self):
         """
-        Launch stock rules for pos order lines that are not linked to a sale order
-        line and when the strategy is to keep both pos and sale order pickings
+        Launch stock rules for pos order lines that are not linked to a sale order line
         """
-        lines_to_launch = self.filtered(
-            lambda line: not line.order_id.pos_config.keep_picking
-            or (
-                line.order_id.pos_config.picking_keep_strategy
-                == "keep_sale_pos_pickings"
-                and not line.sale_order_line_id
-            )
-        )
+        lines_to_launch = self.filtered(lambda line: not line.sale_order_line_id)
         if lines_to_launch:
             super(
                 PosOrderLine, lines_to_launch

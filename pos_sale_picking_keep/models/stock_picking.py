@@ -15,10 +15,7 @@ class StockPicking(models.Model):
         POS line if linked to a sale order line and with a strategy
         to keep sale pickings.
         """
-        lines_without_create = lines.filtered(
-            lambda line: line.sale_order_line_id
-            and line.order_id.config_id.keep_picking
-        )
+        lines_without_create = lines.filtered(lambda line: line.sale_order_line_id)
         return super()._create_picking_from_pos_order_lines(
             location_dest_id=location_dest_id,
             lines=(lines - lines_without_create),
