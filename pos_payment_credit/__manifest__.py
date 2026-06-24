@@ -13,6 +13,7 @@
     "data": [
         "views/payment_method_view.xml",
         "views/res_partner_view.xml",
+        "wizard/pos_make_payment_views.xml",
     ],
     "demo": [
         "demo/pos_payment_credit_demo.xml",
