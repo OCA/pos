@@ -27,8 +27,7 @@ class TestPosSalePickingKeepRealtime(PosSalePickingKeepCommon):
         sol = sale_order.order_line
         self.assertEqual(sol.qty_delivered, 0)
         self.main_pos_config.open_ui()
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "PosSalePickingKeepMixed",
             login="accountman",
         )
@@ -60,8 +59,7 @@ class TestPosSalePickingKeepRealtime(PosSalePickingKeepCommon):
         sol = sale_order.order_line
         self.assertEqual(sol.qty_delivered, 0)
         self.main_pos_config.open_ui()
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "PosSalePickingKeepMixed",
             login="accountman",
         )

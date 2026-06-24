@@ -24,8 +24,7 @@ class TestPosSalePickingKeep(PosSalePickingKeepCommon):
         sol = sale_order.order_line
         self.assertEqual(sol.qty_delivered, 0)
         self.main_pos_config.open_ui()
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "PosSalePickingKeep1",
             login="accountman",
         )
@@ -43,8 +42,7 @@ class TestPosSalePickingKeep(PosSalePickingKeepCommon):
 
     def test_pos_order_flow(self):
         self.main_pos_config.open_ui()
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "PosSalePickingKeep2",
             login="accountman",
         )

@@ -10,7 +10,6 @@ class PosSalePickingKeepCommon(TestPointOfSaleHttpCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.main_pos_config.keep_picking = True
         cls.customer = cls.env["res.partner"].create({"name": "Test partner"})
         cls.warehouse = cls.env["stock.warehouse"].search(
             [("company_id", "=", cls.env.company.id)], limit=1
