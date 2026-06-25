@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- # Copyright 2025 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_pos_order_form_inherit" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//button[@name='action_view_refunded_orders']"
+                position="after"
+            >
+                <button
+                    class="oe_stat_button"
+                    name="action_view_repair_rmas"
+                    type="object"
+                    icon="fa-repeat"
+                    invisible="rma_count == 0"
+                    groups="rma.rma_group_user_own"
+                >
+                    <field name="rma_count" widget="statinfo" string="RMAs" />
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

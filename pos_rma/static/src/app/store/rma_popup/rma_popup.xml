@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2025 (APSL-Nagarro) - Antoni Marroig
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates xml:space="preserve">
+    <t t-name="pos_rma.RMAPopup">
+        <div class="popup rma-popup">
+            <div class="modal-header drag-handle">
+                <h4 class="modal-title">RMA Details</h4>
+            </div>
+            <main class="modal-body">
+                <div class="opening-cash-section mb-3">
+                    <span
+                        class="info-title d-flex flex-grow-1 align-items-start"
+                    >Quantity</span>
+                    <div class="input-group rma-qty">
+                        <NumericInput tModel="[state, 'qty']" min="1" />
+                    </div>
+                </div>
+                <div class="d-flex flex-column align-items-start">
+                    <label class="form-label" for="rmaNotes">Reason</label>
+                    <textarea
+                        class="form-control"
+                        id="rmaNotes"
+                        rows="4"
+                        t-model="state.note"
+                        placeholder="Add reason for this RMA..."
+                    />
+                </div>
+            </main>
+            <footer class="footer modal-footer">
+                <button
+                    class="button btn btn-lg btn-primary"
+                    t-on-click="confirm"
+                    t-att-disabled="!env.utils.isValidFloat(state.qty)"
+                >
+                    Confirm
+                </button>
+                <button
+                    class="button btn btn-lg btn-secondary"
+                    t-on-click="() => this.props.close()"
+                >
+                    Discard
+                </button>
+            </footer>
+        </div>
+    </t>
+</templates>

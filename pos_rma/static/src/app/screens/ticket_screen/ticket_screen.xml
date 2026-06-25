@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2025 (APSL-Nagarro) - Antoni Marroig
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates xml:space="preserve">
+    <t
+        t-name="pos_rma.TicketScreen"
+        t-inherit="point_of_sale.TicketScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//InvoiceButton" position="after">
+            <RMAButton line="_selectedOrderlineId" order="_selectedSyncedOrder" />
+        </xpath>
+    </t>
+</templates>
