@@ -11,6 +11,7 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.env.user.group_ids |= cls.env.ref("sales_team.group_sale_salesman")
         cls.env.company.point_of_sale_update_stock_quantities = "closing"
         cls.customer = cls.env["res.partner"].create({"name": "Test partner"})
         cls.warehouse = cls.env["stock.warehouse"].search(
@@ -40,7 +41,7 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
         self.assertEqual(sol.qty_delivered, 0)
         self.main_pos_config.open_ui()
         self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+            f"/pos/ui?config_id={self.main_pos_config.id}",
             "PosSalePickingKeep1",
             login="accountman",
         )
@@ -59,7 +60,7 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
     def test_pos_order_flow(self):
         self.main_pos_config.open_ui()
         self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+            f"/pos/ui?config_id={self.main_pos_config.id}",
             "PosSalePickingKeep2",
             login="accountman",
         )
