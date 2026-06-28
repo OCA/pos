@@ -7,22 +7,22 @@ msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-18 17:33+0000\n"
-"PO-Revision-Date: 2023-11-03 00:48+0000\n"
-"Last-Translator: Alexis de Lattre <alexis@via.ecp.fr>\n"
+"PO-Revision-Date: 2026-06-28 22:56+0000\n"
+"Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_payment_change
 #. odoo-python
 #: code:addons/pos_payment_change/models/pos_order.py:0
 #, python-format
 msgid " (Refund Order: %(refund_order)s ; Resale Order: %(resale_order)s)"
-msgstr " (Remboursement: %(refund_order)s ; Revente : %(resale_order)s)"
+msgstr " (Remboursement : %(refund_order)s ; Revente : %(resale_order)s)"
 
 #. module: pos_payment_change
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
@@ -30,13 +30,13 @@ msgid ""
 "'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
 "and create a new PoS Order with the correct payment lines."
 msgstr ""
-"'Retourner et revendre': Odoo va réaliser un retour de la vente pour "
+"'Retourner et revendre' : Odoo va réaliser un retour de la vente pour "
 "l'annuler, puis recréera une nouvelle vente, avec les paiements corrects."
 
 #. module: pos_payment_change
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
 msgid "'Update Payments': Odoo will change payment lines."
-msgstr "'Modifier les paiements': Odoo va changer les lignes de paiements."
+msgstr "'Modifier les paiements' : Odoo va changer les lignes de paiements."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__amount
@@ -192,11 +192,11 @@ msgid ""
 msgstr ""
 "Méthode de changement des paiements quand les utilisateurs veulent changer "
 "des lignes de paiement d'une vente au comptoir.\n"
-"* 'Retourner et revendre': Odoo va réaliser un retour de la vente pour "
+"* 'Retourner et revendre' : Odoo va réaliser un retour de la vente pour "
 "l'annuler, puis recréera une nouvelle vente, avec les paiements corrects.\n"
-"* 'Modifier les paiements': Odoo va changer les lignes de paiements.\n"
+"* 'Modifier les paiements' : Odoo va changer les lignes de paiements.\n"
 "\n"
-"Note : dans certains pays, l'option 'Modifier les paiements' n'est pas "
+"Note : dans certains pays, l'option 'Modifier les paiements' n'est pas "
 "autorisé par la loi, parce que l'historique des ventes ne doit pas être "
 "altéré."
 
@@ -246,8 +246,8 @@ msgid ""
 "The payments of the Order %(order)s (Ref: %(ref)s have been changed by "
 "%(user_name)s on %(today)s"
 msgstr ""
-"Les paiements de la commande %(order)s (Réf : %(ref)s) ont été changés par "
-"%(user_name)s le %(today)s."
+"Les paiements de la commande %(order)s (Réf : %(ref)s) ont été changés par %"
+"(user_name)s le %(today)s"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__amount_total
