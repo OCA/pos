@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-10-12 13:36+0000\n"
-"Last-Translator: Ivorra78 <informatica@totmaterial.es>\n"
+"PO-Revision-Date: 2026-06-28 22:56+0000\n"
+"Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_payment_change
 #. odoo-python
@@ -30,11 +30,14 @@ msgid ""
 "'Refund and Resale': Odoo will refund the current Pos Order to cancel it, "
 "and create a new PoS Order with the correct payment lines."
 msgstr ""
+"'Reembolsar y Revender': Odoo va a reembolsar la orden de pedido de TpV "
+"actual para cancelarla, y crear un nuevo pedido con las líneas de pago "
+"corregidas."
 
 #. module: pos_payment_change
 #: model_terms:ir.ui.view,arch_db:pos_payment_change.view_res_config_settings_form
 msgid "'Update Payments': Odoo will change payment lines."
-msgstr ""
+msgstr "'Actualizar pagos': Odoo va a modificar las líneas de pago."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard_new_line__amount
@@ -63,7 +66,7 @@ msgstr "Moneda de la compañía"
 #. module: pos_payment_change
 #: model:ir.model,name:pos_payment_change.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Herramientas de configuración"
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__create_uid
@@ -144,6 +147,8 @@ msgid ""
 "Note : In some countries the 'Update Payments' option is not allowed by law, "
 "because orders history shouldn't not be altered."
 msgstr ""
+"Nota: en ciertos países, la opción 'Modificar pago' no está permitida por "
+"ley, porque el histórico de pedidos no debe alterarse."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,field_description:pos_payment_change.field_pos_payment_change_wizard__old_line_ids
@@ -168,6 +173,8 @@ msgid ""
 "Payment Change Policy when users want to change the payment lines of a given "
 "PoS Order."
 msgstr ""
+"Política de cambio de pago cuando usuario quiere cambiar las líneas de pago "
+"de una orden del TpV."
 
 #. module: pos_payment_change
 #: model:ir.model.fields,help:pos_payment_change.field_pos_config__payment_change_policy
