@@ -16,6 +16,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_pos_make_payment__is_credit
+msgid "Allow to add credit for members"
+msgstr "Permettre d'allouer un crédit aux membres"
+
+#. module: pos_payment_credit
 #. odoo-javascript
 #: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
 msgid "An error occurred while processing the payment."
