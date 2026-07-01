@@ -39,7 +39,7 @@
             </div>
             <div class="partner-detail col" t-if="!changes.is_company">
                 <label class="form-label label" for="is_company">Firstname</label>
-                    <input
+                <input
                     class="detail form-control"
                     name="firstname"
                     t-model="changes.firstname"
