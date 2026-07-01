@@ -1,3 +1,4 @@
-The module adds the support of the fields of the partner\_firstname
-module within the point of sale interface, allowing to view and edit
-them in the given customer view.
+This module only loads ``firstname`` and ``lastname`` into the Point
+of Sale frontend, for modules needing them client-side (e.g. on a
+receipt or kitchen ticket). Not required for a classic POS usage with
+``partner_firstname``, which already handles partner editing natively.
