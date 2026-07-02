@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "18.0.20260429.0"
+version = "18.0.20260702.0"
 dependencies = [
     "odoo-addon-pos_barcode_rule_priced_with_change_rate==18.0.*",
     "odoo-addon-pos_blind_session_closing==18.0.*",
@@ -21,6 +21,7 @@ dependencies = [
     "odoo-addon-pos_report_session_summary==18.0.*",
     "odoo-addon-pos_sale_picking_keep==18.0.*",
     "odoo-addon-pos_session_pay_invoice==18.0.*",
+    "odoo-addon-pos_session_sequence==18.0.*",
     "odoo-addon-pos_supplierinfo_search==18.0.*",
     "odoo-addon-pos_user_restrict_provider_info==18.0.*",
     "odoo-addon-pos_user_restriction==18.0.*",
