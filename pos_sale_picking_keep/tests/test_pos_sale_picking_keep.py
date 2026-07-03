@@ -1,6 +1,7 @@
 # Copyright 2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 import odoo.tests
+from odoo import Command
 from odoo.tests import Form
 
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
@@ -84,6 +85,58 @@ class TestPosSalePickingKeep(TestPointOfSaleHttpCommon):
         self.assertEqual(pos_order.state, "paid")
         self.assertFalse(pos_order.picking_ids)
         self.assertEqual(sale_order.picking_ids.state, "done")
+
+    def test_read_converted_price_uom_rounding(self):
+        """Charge the exact sale order amount when the quantity converted to
+        the product UoM is not representable with the Product Unit precision.
+
+        4 Units of a pack-of-150 product = 0.02666 packs, which the PoS
+        rounds to 0.03. The price returned by read_converted must be
+        compensated so the PoS charges the sale order amount.
+        """
+        unit_uom = self.env.ref("uom.product_uom_unit")
+        pack_uom = self.env["uom.uom"].create(
+            {
+                "name": "Pack of 150",
+                "relative_factor": 150,
+                "relative_uom_id": unit_uom.id,
+            }
+        )
+        product = self.env["product.product"].create(
+            {
+                "name": "Test pack product",
+                "available_in_pos": True,
+                "is_storable": True,
+                "uom_id": pack_uom.id,
+                "lst_price": 984.0,
+            }
+        )
+        sale_order = self.env["sale.order"].create(
+            {
+                "partner_id": self.customer.id,
+                "order_line": [
+                    Command.create(
+                        {
+                            "product_id": product.id,
+                            "product_uom_id": unit_uom.id,
+                            "product_uom_qty": 4,
+                            "price_unit": 6.56,
+                        }
+                    )
+                ],
+            }
+        )
+        sale_order.action_confirm()
+        sol = sale_order.order_line
+        converted = sol.read_converted()[0]
+        # What the PoS will charge: rounded qty * converted price
+        qty_pos = pack_uom.round(
+            converted["product_uom_qty"] - converted["qty_invoiced"]
+        )
+        self.assertAlmostEqual(qty_pos, 0.03)
+        self.assertAlmostEqual(
+            qty_pos * converted["price_unit"], sol.price_subtotal, places=2
+        )
 
     def test_pos_order_flow(self):
         self.main_pos_config.open_ui()
