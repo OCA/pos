@@ -12,6 +12,7 @@ patch(ProductCard.prototype, {
     },
     get multiDefaultPackagingLevel() {
         return (
+            Boolean(this.props.product.variants) &&
             Boolean(this.props.product.variants.length > 1) &&
             Boolean(this.props.product.from_default_level_packaging_id) &&
             this.props.product.from_default_level_packaging_id
