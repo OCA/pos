@@ -15,14 +15,13 @@ class ProductProduct(models.Model):
         "barcode list", readonly=True, compute="_compute_barcodes_json"
     )
 
+    @api.depends("barcode_ids.name")
     def _compute_barcodes_json(self):
         for product in self:
-            barcodes = [barcode for barcode in product.mapped("barcode_ids.name")]
+            barcodes = list(product.mapped("barcode_ids.name"))
             product.barcodes_json = json.dumps(barcodes)
 
     @api.model
-    def _load_pos_data_fields(self, config_id):
-        fields = super()._load_pos_data_fields(config_id)
-        if "barcodes_json" not in fields:
-            fields.append("barcodes_json")
-        return fields
+    def _load_pos_data_fields(self, config):
+        fields = super()._load_pos_data_fields(config)
+        return list(dict.fromkeys(fields + ["barcodes_json"]))
