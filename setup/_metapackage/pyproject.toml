@@ -1,9 +1,10 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "19.0.20260429.0"
+version = "19.0.20260709.0"
 dependencies = [
     "odoo-addon-pos_edit_order_line==19.0.*",
     "odoo-addon-pos_partner_birthdate==19.0.*",
+    "odoo-addon-pos_printing_qztray==19.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",
