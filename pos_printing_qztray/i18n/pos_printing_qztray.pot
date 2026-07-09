@@ -1,16 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* pos_printing_qz
+# 	* pos_printing_qztray
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 18.0\n"
+"Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-24 11:52+0000\n"
-"PO-Revision-Date: 2025-11-24 11:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -26,30 +23,30 @@ msgstr ""
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "Base"
-msgstr "B.I."
+msgstr ""
 
 #. module: pos_printing_qztray
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "CHANGE"
-msgstr "CAMBIO"
+msgstr ""
 
 #. module: pos_printing_qztray
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "CUSTOMER"
-msgstr "CLIENTE"
+msgstr ""
 
 #. module: pos_printing_qztray
 #: model_terms:ir.ui.view,arch_db:pos_printing_qztray.view_pos_config_form_qztray
 msgid "Cashdrawer"
-msgstr "Cajón portamonedas"
+msgstr ""
 
 #. module: pos_printing_qztray
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "Code: "
-msgstr "Código: "
+msgstr ""
 
 #. module: pos_printing_qztray
 #: model:ir.model.fields,field_description:pos_printing_qztray.field_pos_config__display_name
@@ -59,7 +56,7 @@ msgstr ""
 #. module: pos_printing_qztray
 #: model:ir.model.fields,field_description:pos_printing_qztray.field_pos_config__is_qztray
 msgid "Enable QZ Tray Printing"
-msgstr "Activar impresión con QZ Tray"
+msgstr ""
 
 #. module: pos_printing_qztray
 #: model:ir.model.fields,field_description:pos_printing_qztray.field_pos_config__id
@@ -70,24 +67,22 @@ msgstr ""
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "Need an invoice? Scan the QR code"
-msgstr "¿Necesita una factura? Escanee el código QR"
+msgstr ""
 
 #. module: pos_printing_qztray
 #: model:ir.model,name:pos_printing_qztray.model_pos_config
 msgid "Point of Sale Configuration"
-msgstr "Configuración del TPV"
+msgstr ""
 
 #. module: pos_printing_qztray
 #: model_terms:ir.ui.view,arch_db:pos_printing_qztray.view_pos_config_form_qztray
 msgid "Print receipts directly to a local printer using QZTray"
-msgstr "Imprimir recibos directamente a una impresora local usando QZTray"
+msgstr ""
 
 #. module: pos_printing_qztray
 #: model:ir.model.fields,help:pos_printing_qztray.field_pos_config__iface_qztray_printer_id
 msgid "Printer to use for POS receipts when QZ Tray mode is enabled."
 msgstr ""
-"Impresora a utilizar para los recibos del TPV cuando el modo QZ Tray está "
-"activado."
 
 #. module: pos_printing_qztray
 #: model:ir.model.fields,field_description:pos_printing_qztray.field_pos_config__iface_qztray_printer_id
@@ -107,9 +102,8 @@ msgstr ""
 #. module: pos_printing_qztray
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
-#, fuzzy
 msgid "Served by %(name)s"
-msgstr "Servido por %s"
+msgstr ""
 
 #. module: pos_printing_qztray
 #. odoo-python
@@ -121,13 +115,13 @@ msgstr ""
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "Tax"
-msgstr "Impuesto"
+msgstr ""
 
 #. module: pos_printing_qztray
 #. odoo-python
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "Tax Amount"
-msgstr "Cuota"
+msgstr ""
 
 #. module: pos_printing_qztray
 #. odoo-python
@@ -145,6 +139,3 @@ msgstr ""
 #: code:addons/pos_printing_qztray/controllers/main.py:0
 msgid "unit(s)"
 msgstr ""
-
-#~ msgid "Cash"
-#~ msgstr "Efectivo"
