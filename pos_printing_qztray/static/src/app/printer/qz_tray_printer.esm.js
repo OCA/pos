@@ -1,7 +1,7 @@
 /** @odoo-module **/
 /* global */
 
-import {htmlToCanvas} from "@point_of_sale/app/services/render_service";
+import {htmlToCanvas} from "@point_of_sale/app/printer/render_service";
 import {QZConnection} from "./qz_tray_connection.esm";
 import {rpc} from "@web/core/network/rpc";
 

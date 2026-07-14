@@ -3,7 +3,7 @@
 {
     "name": "POS Printing QZ",
     "summary": "POS receipt printing via QZ Tray",
-    "version": "19.0.1.0.0",
+    "version": "18.0.1.0.0",
     # see https://odoo-community.org/page/development-status
     "development_status": "Alpha",
     "category": "Point Of Sale",
