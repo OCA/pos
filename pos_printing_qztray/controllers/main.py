@@ -9,7 +9,7 @@ from odoo.http import request
 
 
 class PosEscposController(http.Controller):
-    @http.route("/pos/escpos/render-image", type="jsonrpc", auth="user")
+    @http.route("/pos/escpos/render-image", type="json", auth="user")
     def render_any_report(self, png_base64, width_mm=80):
         p = Dummy()
         try:
@@ -34,7 +34,7 @@ class PosEscposController(http.Controller):
         p.cut()
         return base64.b64encode(p.output).decode("utf-8")
 
-    @http.route("/pos/escpos/receipt", type="jsonrpc", auth="user")
+    @http.route("/pos/escpos/receipt", type="json", auth="user")
     def render_template(self, order_id):
         order = request.env["pos.order"].search(
             [("pos_reference", "ilike", "%" + order_id + "%")], limit=1

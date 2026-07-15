@@ -1,9 +1,9 @@
 /** @odoo-module **/
 /* global */
 
-import {htmlToCanvas} from "@point_of_sale/app/services/render_service";
+import {htmlToCanvas} from "@point_of_sale/app/printer/render_service";
 import {QZConnection} from "./qz_tray_connection.esm";
-import {rpc} from "@web/core/network/rpc";
+import {jsonrpc} from "@web/core/network/rpc_service";
 
 /**
  * QZTrayPrinter
@@ -31,7 +31,7 @@ export class QZTrayPrinter {
             const pngBase64 = canvas
                 .toDataURL("image/png")
                 .replace(/^data:image\/png;base64,/, "");
-            const escpos_data = await rpc("/pos/escpos/render-image", {
+            const escpos_data = await jsonrpc("/pos/escpos/render-image", {
                 png_base64: pngBase64,
             });
             const cashdrawer = "\x1B\x70\x00\x19\x19";
