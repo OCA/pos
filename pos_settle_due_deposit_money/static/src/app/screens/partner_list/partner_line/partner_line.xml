@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_settle_due_deposit_money.CustomDropdownItems"
+        t-inherit="CustomDropdownItems"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//t[@t-if='partnerInfos.remainingDue gt 0']" position="after">
+            <DropdownItem
+                t-if="this.payLaterPaymentExists()"
+                onSelected="() => this.depositMoney()"
+            >
+                Deposit money
+            </DropdownItem>
+        </xpath>
+    </t>
+</templates>
