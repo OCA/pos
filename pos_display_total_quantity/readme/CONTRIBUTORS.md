@@ -2,3 +2,5 @@
   - Henry Backman <henry.backman@camptocamp.com>
 - [Trobz](https://www.trobz.com):
   - Tris Doan <tridm@trobz.com>
+- CIT-Services \<<cit-services.eu>\>
+  - Prayag \<<prayag.k@cit-services.eu>\>
