@@ -7,10 +7,10 @@ from odoo import fields, models
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    hide_user = fields.Boolean(string="Hide User in POS receipt?", default=True)
+    hide_user = fields.Boolean(string="Hide User in POS receipt", default=True)
     hide_company_email = fields.Boolean(
-        string="Hide Company Email in POS receipt?", default=True
+        string="Hide Company Email in POS receipt", default=True
     )
     hide_company_phone = fields.Boolean(
-        string="Hide Company Phone in POS receipt?", default=True
+        string="Hide Company Phone in POS receipt", default=True
     )
