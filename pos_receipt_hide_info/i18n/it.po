@@ -24,22 +24,31 @@ msgstr "Impostazioni configurazione"
 #. module: pos_receipt_hide_info
 #: model:ir.model.fields,field_description:pos_receipt_hide_info.field_pos_config__hide_company_email
 #: model:ir.model.fields,field_description:pos_receipt_hide_info.field_res_config_settings__pos_hide_company_email
-msgid "Hide Company Email in POS receipt?"
-msgstr "Nascondere l'e-mail dell'azienda nella ricevuta POS?"
+msgid "Hide Company Email in POS receipt"
+msgstr ""
 
 #. module: pos_receipt_hide_info
 #: model:ir.model.fields,field_description:pos_receipt_hide_info.field_pos_config__hide_company_phone
 #: model:ir.model.fields,field_description:pos_receipt_hide_info.field_res_config_settings__pos_hide_company_phone
-msgid "Hide Company Phone in POS receipt?"
-msgstr "Nascondere il telefono dell'azienda nella ricevuta POS?"
+msgid "Hide Company Phone in POS receipt"
+msgstr ""
 
 #. module: pos_receipt_hide_info
 #: model:ir.model.fields,field_description:pos_receipt_hide_info.field_pos_config__hide_user
 #: model:ir.model.fields,field_description:pos_receipt_hide_info.field_res_config_settings__pos_hide_user
-msgid "Hide User in POS receipt?"
-msgstr "Nascondere l'utente nella ricevuta POS?"
+msgid "Hide User in POS receipt"
+msgstr ""
 
 #. module: pos_receipt_hide_info
 #: model:ir.model,name:pos_receipt_hide_info.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr "Configurazione punto vendita"
+
+#~ msgid "Hide Company Email in POS receipt?"
+#~ msgstr "Nascondere l'e-mail dell'azienda nella ricevuta POS?"
+
+#~ msgid "Hide Company Phone in POS receipt?"
+#~ msgstr "Nascondere il telefono dell'azienda nella ricevuta POS?"
+
+#~ msgid "Hide User in POS receipt?"
+#~ msgstr "Nascondere l'utente nella ricevuta POS?"
