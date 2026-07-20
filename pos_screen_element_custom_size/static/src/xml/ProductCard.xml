@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.ProductCard" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('product-name')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{pos.config.product_text_font_size or 12}}px !important;
+            </attribute>
+        </xpath>
+        <xpath expr="//span[hasclass('price-tag')]" position="attributes">
+            <attribute name="t-attf-style">
+                font-size: {{this.pos.config.price_tag_font_size or 12}}px !important;
+            </attribute>
+        </xpath>
+    </t>
+
+</templates>
