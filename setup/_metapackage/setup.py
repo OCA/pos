@@ -27,6 +27,7 @@ setuptools.setup(
         'odoo-addon-pos_financial_risk>=16.0dev,<16.1dev',
         'odoo-addon-pos_global_discount_in_line>=16.0dev,<16.1dev',
         'odoo-addon-pos_hide_banknote_button>=16.0dev,<16.1dev',
+        'odoo-addon-pos_hide_empty_category>=16.0dev,<16.1dev',
         'odoo-addon-pos_hide_partner_info>=16.0dev,<16.1dev',
         'odoo-addon-pos_hr_access_right>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_barcode>=16.0dev,<16.1dev',
