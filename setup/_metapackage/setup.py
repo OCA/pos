@@ -88,6 +88,7 @@ setuptools.setup(
         'odoo-addon-pos_require_product_quantity>=16.0dev,<16.1dev',
         'odoo-addon-pos_reset_search>=16.0dev,<16.1dev',
         'odoo-addon-pos_restaurant_receipt_usability>=16.0dev,<16.1dev',
+        'odoo-addon-pos_restaurant_split_order_usability>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_order_print>=16.0dev,<16.1dev',
         'odoo-addon-pos_sale_product_config_no_variant>=16.0dev,<16.1dev',
         'odoo-addon-pos_screen_element_custom_size>=16.0dev,<16.1dev',
