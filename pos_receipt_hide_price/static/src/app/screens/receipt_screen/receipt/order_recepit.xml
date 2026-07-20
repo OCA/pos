@@ -1,0 +1,46 @@
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <!-- Tax included -->
+        <xpath expr="//div[hasclass('pos-receipt-taxes')]" position="attributes">
+            <attribute name="t-att-class">{"d-none": priceHidden}</attribute>
+        </xpath>
+
+        <!-- Discounts -->
+        <xpath expr="//t[@t-if='props.data.total_discount']/div" position="attributes">
+            <attribute name="t-att-class">{'d-none': priceHidden}</attribute>
+        </xpath>
+
+        <!-- CHANGE -->
+        <xpath expr="//div[hasclass('receipt-change')]" position="attributes">
+            <attribute name="t-att-class">{'d-none': priceHidden}</attribute>
+        </xpath>
+
+        <!-- TOTAL -->
+        <xpath expr="//div[hasclass('pos-receipt-amount')]" position="attributes">
+            <attribute name="t-att-class">{'d-none': priceHidden}</attribute>
+        </xpath>
+
+        <!-- SEPARATOR LINES-TOTAL -->
+        <xpath
+            expr="//div[hasclass('pos-receipt')]//div[hasclass('pos-receipt-right-align')][1]"
+            position="attributes"
+        >
+            <attribute name="t-att-class">{'d-none': priceHidden}</attribute>
+        </xpath>
+
+        <!-- JUMP LINE -->
+        <xpath expr="//div[hasclass('pos-receipt')]//br[1]" position="attributes">
+            <attribute name="t-att-class">{'d-none': priceHidden}</attribute>
+        </xpath>
+
+        <!-- PAYMENTS LINES -->
+        <xpath expr="//div[hasclass('paymentlines')]" position="attributes">
+            <attribute name="t-att-class">{'d-none': priceHidden}</attribute>
+        </xpath>
+
+        <!-- COMPONENT ORDERLINE -->
+        <xpath expr="//Orderline" position="attributes">
+            <attribute name="hidePriceState">hidePriceState</attribute>
+        </xpath>
+    </t>
+</templates>
