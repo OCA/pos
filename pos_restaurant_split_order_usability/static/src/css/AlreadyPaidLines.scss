@@ -1,0 +1,42 @@
+.already-paid-lines {
+    margin: 5px 5px;
+    font-size: 80%;
+    transition: all 0.3s ease;
+
+    .orderline {
+        cursor: not-allowed !important;
+        opacity: 0.8;
+    }
+}
+
+.badge-rounded-pill {
+    border-radius: 3px;
+    padding: 5px;
+    float: right;
+    margin-left: 2px;
+}
+
+.badge-order-name {
+    background: #432c3d;
+    color: white;
+}
+
+.badge-date-order {
+    background: #714b78;
+    color: white;
+}
+
+.already-paid-lines-title {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: #e0e2e6;
+    line-height: 25px;
+    border: solid 1px #cacaca;
+    width: 100%;
+    text-align: center;
+}
+
+.already-paid-lines-title.already-paid-lines-online:hover {
+    background: #e0e2f7;
+    cursor: pointer;
+}

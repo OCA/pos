@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2026-Today GRAP (https://www.grap.coop)
+    @author Quentin DUPONT
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PosRestaurantSplitOrderUsability"
+        t-inherit="pos_restaurant.SplitBillScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//ul[@class='orderlines']" position="after">
+            <div class="already-paid-lines">
+                <AlreadyPaidLines t-props="{'order': currentOrder}" />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
