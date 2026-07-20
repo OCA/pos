@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="TicketScreen"
+        t-inherit="point_of_sale.TicketScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//div[hasclass('leftpane')]//div[hasclass('control-buttons')]"
+            position="inside"
+        >
+            <t t-if="this.pos.config.allow_reorder">
+                <ReorderButton order="_selectedSyncedOrder" />
+            </t>
+        </xpath>
+    </t>
+
+</templates>
