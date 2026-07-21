@@ -8,4 +8,4 @@ from odoo import fields, models
 class AccountBankStatementLine(models.Model):
     _inherit = "account.bank.statement.line"
 
-    pos_move_reason = fields.Many2one(comodel_name="pos.move.reason")
+    pos_move_reason_id = fields.Many2one(comodel_name="pos.move.reason")

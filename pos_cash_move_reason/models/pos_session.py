@@ -119,7 +119,7 @@ class PosSession(models.Model):
                     ),
                     # Add this part
                     "counterpart_account_id": account_id,
-                    "pos_move_reason": move_reason.id,
+                    "pos_move_reason_id": move_reason.id,
                 }
                 for session in sessions
             ]

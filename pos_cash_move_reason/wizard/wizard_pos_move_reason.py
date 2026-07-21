@@ -88,6 +88,6 @@ class WizardPosMoveReason(models.TransientModel):
             "journal_id": self.journal_id.id,
             "amount": amount,
             "payment_ref": f"{self.session_id.name} - {self.name}",
-            "pos_move_reason": self.move_reason_id.id,
+            "pos_move_reason_id": self.move_reason_id.id,
             "counterpart_account_id": account_id,
         }
