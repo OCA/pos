@@ -1,0 +1,6 @@
+#. module: pos_payment_show_order
+#. odoo-javascript
+#: code:addons/pos_payment_show_order/static/src/xml/PaymentScreenShowOrder.xml:0
+#, python-format
+msgid "Order Details"
+msgstr ""
