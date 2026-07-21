@@ -1,0 +1,16 @@
+.payment-show-order {
+    cursor: none;
+    max-height: 200px;
+
+    .order-empty {
+        display: none;
+    }
+
+    .header-note {
+        display: none;
+    }
+
+    .summary.clearfix {
+        display: none;
+    }
+}
