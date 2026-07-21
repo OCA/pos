@@ -19,28 +19,21 @@ class PosOrder(models.Model):
     def _compute_payment_description(self):
         for order in self:
             details = []
-            for payment in order.payment_ids.filtered(
-                lambda x: x.payment_method_id.journal_id
-            ):
+            payment_dict = {}
+            for payment in order.payment_ids:
+                key = (payment.payment_method_id, payment.currency_id)
+                if key not in payment_dict:
+                    payment_dict[key] = payment.amount
+                else:
+                    payment_dict[key] += payment.amount
+
+            for (payment_method, currency), amount in payment_dict.items():
                 details.append(
                     "%s: %s"
                     % (
-                        payment.payment_method_id.journal_id.code,
-                        formatLang(
-                            self.env, payment.amount, currency_obj=payment.currency_id
-                        ),
+                        payment_method.name,
+                        formatLang(self.env, amount, currency_obj=currency),
                     )
                 )
-            for payment in order.payment_ids.filtered(
-                lambda x: not x.payment_method_id.journal_id
-            ):
-                details.append(
-                    "%s: %s"
-                    % (
-                        payment.payment_method_id.name,
-                        formatLang(
-                            self.env, payment.amount, currency_obj=payment.currency_id
-                        ),
-                    )
-                )
+
             order.payment_description = " - ".join(sorted(details))
