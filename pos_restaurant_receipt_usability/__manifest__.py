@@ -5,7 +5,7 @@
 {
     "name": "Point of Sale Restaurant - Receipt Usability",
     "summary": "Improve receipt screen in the PoS Restaurant front office",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.0.1",
     "category": "Point of Sale",
     "maintainers": ["legalsylvain"],
     "author": "GRAP,Odoo Community Association (OCA)",
