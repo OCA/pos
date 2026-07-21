@@ -54,9 +54,9 @@ class WizardPosMoveReason(models.TransientModel):
     @api.onchange("move_type")
     def onchange_move_type(self):
         if self.move_type == "income":
-            return {"domain": {"move_reason_id": [("is_income_reason", "=", True)]}}
+            return {"domain": {"move_reason_id": [("income_account_id", "=", True)]}}
         else:
-            return {"domain": {"move_reason_id": [("is_expense_reason", "=", True)]}}
+            return {"domain": {"move_reason_id": [("expense_account_id", "=", True)]}}
 
     @api.onchange("move_reason_id")
     def onchange_reason(self):

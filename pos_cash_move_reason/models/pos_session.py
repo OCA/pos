@@ -24,10 +24,10 @@ class PosSession(models.Model):
                 [("company_id", "=", session.config_id.company_id.id)]
             )
             session.display_move_reason_income = len(
-                reasons.filtered(lambda x: x.is_income_reason)
+                reasons.filtered(lambda x: x.income_account_id)
             )
             session.display_move_reason_expense = len(
-                reasons.filtered(lambda x: x.is_expense_reason)
+                reasons.filtered(lambda x: x.expense_account_id)
             )
 
     def button_move_income(self):
@@ -58,8 +58,8 @@ class PosSession(models.Model):
                 "fields": [
                     "name",
                     "journal_ids",
-                    "is_income_reason",
-                    "is_expense_reason",
+                    "income_account_id",
+                    "expense_account_id",
                 ],
             },
         }

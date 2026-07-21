@@ -29,10 +29,6 @@ class PosMoveReason(models.Model):
         default=_default_journal_ids,
     )
 
-    is_income_reason = fields.Boolean(default=True)
-
-    is_expense_reason = fields.Boolean(default=True)
-
     income_account_id = fields.Many2one(
         string="Income Account", comodel_name="account.account"
     )
@@ -47,13 +43,3 @@ class PosMoveReason(models.Model):
         default=lambda x: x._default_company_id(),
         required=True,
     )
-
-    @api.onchange("is_income_reason")
-    def _onchange_is_income_reason(self):
-        if not self.is_income_reason:
-            self.income_account_id = False
-
-    @api.onchange("is_expense_reason")
-    def _onchange_is_expense_reason(self):
-        if not self.is_expense_reason:
-            self.expense_account_id = False

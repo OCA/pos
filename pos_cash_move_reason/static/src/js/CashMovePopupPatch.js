@@ -52,11 +52,11 @@ odoo.define("pos_cash_move_reason.CashMovePopupPatch", function (require) {
             let res = [];
             if (this.state.inputType === "in") {
                 res = this.env.pos.pos_move_reason.filter(
-                    (reason) => reason.is_income_reason === true
+                    (reason) => reason.income_account_id !== false
                 );
             } else if (this.state.inputType === "out") {
                 res = this.env.pos.pos_move_reason.filter(
-                    (reason) => reason.is_expense_reason === true
+                    (reason) => reason.expense_account_id !== false
                 );
             }
             return res;
