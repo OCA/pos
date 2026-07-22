@@ -82,6 +82,27 @@ class SaleOrder(models.Model):
             "order_line": order_lines,
         }
 
+    def _validate_pickings_from_pos(self):
+        """Mark related pickings done, handling validate wizards when needed."""
+        self.ensure_one()
+        pickings = self.picking_ids.filtered(lambda p: p.state not in ("done", "cancel"))
+        if not pickings:
+            return
+        for move in pickings.move_ids.filtered(lambda m: m.state != "cancel"):
+            move.quantity = move.product_uom_qty
+        pickings.move_ids.picked = True
+        result = pickings.with_context(skip_backorder=True).button_validate()
+        if isinstance(result, dict) and result.get("res_model"):
+            wizard = (
+                self.env[result["res_model"]]
+                .with_context(**(result.get("context") or {}))
+                .browse(result.get("res_id"))
+            )
+            if hasattr(wizard, "process_cancel_backorder"):
+                wizard.process_cancel_backorder()
+            elif hasattr(wizard, "process"):
+                wizard.process()
+
     @api.model
     def create_order_from_pos(self, order_data, action):
         if not order_data.get("partner_id"):
@@ -102,19 +123,13 @@ class SaleOrder(models.Model):
         )
         sale_order._recompute_taxes()
 
-        # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:
             sale_order.action_confirm()
 
-        # mark picking as delivered
         if action in ["delivered", "invoiced"]:
-            # Mark all moves are delivered
-            for move in sale_order.mapped("picking_ids.move_ids"):
-                move.quantity = move.product_uom_qty
-            sale_order.mapped("picking_ids").button_validate()
+            sale_order._validate_pickings_from_pos()
 
-        if action in ["invoiced"]:
-            # Create and confirm invoices
+        if action == "invoiced":
             invoices = sale_order._create_invoices()
             invoices.action_post()
 
