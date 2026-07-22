@@ -85,7 +85,9 @@ class SaleOrder(models.Model):
     def _validate_pickings_from_pos(self):
         """Mark related pickings done, handling validate wizards when needed."""
         self.ensure_one()
-        pickings = self.picking_ids.filtered(lambda p: p.state not in ("done", "cancel"))
+        pickings = self.picking_ids.filtered(
+            lambda p: p.state not in ("done", "cancel")
+        )
         if not pickings:
             return
         for move in pickings.move_ids.filtered(lambda m: m.state != "cancel"):
@@ -106,7 +108,9 @@ class SaleOrder(models.Model):
     @api.model
     def create_order_from_pos(self, order_data, action):
         if not order_data.get("partner_id"):
-            raise UserError(self.env._("A customer is required to create a sale order."))
+            raise UserError(
+                self.env._("A customer is required to create a sale order.")
+            )
 
         # Validate session/config with the caller's ACLs before elevating.
         session = self._get_pos_session_for_order_creation(order_data)
