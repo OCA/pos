@@ -38,7 +38,7 @@ orders creation from the Point of Sale.
 In the POS UI, button has been added to create a sale order and discard
 the current POS order.
 
-This module is usefull in many cases, for exemple :
+This module is useful in many cases, for example:
 
 - take orders with a very simple interface
 - if you have some customers that come every day in your shop, but want

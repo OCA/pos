@@ -67,10 +67,10 @@ class TestUi(TestPointOfSaleHttpCommon):
         self.assertNotIn(
             "Product Note",
             order.order_line[0].name,
-            "'Product Note' must contains in sale order line description",
+            "'Product Note' must not be in the first sale order line description",
         )
         self.assertIn(
             "Product Note",
             order.order_line[1].name,
-            "'Product Note' must not contains in sale order line description",
+            "'Product Note' must be in the second sale order line description",
         )

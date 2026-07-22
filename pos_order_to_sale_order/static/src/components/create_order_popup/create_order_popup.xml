@@ -9,26 +9,24 @@
                     t-if="pos.config.iface_create_draft_sale_order"
                     t-on-click="createDraftSaleOrder"
                 >
-                    <i class="fa fa-file-o" role="img" /> Create Draft Sale Order
+                    <i class="fa fa-file-o" aria-hidden="true" /> Create Draft Sale Order
                 </button>
                 <button
                     class="btn btn-secondary btn-lg py-5"
                     t-if="pos.config.iface_create_confirmed_sale_order"
                     t-on-click="createConfirmedSaleOrder"
                 >
-                    <i
-                    class="fa fa-file-text-o"
-                    role="img"
-                /> Create Confirmed Sale Order
+                    <i class="fa fa-file-text-o" aria-hidden="true" /> Create Confirmed Sale
+                    Order
                 </button>
                 <button
                     class="btn btn-secondary btn-lg py-5"
                     t-if="pos.config.iface_create_delivered_sale_order"
                     t-on-click="createDeliveredSaleOrder"
                 >
-                    <i class="fa fa-file-text-o" role="img" /> + <i
+                    <i class="fa fa-file-text-o" aria-hidden="true" /> + <i
                     class="fa fa-shopping-cart"
-                    role="img"
+                    aria-hidden="true"
                 />
                     Create Delivered Sale Order
                 </button>
@@ -37,10 +35,10 @@
                     t-if="pos.config.iface_create_invoiced_sale_order"
                     t-on-click="createInvoicedSaleOrder"
                 >
-                    <i class="fa fa-file-text-o" role="img" /> + <i
+                    <i class="fa fa-file-text-o" aria-hidden="true" /> + <i
                     class="fa fa-shopping-cart"
-                    role="img"
-                /> + <i class="fa fa-usd" role="img" />
+                    aria-hidden="true"
+                /> + <i class="fa fa-usd" aria-hidden="true" />
                     Create Invoiced Sale Order
                 </button>
             </div>

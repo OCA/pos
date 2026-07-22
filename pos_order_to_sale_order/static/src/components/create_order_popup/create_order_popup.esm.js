@@ -1,3 +1,5 @@
+/** @odoo-module **/
+
 import {useService} from "@web/core/utils/hooks";
 
 import {Dialog} from "@web/core/dialog/dialog";
@@ -48,17 +50,13 @@ export class CreateOrderPopup extends Component {
     async _createSaleOrder(order_state) {
         const current_order = this.pos.getOrder();
         this.ui.block();
-
-        return await this.orm
-            .call("sale.order", "create_order_from_pos", [
+        try {
+            return await this.orm.call("sale.order", "create_order_from_pos", [
                 current_order.serializeForORM({orm: true}),
                 order_state,
-            ])
-            .catch((error) => {
-                throw error;
-            })
-            .finally(() => {
-                this.ui.unblock();
-            });
+            ]);
+        } finally {
+            this.ui.unblock();
+        }
     }
 }
