@@ -37,6 +37,8 @@ class SaleOrder(models.Model):
 
     @api.model
     def create_order_from_pos(self, order_data, action):
+        # POS cashiers may not have Sales ACLs.
+        self = self.sudo()
         # Create Draft Sale order
         order_vals = self._prepare_from_pos(order_data)
         sale_order = self.with_context(
