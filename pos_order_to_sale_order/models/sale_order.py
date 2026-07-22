@@ -3,6 +3,14 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import Command, api, fields, models
+from odoo.exceptions import UserError
+
+_POS_ACTION_CONFIG = {
+    "draft": "iface_create_draft_sale_order",
+    "confirmed": "iface_create_confirmed_sale_order",
+    "delivered": "iface_create_delivered_sale_order",
+    "invoiced": "iface_create_invoiced_sale_order",
+}
 
 
 class SaleOrder(models.Model):
@@ -13,6 +21,33 @@ class SaleOrder(models.Model):
         string="Pos Session",
         readonly=True,
     )
+
+    @api.model
+    def _get_pos_session_for_order_creation(self, order_data):
+        session = self.env["pos.session"].search(
+            [("id", "=", order_data.get("session_id"))], limit=1
+        )
+        if not session:
+            raise UserError(self.env._("No accessible POS session found."))
+        if session.state not in ("opened", "opening_control"):
+            raise UserError(
+                self.env._(
+                    "The POS session %(session)s is not open.",
+                    session=session.display_name,
+                )
+            )
+        return session
+
+    @api.model
+    def _check_pos_create_action_allowed(self, session, action):
+        config_field = _POS_ACTION_CONFIG.get(action)
+        if not config_field or not session.config_id[config_field]:
+            raise UserError(
+                self.env._(
+                    "Creating a %(action)s sale order from this POS is not allowed.",
+                    action=action,
+                )
+            )
 
     @api.model
     def _prepare_from_pos(self, order_data):
@@ -29,7 +64,7 @@ class SaleOrder(models.Model):
             "pos_session_id": session_id,
             "origin": self.env._("Point of Sale %s", session.name),
             "client_order_ref": order_data["name"],
-            "user_id": order_data["user_id"],
+            "user_id": order_data.get("user_id") or self.env.user.id,
             "pricelist_id": order_data["pricelist_id"],
             "fiscal_position_id": order_data["fiscal_position_id"],
             "order_line": order_lines,
@@ -37,6 +72,13 @@ class SaleOrder(models.Model):
 
     @api.model
     def create_order_from_pos(self, order_data, action):
+        if not order_data.get("partner_id"):
+            raise UserError(self.env._("A customer is required to create a sale order."))
+
+        # Validate session/config with the caller's ACLs before elevating.
+        session = self._get_pos_session_for_order_creation(order_data)
+        self._check_pos_create_action_allowed(session, action)
+
         # POS cashiers may not have Sales ACLs.
         self = self.sudo()
         # Create Draft Sale order
