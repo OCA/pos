@@ -23,6 +23,20 @@ class SaleOrder(models.Model):
     )
 
     @api.model
+    def _get_create_line_vals_from_pos(self, order_data):
+        """Return vals dicts for POS order lines marked as create commands only."""
+        return [
+            line_data[2]
+            for line_data in order_data.get("lines") or []
+            if (
+                isinstance(line_data, (list, tuple))
+                and len(line_data) >= 3
+                and line_data[0] == Command.CREATE
+                and isinstance(line_data[2], dict)
+            )
+        ]
+
+    @api.model
     def _get_pos_session_for_order_creation(self, order_data):
         session = self.env["pos.session"].search(
             [("id", "=", order_data.get("session_id"))], limit=1
@@ -50,18 +64,16 @@ class SaleOrder(models.Model):
             )
 
     @api.model
-    def _prepare_from_pos(self, order_data):
-        PosSession = self.env["pos.session"]
-        session_id = order_data["session_id"]
-        session = PosSession.browse(session_id)
+    def _prepare_from_pos(self, order_data, line_vals_list):
+        session = self.env["pos.session"].browse(order_data["session_id"])
         SaleOrderLine = self.env["sale.order.line"]
         order_lines = [
-            Command.create(SaleOrderLine._prepare_from_pos(sequence, line_data[2]))
-            for sequence, line_data in enumerate(order_data["lines"], start=1)
+            Command.create(SaleOrderLine._prepare_from_pos(sequence, line_vals))
+            for sequence, line_vals in enumerate(line_vals_list, start=1)
         ]
         return {
             "partner_id": order_data["partner_id"],
-            "pos_session_id": session_id,
+            "pos_session_id": session.id,
             "origin": self.env._("Point of Sale %s", session.name),
             "client_order_ref": order_data["name"],
             "user_id": order_data.get("user_id") or self.env.user.id,
@@ -78,14 +90,16 @@ class SaleOrder(models.Model):
         # Validate session/config with the caller's ACLs before elevating.
         session = self._get_pos_session_for_order_creation(order_data)
         self._check_pos_create_action_allowed(session, action)
+        line_vals_list = self._get_create_line_vals_from_pos(order_data)
+        if not line_vals_list:
+            raise UserError(self.env._("No order lines to create a sale order from."))
 
         # POS cashiers may not have Sales ACLs.
         self = self.sudo()
-        # Create Draft Sale order
-        order_vals = self._prepare_from_pos(order_data)
-        sale_order = self.with_context(
-            pos_order_lines_data=[x[2] for x in order_data.get("lines", [])]
-        ).create(order_vals)
+        order_vals = self._prepare_from_pos(order_data, line_vals_list)
+        sale_order = self.with_context(pos_order_lines_data=line_vals_list).create(
+            order_vals
+        )
         sale_order._recompute_taxes()
 
         # Confirm Sale Order
