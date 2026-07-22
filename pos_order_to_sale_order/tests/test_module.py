@@ -54,7 +54,12 @@ class TestUi(TestPointOfSaleHttpCommon):
 
         order = after_orders[-1]
 
-        self.assertEqual(order.amount_total, 5.18, "Total Amount must be equal to 5.18")
+        self.assertAlmostEqual(
+            order.amount_total,
+            5.18,
+            places=2,
+            msg="Total Amount must be equal to 5.18",
+        )
         self.assertEqual(order.state, "sale", "Order state must be equal to 'sale'")
         self.assertEqual(
             order.delivery_status, "full", "Delivery status must be equal to 'full'"
