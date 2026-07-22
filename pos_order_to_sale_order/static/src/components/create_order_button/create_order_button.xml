@@ -7,12 +7,7 @@
             t-on-click="onClick"
             t-att-disabled="!this.isEnabled()"
         >
-            <i
-            class="fa fa-file-text me-1"
-            role="img"
-            aria-label="Create Order"
-            title="Create Order"
-        />
+            <i class="fa fa-file-text me-1" aria-hidden="true" />
             Create Order
         </button>
     </t>
