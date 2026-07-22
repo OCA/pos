@@ -5,9 +5,9 @@
     License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 */
 
-import * as Chrome from "@point_of_sale/../tests/tours/utils/chrome_util";
-import * as Dialog from "@point_of_sale/../tests/tours/utils/dialog_util";
-import * as ProductScreen from "@point_of_sale/../tests/tours/utils/product_screen_util";
+import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
+import * as Dialog from "@point_of_sale/../tests/generic_helpers/dialog_util";
+import * as ProductScreen from "@point_of_sale/../tests/pos/tours/utils/product_screen_util";
 import * as PosOrderToSaleOrderScreen from "./helpers/PosOrderToSaleOrderMethods.esm";
 import {registry} from "@web/core/registry";
 

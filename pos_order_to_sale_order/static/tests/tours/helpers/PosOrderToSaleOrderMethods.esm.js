@@ -3,7 +3,7 @@
     Copyright 2024 Camptocamp SA (https://www.camptocamp.com).
     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 */
-import * as ProductScreen from "@point_of_sale/../tests/tours/utils/product_screen_util";
+import * as ProductScreen from "@point_of_sale/../tests/pos/tours/utils/product_screen_util";
 
 export function clickCreateOrderButton() {
     return [

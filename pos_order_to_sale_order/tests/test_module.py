@@ -12,7 +12,8 @@ class TestUi(TestPointOfSaleHttpCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        # partner
+        cls.whiteboard_pen.is_storable = True
+        cls.wall_shelf.is_storable = True
         cls.pos_partner = cls.env["res.partner"].create(
             {
                 "name": "Pos Partner",
