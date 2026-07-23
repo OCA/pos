@@ -10,15 +10,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2020-10-21 17:08+0000\n"
-"Last-Translator: Maria Sparenberg <maria.sparenberg@gmx.net>\n"
+"PO-Revision-Date: 2026-07-23 10:46+0000\n"
+"Last-Translator: davidbeckercbl <becker@cbl-computer.de>\n"
 "Language-Team: German (https://www.transifex.com/oca/teams/23907/de/)\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.10\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_picking_load
 #. odoo-javascript
@@ -42,7 +42,7 @@ msgstr "Im 'Point of Sale' anzeigen"
 #: code:addons/pos_picking_load/static/src/xml/screen/PickingLoadControlPanel.xml:0
 #, python-format
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #. module: pos_picking_load
 #. odoo-javascript
@@ -66,11 +66,12 @@ msgstr "Abbrechen"
 #, python-format
 msgid "Cannot access order management screen if offline."
 msgstr ""
+"Offline ist der Zugriff auf den Bestellverwaltungsbildschirm nicht möglich."
 
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #. module: pos_picking_load
 #. odoo-javascript
@@ -93,7 +94,7 @@ msgstr "Kunde"
 msgid ""
 "Enable the possibility to load pickings in the Point of\n"
 "                            Sale"
-msgstr ""
+msgstr "Laden von Lieferscheinen im 'Point of Sale' ermöglichen"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_sale_order__final_pos_order_id
@@ -146,7 +147,7 @@ msgstr "Bezeichnung"
 #: code:addons/pos_picking_load/static/src/js/Screen/PickingLoadFetcher.js:0
 #, python-format
 msgid "Network Error"
-msgstr ""
+msgstr "Netzwerkfehler"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_pos_order__origin_picking_id
@@ -194,7 +195,7 @@ msgstr "POS Aufträge"
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Verkaufsauftrag"
 
 #. module: pos_picking_load
 #. odoo-javascript
@@ -262,14 +263,14 @@ msgstr ""
 #. module: pos_picking_load
 #: model:ir.model,name:pos_picking_load.model_stock_picking
 msgid "Transfer"
-msgstr ""
+msgstr "Bewegung"
 
 #. module: pos_picking_load
 #. odoo-javascript
 #: code:addons/pos_picking_load/static/src/js/Screen/PickingLoadFetcher.js:0
 #, python-format
 msgid "Unable to fetch orders if offline."
-msgstr ""
+msgstr "Bestellungen können offline nicht abgerufen werden."
 
 #. module: pos_picking_load
 #. odoo-javascript
