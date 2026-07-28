@@ -1,0 +1,1 @@
+odoo-addon-product_multi_barcode @ git+https://github.com/OCA/stock-logistics-barcode.git@refs/pull/686/head#subdirectory=product_multi_barcode
