@@ -9,6 +9,10 @@ on:
       - "18.0"
       - "18.0-ocabot-*"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   unreleased-deps:
     runs-on: ubuntu-latest
