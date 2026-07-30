@@ -1,0 +1,1 @@
+from . import test_pos_lot_selection_stock_aware
