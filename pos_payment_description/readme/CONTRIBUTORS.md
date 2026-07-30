@@ -1,0 +1,2 @@
+- Sylvain LE GAL (<https://twitter.com/legalsylvain>)
+- Isaiah Martel \<isaiah.martel@qraneos.com\>
