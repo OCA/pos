@@ -17,6 +17,7 @@ registry.category("web_tour.tours").add("PosSalePickingKeep1", {
             PaymentScreen.clickPaymentMethod("Bank", true, {remaining: "0.0"}),
             PaymentScreen.clickValidate(),
             ReceiptScreen.isShown(),
+            Chrome.endTour(),
         ].flat(),
 });
 registry.category("web_tour.tours").add("PosSalePickingKeep2", {
@@ -28,6 +29,8 @@ registry.category("web_tour.tours").add("PosSalePickingKeep2", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
+            ReceiptScreen.isShown(),
+            Chrome.endTour(),
         ].flat(),
 });
 
@@ -43,5 +46,6 @@ registry.category("web_tour.tours").add("PosSalePickingKeepMixed", {
             PaymentScreen.clickPaymentMethod("Bank", true, {remaining: "0.0"}),
             PaymentScreen.clickValidate(),
             ReceiptScreen.isShown(),
+            Chrome.endTour(),
         ].flat(),
 });
