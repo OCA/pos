@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ==================================
 Point of Sale - Extra Access Right
 ==================================
@@ -13,7 +17,7 @@ Point of Sale - Extra Access Right
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
@@ -35,6 +39,7 @@ This module extends Odoo Point Of Sale features, restricting possibility to cash
 * **PoS - Change Unit Price**: The cashier can change the unit price of a product in Point Of Sale;
 * **PoS - Many Orders**: The cashier can many orders at the same time;
 * **PoS - Delete Order**: The cashier can not delete a full order;
+* **PoS - Delete Order Line**: The cashier can not delete a line in an order;
 
 **Table of contents**
 
@@ -78,6 +83,7 @@ Contributors
 * Sylvain LE GAL <https://twitter.com/legalsylvain>
 * Ammmar Officewala <https://twitter.com/AmmarOfficewala>
 * Helly kapatel <helly.kapatel@initos.com>
+* Ivan Vilata-i-Balaguer <ivan@batista10.cat>
 
 Maintainers
 ~~~~~~~~~~~

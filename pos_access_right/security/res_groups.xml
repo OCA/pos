@@ -31,6 +31,11 @@
         <field name="category_id" ref="base.module_category_usability" />
     </record>
 
+    <record id="group_delete_order_line" model="res.groups">
+        <field name="name">Point of Sale - Delete Order Line</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+
     <record id="group_payment" model="res.groups">
         <field name="name">Point of Sale - Payment</field>
         <field name="category_id" ref="base.module_category_usability" />
