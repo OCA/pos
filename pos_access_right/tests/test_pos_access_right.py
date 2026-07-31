@@ -50,5 +50,13 @@ class TestUserRestriction(TransactionCase):
             self.group_delete_order, self.pos_config_main.group_delete_order_id
         )
 
+        self.group_delete_order_line = self.env.ref(
+            "pos_access_right.group_delete_order_line"
+        )
+        self.assertEqual(
+            self.group_delete_order_line,
+            self.pos_config_main.group_delete_order_line_id,
+        )
+
         self.group_payment = self.env.ref("pos_access_right.group_payment")
         self.assertEqual(self.group_payment, self.pos_config_main.group_payment_id)
