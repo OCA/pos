@@ -1,17 +1,19 @@
 # Copyright 2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form
+from odoo.tests import Form, tagged
 
 from .common import PosSalePickingKeepCommon
 
 
+@tagged("post_install", "-at_install")
 class TestPosSalePickingKeepRealtime(PosSalePickingKeepCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env.company.point_of_sale_update_stock_quantities = "real"
+        main_company = cls._get_main_company()
+        main_company.point_of_sale_update_stock_quantities = "real"
 
-    def test_sale_order_pos_order_done(self):
+    def test_01_sale_order_pos_order_done(self):
         self.env["stock.quant"]._update_available_quantity(
             self.product, self.warehouse.lot_stock_id, 1
         )
@@ -26,11 +28,8 @@ class TestPosSalePickingKeepRealtime(PosSalePickingKeepCommon):
         sale_order = order_form.save()
         sol = sale_order.order_line
         self.assertEqual(sol.qty_delivered, 0)
-        self.main_pos_config.open_ui()
-        self.start_pos_tour(
-            "PosSalePickingKeepMixed",
-            login="accountman",
-        )
+        self.main_pos_config.with_user(self.user_accountman).open_ui()
+        self.start_pos_tour("PosSalePickingKeepMixed", login="accountman")
         self.assertEqual(sale_order.state, "sale")
         self.assertEqual(len(sale_order.picking_ids), 1)
         pos_order = sol.pos_order_line_ids.order_id
@@ -43,7 +42,7 @@ class TestPosSalePickingKeepRealtime(PosSalePickingKeepCommon):
         self.assertEqual(so_picking.state, "done")
         self.assertEqual(sol.qty_delivered, 1)
 
-    def test_sale_order_pos_order_done_and_pos_picking(self):
+    def test_02_sale_order_pos_order_done_and_pos_picking(self):
         self.env["stock.quant"]._update_available_quantity(
             self.product, self.warehouse.lot_stock_id, 1
         )
@@ -58,11 +57,8 @@ class TestPosSalePickingKeepRealtime(PosSalePickingKeepCommon):
         sale_order = order_form.save()
         sol = sale_order.order_line
         self.assertEqual(sol.qty_delivered, 0)
-        self.main_pos_config.open_ui()
-        self.start_pos_tour(
-            "PosSalePickingKeepMixed",
-            login="accountman",
-        )
+        self.main_pos_config.with_user(self.user_accountman).open_ui()
+        self.start_pos_tour("PosSalePickingKeepMixed", login="accountman")
         self.assertEqual(sale_order.state, "sale")
         self.assertEqual(len(sale_order.picking_ids), 1)
         pos_order = sol.pos_order_line_ids.order_id

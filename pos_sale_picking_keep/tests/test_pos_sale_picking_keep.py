@@ -1,17 +1,19 @@
 # Copyright 2026 Tecnativa - Víctor Martínez
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
-from odoo.tests import Form
+from odoo.tests import Form, tagged
 
 from .common import PosSalePickingKeepCommon
 
 
+@tagged("post_install", "-at_install")
 class TestPosSalePickingKeep(PosSalePickingKeepCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env.company.point_of_sale_update_stock_quantities = "closing"
+        main_company = cls._get_main_company()
+        main_company.point_of_sale_update_stock_quantities = "closing"
 
-    def test_sale_order_pos_order_done(self):
+    def test_01_sale_order_pos_order_done(self):
         self.env["stock.quant"]._update_available_quantity(
             self.product, self.warehouse.lot_stock_id, 1
         )
@@ -23,11 +25,8 @@ class TestPosSalePickingKeep(PosSalePickingKeepCommon):
         sale_order = order_form.save()
         sol = sale_order.order_line
         self.assertEqual(sol.qty_delivered, 0)
-        self.main_pos_config.open_ui()
-        self.start_pos_tour(
-            "PosSalePickingKeep1",
-            login="accountman",
-        )
+        self.main_pos_config.with_user(self.user_accountman).open_ui()
+        self.start_pos_tour("PosSalePickingKeep1", login="accountman")
         self.assertEqual(sale_order.state, "sale")
         self.assertEqual(len(sale_order.picking_ids), 1)
         pos_order = sol.pos_order_line_ids.order_id
@@ -40,13 +39,12 @@ class TestPosSalePickingKeep(PosSalePickingKeepCommon):
         self.assertEqual(so_picking.state, "done")
         self.assertEqual(sol.qty_delivered, 1)
 
-    def test_pos_order_flow(self):
-        self.main_pos_config.open_ui()
-        self.start_pos_tour(
-            "PosSalePickingKeep2",
-            login="accountman",
-        )
-        self.main_pos_config.current_session_id.close_session_from_ui()
+    def test_02_pos_order_flow(self):
+        self.main_pos_config.with_user(self.user_accountman).open_ui()
+        self.start_pos_tour("PosSalePickingKeep2", login="accountman")
+        self.main_pos_config.with_user(
+            self.user_accountman
+        ).current_session_id.close_session_from_ui()
         pos_order = self.env["pos.order"].search([], order="id desc", limit=1)
         self.assertTrue(pos_order)
         self.assertEqual(pos_order.state, "done")
