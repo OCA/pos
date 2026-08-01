@@ -44,7 +44,7 @@
         <div t-esc="props.product.productDisplayName" position="after">
             <div
                 class="badge rounded-pill bg-warning bg-opacity-100 fa fa-cube"
-                t-esc="props.product.from_default_level_packaging_id.name"
+                t-esc="this.props.product.defaultPackagingLevel"
             />
         </div>
     </t>
