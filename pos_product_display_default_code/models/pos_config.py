@@ -7,8 +7,8 @@ class PosConfig(models.Model):
 
     display_default_code = fields.Boolean(default=False)
 
-    def get_limited_products_loading(self, fields):
-        if self.display_default_code:
-            self = self.with_context(display_default_code=True)
-        res = super().get_limited_products_loading(fields)
-        return res
+    def _load_pos_data_read(self, records, config):
+        result = super()._load_pos_data_read(records, config)
+        for pos_config in result:
+            pos_config["display_default_code"] = config.display_default_code
+        return result
