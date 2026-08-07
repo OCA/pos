@@ -17,5 +17,5 @@ class PosConfig(models.Model):
         "to customize the reference numbers of your sessions.",
         copy=False,
         ondelete="restrict",
-        default=_default_session_sequence_id,
+        default=lambda self: self._default_session_sequence_id(),
     )
