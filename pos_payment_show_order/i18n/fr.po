@@ -1,6 +1,22 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-07 08:49+0000\n"
+"PO-Revision-Date: 2026-08-07 08:49+0000\n"
+"Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: ENCODING\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.15.2\n"
+
 #. module: pos_payment_show_order
 #. odoo-javascript
 #: code:addons/pos_payment_show_order/static/src/xml/PaymentScreenShowOrder.xml:0
 #, python-format
 msgid "Order Details"
-msgstr ""
+msgstr "Détails de la commande"
