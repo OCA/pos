@@ -34,7 +34,40 @@ const PrintSaleOrderManagementScreen = (OriginalSaleOrderManagementScreen) =>
                     }
                 );
 
-                // Show a selection popup for the user to choose what to print
+                if (printActions.length === 0) {
+                    this.showPopup("ErrorPopup", {
+                        title: this.env._t("Print Error"),
+                        body: this.env._t(
+                            "Please choose which sale orders to print in the POS sales configuration."
+                        ),
+                    });
+                    return {confirmed, payload};
+                }
+
+                if (printActions.length === 1) {
+                    try {
+                        await this.env.legacyActionManager.do_action(
+                            printActions[0],
+                            {
+                                additional_context: {
+                                    active_ids: [this.clickedOrder.id],
+                                },
+                            }
+                        );
+                    } catch (error) {
+                        if (error instanceof Error) {
+                            throw error;
+                        } else {
+                            this.showPopup("ErrorPopup", {
+                                title: this.env._t("Network Error"),
+                                body: this.env._t("Unable to download the report."),
+                            });
+                        }
+                    }
+                    return {confirmed, payload};
+                }
+
+                // Two or more reports configured: keep the selection popup.
                 const {confirmed: popupConfirmed, payload: popupSelectedOption} =
                     await this.showPopup("SelectionPopup", {
                         title: this.env._t("What do you want to print?"),

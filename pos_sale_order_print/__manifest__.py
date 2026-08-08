@@ -17,6 +17,9 @@
             "pos_sale_order_print/static/src/js/pos_sale_order_print.esm.js",
             "pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js",
         ],
+        "web.assets_tests": [
+            "pos_sale_order_print/static/tests/tours/**/*",
+        ],
     },
     "license": "AGPL-3",
 }
