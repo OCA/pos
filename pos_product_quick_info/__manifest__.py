@@ -14,6 +14,7 @@
             "pos_product_quick_info/static/src/css/pos.css",
             "pos_product_quick_info/static/src/js/Screens/ProductScreen/ProductItem.js",
             "pos_product_quick_info/static/src/xml/Screens/ProductScreen/ProductItem.xml",
+            "pos_product_quick_info/static/src/xml/Popups/ProductInfoPopup.xml",
         ],
     },
     "installable": True,
