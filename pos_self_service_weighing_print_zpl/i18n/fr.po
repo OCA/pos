@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_self_service_weighing_print_zpl
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model_terms:ir.ui.view,arch_db:pos_self_service_weighing_print_zpl.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Barcode Label Printer Configuration</span>"
+msgstr ""
+"<span class=\"o_form_label\">Configuration de l'imprimante d'étiquettes de "
+"code-barres</span>"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model,name:pos_self_service_weighing_print_zpl.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_darkness
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_darkness
+msgid "Darkness"
+msgstr "Obscurité"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_printer_name
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_printer_name
+msgid "Find in CUPS at http://localhost:631/printers"
+msgstr "Trouvez dans CUPS à http://localhost:631/printers"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_height
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_height
+msgid "Height of the contents on the label (in points)"
+msgstr "Hauteur du contenu sur l'étiquette (en points)"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_height
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_height
+msgid "Label Height"
+msgstr "Hauteur de l'étiquette"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_offset_x
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_offset_x
+msgid "Label Offset X"
+msgstr "Décalage de l'étiquette en X"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_offset_y
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_offset_y
+msgid "Label Offset Y"
+msgstr "Décalage de l'étiquette en Y"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_width
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_width
+msgid "Label Width"
+msgstr "Largeur de l’étiquette"
+
+#. module: pos_self_service_weighing_print_zpl
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_print_zpl/static/src/js/models.esm.js:0
+#, python-format
+msgid "Missing Printer Name"
+msgstr "Nom de l'imprimante manquant"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_offset_x
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_offset_x
+msgid "Origin point of the contents on the label, X coordinate (in points)"
+msgstr "Point d'origine du contenu sur l'étiquette, coordonnée X (en points)"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_offset_y
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_offset_y
+msgid "Origin point of the contents on the label, Y coordinate (in points)"
+msgstr "Point d'origine du contenu sur l'étiquette, coordonnée Y (en points)"
+
+#. module: pos_self_service_weighing_print_zpl
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_print_zpl/static/src/js/models.esm.js:0
+#, python-format
+msgid "Please enter the printer name in the PoS configuration"
+msgstr "Veuillez entrer le nom de l'imprimante dans la configuration du PdV"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model,name:pos_self_service_weighing_print_zpl.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_self_service_weighing_print_zpl
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_print_zpl/static/src/js/models.esm.js:0
+#, python-format
+msgid "Print Error"
+msgstr "Erreur d'impression"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_printer_name
+#: model:ir.model.fields,field_description:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_printer_name
+msgid "Printer Name"
+msgstr "Nom de l'imprimante"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_width
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_width
+msgid "Width of the contents on the label (in points)"
+msgstr "Largeur du contenu sur l'étiquette (en points)"
+
+#. module: pos_self_service_weighing_print_zpl
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_pos_config__barcode_label_darkness
+#: model:ir.model.fields,help:pos_self_service_weighing_print_zpl.field_res_config_settings__pos_barcode_label_darkness
+msgid "ZPL ~SD (set darkness) command. 0 to 30."
+msgstr "Commande ZPL ~SD (set darkness). 0 à 30."
