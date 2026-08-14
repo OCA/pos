@@ -1,0 +1,1 @@
+odoo-addon-base-report-to-printer-qztray@git+https://github.com/OCA/report-print-send.git@refs/pull/469/head#subdirectory=base_report_to_printer_qztray
