@@ -13,24 +13,30 @@ export const QZTrayPrinterService = {
 
         try {
             const posConfigId = odoo.pos_config_id;
-            if (posConfigId) {
-                const result = await rpc("/web/dataset/call_kw", {
-                    model: "pos.config",
-                    method: "read",
-                    args: [[posConfigId], ["iface_qztray_printer_id"]],
-                    kwargs: {},
-                });
-
-                const config = result?.[0];
-                if (config?.iface_qztray_printer_id) {
-                    printerName = config.iface_qztray_printer_id[1];
-                    console.info(`[POS][QZTray] Printer from backend: ${printerName}`);
-                }
-            } else {
+            if (!posConfigId) {
                 console.warn("[POS][QZTray] No pos_config_id found in odoo global.");
+                return;
+            }
+
+            const result = await rpc("/web/dataset/call_kw", {
+                model: "pos.config",
+                method: "read",
+                args: [[posConfigId], ["is_qztray", "iface_qztray_printer_id"]],
+                kwargs: {},
+            });
+
+            const config = result?.[0];
+            if (!config?.is_qztray) {
+                return;
+            }
+
+            if (config.iface_qztray_printer_id) {
+                printerName = config.iface_qztray_printer_id[1];
+                console.info(`[POS][QZTray] Printer from backend: ${printerName}`);
             }
         } catch (error) {
             console.error("[POS][QZTray] Could not fetch printer config", error);
+            return;
         }
 
         const device = new QZTrayPrinter(printerName, "escpos");
