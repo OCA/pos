@@ -34,8 +34,8 @@ export function convert_mass(mass, from_unit, to_unit) {
     return result || 0;
 }
 
-// Format the tare value.
-export function format_tare(pos, qty, unit) {
+// Format a quantity according to its UoM.
+export function format_quantity(pos, qty, unit) {
     if (unit.rounding) {
         const q = round_precision(qty, unit.rounding);
         const decimals = pos.dp["Product Unit of Measure"];
