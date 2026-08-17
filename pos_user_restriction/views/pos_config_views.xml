@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_config_view_form_users" model="ir.ui.view">
+        <field name="name">pos_config_view_form_users</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div[last()]" position="after">
+                <h2 groups="point_of_sale.group_pos_manager">Users</h2>
+                <div
+                    class="row mt16 o_settings_container"
+                    groups="point_of_sale.group_pos_manager"
+                >
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <div class="text-muted">
+                                Users assigned to this point of sale
+                            </div>
+                            <div class="content-group">
+                                <div
+                                    class="row mt16"
+                                    title="Restrict some users to only access their assigned points of sale. In order to apply the restriction, the user needs the 'User: Assigned POS Only' group"
+                                >
+                                    <label
+                                        for="assigned_user_ids"
+                                        class="col-lg-3 o_light_label"
+                                    />
+                                    <field
+                                        name="assigned_user_ids"
+                                        widget="many2many_tags"
+                                        options="{'no_create': True}"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
