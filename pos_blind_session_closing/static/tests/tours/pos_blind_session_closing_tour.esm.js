@@ -1,8 +1,7 @@
-/* global document */
 import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
 import * as Dialog from "@point_of_sale/../tests/generic_helpers/dialog_util";
 import * as PosHr from "@pos_hr/../tests/tours/utils/pos_hr_helpers";
-import * as SelectionPopup from "@point_of_sale/../tests/tours/utils/selection_popup_util";
+import * as SelectionPopup from "@point_of_sale/../tests/generic_helpers/selection_popup_util";
 
 import {registry} from "@web/core/registry";
 
@@ -57,23 +56,19 @@ function openClosePosPopup() {
         Chrome.startPoS(),
         Dialog.confirm("Open Register"),
         Chrome.clickMenuOption("Close Register"),
-        {
-            trigger: CLOSE_POS_POPUP,
-        },
+        Dialog.is("Closing Register"),
     ];
 }
 
 function openClosePosPopupAsEmployee(employeeName) {
     return [
-        Chrome.startPoS(),
+        Chrome.clickBtn("Open Register"),
         ...PosHr.loginScreenIsShown(),
         ...PosHr.clickLoginButton(),
         ...SelectionPopup.has(employeeName, {run: "click"}),
         Dialog.confirm("Open Register"),
         Chrome.clickMenuOption("Close Register"),
-        {
-            trigger: CLOSE_POS_POPUP,
-        },
+        Dialog.is("Closing Register"),
     ];
 }
 
@@ -105,7 +100,7 @@ registry
 
                 {
                     trigger: CLOSE_POS_POPUP,
-                    run: function () {
+                    run() {
                         const root =
                             document.querySelector(CLOSE_POS_POPUP) || document;
                         assertBlindClosing(root);
@@ -123,7 +118,7 @@ registry
 
                 {
                     trigger: CLOSE_POS_POPUP,
-                    run: function () {
+                    run() {
                         const root =
                             document.querySelector(CLOSE_POS_POPUP) || document;
                         assertBlindClosing(root);
