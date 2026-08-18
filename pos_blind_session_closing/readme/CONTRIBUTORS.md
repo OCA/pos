@@ -1,2 +1,4 @@
 - [APSL-Nagarro](https://apsl.tech):
   - Bernat Obrador \<<bernat.obrador@nagarro.com>\>
+- [Cloud Lotus](https://cloudlotus.net)
+  - Roberto Cifuentes \<<roberto@cloudlotus.net>\>
