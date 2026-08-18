@@ -10,6 +10,12 @@ import {patch} from "@web/core/utils/patch";
 import {usePos} from "@point_of_sale/app/store/pos_hook";
 import {useService} from "@web/core/utils/hooks";
 
+patch(Orderline, {
+    props: {
+        ...Orderline.props,
+        isReceipt: {type: Boolean, optional: true},
+    },
+});
 patch(Orderline.prototype, {
     setup() {
         super.setup();
@@ -18,7 +24,7 @@ patch(Orderline.prototype, {
         this.pos = usePos();
     },
     get isDisplayButtonRemove() {
-        return this.pos.config.pos_line_remove_btn;
+        return this.pos.config.pos_line_remove_btn && !this.props.isReceipt;
     },
     _executeRemove() {
         this.numberBuffer.sendKey("Backspace");
