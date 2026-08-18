@@ -10,8 +10,9 @@ class TestPosBlindClosing(TestPointOfSaleHttpCommon):
     def setUpClass(cls):
         super().setUpClass()
         cls.pos_hr_installed = bool(
-            cls.env["ir.module.module"]
-            .search([("name", "=", "pos_hr"), ("state", "=", "installed")])
+            cls.env["ir.module.module"].search(
+                [("name", "=", "pos_hr"), ("state", "=", "installed")]
+            )
         )
 
     def _create_user(self, login, groups):
