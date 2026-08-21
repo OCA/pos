@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="group_pos_multi_session" model="res.groups">
+        <field name="name">Allow Multiple POS Sessions</field>
+        <field name="category_id" ref="base.module_category_usability" />
+        <field
+            name="users"
+            eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"
+        />
+    </record>
+</odoo>

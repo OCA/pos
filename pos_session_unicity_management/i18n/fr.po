@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_session_unicity_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-08-21 00:00+0000\n"
+"Last-Translator: Phan Hong Phuc <phucph@trobz.com>\n"
+"Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. module: pos_session_unicity_management
+#: model:res.groups,name:pos_session_unicity_management.group_pos_multi_session
+msgid "Allow Multiple POS Sessions"
+msgstr "Autoriser plusieurs sessions POS"
+
+#. module: pos_session_unicity_management
+#. odoo-python
+#: code:addons/pos_session_unicity_management/models/pos_session.py:0
+msgid "You cannot create two active sessions with the same responsible."
+msgstr "Vous ne pouvez pas créer deux sessions actives avec le même responsable."
