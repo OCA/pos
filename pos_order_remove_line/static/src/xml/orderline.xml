@@ -3,19 +3,14 @@
   ~ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
   -->
 <templates id="template" xml:space="preserve">
-    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
-        <xpath expr="//Orderline" position="attributes">
-            <attribute name="isReceipt">true</attribute>
-        </xpath>
-    </t>
     <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
-        <xpath expr="//div[@t-if='props.showTaxGroupLabels']" position="after">
+        <xpath expr="//div[hasclass('line-details')]" position="inside">
             <button
-                class="btn remove-line-button"
+                class="btn remove-line-button text-danger p-0 ms-3 d-flex align-items-center"
                 t-if="isDisplayButtonRemove"
                 t-on-click.prevent="(event) => this.removeLine(event)"
             >
-                <i class="fa fa-trash-o" />
+                <i class="fa fa-trash-o fa-lg" />
             </button>
         </xpath>
     </t>
