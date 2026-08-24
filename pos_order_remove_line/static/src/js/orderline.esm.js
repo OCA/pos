@@ -4,45 +4,36 @@
  */
 
 import {ConfirmationDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
-import {Orderline} from "@point_of_sale/app/generic_components/orderline/orderline";
+import {Orderline} from "@point_of_sale/app/components/orderline/orderline";
 import {_t} from "@web/core/l10n/translation";
 import {patch} from "@web/core/utils/patch";
-import {usePos} from "@point_of_sale/app/store/pos_hook";
 import {useService} from "@web/core/utils/hooks";
 
-patch(Orderline, {
-    props: {
-        ...Orderline.props,
-        isReceipt: {type: Boolean, optional: true},
-    },
-});
 patch(Orderline.prototype, {
     setup() {
-        super.setup();
+        super.setup(...arguments);
         this.dialog = useService("dialog");
-        this.numberBuffer = useService("number_buffer");
-        this.pos = usePos();
+        this.pos = useService("pos");
     },
     get isDisplayButtonRemove() {
-        return this.pos.config.pos_line_remove_btn && !this.props.isReceipt;
+        return this.pos.config.pos_line_remove_btn && this.props.mode === "display";
     },
     _executeRemove() {
-        this.numberBuffer.sendKey("Backspace");
-        this.numberBuffer.sendKey("Backspace");
+        const currentOrder = this.pos.get_order();
+        if (currentOrder && this.props.line) {
+            currentOrder.removeOrderline(this.props.line);
+        }
     },
     removeLine(event) {
-        if (this.props.class.selected) {
-            event.stopPropagation();
-            event.preventDefault();
-        }
+        event.stopPropagation();
+        event.preventDefault();
+
         const showWarning = this.pos.config.pos_line_remove_warning;
         if (showWarning) {
             this.dialog.add(ConfirmationDialog, {
                 body: _t("Are you sure that you want to remove this item?"),
                 confirm: () => this._executeRemove(),
                 confirmLabel: _t("Remove"),
-                // eslint-disable-next-line no-empty-function
-                cancel: () => {},
             });
         } else {
             this._executeRemove();
