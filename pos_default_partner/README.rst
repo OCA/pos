@@ -75,6 +75,8 @@ Contributors
 
   - hugues de keyzer
 
+- Denis Roussel <denis.roussel@acsone.eu>
+
 Maintainers
 -----------
 

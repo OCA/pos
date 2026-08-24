@@ -3,3 +3,4 @@
   - Alvaro Rollan
 - [Coop IT Easy SC](https://coopiteasy.be):
   - hugues de keyzer
+- Denis Roussel \<<denis.roussel@acsone.eu>\>
