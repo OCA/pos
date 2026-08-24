@@ -11,13 +11,14 @@ from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCom
 @odoo.tests.tagged("post_install", "-at_install")
 class TestLotProductExpiry(TestPointOfSaleHttpCommon):
     @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+    def setUpClass(cls):
+        super().setUpClass()
         now = datetime.now()
         cls.lot_product_1 = cls.env["product.product"].create(
             {
                 "name": "Lot Product 1",
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
                 "tracking": "lot",
                 "categ_id": cls.env.ref("product.product_category_all").id,
                 "available_in_pos": True,

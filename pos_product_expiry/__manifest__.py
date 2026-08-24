@@ -6,11 +6,11 @@
     "name": "Pos Lot Expiry",
     "summary": """
         Evaluate expiry of lot""",
-    "version": "17.0.1.0.1",
+    "version": "18.0.1.0.0",
     "license": "AGPL-3",
     "author": "Dixmit,INVITU,Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
-    "depends": ["point_of_sale", "product_expiry", "pos_lot_selection"],
+    "depends": ["point_of_sale", "product_expiry"],
     "assets": {
         "point_of_sale._assets_pos": [
             "pos_product_expiry/static/src/js/**/*.js",
