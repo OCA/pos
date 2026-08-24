@@ -24,7 +24,7 @@ patch(Orderline.prototype, {
         this.pos = usePos();
     },
     get isDisplayButtonRemove() {
-        return this.pos.config.pos_line_remove_btn;
+        return this.pos.config.pos_line_remove_btn && !this.props.isReceipt;
     },
     _executeRemove() {
         this.numberBuffer.sendKey("Backspace");
