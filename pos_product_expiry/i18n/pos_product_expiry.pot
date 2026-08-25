@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,6 @@ msgstr ""
 #. module: pos_product_expiry
 #. odoo-javascript
 #: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
-#, python-format
 msgid ""
 "A lot is expired and you are not enabled to sell expired lots. No changes "
 "were applied."
@@ -25,7 +24,6 @@ msgstr ""
 #. module: pos_product_expiry
 #. odoo-javascript
 #: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
-#, python-format
 msgid "A lot was not found. No changes were applied."
 msgstr ""
 
@@ -51,24 +49,17 @@ msgid "Config Settings"
 msgstr ""
 
 #. module: pos_product_expiry
-#: model:ir.model,name:pos_product_expiry.model_stock_lot
-msgid "Lot/Serial"
-msgstr ""
-
-#. module: pos_product_expiry
 #: model:ir.model,name:pos_product_expiry.model_pos_config
 msgid "Point of Sale Configuration"
 msgstr ""
 
 #. module: pos_product_expiry
-#: model:ir.model,name:pos_product_expiry.model_pos_session
-msgid "Point of Sale Session"
+#. odoo-javascript
+#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
+msgid "Problem with lots"
 msgstr ""
 
 #. module: pos_product_expiry
-#. odoo-javascript
-#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
-#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
-#, python-format
-msgid "Problem with lots"
+#: model:ir.model,name:pos_product_expiry.model_product_product
+msgid "Product Variant"
 msgstr ""
