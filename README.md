@@ -38,6 +38,7 @@ addon | version | maintainers | summary
 [pos_payment_method_cashdro](pos_payment_method_cashdro/) | 18.0.1.0.2 |  | Allows to pay with CashDro Terminals on the Point of Sale
 [pos_payment_terminal](pos_payment_terminal/) | 18.0.1.0.0 |  | Point of sale: support generic payment terminal
 [pos_product_display_default_code](pos_product_display_default_code/) | 18.0.1.0.1 |  | pos: display product default code before product name
+[pos_product_expiry](pos_product_expiry/) | 18.0.1.0.0 |  | Evaluate expiry of lot
 [pos_product_multi_barcode](pos_product_multi_barcode/) | 18.0.1.0.0 |  | Make product multi barcodes usable in the point of sale
 [pos_report_session_summary](pos_report_session_summary/) | 18.0.1.0.0 |  | Adds a Session Summary PDF report on the POS session
 [pos_sale_picking_keep](pos_sale_picking_keep/) | 18.0.1.0.2 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | Keep sale pickings from PoS
