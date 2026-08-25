@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_expiry
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-05-05 07:20+0000\n"
+"Last-Translator: Cyril VINH-TUNG <cyril@invitu.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_product_expiry
+#. odoo-javascript
+#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
+#, python-format
+msgid ""
+"A lot is expired and you are not enabled to sell expired lots. No changes "
+"were applied."
+msgstr ""
+"Le lot est expiré et vous n'êtes pas autorisé à vendre des lots expirés. Les "
+"changements n'ont pas été appliqués."
+
+#. module: pos_product_expiry
+#. odoo-javascript
+#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
+#, python-format
+msgid "A lot was not found. No changes were applied."
+msgstr "Aucun lot trouvé. Les changement n'ont pas été appliqués."
+
+#. module: pos_product_expiry
+#: model:ir.model.fields,field_description:pos_product_expiry.field_pos_config__check_lot_expiry
+#: model:ir.model.fields,field_description:pos_product_expiry.field_res_config_settings__pos_check_lot_expiry
+msgid "Check Lot Expiry"
+msgstr "Vérifier l'expiration des lots"
+
+#. module: pos_product_expiry
+#: model_terms:ir.ui.view,arch_db:pos_product_expiry.res_config_settings_view_form
+msgid "Check expiry"
+msgstr "Vérifier l'expiration"
+
+#. module: pos_product_expiry
+#: model_terms:ir.ui.view,arch_db:pos_product_expiry.res_config_settings_view_form
+msgid "Check the expiry of lots when the lot is introduced."
+msgstr "Vérifier l'expiration des lots quand le lot a été intégré."
+
+#. module: pos_product_expiry
+#: model:ir.model,name:pos_product_expiry.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuration"
+
+#. module: pos_product_expiry
+#: model:ir.model,name:pos_product_expiry.model_stock_lot
+msgid "Lot/Serial"
+msgstr "Lot/numéro de série"
+
+#. module: pos_product_expiry
+#: model:ir.model,name:pos_product_expiry.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_product_expiry
+#: model:ir.model,name:pos_product_expiry.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#. module: pos_product_expiry
+#. odoo-javascript
+#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
+#: code:addons/pos_product_expiry/static/src/js/app/models.esm.js:0
+#, python-format
+msgid "Problem with lots"
+msgstr "Problème avec les lots"
