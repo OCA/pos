@@ -1,0 +1,81 @@
+# Copyright (C) 2022-Today GRAP (http://www.grap.coop)
+# @author Sylvain LE GAL (https://twitter.com/legalsylvain)
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+
+from odoo.tests import tagged
+
+from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+
+
+@tagged("post_install", "-at_install")
+class TestUi(TestPointOfSaleHttpCommon):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.whiteboard_pen.is_storable = True
+        cls.wall_shelf.is_storable = True
+        cls.pos_partner = cls.env["res.partner"].create(
+            {
+                "name": "Pos Partner",
+                "is_company": False,
+                "email": "let@it.be",
+            }
+        )
+
+    def test_pos_order_to_sale_order(self):
+        self.main_pos_config.with_user(self.pos_user).open_ui()
+
+        # Make the test compatible with pos_minimize_menu
+        if "iface_important_buttons" in self.main_pos_config._fields:
+            self.main_pos_config.iface_important_buttons = ",".join(
+                [
+                    "CreateOrderButton",
+                    "OrderlineCustomerNoteButton",
+                ]
+            )
+
+        before_orders = self.env["sale.order"].search(
+            [("partner_id", "=", self.pos_partner.id)],
+            order="id",
+        )
+
+        self.start_tour(
+            f"/pos/ui/{self.main_pos_config.id}",
+            "PosOrderToSaleOrderTour",
+            login="accountman",
+        )
+
+        after_orders = self.env["sale.order"].search(
+            [("partner_id", "=", self.pos_partner.id)],
+            order="id",
+        )
+
+        self.assertEqual(len(before_orders) + 1, len(after_orders))
+
+        order = after_orders[-1]
+
+        self.assertAlmostEqual(
+            order.amount_total,
+            5.18,
+            places=2,
+            msg="Total Amount must be equal to 5.18",
+        )
+        self.assertEqual(order.state, "sale", "Order state must be equal to 'sale'")
+        self.assertEqual(
+            order.delivery_status, "full", "Delivery status must be equal to 'full'"
+        )
+        self.assertEqual(
+            order.invoice_status,
+            "invoiced",
+            "Invoice status must be equal to 'invoiced'",
+        )
+        self.assertNotIn(
+            "Product Note",
+            order.order_line[0].name,
+            "'Product Note' must not be in the first sale order line description",
+        )
+        self.assertIn(
+            "Product Note",
+            order.order_line[1].name,
+            "'Product Note' must be in the second sale order line description",
+        )
