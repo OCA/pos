@@ -17,9 +17,8 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_customer_required
-#. openerp-web
-#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
-#, python-format
+#. odoo-javascript
+#: code:addons/pos_customer_required/static/src/js/payment_screen.esm.js:0
 msgid "An anonymous order cannot be confirmed"
 msgstr "Un pedido anónimo no puede ser confirmado"
 
@@ -67,11 +66,10 @@ msgid "Optional"
 msgstr "Opcional"
 
 #. module: pos_customer_required
-#. openerp-web
-#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
-#, python-format
-msgid "Please select a customer for this order."
-msgstr "Por favor seleccione un cliente para este pedido."
+#. odoo-javascript
+#: code:addons/pos_customer_required/static/src/js/payment_screen.esm.js:0
+msgid "Please select a customer for this order!"
+msgstr "¡Por favor seleccione un cliente para este pedido!"
 
 #. module: pos_customer_required
 #: model:ir.model,name:pos_customer_required.model_pos_config
