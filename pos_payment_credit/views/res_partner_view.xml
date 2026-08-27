@@ -12,12 +12,12 @@
                     <group
                         name="payment_credit_history"
                         string="Credit History"
-                        groups="point_of_sale.group_pos_user,account.group_account_invoice"
+                        groups="point_of_sale.group_pos_user"
                     >
                         <field
                             name="credit_line_ids"
                             nolabel="1"
-                            groups="point_of_sale.group_pos_user,account.group_account_invoice"
+                            groups="point_of_sale.group_pos_user"
                         />
                     </group>
                 </page>
