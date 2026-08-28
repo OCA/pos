@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_early_receipt_printing.ControlButtons"
+        t-inherit="point_of_sale.ControlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton"
+            position="after"
+        >
+            <t t-if="pos.config.iface_printbill and !pos.config.module_pos_restaurant">
+                <button
+                    t-att-class="buttonClass"
+                    t-att-disabled="!pos.get_order()?.get_orderlines()?.length"
+                    t-on-click="clickPrintBill"
+                >
+                    <i class="fa fa-print me-1" />Bill
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>
