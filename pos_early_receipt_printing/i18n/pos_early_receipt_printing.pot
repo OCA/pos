@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,7 +15,14 @@ msgstr ""
 
 #. module: pos_early_receipt_printing
 #: model_terms:ir.ui.view,arch_db:pos_early_receipt_printing.pos_shop_bill_config_view_form
+#: model_terms:ir.ui.view,arch_db:pos_early_receipt_printing.res_config_settings_view_form_pos_printbill
 msgid "Allow to print receipt before payment"
+msgstr ""
+
+#. module: pos_early_receipt_printing
+#. odoo-javascript
+#: code:addons/pos_early_receipt_printing/static/src/xml/control_buttons.xml:0
+msgid "Bill"
 msgstr ""
 
 #. module: pos_early_receipt_printing
@@ -25,5 +32,6 @@ msgstr ""
 
 #. module: pos_early_receipt_printing
 #: model_terms:ir.ui.view,arch_db:pos_early_receipt_printing.pos_shop_bill_config_view_form
+#: model_terms:ir.ui.view,arch_db:pos_early_receipt_printing.res_config_settings_view_form_pos_printbill
 msgid "Early Receipt Printing"
 msgstr ""
