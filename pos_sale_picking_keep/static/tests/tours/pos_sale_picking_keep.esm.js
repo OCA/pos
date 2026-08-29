@@ -17,6 +17,7 @@ registry.category("web_tour.tours").add("PosSalePickingKeep1", {
             PaymentScreen.clickPaymentMethod("Bank", true, {remaining: "0.0"}),
             PaymentScreen.clickValidate(),
             ReceiptScreen.isShown(),
+            Chrome.endTour(),
         ].flat(),
 });
 registry.category("web_tour.tours").add("PosSalePickingKeep2", {
@@ -28,5 +29,23 @@ registry.category("web_tour.tours").add("PosSalePickingKeep2", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
+            ReceiptScreen.isShown(),
+            Chrome.endTour(),
+        ].flat(),
+});
+
+registry.category("web_tour.tours").add("PosSalePickingKeepMixed", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+            PosSale.settleNthOrder(1),
+            ProductScreen.selectedOrderlineHas("Test Product", "1.00"),
+            ProductScreen.addOrderline("Test Product 2"),
+            ProductScreen.clickPayButton(),
+            PaymentScreen.clickPaymentMethod("Bank", true, {remaining: "0.0"}),
+            PaymentScreen.clickValidate(),
+            ReceiptScreen.isShown(),
+            Chrome.endTour(),
         ].flat(),
 });
