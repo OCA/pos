@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_order_copy.CopyOrderButton"
+        t-inherit="point_of_sale.ControlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//t[@t-if='props.showRemainingButtons']/div/OrderlineNoteButton"
+            position="after"
+        >
+            <button t-att-class="buttonClass" t-on-click="onClickCopyOrderButton">
+                <i class="fa fa-clone me-1" />
+				Duplicate Order
+            </button>
+        </xpath>
+    </t>
+</templates>
