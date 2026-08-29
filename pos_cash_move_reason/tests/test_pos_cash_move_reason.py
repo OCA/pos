@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo.exceptions import UserError
-from odoo.tests.common import Form, TransactionCase
+from odoo.tests.common import TransactionCase
 
 from odoo.addons.mail.tests.common import mail_new_test_user
 
@@ -55,25 +55,11 @@ class TestPosCashMoveReason(TransactionCase):
         self.move_reason_bank_deposit = self.PosMoveReason.create(
             {
                 "name": "Bank Deposit Test",
-                "is_income_reason": False,
-                "is_expense_reason": True,
                 "expense_account_id": self.gazoline_expense_account.id,
                 "journal_ids": [self.cash_journal.id],
                 "company_id": self.pos_config.company_id.id,
             }
         )
-
-    def test_001_create_reason_onchange_expense_reason(self):
-        move_reason_form = Form(self.PosMoveReason.with_user(self.user_admin))
-        move_reason_form.name = "New Reason"
-        move_reason_form.is_expense_reason = True
-        move_reason_form.is_income_reason = False
-
-        # Expenses reason need account_id
-        with self.assertRaises(AssertionError):
-            move_reason_form.save()
-        move_reason_form.expense_account_id = self.gazoline_expense_account
-        move_reason_form.save()
 
     def test_002_take_money(self):
         # Take money to put in Bank
