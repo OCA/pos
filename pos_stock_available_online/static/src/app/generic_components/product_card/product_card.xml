@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_stock_available_online.ProductCard"
+        t-inherit="point_of_sale.ProductCard"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//article//div[hasclass('product-content')]" position="after">
+            <div t-if="displayProductQuantity" class="warehouse-info align-items-start">
+                <div class="d-flex">
+                    <div
+                        t-if="warehouses.length > 1"
+                        class="warehouse total"
+                        title="Total"
+                    >
+                        <i class="fa fa-dropbox" />
+                        <span
+                            t-attf-class="quantity {{total_quantity > minimumProductQuantityAlert ? 'available' : 'not-available'}}"
+                        >
+                            <t t-esc="display_total_quantity" />
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <t t-foreach="warehouses" t-as="warehouse" t-key="warehouse.id">
+                        <div class="warehouse" t-att-title="warehouse.name">
+                            <span class="warehouse-name">
+                                <t t-esc="warehouse.code" />
+                            </span>
+                            <span
+                                t-attf-class="quantity {{warehouse.quantity > minimumProductQuantityAlert ? 'available' : 'not-available'}}"
+                            >
+                                <t t-esc="format_quantity(warehouse.quantity)" />
+                            </span>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </t>
+</templates>
