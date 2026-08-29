@@ -1,0 +1,204 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_ticket_send_by_mail
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-25 08:23+0000\n"
+"PO-Revision-Date: 2025-11-25 08:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.actions.report,print_report_name:pos_ticket_send_by_mail.action_report_pos_receipt
+msgid "'POS-Receipt-'+(object.name or '').replace('/','-')"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_partner__pos_email_receipt
+#: model:ir.model.fields,help:pos_ticket_send_by_mail.field_res_users__pos_email_receipt
+msgid ""
+"- E-receipt: The user will only receive e-receipt \n"
+"- No E-receipt: The user will not receive e-receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid ""
+"<br/>\n"
+"                        Date:"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:mail.template,body_html:pos_ticket_send_by_mail.email_send_pos_receipt
+msgid ""
+"<div>\n"
+"                <p>Thank you for your visit !</p>\n"
+"                <p>You will find your receipt <t t-out=\"object.pos_reference and object.pos_reference.split(' ')[1] or ''\"/> attached.</p>\n"
+"                <p/>\n"
+"                <p>Sincerely,</p>\n"
+"                <p>The team of the cooperative</p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "<strong>Taxes</strong>"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "Amount"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "Description"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_order__email_status__no_send
+msgid "Do not Send"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_config__receipt_options__1
+msgid "Do not send receipt via email"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__res_partner__pos_email_receipt__email_pos_receipt
+msgid "E-receipt Only"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_config__receipt_options__4
+msgid "Email receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_config__receipt_options__2
+msgid "Email receipt and print it"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_config__receipt_options__3
+msgid ""
+"Email receipt and print it unless configured on user that"
+"                    he only receives electronically"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__res_partner__pos_email_receipt__no_email_pos_receipt
+msgid "No E-receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_partner__pos_email_receipt
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_users__pos_email_receipt
+msgid "POS Email Receipt Preference"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "Payment Mode"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model,name:pos_ticket_send_by_mail.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "Price"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "Quantity"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.actions.report,name:pos_ticket_send_by_mail.action_report_pos_receipt
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_pos_config__receipt_options
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_res_config_settings__pos_receipt_options
+msgid "Receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.view_res_config_settings_form_pos_inherit
+msgid "Receipt Options"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:mail.template,name:pos_ticket_send_by_mail.email_send_pos_receipt
+msgid "Send Receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.actions.server,name:pos_ticket_send_by_mail.ir_cron_sent_pos_ticket_ir_actions_server
+msgid "Send Reciept via Email"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields,field_description:pos_ticket_send_by_mail.field_pos_order__email_status
+msgid "Send Status"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_order__email_status__sent
+msgid "Sent"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.view_res_config_settings_form_pos_inherit
+msgid ""
+"There are 4 ways of obtaining a receipt: 1.Do not send receipt via email "
+"2.Email receipt and print it 3. Email receipt and print it unless configured"
+" on user that he only receives electronically 4.Email receipt"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:ir.model.fields.selection,name:pos_ticket_send_by_mail.selection__pos_order__email_status__to_send
+msgid "To send"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model_terms:ir.ui.view,arch_db:pos_ticket_send_by_mail.report_receipt_document
+msgid "User:"
+msgstr ""
+
+#. module: pos_ticket_send_by_mail
+#: model:mail.template,subject:pos_ticket_send_by_mail.email_send_pos_receipt
+msgid ""
+"{{ object.user_id.company_id.name }} Received {{ object.pos_reference and "
+"object.pos_reference.split(' ')[1] or '' }}"
+msgstr ""

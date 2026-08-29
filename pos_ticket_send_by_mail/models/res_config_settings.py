@@ -1,0 +1,16 @@
+# Copyright (C) 2016-Today: La Louve (<http://www.lalouve.fr/>)
+# Copyright (C) 2019-Today: Druidoo (<https://www.druidoo.io>)
+# @author: La Louve
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html
+
+from odoo import fields, models
+
+
+class ResConfigSettings(models.TransientModel):
+    _inherit = "res.config.settings"
+
+    pos_receipt_options = fields.Selection(
+        string="Receipt",
+        related="pos_config_id.receipt_options",
+        readonly=False,
+    )
