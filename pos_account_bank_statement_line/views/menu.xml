@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2026 - Today: GRAP (http://www.grap.coop)
+@author: Quentin DUPONT
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<odoo>
+
+    <record id="action_pos_account_bank_statement_line" model="ir.actions.act_window">
+      <field name="name">All PoS Account Bank Statement Lines</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">account.bank.statement.line</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="pos_account_bank_statement_line_tree" />
+      <field name="domain">[('pos_session_id','!=', False)]</field>
+    </record>
+
+    <menuitem
+        id="menu_pos_account_bank_statement_line"
+        name="All PoS Account Bank Statement Lines"
+        parent="point_of_sale.menu_point_of_sale"
+        sequence="10"
+        action="action_pos_account_bank_statement_line"
+    />
+
+
+</odoo>
