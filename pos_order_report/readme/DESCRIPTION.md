@@ -1,0 +1,1 @@
+This module adds a wizard which allow you to export Point of Sale Analysis (report.pos.order) to Excel — just like Odoo's Pivot View.
