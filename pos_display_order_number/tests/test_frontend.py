@@ -1,0 +1,19 @@
+# Copyright 2025 Camptocamp (https://www.camptocamp.com).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+import odoo.tests
+
+from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+
+
+@odoo.tests.tagged("post_install", "-at_install")
+class TestDisplayOrderNumber(TestPointOfSaleHttpCommon):
+    # TODO: Delete if merged https://github.com/odoo/odoo/pull/240587
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.pos_user.group_ids += cls.env.ref("base.group_system")
+
+    def test_display_order_number(self):
+        self.main_pos_config.with_user(self.pos_user).open_ui()
+        self.start_pos_tour("DisplayOrderNumber")
