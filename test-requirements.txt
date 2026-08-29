@@ -1,0 +1,1 @@
+odoo-addon-pos_order_return @ git+https://github.com/OCA/pos.git@refs/pull/1473/head#subdirectory=pos_order_return
