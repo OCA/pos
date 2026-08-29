@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_config_specific_suspense_account" model="pos.config">
+        <field name="name">Point Of Sale with Specific Transfer Account</field>
+        <field name="suspense_account_id" ref="pos_suspense_account" />
+        <field name="company_id" ref="base.main_company" />
+    </record>
+</odoo>
