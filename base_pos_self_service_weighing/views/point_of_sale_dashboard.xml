@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_pos_config_kanban" model="ir.ui.view">
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_config_kanban" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='open_existing_session_cb']" position="after">
+                <field name="is_close_session_button_visible" invisible="1" />
+                <button
+                    t-if="record.is_close_session_button_visible.raw_value"
+                    class="btn btn-secondary"
+                    name="close_self_service_weighing_session"
+                    type="object"
+                >
+                    Close
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

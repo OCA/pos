@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2024 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="SelfServiceWeighingTareScreen"
+        t-inherit="base_pos_self_service_weighing.AbstractSelfServiceWeighingScreen"
+        t-inherit-mode="primary"
+        owl="1"
+    >
+        <xpath expr="//WeightWidget" position="attributes">
+            <attribute name="uom_id">uom_id</attribute>
+            <attribute name="decimal_places">decimal_places</attribute>
+        </xpath>
+
+        <xpath expr="//div[hasclass('rightpane')]" position="inside">
+            <div class="self-service-action">
+                <div
+                    class="self-service-instructions"
+                >Put the empty container on the scale and press the button below to print the tare label.</div>
+                <!--
+                    this div is not needed, it is a temporary hack to be able
+                    to use the existing css rules on the button until they are
+                    improved.
+                -->
+                <div class="self-service-action-buttons">
+                    <SelfServiceWeighingPrintTareButton weight="state.weight" />
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
