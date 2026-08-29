@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_payment_method_view_form" model="ir.ui.view">
+        <field name="name">pos.payment.method.form.inherit</field>
+        <field name="model">pos.payment.method</field>
+        <field
+            name="inherit_id"
+            ref="pos_payment_terminal.pos_payment_method_view_form"
+        />
+        <field name="priority">60</field>
+        <field name="arch" type="xml">
+            <field name="oca_payment_terminal_id" position="after">
+                <field
+                    name="oca_payment_terminal_return"
+                    invisible="use_payment_terminal != 'oca_payment_terminal'"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
