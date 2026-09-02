@@ -5,7 +5,7 @@
     "summary": "Set logotypes different from the company's one",
     "version": "18.0.1.0.0",
     "category": "Point of Sale",
-    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "author": "Tecnativa, Miguel Machado, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": [
@@ -18,6 +18,7 @@
         "point_of_sale._assets_pos": [
             "pos_config_logo/static/src/js/**/*.js",
             "pos_config_logo/static/src/xml/**/*.xml",
+            "pos_config_logo/static/src/scss/**/*.scss",
         ],
     },
     "installable": True,
