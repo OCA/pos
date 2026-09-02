@@ -14,10 +14,16 @@
     "depends": [
         "point_of_sale",
     ],
+    "demo": [
+        "data/partner_demo.xml",
+    ],
     "assets": {
         "point_of_sale._assets_pos": [
             "pos_partner_ref/static/src/xml/screens.xml",
             "pos_partner_ref/static/src/js/*.js",
-        ]
+        ],
+        "web.assets_tests": [
+            "pos_partner_ref/static/tests/tours/**/*",
+        ],
     },
 }

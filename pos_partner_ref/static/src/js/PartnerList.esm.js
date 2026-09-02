@@ -28,7 +28,7 @@ patch(PartnerList.prototype, {
         });
 
         if (res.length > 0 && result.length > 0) {
-            res = res.append(result);
+            res = res.concat(result);
         } else if (result.length > 0) {
             return result;
         }
