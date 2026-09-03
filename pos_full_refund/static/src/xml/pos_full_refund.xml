@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_full_refund.TicketScreen"
+        t-inherit="point_of_sale.TicketScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//InvoiceButton" position="before">
+            <button
+                id="set_full_refund_button"
+                class='control-button btn btn-light rounded-0 fw-bolder'
+                t-on-click="() => this.onDoFullRefund()"
+            >
+                <i class="fa fa-cart-arrow-down" />
+                Do Full Refund
+            </button>
+        </xpath>
+    </t>
+
+</templates>
