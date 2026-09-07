@@ -20,3 +20,8 @@ msgstr ""
 #: model:ir.model,name:pos_loyalty_exclude.model_loyalty_rule
 msgid "Loyalty Rule"
 msgstr "Regola programma fedeltà"
+
+#. module: pos_loyalty_exclude
+#: model:ir.model,name:pos_loyalty_exclude.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
