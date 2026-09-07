@@ -46,7 +46,7 @@ addon | version | maintainers | summary
 [pos_hr_access_right](pos_hr_access_right/) | 16.0.1.0.1 | <a href='https://github.com/adasatorres'><img src='https://github.com/adasatorres.png' width='32' height='32' style='border-radius:50%;' alt='adasatorres'/></a> | Point of Sale HR - Extra Access Right for certain actions
 [pos_lot_barcode](pos_lot_barcode/) | 16.0.1.0.1 |  | Scan barcode to enter lot/serial numbers
 [pos_lot_selection](pos_lot_selection/) | 16.0.1.0.1 |  | POS Lot Selection
-[pos_loyalty_exclude](pos_loyalty_exclude/) | 16.0.1.0.1 |  | Exclude products from sale loyalty program in POS
+[pos_loyalty_exclude](pos_loyalty_exclude/) | 16.0.1.1.0 |  | Exclude products from sale loyalty program in POS
 [pos_loyalty_redeem_payment](pos_loyalty_redeem_payment/) | 16.0.1.0.2 |  | Use vouchers as payment method in pos orders
 [pos_margin](pos_margin/) | 16.0.1.0.2 | <a href='https://github.com/legalsylvain'><img src='https://github.com/legalsylvain.png' width='32' height='32' style='border-radius:50%;' alt='legalsylvain'/></a> | Margin on PoS Order
 [pos_margin_stored](pos_margin_stored/) | 16.0.1.0.0 | <a href='https://github.com/quentinDupont'><img src='https://github.com/quentinDupont.png' width='32' height='32' style='border-radius:50%;' alt='quentinDupont'/></a> | Margin Stored on PoS Order and Pos Order Line
