@@ -22,7 +22,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[pos_access_right](pos_access_right/) | 16.0.1.0.2 |  | Point of Sale - Extra Access Right for certain actions
+[pos_access_right](pos_access_right/) | 16.0.1.1.0 |  | Point of Sale - Extra Access Right for certain actions
 [pos_auto_invoice](pos_auto_invoice/) | 16.0.1.0.0 |  | Allow to set POS orders as to-invoice by default
 [pos_bypass_global_discount](pos_bypass_global_discount/) | 16.0.1.0.1 |  | POS Bypass Global Discount
 [pos_cash_control_override](pos_cash_control_override/) | 16.0.1.0.0 |  | Override bare PoS user cash control restrictions
