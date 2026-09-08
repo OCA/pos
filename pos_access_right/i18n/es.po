@@ -38,6 +38,12 @@ msgid "Point of Sale - Delete Order"
 msgstr "Punto de venta - Eliminar pedido"
 
 #. module: pos_access_right
+#: model:ir.model.fields,field_description:pos_access_right.field_pos_config__group_delete_order_line_id
+#: model:res.groups,name:pos_access_right.group_delete_order_line
+msgid "Point of Sale - Delete Order Line"
+msgstr ""
+
+#. module: pos_access_right
 #: model:res.groups,name:pos_access_right.group_discount
 msgid "Point of Sale - Discount"
 msgstr "Punto de Venta - Descuento"
@@ -100,6 +106,13 @@ msgid ""
 msgstr ""
 "Este campo está allí para pasar la identificación del grupo 'PdV - Permitir "
 "cambio de precio unitario' al Frontend del punto de venta."
+
+#. module: pos_access_right
+#: model:ir.model.fields,help:pos_access_right.field_pos_config__group_delete_order_line_id
+msgid ""
+"This field is there to pass the id of the 'PoS - Delete Order Line' Group to "
+"the Point of Sale Frontend."
+msgstr ""
 
 #. module: pos_access_right
 #: model:ir.model.fields,help:pos_access_right.field_pos_config__group_delete_order_id
