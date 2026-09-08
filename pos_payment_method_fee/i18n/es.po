@@ -1,0 +1,646 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_method_fee
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-26 05:56+0000\n"
+"PO-Revision-Date: 2026-10-26 05:56+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.constraint,message:pos_payment_method_fee.constraint_pos_payment_fee_line_payment_rule_uniq
+msgid "A fee rule can only be applied once per payment."
+msgstr "Una regla de comisión solo puede aplicarse una vez por pago."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method_fee__counterpart_account_id
+msgid ""
+"Account credited as counterpart of the fee. Leave empty to use the "
+"outstanding account of the payment method that is in force when the fee is "
+"computed, so that the fee nets against the payment settled by the bank."
+msgstr ""
+"Cuenta acreditada como contraparte de la comisión. Déjelo vacío para usar la "
+"cuenta pendiente del método de pago que esté en vigor cuando se calcule la "
+"comisión, de modo que la comisión se compense con el pago liquidado por el "
+"banco."
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_form
+msgid "Accounting"
+msgstr "Contabilidad"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__posting_date
+msgid "Accounting Date"
+msgstr "Fecha Contable"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__posting_date
+msgid ""
+"Accounting date of the fee. Once set, it is kept when posting is retried."
+msgstr ""
+"Fecha contable de la comisión. Una vez establecida, se mantiene cuando se vuelve a intentar el registro."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__amount
+msgid "Amount"
+msgstr "Monto"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__apply_on_refunds
+msgid "Apply On Refunds"
+msgstr "Aplicar en reembolsos"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__posting_policy__session_close
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_method_fee__posting_policy__session_close
+msgid "At Session Close"
+msgstr "Al Cerrar Sesión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method__fee_grouping_policy
+msgid ""
+"Both policies generate one journal entry per session, company, journal and accounting date.\n"
+"Grouped: one expense line per expense account.\n"
+"Detailed: one expense line per transaction fee."
+msgstr ""
+"Ambas políticas generan un asiento contable por sesión, empresa, diario y fecha contable.\n"
+"Agrupado: una línea de gasto por cuenta de gasto.\n"
+"Detallado: una línea de gasto por comisión de transacción."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__company_id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__company_id
+msgid "Company"
+msgstr "Empresa"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__company_currency_id
+msgid "Company Currency"
+msgstr "Moneda de la Empresa"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method__use_transaction_fees
+msgid ""
+"Compute and post the financial cost (acquirer or gateway fees) of the "
+"payments made with this method. Only available for payment methods with a "
+"bank journal. Disabling it only affects new payments: fees already computed "
+"are kept and posted."
+msgstr ""
+"Calcular y registrar el costo financiero (comisiones del adquirente o del "
+"gateway) de los pagos realizados con este método. Solo disponible para "
+"métodos de pago con un diario bancario. Desactivarlo solo afecta a los nuevos pagos: las comisiones ya calculadas se mantienen y se registran."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__counterpart_account_id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__counterpart_account_id
+msgid "Counterpart Account"
+msgstr "Cuenta Contrapartida"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__create_uid
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__create_date
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method_fee__currency_id
+msgid ""
+"Currency in which the bank charges the fixed fee. It is converted to the "
+"payment currency at the payment date."
+msgstr ""
+"Moneda en la que el banco cobra la comisión fija. Se convierte a la moneda del pago en la fecha del pago."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__fee_currency_id
+msgid "Currency of the fixed amount applied."
+msgstr "Moneda del monto fijo aplicado."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__currency_id
+msgid "Currency of the payment."
+msgstr "Moneda del pago."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__payment_date
+msgid "Date of the payment, used for currency conversion."
+msgstr "Fecha del pago, utilizada para la conversión de moneda."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__grouping_policy__detailed
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_method__fee_grouping_policy__detailed
+msgid "Detailed"
+msgstr "Detallado"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__display_name
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__display_name
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__state__error
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Error"
+msgstr "Error"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__error_message
+msgid "Error Message"
+msgstr "Mensaje de error"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method_fee__account_id
+msgid "Expense account used to book the financial cost."
+msgstr "Cuenta de gastos utilizada para contabilizar el costo financiero."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__account_move_line_id
+msgid ""
+"Expense journal item that records this fee. In grouped mode it is shared by "
+"the fees aggregated in it."
+msgstr ""
+"Partida contable de gastos que registra esta comisión. En modo agrupado, se comparte entre las comisiones agregadas en ella."
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_form
+msgid "Fee"
+msgstr "Comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__account_id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__account_id
+msgid "Fee Account"
+msgstr "Cuenta de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__fee_amount
+msgid "Fee Amount"
+msgstr "Monto de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__fee_amount_company
+msgid "Fee Amount (Company Currency)"
+msgstr "Monto de comisión (Moneda de la empresa)"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__fee_currency_id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__currency_id
+msgid "Fee Currency"
+msgstr "Moneda de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method__fee_grouping_policy
+msgid "Fee Grouping Policy"
+msgstr "Política de agrupación de comisiones"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_session__fee_line_count
+msgid "Fee Line Count"
+msgstr "Recuento de líneas de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment__fee_line_ids
+msgid "Fee Lines"
+msgstr "Líneas de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__fee_rule_id
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Fee Rule"
+msgstr "Regla de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__fee_type
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__fee_type
+msgid "Fee Type"
+msgstr "Tipo de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__fee_value
+msgid "Fee Value"
+msgstr "Valor de comisión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__fee_amount
+msgid "Fee amount in the payment currency."
+msgstr "Monto de la comisión en la moneda del pago."
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.view_pos_session_form
+msgid "Fees"
+msgstr "Comisiones"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.actions.act_window,help:pos_payment_method_fee.action_pos_payment_fee_line
+msgid ""
+"Fees are computed when an order paid with a bank payment method\n"
+"                using transaction fees is validated."
+msgstr ""
+"Las comisiones se calculan cuando se valida un pedido pagado con un método de pago bancario\n"
+"                que utiliza comisiones de transacción."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__fee_type__fixed
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_method_fee__fee_type__fixed
+msgid "Fixed"
+msgstr "Fijo"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__grouping_policy__grouped
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_method__fee_grouping_policy__grouped
+msgid "Grouped"
+msgstr "Agrupado"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__grouping_policy
+msgid "Grouping Policy"
+msgstr "Política de agrupación"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method_fee__apply_on_refunds
+msgid ""
+"If set, refund payments also generate this fee, computed on the absolute "
+"refunded amount. Original fees are never reversed."
+msgstr ""
+"Si está activado, los pagos de reembolso también generan esta comisión, calculada sobre el monto reembolsado absoluto. "
+"Las comisiones originales nunca se revierten."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__posting_policy__immediate
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_method_fee__posting_policy__immediate
+msgid "Immediate"
+msgstr "Inmediato"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method_fee__posting_policy
+msgid ""
+"Immediate: the journal entry is posted when the order is validated.\n"
+"At Session Close: the journal entry is posted when the session is closed, grouped according to the payment method policy."
+msgstr ""
+"Inmediato: el asiento contable se registra cuando se valida el pedido.\n"
+"Al Cerrar Sesión: el asiento contable se registra cuando se cierra la sesión, agrupado según la política del método de pago."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__move_id
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_form
+msgid "Journal Entry"
+msgstr "Asiento Contable"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__account_move_line_id
+msgid "Journal Item"
+msgstr "Apunte Contable"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line____last_update
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__write_uid
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__write_date
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.actions.act_window,help:pos_payment_method_fee.action_pos_payment_fee_line
+msgid "No payment fees yet."
+msgstr "Aún no hay comisiones de pago."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_fee_line.py:0
+#, python-format
+msgid "Only POS or accounting managers can retry posting payment fees."
+msgstr "Solo los gerentes de TPV o contabilidad pueden volver a intentar registrar las comisiones de pago."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__pos_order_id
+msgid "Order"
+msgstr "Pedido"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_method_view_form
+msgid "Outstanding account of the method"
+msgstr "Cuenta pendiente del método"
+
+#. module: pos_payment_method_fee
+#: model:ir.model,name:pos_payment_method_fee.model_pos_payment_fee_line
+msgid "POS Payment Fee Line"
+msgstr "Línea de Comisión de Pago del TPV"
+
+#. module: pos_payment_method_fee
+#: model:ir.model,name:pos_payment_method_fee.model_pos_payment_method_fee
+msgid "POS Payment Method Fee Rule"
+msgstr "Regla de Comisión de Método de Pago del TPV"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_fee_line.py:0
+#, python-format
+msgid "POS fee %(rule)s - %(payment)s"
+msgstr "Comisión de TPV %(rule)s - %(payment)s"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_fee_line.py:0
+#, python-format
+msgid "POS fees %(account)s"
+msgstr "Comisiones de TPV %(account)s"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_fee_line.py:0
+#, python-format
+msgid "POS payment fees - %(session)s"
+msgstr "Comisiones de TPV - %(session)s"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__payment_id
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_form
+msgid "Payment"
+msgstr "Pago"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__amount_base
+msgid "Payment Amount"
+msgstr "Monto del Pago"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__payment_date
+msgid "Payment Date"
+msgstr "Fecha del Pago"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_session.py:0
+#: model:ir.actions.act_window,name:pos_payment_method_fee.action_pos_payment_fee_line
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_session__fee_line_ids
+#: model:ir.ui.menu,name:pos_payment_method_fee.pos_payment_fee_line_menu
+#, python-format
+msgid "Payment Fees"
+msgstr "Comisiones de Pago"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__payment_method_id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__payment_method_id
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Payment Method"
+msgstr "Método de Pago"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__state__pending
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Pending"
+msgstr "Pendiente"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__fee_type__percentage
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_method_fee__fee_type__percentage
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_method_fee__amount
+msgid ""
+"Percentage of the payment amount (e.g. 1.5 for 1.5 %) when the Fee Type is "
+"Percentage, or amount charged per transaction, in the fee currency, when the"
+" Fee Type is Fixed."
+msgstr ""
+"Porcentaje del monto del pago (por ejemplo, 1.5 para 1.5 %) cuando el Tipo de Comisión es Porcentaje, "
+"o monto cobrado por transacción, en la moneda de la comisión, cuando el Tipo de Comisión es Fijo."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,help:pos_payment_method_fee.field_pos_payment_fee_line__fee_value
+msgid ""
+"Percentage or fixed amount applied, as configured on the rule when the fee "
+"was computed."
+msgstr ""
+"Porcentaje o monto fijo aplicado, según se configure en la regla cuando se calculó la comisión."
+
+#. module: pos_payment_method_fee
+#: model:ir.model,name:pos_payment_method_fee.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos de TPV"
+
+#. module: pos_payment_method_fee
+#: model:ir.model,name:pos_payment_method_fee.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Métodos de pago en el punto de venta "
+
+#. module: pos_payment_method_fee
+#: model:ir.model,name:pos_payment_method_fee.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr "Pagos en el punto de venta"
+
+#. module: pos_payment_method_fee
+#: model:ir.model,name:pos_payment_method_fee.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields.selection,name:pos_payment_method_fee.selection__pos_payment_fee_line__state__posted
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Posted"
+msgstr "Registrado"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_fee_line.py:0
+#, python-format
+msgid "Posted payment fees cannot be deleted."
+msgstr "Las comisiones de pago registradas no pueden ser eliminadas."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__journal_id
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__journal_id
+msgid "Posting Journal"
+msgstr "Diario de Registro"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__posting_policy
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__posting_policy
+msgid "Posting Policy"
+msgstr "Política de Registro"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_tree
+msgid "Retry"
+msgstr "Reintentar"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_form
+msgid "Retry Posting"
+msgstr "Reintentar Registro"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method_fee__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__session_id
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Session"
+msgstr "Sesión"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_fee_line__state
+msgid "State"
+msgstr "Estado"
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_fee_line.py:0
+#, python-format
+msgid "The accounting date of the session closing cannot be determined."
+msgstr "La fecha contable del cierre de la sesión no se puede determinar."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid ""
+"The counterpart account of \"%(name)s\" must be active and allow "
+"reconciliation."
+msgstr ""
+"La cuenta contrapartida de \"%(name)s\" debe estar activa y permitir la conciliación."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid "The fee account of \"%(name)s\" is deprecated."
+msgstr "La cuenta de comisión de \"%(name)s\" está obsoleta."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid "The fixed fee \"%(name)s\" cannot be negative."
+msgstr "La comisión fija \"%(name)s\" no puede ser negativa."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid ""
+"The payment method \"%(method)s\" must belong to a company to configure "
+"transaction fees."
+msgstr ""
+"El método de pago \"%(method)s\" debe pertenecer a una empresa para configurar "
+"comisiones de transacción."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid "The percentage fee \"%(name)s\" must be between 0 and 100."
+msgstr "La comisión porcentual \"%(name)s\" debe estar entre 0 y 100."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid ""
+"The posting journal of \"%(name)s\" must be a bank or a miscellaneous "
+"journal."
+msgstr ""
+"El diario de registro de \"%(name)s\" debe ser un diario bancario o un diario "
+"diverso."
+
+#. module: pos_payment_method_fee
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_fee_line_view_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment__total_fee_amount
+msgid "Total Fees"
+msgstr "Comisiones Totales"
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method__fee_ids
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_fee.pos_payment_method_view_form
+msgid "Transaction Fees"
+msgstr "Comisiones de Transacción"
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method_fee.py:0
+#, python-format
+msgid ""
+"Transaction fees can only be configured on payment methods with a bank "
+"journal (\"%(method)s\")."
+msgstr ""
+"Las comisiones de transacción solo pueden ser configuradas en métodos de pago "
+"con un diario bancario (\"%(method)s\")."
+
+#. module: pos_payment_method_fee
+#. odoo-python
+#: code:addons/pos_payment_method_fee/models/pos_payment_method.py:0
+#, python-format
+msgid ""
+"Transaction fees can only be used on payment methods with a bank journal "
+"(\"%(method)s\")."
+msgstr ""
+"Las comisiones de transacción solo pueden ser utilizadas en métodos de pago "
+"con un diario bancario (\"%(method)s\")."
+
+#. module: pos_payment_method_fee
+#: model:ir.model.fields,field_description:pos_payment_method_fee.field_pos_payment_method__use_transaction_fees
+msgid "Use Transaction Fees"
+msgstr "Utilizar Comisiones de Transacción"
