@@ -18,5 +18,6 @@ class PosSession(models.Model):
                 hasGroupPriceControl=config.group_change_unit_price_id in groups,
                 hasGroupMultiOrder=config.group_multi_order_id in groups,
                 hasGroupDeleteOrder=config.group_delete_order_id in groups,
+                hasGroupDeleteOrderLine=config.group_delete_order_line_id in groups,
             )
         return user_vals

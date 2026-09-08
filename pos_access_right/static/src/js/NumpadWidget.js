@@ -23,6 +23,9 @@ odoo.define("pos_access_right.NumpadWidget", function (require) {
                 }
                 return res;
             }
+            get hasDeleteOrderLineRights() {
+                return this.env.pos.user.hasGroupDeleteOrderLine;
+            }
         };
 
     Registries.Component.extend(NumpadWidget, PosNumpadWidget);
