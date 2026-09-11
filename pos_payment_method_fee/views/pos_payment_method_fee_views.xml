@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_pos_payment_method_form_inherit_fee" model="ir.ui.view">
+        <field name="name">pos.payment.method.form.inherit.fee</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page string="Transaction Fees" name="pos_payment_method_fees">
+                        <group>
+                            <field name="fee_grouping_policy" />
+                        </group>
+                        <field name="fee_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle" />
+                                <field name="name" />
+                                <field name="fee_type" />
+                                <field name="amount" />
+                                <field name="posting_policy" />
+                                <field name="account_id" />
+                                <field name="counterpart_account_id" />
+                                <field name="journal_id" />
+                                <field name="active" optional="hide" />
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
