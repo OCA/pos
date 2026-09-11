@@ -39,6 +39,11 @@
                     </div>
                 </button>
             </xpath>
+            <!-- Remove limitation for cash_register (account bank statement line) -->
+            <xpath expr="//button[@name='show_cash_register']" position="attributes">
+                <attribute name="groups" />
+            </xpath>
+
         </field>
     </record>
 </odoo>

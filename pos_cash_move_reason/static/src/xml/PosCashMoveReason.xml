@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright (C) 2026-Today GRAP (https://www.grap.coop)
+    @author Quentin DUPONT
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="PosCashMoveReason"
+        t-inherit="point_of_sale.CashMovePopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//textarea[@name='reason']" position="before">
+
+            <t t-if="filteredMoveReasons.length > 0">
+                <!-- MOVE REASONS -->
+                <h4 class="cash-move-reason-title"><i class="fa fa-question-circle" />
+                    Choose the reason
+                </h4>
+                <t
+                    t-foreach="filteredMoveReasons"
+                    t-as="move_reason"
+                    t-key="move_reason.id"
+                >
+                    <div
+                        class="button dynamic-size"
+                        t-on-click="() => this.onClickMoveReason(move_reason.id)"
+                        t-att-class="{ 'highlight': state.inputMoveReason == move_reason.id }"
+                    >
+                        <span t-esc="move_reason.name" />
+                    </div>
+                </t>
+            </t>
+
+            <!-- LINKED ACCOUNT JOURNAL -->
+            <t t-if="filteredJournals.length > 0">
+                <t t-if="filteredJournals.length > 1">
+                    <h4 class="cash-move-reason-title"><i
+                            class="fa fa-money"
+                        /> Choose the journal</h4>
+                </t>
+                <t t-elif="filteredJournals.length == 1">
+                    <h4 class="cash-move-reason-title"><i
+                            class="fa fa-money"
+                        /> Account journal</h4>
+                </t>
+                <t t-foreach="filteredJournals" t-as="journal" t-key="journal.id">
+                    <div
+                        class="button dynamic-size"
+                        t-on-click="() => this.onClickMoveReasonJournal(journal.id)"
+                        t-att-class="{ 'highlight': state.inputMoveReasonJournal == journal.id }"
+                    >
+                        <span t-esc="journal.name" />
+                    </div>
+                </t>
+            </t>
+
+        </xpath>
+
+        <xpath expr="//footer" position="inside">
+            <div
+                class="button highlight dynamic-size"
+                t-on-click="() => this.confirm('goToClosePopup')"
+            >
+                Confirm and Go to Close Session <span
+                    t-esc="env.pos.format_currency(state.parsedAmount)"
+                />
+            </div>
+        </xpath>
+
+    </t>
+
+</templates>

@@ -2,7 +2,8 @@
 # @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+from odoo.exceptions import UserError
 
 
 class PosMoveReason(models.Model):
@@ -29,10 +30,6 @@ class PosMoveReason(models.Model):
         default=_default_journal_ids,
     )
 
-    is_income_reason = fields.Boolean(default=True)
-
-    is_expense_reason = fields.Boolean(default=True)
-
     income_account_id = fields.Many2one(
         string="Income Account", comodel_name="account.account"
     )
@@ -44,16 +41,32 @@ class PosMoveReason(models.Model):
     company_id = fields.Many2one(
         string="Company",
         comodel_name="res.company",
-        default=_default_company_id,
+        default=lambda x: x._default_company_id(),
         required=True,
     )
 
-    @api.onchange("is_income_reason")
-    def _onchange_is_income_reason(self):
-        if not self.is_income_reason:
-            self.income_account_id = False
-
-    @api.onchange("is_expense_reason")
-    def _onchange_is_expense_reason(self):
-        if not self.is_expense_reason:
-            self.expense_account_id = False
+    @api.constrains("journal_ids", "income_account_id", "expense_account_id")
+    def _check_accounts(self):
+        for journal in self.journal_ids:
+            if self.income_account_id == journal.default_account_id:
+                raise UserError(
+                    _(
+                        "You can't set as an income account"
+                        " the account %(account_code)s - %(account_name)s"
+                        " as it is the default account of the journal %(journal_name)s.",
+                        account_code=self.income_account_id.code,
+                        account_name=self.income_account_id.name,
+                        journal_name=journal.name,
+                    )
+                )
+            if self.expense_account_id == journal.default_account_id:
+                raise UserError(
+                    _(
+                        "You can't set as an expense account"
+                        " the account %(account_code)s - %(account_name)s"
+                        " as it is the default account of the journal %(journal_name)s.",
+                        account_code=self.expense_account_id.code,
+                        account_name=self.expense_account_id.name,
+                        journal_name=journal.name,
+                    )
+                )
