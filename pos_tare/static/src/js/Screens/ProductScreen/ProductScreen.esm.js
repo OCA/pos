@@ -40,6 +40,9 @@ const TareProductScreen = (ProductScreen_) =>
                 }
                 return payload;
             }
+            if (code && this.env.pos.db.product_packaging_by_barcode[code.code]) {
+                return payload;
+            }
 
             const {weight, tare} = payload.quantity;
             return {
