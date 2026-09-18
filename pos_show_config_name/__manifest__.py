@@ -4,14 +4,17 @@
 
 {
     "name": "PoS show config name",
-    "version": "14.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Point Of Sale",
     "summary": "Point of sale: show pos config name",
     "author": "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
     "license": "AGPL-3",
     "depends": ["point_of_sale"],
-    "data": [],
-    "qweb": ["static/src/xml/CashierName.xml"],
+    "assets": {
+        "point_of_sale.assets": [
+            "pos_show_config_name/static/src/xml/CashierName.xml",
+        ],
+    },
     "installable": True,
 }
