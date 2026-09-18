@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="pos_config_user_rule" model="ir.rule">
+        <field name="name">POS configs for user</field>
+        <field name="model_id" ref="point_of_sale.model_pos_config" />
+        <field name="domain_force">[('restrict_user_ids', '=', user.id)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_user'))]"
+        />
+    </record>
+    <record id="pos_config_user_manager_rule" model="ir.rule">
+        <field name="name">All POS configs for manager</field>
+        <field name="model_id" ref="point_of_sale.model_pos_config" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_manager'))]"
+        />
+    </record>
+    <record id="pos_session_user_rule" model="ir.rule">
+        <field name="name">POS Sessions for user</field>
+        <field name="model_id" ref="point_of_sale.model_pos_session" />
+        <field
+            name="domain_force"
+        >[('config_id.restrict_user_ids', '=', user.id)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_user'))]"
+        />
+    </record>
+    <record id="pos_session_manager_rule" model="ir.rule">
+        <field name="name">POS Sessions for manager</field>
+        <field name="model_id" ref="point_of_sale.model_pos_session" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_manager'))]"
+        />
+    </record>
+    <record id="pos_order_user_rule" model="ir.rule">
+        <field name="name">POS Orders for user</field>
+        <field name="model_id" ref="point_of_sale.model_pos_order" />
+        <field
+            name="domain_force"
+        >[('config_id.restrict_user_ids', '=', user.id)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_user'))]"
+        />
+    </record>
+    <record id="pos_order_manager_rule" model="ir.rule">
+        <field name="name">POS Orders for manager</field>
+        <field name="model_id" ref="point_of_sale.model_pos_order" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_manager'))]"
+        />
+    </record>
+    <record id="pos_payment_user_rule" model="ir.rule">
+        <field name="name">POS Payments for user</field>
+        <field name="model_id" ref="point_of_sale.model_pos_payment" />
+        <field
+            name="domain_force"
+        >[('session_id.config_id.restrict_user_ids', '=', user.id)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_user'))]"
+        />
+    </record>
+    <record id="pos_payment_manager_rule" model="ir.rule">
+        <field name="name">POS Payments for manager</field>
+        <field name="model_id" ref="point_of_sale.model_pos_payment" />
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field
+            name="groups"
+            eval="[Command.link(ref('point_of_sale.group_pos_manager'))]"
+        />
+    </record>
+</odoo>

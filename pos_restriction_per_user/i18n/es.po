@@ -1,0 +1,37 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_restriction_per_user
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-18 15:08+0000\n"
+"PO-Revision-Date: 2026-09-18 15:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_restriction_per_user
+#: model:ir.model.fields,field_description:pos_restriction_per_user.field_pos_config__restrict_user_ids
+#: model:ir.model.fields,field_description:pos_restriction_per_user.field_res_config_settings__pos_config_restrict_user_ids
+msgid "Allowed users"
+msgstr "Usuarios permitidos"
+
+#. module: pos_restriction_per_user
+#: model:ir.model,name:pos_restriction_per_user.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: pos_restriction_per_user
+#: model:ir.model,name:pos_restriction_per_user.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_restriction_per_user
+#: model_terms:ir.ui.view,arch_db:pos_restriction_per_user.res_config_settings_view_form
+msgid "Restriction"
+msgstr "Restricción"
