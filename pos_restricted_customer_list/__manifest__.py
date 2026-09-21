@@ -3,7 +3,7 @@
 
 {
     "name": "POS: restricted customer list",
-    "version": "16.0.1.0.0",
+    "version": "19.0.1.0.0",
     "development_status": "Production/Stable",
     "category": "Sales/Point Of Sale",
     "summary": "This module will limit the download of customer data to "

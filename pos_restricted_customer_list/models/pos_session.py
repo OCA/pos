@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from odoo import models
-from odoo.osv import expression
+from odoo.fields import Domain
 
 
 class PosSession(models.Model):
@@ -19,7 +19,7 @@ class PosSession(models.Model):
         config = self.config_id
         category = config.partner_category_id
 
-        domain = expression.AND(
+        domain = Domain.AND(
             [
                 domain,
                 [
@@ -28,7 +28,7 @@ class PosSession(models.Model):
             ]
         )
         if category:
-            domain = expression.AND(
+            domain = Domain.AND(
                 [
                     domain,
                     [
