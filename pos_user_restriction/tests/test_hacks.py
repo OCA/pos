@@ -1,4 +1,5 @@
-from odoo.tests import tagged
+from odoo.fields import Command
+from odoo.tests import new_test_user, tagged
 
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
@@ -8,35 +9,16 @@ class TestHacks(TestPoSCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(
-            context=dict(
-                cls.env.context,
-                tracking_disable=True,
-                no_reset_password=True,
-            )
-        )
-        cls.pos_user_assigned_pos = cls.env["res.users"].create(
-            {
-                "login": "pos_user_assigned_pos",
-                "name": "pos_user_assigned_pos",
-                "groups_id": [
-                    (
-                        6,
-                        0,
-                        [
-                            cls.env.ref(
-                                "pos_user_restriction.group_assigned_points_of_sale_user"
-                            ).id
-                        ],
-                    )
-                ],
-            }
+        cls.pos_user_assigned_pos = new_test_user(
+            cls.env,
+            login="pos_user_assigned_pos",
+            groups="pos_user_restriction.group_assigned_points_of_sale_user",
         )
         cls.config = cls.basic_config
 
     def test_get_closing_control_data(self):
         restricted_user = self.pos_user_assigned_pos
-        self.config.assigned_user_ids = [(6, 0, [restricted_user.id])]
+        self.config.assigned_user_ids = [Command.set(restricted_user.ids)]
 
         session = self.open_new_session()
 
@@ -46,7 +28,7 @@ class TestHacks(TestPoSCommon):
     def test_validate_session(self):
         restricted_user = self.pos_user_assigned_pos
 
-        self.config.assigned_user_ids = [(6, 0, [restricted_user.id])]
+        self.config.assigned_user_ids = [Command.set(restricted_user.ids)]
         self.product_id = self.env["product.product"].create(
             {"name": "Test POS", "available_in_pos": True, "list_price": 200}
         )
@@ -58,9 +40,7 @@ class TestHacks(TestPoSCommon):
                 "session_id": session.id,
                 "partner_id": self.env.user.partner_id.id,
                 "lines": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": "Test/0001",
                             "product_id": self.product_id.id,
