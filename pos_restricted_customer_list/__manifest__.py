@@ -18,8 +18,8 @@
         "views/res_config_settings.xml",
     ],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_restricted_customer_list/static/src/js/PartnerDetailsEdit.js",
+        "point_of_sale._assets_pos": [
+            "pos_restricted_customer_list/static/src/app/services/pos_store.esm.js",
         ],
     },
     "installable": True,
