@@ -1,3 +1,4 @@
+from odoo.fields import Command
 from odoo.tests import new_test_user
 
 from odoo.addons.base.tests.common import BaseCommon
@@ -38,7 +39,7 @@ class TestUserRestriction(BaseCommon):
         self.assertTrue(pos_configs)
 
         self.pos_config_main.assigned_user_ids = [
-            (6, 0, [self.pos_user_assigned_pos.id])
+            Command.set(self.pos_user_assigned_pos.ids)
         ]
         # assigned_user_ids is set with pos_user_assigned_pos: both users can read
         pos_configs = self.pos_config_model.with_user(self.pos_user.id).search(
@@ -49,7 +50,7 @@ class TestUserRestriction(BaseCommon):
             self.pos_user_assigned_pos.id
         ).search([("id", "=", self.pos_config_main.id)])
         self.assertTrue(pos_configs)
-        self.pos_config_main.assigned_user_ids = [(6, 0, [self.pos_user.id])]
+        self.pos_config_main.assigned_user_ids = [Command.set(self.pos_user.ids)]
         # assigned_user_ids is set with pos_user: only pos_user can read
         pos_configs = self.pos_config_model.with_user(self.pos_user.id).search(
             [("id", "=", self.pos_config_main.id)]

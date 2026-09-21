@@ -1,3 +1,4 @@
+from odoo.fields import Command
 from odoo.tests import new_test_user, tagged
 
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
@@ -17,7 +18,7 @@ class TestHacks(TestPoSCommon):
 
     def test_get_closing_control_data(self):
         restricted_user = self.pos_user_assigned_pos
-        self.config.assigned_user_ids = [(6, 0, [restricted_user.id])]
+        self.config.assigned_user_ids = [Command.set(restricted_user.ids)]
 
         session = self.open_new_session()
 
@@ -27,7 +28,7 @@ class TestHacks(TestPoSCommon):
     def test_validate_session(self):
         restricted_user = self.pos_user_assigned_pos
 
-        self.config.assigned_user_ids = [(6, 0, [restricted_user.id])]
+        self.config.assigned_user_ids = [Command.set(restricted_user.ids)]
         self.product_id = self.env["product.product"].create(
             {"name": "Test POS", "available_in_pos": True, "list_price": 200}
         )
@@ -39,9 +40,7 @@ class TestHacks(TestPoSCommon):
                 "session_id": session.id,
                 "partner_id": self.env.user.partner_id.id,
                 "lines": [
-                    (
-                        0,
-                        0,
+                    Command.create(
                         {
                             "name": "Test/0001",
                             "product_id": self.product_id.id,
