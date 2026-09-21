@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-13 03:00+0000\n"
-"PO-Revision-Date: 2026-09-21 05:38+0000\n"
+"PO-Revision-Date: 2026-09-21 05:56+0000\n"
 "Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
 "Language: ca\n"
@@ -93,7 +93,9 @@ msgstr "Client"
 msgid ""
 "Enable the possibility to load pickings in the Point of\n"
 "                            Sale"
-msgstr "Activar la posibilitat de afegir picking en el Punt de Venda"
+msgstr ""
+"Activar la posibilitat de afegir picking en el Punt de\n"
+"                                                               Venda"
 
 #. module: pos_picking_load
 #: model:ir.model.fields,field_description:pos_picking_load.field_sale_order__final_pos_order_id
@@ -268,7 +270,7 @@ msgstr "Transferència"
 #: code:addons/pos_picking_load/static/src/js/Screen/PickingLoadFetcher.js:0
 #, python-format
 msgid "Unable to fetch orders if offline."
-msgstr ""
+msgstr "No és possible accedir als orders si fora de línia."
 
 #. module: pos_picking_load
 #. odoo-javascript
