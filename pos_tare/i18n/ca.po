@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-21 10:21+0000\n"
+"PO-Revision-Date: 2026-09-21 10:29+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -125,14 +125,14 @@ msgstr "Introducció manual i codi de barres"
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "Please set a numeric value in the gross weight field."
-msgstr "Per favor, introduïr valor numèric en el camp de pes brut."
+msgstr "Si us plau, introduïr valor numèric en el camp de pes brut."
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "Please set a numeric value in the tare field, or let empty."
-msgstr "Su us plau, introduïr valor numèric en el camp de tara, o deixar buit."
+msgstr "Si us plau, introduïr valor numèric en el camp de tara, o deixar buit."
 
 #. module: pos_tare
 #: model:ir.model,name:pos_tare.model_pos_config
