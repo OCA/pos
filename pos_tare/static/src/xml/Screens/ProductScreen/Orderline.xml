@@ -8,7 +8,7 @@
         owl="1"
     >
         <xpath expr="//ul[hasclass('info-list')]" operation="inside">
-            <t t-if="props.line.get_tare() !== 0">
+            <t t-if="props.line.has_tare">
                 <li class="info">
                     <i>
                       Gross Weight:
