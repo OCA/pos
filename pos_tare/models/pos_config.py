@@ -33,9 +33,14 @@ class PosConfig(models.Model):
         string="Unit of Measure of the tare",
         comodel_name="uom.uom",
         default=lambda s: s._default_iface_tare_uom_id(),
+        domain=lambda s: s._tare_uom_id_domain(),
         required=True,
     )
 
     @api.model
     def _default_iface_tare_uom_id(self):
         return self.env.ref("uom.product_uom_kgm")
+
+    @api.model
+    def _tare_uom_id_domain(self):
+        return [("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)]
