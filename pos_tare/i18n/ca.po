@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-21 05:56+0000\n"
-"Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
+"PO-Revision-Date: 2026-09-21 09:29+0000\n"
+"Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -125,14 +125,14 @@ msgstr "Introducció manual i codi de barres"
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "Please set a numeric value in the gross weight field."
-msgstr "Per favor, introduïr valor numeric en el camp de pes brut."
+msgstr "Per favor, introduïr valor numèric en el camp de pes brut."
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "Please set a numeric value in the tare field, or let empty."
-msgstr "Per favor, introduïr valor numéric en el camp de tara, o deixar buit."
+msgstr "Su us plau, introduïr valor numèric en el camp de tara, o deixar buit."
 
 #. module: pos_tare
 #: model:ir.model,name:pos_tare.model_pos_config
@@ -147,7 +147,7 @@ msgstr "Línies de comanda de Punt de Venda"
 #. module: pos_tare
 #: model:ir.model,name:pos_tare.model_pos_session
 msgid "Point of Sale Session"
-msgstr "Sesió de Punt de Venda"
+msgstr "Sessió de Punt de Venda"
 
 #. module: pos_tare
 #: model:ir.model,name:pos_tare.model_product_template
@@ -159,12 +159,12 @@ msgstr "Producte"
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "Quantity lower or equal to zero"
-msgstr "Quantitat menor or igual a zero"
+msgstr "Quantitat menor o igual a zero"
 
 #. module: pos_tare
 #: model:ir.model.fields.selection,name:pos_tare.selection__pos_config__iface_tare_method__barcode
 msgid "Scan a barcode to set the tare"
-msgstr "Escanejar codi de barres para fixar la tara"
+msgstr "Escanejar codi de barres per a fixar la tara"
 
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_pos_config__iface_tare_method
@@ -175,12 +175,12 @@ msgid ""
 "* 'barcode': scan a barcode to tare the selected order line;\n"
 "* 'both': manual input and barcode methods are enabled;"
 msgstr ""
-"Introduïsca el mètode de tara:\n"
+"Introduir el mètode de tara:\n"
 "* 'manual': la pantalla de la bàscula té un camp específic per introduir la "
 "tara;\n"
-"* 'barcode': escanejar un codi de barres per a tarar la línea de comanda "
+"* 'barcode': escanejar un codi de barres per a tarar la línea de la comanda "
 "seleccionada;\n"
-"* 'both': activar introducció manual i amb codi de barres;"
+"* 'both': activar ambdues formes, introducció manual i amb codi de barres;"
 
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_product_product__tare_weight
