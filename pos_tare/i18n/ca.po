@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-21 10:17+0000\n"
+"PO-Revision-Date: 2026-09-21 10:21+0000\n"
 "Last-Translator: Eugeni Chafer <eugeni@chafer.cat>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -256,7 +256,7 @@ msgstr "Unitat de mesura de les tares."
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "We cannot apply this tare"
-msgstr "No podem aplicar esta tara"
+msgstr "No podem aplicar aquesta tara"
 
 #. module: pos_tare
 #. odoo-javascript
@@ -280,5 +280,5 @@ msgid ""
 "You can not set the tare. To be able to set the tare manually you have to "
 "change the tare input method in the POS configuration"
 msgstr ""
-"No pots ficar la tara. Per a afegir la tara manualmente has de canviar el "
-"método de introducció de tara en la configuració del PdV"
+"No pots establir la tara. Per a afegir la tara manualmente has de canviar el "
+"mètode d'introducció de tara a la configuració del PdV"
