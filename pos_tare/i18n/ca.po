@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-21 05:38+0000\n"
+"PO-Revision-Date: 2026-09-21 05:56+0000\n"
 "Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -175,6 +175,12 @@ msgid ""
 "* 'barcode': scan a barcode to tare the selected order line;\n"
 "* 'both': manual input and barcode methods are enabled;"
 msgstr ""
+"Introduïsca el mètode de tara:\n"
+"* 'manual': la pantalla de la bàscula té un camp específic per introduir la "
+"tara;\n"
+"* 'barcode': escanejar un codi de barres per a tarar la línea de comanda "
+"seleccionada;\n"
+"* 'both': activar introducció manual i amb codi de barres;"
 
 #. module: pos_tare
 #: model:ir.model.fields,help:pos_tare.field_product_product__tare_weight
@@ -183,6 +189,8 @@ msgid ""
 "Set here Constant tare weight for the given product. This tare will be "
 "subtracted when the product is weighed."
 msgstr ""
+"Introduïr açí el pes constant de tara per a aquest producte. La tara es "
+"restarà quan el producte siga pesat."
 
 #. module: pos_tare
 #. odoo-javascript
@@ -192,32 +200,32 @@ msgstr ""
 #: model:ir.model.fields.selection,name:pos_tare.selection__barcode_rule__type__tare
 #, python-format
 msgid "Tare"
-msgstr ""
+msgstr "Tara"
 
 #. module: pos_tare
 #: model:ir.model.fields,field_description:pos_tare.field_pos_config__iface_tare_method
 #: model:ir.model.fields,field_description:pos_tare.field_res_config_settings__pos_iface_tare_method
 #: model_terms:ir.ui.view,arch_db:pos_tare.res_config_settings_view_form
 msgid "Tare Input Method"
-msgstr ""
+msgstr "Métode d'introducció de tara"
 
 #. module: pos_tare
 #: model_terms:ir.ui.view,arch_db:pos_tare.res_config_settings_view_form
 msgid "Tare UoM"
-msgstr ""
+msgstr "Tara UdM"
 
 #. module: pos_tare
 #: model:ir.model.fields,field_description:pos_tare.field_product_product__tare_weight
 #: model:ir.model.fields,field_description:pos_tare.field_product_template__tare_weight
 msgid "Tare Weight"
-msgstr ""
+msgstr "Pes de tara"
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/xml/Screens/ReceiptScreen/OrderReceipt.xml:0
 #, python-format
 msgid "Tare:"
-msgstr ""
+msgstr "Tara:"
 
 #. module: pos_tare
 #. odoo-javascript
@@ -225,44 +233,44 @@ msgstr ""
 #, python-format
 msgid ""
 "The quantity is lower or equal to zero. Are you sure you want to continue ?"
-msgstr ""
+msgstr "La quantitat es menor o igual a zero. Segur/a de voler continuar?"
 
 #. module: pos_tare
 #: model:ir.model.fields,field_description:pos_tare.field_barcode_rule__type
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #. module: pos_tare
 #: model:ir.model.fields,field_description:pos_tare.field_pos_config__iface_tare_uom_id
 #: model:ir.model.fields,field_description:pos_tare.field_res_config_settings__pos_iface_tare_uom_id
 msgid "Unit of Measure of the tare"
-msgstr ""
+msgstr "Unitat de mesura de la tara"
 
 #. module: pos_tare
 #: model_terms:ir.ui.view,arch_db:pos_tare.res_config_settings_view_form
 msgid "Unit of Measure of the tares."
-msgstr ""
+msgstr "Unitat de mesura de les tares."
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "We cannot apply this tare"
-msgstr ""
+msgstr "No podem aplicar esta tara"
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "We cannot apply this tare barcode"
-msgstr ""
+msgstr "No podem aplicar aquest codi de barres de tara"
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/js/tools.esm.js:0
 #, python-format
 msgid "We cannot cast a weight in %s into %s."
-msgstr ""
+msgstr "No podem convertir un pes en %s a %s."
 
 #. module: pos_tare
 #. odoo-javascript
@@ -272,3 +280,5 @@ msgid ""
 "You can not set the tare. To be able to set the tare manually you have to "
 "change the tare input method in the POS configuration"
 msgstr ""
+"No pots ficar la tara. Per a afegir la tara manualmente has de canviar el "
+"método de introducció de tara en la configuració del PdV"
