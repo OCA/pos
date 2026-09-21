@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2026-09-21 05:28+0000\n"
+"PO-Revision-Date: 2026-09-21 05:31+0000\n"
 "Last-Translator: ferdymercury <fernando.hueso@uv.es>\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -46,7 +46,7 @@ msgstr "Configurar com introduïr el pes brut."
 #. module: pos_tare
 #: model_terms:ir.ui.view,arch_db:pos_tare.res_config_settings_view_form
 msgid "Configure how to tare products to weight with a scale."
-msgstr ""
+msgstr "Configurar com tarar els productes amb una bàscula."
 
 #. module: pos_tare
 #. odoo-javascript
@@ -55,21 +55,21 @@ msgstr ""
 #: code:addons/pos_tare/static/src/js/Screens/ScaleScreen/ScaleScreen.esm.js:0
 #, python-format
 msgid "Error Computing Weight"
-msgstr ""
+msgstr "Error calculant el pes"
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/js/Screens/ProductScreen/ProductScreen.esm.js:0
 #, python-format
 msgid "Feature Disabled"
-msgstr ""
+msgstr "Característica deshabilitada"
 
 #. module: pos_tare
 #. odoo-javascript
 #: code:addons/pos_tare/static/src/xml/Screens/ScaleScreen/ScaleScreen.xml:0
 #, python-format
 msgid "Gross Weight"
-msgstr ""
+msgstr "Pes brut"
 
 #. module: pos_tare
 #: model:ir.model.fields,field_description:pos_tare.field_pos_config__iface_gross_weight_method
