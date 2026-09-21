@@ -21,7 +21,7 @@
             <field ref="point_of_sale.model_pos_config" name="model_id" />
             <field
                 name="domain_force"
-            >['|',('assigned_user_ids','in',user.id),('assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
+            >['|',('assigned_user_ids','in',user.id),('assigned_user_ids','=',False)]</field>
             <field
                 name="groups"
                 eval="[(4, ref('group_assigned_points_of_sale_user'))]"
@@ -32,7 +32,7 @@
             <field ref="point_of_sale.model_pos_session" name="model_id" />
             <field
                 name="domain_force"
-            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
+            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False)]</field>
             <field
                 name="groups"
                 eval="[(4, ref('group_assigned_points_of_sale_user'))]"
@@ -43,7 +43,7 @@
             <field ref="point_of_sale.model_pos_order" name="model_id" />
             <field
                 name="domain_force"
-            >['|',('session_id.config_id.assigned_user_ids','in',user.id),('session_id.config_id.assigned_user_ids','=',False),('company_id', 'in', company_ids)]</field>
+            >['|',('session_id.config_id.assigned_user_ids','in',user.id),('session_id.config_id.assigned_user_ids','=',False)]</field>
             <field
                 name="groups"
                 eval="[(4, ref('group_assigned_points_of_sale_user'))]"
@@ -55,7 +55,7 @@
             <field ref="point_of_sale.model_report_pos_order" name="model_id" />
             <field
                 name="domain_force"
-            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False),('config_id.company_id', 'in', company_ids)]</field>
+            >['|',('config_id.assigned_user_ids','in',user.id),('config_id.assigned_user_ids','=',False)]</field>
             <field
                 name="groups"
                 eval="[(4, ref('group_assigned_points_of_sale_user'))]"

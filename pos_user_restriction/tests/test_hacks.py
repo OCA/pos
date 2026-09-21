@@ -1,4 +1,4 @@
-from odoo.tests import tagged
+from odoo.tests import new_test_user, tagged
 
 from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
@@ -8,29 +8,10 @@ class TestHacks(TestPoSCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.env = cls.env(
-            context=dict(
-                cls.env.context,
-                tracking_disable=True,
-                no_reset_password=True,
-            )
-        )
-        cls.pos_user_assigned_pos = cls.env["res.users"].create(
-            {
-                "login": "pos_user_assigned_pos",
-                "name": "pos_user_assigned_pos",
-                "groups_id": [
-                    (
-                        6,
-                        0,
-                        [
-                            cls.env.ref(
-                                "pos_user_restriction.group_assigned_points_of_sale_user"
-                            ).id
-                        ],
-                    )
-                ],
-            }
+        cls.pos_user_assigned_pos = new_test_user(
+            cls.env,
+            login="pos_user_assigned_pos",
+            groups="pos_user_restriction.group_assigned_points_of_sale_user",
         )
         cls.config = cls.basic_config
 
