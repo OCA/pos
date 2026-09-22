@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-inherit="point_of_sale.DebugWidget" t-inherit-mode="extension">
+        <xpath expr="//div[@class='debug-hardware-events']" position="after">
+            <t t-if="this.pos.hasCashlogyPaymentMethod()">
+                <div class="cashlogy">
+                    <h5 class="category">Cashlogy</h5>
+                    <ul class="mb-3">
+                        <li
+                            class="button btn btn-link"
+                            t-on-click="() => this.cashlogyOpenBackOffice()"
+                        >
+                        Open BackOffice
+                    </li>
+                    </ul>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>
