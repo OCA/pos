@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="sale_product_identification_pos.Orderline"
+        t-inherit="point_of_sale.Orderline"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('product-name')]" position="inside">
+            <i
+                t-if="line.required_identification"
+                class="fa fa-exclamation-triangle mx-2"
+                aria-hidden="true"
+                t-att-title="line.required_message_identification"
+            />
+        </xpath>
+    </t>
+</templates>
