@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <!-- Extension of the ProductInfoPopup template -->
+    <t
+        t-name="pos_product_quick_info.ProductInfoPopup"
+        t-inherit="point_of_sale.ProductInfoPopup"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+
+        <!-- Location: immediately after each warehouse -->
+        <xpath
+            expr="//div[@class='section-inventory-body']/table/t[@t-foreach='productInfo.warehouses']/tr"
+            position="after"
+        >
+            <!-- This code will be within the context of each warehouse. -->
+            <t t-if="warehouse.locations">
+                <tr>
+                    <td colspan="3" style="padding-left: 1rem; font-weight: bold;">
+                        <t t-esc="env._t('Locations:')" />
+                    </td>
+                </tr>
+                <t
+                    t-foreach="warehouse.locations"
+                    t-as="location"
+                    t-key="location.name"
+                >
+                    <tr>
+                        <td style="padding-left: 2rem;"><span
+                                t-esc="location.name"
+                                class="table-name"
+                            />:</td>
+                        <td><t t-esc="location.available_quantity" /> <t
+                                t-esc="warehouse.uom"
+                            /> available,</td>
+                        <td><t t-esc="location.forecasted_quantity" /> forecasted</td>
+                    </tr>
+                </t>
+            </t>
+        </xpath>
+        <xpath expr="//div[@class='section-product-info-title']" position="after">
+             <div
+                t-if="props.product.description_sale"
+                style="text-align: justify; padding: 0.5rem 1rem;"
+            >
+                <t t-esc="props.product.description_sale" />
+            </div>
+        </xpath>
+
+    </t>
+</templates>
