@@ -49,6 +49,10 @@ const TareScaleScreen = (ScaleScreen_) =>
             return this.env.pos.units_by_id[this.props.product.uom_id[0]];
         }
 
+        get has_tare() {
+            return this.state.tare > 0;
+        }
+
         async _barcodeTareAction(code) {
             this.state.tare_str = this._formatFloatValue(code.value);
         }
@@ -60,7 +64,16 @@ const TareScaleScreen = (ScaleScreen_) =>
         }
 
         async _setWeight() {
-            await super._setWeight();
+            if (this.has_tare && this.env.pos.config.iface_send_tare_to_scale) {
+                // This is the same as _setWeight() except that it calls
+                // scale_read_with_tare() instead of scale_read().
+                const reading = await this.env.proxy.scale_read_with_tare(
+                    this.state.tare
+                );
+                this.state.weight = reading.weight;
+            } else {
+                await super._setWeight();
+            }
             this.state.gross_weight = this.state.weight;
             // This is necessary to display the weight in the UI. It is not a
             // string value in this case, which ensures that it won't be
@@ -133,7 +146,7 @@ const TareScaleScreen = (ScaleScreen_) =>
                 this.state.weight = NaN;
                 return;
             }
-            if (this.state.tare > 0) {
+            if (this.has_tare) {
                 // We compute this only if a tare is set to avoid an error in
                 // case the UoM categories don't match. Odoo's default
                 // behavior is to consider that the value returned by the

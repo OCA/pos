@@ -29,6 +29,15 @@ class PosConfig(models.Model):
         required=True,
     )
 
+    iface_send_tare_to_scale = fields.Boolean(
+        "Send Tare Weight To Scale",
+        help=(
+            "Send the tare weight when reading the scale value, to allow the "
+            "scale to display the tare and the net weights. Requires a "
+            "compatible device proxy, like odoo-driver."
+        ),
+    )
+
     iface_tare_uom_id = fields.Many2one(
         string="Unit of Measure of the tare",
         comodel_name="uom.uom",
