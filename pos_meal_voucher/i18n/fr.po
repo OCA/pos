@@ -1,0 +1,248 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_meal_voucher
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-08 09:25+0000\n"
+"PO-Revision-Date: 2026-05-08 09:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
+msgid "Apply to All Products"
+msgstr "Appliquer à tous les produits"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Règle de code-barres"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_category__meal_voucher_ok
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_product__meal_voucher_ok
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_product_template__meal_voucher_ok
+msgid "Can be Paid for by Meal Vouchers"
+msgstr "Peut être payé avec des titres-restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,help:pos_meal_voucher.field_product_product__meal_voucher_ok
+#: model:ir.model.fields,help:pos_meal_voucher.field_product_template__meal_voucher_ok
+msgid "Check this box if the product can be paid for by meal vouchers."
+msgstr ""
+"Cocher cette case si le produit peut être payé avec des titres-restaurant."
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields.selection,name:pos_meal_voucher.selection__pos_payment_method__meal_voucher_type__electronic
+msgid "Electronic"
+msgstr "Électronique"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Eligible Total"
+msgstr "Total éligible"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__has_meal_voucher_payment_method
+msgid "Has Meal Voucher Payment Method"
+msgstr "A une méthode de paiement titre-restaurant"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Icon on Order Lines"
+msgstr "Icône sur les lignes de commande"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid ""
+"If checked, an asterisk (*) will be displayed on receipts before each "
+"product that can be paid for by meal vouchers as well as the total eligible "
+"amount."
+msgstr ""
+"Si la case est cochée, une astérisque (*) sera affichée sur les tickets "
+"devant chaque produit qui peut être payé avec des titres-restaurant, ainsi "
+"que le montant total éligible."
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid ""
+"If checked, an icon will be displayed on point of sale order lines (on the "
+"product screen) for products that can be paid for by meal vouchers."
+msgstr ""
+"Si la case est cochée, une icône sera affichée sur les lignes de commande "
+"(sur l'écran des produits) pour les produits qui peuvent être payés avec des"
+" titres-restaurant."
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,help:pos_meal_voucher.field_product_category__meal_voucher_ok
+msgid ""
+"If checked, the products of this category will be marked as \"Can be Paid "
+"for by Meal Vouchers\" by default."
+msgstr ""
+"Si la case est cochée, les produits de cette catégorie seront marqués comme "
+"\"Peut être payé avec des titres-restaurant\" par défaut."
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Information on Receipt"
+msgstr "Informations sur le ticket"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Invalid Meal Voucher"
+msgstr "Titre-restaurant invalide"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
+msgid "Max Amount"
+msgstr "Montant maximum"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Maximum Amount"
+msgstr "Montant maximum"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/PaymentScreenPaymentLines.xml:0
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/product_screen/order_widget.xml:0
+msgid "Meal Voucher"
+msgstr "Titre-restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__enable_meal_voucher_order_lines_icon
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_res_config_settings__pos_enable_meal_voucher_order_lines_icon
+msgid "Meal Voucher Icon on Order Lines"
+msgstr "Icône de titre-restaurant sur lignes de commande"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__enable_meal_voucher_receipt_info
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_res_config_settings__pos_enable_meal_voucher_receipt_info
+msgid "Meal Voucher Information on Receipt"
+msgstr "Informations de titres-restaurant sur le ticket"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_config__max_meal_voucher_amount
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_res_config_settings__pos_max_meal_voucher_amount
+msgid "Meal Voucher Maximum Amount"
+msgstr "Montant maximum en titres-restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields.selection,name:pos_meal_voucher.selection__barcode_rule__type__meal_voucher_payment
+msgid "Meal Voucher Payment"
+msgstr "Paiement en titres-restaurant"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_pos_payment_method__meal_voucher_type
+msgid "Meal Voucher Type"
+msgstr "Type de titre-restaurant"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid "Meal Vouchers"
+msgstr "Titres-restaurant"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Non-Eligible Total"
+msgstr "Total non éligible"
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.res_config_settings_view_form
+msgid ""
+"Optional maximum amount per order that can be paid by meal vouchers. Set to "
+"0 to disable."
+msgstr ""
+"Montant maximum facultatif par commande pouvant être payé avec des titres-"
+"restaurant. Mettre à 0 pour désactiver."
+
+#. module: pos_meal_voucher
+#: model:product.template,name:pos_meal_voucher.bread_product_template
+msgid "Organic Wholemeal Bread"
+msgstr "Pain complet biologique"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields.selection,name:pos_meal_voucher.selection__pos_payment_method__meal_voucher_type__paper
+msgid "Paper"
+msgstr "Papier"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Modes de paiement du point de vente"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_product_template
+msgid "Product"
+msgstr "Produit"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_product_category
+msgid "Product Category"
+msgstr "Catégorie de produits"
+
+#. module: pos_meal_voucher
+#: model:ir.model,name:pos_meal_voucher.model_product_product
+msgid "Product Variant"
+msgstr "Variante de produit"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "Products marked with a star (*) are eligible for Meal vouchers."
+msgstr "Les produits marqués d'une astérisque (*) sont éligibles aux titres-restaurant."
+
+#. module: pos_meal_voucher
+#: model_terms:ir.ui.view,arch_db:pos_meal_voucher.view_product_category
+msgid ""
+"Set the above \"Can be Paid for by Meal Vouchers\" value on all of the "
+"products of this category"
+msgstr ""
+"Applique la valeur de \"Peut être payé avec des titres-restaurant\" ci-"
+"dessus à tous les produits de cette catégorie"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/models/pos_order.esm.js:0
+msgid "The paper meal voucher with code '%s' has already been scanned."
+msgstr "Le titre-restaurant papier avec le code '%s' a déjà été scanné."
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
+msgid "Total Eligible"
+msgstr "Total éligible"
+
+#. module: pos_meal_voucher
+#. odoo-javascript
+#: code:addons/pos_meal_voucher/static/src/overrides/components/screens/payment_screen/payment_screen.xml:0
+msgid "Total Received"
+msgstr "Total encaissé"
+
+#. module: pos_meal_voucher
+#: model:ir.model.fields,field_description:pos_meal_voucher.field_barcode_rule__type
+msgid "Type"
+msgstr "Type"
