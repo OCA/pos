@@ -1,0 +1,83 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_change_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 09:41+0000\n"
+"PO-Revision-Date: 2026-02-05 09:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_payment_change_account
+#. odoo-python
+#: code:addons/pos_payment_change_account/models/pos_session.py:0
+msgid "%s: %s - %s"
+msgstr "%s: %s - %s"
+
+#. module: pos_payment_change_account
+#. odoo-python
+#: code:addons/pos_payment_change_account/models/pos_session.py:0
+msgid "%s: cash change: "
+msgstr "%s: monnaie rendue : "
+
+#. module: pos_payment_change_account
+#. odoo-python
+#: code:addons/pos_payment_change_account/models/pos_session.py:0
+msgid "%s: total cash change"
+msgstr "%s: monnaie rendue totale"
+
+#. module: pos_payment_change_account
+#: model:ir.model,name:pos_payment_change_account.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr "Ligne de relevé bancaire"
+
+#. module: pos_payment_change_account
+#: model:ir.model.fields,field_description:pos_payment_change_account.field_pos_payment_method__change_account_id
+msgid "Cash Receipt Account"
+msgstr "Compte de réception d'espèces"
+
+#. module: pos_payment_change_account
+#. odoo-python
+#: code:addons/pos_payment_change_account/models/pos_session.py:0
+msgid "Cash transfer for session: %s"
+msgstr "Transfert d'espèces pour la session : %s"
+
+#. module: pos_payment_change_account
+#: model:ir.model.fields,help:pos_payment_change_account.field_pos_payment_method__change_account_id
+msgid ""
+"Intermediate account where cash from customers is initially received. Cash "
+"will be transferred from this account to the journal's cash account. This "
+"allows separate tracking of cash receipts before they reach the main cash "
+"register."
+msgstr ""
+"Compte intermédiaire où les espèces des clients sont initialement reçues. "
+"Les espèces seront transférées de ce compte vers le compte de caisse du "
+"journal. Cela permet un suivi séparé des réceptions d'espèces avant qu'elles "
+"n'atteignent la caisse principale."
+
+#. module: pos_payment_change_account
+#: model:ir.model.fields,field_description:pos_payment_change_account.field_account_bank_statement_line__liquidity_account_id
+msgid "Liquidity Account"
+msgstr "Compte de liquidité"
+
+#. module: pos_payment_change_account
+#: model:ir.model,name:pos_payment_change_account.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr "Modes de paiement du point de vente"
+
+#. module: pos_payment_change_account
+#: model:ir.model,name:pos_payment_change_account.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session de point de vente"
+
+#. module: pos_payment_change_account
+#: model:ir.model.fields,help:pos_payment_change_account.field_account_bank_statement_line__liquidity_account_id
+msgid "The liquidity account for this statement line."
+msgstr "Le compte de liquidité pour cette ligne de relevé."
