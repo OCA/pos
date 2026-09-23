@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="demo_deposit_product" model="product.product">
+        <field name="name">Bottle deposit .25</field>
+        <field name="sale_ok" eval="True" />
+        <field name="is_deposit" eval="True" />
+        <field name="available_in_pos" eval="True" />
+        <field name="lst_price">0.25</field>
+    </record>
+    <record id="demo_product" model="product.product">
+        <field name="name">Generic sugar liquid</field>
+        <field name="sale_ok" eval="True" />
+        <field name="available_in_pos" eval="True" />
+        <field name="deposit_product_id" ref="demo_deposit_product" />
+        <field name="lst_price">1.75</field>
+    </record>
+</odoo>
