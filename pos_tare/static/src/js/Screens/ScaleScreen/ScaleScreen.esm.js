@@ -16,6 +16,7 @@ const TareScaleScreen = (ScaleScreen_) =>
                     ? this._formatFloatValue(this.props.product.tare_weight)
                     : "",
                 tare: this.props.product.tare_weight || 0,
+                tare_in_product_uom: this.props.product.tare_weight || 0,
                 tare_input_valid: true,
                 weight: 0,
                 gross_weight_str: "",
@@ -49,6 +50,10 @@ const TareScaleScreen = (ScaleScreen_) =>
             return this.env.pos.units_by_id[this.props.product.uom_id[0]];
         }
 
+        get has_tare() {
+            return this.state.tare > 0;
+        }
+
         async _barcodeTareAction(code) {
             this.state.tare_str = this._formatFloatValue(code.value);
         }
@@ -60,8 +65,16 @@ const TareScaleScreen = (ScaleScreen_) =>
         }
 
         async _setWeight() {
+            if (this.has_tare && this.env.pos.config.iface_send_tare_to_scale) {
+                this.env.proxy.scale_read_tare_param = this.state.tare_in_product_uom;
+            } else {
+                this.env.proxy.scale_read_tare_param = null;
+            }
             await super._setWeight();
-            this.state.gross_weight = this.state.weight;
+
+            // If no scale is connected, the returned weight can be undefined.
+            // Default to 0 to avoid errors down the line.
+            this.state.gross_weight = this.state.weight || 0;
             // This is necessary to display the weight in the UI. It is not a
             // string value in this case, which ensures that it won't be
             // converted.
@@ -133,7 +146,7 @@ const TareScaleScreen = (ScaleScreen_) =>
                 this.state.weight = NaN;
                 return;
             }
-            if (this.state.tare > 0) {
+            if (this.has_tare) {
                 // We compute this only if a tare is set to avoid an error in
                 // case the UoM categories don't match. Odoo's default
                 // behavior is to consider that the value returned by the
@@ -141,12 +154,13 @@ const TareScaleScreen = (ScaleScreen_) =>
                 const tare_uom_id = this.env.pos.config.iface_tare_uom_id[0];
                 const tare_uom = this.env.pos.units_by_id[tare_uom_id];
                 // This will throw an exception if the UoM categories don't match.
-                const tare_in_product_uom = convert_mass(
+                this.state.tare_in_product_uom = convert_mass(
                     this.state.tare,
                     tare_uom,
                     this.gross_uom
                 );
-                this.state.weight = this.state.gross_weight - tare_in_product_uom;
+                this.state.weight =
+                    this.state.gross_weight - this.state.tare_in_product_uom;
             }
         }
 
