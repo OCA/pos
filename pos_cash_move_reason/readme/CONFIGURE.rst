@@ -11,7 +11,3 @@
 .. figure:: ../static/description/pos_cash_move_form.png
    :alt: PoS Move Reason
 
-**Note**
-
-You should have checked first 'Used in Point of Sale' for the Journals you want
-to enable the feature.

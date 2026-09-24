@@ -1,3 +1,7 @@
+16.0.2.0.0 (2026-05-02)
+~~~~~~~~~~~~~~~~~~~~~~~
+* [IMP] This module works directly on POS UI
+
 16.0.1.0.0 (2025-07-27)
 ~~~~~~~~~~~~~~~~~~~~~~~
 * [MIG] Port module to version 16.0.

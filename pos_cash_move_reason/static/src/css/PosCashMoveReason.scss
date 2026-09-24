@@ -1,0 +1,56 @@
+.cash-move-popup {
+    top: 50% !important;
+    max-width: 700px !important;
+}
+
+.cash-move-reason-title {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.cash-move-button-on-closepopup {
+    width: auto !important;
+
+    .cash-move-button {
+        color: #017e84;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+}
+
+// ### Point of Sale - Close Pop Up ###
+
+.close-pos-popup {
+    max-height: 900px !important;
+}
+
+.payment-methods-overview {
+    max-height: 600px !important;
+}
+
+.pos-cash-move-reason-close-popup-table {
+    th {
+        background-color: #714b67;
+        color: white;
+        height: 40px;
+        padding-left: 10px;
+    }
+
+    .tableFixHead {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    tr:hover {
+        background-color: #e964c617;
+    }
+
+    .highlight {
+        font-weight: bold;
+    }
+
+    .new-payment {
+        border-top: 2px solid black;
+    }
+}
