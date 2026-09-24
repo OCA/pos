@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_suspense_account" model="account.account">
+        <field name="name">Demo PoS Liquidity Suspense Account</field>
+        <field name="code">101710</field>
+        <field name="account_type">asset_current</field>
+        <field name="company_ids" eval="[Command.link(ref('base.main_company'))]" />
+    </record>
+</odoo>
