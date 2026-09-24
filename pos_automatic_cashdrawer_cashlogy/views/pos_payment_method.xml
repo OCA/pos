@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_payment_method_view_form" model="ir.ui.view">
+        <field name="name">pos.payment.method.view.form</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <field name="split_transactions" position="after">
+                <field name="iface_automatic_cashdrawer" invisible="type != 'cash'" />
+            </field>
+        </field>
+    </record>
+</odoo>

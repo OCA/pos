@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <block id="pos_connected_devices_section" position="inside">
+                <setting string="Automatic Cashdrawer">
+                    <field name="pos_iface_automatic_cashdrawer" />
+                    <div
+                        class="content-group row"
+                        invisible="not pos_iface_automatic_cashdrawer"
+                    >
+                        <div class="row mt16">
+                            <label
+                                for="pos_iface_automatic_cashdrawer_ip_address"
+                                string="IP address"
+                                class=""
+                            />
+                            <field name="pos_iface_automatic_cashdrawer_ip_address" />
+                        </div>
+                        <div class="row mt16">
+                            <label
+                                for="pos_iface_automatic_cashdrawer_tcp_port"
+                                string="TCP port"
+                                class=""
+                            />
+                            <field name="pos_iface_automatic_cashdrawer_tcp_port" />
+                        </div>
+                    </div>
+                </setting>
+            </block>
+        </field>
+    </record>
+</odoo>

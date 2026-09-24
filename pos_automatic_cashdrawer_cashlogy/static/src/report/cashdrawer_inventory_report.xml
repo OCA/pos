@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="AutomaticCashdrawerInventoryXmlReport">
+        <receipt align='center' width='40' value-thousands-separator=''>
+            <!-- Header -->
+
+            <h1>Automatic Cashdrawer</h1>
+            <h3>Inventory</h3>
+
+            <t t-if="report.company">
+                <t t-if='report.company.logo'>
+                    <img t-att-src='report.company.logo' />
+                    <br />
+                </t>
+                <t t-if='!report.company.logo'>
+                    <h1>
+                        <t t-out='report.company.name' />
+                    </h1>
+                    <br />
+                </t>
+            </t>
+
+            <div font='b'>
+                <div class='cashier'>
+                    <div>--------------------------------</div>
+                    <div>User: <t t-out='pos.get_cashier()?.name' /></div>
+                </div>
+            </div>
+            <br />
+            <br />
+
+            <!-- Lines -->
+
+            <line>
+                <left>TOTALS</left>
+            </line>
+            <line>
+                <left>--------------------------------</left>
+            </line>
+            <div line-ratio='0.3'>
+                <t t-foreach="report.sorted_values" t-as="value" t-key="value">
+                    <line>
+                        <left>
+                            <value value-decimals="2">
+                                <t t-out="value" />
+                            </value>
+                        </left>
+                        <right>
+                            x (
+                                <value value-decimals="0" value-autoint="on">
+                            <t t-out="report.inventory.recycler[value]" />
+                        </value>
+                              + <value value-decimals="0" value-autoint="on">
+                            <t t-out="report.inventory.stacker[value]" />
+                        </value>
+                            ) = <value value-decimals="2">
+                            <t t-out="value * report.inventory.total[value]" />
+                        </value>
+                        </right>
+                    </line>
+                </t>
+            </div>
+
+            <!-- Subtotal -->
+
+            <line>
+                <right>--------</right>
+            </line>
+            <line>
+                <left>Recycler</left>
+                <right>
+                    <value>
+                        <t t-out="report.totals.recycler" />
+                    </value>
+                </right>
+            </line>
+            <line>
+                <left>Stacker</left>
+                <right>
+                    <value>
+                        <t t-out="report.totals.stacker" />
+                    </value>
+                </right>
+            </line>
+
+            <!-- Total -->
+
+            <line>
+                <right>--------</right>
+            </line>
+            <line size='double-height'>
+                <left>
+                    <pre>        TOTAL</pre>
+                </left>
+                <right>
+                    <value>
+                        <t t-out='report.totals.total' />
+                    </value>
+                </right>
+            </line>
+            <br />
+            <br />
+
+            <br />
+            <div font='b'>
+                <div t-if="report.name">
+                    <t t-out='report.name' />
+                </div>
+                <div>
+                    <t t-out='report.date || (new Date()).toLocaleString()' />
+                </div>
+            </div>
+        </receipt>
+    </t>
+</templates>
