@@ -1,0 +1,24 @@
+// Copyright 2026 INVITU (<https://www.invitu.com>)
+// License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+
+// Same crop/ratio as the native ProductCard product-img, so the popup
+// image looks consistent regardless of the source image's own dimensions.
+.pos-show-product-image {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    display: block;
+}
+
+// The native ProductInfoBanner right after this image has `mt-n3`
+// (margin-top: -1rem), meant to cancel the dialog body's own padding
+// when the banner is the first child. Now that our image sits before
+// it, that negative margin needs to be neutralized directly rather
+// than compensated for from our own margin-bottom (margin-collapsing
+// math is unreliable here since the surrounding layout isn't a plain
+// block context).
+.pos-show-product-image + .section-product-info-title {
+    margin-top: 0.75rem !important;
+}
