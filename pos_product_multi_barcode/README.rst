@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =========================
 PoS Product multi barcode
 =========================
@@ -17,7 +13,7 @@ PoS Product multi barcode
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
@@ -36,6 +32,10 @@ This module allows to use multiple barcode on a product from the PoS
 
 See
 https://github.com/OCA/stock-logistics-barcode/tree/14.0/product_multi_barcode
+
+Barcode scanning is first resolved using the POS client-side indexed
+products. If not found, it falls back to a backend search via
+``pos.session.find_product_by_barcode``.
 
 **Table of contents**
 
@@ -66,6 +66,7 @@ Contributors
    - Pierrick Brun <pierrick.brun@akretion.com>
    - Ilyas <irazor147@gmail.com>
    - Nguyen Minh Chien <chien@trobz.com>
+   - Patryk Pyczko <patryk.pyczko@nagarro.com>
 
 Other credits
 -------------
