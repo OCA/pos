@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_self_service_weighing_tare
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: pos_self_service_weighing_tare
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_tare/static/src/js/Screens/SelfServiceWeighingTareScreen/SelfServiceWeighingPrintTareButton.esm.js:0
+#, python-format
+msgid "Print Label"
+msgstr "Imprimer l'étiquette"
+
+#. module: pos_self_service_weighing_tare
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_tare/static/src/xml/Screens/SelfServiceWeighingTareScreen/SelfServiceWeighingTareScreen.xml:0
+#, python-format
+msgid ""
+"Put the empty container on the scale and press the button below to print the "
+"tare label."
+msgstr ""
+"Déposez le contenant vide sur la balance et appuyez sur le bouton ci-dessous "
+"pour imprimer l'étiquette de tare."
+
+#. module: pos_self_service_weighing_tare
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_tare/static/src/js/models.esm.js:0
+#, python-format
+msgid "Tare"
+msgstr "Tare"
+
+#. module: pos_self_service_weighing_tare
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_tare/static/src/js/Screens/SelfServiceWeighingWelcomeScreen/SelfServiceWeighingTareScreenButton.esm.js:0
+#, python-format
+msgid "Weigh Containers"
+msgstr "Peser des contenants"
