@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2023 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AbstractSelfServiceWeighingScreen" owl="1">
+        <div class="screen" t-att-class="{oe_hidden: !props.isShown}">
+            <div class="screen-full-width">
+                <div class="leftpane pane-border">
+                    <WeightWidget weight="state.weight" />
+                    <div class="self-service-control-buttons">
+                        <SelfServiceWeighingHomeButton />
+                    </div>
+                </div>
+                <div class="rightpane" />
+            </div>
+        </div>
+    </t>
+
+</templates>
