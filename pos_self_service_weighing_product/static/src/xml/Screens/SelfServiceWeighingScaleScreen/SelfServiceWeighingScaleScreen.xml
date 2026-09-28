@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2025 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+    <!--
+        the module name is needed here to be able to do a t-call with this
+        full name in pos_self_service_weighing_product_tare. apparently,
+        the t-call function doesn't take the module namespace into account
+        like t-inherit does.
+    -->
+    <t t-name="pos_self_service_weighing_product.PrintLabelButton" owl="1">
+        <div class="buy-product" t-on-click="confirm">
+            <i class="fa fa-print" /> Print Label
+        </div>
+    </t>
+
+    <t
+        t-name="SelfServiceWeighingScaleScreen"
+        t-inherit="point_of_sale.ScaleScreen"
+        t-inherit-mode="primary"
+        owl="1"
+    >
+        <!-- this is only to replace the button's text -->
+        <xpath expr="//div[hasclass('buy-product')]" position="replace">
+            <t t-call="pos_self_service_weighing_product.PrintLabelButton" />
+        </xpath>
+    </t>
+</templates>

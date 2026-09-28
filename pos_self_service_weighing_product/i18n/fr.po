@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_self_service_weighing_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+
+#. module: pos_self_service_weighing_product
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_product/static/src/js/Screens/SelfServiceWeighingProductScreen/SelfServiceWeighingProductScreen.esm.js:0
+#, python-format
+msgid ""
+"Please configure the scale in the IoT Box section of the Point of Sale "
+"configuration."
+msgstr ""
+"Veuillez configurer la balance dans la section IoT Box de la configuration "
+"du point de vente."
+
+#. module: pos_self_service_weighing_product
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_product/static/src/xml/Screens/SelfServiceWeighingScaleScreen/SelfServiceWeighingScaleScreen.xml:0
+#, python-format
+msgid "Print Label"
+msgstr "Imprimer l'étiquette"
+
+#. module: pos_self_service_weighing_product
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_product/static/src/js/Screens/SelfServiceWeighingProductScreen/SelfServiceWeighingProductScreen.esm.js:0
+#, python-format
+msgid "Scale Not Configured"
+msgstr "Balance non configurée"
+
+#. module: pos_self_service_weighing_product
+#. odoo-javascript
+#: code:addons/pos_self_service_weighing_product/static/src/js/Screens/SelfServiceWeighingWelcomeScreen/SelfServiceWeighingProductScreenButton.esm.js:0
+#, python-format
+msgid "Weigh Products"
+msgstr "Peser des produits"
