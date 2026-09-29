@@ -7,3 +7,6 @@ class ResConfigSettings(models.TransientModel):
     pos_display_quick_product_info = fields.Boolean(
         related="pos_config_id.display_quick_product_info", readonly=False
     )
+    pos_display_product_locations = fields.Boolean(
+        related="pos_config_id.display_product_locations", readonly=False
+    )
