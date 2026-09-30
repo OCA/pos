@@ -14,9 +14,12 @@ class ResConfigSettings(models.TransientModel):
     pos_iface_gross_weight_method = fields.Selection(
         related="pos_config_id.iface_gross_weight_method", readonly=False
     )
+    pos_iface_tare_uom_id = fields.Many2one(
+        related="pos_config_id.iface_tare_uom_id", readonly=False
+    )
     pos_iface_send_tare_to_scale = fields.Boolean(
         related="pos_config_id.iface_send_tare_to_scale", readonly=False
     )
-    pos_iface_tare_uom_id = fields.Many2one(
-        related="pos_config_id.iface_tare_uom_id", readonly=False
+    pos_iface_tare_scale_precision = fields.Float(
+        related="pos_config_id.iface_tare_scale_precision", readonly=False
     )

@@ -52,6 +52,11 @@
                     /> <t t-out="env.pos.config.iface_tare_uom_id[1]" />
                 </div>
             </t>
+            <div t-if="tare_rounding_enabled" class="tare-rounding-warning">
+                <span t-if="tare_is_rounded">Rounded (by the scale) to <t
+                        t-out="state.tare_rounded_str"
+                    /> <t t-out="env.pos.config.iface_tare_uom_id[1]" /></span>
+            </div>
         </xpath>
     </t>
 

@@ -19,18 +19,12 @@
                         </div>
                         <div class="content-group">
                             <div class="mt16">
-                                <field
-                                    name="pos_iface_tare_method"
-                                    class="o_light_label"
-                                />
+                                <field name="pos_iface_tare_method" />
                             </div>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="col-xs-12 col-lg-6 o_setting_box"
-                    id="pos_iface_tare_method"
-                >
+                <div class="col-xs-12 col-lg-6 o_setting_box" id="pos_iface_tare_uom">
                     <div class="o_setting_right_pane">
                         <label for="pos_iface_tare_uom_id" string="Tare UoM" />
                         <div class="text-muted">
@@ -38,10 +32,7 @@
                         </div>
                         <div class="content-group">
                             <div class="mt16">
-                                <field
-                                    name="pos_iface_tare_uom_id"
-                                    class="o_light_label"
-                                />
+                                <field name="pos_iface_tare_uom_id" />
                             </div>
                         </div>
                     </div>
@@ -60,10 +51,7 @@
                         </div>
                         <div class="content-group">
                             <div class="mt16">
-                                <field
-                                    name="pos_iface_gross_weight_method"
-                                    class="o_light_label"
-                                />
+                                <field name="pos_iface_gross_weight_method" />
                             </div>
                         </div>
                     </div>
@@ -85,7 +73,42 @@
                         </div>
                     </div>
                 </div>
+                <div
+                    class="col-xs-12 col-lg-6 o_setting_box"
+                    id="pos_iface_tare_scale_precision"
+                >
+                    <div class="o_setting_right_pane">
+                        <label
+                            for="pos_iface_tare_method"
+                            string="Tare Scale Precision"
+                        />
+                        <div class="text-muted">
+                            Precision of the tare values that the scale can handle (in the unit of measure of the tare). The tare value will be rounded accordingly to ensure that the net weight displayed by the scale is equal to the one computed in the PoS. Example: 0.002 would round to multiples (steps) of 0.002. A value of 0 disables the rounding.
+                        </div>
+                        <div class="content-group">
+                            <div class="mt16">
+                                <field
+                                    name="pos_iface_tare_scale_precision"
+                                    class="oe_inline"
+                                />
+                                <!--
+                                    force_save is needed otherwise
+                                    modifying the value from the above
+                                    setting (#pos_iface_tare_uom)
+                                    doesn't work.
+                                -->
+                                <field
+                                    name="pos_iface_tare_uom_id"
+                                    readonly="1"
+                                    force_save="1"
+                                    class="ml4"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </xpath>
         </field>
     </record>
+
 </odoo>
