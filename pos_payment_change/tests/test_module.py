@@ -218,3 +218,20 @@ class TestModule(TransactionCase):
             }
         )
         wizard.button_change_payment()
+
+    def test_05_payment_change_closed_orders_new_session(self):
+        self.pos_config.payment_change_policy = "refund"
+
+        self._initialize_journals_open_session()
+        # Make a sale with 35 in cash journal and 65 in check
+        order = self._sale(self.cash_payment_method, 35, self.bank_payment_method, 65)
+
+        self.session.rescue = True
+        self.pos_config._compute_current_session()
+        # We need to force the compute, as it is does not depend on rescue
+        self.pos_config.open_ui()
+        self.assertNotEqual(self.session, self.pos_config.current_session_id)
+        self._change_payment(
+            order, self.cash_payment_method, 10, self.bank_payment_method, 90
+        )
+        self.assertEqual(self.session, order.payment_ids.session_id)
