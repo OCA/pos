@@ -1,0 +1,1 @@
+- Add support for machines with credit card payment.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="pos_payment_method_view_form" model="ir.ui.view">
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="arch" type="xml">
+            <field name="use_payment_terminal" position="after">
+                <field
+                    name="cashlogy_url"
+                    invisible="use_payment_terminal != 'cashlogy'"
+                    required="use_payment_terminal == 'cashlogy'"
+                    placeholder="http://somehost:3000"
+                />
+                <field
+                    name="cashlogy_api_key"
+                    invisible="use_payment_terminal != 'cashlogy'"
+                    required="use_payment_terminal == 'cashlogy'"
+                    password="1"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
