@@ -1,0 +1,51 @@
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <!-- ORDER LINES: PRICE PRODUCT -->
+        <xpath
+            expr="//li[hasclass('orderline')]//div[hasclass('product-price')]"
+            position="attributes"
+        >
+            <attribute name="t-att-class">{"d-none": priceHidden}</attribute>
+        </xpath>
+
+        <!-- ORDER LINES: INFO PRICE PRODUCT -->
+        <xpath
+            expr="//li[hasclass('orderline')]//ul[hasclass('info-list')]//li[hasclass('price-per-unit')]"
+            position="attributes"
+        >
+            <attribute name="t-att-class">{"d-none": priceHidden}</attribute>
+        </xpath>
+
+        <!-- ORDER LINES: INFO DISCOUNT PRODUCT -->
+        <xpath
+            expr="//li[hasclass('orderline')]//ul[hasclass('info-list')]//t[@t-esc='line.price_without_discount']/parent::li"
+            position="attributes"
+        >
+            <attribute name="t-att-class">{"d-none": priceHidden}</attribute>
+        </xpath>
+
+        <!-- ORDER LINES: INFO PRODUCT ATTRIBUTES-->
+        <xpath
+            expr="//li[hasclass('orderline')]//ul[hasclass('info-list')]//li[@t-if='line.attributes']"
+            position="attributes"
+        >
+            <attribute name="t-att-class">{"d-none": priceHidden}</attribute>
+        </xpath>
+
+
+        <!-- ORDER LINES: SHOW QUANTITY PRODUCT -->
+        <xpath
+            expr="//li[hasclass('orderline')]//ul[hasclass('info-list')]//t[@t-esc='line.price_without_discount']/parent::li"
+            position="before"
+        >
+            <t t-if="priceHidden">
+        <li class="price-per-unit">
+                   X <em t-esc="line.qty" class="qty fst-normal fw-bolder me-1" /> <t
+                        t-if="line.unit"
+                        t-esc="line.unit"
+                    />
+                </li>
+      </t>
+        </xpath>
+    </t>
+</templates>

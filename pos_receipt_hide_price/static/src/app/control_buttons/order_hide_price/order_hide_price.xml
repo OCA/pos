@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pos_receipt_hide_price.OrderPriceHideButton">
+        <button
+            class="control-button btn btn-light rounded-0 fw-bolder"
+            t-on-click="() => this.click()"
+        >
+            <i
+                class="fa me-1"
+                t-att-class="{ 'fa-eye': priceHidden, 'fa-eye-slash': !priceHidden }"
+            />
+            <span> </span>
+            <span t-if="priceHidden">Show price</span>
+            <span t-else="">Hide price</span>
+        </button>
+    </t>
+
+</templates>
