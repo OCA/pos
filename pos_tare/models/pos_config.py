@@ -18,7 +18,6 @@ class PosConfig(models.Model):
         "* 'barcode': scan a barcode to tare the selected order line;\n"
         "* 'both': manual input and barcode methods are enabled;",
     )
-
     iface_gross_weight_method = fields.Selection(
         [
             ("manual", "Input the Gross Weight manually"),
@@ -28,14 +27,38 @@ class PosConfig(models.Model):
         default="scale",
         required=True,
     )
-
     iface_tare_uom_id = fields.Many2one(
         string="Unit of Measure of the tare",
         comodel_name="uom.uom",
         default=lambda s: s._default_iface_tare_uom_id(),
+        domain=lambda s: s._tare_uom_id_domain(),
         required=True,
+    )
+    iface_send_tare_to_scale = fields.Boolean(
+        "Send Tare Weight To Scale",
+        help=(
+            "Send the tare weight when reading the scale value, to allow the "
+            "scale to display the tare and the net weights. Requires a "
+            "compatible device proxy, like odoo-driver."
+        ),
+    )
+    iface_tare_scale_precision = fields.Float(
+        "Tare Scale Precision",
+        digits="Product Unit of Measure",
+        help=(
+            "Precision of the tare values that the scale can handle (in the "
+            "unit of measure of the tare). The tare value will be rounded "
+            "accordingly to ensure that the net weight displayed by the "
+            "scale is equal to the one computed in the PoS. Example: 0.002 "
+            "would round to multiples (steps) of 0.002. A value of 0 "
+            "disables the rounding."
+        ),
     )
 
     @api.model
     def _default_iface_tare_uom_id(self):
         return self.env.ref("uom.product_uom_kgm")
+
+    @api.model
+    def _tare_uom_id_domain(self):
+        return [("category_id", "=", self.env.ref("uom.product_uom_categ_kgm").id)]
