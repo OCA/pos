@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="point_of_sale.menu_point_root" model="ir.ui.menu">
+        <field
+            eval="[(4,ref('group_assigned_points_of_sale_user'))]"
+            name="groups_id"
+        />
+    </record>
+</odoo>
