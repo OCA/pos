@@ -1,0 +1,27 @@
+{
+    "name": "PoS Product Display Default Code",
+    "summary": "pos: display product default code before product name",
+    "version": "19.0.1.0.0",
+    "category": "Point of Sale",
+    "website": "https://github.com/OCA/pos",
+    "author": "Odoo Community Association (OCA), Akretion, FactorLibre",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": [
+        "point_of_sale",
+    ],
+    "data": [
+        "views/res_config_settings_views.xml",
+    ],
+    "assets": {
+        "web.assets_tests": [
+            "pos_product_display_default_code/static/tests/pos/tours/**/*",
+        ],
+        "point_of_sale._assets_pos": [
+            "pos_product_display_default_code/static/src/product_display.esm.js",
+        ],
+    },
+    "demo": [],
+    "qweb": [],
+}
