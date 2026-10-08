@@ -10,6 +10,7 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["pos_sale"],
+    "data": [],
     "assets": {
         "web.assets_tests": [
             "pos_sale_picking_keep/static/tests/tours/**/*",
