@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_stock_available_online.ProductScreen"
+        t-inherit="point_of_sale.ProductScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//ProductCard" position="attributes">
+            <attribute name="warehouse_info">product.warehouse_info</attribute>
+            <attribute name="uom_id">uom_id</attribute>
+        </xpath>
+    </t>
+
+</templates>
