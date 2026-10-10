@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- TREE VIEW -->
+    <record id="pos_account_bank_statement_line_tree" model="ir.ui.view">
+        <field name="name">pos.account.bank.statement.line.tree</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="currency_id" optional="hide" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="date" />
+                <field name="pos_session_id" />
+                <field name="payment_ref" />
+                <field name="statement_id" optional="hide" />
+                <field name="journal_id" />
+                <field name="amount" />
+                <field name="state" optional="hide" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- SEARCH VIEW -->
+    <record id="pos_account_bank_statement_line_search" model="ir.ui.view">
+        <field
+            name="name"
+        >pos.account.bank.statement.line.cash.move.reason.search</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <!-- text search -->
+                <field name="pos_session_id" />
+                <field name="payment_ref" />
+                <field name="journal_id" />
+                <field name="amount" />
+                <!-- groupby -->
+                <filter
+                    name="session_id_groupby"
+                    context="{'group_by': 'pos_session_id'}"
+                />
+                <filter
+                    name="journal_id_groupby"
+                    context="{'group_by': 'journal_id'}"
+                />
+            </search>
+        </field>
+    </record>
+
+</odoo>
