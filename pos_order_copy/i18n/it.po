@@ -1,0 +1,115 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_order_copy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-11-04 11:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,help:pos_order_copy.field_pos_order__ticket_code
+msgid ""
+"5 digits alphanumeric code to be used by portal user to request an invoice"
+msgstr ""
+"Codice alfanumerico di 5 cifre utilizzabile da un utente portale per "
+"richiedere una fattura"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,help:pos_order_copy.field_pos_order__sequence_number
+msgid "A session-unique sequence number for the order"
+msgstr "Un numero sequenza univoco per sessione per l'ordine"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__date_order
+msgid "Date"
+msgstr "Data"
+
+#. module: pos_order_copy
+#. odoo-javascript
+#: code:addons/pos_order_copy/static/src/app/product_screen/CopyOrderButton.xml:0
+#: code:addons/pos_order_copy/static/src/app/ticket_screen/ticket_screen.xml:0
+#: code:addons/pos_order_copy/static/src/app/ticket_screen/ticket_screen.xml:0
+#, python-format
+msgid "Duplicate Order"
+msgstr "Duplica ordine"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__is_tipped
+msgid "Is this already tipped?"
+msgstr "Questo è già con mancia?"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__last_order_preparation_change
+msgid "Last preparation change"
+msgstr "Cambio ultima preparazione"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,help:pos_order_copy.field_pos_order__last_order_preparation_change
+msgid "Last printed state of the order"
+msgstr "Ultimo stato stampato dell'ordine"
+
+#. module: pos_order_copy
+#. odoo-javascript
+#: code:addons/pos_order_copy/static/src/app/store/pos_store.esm.js:0
+#, python-format
+msgid "Order %s"
+msgstr "Ordine %s"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,help:pos_order_copy.field_pos_order__user_id
+msgid ""
+"Person who uses the cash register. It can be a reliever, a student or an "
+"interim employee."
+msgstr ""
+"Persona che utilizza il registratore di cassa. Può essere un sostituto, uno "
+"studente o un dipendente provvisorio."
+
+#. module: pos_order_copy
+#: model:ir.model,name:pos_order_copy.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Ordini punto vendita"
+
+#. module: pos_order_copy
+#: model:ir.model,name:pos_order_copy.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessione punto vendita"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__user_id
+msgid "Responsible"
+msgstr "Responsabile"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__sequence_number
+msgid "Sequence Number"
+msgstr "Numero sequenza"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__session_id
+msgid "Session"
+msgstr "Sessione"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__shipping_date
+msgid "Shipping Date"
+msgstr "Data spedizione"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__ticket_code
+msgid "Ticket Code"
+msgstr "Codice ticket"
+
+#. module: pos_order_copy
+#: model:ir.model.fields,field_description:pos_order_copy.field_pos_order__tip_amount
+msgid "Tip Amount"
+msgstr "Valore mancia"
