@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2023 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="ProductScreen"
+        t-inherit="point_of_sale.ProductScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('control-buttons')]/t[1]" position="attributes">
+            <attribute name="t-if">controlButtons.length &lt;= 3</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('control-buttons')]/t[1]" position="after">
+            <t
+                t-foreach="importantControlButtons"
+                t-as="cb"
+                t-key="cb.name"
+                t-if="controlButtons.length &gt; 3"
+            >
+                <t t-component="cb.component" t-key="cb.name" />
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('control-buttons')]/t[1]" position="after">
+            <button
+                class="control-button btn btn-light rounded-0 fw-bolder"
+                t-if="!ui.isSmall &amp;&amp; controlButtons.length &gt; 3"
+                t-on-click="displayAllControlPopup"
+            >
+                <span>More...</span>
+            </button>
+        </xpath>
+    </t>
+
+</templates>
