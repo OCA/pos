@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_config_logo.SaverScreen"
+        t-inherit="point_of_sale.SaverScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//img[@src='/web/static/img/odoo_logo.svg']" position="replace">
+            <img
+                t-att-height="env.isSmall ? 40 : 182"
+                t-att-src="saverLogoSrc"
+                alt="Logo"
+            />
+        </xpath>
+    </t>
+</templates>
