@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='point_of_sale']" position="inside">
+                <block title="Product Quantity" id="pos_product_quantity_section">
+                    <setting
+                        string="Display Product Quantity"
+                        help="Display the quantity of available products in the POS for YourCompany warehouse."
+                    >
+                        <field name="pos_display_product_quantity" />
+                    </setting>
+                    <setting
+                        string="Additional Warehouses"
+                        invisible="not pos_display_product_quantity"
+                    >
+                        <div class="text-muted">
+                            Show quantity in the following warehouses in additional to <bold
+                        ><field
+                            name="pos_main_warehouse_id"
+                            class="oe_inline"
+                            nolabel="1"
+                        /> warehouse</bold>.
+                        </div>
+                        <div class="alert alert-warning" role="alert">
+                            Warehouses must belong to the same company as POS.
+                        </div>
+                        <field
+                            name="pos_additional_warehouse_ids"
+                            domain="[('id', '!=', pos_main_warehouse_id)]"
+                            widget="many2many_tags"
+                        />
+                    </setting>
+
+                    <setting
+                        string="Minimum Product Quantity Alert"
+                        help="Mark quantity red if below or equal this value."
+                        invisible="not pos_display_product_quantity"
+                    >
+                        <field name="pos_minimum_product_quantity_alert" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
