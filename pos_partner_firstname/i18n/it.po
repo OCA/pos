@@ -1,0 +1,108 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_partner_firstname
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-02-04 16:34+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
+#, python-format
+msgid "Customer firstname or lastname is required"
+msgstr "È richiesto il nome o il cognome del cliente"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Firstname"
+msgstr "Nome"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Lastname"
+msgstr "Cognome"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
+#, python-format
+msgid "Missing information"
+msgstr "Informazione mancante"
+
+#. module: pos_partner_firstname
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_pos_config__partner_names_order
+msgid "Partner Names Order"
+msgstr "Ordinamento nome partner"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configurazione punto vendita"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessione punto vendita"
+
+#, python-format
+#~ msgid "Both Customer First and Last Name Are Required"
+#~ msgstr "Sia il nome che il cognome del cliente sono obbligatori"
+
+#, python-format
+#~ msgid "Company"
+#~ msgstr "Azienda"
+
+#~ msgid "Contact"
+#~ msgstr "Contatto"
+
+#, python-format
+#~ msgid "First Name"
+#~ msgstr "Nome"
+
+#, python-format
+#~ msgid "FirstName"
+#~ msgstr "Nome"
+
+#, python-format
+#~ msgid "Last Name"
+#~ msgstr "Cognome"
+
+#, python-format
+#~ msgid "LastName"
+#~ msgstr "Cognome"
+
+#, python-format
+#~ msgid "!props.partner.is_company"
+#~ msgstr "!props.partner.is_company"
+
+#~ msgid "Display Name"
+#~ msgstr "Nome visualizzato"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Ultima modifica il"
+
+#, python-format
+#~ msgid "Name"
+#~ msgstr "Nome"
+
+#, python-format
+#~ msgid "Surname"
+#~ msgstr "Cognome"
