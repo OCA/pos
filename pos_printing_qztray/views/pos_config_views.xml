@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_pos_config_form_qztray" model="ir.ui.view">
+        <field name="name">pos.config.form.qztray</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='other_devices']" position="after">
+                <setting
+                    string="QZTray"
+                    id="qz_tray_settings"
+                    help="Print receipts directly to a local printer using QZTray"
+                >
+                    <field name="is_qztray" />
+                    <div
+                        class="content-group pos_iot_config ms-3"
+                        invisible="not is_qztray"
+                    >
+                        <div class="row">
+                            <div class="col-lg-4 o_light_label">
+                                <label
+                                    string="QZTray Receipt Printer"
+                                    for="iface_qztray_printer_id"
+                                />
+                            </div>
+                            <div class="col-lg-8">
+                                <field
+                                    name="iface_qztray_printer_id"
+                                    options="{'no_create': False, 'no_open': False}"
+                                    domain="[('backend','=','qztray')]"
+                                />
+                            </div>
+                            <div class="col-lg-5 o_light_label ps-4">
+                                <label string="Cashdrawer" for="iface_cashdrawer" />
+                            </div>
+                            <div class="col-lg-7">
+                                <field name="iface_cashdrawer" />
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
