@@ -1,0 +1,3 @@
+- See CONFIGURE section for configuration.
+- Set a salesperson on customer side.
+- Do a POS order with customer selection and create an invoice.

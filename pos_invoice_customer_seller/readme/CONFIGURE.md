@@ -1,0 +1,2 @@
+- Go to Point of Sale > Configuration > Accounting
+- Check the 'Use Customer Seller in Invoices' box
