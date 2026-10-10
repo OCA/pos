@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t
+        t-name="pos_payment_method_change_policy.PaymentScreenStatus"
+        t-inherit="point_of_sale.PaymentScreenStatus"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('payment-status-amount')]" position="attributes">
+            <attribute name="t-att-class">{
+                'payment-status-amount': true,
+                'text-warning': customerLoss,
+                'text-danger':  !customerLoss and (props.order.change > 0),
+                'text-success': !customerLoss and (props.order.change &lt;= 0)
+            }</attribute>
+        </xpath>
+
+        <xpath expr="//span[hasclass('label')]" position="replace">
+            <t t-if="customerLoss">
+                <span
+                    class="label badge rounded-pill bg-warning text-dark me-2 py-2 px-3 fs-6"
+                >
+                    <t t-out="statusText" />
+                </span>
+            </t>
+            <t t-else="">
+                <span class="label pe-2" t-out="statusText" />
+            </t>
+        </xpath>
+
+        <xpath expr="//PriceFormatter" position="attributes">
+            <attribute name="price">amountText</attribute>
+        </xpath>
+    </t>
+
+</templates>
