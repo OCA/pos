@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record
+        id="res_config_settings_view_form_sale_product_identification_pos"
+        model="ir.ui.view"
+    >
+        <field
+            name="name"
+        >res.config.settings.view.form.sale.product.identification.pos</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <setting
+                    string="Enforce customer identification"
+                    help="Require POS orders to pass customer identification checks even when no customer is selected."
+                >
+                    <field name="enforce_pos_partner_identification" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
