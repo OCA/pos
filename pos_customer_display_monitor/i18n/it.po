@@ -6,13 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-10-12 11:24+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
@@ -20,59 +22,61 @@ msgstr ""
 #, python-format
 msgid "Allow window management permission in the browser and try again."
 msgstr ""
+"Concedere l'autorizzazione per la gestione delle finestre nel browser e "
+"riprovare."
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "No screens detected"
-msgstr ""
+msgstr "Nessuna schermata rilevata"
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "Screen permission required"
-msgstr ""
+msgstr "Richiesta autorizzazione schermata"
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "Screen selection is not supported"
-msgstr ""
+msgstr "La selezione della schermata non è supportata"
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.xml:0
 #, python-format
 msgid "Select customer display screen"
-msgstr ""
+msgstr "Selezionare la schermata schermo cliente"
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "Select the customer display"
-msgstr ""
+msgstr "Selezionare lo schermo cliente"
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "The browser did not return any connected screens."
-msgstr ""
+msgstr "Il browser non ha restituito nessuna schermata collegata."
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "Use a recent Chromium-based browser and serve Odoo over HTTPS."
-msgstr ""
+msgstr "Usare un browser basato su Chromium e fornite Odoo con HTTPS."
 
 #. module: pos_customer_display_monitor
 #. odoo-javascript
 #: code:addons/pos_customer_display_monitor/static/src/app/navbar.esm.js:0
 #, python-format
 msgid "primary"
-msgstr ""
+msgstr "Primaria"
