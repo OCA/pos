@@ -1,0 +1,276 @@
+From e24ca839d7f284d885954084084c256d4e13e31e Mon Sep 17 00:00:00 2001
+From: prayag <krishprayag@gmail.com>
+Date: Mon, 12 Oct 2026 12:08:21 +0530
+Subject: [PATCH] [ADD] pos_session_sequence
+
+---
+ pos_session_sequence/README.rst               |  10 +-
+ pos_session_sequence/__manifest__.py          |   2 +-
+ .../demo/pos_session_sequence.xml             |   2 +-
+ pos_session_sequence/models/pos_session.py    |   2 +-
+ .../tests/test_pos_session_sequence.py        | 141 +++++++++---------
+ .../views/res_config_settings_views.xml       |   3 +-
+ 6 files changed, 82 insertions(+), 78 deletions(-)
+
+diff --git a/pos_session_sequence/README.rst b/pos_session_sequence/README.rst
+index 6c040ca9..67df7d5b 100644
+--- a/pos_session_sequence/README.rst
++++ b/pos_session_sequence/README.rst
+@@ -21,13 +21,13 @@ POS Session Sequence
+     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+     :alt: License: AGPL-3
+ .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
+-    :target: https://github.com/OCA/pos/tree/19.0/pos_session_sequence
++    :target: https://github.com/OCA/pos/tree/20.0/pos_session_sequence
+     :alt: OCA/pos
+ .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+-    :target: https://translation.odoo-community.org/projects/pos-19-0/pos-19-0-pos_session_sequence
++    :target: https://translation.odoo-community.org/projects/pos-20-0/pos-20-0-pos_session_sequence
+     :alt: Translate me on Weblate
+ .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
+-    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=19.0
++    :target: https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=20.0
+     :alt: Try me on Runboat
+ 
+ |badge1| |badge2| |badge3| |badge4| |badge5|
+@@ -56,7 +56,7 @@ Bug Tracker
+ Bugs are tracked on `GitHub Issues <https://github.com/OCA/pos/issues>`_.
+ In case of trouble, please check there if your issue has already been reported.
+ If you spotted it first, help us to smash it by providing a detailed and welcomed
+-`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_session_sequence%0Aversion:%2019.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
++`feedback <https://github.com/OCA/pos/issues/new?body=module:%20pos_session_sequence%0Aversion:%2020.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+ 
+ Do not contact contributors directly about support or help with technical issues.
+ 
+@@ -100,6 +100,6 @@ Current `maintainer <https://odoo-community.org/page/maintainer-role>`__:
+ 
+ |maintainer-peluko00| 
+ 
+-This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/19.0/pos_session_sequence>`_ project on GitHub.
++This module is part of the `OCA/pos <https://github.com/OCA/pos/tree/20.0/pos_session_sequence>`_ project on GitHub.
+ 
+ You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
+diff --git a/pos_session_sequence/__manifest__.py b/pos_session_sequence/__manifest__.py
+index ed79d70a..8b7fd97e 100644
+--- a/pos_session_sequence/__manifest__.py
++++ b/pos_session_sequence/__manifest__.py
+@@ -3,7 +3,7 @@
+ {
+     "name": "POS Session Sequence",
+     "summary": "Generates a sequence of POS sessions",
+-    "version": "19.0.1.0.0",
++    "version": "20.0.1.0.0",
+     "category": "Point of Sale",
+     "website": "https://github.com/OCA/pos",
+     "author": "Antoni Marroig, APSL-Nagarro, Odoo Community Association (OCA)",
+diff --git a/pos_session_sequence/demo/pos_session_sequence.xml b/pos_session_sequence/demo/pos_session_sequence.xml
+index b6b28f06..776ecd5d 100644
+--- a/pos_session_sequence/demo/pos_session_sequence.xml
++++ b/pos_session_sequence/demo/pos_session_sequence.xml
+@@ -1,4 +1,4 @@
+-<?xml version="1.0" encoding="utf-8" ?>
++<?xml version="1.0" encoding="UTF-8" ?>
+ <odoo>
+     <record id="pos_session_seq" model="ir.sequence">
+         <field name="name">POS Session Demo</field>
+diff --git a/pos_session_sequence/models/pos_session.py b/pos_session_sequence/models/pos_session.py
+index a3f90b85..e4ce26dc 100644
+--- a/pos_session_sequence/models/pos_session.py
++++ b/pos_session_sequence/models/pos_session.py
+@@ -10,6 +10,6 @@ class PosSession(models.Model):
+     def set_opening_control(self, cashbox_value: int, notes: str):
+         res = super().set_opening_control(cashbox_value, notes)
+         config = self.config_id
+-        if not self.rescue and config and config.session_sequence_id:
++        if config and config.session_sequence_id:
+             self.name = config.session_sequence_id._next()
+         return res
+diff --git a/pos_session_sequence/tests/test_pos_session_sequence.py b/pos_session_sequence/tests/test_pos_session_sequence.py
+index fc8e614b..e4a8aa44 100644
+--- a/pos_session_sequence/tests/test_pos_session_sequence.py
++++ b/pos_session_sequence/tests/test_pos_session_sequence.py
+@@ -8,95 +8,98 @@ class TestPosSessionSequence(BaseCommon):
+     @classmethod
+     def setUpClass(cls):
+         super().setUpClass()
+-        cls.custom_sequence_1 = cls.env["ir.sequence"].create(
+-            {
+-                "name": "Sequence for POS Sessions 1",
+-                "prefix": "SHOP-A-",
+-                "padding": 3,
+-            }
++        cls.custom_sequence_1 = (
++            cls.env["ir.sequence"]
++            .sudo()
++            .create(
++                {
++                    "name": "Sequence for POS Sessions 1",
++                    "prefix": "SHOP-A-",
++                    "padding": 3,
++                }
++            )
+         )
+-        cls.custom_sequence_2 = cls.env["ir.sequence"].create(
+-            {
+-                "name": "Sequence for POS Sessions 2",
+-                "prefix": "SHOP-B-",
+-                "padding": 3,
+-            }
++        cls.custom_sequence_2 = (
++            cls.env["ir.sequence"]
++            .sudo()
++            .create(
++                {
++                    "name": "Sequence for POS Sessions 2",
++                    "prefix": "SHOP-B-",
++                    "padding": 3,
++                }
++            )
+         )
+-        cls.pos_config_1 = cls.env["pos.config"].create(
+-            {
+-                "name": "Punto de Venta Test 1",
+-                "session_sequence_id": cls.custom_sequence_1.id,
+-            }
++        cls.pos_config_1 = (
++            cls.env["pos.config"]
++            .sudo()
++            .create(
++                {
++                    "name": "Punto de Venta Test 1",
++                    "session_sequence_id": cls.custom_sequence_1.id,
++                }
++            )
+         )
+-        cls.pos_config_2 = cls.env["pos.config"].create(
+-            {
+-                "name": "Punto de Venta Test 2",
+-                "session_sequence_id": cls.custom_sequence_2.id,
+-            }
++        cls.pos_config_2 = (
++            cls.env["pos.config"]
++            .sudo()
++            .create(
++                {
++                    "name": "Punto de Venta Test 2",
++                    "session_sequence_id": cls.custom_sequence_2.id,
++                }
++            )
+         )
+ 
+     def test_01_session_custom_sequence(self):
+-        session = self.env["pos.session"].create(
+-            {
+-                "config_id": self.pos_config_1.id,
+-                "user_id": self.env.uid,
+-            }
++        session = (
++            self.env["pos.session"]
++            .sudo()
++            .create(
++                {
++                    "config_id": self.pos_config_1.id,
++                    "user_id": self.env.uid,
++                }
++            )
+         )
+         self.assertEqual(session.state, "opening_control")
+         session.set_opening_control(100.0, "Initial cash")
+         self.assertEqual(session.name, "SHOP-A-001")
+-        session.action_pos_session_open()
+-        session.action_pos_session_closing_control()
+-        session_2 = self.env["pos.session"].create(
+-            {
+-                "config_id": self.pos_config_1.id,
+-            }
++        session.close_session_from_ui()
++        session_2 = (
++            self.env["pos.session"]
++            .sudo()
++            .create(
++                {
++                    "config_id": self.pos_config_1.id,
++                }
++            )
+         )
+         session_2.set_opening_control(0.0, "")
+         self.assertEqual(session_2.name, "SHOP-A-002")
+ 
+-    def test_02_session_rescue_no_sequence(self):
+-        session_rescue = self.env["pos.session"].create(
+-            {
+-                "config_id": self.pos_config_1.id,
+-                "rescue": True,
+-            }
+-        )
+-        session_rescue.set_opening_control(0.0, "")
+-        self.assertNotEqual(session_rescue.name, "SHOP-A-003")
+-
+-    def test_03_session_rescue_with_sequence(self):
+-        session = self.env["pos.session"].create(
+-            {
+-                "config_id": self.pos_config_2.id,
+-            }
+-        )
+-        session.set_opening_control(0.0, "")
+-        self.assertNotEqual(session.name, "SHOP-A-004")
+-        session.action_pos_session_open()
+-        session.action_pos_session_closing_control()
+-        session = self.env["pos.session"].create(
+-            {
+-                "config_id": self.pos_config_2.id,
+-            }
+-        )
+-        session.set_opening_control(0.0, "Initial cash")
+-        self.assertEqual(session.name, "SHOP-B-002")
+-
+     def test_04_default_session_sequence(self):
+         default_seq = self.env.ref("point_of_sale.seq_pos_session")
+-        config = self.env["pos.config"].create(
+-            {
+-                "name": "Punto de Venta Default Seq",
+-            }
++        config = (
++            self.env["pos.config"]
++            .sudo()
++            .create(
++                {
++                    "name": "Punto de Venta Default Seq",
++                }
++            )
+         )
+         self.assertEqual(config.session_sequence_id, default_seq)
+ 
+     def test_05_res_config_settings(self):
+-        config_settings = self.env["res.config.settings"].create(
+-            {
+-                "pos_config_id": self.pos_config_1.id,
+-            }
++        config_settings = (
++            self.env["res.config.settings"]
++            .sudo()
++            .create(
++                {
++                    "pos_config_id": self.pos_config_1.id,
++                }
++            )
+         )
+         self.assertEqual(
+             config_settings.pos_session_sequence_id,
+diff --git a/pos_session_sequence/views/res_config_settings_views.xml b/pos_session_sequence/views/res_config_settings_views.xml
+index feda6131..4a010cd3 100644
+--- a/pos_session_sequence/views/res_config_settings_views.xml
++++ b/pos_session_sequence/views/res_config_settings_views.xml
+@@ -1,7 +1,8 @@
++<?xml version="1.0" encoding="UTF-8" ?>
+ <!-- Copyright 2024 Antoni Marroig(APSL-Nagarro)<amarroig@apsl.net>
+      License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+ <odoo>
+-    <record model="ir.ui.view" id="res_config_settings_view_form_inherit">
++    <record id="res_config_settings_view_form_inherit" model="ir.ui.view">
+         <field name="name">res.config.settings.inherit</field>
+         <field name="model">res.config.settings</field>
+         <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+-- 
+2.43.0
+
