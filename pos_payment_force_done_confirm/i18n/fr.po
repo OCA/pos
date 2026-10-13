@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_force_done_confirm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-10 00:00+0000\n"
+"PO-Revision-Date: 2026-04-10 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: pos_payment_force_done_confirm
+#. odoo-javascript
+#: static/src/app/screens/payment_screen/payment_screen.js:0
+msgid "Warning: are you sure you have collected payment from the customer by card? You risk desynchronizing the point of sale."
+msgstr "Attention, êtes-vous certain d'avoir encaissé le client par carte ? Vous risquez de désynchroniser le point de caisse."
+
+#. module: pos_payment_force_done_confirm
+#. odoo-javascript
+#: static/src/app/screens/payment_screen/payment_screen.js:0
+msgid "No, go back"
+msgstr "Non, je reviens en arrière"
+
+#. module: pos_payment_force_done_confirm
+#. odoo-javascript
+#: static/src/app/screens/payment_screen/payment_screen.js:0
+msgid "Yes"
+msgstr "Oui"
