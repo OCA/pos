@@ -6,7 +6,7 @@
     "development_status": "Beta",
     "category": "Point of sale",
     "maintainers": ["LorenzoC0"],
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "license": "AGPL-3",
     "installable": True,
     "depends": ["point_of_sale"],
