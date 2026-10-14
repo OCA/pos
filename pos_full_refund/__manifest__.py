@@ -3,7 +3,7 @@
     "summary": "Add button to easily perform full refunds in Point of Sale",
     "author": "Innovyou, Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/pos",
-    "development_status": "Alpha",
+    "development_status": "Beta",
     "category": "Point of sale",
     "maintainers": ["LorenzoC0"],
     "version": "18.0.1.0.0",
