@@ -1,0 +1,1 @@
+This module blocks the POS if a product is scanned with a barcode that doesn't exist in Odoo.
