@@ -24,7 +24,7 @@ patch(Orderline.prototype, {
         this.pos = usePos();
     },
     get isDisplayButtonRemove() {
-        return this.pos.config.pos_line_remove_btn && !this.props.isReceipt;
+        return this.pos.config.line_remove_btn && !this.props.isReceipt;
     },
     _executeRemove() {
         this.numberBuffer.sendKey("Backspace");
@@ -35,7 +35,7 @@ patch(Orderline.prototype, {
             event.stopPropagation();
             event.preventDefault();
         }
-        const showWarning = this.pos.config.pos_line_remove_warning;
+        const showWarning = this.pos.config.line_remove_warning;
         if (showWarning) {
             this.dialog.add(ConfirmationDialog, {
                 body: _t("Are you sure that you want to remove this item?"),
