@@ -22,6 +22,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[pos_barcode_block](pos_barcode_block/) | 18.0.1.0.0 | <a href='https://github.com/miquelpascual'><img src='https://github.com/miquelpascual.png' width='32' height='32' style='border-radius:50%;' alt='miquelpascual'/></a> | Block the POS when an unknown barcode is scanned
 [pos_barcode_rule_priced_with_change_rate](pos_barcode_rule_priced_with_change_rate/) | 18.0.1.0.0 |  | Add a barcode rule to be able to scan a barcode with price encoded (as the standard "Priced Product" rule), and convert the price according to a given change rate.
 [pos_blind_session_closing](pos_blind_session_closing/) | 18.0.1.0.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> | Hide cash control details in the closing popup
 [pos_cash_control_extension](pos_cash_control_extension/) | 18.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | This module extends the cash in/out control
