@@ -9,4 +9,7 @@ patch(PosStore.prototype, {
         }
         return result;
     },
+    getNavbarLogoUrl() {
+        return `${this.session._base_url}/web/image?model=pos.config&id=${this.config.id}&field=logo`;
+    },
 });
