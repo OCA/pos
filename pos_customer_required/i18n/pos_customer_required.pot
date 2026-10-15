@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,13 +14,14 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_customer_required
-#. openerp-web
-#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
+#. odoo-javascript
+#: code:addons/pos_customer_required/static/src/js/Screens/PaymentScreen/PaymentScreen.esm.js:0
 #, python-format
 msgid "An anonymous order cannot be confirmed"
 msgstr ""
 
 #. module: pos_customer_required
+#. odoo-python
 #: code:addons/pos_customer_required/models/pos_make_payment.py:0
 #, python-format
 msgid ""
@@ -29,30 +30,15 @@ msgid ""
 msgstr ""
 
 #. module: pos_customer_required
+#: model:ir.model,name:pos_customer_required.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_customer_required
+#. odoo-python
 #: code:addons/pos_customer_required/models/pos_order.py:0
 #, python-format
 msgid "Customer is required for this order and is missing."
-msgstr ""
-
-#. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__display_name
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_make_payment__display_name
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__id
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_make_payment__id
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__id
-msgid "ID"
-msgstr ""
-
-#. module: pos_customer_required
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_config____last_update
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_make_payment____last_update
-#: model:ir.model.fields,field_description:pos_customer_required.field_pos_order____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: pos_customer_required
@@ -61,8 +47,8 @@ msgid "Optional"
 msgstr ""
 
 #. module: pos_customer_required
-#. openerp-web
-#: code:addons/pos_customer_required/static/src/js/PaymentScreen.js:0
+#. odoo-javascript
+#: code:addons/pos_customer_required/static/src/js/Screens/PaymentScreen/PaymentScreen.esm.js:0
 #, python-format
 msgid "Please select a customer for this order."
 msgstr ""
@@ -85,6 +71,8 @@ msgstr ""
 #. module: pos_customer_required
 #: model:ir.model.fields,field_description:pos_customer_required.field_pos_config__require_customer
 #: model:ir.model.fields,field_description:pos_customer_required.field_pos_order__require_customer
+#: model:ir.model.fields,field_description:pos_customer_required.field_res_config_settings__pos_require_customer
+#: model_terms:ir.ui.view,arch_db:pos_customer_required.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:pos_customer_required.view_pos_config_form
 msgid "Require Customer"
 msgstr ""
@@ -92,6 +80,7 @@ msgstr ""
 #. module: pos_customer_required
 #: model:ir.model.fields,help:pos_customer_required.field_pos_config__require_customer
 #: model:ir.model.fields,help:pos_customer_required.field_pos_order__require_customer
+#: model:ir.model.fields,help:pos_customer_required.field_res_config_settings__pos_require_customer
 msgid ""
 "Require customer for orders in this point of sale:\n"
 "* 'Optional' (customer is optional);\n"
