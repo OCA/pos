@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="PartnerLine"
+        t-inherit="point_of_sale.PartnerLine"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath
+            expr="//t[@t-if='ui.isSmall']//div[hasclass('partner-line-email p-1')]//div[@t-if='props.partner.phone']"
+            position="before"
+        >
+            <t t-esc="props.partner.ref" />
+            <div class="mb-1" t-if="props.partner.ref">
+                <i class="fa fa-fw fa-hashtag me-2" />
+                <t t-esc="props.partner.ref" />
+            </div>
+        </xpath>
+        <xpath
+            expr="//tr[hasclass('partner-line')]//td[hasclass('partner-line-email')]//div[@t-if='props.partner.phone']"
+            position="before"
+        >
+            <div class="mb-1" t-if="props.partner.ref">
+                <i class="fa fa-fw fa-hashtag me-2" />
+                <t t-esc="props.partner.ref" />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
