@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_automatic_cashdrawer_cashlogy.Navbar"
+        t-inherit="point_of_sale.Navbar"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//DropdownItem[@t-if='!isDisplayStandalone']" position="after">
+            <DropdownItem
+                t-if="showCashlogyAdmin"
+                onSelected="() => this.openCashlogyAdmin()"
+            >
+                Cashlogy Admin
+            </DropdownItem>
+        </xpath>
+    </t>
+
+</templates>
