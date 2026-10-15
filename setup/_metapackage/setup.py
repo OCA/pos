@@ -18,6 +18,7 @@ setuptools.setup(
         'odoo-addon-pos_config_logo>=16.0dev,<16.1dev',
         'odoo-addon-pos_container_deposit>=16.0dev,<16.1dev',
         'odoo-addon-pos_customer_comment>=16.0dev,<16.1dev',
+        'odoo-addon-pos_customer_required>=16.0dev,<16.1dev',
         'odoo-addon-pos_customer_tree_view_vat>=16.0dev,<16.1dev',
         'odoo-addon-pos_daily_sales_reports_category_only>=16.0dev,<16.1dev',
         'odoo-addon-pos_default_partner>=16.0dev,<16.1dev',
