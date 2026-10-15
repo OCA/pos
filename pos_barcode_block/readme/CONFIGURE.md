@@ -1,0 +1,2 @@
+- Select a product or create a new one
+- On the barcode field set the reference you want

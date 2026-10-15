@@ -1,0 +1,18 @@
+import odoo.tests
+
+from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+
+
+@odoo.tests.tagged("post_install", "-at_install")
+class TestUi(TestPointOfSaleHttpCommon):
+    def test_unknown_barcode_blocks_scanning(self):
+        self.env["product.product"].create(
+            {
+                "name": "Test product",
+                "available_in_pos": True,
+                "barcode": "BLOCKTEST001",
+            }
+        )
+        self.main_pos_config.with_user(self.pos_user).open_ui()
+        self.main_pos_config.current_session_id.set_opening_control(0, "")
+        self.start_pos_tour("PosBarcodeBlockTour")

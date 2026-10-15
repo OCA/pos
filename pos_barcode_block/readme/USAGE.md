@@ -1,0 +1,3 @@
+- Open a POS session
+- With a barcode generator tool, write a reference that isn't set on any of your products
+- An error modal screen will appear
