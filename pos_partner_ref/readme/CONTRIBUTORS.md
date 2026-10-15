@@ -2,3 +2,5 @@
   - Juan Carlos Bonilla Bravo \<<juancarlos.bonilla@factorlibre.com>\>
   - Enric Tobella
   - Cyril VINH-TUNG \<<cyril@invitu.com>\>
+  - [SerpentCS](https://www.serpentcs.com):
+    - Parvez Qureshi \<<parvez.qureshi@serpentcs.com>\>
