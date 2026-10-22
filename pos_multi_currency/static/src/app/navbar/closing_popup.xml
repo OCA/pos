@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ClosePosPopup" t-inherit-mode="extension">
+        <xpath
+            expr="//div[hasclass('payment-methods-overview')]/table"
+            position="inside"
+        >
+            <tbody t-if="foreignState.lines.length" class="foreign-closing">
+                <tr t-foreach="foreignState.lines" t-as="line" t-key="line_index">
+                    <td>
+                        <t t-esc="line.payment_method_name" />
+                        <span class="text-muted ms-1" t-esc="line.name" />
+                    </td>
+                    <td t-esc="formatForeignAmount(line.expected, line.currency_id)" />
+                    <td>
+                        <Input
+                            tModel="[line, 'counted']"
+                            isValid.bind="env.utils.isValidFloat"
+                        />
+                    </td>
+                    <td
+                        t-esc="formatForeignAmount(foreignDifference(line), line.currency_id)"
+                    />
+                </tr>
+            </tbody>
+        </xpath>
+    </t>
+</templates>
