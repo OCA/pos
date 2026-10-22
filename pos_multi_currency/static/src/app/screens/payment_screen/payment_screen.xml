@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('partner-button')]" position="after">
+            <button
+                t-if="pos.foreign_currencies.length"
+                class="button js_foreign_currency btn btn-light py-3 text-start rounded-0 border-bottom"
+                t-att-disabled="!foreignCurrencyAvailable()"
+                t-on-click="openForeignCurrencyPopup"
+            >
+                <i class="fa fa-money me-2" />Currency
+            </button>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.PaymentScreenPaymentLines" t-inherit-mode="extension">
+        <xpath
+            expr="//div[hasclass('paymentline') and hasclass('selected')]//div[hasclass('payment-infos')]"
+            position="inside"
+        >
+            <t t-if="line.foreign_currency_id">
+                <span
+                    class="foreign-payment text-muted px-2"
+                    t-esc="line.export_for_printing().foreign_amount_display"
+                />
+            </t>
+        </xpath>
+        <xpath
+            expr="//div[hasclass('paymentline') and not(hasclass('selected'))]//div[hasclass('payment-infos')]"
+            position="inside"
+        >
+            <t t-if="line.foreign_currency_id">
+                <span
+                    class="foreign-payment text-muted px-2"
+                    t-esc="line.export_for_printing().foreign_amount_display"
+                />
+            </t>
+        </xpath>
+    </t>
+</templates>
