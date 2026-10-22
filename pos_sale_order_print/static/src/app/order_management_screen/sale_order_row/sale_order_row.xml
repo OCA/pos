@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t
+        t-name="pos_sale_order_print.SaleOrderRow"
+        t-inherit="pos_sale.SaleOrderRow"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//div[hasclass('order-row')]//div[hasclass('state')]"
+            position="after"
+        >
+            <div t-if="showPrint" class="col action-print p-2">
+                <button
+                    class="btn btn-secondary"
+                    t-on-click="(ev) => this._printSaleOrder(ev,this.props.order)"
+                >Print</button>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

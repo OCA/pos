@@ -17,26 +17,23 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 
 #. module: pos_sale_order_print
+#. odoo-javascript
+#: code:addons/pos_sale_order_print/static/src/app/order_management_screen/sale_order_list/sale_order_list.xml:0
+#, python-format
+msgid "Actions"
+msgstr ""
+
+#. module: pos_sale_order_print
 #: model:ir.model,name:pos_sale_order_print.model_res_config_settings
 msgid "Config Settings"
 msgstr "Ajustes de Configuración"
 
 #. module: pos_sale_order_print
 #. odoo-javascript
-#: code:addons/pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js:0
+#: code:addons/pos_sale_order_print/static/src/app/order_management_screen/sale_order_row/sale_order_row.esm.js:0
 #, python-format
 msgid "Network Error"
 msgstr "Error de red"
-
-#. module: pos_sale_order_print
-#. odoo-javascript
-#: code:addons/pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js:0
-#, python-format
-msgid ""
-"Please choose which sale orders to print in the POS sales configuration."
-msgstr ""
-"Elije qué órdenes de venta desea imprimir en la configuración de ventas del "
-"TPV."
 
 #. module: pos_sale_order_print
 #: model:ir.model,name:pos_sale_order_print.model_pos_config
@@ -50,28 +47,21 @@ msgstr "Sesión del punto de venta"
 
 #. module: pos_sale_order_print
 #. odoo-javascript
-#: code:addons/pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js:0
+#: code:addons/pos_sale_order_print/static/src/app/order_management_screen/sale_order_row/sale_order_row.xml:0
 #, python-format
 msgid "Print"
 msgstr "Imprimir"
 
 #. module: pos_sale_order_print
-#. odoo-javascript
-#: code:addons/pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js:0
-#, python-format
-msgid "Print Error"
-msgstr "Error de impresión"
-
-#. module: pos_sale_order_print
 #: model:ir.model.fields,field_description:pos_sale_order_print.field_pos_config__print_sales_order_ids
-#: model:ir.model.fields,field_description:pos_sale_order_print.field_res_config_settings__pos_sale_order_print_ids
+#: model:ir.model.fields,field_description:pos_sale_order_print.field_res_config_settings__pos_print_sales_order_ids
 #: model_terms:ir.ui.view,arch_db:pos_sale_order_print.res_config_settings_view_form
 msgid "Print Sales Orders"
 msgstr "Imprimir pedidos de venta"
 
 #. module: pos_sale_order_print
 #: model:ir.model.fields,help:pos_sale_order_print.field_pos_config__print_sales_order_ids
-#: model:ir.model.fields,help:pos_sale_order_print.field_res_config_settings__pos_sale_order_print_ids
+#: model:ir.model.fields,help:pos_sale_order_print.field_res_config_settings__pos_print_sales_order_ids
 msgid "Print multiple Sale Orders in POS"
 msgstr "Imprimir múltiples pedidos de venta en TPV"
 
@@ -82,14 +72,14 @@ msgstr "Estos informes se podrán imprimir en el TPV"
 
 #. module: pos_sale_order_print
 #. odoo-javascript
-#: code:addons/pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js:0
+#: code:addons/pos_sale_order_print/static/src/app/order_management_screen/sale_order_row/sale_order_row.esm.js:0
 #, python-format
 msgid "Unable to download the report."
 msgstr "No se puede descargar el informe."
 
 #. module: pos_sale_order_print
 #. odoo-javascript
-#: code:addons/pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js:0
+#: code:addons/pos_sale_order_print/static/src/app/order_management_screen/sale_order_row/sale_order_row.esm.js:0
 #, python-format
 msgid "What do you want to print?"
 msgstr "¿Qué deseas imprimir?"

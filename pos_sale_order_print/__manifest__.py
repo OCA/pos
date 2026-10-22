@@ -3,7 +3,7 @@
 
 {
     "name": "Point of Sale Print Sales Orders",
-    "version": "16.0.1.0.2",
+    "version": "17.0.1.0.0",
     "category": "Sales/Point of Sale",
     "summary": "Print multiple sale orders in POS",
     "depends": ["point_of_sale", "pos_sale"],
@@ -13,9 +13,8 @@
     "installable": True,
     "data": ["views/res_config_settings_view.xml"],
     "assets": {
-        "point_of_sale.assets": [
-            "pos_sale_order_print/static/src/js/pos_sale_order_print.esm.js",
-            "pos_sale_order_print/static/src/js/SaleOrderManagementScreen.esm.js",
+        "point_of_sale._assets_pos": [
+            "pos_sale_order_print/static/src/app/order_management_screen/**/*",
         ],
     },
     "license": "AGPL-3",
