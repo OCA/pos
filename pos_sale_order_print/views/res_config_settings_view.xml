@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="pos_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='down_payment_product']" position="after">
+                <setting
+                    string="Print Sales Orders"
+                    help="These reports will be available for printing at the POS"
+                >
+                    <field
+                        name="pos_print_sales_order_ids"
+                        domain="[('model', '=', 'sale.order')]"
+                        widget="many2many_tags"
+                    />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

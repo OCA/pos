@@ -1,0 +1,2 @@
+- Cetmix \<https://cetmix.com/\>
+- Binhex (https://www.binhex.cloud)
