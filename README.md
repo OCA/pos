@@ -64,7 +64,7 @@ addon | version | maintainers | summary
 [pos_show_clock](pos_show_clock/) | 17.0.1.0.0 | <a href='https://github.com/mileo'><img src='https://github.com/mileo.png' width='32' height='32' style='border-radius:50%;' alt='mileo'/></a> <a href='https://github.com/ygcarvalh'><img src='https://github.com/ygcarvalh.png' width='32' height='32' style='border-radius:50%;' alt='ygcarvalh'/></a> <a href='https://github.com/felipezago'><img src='https://github.com/felipezago.png' width='32' height='32' style='border-radius:50%;' alt='felipezago'/></a> | Point of Sale: Display Current Date and Time on POS sreen
 [pos_stock_available_online](pos_stock_available_online/) | 17.0.1.0.0 |  | Show the available quantity of products in the Point of Sale
 [pos_user_restrict_stripe_bypass_user](pos_user_restrict_stripe_bypass_user/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | POS User Restrict Strype Bypass User
-[pos_user_restriction](pos_user_restriction/) | 17.0.1.0.1 | <a href='https://github.com/eLBati'><img src='https://github.com/eLBati.png' width='32' height='32' style='border-radius:50%;' alt='eLBati'/></a> | Restrict some users to see and use only certain points of sale
+[pos_user_restriction](pos_user_restriction/) | 17.0.1.0.2 | <a href='https://github.com/eLBati'><img src='https://github.com/eLBati.png' width='32' height='32' style='border-radius:50%;' alt='eLBati'/></a> | Restrict some users to see and use only certain points of sale
 
 [//]: # (end addons)
 
