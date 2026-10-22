@@ -56,7 +56,7 @@ class TestHacks(TestPoSCommon):
             {
                 "company_id": self.env.company.id,
                 "session_id": session.id,
-                "partner_id": self.env.user.id,
+                "partner_id": self.env.user.partner_id.id,
                 "lines": [
                     (
                         0,
