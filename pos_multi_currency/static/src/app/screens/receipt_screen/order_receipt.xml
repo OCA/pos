@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('paymentlines')]" position="attributes">
+            <attribute
+                name="t-att-class"
+            >{'mb-2': line.foreign_currency_name}</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('paymentlines')]/span" position="attributes">
+            <attribute
+                name="t-esc"
+            >props.formatCurrency(line.amount, props.data.paymentlines.some(payment => payment.foreign_currency_name))</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('paymentlines')]/span" position="after">
+            <t t-if="line.foreign_currency_name">
+                <div class="pos-receipt-foreign border-start ps-2 mt-1">
+                    Paid in <span t-esc="line.foreign_amount_display" />
+                    <div>Rate: <t t-esc="line.foreign_rate_label" /></div>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>
