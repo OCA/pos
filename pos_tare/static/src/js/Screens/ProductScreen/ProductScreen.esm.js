@@ -40,6 +40,11 @@ const TareProductScreen = (ProductScreen_) =>
                 }
                 return payload;
             }
+            // For a product packaging the payload quantity is a simple integer
+            // representing the amount of items in the package, no tare is involved
+            if (code && this.env.pos.db.product_packaging_by_barcode[code.code]) {
+                return payload;
+            }
 
             const {weight, tare} = payload.quantity;
             return {
