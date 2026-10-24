@@ -53,6 +53,15 @@ is not closed, this bad configuration has to be fixed by SQL.
 
 This module adds a check when opening session, to avoid such situation.
 
+Use case 2
+~~~~~~~~~~
+
+Accout moves can not be created if receivable account are not defined.
+For the time being, the error message is not understandable, and so hard to fix.
+
+The module prevent to open a session if one of the payment method doesn't
+have a receivable account defined.
+
 **Table of contents**
 
 .. contents::
