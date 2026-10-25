@@ -59,6 +59,7 @@ addon | version | maintainers | summary
 [pos_receipt_gift_card](pos_receipt_gift_card/) | 17.0.1.0.0 |  | Attach the generated gift card code to the sales ticket
 [pos_receipt_hide_price](pos_receipt_hide_price/) | 17.0.1.0.0 |  | Add button to remove price from receipt.
 [pos_rma](pos_rma/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Point of Sale RMA Management
+[pos_sale_order_print](pos_sale_order_print/) | 17.0.1.0.0 |  | Print multiple sale orders in POS
 [pos_screen_element_custom_size](pos_screen_element_custom_size/) | 17.0.1.0.0 |  | Set custom size for POS screen elements
 [pos_session_sequence](pos_session_sequence/) | 17.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Generates a sequence of POS sessions
 [pos_show_clock](pos_show_clock/) | 17.0.1.0.0 | <a href='https://github.com/mileo'><img src='https://github.com/mileo.png' width='32' height='32' style='border-radius:50%;' alt='mileo'/></a> <a href='https://github.com/ygcarvalh'><img src='https://github.com/ygcarvalh.png' width='32' height='32' style='border-radius:50%;' alt='ygcarvalh'/></a> <a href='https://github.com/felipezago'><img src='https://github.com/felipezago.png' width='32' height='32' style='border-radius:50%;' alt='felipezago'/></a> | Point of Sale: Display Current Date and Time on POS sreen
