@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#875A7B"/>
+      <stop offset="100%" stop-color="#5B3952"/>
+    </linearGradient>
+    <linearGradient id="cupGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E74C3C"/>
+      <stop offset="100%" stop-color="#C0392B"/>
+    </linearGradient>
+    <linearGradient id="bunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F5B041"/>
+      <stop offset="100%" stop-color="#D68910"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A09D"/>
+      <stop offset="100%" stop-color="#017E84"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect x="6" y="6" width="116" height="116" rx="24" ry="24" fill="url(#bgGrad)"/>
+
+  <!-- Drink Cup (Left/Back of Combo) -->
+  <g filter="url(#shadow)">
+    <!-- Straw -->
+    <path d="M46 28 L52 16 L62 16" fill="none" stroke="#F8F9F9" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M46 28 L52 16" fill="none" stroke="#E74C3C" stroke-width="2" stroke-dasharray="3,3" stroke-linecap="round"/>
+    <!-- Cup Body -->
+    <polygon points="24,36 62,36 56,92 30,92" fill="url(#cupGrad)"/>
+    <!-- White Wave/Stripe on Cup -->
+    <path d="M26 56 Q43 62 60 56 L59 66 Q43 72 27 66 Z" fill="#FFFFFF" opacity="0.9"/>
+    <!-- Cup Lid -->
+    <rect x="21" y="30" width="44" height="7" rx="3.5" fill="#ECF0F1"/>
+    <rect x="24" y="27" width="38" height="4" rx="2" fill="#BDC3C7"/>
+  </g>
+
+  <!-- Burger (Right/Front of Combo) -->
+  <g filter="url(#shadow)">
+    <!-- Top Bun -->
+    <path d="M50 68 C50 48, 104 48, 104 68 Z" fill="url(#bunGrad)"/>
+    <!-- Sesame Seeds -->
+    <ellipse cx="67" cy="58" rx="2.5" ry="1.3" transform="rotate(-15 67 58)" fill="#FEF9E7"/>
+    <ellipse cx="77" cy="55" rx="2.5" ry="1.3" fill="#FEF9E7"/>
+    <ellipse cx="87" cy="58" rx="2.5" ry="1.3" transform="rotate(15 87 58)" fill="#FEF9E7"/>
+    <ellipse cx="72" cy="62" rx="2.3" ry="1.2" transform="rotate(8 72 62)" fill="#FEF9E7"/>
+    <ellipse cx="82" cy="62" rx="2.3" ry="1.2" transform="rotate(-10 82 62)" fill="#FEF9E7"/>
+    <!-- Lettuce -->
+    <path d="M48 70 Q55 75 62 70 Q69 75 76 70 Q83 75 90 70 Q97 75 106 70" fill="none" stroke="#2ECC71" stroke-width="5" stroke-linecap="round"/>
+    <!-- Cheese Slice -->
+    <polygon points="50,73 104,73 104,77 82,83 72,77 50,77" fill="#F1C40F"/>
+    <!-- Burger Patty -->
+    <rect x="49" y="76" width="56" height="10" rx="5" fill="#6E2C00"/>
+    <!-- Bottom Bun -->
+    <path d="M51 86 L103 86 C103 95, 97 98, 91 98 L63 98 C57 98, 51 95, 51 86 Z" fill="url(#bunGrad)"/>
+  </g>
+
+  <!-- Configurable Combo Plus Badge (Top Right) -->
+  <g filter="url(#shadow)">
+    <circle cx="96" cy="32" r="17" fill="url(#badgeGrad)" stroke="#FFFFFF" stroke-width="2.5"/>
+    <path d="M96 24 V40 M88 32 H104" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <!-- Combo Pack Banner / Tag at Bottom -->
+  <g filter="url(#shadow)">
+    <rect x="22" y="99" width="84" height="17" rx="8.5" fill="#017E84" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="64" y="111" font-family="DejaVu Sans, Arial, sans-serif" font-size="10.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.2">COMBO</text>
+  </g>
+</svg>
+

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t t-name="ComboProductPopup" owl="1">
+        <div class="popup pos-combo-product-popup">
+            <header class="combo-popup-header">
+                <div class="combo-popup-title-wrap">
+                    <div class="combo-popup-icon">
+                        <i class="fa fa-cubes" />
+                    </div>
+                    <div class="combo-popup-title-text">
+                        <div class="combo-popup-title">
+                            <t
+                                t-esc="props.product ? props.product.display_name : props.title"
+                            />
+                        </div>
+                        <div class="combo-popup-subtitle">
+                            <t t-esc="props.title" />
+                        </div>
+                    </div>
+                </div>
+                <div class="combo-popup-pricing">
+                    <div class="combo-price-pill base-pill">
+                        <span class="pill-label">Base</span>
+                        <span class="pill-value">
+                            <t t-esc="env.pos.format_currency(basePrice)" />
+                        </span>
+                    </div>
+                    <div
+                        t-attf-class="combo-price-pill extra-pill {{ extraPrice > 0 ? 'has-extra' : '' }}"
+                    >
+                        <span class="pill-label">Extra</span>
+                        <span class="pill-value">
+                            + <t t-esc="env.pos.format_currency(extraPrice)" />
+                        </span>
+                    </div>
+                    <div class="combo-price-pill total-pill">
+                        <span class="pill-label">Total</span>
+                        <span class="pill-value">
+                            <t t-esc="env.pos.format_currency(totalPrice)" />
+                        </span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="combo-popup-body">
+                <t t-foreach="state.categories" t-as="categ" t-key="categ.categ_id">
+                    <section class="combo-category-card">
+                        <div class="combo-category-header">
+                            <div class="combo-category-title">
+                                <i class="fa fa-tag combo-categ-icon" />
+                                <span><t t-esc="categ.categ_name" /></span>
+                            </div>
+                            <div class="combo-category-search">
+                                <i class="fa fa-search" />
+                                <input
+                                    type="text"
+                                    placeholder="Search Products..."
+                                    t-model="categ.search_text"
+                                />
+                                <i
+                                    t-if="categ.search_text"
+                                    class="fa fa-times-circle clear-search"
+                                    t-on-click="() => this.clearSearch(categ)"
+                                />
+                            </div>
+                        </div>
+
+                        <div
+                            t-attf-class="combo-category-sections {{ (categ.required_groups.length and categ.optional_groups.length) ? 'two-cols' : 'single-col' }}"
+                        >
+                            <div
+                                t-if="categ.required_groups.length"
+                                class="combo-required-col combo-group-panel"
+                            >
+                                <t
+                                    t-foreach="categ.required_groups"
+                                    t-as="reqGroup"
+                                    t-key="reqGroup.pack_line_id"
+                                >
+                                    <div class="combo-group-bar">
+                                        <div class="combo-group-badges">
+                                            <span
+                                                class="combo-type-badge badge-required"
+                                            >
+                                                <i
+                                                    class="fa fa-check-circle"
+                                                /> Required Product
+                                            </span>
+                                            <span
+                                                t-if="reqGroup.include_price"
+                                                class="combo-type-badge badge-included"
+                                            >
+                                                1st Included
+                                            </span>
+                                        </div>
+                                        <div class="combo-select-hint">
+                                            <span class="combo-counter-pill">
+                                                <t
+                                                    t-esc="getSelectedCount(reqGroup)"
+                                                /> / <t t-esc="reqGroup.no_of_items" />
+                                            </span>
+                                            <span>(Select any <t
+                                                    t-esc="reqGroup.no_of_items"
+                                                /> products)</span>
+                                        </div>
+                                    </div>
+                                    <div class="combo-products-grid">
+                                        <t
+                                            t-foreach="filterProducts(reqGroup.products, categ.search_text)"
+                                            t-as="reqItem"
+                                            t-key="reqItem.product_id"
+                                        >
+                                            <div
+                                                t-attf-class="combo-product-card {{ reqItem.selected ? 'selected' : '' }} {{ !showProductImage ? 'no-image-card' : '' }}"
+                                                t-on-click="() => this.onClickProduct(reqGroup, reqItem)"
+                                            >
+                                                <span
+                                                    t-if="reqItem.selected"
+                                                    class="combo-card-check"
+                                                >
+                                                    <i class="fa fa-check" />
+                                                </span>
+                                                <span
+                                                    t-attf-class="combo-card-price-tag {{ isFirstIncludedItem(reqGroup, reqItem) and reqItem.qty &lt;= reqGroup.default_qty ? 'tag-included' : '' }}"
+                                                >
+                                                    <t
+                                                        t-esc="env.pos.format_currency(reqItem.price)"
+                                                    />
+                                                </span>
+                                                <t t-if="showProductImage">
+                                                    <div class="combo-card-img">
+                                                        <img
+                                                            t-att-src="getImageUrl(reqItem.product_id)"
+                                                            t-att-alt="reqItem.product_name"
+                                                        />
+                                                    </div>
+                                                </t>
+                                                <div
+                                                    class="combo-card-name"
+                                                    t-att-title="reqItem.product_name"
+                                                >
+                                                    <t t-esc="reqItem.product_name" />
+                                                </div>
+                                                <t t-if="reqItem.selected">
+                                                    <div class="combo-card-qty-stepper">
+                                                        <button
+                                                            type="button"
+                                                            class="qty-btn minus"
+                                                            t-on-click="(ev) => this.onDecrementQty(reqItem, ev)"
+                                                        >
+                                                            <i class="fa fa-minus" />
+                                                        </button>
+                                                        <span class="qty-value">
+                                                            <t t-esc="reqItem.qty" />
+                                                        </span>
+                                                        <button
+                                                            type="button"
+                                                            class="qty-btn plus"
+                                                            t-on-click="(ev) => this.onIncrementQty(reqGroup, reqItem, ev)"
+                                                        >
+                                                            <i class="fa fa-plus" />
+                                                        </button>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <div
+                                t-if="categ.optional_groups.length"
+                                class="combo-optional-col combo-group-panel"
+                            >
+                                <t
+                                    t-foreach="categ.optional_groups"
+                                    t-as="optGroup"
+                                    t-key="optGroup.pack_line_id"
+                                >
+                                    <div class="combo-group-bar">
+                                        <div class="combo-group-badges">
+                                            <span
+                                                class="combo-type-badge badge-optional"
+                                            >
+                                                <i
+                                                    class="fa fa-plus-circle"
+                                                /> Optional Products
+                                            </span>
+                                            <span
+                                                t-if="optGroup.include_price"
+                                                class="combo-type-badge badge-included"
+                                            >
+                                                1st Included
+                                            </span>
+                                        </div>
+                                        <div class="combo-select-hint">
+                                            <span class="combo-counter-pill">
+                                                <t
+                                                    t-esc="getSelectedCount(optGroup)"
+                                                /> / <t t-esc="optGroup.no_of_items" />
+                                            </span>
+                                            <span>(Select any <t
+                                                    t-esc="optGroup.no_of_items"
+                                                /> products)</span>
+                                        </div>
+                                    </div>
+                                    <div class="combo-products-grid">
+                                        <t
+                                            t-foreach="filterProducts(optGroup.products, categ.search_text)"
+                                            t-as="optItem"
+                                            t-key="optItem.product_id"
+                                        >
+                                            <div
+                                                t-attf-class="combo-product-card {{ optItem.selected ? 'selected' : '' }} {{ !showProductImage ? 'no-image-card' : '' }}"
+                                                t-on-click="() => this.onClickProduct(optGroup, optItem)"
+                                            >
+                                                <span
+                                                    t-if="optItem.selected"
+                                                    class="combo-card-check"
+                                                >
+                                                    <i class="fa fa-check" />
+                                                </span>
+                                                <span
+                                                    t-attf-class="combo-card-price-tag {{ isFirstIncludedItem(optGroup, optItem) and optItem.qty &lt;= optGroup.default_qty ? 'tag-included' : '' }}"
+                                                >
+                                                    <t
+                                                        t-esc="env.pos.format_currency(optItem.price)"
+                                                    />
+                                                </span>
+                                                <t t-if="showProductImage">
+                                                    <div class="combo-card-img">
+                                                        <img
+                                                            t-att-src="getImageUrl(optItem.product_id)"
+                                                            t-att-alt="optItem.product_name"
+                                                        />
+                                                    </div>
+                                                </t>
+                                                <div
+                                                    class="combo-card-name"
+                                                    t-att-title="optItem.product_name"
+                                                >
+                                                    <t t-esc="optItem.product_name" />
+                                                </div>
+                                                <t t-if="optItem.selected">
+                                                    <div class="combo-card-qty-stepper">
+                                                        <button
+                                                            type="button"
+                                                            class="qty-btn minus"
+                                                            t-on-click="(ev) => this.onDecrementQty(optItem, ev)"
+                                                        >
+                                                            <i class="fa fa-minus" />
+                                                        </button>
+                                                        <span class="qty-value">
+                                                            <t t-esc="optItem.qty" />
+                                                        </span>
+                                                        <button
+                                                            type="button"
+                                                            class="qty-btn plus"
+                                                            t-on-click="(ev) => this.onIncrementQty(optGroup, optItem, ev)"
+                                                        >
+                                                            <i class="fa fa-plus" />
+                                                        </button>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                </t>
+            </main>
+
+            <footer class="combo-popup-footer">
+                <div class="button cancel" t-on-click="cancel">
+                    <i class="fa fa-times me-1" />
+                    <t t-esc="props.cancelText" />
+                </div>
+                <div class="button confirm highlight" t-on-click="confirm">
+                    <i class="fa fa-check me-1" />
+                    <t t-esc="props.confirmText" />
+                </div>
+            </footer>
+        </div>
+    </t>
+</templates>

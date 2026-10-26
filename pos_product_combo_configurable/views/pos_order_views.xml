@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<odoo>
+    <record id="view_pos_pos_form_pos_combo" model="ir.ui.view">
+        <field name="name">pos.order.form.pos.combo</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lines']/tree" position="attributes">
+                <attribute name="decoration-muted">is_combo_subline == True</attribute>
+                <attribute name="decoration-it">is_combo_subline == True</attribute>
+            </xpath>
+            <xpath
+                expr="//field[@name='lines']/tree/field[@name='full_product_name']"
+                position="after"
+            >
+                <field name="is_combo_subline" optional="show" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

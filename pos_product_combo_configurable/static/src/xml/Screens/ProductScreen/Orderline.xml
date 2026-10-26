@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="Orderline"
+        t-inherit="point_of_sale.Orderline"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//ul[hasclass('info-list')][1]" position="after">
+            <t
+                t-if="props.line.get_product().is_combo and props.line.get_combo_prod_info().length"
+            >
+                <div class="pos-combo-orderline-details">
+                    <div class="pos-combo-orderline-toolbar">
+                        <span class="pos-combo-pack-label">
+                            <i class="fa fa-cubes" /> Combo Pack
+                        </span>
+                        <button
+                            type="button"
+                            class="btn-edit-combo"
+                            t-on-click.stop="onClickEditCombo"
+                        >
+                            <i class="fa fa-sliders" /> Edit
+                        </button>
+                    </div>
+                    <t t-if="props.line.get_required_combo_products().length">
+                        <div class="pos-combo-section-header">
+                            <span>Required</span>
+                        </div>
+                        <ul class="pos-combo-subline-list">
+                            <t
+                                t-foreach="props.line.get_required_combo_products()"
+                                t-as="reqSub"
+                                t-key="reqSub.product_id"
+                            >
+                                <li class="pos-combo-subline-item">
+                                    <span class="subline-qty-badge">
+                                        <t t-esc="reqSub.qty" />x
+                                    </span>
+                                    <span class="subline-prod-name">
+                                        <t t-esc="reqSub.product_name" />
+                                    </span>
+                                </li>
+                            </t>
+                        </ul>
+                    </t>
+                    <t t-if="props.line.get_optional_combo_products().length">
+                        <div class="pos-combo-section-header">
+                            <span>Optional</span>
+                        </div>
+                        <ul class="pos-combo-subline-list">
+                            <t
+                                t-foreach="props.line.get_optional_combo_products()"
+                                t-as="optSub"
+                                t-key="optSub.product_id"
+                            >
+                                <li class="pos-combo-subline-item">
+                                    <span class="subline-qty-badge optional">
+                                        <t t-esc="optSub.qty" />x
+                                    </span>
+                                    <span class="subline-prod-name">
+                                        <t t-esc="optSub.product_name" />
+                                    </span>
+                                </li>
+                            </t>
+                        </ul>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>
