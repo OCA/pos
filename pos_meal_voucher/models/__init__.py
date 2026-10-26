@@ -1,0 +1,7 @@
+from . import barcode_rule
+from . import pos_config
+from . import pos_payment_method
+from . import product_category
+from . import product_product
+from . import product_template
+from . import res_config_settings
