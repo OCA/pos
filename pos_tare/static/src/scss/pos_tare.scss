@@ -57,3 +57,16 @@ New style for new scale objects
     /* same as .popup.popup-error .title */
     border-color: rgba(255, 76, 76, 0.5);
 }
+
+.pos .scale-screen .tare-rounding-warning {
+    float: right;
+    text-align: right;
+    padding-right: 16px;
+    margin-right: 16px;
+    margin-top: -4px;
+
+    span::before {
+        content: "⚠️";
+        margin-right: 4px;
+    }
+}
