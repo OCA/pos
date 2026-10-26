@@ -1,0 +1,354 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_product_combo_configurable
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-24 00:00+0000\n"
+"PO-Revision-Date: 2026-10-24 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "(Select any"
+msgstr "(Seleccione hasta"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "1st Included"
+msgstr "1.º Incluido"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Base"
+msgstr "Base"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
+#, python-format
+msgid "Combo"
+msgstr "Combo"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Screens/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "Combo Pack"
+msgstr "Pack Combo"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Extra"
+msgstr "Extra"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Total"
+msgstr "Total"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_product_combo_pack__include_all_products
+msgid "Automatically include all POS-available products from the selected POS category."
+msgstr "Incluir automáticamente todos los productos disponibles en TPV de la categoría seleccionada."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__pos_category_id
+#, python-format
+msgid "Category"
+msgstr "Categoría"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Screens/ProductScreen/ProductItem.xml:0
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__product_tmpl_id
+#, python-format
+msgid "Combo Product"
+msgstr "Producto Combo"
+
+#. module: pos_product_combo_configurable
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.product_template_search_view_pos_combo
+msgid "Combo Products"
+msgstr "Productos Combo"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_account_bank_statement_line__combo_subline_json
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_account_move__combo_subline_json
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_account_move_line__combo_subline_json
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_pos_order_line__combo_subline_json
+msgid "Combo Sub-Products JSON"
+msgstr "JSON de subproductos del combo"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__default_qty
+msgid "Default Quantity"
+msgstr "Cantidad por defecto"
+
+#. module: pos_product_combo_configurable
+#. odoo-python
+#: code:addons/pos_product_combo_configurable/models/product_combo_pack.py:0
+#, python-format
+msgid "Default Quantity must be at least 1."
+msgstr "La cantidad por defecto debe ser al menos 1."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Screens/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "Edit"
+msgstr "Editar"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_product_product__is_combo
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_product_template__is_combo
+msgid "Enable this option for creating a POS combo product."
+msgstr "Active esta opción para crear un producto combo en el TPV."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Extra Price:"
+msgstr "Precio extra:"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_product_combo_pack__include_price
+msgid "If enabled, the price of these sub-products is included in the main combo product price."
+msgstr "Si se activa, el precio de estos subproductos se incluye en el precio del producto combo principal."
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__include_all_products
+msgid "Include all Products"
+msgstr "Incluir todos los productos"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__include_price
+msgid "Include in Main Product Price"
+msgstr "Incluir en el precio del producto principal"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_account_move_line__is_combo_subline
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_pos_order_line__is_combo_subline
+msgid "Is Combo Sub-Product Line"
+msgstr "Es línea de subproducto combo"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__no_of_items
+msgid "No. of Items"
+msgstr "N.º de artículos"
+
+#. module: pos_product_combo_configurable
+#. odoo-python
+#: code:addons/pos_product_combo_configurable/models/product_combo_pack.py:0
+#, python-format
+msgid "Number of Items must be at least 1."
+msgstr "El número de artículos debe ser al menos 1."
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_product_combo_pack__no_of_items
+msgid "Number of products that can be selected on the POS screen for this category."
+msgstr "Número de productos que se pueden seleccionar en la pantalla del TPV para esta categoría."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "Ok"
+msgstr "Aceptar"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Screens/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "Optional"
+msgstr "Opcional"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Optional Products"
+msgstr "Productos opcionales"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model,name:pos_product_combo_configurable.model_product_combo_pack
+msgid "POS Product Combo Pack Line"
+msgstr "Línea de pack combo de producto TPV"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Price:"
+msgstr "Precio:"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__product_ids
+msgid "Product"
+msgstr "Producto"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_product__combo_pack_ids
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_template__combo_pack_ids
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.product_template_form_view_pos_combo
+msgid "Product Pack"
+msgstr "Pack de productos"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Screens/ProductScreen/Orderline.xml:0
+#, python-format
+msgid "Required"
+msgstr "Obligatorio"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Required Product"
+msgstr "Producto obligatorio"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_combo_pack__is_required
+msgid "Required Products"
+msgstr "Productos obligatorios"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/xml/Popups/ComboProductPopup.xml:0
+#, python-format
+msgid "Search Products..."
+msgstr "Buscar productos..."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "Select Combo"
+msgstr "Seleccionar Combo"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_product_combo_pack__is_required
+msgid "Selected products are required for the combo."
+msgstr "Los productos seleccionados son obligatorios para el combo."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "Selection Limit Reached"
+msgstr "Límite de selección alcanzado"
+
+#. module: pos_product_combo_configurable
+#. odoo-python
+#: code:addons/pos_product_combo_configurable/models/product_combo_pack.py:0
+#, python-format
+msgid "The number of items (%(no_of_items)s) cannot exceed the number of configured products (%(num_products)s) in category '%(category)s'."
+msgstr "El número de artículos (%(no_of_items)s) no puede superar el número de productos configurados (%(num_products)s) en la categoría '%(category)s'."
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_product__is_combo
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_product_template__is_combo
+msgid "Use as Combo"
+msgstr "Usar como Combo"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_pos_config__view_combo_product_image
+#: model:ir.model.fields,field_description:pos_product_combo_configurable.field_res_config_settings__pos_view_combo_product_image
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.res_config_settings_view_form_pos_combo
+msgid "View Combo Product Image"
+msgstr "Ver imagen de producto combo"
+
+#. module: pos_product_combo_configurable
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_pos_config__view_combo_product_image
+#: model:ir.model.fields,help:pos_product_combo_configurable.field_res_config_settings__pos_view_combo_product_image
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.pos_config_view_form_pos_combo
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.res_config_settings_view_form_pos_combo
+msgid "View image of combo product in popup"
+msgstr "Ver imagen de los productos del combo en la ventana emergente"
+
+#. module: pos_product_combo_configurable
+#. odoo-python
+#: code:addons/pos_product_combo_configurable/models/product_template.py:0
+#, python-format
+msgid "You can't create duplicated required product category line."
+msgstr "No puede crear una línea de categoría de producto obligatoria duplicada."
+
+#. module: pos_product_combo_configurable
+#. odoo-python
+#: code:addons/pos_product_combo_configurable/models/product_template.py:0
+#, python-format
+msgid "You can't create duplicated un-required product category line."
+msgstr "No puede crear una línea de categoría de producto opcional duplicada."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "Please select at least 1 product in category '%s'."
+msgstr "Por favor, seleccione al menos 1 producto en la categoría '%s'."
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "Required Product Missing"
+msgstr "Falta producto obligatorio"
+
+#. module: pos_product_combo_configurable
+#. odoo-javascript
+#: code:addons/pos_product_combo_configurable/static/src/js/Popups/ComboProductPopup.js:0
+#, python-format
+msgid "You can only select %s product(s)."
+msgstr "Solo puede seleccionar %s producto(s)."
+
+#. module: pos_product_combo_configurable
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.product_template_form_view_pos_combo
+msgid "Category & Products"
+msgstr "Categoría y productos"
+
+#. module: pos_product_combo_configurable
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.product_template_form_view_pos_combo
+msgid "Combo Rules & Pricing"
+msgstr "Reglas y precio del combo"
+
+#. module: pos_product_combo_configurable
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.res_config_settings_view_form_pos_combo
+msgid "POS Combo Packs"
+msgstr "Packs Combo en TPV"
+
+#. module: pos_product_combo_configurable
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.pos_config_view_form_pos_combo
+#: model_terms:ir.ui.view,arch_db:pos_product_combo_configurable.res_config_settings_view_form_pos_combo
+msgid "Display product thumbnails inside the POS combo configuration popup."
+msgstr "Mostrar miniaturas de producto dentro de la ventana de configuración del combo en el TPV."
+
+
+
