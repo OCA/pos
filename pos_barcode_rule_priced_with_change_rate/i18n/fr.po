@@ -1,0 +1,47 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_barcode_rule_priced_with_change_rate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-25 11:10+0000\n"
+"PO-Revision-Date: 2025-03-25 11:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_barcode_rule_priced_with_change_rate
+#: model:ir.model,name:pos_barcode_rule_priced_with_change_rate.model_barcode_rule
+msgid "Barcode Rule"
+msgstr "Règle de code-barres"
+
+#. module: pos_barcode_rule_priced_with_change_rate
+#: model:ir.model.fields,field_description:pos_barcode_rule_priced_with_change_rate.field_pos_config__change_rate_barcode
+#: model:ir.model.fields,field_description:pos_barcode_rule_priced_with_change_rate.field_res_config_settings__change_rate_barcode
+msgid "Change rate for barcode nomenclature"
+msgstr "Taux de change pour Nomenclature codes-barres"
+
+#. module: pos_barcode_rule_priced_with_change_rate
+#: model:ir.model,name:pos_barcode_rule_priced_with_change_rate.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: pos_barcode_rule_priced_with_change_rate
+#: model:ir.model,name:pos_barcode_rule_priced_with_change_rate.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_barcode_rule_priced_with_change_rate
+#: model:ir.model.fields.selection,name:pos_barcode_rule_priced_with_change_rate.selection__barcode_rule__type__price_change_rate
+msgid "Priced Product with Change Rate"
+msgstr "Produit à prix fixe avec taux de change"
+
+#. module: pos_barcode_rule_priced_with_change_rate
+#: model:ir.model.fields,field_description:pos_barcode_rule_priced_with_change_rate.field_barcode_rule__type
+msgid "Type"
+msgstr ""
