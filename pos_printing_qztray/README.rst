@@ -40,7 +40,7 @@ from the POS configuration.
 Key features:
 
 - **Cash drawer support**: the cash drawer open command (ESC p) is sent
-  automatically after each receipt print.
+  via the native Odoo cash payment flow, not on every receipt print.
 - **No IoT Box required**: designed as a software-only alternative for
   setups where deploying IoT infrastructure is not desirable.
 
@@ -102,7 +102,7 @@ To use this module, you need to:
 The receipt is sent directly to the thermal printer via QZ Tray. Receipt
 HTML is rendered to PNG and converted to ESC/POS format server-side
 before sending following native Odoo logic. The cash drawer is opened
-automatically after each print if enabled.
+only by the native Odoo cash payment flow, not on every receipt print.
 
 No IoT Box or network printer configuration is required.
 

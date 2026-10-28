@@ -34,7 +34,6 @@ export class QZTrayPrinter {
             const escpos_data = await jsonrpc("/pos/escpos/render-image", {
                 png_base64: pngBase64,
             });
-            const cashdrawer = "\x1B\x70\x00\x19\x19";
             activeConnection = true;
             await QZConnection.print(this.name, [
                 {
@@ -42,7 +41,6 @@ export class QZTrayPrinter {
                     format: "base64",
                     data: escpos_data,
                 },
-                cashdrawer,
             ]);
 
             return {successful: true};

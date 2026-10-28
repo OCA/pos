@@ -7,6 +7,6 @@ To use this module, you need to:
 
 The receipt is sent directly to the thermal printer via QZ Tray. Receipt
 HTML is rendered to PNG and converted to ESC/POS format server-side before
-sending following native Odoo logic. The cash drawer is opened automatically after each print if enabled.
+sending following native Odoo logic. The cash drawer is opened only by the native Odoo cash payment flow, not on every receipt print.
 
 No IoT Box or network printer configuration is required.

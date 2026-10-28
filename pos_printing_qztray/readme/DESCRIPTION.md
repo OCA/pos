@@ -10,6 +10,6 @@ from the POS configuration.
 Key features:
 
 - **Cash drawer support**: the cash drawer open command (ESC p) is sent
-  automatically after each receipt print.
+  via the native Odoo cash payment flow, not on every receipt print.
 - **No IoT Box required**: designed as a software-only alternative for
   setups where deploying IoT infrastructure is not desirable.
