@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Cetmix OÜ
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_order_mark_paid.OrderReceipt"
+        t-inherit="point_of_sale.OrderReceipt"
+        t-inherit-mode="extension"
+    >
+        <!-- One "To Pay" line only: ours, after the write-off, replaces the
+             one of the rounding block. -->
+        <xpath
+            expr="//t[@t-if='props.data.rounding_applied']/div[2]"
+            position="attributes"
+        >
+            <attribute name="t-if">!props.data.write_off_amount</attribute>
+        </xpath>
+        <xpath expr="//t[@t-if='props.data.rounding_applied']" position="after">
+            <t t-if="props.data.write_off_amount">
+                <div class="pos-receipt-amount receipt-write-off">
+                    <t t-esc="props.data.write_off_label" />
+                    <span
+                        t-esc="props.formatCurrency(-props.data.write_off_amount)"
+                        class="pos-receipt-right-align"
+                    />
+                </div>
+                <div class="pos-receipt-amount receipt-write-off-to-pay">
+                    To Pay
+                    <span
+                        t-esc="props.formatCurrency(props.data.amount_total + props.data.rounding_applied - props.data.write_off_amount)"
+                        class="pos-receipt-right-align"
+                    />
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,17 @@
+/* Copyright 2026 Cetmix OÜ
+ * License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). */
+
+.pos-receipt .pos-receipt-amount {
+    &.receipt-write-off,
+    &.receipt-write-off-to-pay {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content;
+        column-gap: 0.5em;
+        align-items: baseline;
+        padding-left: 0;
+
+        > .pos-receipt-right-align {
+            white-space: nowrap;
+        }
+    }
+}
