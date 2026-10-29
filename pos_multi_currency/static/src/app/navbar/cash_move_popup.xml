@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.CashMovePopup" t-inherit-mode="extension">
+        <xpath expr="//Input" position="attributes">
+            <attribute
+                name="icon"
+            >{type: 'string', value: cashMoveCurrency.symbol}</attribute>
+            <attribute
+                name="iconOnLeftSide"
+            >cashMoveCurrency.position === 'before'</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('input-amount')]" position="after">
+            <select
+                t-if="pos.foreign_currencies.length"
+                class="form-select mb-2 js_cash_move_currency"
+                t-model.number="state.currencyId"
+            >
+                <option t-att-value="pos.currency.id" t-esc="pos.currency.name" />
+                <option
+                    t-foreach="pos.foreign_currencies"
+                    t-as="currency"
+                    t-key="currency.id"
+                    t-att-value="currency.id"
+                    t-esc="currency.name"
+                />
+            </select>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form.inherit.pos.multi.currency</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_payment_section']" position="inside">
+                <setting
+                    string="Foreign Currencies"
+                    help="Currencies the cashier can take on a payment line. The company currency and the Point of Sale currency are not listed here."
+                >
+                    <field name="pos_currency_id" invisible="1" />
+                    <field name="pos_company_currency_id" invisible="1" />
+                    <field
+                        name="pos_foreign_currency_ids"
+                        widget="many2many_tags"
+                        readonly="pos_has_active_session"
+                        options="{'no_create': True}"
+                    />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

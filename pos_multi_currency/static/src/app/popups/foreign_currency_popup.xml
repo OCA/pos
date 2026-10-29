@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_multi_currency.ForeignCurrencyPopup">
+        <div class="popup foreign-currency-popup">
+            <div class="modal-header">
+                <h4 class="modal-title">Currency</h4>
+            </div>
+            <main class="modal-body">
+                <div class="foreign-currency-list d-flex flex-column gap-2 mb-3">
+                    <t
+                        t-foreach="pos.foreign_currencies"
+                        t-as="currency"
+                        t-key="currency.id"
+                    >
+                        <button
+                            class="btn btn-secondary js_select_foreign_currency"
+                            t-att-class="{ 'btn-primary': state.currencyId === currency.id }"
+                            t-att-data-currency="currency.name"
+                            t-on-click="() => this.selectCurrency(currency.id)"
+                        >
+                            <strong class="d-block" t-esc="currency.name" />
+                            <span
+                                class="d-block small foreign-rate-label"
+                                t-esc="rateLabel(currency)"
+                            />
+                        </button>
+                    </t>
+                </div>
+                <label class="form-label">Amount received</label>
+                <input
+                    class="form-control js_foreign_amount mb-2"
+                    t-ref="foreignAmount"
+                    t-model="state.amount"
+                />
+                <div>
+                    Point of Sale amount
+                    <span
+                        class="js_pos_equivalent"
+                        t-esc="env.utils.formatCurrency(posEquivalent)"
+                    />
+                </div>
+                <div class="js_foreign_due_row">
+                    Amount due before this payment <span
+                        class="js_foreign_due"
+                        t-esc="formatForeign(foreignDue)"
+                    />
+                </div>
+            </main>
+            <footer class="footer modal-footer">
+                <button
+                    class="button confirm btn btn-lg btn-primary"
+                    t-on-click="confirm"
+                    t-att-disabled="!canApply()"
+                >
+                    Apply
+                </button>
+                <button
+                    class="button js_use_pos_currency btn btn-lg btn-secondary"
+                    t-on-click="usePosCurrency"
+                >
+                    Use POS currency
+                </button>
+                <button
+                    class="button cancel btn btn-lg btn-secondary"
+                    t-on-click="cancel"
+                >
+                    Cancel
+                </button>
+            </footer>
+        </div>
+    </t>
+</templates>
