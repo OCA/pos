@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Cetmix OÜ
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_order_mark_paid.PaymentScreenStatus"
+        t-inherit="point_of_sale.PaymentScreenStatus"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//div[hasclass('payment-status-total-due')]" position="after">
+            <div
+                t-if="props.order.isMarkedPaid()"
+                class="payment-status-write-off pb-2 fs-3 text-muted"
+            >
+                <span class="label pe-2">Write-off</span>
+                <span
+                    class="amount"
+                    t-esc="env.utils.formatCurrency(props.order.write_off_amount)"
+                />
+            </div>
+        </xpath>
+    </t>
+</templates>
