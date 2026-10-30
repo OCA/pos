@@ -1,0 +1,1 @@
+odoo-addon-pos_multi_currency @ git+https://github.com/OCA/pos.git@refs/pull/1630/head#subdirectory=pos_multi_currency
