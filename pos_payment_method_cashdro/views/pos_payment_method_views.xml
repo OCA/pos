@@ -11,6 +11,10 @@
                     required="use_payment_terminal == 'cashdro'"
                 />
                 <field
+                    name="cashdro_http"
+                    invisible="use_payment_terminal != 'cashdro'"
+                />
+                <field
                     name="cashdro_user"
                     invisible="use_payment_terminal != 'cashdro'"
                     required="use_payment_terminal == 'cashdro'"
