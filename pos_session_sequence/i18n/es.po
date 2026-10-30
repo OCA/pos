@@ -1,0 +1,53 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_session_sequence
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-23 17:14+0000\n"
+"PO-Revision-Date: 2024-12-23 17:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_session_sequence
+#: model:ir.model,name:pos_session_sequence.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: pos_session_sequence
+#: model_terms:ir.ui.view,arch_db:pos_session_sequence.res_config_settings_view_form_inherit
+msgid "Generation of your sessions references"
+msgstr "Generación de referencias de tus sesiones."
+
+#. module: pos_session_sequence
+#: model:ir.model,name:pos_session_sequence.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuración del TPV"
+
+#. module: pos_session_sequence
+#: model:ir.model,name:pos_session_sequence.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sesión TPV"
+
+#. module: pos_session_sequence
+#: model:ir.model.fields,field_description:pos_session_sequence.field_pos_config__session_sequence_id
+#: model:ir.model.fields,field_description:pos_session_sequence.field_res_config_settings__pos_session_sequence_id
+msgid "Session IDs Sequence"
+msgstr "Secuencia de IDs de sesión"
+
+#. module: pos_session_sequence
+#: model:ir.model.fields,help:pos_session_sequence.field_pos_config__session_sequence_id
+#: model:ir.model.fields,help:pos_session_sequence.field_res_config_settings__pos_session_sequence_id
+msgid ""
+"This sequence is automatically created by Odoo but you can change it to "
+"customize the reference numbers of your sessions."
+msgstr ""
+"Odoo crea automáticamente esta secuencia, pero puedes cambiarla y "
+"personaliza los números de referencia de tus sesiones."
