@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 INVITU (https://www.invitu.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_receipt_cashier_firstname.OrderChangeReceipt"
+        t-inherit="point_of_sale.OrderChangeReceipt"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//t[@t-esc='changes.employee_name']/.." position="attributes">
+            <attribute name="t-if">changes.employee_name</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o-employee-name')]/br" position="attributes">
+            <attribute name="t-if">changes.employee_name</attribute>
+        </xpath>
+    </t>
+</templates>
