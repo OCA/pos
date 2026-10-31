@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 INVITU (https://www.invitu.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+  <t
+        t-name="pos_kitchen_receipt_reprint.ControlButtons"
+        t-inherit="point_of_sale.ControlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//button[contains(@t-on-click, 'onDeleteOrder')]"
+            position="before"
+        >
+            <button
+                t-if="showKitchenReprintButton"
+                class="btn btn-secondary btn-lg py-5 o_kitchen_receipt_reprint"
+                t-on-click="() => this.pos.reprintKitchenReceipt(this.currentOrder)"
+            >
+        <i class="fa fa-cutlery me-1" role="img" /> Reprint Kitchen
+      </button>
+        </xpath>
+    </t>
+</templates>

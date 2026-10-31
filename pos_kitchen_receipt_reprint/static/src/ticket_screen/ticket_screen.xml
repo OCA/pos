@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 INVITU (https://www.invitu.com)
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+  <t
+        t-name="pos_kitchen_receipt_reprint.TicketScreen"
+        t-inherit="point_of_sale.TicketScreen"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//button[contains(@t-on-click, 'doPrint.call')]" position="after">
+            <button
+                t-if="pos.hasKitchenPrinter"
+                class="control-button btn btn-light btn-lg lh-lg flex-grow-1 flex-shrink-1 o_kitchen_receipt_reprint"
+                t-on-click="() => doReprintKitchen.call(_selectedSyncedOrder)"
+            >
+        <i
+                t-attf-class="fa {{doReprintKitchen.status === 'loading' ? 'fa-fw fa-spin fa-circle-o-notch' : 'fa-cutlery'}} me-1"
+            />Reprint Kitchen
+      </button>
+        </xpath>
+    </t>
+</templates>
