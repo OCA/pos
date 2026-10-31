@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="point_of_sale.product_template_form_view" />
+        <field name="arch" type="xml">
+            <group name="pos" position="inside">
+                <field
+                    name="is_deposit"
+                    invisible="deposit_product_id or not sale_ok or type == 'service' or not available_in_pos"
+                />
+                <field
+                    name="deposit_product_id"
+                    invisible="is_deposit or not sale_ok or type == 'service' or not available_in_pos or (product_variant_count &gt; 1 and not is_product_variant)"
+                />
+            </group>
+        </field>
+    </record>
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <separator position="before">
+                <field name="deposit_product_id" domain="[('is_deposit', '=', True)]" />
+            </separator>
+        </field>
+    </record>
+</odoo>
