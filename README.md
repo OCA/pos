@@ -1,4 +1,7 @@
 
+[![Support the OCA](https://odoo-community.org/readme-banner-image)](https://odoo-community.org/get-involved?utm_source=repo-readme)
+
+# pos
 [![Runboat](https://img.shields.io/badge/runboat-Try%20me-875A7B.png)](https://runboat.odoo-community.org/builds?repo=OCA/pos&target_branch=19.0)
 [![Pre-commit Status](https://github.com/OCA/pos/actions/workflows/pre-commit.yml/badge.svg?branch=19.0)](https://github.com/OCA/pos/actions/workflows/pre-commit.yml?query=branch%3A19.0)
 [![Build Status](https://github.com/OCA/pos/actions/workflows/test.yml/badge.svg?branch=19.0)](https://github.com/OCA/pos/actions/workflows/test.yml?query=branch%3A19.0)
@@ -6,8 +9,6 @@
 [![Translation Status](https://translation.odoo-community.org/widgets/pos-19-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/pos-19-0/?utm_source=widget)
 
 <!-- /!\ do not modify above this line -->
-
-# pos
 
 pos
 
@@ -17,7 +18,16 @@ pos
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[pos_config_logo](pos_config_logo/) | 19.0.1.0.0 |  | Set logotypes different from the company's one
+[pos_edit_order_line](pos_edit_order_line/) | 19.0.1.0.0 |  | POS Edit Order Line
+[pos_partner_birthdate](pos_partner_birthdate/) | 19.0.1.0.0 | <a href='https://github.com/ecino'><img src='https://github.com/ecino.png' width='32' height='32' style='border-radius:50%;' alt='ecino'/></a> | Adds the birthdate in the customer screen of POS
+[pos_printing_qztray](pos_printing_qztray/) | 19.0.1.0.1 | <a href='https://github.com/miquelalzanillas'><img src='https://github.com/miquelalzanillas.png' width='32' height='32' style='border-radius:50%;' alt='miquelalzanillas'/></a> | POS receipt printing via QZ Tray
+[pos_product_display_default_code](pos_product_display_default_code/) | 19.0.1.0.0 |  | pos: display product default code before product name
+[pos_session_sequence](pos_session_sequence/) | 19.0.1.0.0 | <a href='https://github.com/peluko00'><img src='https://github.com/peluko00.png' width='32' height='32' style='border-radius:50%;' alt='peluko00'/></a> | Generates a sequence of POS sessions
 
 [//]: # (end addons)
 

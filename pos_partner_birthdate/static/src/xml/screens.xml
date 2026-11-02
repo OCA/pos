@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.PartnerLine" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr/td[hasclass('partner-line-email')]" position="before">
+            <td class="partner-line-birthdate" t-if="!ui.isSmall">
+                <span t-if="props.partner.birthdate_date" t-esc="formatedBirthdate" />
+            </td>
+        </xpath>
+        <xpath expr="//div[hasclass('partner-line-email')][1]" position="inside">
+            <div t-if="ui.isSmall and props.partner.birthdate_date" class="mb-1">
+                <i class="fa fa-fw fa-birthday-cake me-2" />
+                <t t-esc="formatedBirthdate" />
+            </div>
+        </xpath>
+    </t>
+</templates>
