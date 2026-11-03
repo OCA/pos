@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_session_currency_balance_rule" model="ir.rule">
+        <field name="name">POS session currency balance multi-company</field>
+        <field name="model_id" ref="model_pos_session_currency_balance" />
+        <field
+            name="domain_force"
+        >[('session_id.config_id.company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
