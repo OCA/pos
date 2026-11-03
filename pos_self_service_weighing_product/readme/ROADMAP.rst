@@ -1,0 +1,6 @@
+* For weight barcodes, if the weight read from the scale has a greater precision than the barcode nomenclature, and the barcode nomenclature a greater precision than the unit of measure rounding, there can be a difference between the price displayed on the scale screen and the price computed when the barcode is scanned, because the value will be rounded once in the scale screen, but twice when using the barcode.
+  For example: the scale returns 1.2345: the scale screen displays 1.23, the barcode encodes 1.235 and when scanned it becomes 1.24.
+* This module has been tested using the kilogram unit of measure.
+  It will probably not work completely correctly using other units of measure, even derived from the kilogram.
+  The scale screen itself (from the ``point_of_sale`` module) doesn't handle units of measure correctly: it considers that the value returned by the scale is in the same unit of measure as the product.
+  For example: with a product using the gram unit of measure, if the scale returns 0.1, the scale screen considers that it is 0.1 gram and displays it like this; however, the weight displayed in the barcode value string will be 100 g and the price will be computed from this, because this module always assumes that the weight returned by the scale is in kilograms.

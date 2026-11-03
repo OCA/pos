@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+SPDX-FileCopyrightText: 2024 Coop IT Easy SC
+
+SPDX-License-Identifier: AGPL-3.0-or-later
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-name="SelfServiceWeighingWelcomeButton" owl="1">
+        <button class="button" t-on-click="() => this.onClick()">
+            <span class="emoji" t-out="emoji" /><br />
+            <t t-out="name" />
+        </button>
+    </t>
+
+</templates>
