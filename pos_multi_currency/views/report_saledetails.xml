@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_saledetails" inherit_id="point_of_sale.report_saledetails">
+        <xpath expr="//span[@id='opening_note']/.." position="before">
+            <t t-if="foreign_currencies">
+                <h3>Foreign currencies</h3>
+                <t t-foreach="foreign_currencies" t-as="foreign">
+                    <h4 t-out="foreign['currency']" />
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr>
+                                <td>Tendered</td>
+                                <td class="text-end">
+                                    <span
+                                        t-out="foreign['tendered']"
+                                        t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                    />
+                                    <span t-out="foreign['currency']" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Point of Sale amount</td>
+                                <td class="text-end">
+                                    <span
+                                        t-out="foreign['pos_amount']"
+                                        t-options="{'widget': 'float', 'precision': currency['precision']}"
+                                    />
+                                    <span t-out="currency['symbol']" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    1 <span t-out="foreign['pos_currency']" /> =
+                                </td>
+                                <td class="text-end">
+                                    <span t-out="foreign['rate']" />
+                                    <span t-out="foreign['currency']" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table t-if="foreign['banks']" class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Payment method</th>
+                                <th class="text-end">Expected</th>
+                                <th class="text-end">Counted</th>
+                                <th class="text-end">Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="foreign['banks']" t-as="bank">
+                                <td t-out="bank['name']" />
+                                <td
+                                    class="text-end"
+                                    t-out="bank['expected']"
+                                    t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                />
+                                <td
+                                    class="text-end"
+                                    t-out="bank['counted']"
+                                    t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                />
+                                <td
+                                    class="text-end"
+                                    t-out="bank['difference']"
+                                    t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                />
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table t-if="foreign['drawers']" class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-start">Cash drawer</th>
+                                <th class="text-end">Expected</th>
+                                <th class="text-end">Counted</th>
+                                <th class="text-end">Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="foreign['drawers']" t-as="drawer">
+                                <td t-out="drawer['session']" />
+                                <td
+                                    class="text-end"
+                                    t-out="drawer['expected']"
+                                    t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                />
+                                <td
+                                    class="text-end"
+                                    t-out="drawer['counted']"
+                                    t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                />
+                                <td
+                                    class="text-end"
+                                    t-out="drawer['difference']"
+                                    t-options="{'widget': 'float', 'precision': foreign['decimals']}"
+                                />
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>

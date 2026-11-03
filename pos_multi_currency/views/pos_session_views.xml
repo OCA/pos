@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_session_view_form" model="ir.ui.view">
+        <field name="name">pos.session.form.inherit.pos.multi.currency</field>
+        <field name="model">pos.session</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_session_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='cash_register_balance_end_real']"
+                position="after"
+            >
+                <field name="currency_balance_ids" colspan="2" nolabel="1">
+                    <tree>
+                        <field name="payment_method_id" />
+                        <field name="currency_id" />
+                        <field name="balance_start" />
+                        <field name="tender_amount" />
+                        <field name="expected_balance" />
+                        <field name="balance_end_real" />
+                        <field name="difference_balance" />
+                        <field name="difference_move_id" />
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+</odoo>
