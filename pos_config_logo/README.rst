@@ -47,6 +47,11 @@ This module is useful for a company that runs stores with different
 brandings. To have a logo from the main branch is weird for the customer
 of those branded stores.
 
+The 18.0 migration used an absolute ``web.base.url`` image URL for
+``pos.config.logo``. That requires a session and can show Odoo's camera
+placeholder. The receipt now embeds the logo as a data URI (16.0
+behaviour). See ``readme/CONTEXT.md``.
+
 Configuration
 =============
 
@@ -64,7 +69,7 @@ Usage
 =====
 
 When the cashier prints a receipt the point of sale logo will show up in
-the receipt.
+the receipt (embedded as a data URI).
 
 Bug Tracker
 ===========
