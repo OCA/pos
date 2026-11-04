@@ -14,6 +14,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: pos_config_logo
+#: model:ir.model.fields,field_description:pos_config_logo.field_pos_config__logo
+#: model:ir.model.fields,field_description:pos_config_logo.field_res_config_settings__pos_config_logo
 #: model_terms:ir.ui.view,arch_db:pos_config_logo.res_config_settings_view_form
 msgid "Alternative point of sale logo"
 msgstr ""
@@ -43,12 +45,6 @@ msgstr ""
 #. module: pos_config_logo
 #: model_terms:ir.ui.view,arch_db:pos_config_logo.res_config_settings_view_form
 msgid "If set, this logo will be used instead of the company's one"
-msgstr ""
-
-#. module: pos_config_logo
-#: model:ir.model.fields,field_description:pos_config_logo.field_pos_config__logo
-#: model:ir.model.fields,field_description:pos_config_logo.field_res_config_settings__pos_config_logo
-msgid "Logo"
 msgstr ""
 
 #. module: pos_config_logo

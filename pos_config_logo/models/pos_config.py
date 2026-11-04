@@ -6,4 +6,4 @@ from odoo import fields, models
 class PosConfig(models.Model):
     _inherit = "pos.config"
 
-    logo = fields.Binary()
+    logo = fields.Binary(string="Alternative point of sale logo")
