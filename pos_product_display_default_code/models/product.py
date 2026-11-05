@@ -11,7 +11,9 @@ class ProductProduct(models.Model):
             # We have no choice but overwriting the original method
             # because it's not easy to change context
             fields = self._load_pos_data_fields(config_id)
-            res = self.with_context(display_default_code=True).search_read(
+            res = self.with_context(
+                display_default_code=True, active_test=not load_archived
+            ).search_read(
                 domain, fields, order="sequence,default_code,name", load=False
             )
         return res
