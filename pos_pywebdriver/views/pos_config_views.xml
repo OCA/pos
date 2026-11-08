@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_config_view_form_pos_pywebdriver" model="ir.ui.view">
+        <field name="name">pos.config.view.form.inherit.pos_pywebdriver</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//setting[field[@name='is_posbox']]/.." position="inside">
+                <setting
+                    help="Connect receipt printer via PyWebDriver proxy instead of IoT Box."
+                >
+                    <field name="use_pywebdriver" />
+                    <div class="content-group ms-3" invisible="not use_pywebdriver">
+                        <div class="row">
+                            <div class="col-lg-4 o_light_label">
+                                <label string="Proxy IP Address" for="pywebdriver_ip" />
+                            </div>
+                            <div class="col-lg-8">
+                                <field name="pywebdriver_ip" />
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_settings_view_form_pos_pywebdriver" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos_pywebdriver</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="99" />
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <!-- PyWebDriver section after the IoT Box setting. -->
+            <xpath expr="//setting[field[@name='pos_is_posbox']]" position="after">
+                <setting
+                    string="PyWebDriver"
+                    help="Connect receipt printer via PyWebDriver proxy instead of IoT Box."
+                >
+                    <field name="pos_use_pywebdriver" invisible="1" />
+                    <div class="content-group">
+                        <div class="row mt8">
+                            <field name="pos_use_pywebdriver" widget="boolean_toggle" />
+                            <label
+                                string="Enable PyWebDriver"
+                                for="pos_use_pywebdriver"
+                                class="o_light_label"
+                            />
+                        </div>
+                        <div class="row mt8" invisible="not pos_use_pywebdriver">
+                            <label
+                                string="Proxy IP Address"
+                                for="pos_pywebdriver_ip"
+                                class="col-lg-4 o_light_label"
+                            />
+                            <field
+                                name="pos_pywebdriver_ip"
+                                placeholder="e.g. https://127.0.0.1:8069"
+                            />
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
