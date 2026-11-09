@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pos_payment_fee_line_view_tree" model="ir.ui.view">
+        <field name="name">pos.payment.fee.line.tree</field>
+        <field name="model">pos.payment.fee.line</field>
+        <field name="arch" type="xml">
+            <tree
+                create="0"
+                edit="0"
+                delete="0"
+                decoration-danger="state == 'error'"
+                decoration-muted="state == 'posted'"
+            >
+                <field name="payment_date" />
+                <field name="session_id" />
+                <field name="pos_order_id" />
+                <field name="payment_method_id" />
+                <field name="fee_rule_id" />
+                <field name="currency_id" invisible="1" />
+                <field name="company_currency_id" invisible="1" />
+                <field name="amount_base" sum="Total" />
+                <field name="fee_amount" sum="Total" />
+                <field
+                    name="fee_amount_company"
+                    sum="Total"
+                    groups="base.group_multi_currency"
+                />
+                <field name="posting_policy" optional="hide" />
+                <field name="posting_date" />
+                <field name="move_id" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-success="state == 'posted'"
+                    decoration-info="state == 'pending'"
+                    decoration-danger="state == 'error'"
+                />
+                <field
+                    name="company_id"
+                    groups="base.group_multi_company"
+                    optional="hide"
+                />
+                <button
+                    name="action_retry_posting"
+                    type="object"
+                    string="Retry"
+                    icon="fa-refresh"
+                    attrs="{'invisible': [('state', '!=', 'error')]}"
+                    groups="point_of_sale.group_pos_manager,account.group_account_manager"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="pos_payment_fee_line_view_form" model="ir.ui.view">
+        <field name="name">pos.payment.fee.line.form</field>
+        <field name="model">pos.payment.fee.line</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <header>
+                    <button
+                        name="action_retry_posting"
+                        type="object"
+                        string="Retry Posting"
+                        class="btn-primary"
+                        attrs="{'invisible': [('state', '!=', 'error')]}"
+                        groups="point_of_sale.group_pos_manager,account.group_account_manager"
+                    />
+                    <field name="state" widget="statusbar" />
+                </header>
+                <sheet>
+                    <div
+                        class="alert alert-danger"
+                        role="alert"
+                        attrs="{'invisible': [('state', '!=', 'error')]}"
+                    >
+                        <field name="error_message" />
+                    </div>
+                    <group>
+                        <group string="Payment">
+                            <field name="payment_id" />
+                            <field name="pos_order_id" />
+                            <field name="session_id" />
+                            <field name="payment_method_id" />
+                            <field name="payment_date" />
+                            <field name="currency_id" invisible="1" />
+                            <field name="company_currency_id" invisible="1" />
+                            <field name="amount_base" />
+                        </group>
+                        <group string="Fee">
+                            <field name="fee_rule_id" />
+                            <field name="fee_type" />
+                            <field name="fee_value" />
+                            <field
+                                name="fee_currency_id"
+                                attrs="{'invisible': [('fee_type', '!=', 'fixed')]}"
+                            />
+                            <field name="fee_amount" />
+                            <field
+                                name="fee_amount_company"
+                                groups="base.group_multi_currency"
+                            />
+                        </group>
+                        <group string="Accounting">
+                            <field name="account_id" />
+                            <field name="counterpart_account_id" />
+                            <field name="journal_id" />
+                            <field name="posting_policy" />
+                            <field name="grouping_policy" />
+                            <field name="posting_date" />
+                        </group>
+                        <group string="Journal Entry">
+                            <field name="move_id" />
+                            <field name="account_move_line_id" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="pos_payment_fee_line_view_search" model="ir.ui.view">
+        <field name="name">pos.payment.fee.line.search</field>
+        <field name="model">pos.payment.fee.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="pos_order_id" />
+                <field name="session_id" />
+                <field name="payment_method_id" />
+                <field name="fee_rule_id" />
+                <filter
+                    string="Pending"
+                    name="filter_pending"
+                    domain="[('state', '=', 'pending')]"
+                />
+                <filter
+                    string="Error"
+                    name="filter_error"
+                    domain="[('state', '=', 'error')]"
+                />
+                <filter
+                    string="Posted"
+                    name="filter_posted"
+                    domain="[('state', '=', 'posted')]"
+                />
+                <group expand="0" string="Group By">
+                    <filter
+                        string="Session"
+                        name="group_session"
+                        context="{'group_by': 'session_id'}"
+                    />
+                    <filter
+                        string="Payment Method"
+                        name="group_payment_method"
+                        context="{'group_by': 'payment_method_id'}"
+                    />
+                    <filter
+                        string="Fee Rule"
+                        name="group_fee_rule"
+                        context="{'group_by': 'fee_rule_id'}"
+                    />
+                    <filter
+                        string="Status"
+                        name="group_state"
+                        context="{'group_by': 'state'}"
+                    />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_pos_payment_fee_line" model="ir.actions.act_window">
+        <field name="name">Payment Fees</field>
+        <field name="res_model">pos.payment.fee.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="pos_payment_fee_line_view_search" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No payment fees yet.</p>
+            <p>
+                Fees are computed when an order paid with a bank payment method
+                using transaction fees is validated.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="pos_payment_fee_line_menu"
+        parent="point_of_sale.menu_point_of_sale"
+        action="action_pos_payment_fee_line"
+        sequence="4"
+        groups="point_of_sale.group_pos_manager"
+    />
+</odoo>

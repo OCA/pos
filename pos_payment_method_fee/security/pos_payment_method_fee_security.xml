@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="pos_payment_method_fee_comp_rule" model="ir.rule">
+        <field name="name">POS payment method fee: multi-company</field>
+        <field name="model_id" ref="model_pos_payment_method_fee" />
+        <field
+            name="domain_force"
+        >['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+    <record id="pos_payment_fee_line_comp_rule" model="ir.rule">
+        <field name="name">POS payment fee line: multi-company</field>
+        <field name="model_id" ref="model_pos_payment_fee_line" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
