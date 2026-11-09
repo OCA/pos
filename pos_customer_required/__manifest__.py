@@ -25,6 +25,7 @@
     "assets": {
         "point_of_sale.assets": [
             "pos_customer_required/static/src/js/**/*.js",
+            "pos_customer_required/static/src/scss/**/*.scss",
             "pos_customer_required/static/src/xml/**/*.xml",
         ],
     },
