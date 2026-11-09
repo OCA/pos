@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_partner_store_email.ReceiptScreen"
+        t-inherit="point_of_sale.ReceiptScreen"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//input[hasclass('send-receipt-email-input')]/.." position="after">
+            <div t-if="showPartnerEmailUpdateOption" class="form-check ms-1">
+                <input
+                    id="pos-skip-partner-email-update"
+                    type="checkbox"
+                    class="form-check-input"
+                    t-model="state.skipPartnerEmailUpdate"
+                />
+                <label for="pos-skip-partner-email-update" class="form-check-label">
+                    Do not update the current email (<t t-esc="partnerEmail" />)
+                </label>
+            </div>
+        </xpath>
+    </t>
+</templates>
