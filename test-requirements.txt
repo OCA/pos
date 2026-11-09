@@ -1,0 +1,1 @@
+odoo-addon-sale_product_identification @ git+https://github.com/OCA/sale-workflow.git@refs/pull/3998/head#subdirectory=sale_product_identification
