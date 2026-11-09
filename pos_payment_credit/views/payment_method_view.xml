@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<odoo>
+    <record id="pos_payment_method_view_form_credit" model="ir.ui.view">
+        <field name="name">pos.payment.method.form.credit</field>
+        <field name="model">pos.payment.method</field>
+        <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form" />
+        <field name="arch" type="xml">
+            <field name="receivable_account_id" position="after">
+                <field
+                    name="auto_apply_credit_amount"
+                    invisible="use_payment_terminal != 'credit'"
+                />
+                <field
+                    name="auto_apply_credit_amount_mode"
+                    invisible="use_payment_terminal != 'credit' or not auto_apply_credit_amount"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
