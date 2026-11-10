@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="AutomaticCashdrawerCashInDialog">
+        <Dialog size="'md'" title.translate="Customer Transaction">
+            <div class="popup-cashdrawer">
+                <t t-if="props.to_collect">
+                    <div class="body">
+                        <strong>To collect: <span>
+                            <t t-out="pos.formatCurrencyCashlogy(props.to_collect)" />
+                        </span></strong>
+                    </div>
+                </t>
+                <t t-set="default_body">
+                    <p>Start adding cash into the machine.</p>
+                    <p>When you finish, press confirm.</p>
+                </t>
+                <div class="body">
+                    <p>
+                        <t t-out="props.body or default_body" />
+                    </p>
+                </div>
+                <div class="total text-center">
+                    <span class="value">
+                        <t t-out="pos.formatCurrencyCashlogy(inputBuffer.value)" />
+                    </span>
+                    <div t-if="loading.value">
+                        <img
+                            src="/web/static/img/spin.svg"
+                            alt="Loading..."
+                            class="me-2"
+                            style="filter:invert(1); opacity: 0.5; width: 20px; height: 20px;"
+                        />
+                    </div>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button
+                    class="btn btn-primary o-primary-button"
+                    tabindex="0"
+                    t-on-click="onClickConfirm"
+                >
+                    Confirm
+                </button>
+                <button
+                    t-if="props.allow_cancel"
+                    class="btn btn-secondary o-default-button"
+                    tabindex="1"
+                    t-on-click="onClickCancel"
+                >
+                    Cancel
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

@@ -1,0 +1,386 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_automatic_cashdrawer_cashlogy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-23 03:21+0000\n"
+"PO-Revision-Date: 2025-12-23 03:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,help:pos_automatic_cashdrawer_cashlogy.field_pos_config__iface_automatic_cashdrawer
+#: model:ir.model.fields,help:pos_automatic_cashdrawer_cashlogy.field_res_config_settings__pos_iface_automatic_cashdrawer
+msgid "An automatic cashdrawer is available on the Proxy"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_pos_config__iface_automatic_cashdrawer
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_res_config_settings__pos_iface_automatic_cashdrawer
+#: model_terms:ir.ui.view,arch_db:pos_automatic_cashdrawer_cashlogy.res_config_settings_view_form
+msgid "Automatic Cashdrawer"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_pos_config__iface_automatic_cashdrawer_ip_address
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_res_config_settings__pos_iface_automatic_cashdrawer_ip_address
+msgid "Automatic Cashdrawer IP address"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_pos_config__iface_automatic_cashdrawer_tcp_port
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_res_config_settings__pos_iface_automatic_cashdrawer_tcp_port
+msgid "Automatic Cashdrawer TCP port"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Automatic Cashdrawer: Close Till / ADDED"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Automatic Cashdrawer: Close Till / DISPENSED"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Automatic Cashdrawer: Complete Emptying"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Automatic Cashdrawer: Empty Stacker"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_account_journal__iface_automatic_cashdrawer
+msgid "Automatic cashdrawer"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Cancel"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Cashdrawer Admin"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Cashdrawer Error: "
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_inventory.xml:0
+msgid "Cashdrawer Inventory"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Cashdrawer not connected"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/navbar/proxy_status.esm.js:0
+msgid "Cashlogy"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/navbar/navbar.xml:0
+msgid "Cashlogy Admin"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Cashlogy: The dispensed amount was different than the requested"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,help:pos_automatic_cashdrawer_cashlogy.field_account_journal__iface_automatic_cashdrawer
+msgid "Check this if this journal is linked to an automatic cashdrawer"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_inventory.xml:0
+msgid "Close"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Close Till / Cash Float"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Close Till Result"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Close Till: Put In"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Closing Balance Set"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Complete Emptying"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model,name:pos_automatic_cashdrawer_cashlogy.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Empty Stacker"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/store/pos_store.esm.js:0
+msgid "Error"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/store/pos_store.esm.js:0
+msgid "Error: "
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid ""
+"IMPORTANT: This operations is not registered on the cash statement. You have"
+" to manually register it."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model_terms:ir.ui.view,arch_db:pos_automatic_cashdrawer_cashlogy.res_config_settings_view_form
+msgid "IP address"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "Inventory"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model,name:pos_automatic_cashdrawer_cashlogy.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Make sure Cashdrawer connected with IOT Box"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Manual Cancel"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Money in/out: "
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Open Backoffice"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Opening Balance Set"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-python
+#: code:addons/pos_automatic_cashdrawer_cashlogy/models/pos_session.py:0
+msgid ""
+"Please check that the field 'Inter-Banks Transfer Account' is set on the "
+"company."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:res.groups,name:pos_automatic_cashdrawer_cashlogy.group_pos_automatic_cashlogy_config
+msgid "PoS - Allow Cashlogy config"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,field_description:pos_automatic_cashdrawer_cashlogy.field_pos_config__group_pos_automatic_cashlogy_config
+msgid "Point of Sale - Allow Cashlogy Config"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model,name:pos_automatic_cashdrawer_cashlogy.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model,name:pos_automatic_cashdrawer_cashlogy.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_inventory.xml:0
+msgid "Print"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Print Inventory"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "REF:"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_inventory.xml:0
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "Recycler"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.xml:0
+msgid "Send Cancel Command"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_inventory.xml:0
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "Stacker"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "Statement:"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Success"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model_terms:ir.ui.view,arch_db:pos_automatic_cashdrawer_cashlogy.res_config_settings_view_form
+msgid "TCP port"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "TOTAL"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "TOTALS"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-python
+#: code:addons/pos_automatic_cashdrawer_cashlogy/models/pos_session.py:0
+msgid "The cash register has already been opened for this session."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,help:pos_automatic_cashdrawer_cashlogy.field_pos_config__iface_automatic_cashdrawer_tcp_port
+#: model:ir.model.fields,help:pos_automatic_cashdrawer_cashlogy.field_res_config_settings__pos_iface_automatic_cashdrawer_tcp_port
+msgid ""
+"The port to connect to the Cashdrawer.\n"
+"WARNING: set a port bigger than 1024 to allow a non-root user to listen on it."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-python
+#: code:addons/pos_automatic_cashdrawer_cashlogy/models/pos_session.py:0
+msgid "There's no cash payment method for this PoS Session"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#: model:ir.model.fields,help:pos_automatic_cashdrawer_cashlogy.field_pos_config__group_pos_automatic_cashlogy_config
+msgid ""
+"This field is there to pass the id of the \"PoS - Allow Cashlogy config\" "
+"group to the POS."
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_inventory.xml:0
+msgid "Total"
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Total added: "
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/dialogs/cashdrawer_admin.esm.js:0
+msgid "Total dispensed: "
+msgstr ""
+
+#. module: pos_automatic_cashdrawer_cashlogy
+#. odoo-javascript
+#: code:addons/pos_automatic_cashdrawer_cashlogy/static/src/report/cashdrawer_inventory_report.xml:0
+msgid "User:"
+msgstr ""
