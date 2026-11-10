@@ -107,12 +107,15 @@ export class PaymentCashdro extends PaymentInterface {
     _cashdro_url() {
         // Cashdro machines don't support safe POST calls, so we're sending
         // all the data quite unsafely constantly...
-        const method = this.pos.get_order().selected_paymentline.payment_method;
+        const method = this.pos
+            .get_order()
+            .get_selected_paymentline().payment_method_id;
         const host = method && method.cashdro_host;
         if (!host) {
             return false;
         }
-        let url = `${host}/Cashdro3WS/index.php`;
+        const connection = method.cashdro_http ? `http://` : `https://`;
+        let url = `${connection}${host}/Cashdro3WS/index.php`;
         url += `?name=${method.cashdro_user}`;
         url += `&password=${method.cashdro_password}`;
         return url;
@@ -125,7 +128,7 @@ export class PaymentCashdro extends PaymentInterface {
         const operationType = parameters.amount > 0 ? 4 : 3;
         parameters = {...parameters, amount: Math.abs(parameters.amount)};
         let url = `${this._cashdro_url()}&operation=startOperation&type=${operationType}`;
-        url += `&posid=pos-${this.pos.pos_session.name}`;
+        url += `&posid=pos-${this.pos.session.name}`;
         url += `&posuser=${user}`;
         url += `&parameters=${encodeURIComponent(JSON.stringify(parameters))}`;
         return url;
