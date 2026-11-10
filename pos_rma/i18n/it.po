@@ -6,34 +6,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2026-11-10 13:46+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
 #, python-format
 msgid "Add reason for this RMA..."
-msgstr ""
+msgstr "Aggiungi causale per questo RMA..."
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
 #, python-format
 msgid "Cannot create RMA for this product"
-msgstr ""
+msgstr "Impossibile creare un RMA per questo prodotto"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
 #, python-format
 msgid "Confirm"
-msgstr ""
+msgstr "Conferma"
 
 #. module: pos_rma
 #. odoo-javascript
@@ -42,96 +44,96 @@ msgstr ""
 #: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.xml:0
 #, python-format
 msgid "Create RMA"
-msgstr ""
+msgstr "Crea RMA"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
 #, python-format
 msgid "Discard"
-msgstr ""
+msgstr "Abbandona"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
 #, python-format
 msgid "Do you want to open the customer list to select customer?"
-msgstr ""
+msgstr "Si desidera aprire l'elenco clienti per selezionare il cliente?"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
 #, python-format
 msgid "Need customer to create RMA"
-msgstr ""
+msgstr "È necessario un cliente per creare l'RMA"
 
 #. module: pos_rma
 #: model:ir.model,name:pos_rma.model_pos_order
 msgid "Point of Sale Orders"
-msgstr ""
+msgstr "Ordini punto vendita"
 
 #. module: pos_rma
 #: model:ir.model.fields,field_description:pos_rma.field_rma__pos_order_id
 msgid "Pos Order"
-msgstr ""
+msgstr "Ordine POS"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
 #, python-format
 msgid "Quantity"
-msgstr ""
+msgstr "Quantità"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
 #, python-format
 msgid "Quantity must be less than or equal of "
-msgstr ""
+msgstr "La quantità deve essere minore o uguale a "
 
 #. module: pos_rma
 #: model:ir.model,name:pos_rma.model_rma
 msgid "RMA"
-msgstr ""
+msgstr "RMA"
 
 #. module: pos_rma
 #: model:ir.model.fields,field_description:pos_rma.field_pos_order__rma_count
 msgid "RMA Count"
-msgstr ""
+msgstr "Conteggio RMA"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
 #, python-format
 msgid "RMA Details"
-msgstr ""
+msgstr "Dettagli RMA"
 
 #. module: pos_rma
 #: model:ir.model.fields,field_description:pos_rma.field_pos_order__rma_ids
 #: model_terms:ir.ui.view,arch_db:pos_rma.view_pos_order_form_inherit
 msgid "RMAs"
-msgstr ""
+msgstr "RMA"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.xml:0
 #, python-format
 msgid "Reason"
-msgstr ""
+msgstr "Causale"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
 #, python-format
 msgid "Success 🎉"
-msgstr ""
+msgstr "Operazione riuscita 🎉"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
 #, python-format
 msgid "The RMA has been created and processed successfully."
-msgstr ""
+msgstr "L'RMA è stato creato ed elaborato con successo."
 
 #. module: pos_rma
 #. odoo-javascript
@@ -139,18 +141,18 @@ msgstr ""
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
 #, python-format
 msgid "User Error"
-msgstr ""
+msgstr "Errore utente"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/screens/product_screen/control_buttons/rma_button/rma_button.esm.js:0
 #, python-format
 msgid "Validation Error"
-msgstr ""
+msgstr "Errore di validazione"
 
 #. module: pos_rma
 #. odoo-javascript
 #: code:addons/pos_rma/static/src/app/store/rma_popup/rma_popup.esm.js:0
 #, python-format
 msgid "You must add a note to the RMA"
-msgstr ""
+msgstr "È necessario aggiungere una nota all'RMA"
