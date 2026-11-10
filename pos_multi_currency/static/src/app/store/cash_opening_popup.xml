@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.CashOpeningPopup" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('opening-cash-section')]" position="after">
+            <div
+                t-foreach="foreignLines.lines"
+                t-as="line"
+                t-key="line.currency_id"
+                class="opening-cash-section mb-3 foreign-opening"
+            >
+                <span class="info-title">Opening <t t-esc="line.name" /></span>
+                <Input
+                    tModel="[line, 'counted']"
+                    isValid.bind="env.utils.isValidFloat"
+                />
+            </div>
+        </xpath>
+        <xpath expr="//button[hasclass('btn-primary')]" position="attributes">
+            <attribute name="t-att-disabled">!canOpenSession()</attribute>
+        </xpath>
+    </t>
+</templates>
