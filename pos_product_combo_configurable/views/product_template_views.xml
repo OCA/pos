@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<odoo>
+    <record id="product_template_form_view_pos_combo" model="ir.ui.view">
+        <field name="name">product.template.form.pos.combo</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options']" position="inside">
+                <span class="d-inline-block">
+                    <field name="is_combo" />
+                    <label for="is_combo" />
+                </span>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    string="Product Pack"
+                    name="product_pack"
+                    attrs="{'invisible': [('is_combo', '=', False)]}"
+                >
+                    <field name="combo_pack_ids" nolabel="1">
+                        <tree
+                            editable="bottom"
+                            decoration-info="is_required == True"
+                            decoration-bf="is_required == True"
+                        >
+                            <field name="sequence" widget="handle" />
+                            <field
+                                name="pos_category_id"
+                                options="{'no_create': True}"
+                            />
+                            <field
+                                name="include_all_products"
+                                widget="boolean_toggle"
+                            />
+                            <field
+                                name="product_ids"
+                                widget="many2many_tags"
+                                options="{'no_create': True}"
+                            />
+                            <field name="is_required" widget="boolean_toggle" />
+                            <field name="include_price" widget="boolean_toggle" />
+                            <field name="default_qty" />
+                            <field name="no_of_items" />
+                        </tree>
+                        <form string="Combo Pack Line">
+                            <sheet>
+                                <group>
+                                    <group string="Category &amp; Products">
+                                        <field
+                                            name="pos_category_id"
+                                            options="{'no_create': True}"
+                                        />
+                                        <field
+                                            name="include_all_products"
+                                            widget="boolean_toggle"
+                                        />
+                                        <field
+                                            name="product_ids"
+                                            widget="many2many_tags"
+                                            options="{'no_create': True}"
+                                        />
+                                    </group>
+                                    <group string="Combo Rules &amp; Pricing">
+                                        <field
+                                            name="is_required"
+                                            widget="boolean_toggle"
+                                        />
+                                        <field
+                                            name="include_price"
+                                            widget="boolean_toggle"
+                                        />
+                                        <field name="default_qty" />
+                                        <field name="no_of_items" />
+                                    </group>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_kanban_view_pos_combo" model="ir.ui.view">
+        <field name="name">product.template.kanban.pos.combo</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_kanban_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/field[@name='id']" position="after">
+                <field name="is_combo" />
+            </xpath>
+            <xpath expr="//div[@name='product_lst_price']" position="after">
+                <div t-if="record.is_combo.raw_value" class="mt-1">
+                    <span class="badge rounded-pill text-bg-info">
+                        <i class="fa fa-cubes me-1" />Combo Pack
+                    </span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_tree_view_pos_combo" model="ir.ui.view">
+        <field name="name">product.template.tree.pos.combo</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='categ_id']" position="after">
+                <field name="is_combo" optional="show" widget="boolean_toggle" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_search_view_pos_combo" model="ir.ui.view">
+        <field name="name">product.template.search.pos.combo</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_to_sell']" position="after">
+                <filter
+                    name="filter_is_combo"
+                    string="Combo Products"
+                    domain="[('is_combo', '=', True)]"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<odoo>
+    <record id="res_config_settings_view_form_pos_combo" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.pos.combo</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//h2[@name='pos_interface']" position="before">
+                <h2 name="pos_combo_settings">POS Combo Packs</h2>
+                <div
+                    class="row mt16 o_settings_container"
+                    id="pos_combo_settings_section"
+                >
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_view_combo_product_image" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <span
+                                class="fa fa-lg fa-cubes text-primary me-1"
+                                title="Combo Product Image"
+                            />
+                            <label for="pos_view_combo_product_image" />
+                            <div class="text-muted">
+                                Display product thumbnails inside the POS combo configuration popup.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

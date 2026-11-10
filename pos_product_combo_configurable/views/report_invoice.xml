@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<odoo>
+    <template
+        id="report_invoice_document_pos_combo"
+        inherit_id="account.report_invoice_document"
+    >
+        <xpath expr="//tbody[hasclass('invoice_tbody')]//tr[1]" position="attributes">
+            <attribute
+                name="t-att-style"
+            >'display: none;' if line.is_combo_subline else None</attribute>
+        </xpath>
+        <xpath expr="//td[@name='account_invoice_line_name']" position="inside">
+            <t t-if="line.combo_subline_json">
+                <div class="mt-1 ms-2 small text-muted">
+                    <t t-foreach="line.get_combo_subline_items()" t-as="combo_sub">
+                        <div>
+                            &#8226; <strong t-esc="combo_sub.get('qty', 1)" />x <span
+                                t-esc="combo_sub.get('product_name', '')"
+                            />
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

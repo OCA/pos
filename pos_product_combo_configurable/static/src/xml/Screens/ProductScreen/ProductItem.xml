@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="ProductItem"
+        t-inherit="point_of_sale.ProductItem"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//div[hasclass('product-content')]" position="before">
+            <t t-if="props.product.is_combo">
+                <div class="pos-combo-product-ribbon">
+                    <i class="fa fa-cubes" />
+                    <span>Combo</span>
+                </div>
+            </t>
+        </xpath>
+    </t>
+</templates>

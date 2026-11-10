@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2026 Acysos S.L.
+    License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+-->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="OrderLinesReceipt"
+        t-inherit="point_of_sale.OrderLinesReceipt"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//t[@t-foreach='receipt.orderlines']" position="inside">
+            <t
+                t-if="line.is_combo and line.combo_prod_info and line.combo_prod_info.length"
+            >
+                <t t-if="line.combo_extra_price &gt; 0">
+                    <div class="pos-receipt-left-padding">
+                        <t
+                            t-esc="env.pos.format_currency(line.combo_base_price * line.quantity)"
+                        /> + <t
+                            t-esc="env.pos.format_currency(line.combo_extra_price * line.quantity)"
+                        />
+                    </div>
+                </t>
+                <t
+                    t-foreach="line.combo_prod_info"
+                    t-as="comboSub"
+                    t-key="comboSub.product_id"
+                >
+                    <div class="pos-receipt-left-padding">
+                        - <t t-esc="comboSub.product_name" />(<t
+                            t-esc="comboSub.qty * line.quantity"
+                        /> units)
+                        <span class="price_display pos-receipt-right-align">
+                            <t
+                                t-esc="env.pos.format_currency(comboSub.price * comboSub.qty * line.quantity)"
+                            />
+                        </span>
+                    </div>
+                </t>
+            </t>
+        </xpath>
+    </t>
+</templates>
