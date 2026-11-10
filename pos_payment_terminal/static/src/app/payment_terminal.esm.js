@@ -42,7 +42,7 @@ export class OCAPaymentTerminal extends PaymentInterface {
         return {
             amount: line.amount,
             currency_iso: currency.name,
-            currency_decimals: currency.decimals,
+            currency_decimals: currency.decimal_places,
             payment_mode: this.payment_method_id.oca_payment_terminal_mode,
             payment_id: uuid,
             order_id: transactionId,
