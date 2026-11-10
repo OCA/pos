@@ -12,6 +12,9 @@ const TareScaleScreen = (ScaleScreen_) =>
         setup() {
             super.setup();
             this.decimalPoint = this.env._t.database.parameters.decimal_point;
+            this.gross_uom = this.env.pos.units_by_id[this.props.product.uom_id[0]];
+            this.tare_uom =
+                this.env.pos.units_by_id[this.env.pos.config.iface_tare_uom_id[0]];
             this.state = useState({
                 tare_str: this.props.product.tare_weight
                     ? this._formatFloatValue(this.props.product.tare_weight)
@@ -48,10 +51,6 @@ const TareScaleScreen = (ScaleScreen_) =>
             });
         }
 
-        get gross_uom() {
-            return this.env.pos.units_by_id[this.props.product.uom_id[0]];
-        }
-
         get has_tare() {
             return this.state.tare > 0;
         }
@@ -66,15 +65,20 @@ const TareScaleScreen = (ScaleScreen_) =>
 
         async _barcodeTareAction(code) {
             this.state.tare_str = this._formatFloatValue(code.value);
+            this.updateWeight();
         }
 
         _readScale() {
+            // Override: Schedule the reading of the scale value from the
+            // proxy.
             if (this.env.pos.config.iface_gross_weight_method === "scale") {
                 super._readScale();
             }
         }
 
         async _setWeight() {
+            // Override: Read the weight from the device proxy and process the
+            // value.
             if (this.has_tare && this.env.pos.config.iface_send_tare_to_scale) {
                 this.env.proxy.scale_read_tare_param = this.state.tare_in_product_uom;
             } else {
@@ -101,6 +105,8 @@ const TareScaleScreen = (ScaleScreen_) =>
         }
 
         updateWeight() {
+            // Update the weight after a user operation (manual input in the
+            // gross weight or tare fields or tare barcode scan).
             try {
                 this._computeWeight();
             } catch (error) {
@@ -111,7 +117,7 @@ const TareScaleScreen = (ScaleScreen_) =>
             }
             if (
                 this.env.pos.config.iface_gross_weight_method === "manual" &&
-                this.state.tare <= 0 &&
+                !this.has_tare &&
                 this.state.gross_weight_input_valid
             ) {
                 // If the weight input method is manual and no tare is set,
@@ -142,6 +148,10 @@ const TareScaleScreen = (ScaleScreen_) =>
         }
 
         _computeWeight() {
+            // Compute and set the net weight (this.state.weight) according to
+            // the gross weight and the tare (if it is set). If no tare is
+            // set, the weight is unchanged (as it is already set to the
+            // correct value in _setWeight()).
             this.state.gross_weight = this._parseFloatValue(
                 this.state.gross_weight_str
             );
@@ -159,39 +169,48 @@ const TareScaleScreen = (ScaleScreen_) =>
                 this.state.weight = NaN;
                 return;
             }
-            if (this.has_tare) {
-                // We compute this only if a tare is set to avoid an error in
-                // case the UoM categories don't match. Odoo's default
-                // behavior is to consider that the value returned by the
-                // scale is in the same UoM as the product.
-                const tare_uom_id = this.env.pos.config.iface_tare_uom_id[0];
-                const tare_uom = this.env.pos.units_by_id[tare_uom_id];
-                if (this.tare_rounding_enabled) {
-                    let rounded_tare = round_precision(
-                        this.state.tare,
-                        this.env.pos.config.iface_tare_scale_precision
-                    );
-                    // This is a hack to work around the problems with
-                    // round_precision(), where round_precision(0.018, 0.001)
-                    // gives 0.018000000000000002.
-                    rounded_tare = round_precision(rounded_tare * 1000000) / 1000000;
-                    if (this.state.tare !== rounded_tare) {
-                        this.state.tare = rounded_tare;
-                        // Don't modify tare_str because this would conflict
-                        // with the user input.
-                        this.state.tare_rounded_str = this._formatFloatValue(
-                            this.state.tare
-                        );
-                    }
-                }
-                // This will throw an exception if the UoM categories don't match.
-                this.state.tare_in_product_uom = convert_mass(
-                    this.state.tare,
-                    tare_uom,
-                    this.gross_uom
-                );
-                this.state.weight =
-                    this.state.gross_weight - this.state.tare_in_product_uom;
+            this._processTare();
+        }
+
+        _processTare() {
+            // Convert (if needed) and (optionally) round the tare value and
+            // compute the net weight. We compute this only if a tare is set
+            // to avoid an error in case the UoM categories don't match.
+            // Odoo's default behavior is to consider that the value returned
+            // by the scale is in the same UoM as the product.
+            if (!this.has_tare) {
+                return;
+            }
+            this._roundTare();
+            // This will throw an exception if the UoM categories don't match.
+            this.state.tare_in_product_uom = convert_mass(
+                this.state.tare,
+                this.tare_uom,
+                this.gross_uom
+            );
+            this.state.weight =
+                this.state.gross_weight - this.state.tare_in_product_uom;
+        }
+
+        _roundTare() {
+            // Round the tare (this.state.tare) according to the tare
+            // precision and set this.state.tare_rounded_str accordingly.
+            if (!this.tare_rounding_enabled) {
+                return;
+            }
+            let rounded_tare = round_precision(
+                this.state.tare,
+                this.env.pos.config.iface_tare_scale_precision
+            );
+            // This is a hack to work around the problems with
+            // round_precision(), where round_precision(0.018, 0.001)
+            // gives 0.018000000000000002.
+            rounded_tare = round_precision(rounded_tare * 1000000) / 1000000;
+            if (this.state.tare !== rounded_tare) {
+                this.state.tare = rounded_tare;
+                // Don't modify this.state.tare_str because this would
+                // conflict with the user input.
+                this.state.tare_rounded_str = this._formatFloatValue(this.state.tare);
             }
         }
 
