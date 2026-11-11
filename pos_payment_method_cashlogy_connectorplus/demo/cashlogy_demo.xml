@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="payment_cashlogy" model="pos.payment.method">
+        <field name="cashlogy_url">http://localhost:3000</field>
+        <field name="cashlogy_api_key">testkey</field>
+        <field name="use_payment_terminal">cashlogy</field>
+        <field name="name">Cashlogy</field>
+        <field name="type">cash</field>
+        <field name="payment_method_type">terminal</field>
+    </record>
+</odoo>

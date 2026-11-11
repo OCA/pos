@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_method_cashlogy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model:ir.model.fields,help:pos_payment_method_cashlogy_connectorplus.field_pos_payment_method__cashlogy_api_key
+msgid "Api key to authenticate with Cashogy ConnectorPlus"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model:ir.model.fields,field_description:pos_payment_method_cashlogy_connectorplus.field_pos_payment_method__cashlogy_api_key
+msgid "Cashlogy API key"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model:ir.model.fields,field_description:pos_payment_method_cashlogy_connectorplus.field_pos_payment_method__cashlogy_url
+msgid "Cashlogy Terminal URL"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#. odoo-javascript
+#: code:addons/pos_payment_method_cashlogy_connectorplus/static/src/js/payment_cashlogy.esm.js:0
+msgid "Error"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model:ir.model.fields,help:pos_payment_method_cashlogy_connectorplus.field_pos_payment_method__cashlogy_url
+msgid ""
+"Must be reachable by the PoS in the store and contain no trailing slash (/)"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#. odoo-javascript
+#: code:addons/pos_payment_method_cashlogy_connectorplus/static/src/js/payment_cashlogy.esm.js:0
+msgid "Not implemented yet"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model:ir.model,name:pos_payment_method_cashlogy_connectorplus.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model:ir.model,name:pos_payment_method_cashlogy_connectorplus.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_payment_method_cashlogy_connectorplus
+#: model_terms:ir.ui.view,arch_db:pos_payment_method_cashlogy_connectorplus.pos_payment_method_view_form
+msgid "http://somehost:3000"
+msgstr ""
