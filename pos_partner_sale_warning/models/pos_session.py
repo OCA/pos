@@ -9,6 +9,6 @@ class PosSession(models.Model):
 
     def _loader_params_res_partner(self):
         result = super()._loader_params_res_partner()
-        if self.user_has_groups("sale.group_warning_sale"):
+        if self.env.user.has_group("sale.group_warning_sale"):
             result["search_params"]["fields"] += ["sale_warn", "sale_warn_msg"]
         return result
