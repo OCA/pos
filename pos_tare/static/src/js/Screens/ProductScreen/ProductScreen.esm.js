@@ -117,7 +117,7 @@ const TareProductScreen = (ProductScreen_) =>
                                 "You can not set the tare." +
                                     " To be able to set the tare manually" +
                                     " you have to change the tare input method" +
-                                    " in the POS configuration"
+                                    " in the POS configuration."
                             ),
                         });
                     } else {

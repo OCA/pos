@@ -13,7 +13,7 @@
             </div>
             <t t-if="env.pos.config.iface_gross_weight_method == 'scale'">
                 <div class="computed-price weight-value">
-                    <t t-out="state.gross_weight_str" /> <t t-out="gross_uom.name" />
+                    <t t-out="state.gross_weight_str" /> <t t-out="gross_uom.name" />
                 </div>
             </t>
             <t t-else="">
@@ -26,7 +26,7 @@
                         placeholder="0"
                         t-model="state.gross_weight_str"
                         t-on-input="updateWeight"
-                    /> <t t-out="gross_uom.name" />
+                    /> <t t-out="gross_uom.name" />
                 </div>
             </t>
             <div class="product-price">
@@ -34,9 +34,7 @@
             </div>
             <t t-if="env.pos.config.iface_tare_method == 'barcode'">
                 <div class="computed-price weight-value">
-                    <t t-out="state.tare_str" /> <t
-                        t-out="env.pos.config.iface_tare_uom_id[1]"
-                    />
+                    <t t-out="state.tare_str" /> <t t-out="tare_uom.name" />
                 </div>
             </t>
             <t t-else="">
@@ -49,9 +47,14 @@
                         placeholder="0"
                         t-model="state.tare_str"
                         t-on-input="updateWeight"
-                    /> <t t-out="env.pos.config.iface_tare_uom_id[1]" />
+                    /> <t t-out="tare_uom.name" />
                 </div>
             </t>
+            <div t-if="tare_rounding_enabled" class="tare-rounding-warning">
+                <span t-if="tare_is_rounded">Rounded (by the scale) to <t
+                        t-out="state.tare_rounded_str"
+                    /> <t t-out="tare_uom.name" /></span>
+            </div>
         </xpath>
     </t>
 

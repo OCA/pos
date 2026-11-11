@@ -13,9 +13,9 @@
         "point_of_sale",
     ],
     "data": [
-        "views/view_pos_config.xml",
-        "views/view_pos_order.xml",
-        "views/view_product_template.xml",
+        "views/pos_order_view.xml",
+        "views/product_template_view.xml",
+        "views/res_config_settings_view.xml",
         "data/barcode_rule.xml",
     ],
     "assets": {
