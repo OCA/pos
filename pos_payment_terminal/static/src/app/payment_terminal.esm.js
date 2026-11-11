@@ -55,6 +55,7 @@ export class OCAPaymentTerminal extends PaymentInterface {
             this._showError(_t("Cannot process transactions with negative amount."));
             return Promise.resolve(false);
         }
+        this._ocaPendingResolve = null;
         const data = this._ocaPaymentTerminalGetData(uuid);
         if (this.payment_method_id.oca_payment_terminal_id) {
             data.terminal_id = this.payment_method_id.oca_payment_terminal_id;
@@ -82,7 +83,12 @@ export class OCAPaymentTerminal extends PaymentInterface {
                 this._ocaPollForTransactionStatus(line, resolve, reject);
             });
         } else if (response === true) {
-            return Promise.resolve(true);
+            // The driver does not report the transaction outcome: wait for
+            // the cashier to force done or cancel the payment.
+            line.set_payment_status("waitingCard");
+            return new Promise((resolve) => {
+                this._ocaPendingResolve = resolve;
+            });
         }
         return Promise.resolve(false);
     }
@@ -165,6 +171,10 @@ export class OCAPaymentTerminal extends PaymentInterface {
     _ocaPaymentTerminalCancel() {
         const line = this.pendingOCAPaymentLine();
         line.set_payment_status("retry");
+        if (this._ocaPendingResolve) {
+            this._ocaPendingResolve(false);
+            this._ocaPendingResolve = null;
+        }
         return true;
     }
 
