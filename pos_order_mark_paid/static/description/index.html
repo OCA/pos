@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils: https://docutils.sourceforge.io/" />
+<title>POS Order Mark Paid</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 9511 2024-01-13 09:50:07Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+Despite the name, some widely supported CSS2 features are used.
+
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: gray; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic, pre.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="pos-order-mark-paid">
+<h1 class="title">POS Order Mark Paid</h1>
+
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! This file is generated by oca-gen-addon-readme !!
+!! changes will be overwritten.                   !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!! source digest: sha256:293ae9376f60a36a08ffc8302e46288b4021e545af164a9e94a4611fadeaa735
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Beta" src="https://img.shields.io/badge/maturity-Beta-yellow.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img alt="License: AGPL-3" src="https://img.shields.io/badge/licence-AGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/pos/tree/17.0/pos_order_mark_paid"><img alt="OCA/pos" src="https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/pos-17-0/pos-17-0-pos_order_mark_paid"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/pos&amp;target_branch=17.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p>This module allows to mark a POS order as fully paid while writing off
+the difference to a pre-defined account.</p>
+<p>A new “Mark as Paid” button is displayed on the POS payment screen. You
+configure the write-off thresholds per Point of Sale: a percentage of
+the order total and an amount. An order can be marked as paid only if
+the write-off amount does not exceed any of these thresholds.</p>
+<p>The write-off is shown on the receipt, on the POS order, in the session
+report, and as a separate line on the invoice of an invoiced order. When
+the session is closed, the write-offs of the orders that are not
+invoiced are booked on the write-off account.</p>
+<p><strong>Table of contents</strong></p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#use-cases-context" id="toc-entry-1">Use Cases / Context</a></li>
+<li><a class="reference internal" href="#configuration" id="toc-entry-2">Configuration</a></li>
+<li><a class="reference internal" href="#usage" id="toc-entry-3">Usage</a></li>
+<li><a class="reference internal" href="#known-issues-roadmap" id="toc-entry-4">Known issues / Roadmap</a></li>
+<li><a class="reference internal" href="#bug-tracker" id="toc-entry-5">Bug Tracker</a></li>
+<li><a class="reference internal" href="#credits" id="toc-entry-6">Credits</a><ul>
+<li><a class="reference internal" href="#authors" id="toc-entry-7">Authors</a></li>
+<li><a class="reference internal" href="#contributors" id="toc-entry-8">Contributors</a></li>
+<li><a class="reference internal" href="#maintainers" id="toc-entry-9">Maintainers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="use-cases-context">
+<h1><a class="toc-backref" href="#toc-entry-1">Use Cases / Context</a></h1>
+<p>Sometimes a cash POS order has to be rounded because there is no change,
+or because the residual amount is insignificant.</p>
+<p>For example, a customer wants to pay an order of 5,000.07 in cash, but
+has only 1,000, 500 and 100 bills and no coins.</p>
+</div>
+<div class="section" id="configuration">
+<h1><a class="toc-backref" href="#toc-entry-2">Configuration</a></h1>
+<p><strong>Turn on Mark as Paid</strong></p>
+<ol class="arabic simple">
+<li>Open the <strong>Point of Sale</strong> app.</li>
+<li>Click <strong>Configuration</strong>, then <strong>Settings</strong>.</li>
+<li>In <strong>Point of Sale</strong>, select the Point of Sale to configure.</li>
+<li>In <strong>Payment</strong>, turn on <strong>Mark as Paid</strong>.</li>
+<li>In <strong>Write-off Account</strong>, select the account that receives the
+written-off amounts.</li>
+<li>In <strong>Max Write-off (%)</strong>, type the highest write-off allowed, in
+percent of the order total including taxes. Type 0 for no limit.</li>
+<li>In <strong>Max Write-off Amount</strong>, type the highest write-off allowed, as
+an amount. Type 0 for no limit.</li>
+<li>In <strong>Receipt Label</strong>, type the label printed on the receipt and on
+the invoice, e.g. “Extra discount”.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>Notes:</p>
+<ul class="simple">
+<li>At least one of <strong>Max Write-off (%)</strong> and <strong>Max Write-off Amount</strong>
+must be more than 0. When both are set, the write-off must not exceed
+either of them.</li>
+<li>The Point of Sale needs a cash payment method: an order can be marked
+as paid only when it has a cash payment.</li>
+<li>The settings cannot be changed while a session of the Point of Sale is
+open. Close the session first.</li>
+</ul>
+</div>
+<div class="section" id="usage">
+<h1><a class="toc-backref" href="#toc-entry-3">Usage</a></h1>
+<p><strong>Mark an order as paid</strong></p>
+<ol class="arabic simple">
+<li>Open the <strong>Point of Sale</strong> app.</li>
+<li>On the Point of Sale, click <strong>New Session</strong> or <strong>Continue Selling</strong>.</li>
+<li>Add the products to the order.</li>
+<li>Click <strong>Payment</strong>.</li>
+<li>Click the cash payment method.</li>
+<li>Type the amount received from the customer.</li>
+<li>Click <strong>Mark as Paid</strong>. The button is highlighted.</li>
+<li>Check the <strong>Write-off</strong> row: it shows the amount that is written off.
+<strong>Remaining</strong> shows 0.00.</li>
+<li>Click <strong>Validate</strong>.</li>
+</ol>
+<p>The receipt shows the write-off with the receipt label of the Point of
+Sale, and the amount to pay after the write-off.</p>
+<p><strong>Unmark an order</strong></p>
+<ol class="arabic simple">
+<li>Click <strong>Mark as Paid</strong> again. The button is no longer highlighted.</li>
+</ol>
+<p>Changing a product line or a payment line also unmarks the order. Click
+<strong>Mark as Paid</strong> again after the change.</p>
+<p><strong>When Mark as Paid is refused</strong></p>
+<p>A message explains why the order cannot be marked:</p>
+<ul class="simple">
+<li>the order total is 0 or negative;</li>
+<li>nothing is left to pay;</li>
+<li>the order has no cash payment;</li>
+<li>the order has a <strong>Customer Account</strong> payment;</li>
+<li>the amount left to pay exceeds <strong>Max Write-off Amount</strong> or <strong>Max
+Write-off (%)</strong>;</li>
+<li>a payment on a payment terminal is not finished. Finish or remove it
+first.</li>
+</ul>
+</div>
+<div class="section" id="known-issues-roadmap">
+<h1><a class="toc-backref" href="#toc-entry-4">Known issues / Roadmap</a></h1>
+<ul class="simple">
+<li>Refunds and negative orders are not supported. A refund of a
+written-off order refunds the full price, including the written-off
+amount.</li>
+<li>On a written-off order, <strong>Total Paid</strong> in the backend includes the
+write-off. See <strong>Write-off Amount</strong> for the part not received.</li>
+<li>The sale details printed from the POS do not show the write-off. The
+session report printed from the backend shows it.</li>
+<li>Interaction with <tt class="docutils literal">pos_multi_currency</tt> is not supported or tested.</li>
+</ul>
+</div>
+<div class="section" id="bug-tracker">
+<h1><a class="toc-backref" href="#toc-entry-5">Bug Tracker</a></h1>
+<p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/pos/issues">GitHub Issues</a>.
+In case of trouble, please check there if your issue has already been reported.
+If you spotted it first, help us to smash it by providing a detailed and welcomed
+<a class="reference external" href="https://github.com/OCA/pos/issues/new?body=module:%20pos_order_mark_paid%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<p>Do not contact contributors directly about support or help with technical issues.</p>
+</div>
+<div class="section" id="credits">
+<h1><a class="toc-backref" href="#toc-entry-6">Credits</a></h1>
+<div class="section" id="authors">
+<h2><a class="toc-backref" href="#toc-entry-7">Authors</a></h2>
+<ul class="simple">
+<li>Cetmix</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2><a class="toc-backref" href="#toc-entry-8">Contributors</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://cetmix.com">Cetmix</a>:<ul>
+<li>Ivan Sokolov</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="maintainers">
+<h2><a class="toc-backref" href="#toc-entry-9">Maintainers</a></h2>
+<p>This module is maintained by the OCA.</p>
+<a class="reference external image-reference" href="https://odoo-community.org">
+<img alt="Odoo Community Association" src="https://odoo-community.org/logo.png" />
+</a>
+<p>OCA, or the Odoo Community Association, is a nonprofit organization whose
+mission is to support the collaborative development of Odoo features and
+promote its widespread use.</p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/pos/tree/17.0/pos_order_mark_paid">OCA/pos</a> project on GitHub.</p>
+<p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Cetmix OÜ
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="pos_order_view_form" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <field name="amount_paid" position="after">
+                <field name="write_off_amount" invisible="not write_off_amount" />
+            </field>
+        </field>
+    </record>
+
+    <record id="pos_order_view_tree" model="ir.ui.view">
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree" />
+        <field name="arch" type="xml">
+            <field name="amount_total" position="after">
+                <field name="write_off_amount" optional="show" sum="Write-off Amount" />
+            </field>
+        </field>
+    </record>
+</odoo>
