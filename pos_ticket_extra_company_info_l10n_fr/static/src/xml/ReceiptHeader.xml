@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2024 - Today: GRAP (http://www.grap.coop)
+@author: Sylvain LE GAL (https://twitter.com/legalsylvain)
+License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+  <t t-inherit="point_of_sale.ReceiptHeader" t-inherit-mode="extension">
+        <xpath expr="//t[@t-if='props.data.company.vat']" position="after">
+            <t t-debug="" />
+            <div t-if="props.data.company.siret">
+                SIRET: <t t-esc="props.data.company.siret" />
+            </div>
+            <div t-if="props.data.company.company_registry">
+                Registry: <t t-esc="props.data.company.company_registry" />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
