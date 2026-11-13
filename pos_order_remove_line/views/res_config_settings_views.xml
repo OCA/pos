@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.point_of_sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_interface_section']" position="inside">
+                <setting
+                    string="Remove Order Line in POS"
+                    help="Show/hide remove button on order line"
+                >
+                    <div class="content-group">
+                        <div>
+                            <field name="pos_line_remove_btn" />
+                            <label
+                                for="pos_line_remove_btn"
+                                string="Show Remove Button"
+                                class="fw-normal me-1"
+                            />
+                        </div>
+                        <div invisible="not pos_line_remove_btn">
+                            <field name="pos_line_remove_warning" />
+                            <label
+                                for="pos_line_remove_warning"
+                                string="Show Warning"
+                                class="fw-normal me-1"
+                            />
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

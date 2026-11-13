@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_order_remove_line
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-21 09:46+0000\n"
+"PO-Revision-Date: 2025-11-21 09:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_remove_line
+#. odoo-javascript
+#: code:addons/pos_order_remove_line/static/src/js/orderline.esm.js:0
+msgid "Are you sure that you want to remove this item?"
+msgstr "Êtes-vous sûr de vouloir supprimer cet élément?"
+
+#. module: pos_order_remove_line
+#: model:ir.model,name:pos_order_remove_line.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de configuration"
+
+#. module: pos_order_remove_line
+#: model:ir.model.fields,help:pos_order_remove_line.field_pos_config__pos_line_remove_warning
+#: model:ir.model.fields,help:pos_order_remove_line.field_res_config_settings__pos_line_remove_warning
+msgid "If checked, a warning will be shown when removing order lines"
+msgstr "Si cette option est cochée, un avertissement s’affichera lors de la suppression des lignes de commande"
+
+#. module: pos_order_remove_line
+#: model:ir.model,name:pos_order_remove_line.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_order_remove_line
+#. odoo-javascript
+#: code:addons/pos_order_remove_line/static/src/js/orderline.esm.js:0
+msgid "Remove"
+msgstr "Supprimer"
+
+#. module: pos_order_remove_line
+#: model_terms:ir.ui.view,arch_db:pos_order_remove_line.res_config_settings_view_form
+msgid "Remove Order Line in POS"
+msgstr "Supprimer une ligne de commande dans le Point de Vente"
+
+#. module: pos_order_remove_line
+#: model_terms:ir.ui.view,arch_db:pos_order_remove_line.res_config_settings_view_form
+msgid "Show Remove Button"
+msgstr "Afficher le bouton de suppression"
+
+#. module: pos_order_remove_line
+#: model:ir.model.fields,field_description:pos_order_remove_line.field_pos_config__pos_line_remove_btn
+#: model:ir.model.fields,field_description:pos_order_remove_line.field_res_config_settings__pos_line_remove_btn
+msgid "Show Remove button on order line"
+msgstr "Afficher le bouton de suppression sur la ligne de commande"
+
+#. module: pos_order_remove_line
+#: model_terms:ir.ui.view,arch_db:pos_order_remove_line.res_config_settings_view_form
+msgid "Show Warning"
+msgstr "Afficher l’avertissement"
+
+#. module: pos_order_remove_line
+#: model_terms:ir.ui.view,arch_db:pos_order_remove_line.res_config_settings_view_form
+msgid "Show/hide remove button on order line"
+msgstr "Afficher/masquer le bouton de suppression sur la ligne de commande"
+
+#. module: pos_order_remove_line
+#: model:ir.model.fields,field_description:pos_order_remove_line.field_pos_config__pos_line_remove_warning
+#: model:ir.model.fields,field_description:pos_order_remove_line.field_res_config_settings__pos_line_remove_warning
+msgid "Warning on removing order lines"
+msgstr "Avertissement lors de la suppression des lignes de commande"
