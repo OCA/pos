@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form.inherit.pos_order_settle_unconditional</field>
+        <field name="model">res.config.settings</field>
+        <!-- Inherits the pos_sale view rather than the point_of_sale one it
+             extends: the down payment setting anchored below is added by
+             pos_sale, so this guarantees it is already in the arch. -->
+        <field name="inherit_id" ref="pos_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <!-- Anchored on the down payment setting: it is the other
+                 Quotation/Order related entry of the Sales block, which has no
+                 id of its own. -->
+            <xpath expr="//setting[@id='down_payment_product']" position="after">
+                <setting
+                    help="List sale orders totalling a negative amount in the Quotation/Order dialog, so that they can be settled"
+                >
+                    <field name="pos_always_enable_order_settle" />
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
