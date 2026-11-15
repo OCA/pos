@@ -47,6 +47,7 @@ class SaleOrder(models.Model):
 
         # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:
+            sale_order._pre_confirm_from_pos(order_data)
             sale_order.action_confirm()
 
         # mark picking as delivered
@@ -64,3 +65,9 @@ class SaleOrder(models.Model):
         return {
             "sale_order_id": sale_order.id,
         }
+
+    def _pre_confirm_from_pos(self, order_data):
+        """Hook for extension modules to prepare the order (e.g. carrier or
+        warehouse auto-assignment) before it is confirmed from the POS flow.
+        """
+        return
