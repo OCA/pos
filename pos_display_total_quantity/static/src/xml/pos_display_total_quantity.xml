@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Copyright 2024 Camptocamp SA (https://www.camptocamp.com).
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+-->
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.OrderSummary" t-inherit-mode="extension">
+        <xpath expr="//div[@id='extra-info-container']" position="inside">
+            <div class="total-quantity fw-bolder fs-2 lh-sm">
+                <span t-esc="getTotalQuantity()" />
+            </div>
+        </xpath>
+    </t>
+
+</templates>
