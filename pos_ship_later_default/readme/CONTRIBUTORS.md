@@ -1,0 +1,2 @@
+- Odoo Community Association (OCA)
+- Jarsa

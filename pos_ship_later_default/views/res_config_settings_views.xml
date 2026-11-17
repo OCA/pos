@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field
+            name="name"
+        >res.config.settings.view.form.inherit.pos_ship_later_default</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//setting[@id='ship_later']//div[hasclass('content-group')]"
+                position="inside"
+            >
+                <div class="row mt16">
+                    <label
+                        for="pos_ship_later_default"
+                        class="col-lg-4 o_light_label"
+                    />
+                    <field name="pos_ship_later_default" widget="boolean_toggle" />
+                </div>
+                <div class="row" invisible="not pos_ship_later_default">
+                    <label
+                        for="pos_ship_later_delivery_delay"
+                        class="col-lg-4 o_light_label"
+                    />
+                    <field name="pos_ship_later_delivery_delay" />
+                </div>
+                <div class="row" invisible="not pos_ship_later_default">
+                    <label
+                        for="pos_hide_ship_later_button"
+                        class="col-lg-4 o_light_label"
+                    />
+                    <field name="pos_hide_ship_later_button" widget="boolean_toggle" />
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
