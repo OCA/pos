@@ -22,23 +22,10 @@ class PosSession(models.Model):
         compute="_compute_cash_register_totals",
         string="Total Cash Out",
     )
-    cash_real_total_in = fields.Monetary(
-        string="Cash In",
-        readonly=True,
-    )
-    cash_real_total_out = fields.Monetary(
-        string="Cash Out",
-        readonly=True,
-    )
 
-    total_cash_payments = fields.Monetary(
+    cash_payments_total = fields.Monetary(
         compute="_compute_total_cash_payment",
         string="Total Payments",
-    )
-
-    total_real_cash_payments = fields.Monetary(
-        compute="_compute_total_real_cash_payment",
-        string="Total Real Payments",
     )
 
     # We can't use cashbox_start since it's unused in pos, so we get last session end
@@ -106,14 +93,14 @@ class PosSession(models.Model):
             session.cash_register_total_in = sum(
                 [
                     line.amount
-                    for line in session.cash_register_id.line_ids
+                    for line in session.cash_register_statement_line_ids
                     if line.amount > 0
                 ]
             )
             session.cash_register_total_out = sum(
                 [
                     line.amount
-                    for line in session.cash_register_id.line_ids
+                    for line in session.cash_register_statement_line_ids
                     if line.amount < 0
                 ]
             )
@@ -126,30 +113,8 @@ class PosSession(models.Model):
     def _compute_total_cash_payment(self):
         for session in self:
             # The current transactions without cash in/out lines
-            session.total_cash_payments = (
+            session.cash_payments_total = (
                 session.cash_register_total_entry_encoding
                 - session.cash_register_total_in
                 - session.cash_register_total_out
             )
-
-    @api.depends(
-        "cash_real_transaction",
-        "cash_real_total_in",
-        "cash_real_total_out",
-    )
-    def _compute_total_real_cash_payment(self):
-        for session in self:
-            # The real transactions without cash in/out lines
-            session.total_real_cash_payments = (
-                session.cash_real_transaction
-                - session.cash_real_total_in
-                - session.cash_real_total_out
-            )
-
-    def _validate_session(self):
-        # We store the cash in/out totals at the session closure to keep the
-        # real amounts. (Like cash_real_transaction)
-        self.cash_real_total_in = self.cash_register_total_in
-        self.cash_real_total_out = self.cash_register_total_out
-        res = super()._validate_session()
-        return res

@@ -14,51 +14,20 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
                 expr="//page[@name='cash_control']//field[@name='cash_real_transaction']"
                 position="attributes"
             >
-        <attribute name="name">total_real_cash_payments</attribute>
+        <attribute name="name">cash_payments_total</attribute>
       </xpath>
-
-      <xpath
-                expr="//page[@name='cash_control']/group/group/div/group[2]"
-                position="after"
-            >
-        <group
-                    style="margin:0;padding:0;"
-                    attrs="{'invisible' : ['|', ('state', '!=', 'closed'), ('cash_real_total_in', '=', 0)]}"
-                >
-          <field
-                        style="text-align:right;margin:0;padding:0;"
-                        name="cash_real_total_in"
-                        widget="monetary"
-                        options="{'currency_field': 'currency_id'}"
-                        string="+ Cash In"
-                    />
-        </group>
-        <group
-                    style="margin:0;padding:0;"
-                    attrs="{'invisible' : ['|', ('state', '!=', 'closed'), ('cash_real_total_out', '=', 0)]}"
-                >
-          <field
-                        style="text-align:right;margin:0;padding:0;"
-                        name="cash_real_total_out"
-                        widget="monetary"
-                        options="{'currency_field': 'currency_id'}"
-                        string="- Cash Out"
-                    />
-        </group>
-      </xpath>
-
 
       <xpath
                 expr="//page[@name='cash_control']//field[@name='cash_register_total_entry_encoding']"
                 position="attributes"
             >
-        <attribute name="name">total_cash_payments</attribute>
+        <attribute name="name">cash_payments_total</attribute>
       </xpath>
 
       <xpath expr="//page[@name='cash_control']/group/group/div/group" position="after">
         <group
                     style="margin:0;padding:0;"
-                    attrs="{'invisible' : ['|', ('state', 'in', ['opening_control', 'closed']), ('cash_register_total_in', '=', 0)]}"
+                    attrs="{'invisible' : [('cash_register_total_in', '=', 0)]}"
                 >
           <field
                         style="text-align:right;margin:0;padding:0;"
@@ -70,7 +39,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
         </group>
         <group
                     style="margin:0;padding:0;"
-                    attrs="{'invisible' : ['|', ('state', 'in', ['opening_control', 'closed']), ('cash_register_total_out', '=', 0)]}"
+                    attrs="{'invisible' : [('cash_register_total_out', '=', 0)]}"
                 >
           <field
                         style="text-align:right;margin:0;padding:0;"
@@ -119,7 +88,7 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
                             string="Statements"
                             nolabel="1"
                         >
-              <tree readonly="1" decoration-muted="is_reconciled">
+              <tree readonly="1">
                 <field name="is_reconciled" invisible="1" />
                 <field name="currency_id" invisible="1" />
                 <field name="payment_ref" />
