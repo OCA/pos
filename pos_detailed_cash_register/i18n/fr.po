@@ -28,6 +28,24 @@ msgstr "- Cash sortant"
 
 #. module: pos_detailed_cash_register
 #: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+#, fuzzy
+msgid "Cash Box"
+msgstr "Détail Caisse"
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cash_box_end_id
+#, fuzzy
+msgid "Cash Box End"
+msgstr "Cash entrant"
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cash_box_end_line_ids
+#, fuzzy
+msgid "Cash Box End Lines"
+msgstr "Cash entrant"
+
+#. module: pos_detailed_cash_register
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
 msgid "Cash In/Out"
 msgstr "Cash entrant/sortant"
 
@@ -37,20 +55,14 @@ msgid "Cash Register Statement Lines"
 msgstr "Lignes de relevé de caisse"
 
 #. module: pos_detailed_cash_register
-#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cashbox_lines_end_ids
-#, fuzzy
-msgid "Cashbox Lines"
-msgstr "Cash entrant"
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Closing Cash Box"
+msgstr "Fermeture"
 
 #. module: pos_detailed_cash_register
 #: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
-
-#. module: pos_detailed_cash_register
-#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
-msgid "End Cash Details"
-msgstr "Détails caisse à la clôture"
 
 #. module: pos_detailed_cash_register
 #: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__id
@@ -68,6 +80,26 @@ msgid "Point of Sale Session"
 msgstr "Session du point de vente"
 
 #. module: pos_detailed_cash_register
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Previous Cash Box"
+msgstr "Ouverture"
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__previous_session_cash_box_end_id
+msgid "Previous Session Cash Box End"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__previous_session_cash_box_end_line_ids
+msgid "Previous Session Cash Box End Lines"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Statements"
+msgstr "Relevés"
+
+#. module: pos_detailed_cash_register
 #: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cash_register_total_in
 msgid "Total Cash In"
 msgstr "Total cash entrant"
@@ -81,15 +113,3 @@ msgstr "Total cash sortant"
 #: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cash_payments_total
 msgid "Total Payments"
 msgstr "Total des paiements"
-
-#~ msgid "+ Transactions"
-#~ msgstr "+ Transactions"
-
-#~ msgid "Cash Out"
-#~ msgstr "Cash sortant"
-
-#~ msgid "Statements"
-#~ msgstr "Relevés"
-
-#~ msgid "Total Real Payments"
-#~ msgstr "Total des paiements réels"

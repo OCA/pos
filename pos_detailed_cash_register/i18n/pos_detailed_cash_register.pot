@@ -25,6 +25,21 @@ msgstr ""
 
 #. module: pos_detailed_cash_register
 #: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Cash Box"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cash_box_end_id
+msgid "Cash Box End"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cash_box_end_line_ids
+msgid "Cash Box End Lines"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
 msgid "Cash In/Out"
 msgstr ""
 
@@ -34,18 +49,13 @@ msgid "Cash Register Statement Lines"
 msgstr ""
 
 #. module: pos_detailed_cash_register
-#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__cashbox_lines_end_ids
-msgid "Cashbox Lines"
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Closing Cash Box"
 msgstr ""
 
 #. module: pos_detailed_cash_register
 #: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__display_name
 msgid "Display Name"
-msgstr ""
-
-#. module: pos_detailed_cash_register
-#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
-msgid "End Cash Details"
 msgstr ""
 
 #. module: pos_detailed_cash_register
@@ -61,6 +71,26 @@ msgstr ""
 #. module: pos_detailed_cash_register
 #: model:ir.model,name:pos_detailed_cash_register.model_pos_session
 msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Previous Cash Box"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__previous_session_cash_box_end_id
+msgid "Previous Session Cash Box End"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model:ir.model.fields,field_description:pos_detailed_cash_register.field_pos_session__previous_session_cash_box_end_line_ids
+msgid "Previous Session Cash Box End Lines"
+msgstr ""
+
+#. module: pos_detailed_cash_register
+#: model_terms:ir.ui.view,arch_db:pos_detailed_cash_register.view_pos_session_form
+msgid "Statements"
 msgstr ""
 
 #. module: pos_detailed_cash_register
