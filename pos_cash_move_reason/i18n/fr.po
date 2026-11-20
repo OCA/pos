@@ -4,18 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-23 15:07+0000\n"
-"PO-Revision-Date: 2019-08-23 17:14+0200\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2026-04-16 08:10+0000\n"
+"PO-Revision-Date: 2026-04-16 08:10+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_pos_session_form
@@ -34,6 +32,13 @@ msgid ""
 msgstr ""
 "<span class=\"o_stat_text\">Retirer</span>\n"
 "                        <span class=\"o_stat_text\">de l'argent</span>"
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Account journal"
+msgstr "Journal"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__journal_ids
@@ -57,14 +62,30 @@ msgid "Apply"
 msgstr "Appliquer"
 
 #. module: pos_cash_move_reason
-#: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__statement_id
-msgid "Bank Statement"
-msgstr "Relevé bancaire"
-
-#. module: pos_cash_move_reason
 #: model_terms:ir.ui.view,arch_db:pos_cash_move_reason.view_wizard_pos_move_reason_form
 msgid "Cancel"
 msgstr "Annuler"
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonPatch.esm.js:0
+#, python-format
+msgid "Cash in/out of %s is ignored."
+msgstr ""
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Choose the journal"
+msgstr "Choisir le journal"
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/xml/PosCashMoveReason.xml:0
+#, python-format
+msgid "Choose the reason"
+msgstr "Choisir le motif"
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__company_id
@@ -124,7 +145,7 @@ msgstr "Remplir ce formulaire si vous mettez de l'argent dans la caisse"
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__id
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason__income_account_id
@@ -132,6 +153,7 @@ msgid "Income Account"
 msgstr "Compte de revenus"
 
 #. module: pos_cash_move_reason
+#. odoo-python
 #: code:addons/pos_cash_move_reason/wizard/wizard_pos_move_reason.py:0
 #, python-format
 msgid "Invalid Amount"
@@ -150,7 +172,7 @@ msgstr "Est un motif d'entrée"
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_wizard_pos_move_reason__journal_id
 msgid "Journal"
-msgstr "Journal"
+msgstr ""
 
 #. module: pos_cash_move_reason
 #: model:ir.model.fields,field_description:pos_cash_move_reason.field_pos_move_reason____last_update
@@ -219,9 +241,37 @@ msgid "Reason"
 msgstr "Motif"
 
 #. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Select one Journal before confirming."
+msgstr "Choisir un journal pour pouvoir confirmer."
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMovePopupPatch.js:0
+#, python-format
+msgid "Select one Reason before confirming."
+msgstr "Choisir un motif pour pouvoir confirmer."
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonPatch.esm.js:0
+#, python-format
+msgid "Successfully made a cash %s of %s."
+msgstr "Mouvement de %s pour %s réalisé avec succès "
+
+#. module: pos_cash_move_reason
 #: model:ir.model.fields.selection,name:pos_cash_move_reason.selection__wizard_pos_move_reason__move_type__expense
 msgid "Take Money Out"
 msgstr "Retirer de l'argent"
+
+#. module: pos_cash_move_reason
+#. odoo-python
+#: code:addons/pos_cash_move_reason/models/pos_session.py:0
+#, python-format
+msgid "There is no cash payment method for this PoS Session"
+msgstr "Il n'y a pas de méthode de paiement de cash pour cette session."
 
 #. module: pos_cash_move_reason
 #: model:res.groups,name:pos_cash_move_reason.group_pos_old_actions
@@ -229,5 +279,16 @@ msgid "Use Old PoS 'Put or Take Money' Actions"
 msgstr ""
 "Utiliser la fonctionnalité obsolète du PdV Mettre ou Prendre de l'argent"
 
-#~ msgid "Move type"
-#~ msgstr "Type de mouvement"
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonPatch.esm.js:0
+#, python-format
+msgid "in"
+msgstr "entrée"
+
+#. module: pos_cash_move_reason
+#. odoo-javascript
+#: code:addons/pos_cash_move_reason/static/src/js/CashMoveButtonPatch.esm.js:0
+#, python-format
+msgid "out"
+msgstr "sortie"
