@@ -38,11 +38,19 @@ odoo.define("pos_cash_move_reason.CashMoveButtonPatch", function (require) {
                     move_reason,
                     journal_id,
                 };
-                this.rpc({
-                    model: "pos.session",
-                    method: "try_cash_in_out",
-                    args: [[this.env.pos.pos_session.id], type, amount, reason, extras],
-                });
+                await Promise.resolve(
+                    this.rpc({
+                        model: "pos.session",
+                        method: "try_cash_in_out",
+                        args: [
+                            [this.env.pos.pos_session.id],
+                            type,
+                            amount,
+                            reason,
+                            extras,
+                        ],
+                    })
+                );
                 if (this.env.proxy.printer) {
                     const renderedReceipt = renderToString(
                         "point_of_sale.CashMoveReceipt",
