@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright 2023 LevelPrime
+  ~ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+  -->
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('line-details')]" position="inside">
+            <button
+                t-if="this.isDisplayButtonRemove"
+                class="btn remove-line-button ms-2"
+                t-on-pointerdown.stop=""
+                t-on-click.stop.prevent="(event) => this.removeLine(event)"
+            >
+                <i class="oi oi-filled" data-icon="delete" aria-hidden="true" />
+            </button>
+        </xpath>
+    </t>
+</templates>
