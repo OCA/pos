@@ -1,16 +1,21 @@
-import {Component, useState} from "@odoo/owl";
+import {Component, proxy, t, useProps} from "@odoo/owl";
 import {Dialog} from "@web/core/dialog/dialog";
-import {usePos} from "@point_of_sale/app/hooks/pos_hook";
 import {EditOrderLineInput} from "./EditOrderLineInput.esm";
+import {usePos} from "@point_of_sale/app/hooks/pos_hook";
 
 export class EditOrderPopup extends Component {
     static template = "EditOrderPopup";
     static components = {Dialog, EditOrderLineInput};
+    props = useProps({
+        array: t.array().optional([]),
+        getPayload: t.function().optional(),
+        close: t.function(),
+    });
 
     setup() {
         super.setup();
         this._id = 0;
-        this.state = useState({array: this._initialize(this.props.array)});
+        this.state = proxy({array: this._initialize(this.props.array)});
         this.changes = {};
         this.pos = usePos();
         this.handleChange = this.handleChange.bind(this);
@@ -55,7 +60,10 @@ export class EditOrderPopup extends Component {
     async apply_changes(payload) {
         var order = this.pos.getOrder();
         Object.entries(payload).forEach(([id, changes]) => {
-            var line = order.getOrderline(id);
+            var line = order.getOrderline(Number(id)) || order.getOrderline(id);
+            if (!line) {
+                return;
+            }
             Object.entries(changes).forEach(([key, value]) => {
                 if (key === "quantity") {
                     line.setQuantity(value);

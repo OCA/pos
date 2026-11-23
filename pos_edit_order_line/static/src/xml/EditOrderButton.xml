@@ -6,11 +6,18 @@
         t-inherit="point_of_sale.ControlButtons"
         t-inherit-mode="extension"
     >
-        <xpath expr="//t[@t-if='props.showRemainingButtons']/div" position="inside">
-            <button t-att-class="buttonClass" t-on-click="onClickEditOrder">
-				<i class="fa fa-pencil-square-o" />
-				Edit Order Lines
-            </button>
+        <xpath
+            expr="//t[@t-if='this.props.showRemainingButtons']/div"
+            position="inside"
+        >
+            <t
+                t-if="this.pos.config.allow_edit_order_line"
+                t-call="point_of_sale.controlButton"
+                icon="'edit'"
+                btnText.translate="Edit Order Lines"
+                btnClasses="'btn-secondary '"
+                onClick="() => this.onClickEditOrder()"
+            />
         </xpath>
     </t>
 

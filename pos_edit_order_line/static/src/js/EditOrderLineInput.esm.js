@@ -1,12 +1,17 @@
-import {Component, useState} from "@odoo/owl";
+import {Component, proxy, t, useProps} from "@odoo/owl";
 import {usePos} from "@point_of_sale/app/hooks/pos_hook";
 
 export class EditOrderLineInput extends Component {
     static template = "EditOrderLineInput";
+    props = useProps({
+        item: t.object(),
+        onchange: t.function().optional(),
+    });
+
     setup() {
         super.setup();
         this.pos = usePos();
-        this.state = useState({
+        this.state = proxy({
             quantityInput: this.props.item.quantity,
             priceInput: this.props.item.price,
             discountInput: this.props.item.discount,

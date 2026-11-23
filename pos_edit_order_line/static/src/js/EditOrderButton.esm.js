@@ -1,10 +1,9 @@
-/** @odoo-module **/
-import {ControlButtons} from "@point_of_sale/app/screens/product_screen/control_buttons/control_buttons";
-import {_t} from "@web/core/l10n/translation";
-import {patch} from "@web/core/utils/patch";
-import {makeAwaitable} from "@point_of_sale/app/utils/make_awaitable_dialog";
 import {AlertDialog} from "@web/core/confirmation_dialog/confirmation_dialog";
+import {ControlButtons} from "@point_of_sale/app/screens/product_screen/control_buttons/control_buttons";
 import {EditOrderPopup} from "./EditOrderPopup.esm";
+import {_t} from "@web/core/l10n/translation";
+import {makeAwaitable} from "@point_of_sale/app/utils/make_awaitable_dialog";
+import {patch} from "@web/core/utils/patch";
 
 patch(ControlButtons.prototype, {
     async onClickEditOrder() {

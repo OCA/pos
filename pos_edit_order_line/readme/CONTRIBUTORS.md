@@ -4,3 +4,4 @@
   - Maxime Franco
 - [Heliconia Solutions Pvt. Ltd.](https://www.heliconia.io)
   - Bhavesh Heliconia
+- Dustin Mimbela \<<dmimbela@nlcode.com>\>

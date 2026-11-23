@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="EditOrderPopup" owl="1">
+    <t t-name="EditOrderPopup">
         <Dialog title.translate="Edit Order Lines">
             <main class="full-content edit-order-popup">
                 <div class="order-line-window">
@@ -16,22 +16,22 @@
                                             <th>UoM</th>
                                             <th>Price excl. VAT</th>
                                             <th
-                                                t-if="pos.config.manual_discount"
+                                                t-if="this.pos.config.manual_discount"
                                             >Discount</th>
                                         </tr>
                                     </thead>
                                     <tbody
                                         class="order-line-list-contents"
-                                        t-on-onchange="_onchange"
+                                        t-on-onchange="this._onchange"
                                     >
                                         <t
-                                            t-foreach="state.array"
+                                            t-foreach="this.state.array"
                                             t-as="item"
                                             t-key="item._id"
                                         >
                                             <EditOrderLineInput
                                                 item="item"
-                                                onchange="handleChange"
+                                                onchange="this.handleChange"
                                             />
                                         </t>
                                     </tbody>
@@ -43,16 +43,16 @@
                 <t t-set-slot="footer">
                     <button
                         class="button confirm btn btn-lg lh-lg btn-primary"
-                        t-on-click="confirm"
+                        t-on-click="this.confirm"
                     >
-						Confirm
-					</button>
+                        Confirm
+                    </button>
                     <button
                         class="button cancel btn btn-lg lh-lg btn-secondary"
-                        t-on-click="props.close"
+                        t-on-click="this.props.close"
                     >
-						Cancel
-					</button>
+                        Cancel
+                    </button>
                 </t>
             </main>
         </Dialog>
