@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="group_assigned_points_of_sale_user" model="res.groups">
         <field name="name">User: Assigned POS Only</field>
