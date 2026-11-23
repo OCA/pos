@@ -18,7 +18,6 @@ class SaleOrder(models.Model):
 
     pos_session_id = fields.Many2one(
         comodel_name="pos.session",
-        string="Pos Session",
         readonly=True,
     )
 
