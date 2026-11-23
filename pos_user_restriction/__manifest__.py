@@ -3,7 +3,7 @@
 {
     "name": "Point of Sale - Restrict users",
     "summary": "Restrict some users to see and use only certain points of sale",
-    "version": "18.0.1.1.0",
+    "version": "20.0.1.0.0",
     "development_status": "Beta",
     "category": "Point of Sale",
     "website": "https://github.com/OCA/pos",
@@ -17,7 +17,7 @@
     ],
     "data": [
         "security/pos_security.xml",
-        "security/ir.model.access.csv",
+        "security/ir.access.csv",
         "views/pos_config_views.xml",
         "views/point_of_sale_views.xml",
     ],

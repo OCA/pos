@@ -22,7 +22,7 @@ class TestHacks(TestPoSCommon):
 
         session = self.open_new_session()
 
-        # make sure it does raise AccessError
+        # make sure it does not raise AccessError
         session.with_user(restricted_user).get_closing_control_data()
 
     def test_validate_session(self):
@@ -55,7 +55,6 @@ class TestHacks(TestPoSCommon):
                 "amount_total": 200,
                 "amount_paid": 0.0,
                 "amount_return": 0.0,
-                "last_order_preparation_change": "{}",
             }
         )
         context_make_payment = {
@@ -75,4 +74,4 @@ class TestHacks(TestPoSCommon):
         self.pos_make_payment.with_context(**context_payment).check()
 
         # make sure it doesn't raise AccessError
-        session.with_user(restricted_user).action_pos_session_closing_control()
+        session.with_user(restricted_user).close_session_from_ui()

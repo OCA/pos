@@ -5,19 +5,22 @@
         <field name="model">pos.config</field>
         <field name="inherit_id" ref="point_of_sale.pos_config_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//sheet/div[last()]" position="after">
-                <block title="Users" groups="point_of_sale.group_pos_manager">
-                    <setting
-                        string="Users assigned to this point of sale"
-                        help="Restrict some users to only access their assigned points of sale. In order to apply the restriction, the user needs the 'User: Assigned POS Only' group"
-                    >
-                        <field
-                            name="assigned_user_ids"
-                            widget="many2many_tags"
-                            options="{'no_create': True}"
-                        />
-                    </setting>
-                </block>
+            <xpath
+                expr="//page[@name='configuration']/div[hasclass('o_settings_container')]"
+                position="inside"
+            >
+                <setting
+                    id="assigned_users_setting"
+                    string="Users assigned to this point of sale"
+                    help="Restrict some users to only access their assigned points of sale. In order to apply the restriction, the user needs the 'User: Assigned POS Only' group"
+                    groups="point_of_sale.group_pos_manager"
+                >
+                    <field
+                        name="assigned_user_ids"
+                        widget="many2many_tags"
+                        options="{'no_create': True}"
+                    />
+                </setting>
             </xpath>
         </field>
     </record>

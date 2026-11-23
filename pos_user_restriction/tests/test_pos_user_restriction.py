@@ -1,10 +1,10 @@
 from odoo.fields import Command
 from odoo.tests import new_test_user
 
-from odoo.addons.base.tests.common import BaseCommon
+from odoo.addons.point_of_sale.tests.common import TestPoSCommon
 
 
-class TestUserRestriction(BaseCommon):
+class TestUserRestriction(TestPoSCommon):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -18,7 +18,7 @@ class TestUserRestriction(BaseCommon):
             login="pos_user_assigned_pos",
             groups="pos_user_restriction.group_assigned_points_of_sale_user",
         )
-        cls.pos_config_main = cls.env.ref("point_of_sale.pos_config_main")
+        cls.pos_config_main = cls.basic_config
         cls.pos_config_model = cls.env["pos.config"]
 
     def test_access_pos(self):

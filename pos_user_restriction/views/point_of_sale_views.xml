@@ -2,8 +2,8 @@
 <odoo>
     <record id="point_of_sale.menu_point_root" model="ir.ui.menu">
         <field
-            eval="[(4,ref('group_assigned_points_of_sale_user'))]"
-            name="groups_id"
+            eval="[Command.link(ref('group_assigned_points_of_sale_user'))]"
+            name="group_ids"
         />
     </record>
 </odoo>

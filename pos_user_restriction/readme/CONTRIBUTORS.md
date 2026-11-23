@@ -1,4 +1,5 @@
 - Lorenzo Battistini (<https://takobi.online>)
 - Helly kapatel \<<helly.kapatel@initos.com>\>
-- [APSL-Nagarro\](<https://apsl.tech>):
+- [APSL-Nagarro](<https://apsl.tech>):
   - Antoni Marroig \<<amarroig@apsl.net>\>
+- Dustin Mimbela \<<dmimbela@nlcode.com>\>

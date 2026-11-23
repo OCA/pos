@@ -1,0 +1,34 @@
+id,name,model_id,group_id/id,operation,domain
+pos_config_assigned_users,Assigned points of sale,pos.config,group_assigned_points_of_sale_user,ru,"['|', ('assigned_user_ids', 'in', user.id), ('assigned_user_ids', '=', False)]"
+pos_session_assigned_users,Assigned POS sessions,pos.session,group_assigned_points_of_sale_user,cru,"['|', ('config_id.assigned_user_ids', 'in', user.id), ('config_id.assigned_user_ids', '=', False)]"
+pos_order_assigned_users,Assigned POS orders,pos.order,group_assigned_points_of_sale_user,crud,"['|', ('session_id.config_id.assigned_user_ids', 'in', user.id), ('session_id.config_id.assigned_user_ids', '=', False)]"
+pos_order_report_assigned_users,Assigned POS report orders,report.pos.order,group_assigned_points_of_sale_user,r,"['|', ('config_id.assigned_user_ids', 'in', user.id), ('config_id.assigned_user_ids', '=', False)]"
+access_pos_order_line,pos.order.line,pos.order.line,group_assigned_points_of_sale_user,crud,
+access_account_journal_pos_user,account.journal pos_user,account.journal,group_assigned_points_of_sale_user,r,
+rule_pos_bank_statement_line_user,Point Of Sale Bank Statement Line POS User,account.bank.statement.line,group_assigned_points_of_sale_user,cru,"[('pos_session_id', '!=', False)]"
+access_product_product,product.product,product.product,group_assigned_points_of_sale_user,r,
+access_product_template_pos_user,product.template pos user,product.template,group_assigned_points_of_sale_user,r,
+access_product_product_supplierinfo_user,product.supplierinfo user,product.supplierinfo,group_assigned_points_of_sale_user,r,
+access_product_pricelist_user,product.pricelist user,product.pricelist,group_assigned_points_of_sale_user,r,
+access_barcode_nomenclature_pos_user,barcode.nomenclature.pos.user,barcode.nomenclature,group_assigned_points_of_sale_user,r,
+access_barcode_rule_pos_user,barcode.rule.pos.user,barcode.rule,group_assigned_points_of_sale_user,r,
+access_decimal_precision_user,decimal.precision,decimal.precision,group_assigned_points_of_sale_user,r,
+access_pos_payment_user,pos.payment user,pos.payment,group_assigned_points_of_sale_user,crud,
+access_pos_payment_method_user,pos.payment.method user,pos.payment.method,group_assigned_points_of_sale_user,r,
+access_product_combo_user,product.combo user,product.combo,group_assigned_points_of_sale_user,r,
+access_pos_combo_item_user,product.combo.item user,product.combo.item,group_assigned_points_of_sale_user,r,
+access_account_cash_rounding_pos_user,account.cash.rounding.pos.user,account.cash.rounding,group_assigned_points_of_sale_user,r,
+access_pos_bill_user,pos.bill,pos.bill,group_assigned_points_of_sale_user,crud,
+rule_invoice_pos_user,Invoice POS User,account.move,group_assigned_points_of_sale_user,r,"[('pos_order_ids', '!=', False)]"
+base_user_account_move_line_rule,Normal User Account Move Line,account.move.line,group_assigned_points_of_sale_user,r,"[('move_id', 'access', 'read')]"
+access_pos_note,pos.note.user,pos.note,group_assigned_points_of_sale_user,r,
+access_pos_preset,pos.preset.user,pos.preset,group_assigned_points_of_sale_user,r,
+access_pos_make_invoice,pos.make.invoice.user,pos.make.invoice,group_assigned_points_of_sale_user,cru,
+access_pos_confirmation_wizard,pos.confirmation.wizard.user,pos.confirmation.wizard,group_assigned_points_of_sale_user,crud,
+access_pos_snooze,pos.snooze.user,pos.snooze,group_assigned_points_of_sale_user,crud,
+res_partner_rule_user,user read access,res.partner,group_assigned_points_of_sale_user,r,
+access_preparation_line,pos.prep.line,pos.prep.line,group_assigned_points_of_sale_user,crud,
+access_preparation_order,pos.prep.order,pos.prep.order,group_assigned_points_of_sale_user,crud,
+access_pos_price_inclusion_wizard,pos.price.inclusion.wizard.user,pos.price.inclusion.wizard,group_assigned_points_of_sale_user,crud,
+access_account_bank_statement,account.bank.statement,account.bank.statement,group_assigned_points_of_sale_user,cru,
+access_pos_printer,pos.printer.user,pos.printer,group_assigned_points_of_sale_user,r,
