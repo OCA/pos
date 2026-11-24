@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Cetmix OÜ
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_order_mark_paid.PaymentScreenButtons"
+        t-inherit="point_of_sale.PaymentScreenButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath expr="//button[hasclass('js_invoice')]" position="after">
+            <button
+                t-if="pos.config.mark_paid_enabled"
+                class="button js_mark_paid btn btn-light py-3 text-start rounded-0 border-bottom"
+                t-att-class="{ 'highlight text-bg-primary': currentOrder.isMarkedPaid() }"
+                t-on-click="toggleMarkPaid"
+            >
+                <i class="fa fa-check-square-o me-2" />Mark as Paid
+            </button>
+        </xpath>
+    </t>
+</templates>
