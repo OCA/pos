@@ -1,0 +1,289 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_order_mark_paid
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,help:pos_order_mark_paid.field_pos_config__mark_paid_account_id
+#: model:ir.model.fields,help:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_account_id
+msgid "Account that receives the written-off residual amounts."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,help:pos_order_mark_paid.field_pos_config__mark_paid_enabled
+#: model:ir.model.fields,help:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_enabled
+#: model_terms:ir.ui.view,arch_db:pos_order_mark_paid.res_config_settings_view_form
+msgid ""
+"Allow cashiers to settle a cash order paid slightly short and write off the "
+"residual"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model,name:pos_order_mark_paid.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid "Finish or remove the pending payments first."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,help:pos_order_mark_paid.field_pos_config__mark_paid_label
+#: model:ir.model.fields,help:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_label
+msgid ""
+"Label of the write-off line on the receipt and on the invoice, e.g. 'Extra "
+"discount'."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#: code:addons/pos_order_mark_paid/static/src/app/payment_screen/payment_screen.esm.js:0
+#: code:addons/pos_order_mark_paid/static/src/app/payment_screen/payment_screen.xml:0
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_pos_config__mark_paid_enabled
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_enabled
+#, python-format
+msgid "Mark as Paid"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_res_config_settings__mark_paid_currency_id
+msgid "Mark as Paid Currency"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid "Mark as Paid is not available with a Customer Account payment."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#, python-format
+msgid "Mark as Paid is not enabled in the Point of Sale %(pos)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid "Mark as Paid is only available for orders with a positive total."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid "Mark as Paid requires a cash payment."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_config.py:0
+#, python-format
+msgid ""
+"Max Write-off (%%) must be between 0 and 100 in the Point of Sale %(pos)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_pos_config__mark_paid_max_percent
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_max_percent
+msgid "Max Write-off (%)"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_pos_config__mark_paid_max_amount
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_max_amount
+msgid "Max Write-off Amount"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_config.py:0
+#, python-format
+msgid "Max Write-off Amount cannot be negative in the Point of Sale %(pos)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,help:pos_order_mark_paid.field_pos_config__mark_paid_max_amount
+#: model:ir.model.fields,help:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_max_amount
+msgid "Maximum write-off amount. 0 means no limit."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,help:pos_order_mark_paid.field_pos_config__mark_paid_max_percent
+#: model:ir.model.fields,help:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_max_percent
+msgid ""
+"Maximum write-off, in percent of the order total including taxes. 0 means no"
+" limit."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid "Nothing is left to pay."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model,name:pos_order_mark_paid.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model,name:pos_order_mark_paid.model_report_point_of_sale_report_saledetails
+msgid "Point of Sale Details"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model,name:pos_order_mark_paid.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model,name:pos_order_mark_paid.model_pos_session
+msgid "Point of Sale Session"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_pos_config__mark_paid_label
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_label
+msgid "Receipt Label"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,help:pos_order_mark_paid.field_pos_order__write_off_amount
+msgid ""
+"Residual amount not received from the customer and written off with Mark as "
+"Paid."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_config.py:0
+#, python-format
+msgid ""
+"Set Max Write-off (%%) or Max Write-off Amount to use Mark as Paid in the "
+"Point of Sale %(pos)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_config.py:0
+#, python-format
+msgid "Set a Receipt Label to use Mark as Paid in the Point of Sale %(pos)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_config.py:0
+#, python-format
+msgid ""
+"Set a Write-off Account to use Mark as Paid in the Point of Sale %(pos)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_config.py:0
+#, python-format
+msgid ""
+"The Write-off Account of the Point of Sale %(pos)s cannot be a receivable, "
+"payable or off-balance account."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid ""
+"The residual %(residual)s exceeds %(percent)s% of the order total (%(max)s)."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#, python-format
+msgid ""
+"The residual %(residual)s exceeds %(percent)s%% of the order total "
+"(%(max)s)."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#: code:addons/pos_order_mark_paid/static/src/overrides/models.esm.js:0
+#, python-format
+msgid "The residual %(residual)s exceeds the maximum write-off of %(max)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#, python-format
+msgid ""
+"The write-off amount %(write_off)s does not match the residual %(residual)s."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#, python-format
+msgid "The write-off amount of the order %(order)s cannot be negative."
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#: code:addons/pos_order_mark_paid/static/src/app/order_receipt/order_receipt.xml:0
+#, python-format
+msgid "To Pay"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_order_mark_paid/models/pos_order.py:0
+#: code:addons/pos_order_mark_paid/models/pos_session.py:0
+#: code:addons/pos_order_mark_paid/static/src/app/payment_status/payment_status.xml:0
+#, python-format
+msgid "Write-off"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_pos_config__mark_paid_account_id
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_res_config_settings__pos_mark_paid_account_id
+msgid "Write-off Account"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model:ir.model.fields,field_description:pos_order_mark_paid.field_pos_order__write_off_amount
+#: model_terms:ir.ui.view,arch_db:pos_order_mark_paid.pos_order_view_tree
+msgid "Write-off Amount"
+msgstr ""
+
+#. module: pos_order_mark_paid
+#: model_terms:ir.ui.view,arch_db:pos_order_mark_paid.report_saledetails
+msgid "Write-off:"
+msgstr ""
