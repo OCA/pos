@@ -20,6 +20,33 @@ registry.category("web_tour.tours").add("PosSalePickingKeep1", {
             Chrome.endTour(),
         ].flat(),
 });
+registry.category("web_tour.tours").add("PosSalePickingKeep1MultiLots", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+            PosSale.settleNthOrder(1),
+            ProductScreen.selectedOrderlineHas("Test Product"),
+            {
+                content: "Open lot editor for first orderline",
+                trigger: ".order-container .orderline:nth-child(1) .line-lot-icon",
+                run: "click",
+            },
+            ProductScreen.enterLotNumber("1001"),
+            ProductScreen.selectedOrderlineHas("Test Product"),
+            {
+                content: "Open lot editor for second orderline",
+                trigger: ".order-container .orderline:nth-child(2) .line-lot-icon",
+                run: "click",
+            },
+            ProductScreen.enterLotNumber("1002"),
+            ProductScreen.clickPayButton(),
+            PaymentScreen.clickPaymentMethod("Bank", true, {remaining: "0.0"}),
+            PaymentScreen.clickValidate(),
+            ReceiptScreen.isShown(),
+            Chrome.endTour(),
+        ].flat(),
+});
 registry.category("web_tour.tours").add("PosSalePickingKeep2", {
     steps: () =>
         [
