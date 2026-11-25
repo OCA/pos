@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Cetmix OÜ
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//setting[.//field[@name='pos_cash_rounding']]"
+                position="after"
+            >
+                <setting
+                    id="pos_mark_paid"
+                    help="Allow cashiers to settle a cash order paid slightly short and write off the residual"
+                >
+                    <field
+                        name="pos_mark_paid_enabled"
+                        readonly="pos_has_active_session"
+                    />
+                    <div
+                        class="content-group mt16"
+                        invisible="not pos_mark_paid_enabled"
+                    >
+                        <field name="mark_paid_currency_id" invisible="1" />
+                        <div class="row mt16">
+                            <label
+                                for="pos_mark_paid_account_id"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field
+                                name="pos_mark_paid_account_id"
+                                required="pos_mark_paid_enabled"
+                                domain="[('deprecated', '=', False), ('account_type', 'not in', ('asset_receivable', 'liability_payable', 'off_balance')), ('company_id', '=', company_id)]"
+                                readonly="pos_has_active_session"
+                            />
+                        </div>
+                        <div class="row mt16">
+                            <label
+                                for="pos_mark_paid_max_percent"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field
+                                name="pos_mark_paid_max_percent"
+                                readonly="pos_has_active_session"
+                            />
+                        </div>
+                        <div class="row mt16">
+                            <label
+                                for="pos_mark_paid_max_amount"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field
+                                name="pos_mark_paid_max_amount"
+                                readonly="pos_has_active_session"
+                            />
+                        </div>
+                        <div class="row mt16">
+                            <label
+                                for="pos_mark_paid_label"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field
+                                name="pos_mark_paid_label"
+                                required="pos_mark_paid_enabled"
+                                readonly="pos_has_active_session"
+                            />
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>
