@@ -1,0 +1,65 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_require_product_quantity
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2022-02-01 12:33+0000\n"
+"Last-Translator: Pedro Castro Silva <pedrocs@exo.pt>\n"
+"Language-Team: none\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.3.2\n"
+
+#. module: pos_require_product_quantity
+#: model:ir.model.fields,field_description:pos_require_product_quantity.field_pos_config__display_name
+msgid "Display Name"
+msgstr "Nome a Exibir"
+
+#. module: pos_require_product_quantity
+#: model:ir.model.fields,field_description:pos_require_product_quantity.field_pos_config__id
+msgid "ID"
+msgstr "ID"
+
+#. module: pos_require_product_quantity
+#: model:ir.model.fields,field_description:pos_require_product_quantity.field_pos_config____last_update
+msgid "Last Modified on"
+msgstr "Última Modificação em"
+
+#. module: pos_require_product_quantity
+#. openerp-web
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:0
+#, python-format
+msgid "Missing quantities"
+msgstr "Quantidades em falta"
+
+#. module: pos_require_product_quantity
+#. openerp-web
+#: code:addons/pos_require_product_quantity/static/src/js/screens.js:0
+#, python-format
+msgid "No quantity set for products:"
+msgstr "Não foi definida quantidade para os produtos:"
+
+#. module: pos_require_product_quantity
+#: model:ir.model,name:pos_require_product_quantity.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuração do Ponto de Venda"
+
+#. module: pos_require_product_quantity
+#: model:ir.model.fields,field_description:pos_require_product_quantity.field_pos_config__require_product_quantity
+msgid "Require product quantity in POS"
+msgstr "Requerer quantidade no POS"
+
+#. module: pos_require_product_quantity
+#: model_terms:ir.ui.view,arch_db:pos_require_product_quantity.pos_config_view_form
+msgid ""
+"Show pop-up when product quantity is set to 0 for one or more order lines "
+"when clicking on \"Payment\" button."
+msgstr ""
+"Exibir pop-up quando a quantidade do produto for 0 em pelo menos uma linha "
+"ao clicar no botão \"Pagamento\"."
