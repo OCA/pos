@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_partner_firstname
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-02-04 12:37+0000\n"
+"Last-Translator: Cyril VINH-TUNG <cyril@invitu.com>\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.17\n"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
+#, python-format
+msgid "Customer firstname or lastname is required"
+msgstr "Le prénom ou le nom de famille doit être saisi"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Firstname"
+msgstr "Prénom"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.xml:0
+#, python-format
+msgid "Lastname"
+msgstr "Nom de famille"
+
+#. module: pos_partner_firstname
+#. odoo-javascript
+#: code:addons/pos_partner_firstname/static/src/app/PartnerDetailsEdit.esm.js:0
+#, python-format
+msgid "Missing information"
+msgstr "Information manquante"
+
+#. module: pos_partner_firstname
+#: model:ir.model.fields,field_description:pos_partner_firstname.field_pos_config__partner_names_order
+msgid "Partner Names Order"
+msgstr "Ordre des noms du client"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Configuration du point de vente"
+
+#. module: pos_partner_firstname
+#: model:ir.model,name:pos_partner_firstname.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Session du point de vente"
+
+#, python-format
+#~ msgid "Both Customer First and Last Name Are Required"
+#~ msgstr "Les champs prénom et nom de famille sont obligatoires."
+
+#, python-format
+#~ msgid "Company"
+#~ msgstr "Société"
+
+#~ msgid "Contact"
+#~ msgstr "Contact"
+
+#, python-format
+#~ msgid "First Name"
+#~ msgstr "Prénom"
+
+#, python-format
+#~ msgid "FirstName"
+#~ msgstr "Prénom"
+
+#, python-format
+#~ msgid "Last Name"
+#~ msgstr "Nom de famille"
+
+#, python-format
+#~ msgid "LastName"
+#~ msgstr "Nom de famille"
