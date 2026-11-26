@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 INVITU (<https://www.invitu.com>) -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<odoo>
+    <record id="product_attribute_view_form" model="ir.ui.view">
+        <field name="name">product.attribute.form.pos.hide</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form" />
+        <field name="arch" type="xml">
+            <field name="create_variant" position="after">
+                <field
+                    name="pos_hide_on_receipt"
+                    invisible="create_variant != 'no_variant'"
+                />
+                <field
+                    name="pos_hide_on_kitchen_ticket"
+                    invisible="create_variant != 'no_variant'"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
