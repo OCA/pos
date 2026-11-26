@@ -1,0 +1,94 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_container_deposit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-02-03 22:06+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.6.2\n"
+
+#. module: pos_container_deposit
+#: model:product.template,name:pos_container_deposit.demo_deposit_product_product_template
+msgid "Bottle deposit .25"
+msgstr "Cauzione bottiglia .25"
+
+#. module: pos_container_deposit
+#: model:ir.model.fields,help:pos_container_deposit.field_product_product__is_deposit
+#: model:ir.model.fields,help:pos_container_deposit.field_product_template__is_deposit
+msgid "Check this if this product is a container for which you charge deposit"
+msgstr ""
+"Selezionare se questo prodotto è un contenitore per il quale si applica una "
+"cauzione"
+
+#. module: pos_container_deposit
+#: model:ir.model.fields,field_description:pos_container_deposit.field_product_product__deposit_product_id
+msgid "Deposit"
+msgstr "Deposito"
+
+#. module: pos_container_deposit
+#. odoo-javascript
+#: code:addons/pos_container_deposit/static/src/js/models.js:0
+#, python-format
+msgid "Deposit not available"
+msgstr "Deposito non disponibile"
+
+#. module: pos_container_deposit
+#: model:ir.model.fields,field_description:pos_container_deposit.field_product_template__deposit_product_id
+msgid "Deposit product"
+msgstr "Prodotto deposito"
+
+#. module: pos_container_deposit
+#: model:product.template,name:pos_container_deposit.demo_product_product_template
+msgid "Generic sugar liquid"
+msgstr "Liquido dolcificante generico"
+
+#. module: pos_container_deposit
+#: model:ir.model.fields,help:pos_container_deposit.field_product_product__deposit_product_id
+#: model:ir.model.fields,help:pos_container_deposit.field_product_template__deposit_product_id
+msgid ""
+"If this product is packaged in a container for which you charge deposit, add"
+" a product here that stands for the deposit"
+msgstr ""
+"Se questo prodotto è imballato in un contenitore per il quale si applica una "
+"cauzione, aggiungere qui un prodotto per la cauzione"
+
+#. module: pos_container_deposit
+#: model:ir.model.fields,field_description:pos_container_deposit.field_product_product__is_deposit
+#: model:ir.model.fields,field_description:pos_container_deposit.field_product_template__is_deposit
+msgid "Is Deposit"
+msgstr "È una cauzione"
+
+#. module: pos_container_deposit
+#: model:ir.model,name:pos_container_deposit.model_pos_session
+msgid "Point of Sale Session"
+msgstr "Sessione punto vendita"
+
+#. module: pos_container_deposit
+#: model:ir.model,name:pos_container_deposit.model_product_template
+msgid "Product"
+msgstr "Prodotto"
+
+#. module: pos_container_deposit
+#: model:ir.model,name:pos_container_deposit.model_product_product
+msgid "Product Variant"
+msgstr "Variante prodotto"
+
+#. module: pos_container_deposit
+#. odoo-javascript
+#: code:addons/pos_container_deposit/static/src/js/models.js:0
+#, python-format
+msgid ""
+"The product %s is configured as having a deposit but the deposit product %s "
+"is not available in POS."
+msgstr ""
+"Il prodotto %s è configurato con una cauzione ma il prodotto cauzione %s non "
+"è disponibile nel POS."
