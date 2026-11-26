@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 INVITU (https://www.invitu.com) -->
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
+<templates id="template" xml:space="preserve">
+    <t
+        t-name="pos_order_line_change_variant.ProductConfiguratorPopup"
+        t-inherit="point_of_sale.ProductConfiguratorPopup"
+        t-inherit-mode="extension"
+    >
+        <!-- Stock template never passes defaultValues to MultiProductAttribute. -->
+        <xpath expr="//MultiProductAttribute" position="attributes">
+            <attribute name="defaultValues">this.props.defaultValues</attribute>
+        </xpath>
+    </t>
+</templates>
