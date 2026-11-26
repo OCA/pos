@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="rule_pos_config_user_allowed" model="ir.rule">
+        <field name="name">POS Config: User Allowed POS</field>
+        <field name="model_id" ref="point_of_sale.model_pos_config" />
+        <field
+            name="domain_force"
+        >[('id', 'in', user.allowed_pos_config_ids.ids)] if user.allowed_pos_config_ids else [(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_pos_session_user_allowed" model="ir.rule">
+        <field name="name">POS Session: User Allowed POS</field>
+        <field name="model_id" ref="point_of_sale.model_pos_session" />
+        <field
+            name="domain_force"
+        >[('config_id', 'in', user.allowed_pos_config_ids.ids)] if user.allowed_pos_config_ids else [(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_pos_order_user_allowed" model="ir.rule">
+        <field name="name">POS Order: User Allowed POS</field>
+        <field name="model_id" ref="point_of_sale.model_pos_order" />
+        <field
+            name="domain_force"
+        >[('config_id', 'in', user.allowed_pos_config_ids.ids)] if user.allowed_pos_config_ids else [(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_pos_order_line_user_allowed" model="ir.rule">
+        <field name="name">POS Order Line: User Allowed POS</field>
+        <field name="model_id" ref="point_of_sale.model_pos_order_line" />
+        <field
+            name="domain_force"
+        >[('order_id.config_id', 'in', user.allowed_pos_config_ids.ids)] if user.allowed_pos_config_ids else [(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_pos_payment_user_allowed" model="ir.rule">
+        <field name="name">POS Payment: User Allowed POS</field>
+        <field name="model_id" ref="point_of_sale.model_pos_payment" />
+        <field
+            name="domain_force"
+        >[('pos_order_id.config_id', 'in', user.allowed_pos_config_ids.ids)] if user.allowed_pos_config_ids else [(1, '=', 1)]</field>
+    </record>
+
+    <record id="rule_pos_order_report_user_allowed" model="ir.rule">
+        <field name="name">POS Order Analysis: User Allowed POS</field>
+        <field name="model_id" ref="point_of_sale.model_report_pos_order" />
+        <field
+            name="domain_force"
+        >[('config_id', 'in', user.allowed_pos_config_ids.ids)] if user.allowed_pos_config_ids else [(1, '=', 1)]</field>
+    </record>
+</odoo>
