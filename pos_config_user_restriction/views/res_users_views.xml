@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_users_form_pos_config_restriction" model="ir.ui.view">
+        <field name="name">res.users.form.pos.config.restriction</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']/group[1]" position="after">
+                <group string="Point of Sale Access">
+                    <field
+                        name="allowed_pos_config_ids"
+                        widget="many2many_tags"
+                        options="{'no_create': True}"
+                        placeholder="Leave empty to allow all POS"
+                    />
+                    <field
+                        name="hide_pos_config_menus"
+                        invisible="not allowed_pos_config_ids"
+                    />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
