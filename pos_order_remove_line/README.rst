@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 =====================
 POS Order Remove Line
 =====================
@@ -17,7 +13,7 @@ POS Order Remove Line
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fpos-lightgray.png?logo=github
@@ -43,9 +39,9 @@ interface.
 Configuration
 =============
 
-- Go to *Point of Sale > Configuration > PoS Interface*,
-- Check Show Remove Button and Show Warning in *Remove Order Line in
-  PoS*
+-  Go to *Point of Sale > Configuration > PoS Interface*,
+-  Check Show Remove Button and Show Warning in *Remove Order Line in
+   PoS*
 
 |Config PoS Remove Line|
 
@@ -80,17 +76,17 @@ Authors
 Contributors
 ------------
 
-- Roberto Fichera <roberto.fichera@levelprime.com>
-- Iván Todorovich <ivan.todorovich@gmail.com>
-- Foram Shah <foram.shah@initos.com>
-- Juan Bonilla <juancarlos.bonilla@factorlibre.com>
-- `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
+-  Roberto Fichera <roberto.fichera@levelprime.com>
+-  Iván Todorovich <ivan.todorovich@gmail.com>
+-  Foram Shah <foram.shah@initos.com>
+-  Juan Bonilla <juancarlos.bonilla@factorlibre.com>
+-  `Heliconia Solutions Pvt. Ltd. <https://www.heliconia.io>`__
 
-  - Bhavesh Heliconia
+   -  Bhavesh Heliconia
 
-- `Trobz <https://trobz.com>`__
+-  `Trobz <https://trobz.com>`__
 
-  - Phan Hong Phuc <phucph@trobz.com>
+   -  Phan Hong Phuc <phucph@trobz.com>
 
 Maintainers
 -----------
