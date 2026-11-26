@@ -1,0 +1,50 @@
+.pos .paymentline .is-meal-voucher {
+    text-align: center;
+}
+
+.payment-screen div.meal-voucher-summary .fa-warning {
+    color: red;
+}
+
+.pos .meal-voucher-summary {
+    // same as .pos .paymentlines
+    display: flex;
+    flex-direction: column;
+    border-spacing: 0px 10px;
+    border-collapse: inherit;
+}
+.pos .meal-voucher-summary .title-category {
+    margin-top: 10px;
+}
+.pos .meal-voucher-summary-container {
+    padding: 0 0 map-get($spacers, 2) 0;
+}
+
+.pos .meal-voucher-summary-line {
+    // same as .pos .paymentline, with some changes
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 100%;
+    background: #fff;
+    font-size: 16px;
+    border-top-width: 0px;
+    padding: map-get($spacers, 2) 0;
+    align-items: center;
+}
+
+.meal-voucher-summary-line .meal-voucher-summary-line-name {
+    flex-grow: 1;
+    padding: 0 map-get($spacers, 3);
+}
+
+.meal-voucher-summary-line .meal-voucher-summary-line-amount {
+    padding: 0 map-get($spacers, 3);
+}
+
+.meal-voucher-summary-line .meal-voucher-summary-line-warning {
+    font-size: 20px;
+}
+
+.pos-receipt-meal-voucher-totals {
+    font-size: 75%;
+}

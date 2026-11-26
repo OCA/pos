@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('receipt-total')]" position="before">
+            <t t-if="props.data.display_meal_voucher_info">
+                <t t-set="meal_voucher" t-value="props.data.meal_voucher_info" />
+                <br />
+                <span t-out="meal_voucher.meal_voucher_note" />
+                <div class="receipt-total-meal-voucher">
+                    <t t-out="meal_voucher.label_eligible" />
+                    <span
+                        t-out="props.formatCurrency(meal_voucher.total_eligible)"
+                        class="pos-receipt-right-align"
+                    />
+                </div>
+                <div class="receipt-total-meal-voucher">
+                    <t t-out="meal_voucher.label_non_eligible" />
+                    <span
+                        t-out="props.formatCurrency(meal_voucher.total_non_eligible)"
+                        class="pos-receipt-right-align"
+                    />
+                </div>
+                <div class="text-center">--------------------------------</div>
+                <br />
+            </t>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="template" xml:space="preserve">
+
+    <t t-inherit="point_of_sale.OrderWidget" t-inherit-mode="extension">
+        <xpath expr="//div[@t-if='taxTotals.has_tax_groups']" position="after">
+            <div class="d-flex justify-content-between w-100 fs-6 text-muted">
+                Meal Voucher
+                <span
+                t-esc="formatMonetary(getMealVoucherTotal(), {currencyId: taxTotals.currency_id})"
+                class="meal_voucher_total"
+            />
+            </div>
+        </xpath>
+    </t>
+</templates>
