@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_pos_payment_inherit" model="ir.ui.view">
+        <field name="model">pos.make.payment</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_payment" />
+        <field name="arch" type="xml">
+            <field name="payment_method_id" position="after">
+                <field name="is_credit" invisible="not is_credit" />
+            </field>
+        </field>
+    </record>
+</odoo>

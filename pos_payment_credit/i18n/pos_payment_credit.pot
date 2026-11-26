@@ -1,0 +1,225 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_payment_credit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-23 05:01+0000\n"
+"PO-Revision-Date: 2026-02-23 05:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_pos_make_payment__is_credit
+msgid "Allow to add credit for members"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "An error occurred while processing the payment."
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_pos_payment_method__auto_apply_credit_amount
+msgid "Automatic Pay by Credit Amount"
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_pos_payment_method__auto_apply_credit_amount_mode
+msgid "Automatic Pay by Credit Amount Mode"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.xml:0
+#: model:ir.model.fields,field_description:pos_payment_credit.field_res_partner__credit_amount
+#: model:ir.model.fields,field_description:pos_payment_credit.field_res_users__credit_amount
+msgid "Available Credit"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Confirm Credit Payment"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Confirm Refund to Credit"
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model,name:pos_payment_credit.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#. odoo-python
+#: code:addons/pos_payment_credit/models/pos_payment_method.py:0
+#: code:addons/pos_payment_credit/static/src/overrides/components/partner_list/partner_list.xml:0
+#: model:pos.payment.method,name:pos_payment_credit.credit_payment_method
+#: model_terms:ir.ui.view,arch_db:pos_payment_credit.view_partner_property_form_inherit
+msgid "Credit"
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_res_partner__credit_line_ids
+#: model:ir.model.fields,field_description:pos_payment_credit.field_res_users__credit_line_ids
+#: model_terms:ir.ui.view,arch_db:pos_payment_credit.view_partner_property_form_inherit
+msgid "Credit History"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Customer Required"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Customer has insufficient credit balance. Available: %s, Required: %s"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid ""
+"Customer has only %s credit available. Do you want to apply the available "
+"credit and pay the rest with another method?"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "Failed to get balance"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Insufficient Credit"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-python
+#: code:addons/pos_payment_credit/models/pos_payment_method.py:0
+msgid "Insufficient credit balance"
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model.fields,field_description:pos_payment_credit.field_pos_payment__is_credit_payment
+msgid "Is Credit Payment"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "No customer selected for credit payment"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Partial Credit Available"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-python
+#: code:addons/pos_payment_credit/models/pos_payment_method.py:0
+msgid "Partner not found"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid ""
+"Pay %s with customer credit?\n"
+"\n"
+"Current balance: %s\n"
+"Remaining: %s"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Payment Failed"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/payment_credit.esm.js:0
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "Payment processing failed"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "Payment successful. Remaining credit: %s"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Please process all credit payments before validating the order."
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Please select a customer to use credit payment."
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model,name:pos_payment_credit.model_pos_payment_method
+msgid "Point of Sale Payment Methods"
+msgstr ""
+
+#. module: pos_payment_credit
+#: model:ir.model,name:pos_payment_credit.model_pos_payment
+msgid "Point of Sale Payments"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid ""
+"Process refund of %s to customer credit?\n"
+"\n"
+"Current balance: %s\n"
+"New balance: %s"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "Processing payment with credit..."
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "Processing refund to credit..."
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/app/pos_store.esm.js:0
+msgid "Refund processed. New balance: %s"
+msgstr ""
+
+#. module: pos_payment_credit
+#. odoo-javascript
+#: code:addons/pos_payment_credit/static/src/overrides/components/payment_screen/payment_screen.esm.js:0
+msgid "Unprocessed Credit Payments"
+msgstr ""
