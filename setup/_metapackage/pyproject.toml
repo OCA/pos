@@ -1,0 +1,11 @@
+[project]
+name = "odoo-addons-oca-pos"
+version = "20.0.20261127.0"
+dependencies = [
+    "odoo-addon-pos_config_logo==20.0.*",
+]
+classifiers=[
+    "Programming Language :: Python",
+    "Framework :: Odoo",
+    "Framework :: Odoo :: 20.0",
+]
