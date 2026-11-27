@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 ACSONE SA/NV
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="res_partner_demo_partner_ref" model="res.partner">
+        <field name="name">Demo Partner Ref</field>
+        <field
+            eval="[Command.set([ref('base.res_partner_category_11')])]"
+            name="category_id"
+        />
+        <field name="is_company">1</field>
+        <field name="street">Test Street Ref</field>
+        <field name="city">Ref</field>
+        <field name="zip">4000</field>
+        <field name="phone">06 1 577 9330</field>
+        <field name="country_id" ref="base.be" />
+        <field name="email">be@example.com</field>
+        <field name="ref">REF987654321</field>
+    </record>
+</odoo>
