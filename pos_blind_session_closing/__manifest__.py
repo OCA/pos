@@ -1,6 +1,6 @@
 {
     "name": "POS - Blind Session Closing",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "summary": "Hide cash control details in the closing popup",
     "category": "Point of Sale",
     "author": "APSL-Nagarro, Odoo Community Association (OCA)",

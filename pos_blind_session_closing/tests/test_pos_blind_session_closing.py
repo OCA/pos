@@ -1,3 +1,4 @@
+from odoo.fields import Command
 from odoo.tests import tagged
 
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
@@ -14,7 +15,7 @@ class TestPosBlindClosing(TestPointOfSaleHttpCommon):
                     "name": login,
                     "login": login,
                     "email": f"{login}@example.com",
-                    "groups_id": [(6, 0, groups)],
+                    "group_ids": [Command.set(groups)],
                 }
             )
         )
@@ -28,8 +29,7 @@ class TestPosBlindClosing(TestPointOfSaleHttpCommon):
             [base_user, pos_user_group],
         )
 
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "pos_blind_session_closing_hidden_for_cashier",
             login=user.login,
         )
@@ -46,8 +46,7 @@ class TestPosBlindClosing(TestPointOfSaleHttpCommon):
             [base_user, pos_user_group, can_see_closing_amounts],
         )
 
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "pos_blind_session_closing_visible_for_manager",
             login=user.login,
         )

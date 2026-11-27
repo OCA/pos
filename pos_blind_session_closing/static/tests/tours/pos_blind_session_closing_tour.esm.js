@@ -1,6 +1,5 @@
-/* global document */
-import * as Chrome from "@point_of_sale/../tests/tours/utils/chrome_util";
-import * as Dialog from "@point_of_sale/../tests/tours/utils/dialog_util";
+import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
+import * as Dialog from "@point_of_sale/../tests/generic_helpers/dialog_util";
 
 import {registry} from "@web/core/registry";
 
@@ -8,7 +7,7 @@ const CLOSE_POS_POPUP = ".close-pos-popup, .modal-dialog";
 const TOTAL_ORDERS = ".total-orders";
 const PAYMENT_METHODS_OVERVIEW = ".payment-methods-overview";
 
-const CLONE_BUTTON = "button.icon.fa.fa-clone.btn.btn-secondary";
+const CLONE_BUTTON = "button[data-icon='payments']";
 const SECONDARY_BUTTON = "button.button.icon.btn.btn-secondary";
 
 function openClosePosPopup() {

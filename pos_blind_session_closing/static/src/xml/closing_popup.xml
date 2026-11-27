@@ -14,14 +14,14 @@ License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
             <attribute name="t-if">this.canSeeClosingAmounts</attribute>
         </xpath>
 
-        <xpath
-            expr="//button[contains(@class, 'icon fa fa-clone btn btn-secondary')]"
-            position="attributes"
-        >
+        <xpath expr="//button[@data-icon='payments']" position="attributes">
             <attribute name="t-if">this.canSeeClosingAmounts</attribute>
         </xpath>
 
-        <xpath expr="//div[@class='payment-methods-overview']" position="attributes">
+        <xpath
+            expr="//div[contains(@class, 'payment-methods-overview')]"
+            position="attributes"
+        >
             <attribute name="t-if">this.canSeeClosingAmounts</attribute>
         </xpath>
 
