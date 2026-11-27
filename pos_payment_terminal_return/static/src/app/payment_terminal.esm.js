@@ -6,6 +6,11 @@ import {ask} from "@point_of_sale/app/store/make_awaitable_dialog";
 import {patch} from "@web/core/utils/patch";
 import {roundPrecision} from "@web/core/utils/numbers";
 
+const CARD_TYPE_BY_PAYMENT_MODE = {
+    1: "CB contact",
+    B: "CB sans contact",
+};
+
 patch(OCAPaymentTerminal.prototype, {
     wait_terminal_answer() {
         if (
@@ -64,6 +69,10 @@ patch(OCAPaymentTerminal.prototype, {
                 const amount_in = roundPrecision(response.amount_msg / 100, rounding);
                 if (amount_in !== 0) {
                     line.set_amount(amount_in);
+                    const cardType = CARD_TYPE_BY_PAYMENT_MODE[response.payment_mode];
+                    if (cardType) {
+                        line.card_type = cardType;
+                    }
                     if ("payment_terminal_return_message" in response) {
                         const msg = response.payment_terminal_return_message;
                         line.set_payment_terminal_return_message(
