@@ -1,6 +1,6 @@
 [project]
 name = "odoo-addons-oca-pos"
-version = "18.0.20261015.0"
+version = "18.0.20261127.0"
 dependencies = [
     "odoo-addon-pos_barcode_block==18.0.*",
     "odoo-addon-pos_barcode_rule_priced_with_change_rate==18.0.*",
@@ -31,6 +31,7 @@ dependencies = [
     "odoo-addon-pos_supplierinfo_search==18.0.*",
     "odoo-addon-pos_user_restrict_provider_info==18.0.*",
     "odoo-addon-pos_user_restriction==18.0.*",
+    "odoo-addon-sale_product_identification_pos==18.0.*",
 ]
 classifiers=[
     "Programming Language :: Python",

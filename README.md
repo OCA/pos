@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [pos_supplierinfo_search](pos_supplierinfo_search/) | 18.0.1.0.0 | <a href='https://github.com/eLBati'><img src='https://github.com/eLBati.png' width='32' height='32' style='border-radius:50%;' alt='eLBati'/></a> | Search products by supplier data
 [pos_user_restrict_provider_info](pos_user_restrict_provider_info/) | 18.0.1.0.0 | <a href='https://github.com/BernatObrador'><img src='https://github.com/BernatObrador.png' width='32' height='32' style='border-radius:50%;' alt='BernatObrador'/></a> | Restrict provider info to pos users
 [pos_user_restriction](pos_user_restriction/) | 18.0.1.1.0 | <a href='https://github.com/eLBati'><img src='https://github.com/eLBati.png' width='32' height='32' style='border-radius:50%;' alt='eLBati'/></a> | Restrict some users to see and use only certain points of sale
+[sale_product_identification_pos](sale_product_identification_pos/) | 18.0.1.0.0 |  | Sale Product Identification Numbers Pos
 
 [//]: # (end addons)
 
