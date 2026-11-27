@@ -1,0 +1,3 @@
+- [APSL-Nagarro](https://apsl.tech):
+  - Bernat Obrador \<<bernat.obrador@nagarro.com>\>
+- Dustin Mimbela \<<dmimbela@nlcode.com>\>
