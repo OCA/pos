@@ -1,10 +1,10 @@
-import * as Chrome from "@point_of_sale/../tests/tours/utils/chrome_util";
-import * as Dialog from "@point_of_sale/../tests/tours/utils/dialog_util";
-import * as Order from "@point_of_sale/../tests/tours/utils/generic_components/order_widget_util";
-import * as PaymentScreen from "@point_of_sale/../tests/tours/utils/payment_screen_util";
-import * as ProductScreen from "@point_of_sale/../tests/tours/utils/product_screen_util";
-import * as ReceiptScreen from "@point_of_sale/../tests/tours/utils/receipt_screen_util";
-import * as TicketScreen from "@point_of_sale/../tests/tours/utils/ticket_screen_util";
+import * as Chrome from "@point_of_sale/../tests/pos/tours/utils/chrome_util";
+import * as Dialog from "@point_of_sale/../tests/generic_helpers/dialog_util";
+import * as FeedbackScreen from "@point_of_sale/../tests/pos/tours/utils/feedback_screen_util";
+import * as Order from "@point_of_sale/../tests/generic_helpers/order_widget_util";
+import * as PaymentScreen from "@point_of_sale/../tests/pos/tours/utils/payment_screen_util";
+import * as ProductScreen from "@point_of_sale/../tests/pos/tours/utils/product_screen_util";
+import * as TicketScreen from "@point_of_sale/../tests/pos/tours/utils/ticket_screen_util";
 import {registry} from "@web/core/registry";
 
 registry.category("web_tour.tours").add("PosFullRefundTour", {
@@ -27,14 +27,15 @@ registry.category("web_tour.tours").add("PosFullRefundTour", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
-            ReceiptScreen.clickNextOrder(),
+            FeedbackScreen.isShown(),
+            FeedbackScreen.clickNextOrder(),
 
             // Go to refund mode
-            ...ProductScreen.clickRefund(),
-
-            TicketScreen.filterIs("Paid"),
-            TicketScreen.selectOrder("-0001"),
+            Chrome.clickOrders(),
+            TicketScreen.selectFilter("Active"),
+            TicketScreen.selectFilter("Paid"),
+            TicketScreen.selectOrder("0001"),
+            ProductScreen.clickReview(),
 
             // Click the "Do Full Refund" button
             {
@@ -42,11 +43,9 @@ registry.category("web_tour.tours").add("PosFullRefundTour", {
                 run: "click",
             },
 
-            // Verify we're back on product screen with refund order
-            {
-                ...ProductScreen.back(),
-                isActive: ["mobile"],
-            },
+            // In Odoo 20 onDoRefund navigates directly to PaymentScreen
+            PaymentScreen.isShown(),
+            PaymentScreen.clickBack(),
             ProductScreen.isShown(),
 
             // Verify all lines are in the refund order with negative quantities
@@ -67,6 +66,6 @@ registry.category("web_tour.tours").add("PosFullRefundTour", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Bank"),
             PaymentScreen.clickValidate(),
-            ReceiptScreen.isShown(),
+            FeedbackScreen.isShown(),
         ].flat(),
 });

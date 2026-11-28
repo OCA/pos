@@ -9,10 +9,10 @@
         <xpath expr="//InvoiceButton" position="before">
             <button
                 id="set_full_refund_button"
-                class='control-button btn btn-light rounded-0 fw-bolder'
+                class="control-button btn btn-secondary btn-lg lh-lg flex-grow-1 flex-shrink-1"
                 t-on-click="() => this.onDoFullRefund()"
             >
-                <i class="fa fa-cart-arrow-down" />
+                <i class="oi me-1" data-icon="undo" />
                 Do Full Refund
             </button>
         </xpath>

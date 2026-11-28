@@ -1,3 +1,4 @@
+from odoo.fields import Command
 from odoo.tests import tagged
 
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
@@ -16,14 +17,13 @@ class TestPosFullRefund(TestPointOfSaleHttpCommon):
         cls.letter_tray.taxes_id = False
         # Ensure Bank payment method is available in the config
         cls.main_pos_config.write(
-            {"payment_method_ids": [(4, cls.bank_payment_method.id)]}
+            {"payment_method_ids": [Command.link(cls.bank_payment_method.id)]}
         )
 
     def test_pos_full_refund(self):
         """Test that clicking 'Do Full Refund' creates a refund order with all lines."""
         self.main_pos_config.with_user(self.pos_user).open_ui()
-        self.start_tour(
-            "/pos/ui?config_id=%d" % self.main_pos_config.id,
+        self.start_pos_tour(
             "PosFullRefundTour",
             login="pos_user",
         )

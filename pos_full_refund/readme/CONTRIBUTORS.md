@@ -2,3 +2,4 @@
   - Lorenzo Carta
   - Lorenzo Battistini
   - Valerio Paretta
+- Dustin Mimbela \<<dmimbela@nlcode.com>\>
