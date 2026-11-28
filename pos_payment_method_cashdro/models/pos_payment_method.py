@@ -15,6 +15,11 @@ class PosPaymentMethod(models.Model):
     )
     cashdro_user = fields.Char()
     cashdro_password = fields.Char()
+    cashdro_http = fields.Boolean(
+        string="Use HTTP connection",
+        help="Check this to enable HTTP (not secure) connection. You should enable it"
+        " also in Cashdro configuration interface.",
+    )
 
     def _onchange_journal_id(self):
         """Cash payment method force the `use_payment_terminal` to `False` as
@@ -33,3 +38,11 @@ class PosPaymentMethod(models.Model):
         return super(
             PosPaymentMethod, self - cash_payment_types
         )._compute_hide_use_payment_terminal()
+
+    def _load_pos_data_fields(self, config_id):
+        return super()._load_pos_data_fields(config_id) + [
+            "cashdro_host",
+            "cashdro_user",
+            "cashdro_password",
+            "cashdro_http",
+        ]
