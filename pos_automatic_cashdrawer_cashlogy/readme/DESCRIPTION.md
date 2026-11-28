@@ -1,0 +1,2 @@
+- This module adds support for automatic cashdrawers in the Point of Sale with other IP Address different with IoT Box.
+- In user form, you can add `Point of Sale - Allow Cashlogy Config` group to user to display `Cashlogy Admin` popup in PoS.

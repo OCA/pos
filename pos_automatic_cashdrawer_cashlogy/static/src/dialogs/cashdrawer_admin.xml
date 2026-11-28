@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="AutomaticCashdrawerAdmin">
+        <Dialog size="'sm'" title.translate="Cashdrawer Admin">
+            <div class='popup-cashdrawer-admin actions scrollable-y touch-scrollable'>
+                <div class="button btn btn-light" t-on-click="action_print_inventory">
+                    <i class="fa fa-print" />
+                    <span>Print Inventory</span>
+                </div>
+                <div class="button btn btn-light" t-on-click="action_close_till">
+                    <i class="fa fa-balance-scale" />
+                    <span>Close Till / Cash Float</span>
+                </div>
+                <div class="button btn btn-light" t-on-click="action_empty_stacker">
+                    <i class="fa fa-money" />
+                    <span>Empty Stacker</span>
+                </div>
+                <div class="button btn btn-light" t-on-click="action_complete_emptying">
+                    <i class="fa fa-sign-out" />
+                    <span>Complete Emptying</span>
+                </div>
+                <hr />
+                <!-- Disabled, not required for now
+                <div class="button btn btn-light" data-action="sync_opening_balance">Sync Opening Balance</div>
+                <div class="button btn btn-light" data-action="sync_closing_balance">Sync Closing Balance</div>
+                <hr/>
+                -->
+                <div
+                    class="button btn btn-light"
+                    t-on-click="action_display_backoffice"
+                >
+                    <i class="fa fa-wrench" />
+                    <span>Open Backoffice</span>
+                </div>
+                <div class="button btn btn-light" t-on-click="action_cancel">
+                    <i class="fa fa-ban" />
+                    <span>Send Cancel Command</span>
+                </div>
+            </div>
+            <t t-set-slot="footer">
+                <button
+                    class="btn btn-secondary o-default-button"
+                    tabindex="1"
+                    t-on-click="cancel"
+                >
+                    Cancel
+                </button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

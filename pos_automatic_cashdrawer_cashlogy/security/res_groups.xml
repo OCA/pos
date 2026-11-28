@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="res.groups" id="group_pos_automatic_cashlogy_config">
+        <field name="name">PoS - Allow Cashlogy config</field>
+        <field name="category_id" ref="base.module_category_usability" />
+    </record>
+</odoo>
